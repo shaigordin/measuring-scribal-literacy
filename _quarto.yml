@@ -5,7 +5,7 @@ website:
   title: "Measuring Scribal Literacy"
   navbar:
     left:
-      - href: titolo_palmisano_tale_of_two_kingdoms.qmd
+      - href: gordin_measuring_literacy.qmd
         text: "Presentation"
 format:
   revealjs:

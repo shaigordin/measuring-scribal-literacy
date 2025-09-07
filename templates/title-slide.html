@@ -37,10 +37,9 @@
   <p class="event">$event$</p>
   $endif$
 
-  $if(date)$
+  $if(location-date)$
   <p class="info">
-    $if(location)$ $location$,  $endif$
-    <span class="date">$date$</span>
+    <span class="event-date">$location-date$</span>
   </p>
   $endif$
   </section>
