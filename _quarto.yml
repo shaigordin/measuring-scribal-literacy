@@ -1,0 +1,14 @@
+project:
+  type: website
+  output-dir: _site
+website:
+  title: "Measuring Scribal Literacy"
+  navbar:
+    left:
+      - href: titolo_palmisano_tale_of_two_kingdoms.qmd
+        text: "Presentation"
+format:
+  revealjs:
+    theme: simple
+    slide-number: true
+    toc: true
