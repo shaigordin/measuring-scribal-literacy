@@ -1,0 +1,121 @@
+[
+  {
+    "objectID": "gordin_measuring_literacy.html#talk-overview",
+    "href": "gordin_measuring_literacy.html#talk-overview",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Talk Overview",
+    "text": "Talk Overview\n\n\n1 2 3 4 5\n\n\n\n\n\nDeeplomatics: Transmission of Cuneiform from Centre to Periphery\nQualitative Descriptions as Baselines for (Statistical) Measurements\nProtosnap: Using Generative AI for Measuring Sign Gestalt\nGeometric-Morphometrics (GMM) for Sign Shape Analysis\nState of the Project and Future Outlook\n\n\n\n\n\n\nScan and follow the presentation online!"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#diplomatics-background",
+    "href": "gordin_measuring_literacy.html#diplomatics-background",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Diplomatics Background",
+    "text": "Diplomatics Background\n\n\n1 2 3 4 5\n\n\n\n\n\n\nVerify the authenticity of traditional compositions\nLegal authority of institutional and archival records\nConsistent use of document features to establish age"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#cuneiform-deeplomatics-research-questions",
+    "href": "gordin_measuring_literacy.html#cuneiform-deeplomatics-research-questions",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Cuneiform Deeplomatics: Research Questions",
+    "text": "Cuneiform Deeplomatics: Research Questions\n\n\n1 2 3 4 5\n\n\n\n\n\nHow to detect and measure which shape features make scribal habits distinguishable?\nWhich computational methods allow us to analyse these shapes over the longue durée (i.e. at scale)?\nCan we generalise and generate a typical tablet and its script from a given period / genre / scribal school?\n\n-&gt; A “copilot” historian: answers need to be explainable, no black-boxes\n\n\n\n\n\nAfter (Liverani2003?)\n\n\n:::"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#writing-proficiency-the-case-of-peripheral-cuneiform",
+    "href": "gordin_measuring_literacy.html#writing-proficiency-the-case-of-peripheral-cuneiform",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Writing proficiency: The Case of Peripheral Cuneiform",
+    "text": "Writing proficiency: The Case of Peripheral Cuneiform\n\n\n1 2 3 4 5\n\n\n\n\n\nHow proficient are peripheral scribes?\nIs the trajectory of the spread of cuneiform from Mesopotamia to the west retraceable using palaeography?\nPeripheral Archives: Hattusa, Alalakh, Ugarit\nMesopotamian Archive (control group): MA Assur\nLegal genres: signed, dated, verified(?)\n\n\n\nAfter (Palmisano.etal2019?); (Sharon2013?)\n\n\nCity\nText Group\nDates\n\n\n\n\nHattusa\nLand grants\n\n\n\nUgarit\nLegal texts\n\n\n\nAlalakh VII\nLegal texts\n\n\n\nAlalakh IV\nLegal texts\n\n\n\nAssur\nKAJ texts (Ebeling)"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#descriptive-to-measurable-palaeography",
+    "href": "gordin_measuring_literacy.html#descriptive-to-measurable-palaeography",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Descriptive to Measurable Palaeography",
+    "text": "Descriptive to Measurable Palaeography\n\n\n1 2 3 4 5\n\n\n\n\n\nGordin 2015: Comparing scribal hands and qualifying them\nKryszeń 2025: Handwriting analysis, structural approach based on common sets of wedges\nCammarosano 2014: Defining the geometry of the wedge (3D data)"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#the-research-question",
+    "href": "gordin_measuring_literacy.html#the-research-question",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "The Research Question",
+    "text": "The Research Question\n\n\n1 2 3 4 5\n\n\n\n\n\nCan we use the structural consistency of cuneiform signs to identify deep image features and align them to a 2D image of a cuneiform sign?\nCreating a tablet handcopy: synthesizing sign features\nExtracting varied sign forms to create more artificial data, helps train OCR models"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#protosnaps-methods",
+    "href": "gordin_measuring_literacy.html#protosnaps-methods",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Protosnap’s Methods",
+    "text": "Protosnap’s Methods\n\n\n1 2 3 4 5\n\n\n\n\n\nStable Diffusion model trained specifically on cuneiform images for deep image understanding (SD)\nThis allows recognition of wedge impressions even with varying lighting, damage, and material textures\nDeep diffusion features are used to find matches between prototype images (cuneiform fonts) and sign samples (“best buddy correspondences”)\nTwo-step alignment\n\nGlobal alignment: roughly positions the prototype over the photo\nLocal refinement: adjusts each wedge to its precise location on the tablet\n\nMatch each prototype wedge to its impression in the tablet photo"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#protosnaps-results",
+    "href": "gordin_measuring_literacy.html#protosnaps-results",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Protosnap’s results",
+    "text": "Protosnap’s results\n\n\n1 2 3 4 5\n\n\n\n\n\nCreated a benchmark corpus: 272 images, 25 sign classes, with expert-annotated landmark points\nCompared expert labels to model predictions; Protosnap outperformed generic matching methods (F1 score: 27.14% vs. 16.14% at 20-pixel threshold)\nThe task is challenging due to subjectivity and expert disagreement\nThe model can generate accurate synthetic cuneiform signs, addressing the lack of labeled data—especially for rare variants\nUsing synthetic data improved sign classification, especially for rare signs (accuracy: 53.17% vs. 25.84%)\nMethod is period- and language-agnostic: works for any cuneiform language or era\nDemonstrated success on Hittite cuneiform, which the model had never seen before\nNext step: quantifying sign and wedge features in a manner interpretable for Assyriologists?"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#what-is-geometric-morphometrics-gmm",
+    "href": "gordin_measuring_literacy.html#what-is-geometric-morphometrics-gmm",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "What is Geometric-Morphometrics (GMM)?",
+    "text": "What is Geometric-Morphometrics (GMM)?\n\n\n1 2 3 4 5\n\n\n\n\n\nGMM quantitatively analyzes shape using geometric coordinates (not just measurements)\nShape is captured by placing landmarks (homologous points) on each object\nVariables are the cartesian coordinates of these landmarks\nSize is not included; the focus is on shape only\nResults can be visualized as images\nSeveral analysis variants exist (e.g., EDMA)"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#gmm-workflow-procrustes-superimposition",
+    "href": "gordin_measuring_literacy.html#gmm-workflow-procrustes-superimposition",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "GMM Workflow & Procrustes Superimposition",
+    "text": "GMM Workflow & Procrustes Superimposition\n\n\n1 2 3 4 5\n\n\n\n\n\nSteps in GMM:\n\nCollect landmark data (same number & order for all shapes)\nPerform Procrustes superimposition to standardize shapes\nAnalyze shape similarity and difference\nProcrustes superimposition:\n\nRemoves size, translation, and rotation\nAligns all shapes to a common coordinate system\nAlso called Procrustes analysis, GPA, or least squares fitting\nEnables direct comparison of shape differences\n\n\n\nSuperimposing shapes to measure differences is a relatively recent method in morphometrics. The Procrustes method, first used in multivariate statistics, was adapted for shape analysis. The term “Procrustes” comes from Greek mythology: Procrustes forced victims to fit his bed by stretching or cutting them. Similarly, Procrustes analysis fits and scales one shape onto another for comparison."
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#definition-of-wedge-geometry-and-landmark-choice",
+    "href": "gordin_measuring_literacy.html#definition-of-wedge-geometry-and-landmark-choice",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Definition of Wedge Geometry and Landmark Choice",
+    "text": "Definition of Wedge Geometry and Landmark Choice\n\n\n1 2 3 4 5\n\n\n\n\n\nexample photos of landmarks on cuneiform signs"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#the-pipeline",
+    "href": "gordin_measuring_literacy.html#the-pipeline",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "The Pipeline",
+    "text": "The Pipeline\n\n\n1 2 3 4 5\n\n\n\n\n\nimage of the pipeline"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#acquiring-data",
+    "href": "gordin_measuring_literacy.html#acquiring-data",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Acquiring Data",
+    "text": "Acquiring Data\n\n\n1 2 3 4 5\n\n\n\n\n\nNEED: Cropped and identified sign images (potentially in the hundreds or thousands)\nApproach:\n\nGet tablets and metadata:\n\n\nHigh-quality PDF scans of books\nOnline images (CDLI, Hethithesches Portal)\nTablets that have not been photographed\n\n\nCrop signs -&gt; eBL model (state-of-the-art, actively under development)\nIdentify cropped signs -&gt; Protosnap + eBL model + alignment with text editions (Denker et al.)\nAnnotate Landmarks -&gt; manually + Protosnap"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#issues-with-getting-tablets",
+    "href": "gordin_measuring_literacy.html#issues-with-getting-tablets",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Issues with Getting Tablets",
+    "text": "Issues with Getting Tablets\n\n\n1 2 3 4 5\n\n\n\n\n\nQuality of images from scanned books and in online databases is inconsistent\nOlder images are from various angles, before tablet imaging was standardised\nCopyrights: How to save, where to publish\nA variety of web frameworks and protocols\nStandardizing metadata from various sources, including OCR’ed publications"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#cropping-signs",
+    "href": "gordin_measuring_literacy.html#cropping-signs",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Cropping Signs",
+    "text": "Cropping Signs\n\n\n1 2 3 4 5\n\n\n\n\n\nState-of-the-art eBL model: period agnostic, identifies locations of signs\nAdditional code: line clustering\nInitial results on Hittite tablets were highly successful\nCases where signs are already cropped in book publications, e.g. from Ugarit. Cropped signs were extracted from the PDF"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#identifying-signs",
+    "href": "gordin_measuring_literacy.html#identifying-signs",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Identifying Signs",
+    "text": "Identifying Signs\n\n\n1 2 3 4 5\n\n\n\n\n\nPre-cropped signs already come with sign-readings\neBL model can also be used to identify signs - however, not period agnostic, mostly trained on first millennium data (though work in progress!)\nProtosnap is the way to go! Creating artificial data to improve model’s results\nLine identification allows alignment and validation against digital editions (Denker et al.)"
+  },
+  {
+    "objectID": "gordin_measuring_literacy.html#annotating-landmarks",
+    "href": "gordin_measuring_literacy.html#annotating-landmarks",
+    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
+    "section": "Annotating Landmarks",
+    "text": "Annotating Landmarks\n\n\n1 2 3 4 5\n\n\n\n\n\nTechniques to annotate cropped images\nChoosing the “right” signs\nLandmarks vs. semi-landmarks\nHuman error in annotation, subjectivity in how we perceive signs and wedges, changing angles of shadows in 2D images, error analysis\nPlanning a DANES working group on computational palaeography, a place for discussion and group annotations!"
+  }
+]
