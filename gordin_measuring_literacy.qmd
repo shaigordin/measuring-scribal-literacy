@@ -24,7 +24,7 @@ format:
       transition: fade
       citeproc: true
       citations-hover: true
-      bibliography: bib/references.bib
+      bibliography: bib/cuneimorph.bib
       csl: bib/journal-of-archaeological-research.csl
       link-external-icon: false
       link-external-newwindow: true
@@ -556,14 +556,13 @@ Similarly, Procrustes analysis fits and scales one shape onto another for compar
 
 ---
 
-# Thank you for your attention! {background-image="img/background.webp" background-opacity="15%" style="text-align:center"}
+{background-image="img/background.webp" background-opacity="15%" style="text-align:center"}
 
 <br>
 
-Andrea Titolo ([andrea.titolo@unito.it](mailto:andrea.titolo@unito.it)) - {{< ai orcid >}} [0000-0002-7322-8634](https://orcid.org/0000-0002-7322-8634)
+Shai Gordin ([shaigo@ariel.ac.il](mailto:shaigo@ariel.ac.il)) - {{< ai orcid >}} [0000-0002-8359-382X](https://orcid.org/0000-0002-8359-382X)
 
-Alessio Palmisano ([alessio.palmisano@unito.it](mailto:alessio.palmisano@unito.it)) - {{< ai orcid >}}
-[0000-0003-0758-5032](https://orcid.org/0000-0003-0758-5032)
+Digital Pasts Lab ([digpasts@gmail.com](mailto:digpasts@gmail.com))
 
 <br>
 
