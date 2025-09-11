@@ -133,7 +133,6 @@ format:
 ::: {.fragment fragment-index=3 .fade-in-then-semi-out}
 - Can we generalise and generate a typical tablet and its script from a given period / genre / scribal school?
 :::
-
 :::
 
 ::: {.column width="60%"}
@@ -182,7 +181,6 @@ format:
 - Mesopotamian Archive (control group): MA Assur
 - Legal genres: signed, dated, verified(?)
 
-
 ::: {.smallish}
 
 | City  | Text Group   |  Dates  |
@@ -194,7 +192,6 @@ format:
 | Assur   | KAJ texts (Ebeling)     |     |
 
 :::
-
 
 :::
 
@@ -448,12 +445,7 @@ format:
 
 :::
 
-
-
 :::
-
-:::
-
 
 
 # State of the Project and Future Outlook
