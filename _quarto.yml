@@ -3,6 +3,7 @@ project:
   output-dir: _site
 website:
   title: "Measuring Scribal Literacy"
+  site-url: "https://shaigordin.github.io/measuring-scribal-literacy/"
   navbar:
     left:
       - href: gordin_measuring_literacy.qmd
