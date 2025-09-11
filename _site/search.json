@@ -70,13 +70,6 @@
     "text": "GMM Workflow & Procrustes Superimposition\n\n\n1 2 3 4 5\n\n\n\n\n\nCollect landmark data (same number & order for all shapes)\nPerform Procrustes superimposition to standardize shapes\nAnalyze shape similarity and difference\nProcrustes superimposition:\n\nRemoves size, translation, and rotation\nAligns all shapes to a common coordinate system\nAlso called Procrustes analysis, GPA, or least squares fitting\nEnables direct comparison of shape differences\n\n\n\n  As I see, Lady Liberty is somewhat too large - we want to change this immediately to her contention!"
   },
   {
-    "objectID": "gordin_measuring_literacy.html#definition-of-wedge-geometry-and-landmark-choice",
-    "href": "gordin_measuring_literacy.html#definition-of-wedge-geometry-and-landmark-choice",
-    "title": "Measuring Scribal Literacy Through Quantitative Analysis",
-    "section": "Definition of Wedge Geometry and Landmark Choice",
-    "text": "Definition of Wedge Geometry and Landmark Choice\n\n\n1 2 3 4 5\n\n\n\n\n\nexample photos of landmarks on cuneiform signs"
-  },
-  {
     "objectID": "gordin_measuring_literacy.html#the-pipeline",
     "href": "gordin_measuring_literacy.html#the-pipeline",
     "title": "Measuring Scribal Literacy Through Quantitative Analysis",
