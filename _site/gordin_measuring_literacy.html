@@ -27,8 +27,28 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-fdeb1d5d5f0133714b50cf3e1fd97505.css">
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-371137c6791a03f34db27ca6ed885891.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -120,6 +140,7 @@
       margin-right: 0; 
     }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -149,55 +170,11 @@
     <p class="info">
     <span class="event-date">17–19 September 2025, Ghent and Brussels</span>
   </p>
-    </section><section id="TOC">
-<nav role="doc-toc"> 
-<h2 id="toc-title">Table of contents</h2>
-<ul>
-<li><a href="#/measuring-scribal-literacy" id="/toc-measuring-scribal-literacy">Measuring Scribal Literacy</a>
-<ul>
-<li><a href="#/talk-overview" id="/toc-talk-overview">Talk Overview</a></li>
-<li><a href="#/diplomatics-background" id="/toc-diplomatics-background">Diplomatics Background</a></li>
-<li><a href="#/cuneiform-deeplomatics-research-questions" id="/toc-cuneiform-deeplomatics-research-questions">Cuneiform Deeplomatics: Research Questions</a></li>
-<li><a href="#/writing-proficiency-the-case-of-peripheral-cuneiform" id="/toc-writing-proficiency-the-case-of-peripheral-cuneiform">Writing proficiency: The Case of Peripheral Cuneiform</a></li>
-
-</ul></li>
-<li><a href="#/qualitative-descriptions-as-baselines-for-statistical-measurements" id="/toc-qualitative-descriptions-as-baselines-for-statistical-measurements">Qualitative Descriptions as Baselines for (Statistical) Measurements</a>
-<ul>
-<li><a href="#/descriptive-to-measurable-palaeography" id="/toc-descriptive-to-measurable-palaeography">Descriptive to Measurable Palaeography</a></li>
-
-</ul></li>
-<li><a href="#/protosnap-using-generative-ai-for-measuring-sign-gestalt" id="/toc-protosnap-using-generative-ai-for-measuring-sign-gestalt">Protosnap: Using Generative AI for Measuring Sign Gestalt</a>
-<ul>
-<li><a href="#/the-research-question" id="/toc-the-research-question">The Research Question</a></li>
-<li><a href="#/protosnaps-methods" id="/toc-protosnaps-methods">Protosnap’s Methods</a></li>
-<li><a href="#/protosnaps-results" id="/toc-protosnaps-results">Protosnap’s results</a></li>
-
-</ul></li>
-<li><a href="#/geometric-morphometrics-gmm-for-sign-shape-analysis" id="/toc-geometric-morphometrics-gmm-for-sign-shape-analysis">Geometric-Morphometrics (GMM) for Sign Shape Analysis</a>
-<ul>
-<li><a href="#/what-is-geometric-morphometrics-gmm" id="/toc-what-is-geometric-morphometrics-gmm">What is Geometric-Morphometrics (GMM)?</a></li>
-<li><a href="#/gmm-workflow-procrustes-superimposition" id="/toc-gmm-workflow-procrustes-superimposition">GMM Workflow &amp; Procrustes Superimposition</a></li>
-<li><a href="#/definition-of-wedge-geometry-and-landmark-choice" id="/toc-definition-of-wedge-geometry-and-landmark-choice">Definition of Wedge Geometry and Landmark Choice</a></li>
-
-</ul></li>
-<li><a href="#/state-of-the-project-and-future-outlook" id="/toc-state-of-the-project-and-future-outlook">State of the Project and Future Outlook</a>
-<ul>
-<li><a href="#/the-pipeline" id="/toc-the-pipeline">The Pipeline</a></li>
-<li><a href="#/acquiring-data" id="/toc-acquiring-data">Acquiring Data</a></li>
-<li><a href="#/issues-with-getting-tablets" id="/toc-issues-with-getting-tablets">Issues with Getting Tablets</a></li>
-<li><a href="#/cropping-signs" id="/toc-cropping-signs">Cropping Signs</a></li>
-<li><a href="#/identifying-signs" id="/toc-identifying-signs">Identifying Signs</a></li>
-<li><a href="#/annotating-landmarks" id="/toc-annotating-landmarks">Annotating Landmarks</a></li>
-
-</ul></li>
-<li><a href="#/bibliography" id="/toc-bibliography">Bibliography</a></li>
-</ul>
-</nav>
-</section>
+    </section>
 <section>
-<section id="measuring-scribal-literacy" class="title-slide slide level1 center">
-<h1>Measuring Scribal Literacy</h1>
-<div class="absolute" style="top: 0px; left: 95%; ">
+<section id="deeplomatics-how-cuneiform-literacy-took-shape" class="title-slide slide level1 center">
+<h1>Deeplomatics: How Cuneiform Literacy Took Shape?</h1>
+<div class="absolute" style="top: 0px; left: 96%; ">
 <div class="sectionhead">
 <p>1 <span style="opacity:0.25">2 3 4 5</span></p>
 </div>
@@ -211,20 +188,27 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:70%;">
+<div class="column" style="width:50%;">
 <ul>
-<li>Deeplomatics: Transmission of Cuneiform from Centre to Periphery</li>
-<li>Qualitative Descriptions as Baselines for (Statistical) Measurements</li>
+<li>Deeplomatics
+<ul>
+<li>Sign Shape as indicator of Writing Skill: The Case of Peripheral Cuneiform</li>
+</ul></li>
+<li>Qualitative Descriptions of Signs as Baselines for (Statistical) Measurements</li>
 <li>Protosnap: Using Generative AI for Measuring Sign Gestalt</li>
 <li>Geometric-Morphometrics (GMM) for Sign Shape Analysis</li>
-<li>State of the Project and Future Outlook</li>
+<li>State of the Project and Future Outlook
+<ul>
+<li>Pipeline: from Tablet to Graph</li>
+<li>Data and Annotations</li>
+</ul></li>
 </ul>
-</div><div class="column" style="width:30%;">
+</div><div class="column" style="width:50%;">
 <p><br></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/qr_code.webp"></p>
-<figcaption>Scan and follow the presentation online!</figcaption>
+<p><img data-src="img/website_qr.jpeg"></p>
+<figcaption>Scan to follow the presentation online</figcaption>
 </figure>
 </div>
 </div></div>
@@ -237,14 +221,14 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:40%;">
-<div class="fragment fade-in-then-semi-out" data-fragment-index="1">
+<div class="column" style="width:45%;">
 <ul>
 <li>Verify the authenticity of traditional compositions</li>
 <li>Legal authority of institutional and archival records</li>
 <li>Consistent use of document features to establish age</li>
 </ul>
-</div>
+</div><div class="column" style="width:55%;">
+<p><img data-src="img/BoFN01561.jpg" class="absolute" style="top: 40%; right: 9%; width: 23%; "> <img data-src="img/RS16_251_p56.jpg" class="absolute" style="top: 5%; right: 8%; width: 25%; "> <img data-src="img/AlT57_20_07_AlTqiv58.jpg" class="absolute" style="top: 48%; left: 25%; width: 18%; "> <img data-src="img/P282022_KAJ007.jpg" class="absolute" style="top: 5%; right: 35%; width: 18%; "></p>
 </div></div>
 </section>
 <section id="cuneiform-deeplomatics-research-questions" class="slide level2">
@@ -256,21 +240,38 @@
 </div>
 <div class="columns">
 <div class="column" style="width:40%;">
+<div class="fragment fade-in-then-semi-out" data-fragment-index="1">
 <ul>
 <li>How to detect and measure which shape features make scribal habits distinguishable?</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="2">
+<ul>
 <li>Which computational methods allow us to analyse these shapes over the longue durée (i.e.&nbsp;at scale)?</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="3">
+<ul>
 <li>Can we generalise and generate a typical tablet and its script from a given period / genre / scribal school?</li>
 </ul>
-<p>-&gt; A “copilot” historian: answers need to be explainable, no black-boxes</p>
-</div></div>
-<div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/south_levant_ia2.webp" style="width:95.0%"></p>
-<figcaption>After <span class="citation" data-cites="Liverani2003">(<a href="" role="doc-biblioref" onclick="return false;"><strong>Liverani2003?</strong></a>)</span></figcaption>
-</figure>
 </div>
-</div><p>:::</p>
+</div><div class="column" style="width:60%;">
+
+</div></div>
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<p><img data-src="img/cketall2018ErstePhilo_p16.jpg" class="absolute" style="top: 24%; right: 13%; width: 55%; "></p>
+<p><span style="position:absolute;bottom:0;width:100%;text-align:center;font-size:0.8em;">After <span class="citation" data-cites="cancik-kirschbaumErstePhilologien2018">Cancik-Kirschbaum et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2018</a>)</span></span></p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<p><img data-src="img/dendro_legal_w_images.jpg" class="absolute" style="top: 10%; right: 0%; width: 60%; "></p>
+<p><span style="position:absolute;bottom:0;right:5%;width:40%;text-align:right;font-size:0.8em;">After <span class="citation" data-cites="kaponShapingHistory2024">Kapon et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2024</a>)</span></span></p>
+<p><img data-src="img/j_itit-2023-0114_fig_006.jpg" class="absolute" style="top: 52%; left: 15%; width: 22%; "></p>
+<p><span style="position:absolute;bottom:0;left:15%;width:100%;text-align:left;font-size:0.8em;">After <span class="citation" data-cites="yugayStylisticClassification2024">Yugay et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2024</a>)</span></span></p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="3">
+<p><img data-src="img/interpulation_widget.jpg" class="absolute" style="top: 15%; right: 0%; width: 55%; "></p>
+<p><span style="position:absolute;bottom:0;right:5%;width:40%;text-align:right;font-size:0.8em;">After <span class="citation" data-cites="kaponShapingHistory2024">Kapon et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2024</a>)</span></span></p>
+</div>
 </section>
 <section id="writing-proficiency-the-case-of-peripheral-cuneiform" class="slide level2">
 <h2>Writing proficiency: The Case of Peripheral Cuneiform</h2>
@@ -280,17 +281,15 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="width:35%;">
 <ul>
 <li>How proficient are peripheral scribes?</li>
-<li>Is the trajectory of the spread of cuneiform from Mesopotamia to the west retraceable using palaeography?</li>
 <li>Peripheral Archives: Hattusa, Alalakh, Ugarit</li>
 <li>Mesopotamian Archive (control group): MA Assur</li>
 <li>Legal genres: signed, dated, verified(?)</li>
 </ul>
-<div class="body-smaller">
+<div class="smallish">
 <table>
-<caption>After <span class="citation" data-cites="Palmisano.etal2019">(<a href="" role="doc-biblioref" onclick="return false;"><strong>Palmisano.etal2019?</strong></a>)</span>; <span class="citation" data-cites="Sharon2013">(<a href="" role="doc-biblioref" onclick="return false;"><strong>Sharon2013?</strong></a>)</span></caption>
 <thead>
 <tr class="header">
 <th>City</th>
@@ -327,20 +326,13 @@
 </tbody>
 </table>
 </div>
-</div><div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/south_levant_ia2_assyria.webp" class="quarto-figure quarto-figure-center" style="width:95.0%"></p>
-</figure>
-</div>
+</div><div class="column" style="width:65%;">
+<p><img data-src="img/handbook_hittite-empire_map_ANE.jpg" class="quarto-figure quarto-figure-center" style="width:95.0%"> <span style="position:absolute;bottom:10%;right:5%;width:40%;text-align:right;font-size:0.8em;">After <span class="citation" data-cites="demartinoHandbookHittite2022">de Martino (<a href="#/bibliography" role="doc-biblioref" onclick="">2022</a>)</span></span></p>
 </div></div>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
-<section id="qualitative-descriptions-as-baselines-for-statistical-measurements" class="title-slide slide level1 center">
-<h1>Qualitative Descriptions as Baselines for (Statistical) Measurements</h1>
+<section id="qualitative-baselines-for-statistical-measurements" class="title-slide slide level1 center">
+<h1>Qualitative Baselines for (Statistical) Measurements</h1>
 <div class="absolute" style="top: 0px; left: 95%; ">
 <div class="sectionhead">
 <p><span style="opacity:0.25">1</span> 2 <span style="opacity:0.25">3 4 5</span></p>
@@ -356,18 +348,33 @@
 </div>
 <div class="columns">
 <div class="column" style="width:45%;">
+<div class="fragment fade-in-then-semi-out" data-fragment-index="1">
 <ul>
-<li>Gordin 2015: Comparing scribal hands and qualifying them</li>
-<li>Kryszeń 2025: Handwriting analysis, structural approach based on common sets of wedges</li>
-<li>Cammarosano 2014: Defining the geometry of the wedge (3D data)</li>
+<li><span class="citation" data-cites="gordinHittiteScribal2015">Gordin (<a href="#/bibliography" role="doc-biblioref" onclick="">2015</a>)</span>: Comparing scribal hands and qualifying them</li>
 </ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="2">
+<ul>
+<li><span class="citation" data-cites="kryszenScribesHands2025">Kryszeń (<a href="#/bibliography" role="doc-biblioref" onclick="">2025</a>)</span>: Handwriting analysis, structural approach based on common sets of wedges</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="3">
+<ul>
+<li><span class="citation" data-cites="cammarosanoSchriftmetrologieKeils2014">Cammarosano et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2014</a>)</span>: Defining the geometry of the wedge (3D data)</li>
+</ul>
+</div>
 </div><div class="column" style="width:50%;">
 
 </div></div>
-<p><img data-src="img/study_areas.webp" class="absolute" style="top: 15%; right: 0%; width: 50%; "> <img data-src="img/gerda-henkel-logo.webp" class="absolute" style="top: 85%; right: 0%; width: 25%; "> <img data-src="img/logo-unito.webp" class="absolute" style="top: 76%; right: 24%; width: 15%; "> <img data-src="img/lmu_logo.webp" class="absolute" style="top: 83%; right: 40%; width: 15%; "> <img data-src="img/radner.webp" class="absolute" style="top: 75%; left: 5%; width: 12%; "> <img data-src="img/novotny.webp" class="absolute" style="top: 75%; left: 25%; width: 12%; "></p>
-</section>
-<section class="slide level2">
-
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<p><img data-src="img/StBoT59_personal_ductus.jpg" class="absolute" style="top: 10%; right: 0%; width: 60%; "> <img data-src="img/StBoT59_Hanikuili_signature.jpg" class="absolute" style="top: 65%; right: 0%; width: 60%; "></p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<p><img data-src="img/Kryszeń2025_sign_taxonomy.jpg" class="absolute" style="top: 10%; right: 0%; width: 50%; "> <img data-src="img/Kryszeń2025_sign_groups.jpg" class="absolute" style="left: 0%; bottom: 18%; width: 50%; "></p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="3">
+<p><img data-src="img/Cammarosano2014_geometrie.jpg" class="absolute" style="top: 10%; right: 0%; width: 47%; "> <img data-src="img/Cammarosano2014_schema_MA.jpg" class="absolute" style="bottom: 0%; right: 11%; width: 34%; "></p>
+</div>
 </section></section>
 <section>
 <section id="protosnap-using-generative-ai-for-measuring-sign-gestalt" class="title-slide slide level1 center">
@@ -386,18 +393,15 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column body-small" data-align-items="center" style="width:50%;">
 <ul>
 <li>Can we use the structural consistency of cuneiform signs to identify deep image features and align them to a 2D image of a cuneiform sign?</li>
 <li>Creating a tablet handcopy: synthesizing sign features</li>
 <li>Extracting varied sign forms to create more artificial data, helps train OCR models</li>
 </ul>
+<p><span style="position:absolute;bottom:35%;left:1%;width:40%;text-align:center;font-size:0.9em;"><a href="https://tau-vailab.github.io/ProtoSnap/">See project page</a>!</span> <img data-src="img/qr_code_protosnap.png" class="absolute" style="left: 15%; bottom: 8%; "></p>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/rank_size_all_areas.webp" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
+<p><span style="fig-align:center;font-size:0.8em;"><span class="citation" data-cites="mikulinskyProtoSnapPrototype2025">Mikulinsky et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2025</a>)</span></span> <img data-src="img/tablet.png" class="quarto-figure quarto-figure-center"> <img data-src="img/dataflow.png" class="quarto-figure quarto-figure-center"></p>
 </div></div>
 </section>
 <section id="protosnaps-methods" class="slide level2">
@@ -408,7 +412,7 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column body-smaller" style="width:40%;">
 <ul>
 <li>Stable Diffusion model trained specifically on cuneiform images for deep image understanding (SD)</li>
 <li>This allows recognition of wedge impressions even with varying lighting, damage, and material textures</li>
@@ -421,11 +425,7 @@
 <li>Match each prototype wedge to its impression in the tablet photo</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/rank_size_all_areas.webp" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
+<p><img data-src="img/sim_tensor_overview.png" class="quarto-figure quarto-figure-center"> <img data-src="img/protosnap_alignment_results.png" class="quarto-figure quarto-figure-center"></p>
 </div></div>
 </section>
 <section id="protosnaps-results" class="slide level2">
@@ -436,23 +436,28 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column body-small" style="width:50%;">
+<div class="fragment fade-in-then-semi-out" data-fragment-index="1">
 <ul>
-<li>Created a benchmark corpus: 272 images, 25 sign classes, with expert-annotated landmark points</li>
-<li>Compared expert labels to model predictions; Protosnap outperformed generic matching methods (F1 score: 27.14% vs.&nbsp;16.14% at 20-pixel threshold)</li>
-<li>The task is challenging due to subjectivity and expert disagreement</li>
+<li>Protosnap outperformed generic matching methods</li>
 <li>The model can generate accurate synthetic cuneiform signs, addressing the lack of labeled data—especially for rare variants</li>
 <li>Using synthetic data improved sign classification, especially for rare signs (accuracy: 53.17% vs.&nbsp;25.84%)</li>
-<li>Method is period- and language-agnostic: works for any cuneiform language or era</li>
-<li>Demonstrated success on Hittite cuneiform, which the model had never seen before</li>
+</ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="2">
+<ul>
+<li>Method is <strong>period- and language-agnostic</strong>: works for any cuneiform language or era</li>
 <li>Next step: quantifying sign and wedge features in a manner interpretable for Assyriologists?</li>
 </ul>
+</div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="img/rank_size_samaria.webp"></p>
-</div></div>
-</section>
-<section class="slide level2">
 
+</div><div class="fragment fade-in-then-out" data-fragment-index="1">
+<p><img data-src="img/protosnap_evaluation.png" class="absolute" style="top: 10%; right: 0%; width: 45%; "> <img data-src="img/protosnap_ocr_results.png" class="absolute" style="top: 55%; right: 0%; width: 45%; "> <img data-src="img/protosnap_synth.jpg" class="absolute" style="top: 58%; left: 3%; width: 42%; "></p>
+</div><div class="fragment fade-in-then-out" data-fragment-index="2">
+<p><span style="position:absolute; right:30%; top:10%; font-size:0.9em;">Hittite Tablets:</span> <img data-src="img/Protosnap_Hitt.jpg" class="absolute" style="top: 20%; right: 0%; width: 45%; "> <img data-src="img/mturk2.png" class="absolute" style="top: 70%; right: 30%; "> <img data-src="img/multi.png" class="absolute" style="top: 70%; right: 10%; "> <img data-src="img/multi2.png" class="absolute" style="top: 80%; right: 10%; "></p>
+</div>
+</div>
 </section></section>
 <section>
 <section id="geometric-morphometrics-gmm-for-sign-shape-analysis" class="title-slide slide level1 center">
@@ -471,7 +476,7 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column body-small" style="width:45%;">
 <ul>
 <li>GMM quantitatively analyzes shape using geometric coordinates (not just measurements)</li>
 <li>Shape is captured by placing landmarks (homologous points) on each object</li>
@@ -480,6 +485,8 @@
 <li>Results can be visualized as images</li>
 <li>Several analysis variants exist (e.g., EDMA)</li>
 </ul>
+</div><div class="column" style="width:55%;">
+<p><img data-src="img/ug_tar1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"> <img data-src="img/ug_tar2.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
 </div></div>
 </section>
 <section id="gmm-workflow-procrustes-superimposition" class="slide level2">
@@ -490,9 +497,7 @@
 </div>
 </div>
 <div class="columns">
-<div class="column" style="width:48%;">
-<ul>
-<li>Steps in GMM:
+<div class="column body-small" style="width:48%;">
 <ul>
 <li>Collect landmark data (same number &amp; order for all shapes)</li>
 <li>Perform Procrustes superimposition to standardize shapes</li>
@@ -504,49 +509,16 @@
 <li>Also called Procrustes analysis, GPA, or least squares fitting</li>
 <li>Enables direct comparison of shape differences</li>
 </ul></li>
-</ul></li>
-</ul>
-<p>Superimposing shapes to measure differences is a relatively recent method in morphometrics. The Procrustes method, first used in multivariate statistics, was adapted for shape analysis. The term “Procrustes” comes from Greek mythology: Procrustes forced victims to fit his bed by stretching or cutting them. Similarly, Procrustes analysis fits and scales one shape onto another for comparison.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/armep.webp" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</div></div>
-</section>
-<section id="definition-of-wedge-geometry-and-landmark-choice" class="slide level2">
-<h2>Definition of Wedge Geometry and Landmark Choice</h2>
-<div class="absolute" style="top: 0px; left: 95%; ">
-<div class="sectionhead">
-<p><span style="opacity:0.25">1 2 3</span> 4 <span style="opacity:0.25">5</span></p>
-</div>
-</div>
-<div class="columns">
-<div class="column" style="width:48%;">
-<ul>
-<li>example photos of landmarks on cuneiform signs</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
+<p><img data-src="img/ug_tar3.png" class="quarto-figure quarto-figure-center" style="width:80.0%"> <img data-src="img/Prokrustes.jpg" class="quarto-figure quarto-figure-center" style="width:70.0%"> <span style="position:absolute;bottom:5%;right:5%;width:10%;text-align:left;font-size:0.7em;">As I see, Lady Liberty is somewhat too large - we want to change this immediately to her contention!</span></p>
 </div></div>
-</section>
-<section class="slide level2">
-
+<p>:::</p>
 </section></section>
 <section>
 <section id="state-of-the-project-and-future-outlook" class="title-slide slide level1 center">
 <h1>State of the Project and Future Outlook</h1>
-<div class="absolute" style="top: 0px; left: 95%; ">
+<div class="absolute" style="top: 0px; left: 96%; ">
 <div class="sectionhead">
 <p><span style="opacity:0.25">1 2 3 4</span> 5</p>
 </div>
@@ -559,19 +531,8 @@
 <p><span style="opacity:0.25">1 2 3 4</span> 5</p>
 </div>
 </div>
-<div class="columns">
-<div class="column" style="width:48%;">
-<ul>
-<li>image of the pipeline</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</div></div>
-</section>
+
+<img data-src="img/Deeplomatics-pipeline.png" class="quarto-figure quarto-figure-center r-stretch" style="width:90.0%"></section>
 <section id="acquiring-data" class="slide level2">
 <h2>Acquiring Data</h2>
 <div class="absolute" style="top: 0px; left: 95%; ">
@@ -581,30 +542,43 @@
 </div>
 <div class="columns">
 <div class="column" style="width:48%;">
-<ul>
-<li>NEED: Cropped and identified sign images (potentially in the hundreds or thousands)</li>
-<li>Approach:
+<div class="fragment fade-in-then-semi-out" data-fragment-index="1">
 <ol type="1">
 <li>Get tablets and metadata:</li>
 </ol>
 <ul>
 <li>High-quality PDF scans of books</li>
-<li>Online images (CDLI, Hethithesches Portal)</li>
+<li>Online images (CDLI, HPM, eBL, etc.)</li>
 <li>Tablets that have not been photographed</li>
 </ul>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="2">
 <ol start="2" type="1">
 <li>Crop signs -&gt; eBL model (state-of-the-art, actively under development)</li>
-<li>Identify cropped signs -&gt; Protosnap + eBL model + alignment with text editions (Denker et al.)</li>
-<li>Annotate Landmarks -&gt; manually + Protosnap</li>
-</ol></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
+</ol>
 </div>
-</div></div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="3">
+<ol start="3" type="1">
+<li>Identify cropped signs -&gt; Protosnap + eBL model + alignment with text editions <span class="citation" data-cites="denckerDeepLearning2020">(following <a href="#/bibliography" role="doc-biblioref" onclick="">Dencker et al. 2020</a>)</span></li>
+</ol>
+</div>
+<div class="fragment fade-in-then-semi-out" data-fragment-index="4">
+<ol start="4" type="1">
+<li>Annotate Landmarks -&gt; manually + Protosnap</li>
+</ol>
+</div>
+</div><div class="column" style="width:50%;">
+
+</div><div class="fragment fade-in-then-out" data-fragment-index="1">
+<p><img data-src="img/EP_uga_ex.png" class="absolute" style="top: 0%; right: 5%; width: 36%; "> <span style="position:absolute;top:8%;right:40%;text-align:left;width:10%;font-size:0.6em;"><span class="citation" data-cites="ernst-pradalScribesDOugarit2019">Ernst-Pradal (<a href="#/bibliography" role="doc-biblioref" onclick="">2019</a>)</span></span> <img data-src="img/AlT8_HPM.png" class="absolute" style="left: 0%; bottom: 0%; width: 45%; "> <img data-src="img/KAJ006_CDLI.png" class="absolute" style="bottom: 0%; right: 5%; width: 36%; "></p>
+</div><div class="fragment fade-in-then-out" data-fragment-index="2">
+<p><span style="position:absolute;top:8%;right:28%;text-align:left;font-size:0.6em;">hethiter.net/: fotarch BoFN11372</span> <img data-src="img/Bo_5440_with_boxes.jpeg" class="absolute" style="top: 10%; right: 0%; width: 50%; "> <img data-src="img/ug_tar.png" class="absolute" style="top: 65%; right: 0%; width: 50%; "></p>
+</div><div class="fragment fade-in-then-out" data-fragment-index="3">
+<p><img data-src="img/Protosnap_Hitt.jpg" class="absolute" style="top: 5%; right: 10%; width: 33%; "> <img data-src="img/j_itit-2023-0114_fig_006.jpg" class="absolute" style="top: 40%; right: 10%; width: 33%; "> <span style="position:absolute;bottom:0%;right:42%;text-align:left;width:10%;font-size:0.6em;"><span class="citation" data-cites="yugayStylisticClassification2024">Yugay et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2024</a>)</span></span></p>
+</div><div class="fragment fade-in-then-out" data-fragment-index="4">
+<p><img data-src="img/landmarks_ex.png" class="absolute" style="top: 50%; right: 0%; width: 45%; "> <img data-src="img/best_buddies.png" class="absolute" style="top: 20%; right: 0%; width: 45%; "></p>
+</div>
+</div>
 </section>
 <section id="issues-with-getting-tablets" class="slide level2">
 <h2>Issues with Getting Tablets</h2>
@@ -623,11 +597,7 @@
 <li>Standardizing metadata from various sources, including OCR’ed publications</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
+<p><img data-src="img/AlT105_AlTqvii64.jpg" class="absolute" style="top: 20%; right: 25%; width: 25%; "> <img data-src="img/Phb07223b.jpg" class="absolute" style="top: 0%; right: 7%; width: 20%; "> <span style="position:absolute;top:8%;right:28%;text-align:left;font-size:0.6em;">hethiter.net/: fotarch Phb07223b</span> <span style="position:absolute;bottom:8%;right:0%;text-align:left;font-size:0.6em;">hethiter.net/: Alalah-Archiv AlTqvii64</span></p>
 </div></div>
 </section>
 <section id="cropping-signs" class="slide level2">
@@ -642,15 +612,11 @@
 <ul>
 <li>State-of-the-art eBL model: period agnostic, identifies locations of signs</li>
 <li>Additional code: line clustering</li>
-<li>Initial results on Hittite tablets were highly successful</li>
+<li>Initial results on Hittite tablets were successful (will be finetuned)</li>
 <li>Cases where signs are already cropped in book publications, e.g.&nbsp;from Ugarit. Cropped signs were extracted from the PDF</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
+<p><span style="position:absolute;top:6%;right:26%;text-align:left;font-size:0.6em;">hethiter.net/: Alalah-Archiv AlTqiv58</span> <img data-src="img/AlT57_AlTqiv58_with_boxes.jpeg" class="absolute" style="top: 10%; right: 0%; width: 50%; "> <img data-src="img/AlT57_rev24-27.png" class="absolute" style="top: 70%; right: 0%; width: 50%; "></p>
 </div></div>
 </section>
 <section id="identifying-signs" class="slide level2">
@@ -666,14 +632,10 @@
 <li>Pre-cropped signs already come with sign-readings</li>
 <li>eBL model can also be used to identify signs - however, not period agnostic, mostly trained on first millennium data (though work in progress!)</li>
 <li>Protosnap is the way to go! Creating artificial data to improve model’s results</li>
-<li>Line identification allows alignment and validation against digital editions (Denker et al.)</li>
+<li>Line identification allows alignment and validation against digital editions <span class="citation" data-cites="denckerDeepLearning2020">(following <a href="#/bibliography" role="doc-biblioref" onclick="">Dencker et al. 2020</a>)</span></li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
+<p><img data-src="img/LSU_ID.jpg" class="quarto-figure quarto-figure-center" style="width:90.0%"> <span style="position:absolute;bottom:3%;right:33%;text-align:left;font-size:0.6em;"><span class="citation" data-cites="rusterLandschenkungsurkundeHethitischer2012">Rüster and Wilhelm (<a href="#/bibliography" role="doc-biblioref" onclick="">2012</a>)</span></span></p>
 </div></div>
 </section>
 <section id="annotating-landmarks" class="slide level2">
@@ -693,29 +655,60 @@
 <li>Planning a DANES working group on computational palaeography, a place for discussion and group annotations!</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/data_management.webp" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
+<p><img data-src="img/Cammarosano2014_geometrie.jpg" class="quarto-figure quarto-figure-center" style="width:90.0%"> <span style="position:absolute;bottom:40%;right:33%;text-align:left;font-size:0.6em;"><span class="citation" data-cites="cammarosanoSchriftmetrologieKeils2014">Cammarosano et al. (<a href="#/bibliography" role="doc-biblioref" onclick="">2014</a>)</span></span> <img data-src="img/landmarks_ex2.png" class="absolute" style="top: 70%; right: 27%; width: 25%; "> <img data-src="img/semilandmarks_ex.png" class="absolute" style="top: 70%; right: 0%; width: 23.5%; "></p>
 </div></div>
-</section>
-<section class="slide level2">
-
-<p>{background-image=“img/background.webp” background-opacity=“15%” style=“text-align:center”}</p>
+</section></section>
+<section id="thank-you-for-your-attention" class="title-slide slide level1 center" data-background-image="img/clay_background.jpg" data-background-opacity="15%" style="text-align:center">
+<h1>Thank you for your attention!</h1>
 <p><br></p>
-<p>Shai Gordin (<a href="mailto:shaigo@ariel.ac.il">shaigo@ariel.ac.il</a>) - {{&lt; ai orcid &gt;}} <a href="https://orcid.org/0000-0002-8359-382X">0000-0002-8359-382X</a></p>
+<p>Shai Gordin (<a href="mailto:shaigo@ariel.ac.il">shaigo@ariel.ac.il</a>) - <i class="fa-brands fa-orcid"></i> <a href="https://orcid.org/0000-0002-8359-382X">0000-0002-8359-382X</a></p>
 <p>Digital Pasts Lab (<a href="mailto:digpasts@gmail.com">digpasts@gmail.com</a>)</p>
 <p><br></p>
-<p><img data-src="img/qr_code.webp"> <br> Presentation online at the qrcode above or at the following <a href="https://www.andreatitolo.com/talks/2024-12-13-unito-empires-workshop/titolo_palmisano_tale_of_two_kingdoms.html">link</a></p>
+<p><img data-src="img/website_qr.jpeg"> <br> Presentation online at the qrcode above or at the following <a href="https://www.andreatitolo.com/talks/2024-12-13-unito-empires-workshop/titolo_palmisano_tale_of_two_kingdoms.html">link</a></p>
 <p><br></p>
-<p>{{&lt; ai zenodo &gt;}} <a href="https://doi.org/10.5281/zenodo.12011486">https://doi.org/10.5281/zenodo.12011486</a></p>
-<p>{{&lt; bi github &gt;}} <a href="https://github.com/UnitoAssyrianGovernance/evoa-2024">Slides Source Code</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a></p>
-</section></section>
-<section id="bibliography" class="title-slide slide level1 center">
+<p><i class="fa-solid fa-database"></i> <a href="https://doi.org/10.5281/zenodo.12011486">https://doi.org/10.5281/zenodo.12011486</a></p>
+<p><i class="fa-brands fa-github"></i> <a href="https://github.com/UnitoAssyrianGovernance/evoa-2024">Slides Source Code</a> - <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA-4.0</a></p>
+</section>
+
+<section id="bibliography" class="title-slide slide level1 smaller scrollable">
 <h1>Bibliography</h1>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-cammarosanoSchriftmetrologieKeils2014" class="csl-entry" role="listitem">
+Cammarosano, M., Müller, G. G. W., Fisseler, D. and Weichert, F. (2014). <a href="https://www.jstor.org/stable/24363430">Schriftmetrologie des keils: Dreidimensionale analyse von keileindr<span>ü</span>cken und handschriften</a>. <em>Die Welt des Orients</em> <strong>44</strong>: 2–36.
+</div>
+<div id="ref-cancik-kirschbaumErstePhilologien2018" class="csl-entry" role="listitem">
+Cancik-Kirschbaum, E., Kahl, J. and Wagensonner, K. (2018). <em>Erste Philologien: Arch<span>ä</span>ologie einer Disziplin vom Tigris bis zum Nil</em>, Mohr Siebeck, T<span>ü</span>bingen.
+</div>
+<div id="ref-demartinoHandbookHittite2022" class="csl-entry" role="listitem">
+de Martino, S. ed. (2022). <em><a href="https://doi.org/10.1515/9783110661781">Handbook hittite empire: Power structures</a></em>, De Gruyter.
+</div>
+<div id="ref-denckerDeepLearning2020" class="csl-entry" role="listitem">
+Dencker, T., Klinkisch, P., Maul, S. M. and Ommer, B. (2020). <a href="https://doi.org/10.1371/journal.pone.0243039">Deep learning of cuneiform sign detection with weak supervision using transliteration alignment</a>. <em>PLOS ONE</em> <strong>15</strong>: e0243039.
+</div>
+<div id="ref-ernst-pradalScribesDOugarit2019" class="csl-entry" role="listitem">
+Ernst-Pradal, F. (2019). <em>Scribes d’Ougarit et pal<span>é</span>ographie akkadienne: les textes juridiques sign<span>é</span>s</em>, Peeters, Leuven.
+</div>
+<div id="ref-gordinHittiteScribal2015" class="csl-entry" role="listitem">
+Gordin, S. (2015). <em>Hittite scribal circles: Scholarly tradition and writing habits</em>, Harrassowitz Verlag, Wiesbaden.
+</div>
+<div id="ref-kaponShapingHistory2024" class="csl-entry" role="listitem">
+Kapon, D., Fire, M. and Gordin, S. (2024). <a href="https://doi.org/10.48550/arXiv.2406.04039">Shaping history: Advanced machine learning techniques for the analysis and dating of cuneiform tablets over three millennia</a>.
+</div>
+<div id="ref-kryszenScribesHands2025" class="csl-entry" role="listitem">
+Kryszeń, A. (2025). Of Scribes and Hands: Palaeography of the Outline Tablets of the nuntarriya<span>š</span>ḫa- Festival. In S. Görke A. Kryszeń G. G. W. Müller and C. W. Steitler (eds.), <em>The tablets and their scribes: the palaeography of Hittite cuneiform and writing practices in Hittite Anatolia: proceedings of the second international HFR Symposium, Mainz, 2-4 May 2024</em>, Harrassowitz Verlag, Wiesbaden, pp.125–142.
+</div>
+<div id="ref-mikulinskyProtoSnapPrototype2025" class="csl-entry" role="listitem">
+Mikulinsky, R., Alper, M., Gordin, S., Jiménez, E., Cohen, Y. and Averbuch-Elor, H. (2025). ProtoSnap: Prototype alignment for cuneiform signs. <em>The Thirteenth International Conference on Learning Representations</em>, Singapore.
+</div>
+<div id="ref-rusterLandschenkungsurkundeHethitischer2012" class="csl-entry" role="listitem">
+Rüster, C. and Wilhelm, G. (2012). <em>Landschenkungsurkunde hethitischer k<span>ö</span>nige</em>, Harrassowitz, Wiesbaden.
+</div>
+<div id="ref-yugayStylisticClassification2024" class="csl-entry" role="listitem">
+Yugay, V., Paliwal, K., Cobanoglu, Y., Sáenz, L., Gogokhia, E., Gordin, S. and Jiménez, E. (2024). <a href="https://doi.org/10.1515/itit-2023-0114">Stylistic classification of cuneiform signs using convolutional neural networks</a>. <em>it - Information Technology</em> <strong>66</strong>: 15–27.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

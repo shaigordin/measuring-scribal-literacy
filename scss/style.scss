@@ -20,6 +20,12 @@ $code-block-border-color: #000000;
     font-style: italic;
 }
 
+// Modify the font size and line height of the table of contents slide
+.reveal .slide.toc-slide {
+  font-size: 2em;
+  line-height: 3;
+}
+
 // Modify all figure captions
 .reveal .slide figcaption {
     font-size: 0.8em;

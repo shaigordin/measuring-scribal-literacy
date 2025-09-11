@@ -13,9 +13,14 @@ authors:
 title-slide-attributes:
   data-background-image: img/clay_background.jpg
   data-background-opacity: "0.3"
+orcid-icon: '<i class="fa-brands fa-orcid"></i>'
+github-icon: '<i class="fa-brands fa-github"></i>'
+zenodo-icon: '<i class="fa-solid fa-database"></i>'
 format:
   revealjs:
+      mermaid: {}
       slide-number: true
+      toc: false
       progress: false
       preview-links: true
       theme: [default, scss/style.scss]
@@ -36,9 +41,9 @@ format:
         - templates/title-slide.html
 ---
 
-# Measuring Scribal Literacy
+# Deeplomatics: How Cuneiform Literacy Took Shape?
 
-::: {.absolute top="0" left="95%"}
+::: {.absolute top="0" left="96%"}
 ::: sectionhead
 1 [2 3 4 5]{style="opacity:0.25"}
 :::
@@ -56,25 +61,27 @@ format:
 
 ::: {.columns}
 
-::: {.column width="70%"}
-- Deeplomatics: Transmission of Cuneiform from Centre to Periphery
-- Qualitative Descriptions as Baselines for (Statistical) Measurements
+::: {.column width="50%"}
+- Deeplomatics
+  - Sign Shape as indicator of Writing Skill: The Case of Peripheral Cuneiform
+- Qualitative Descriptions of Signs as Baselines for (Statistical) Measurements
 - Protosnap: Using Generative AI for Measuring Sign Gestalt
 - Geometric-Morphometrics (GMM) for Sign Shape Analysis
 - State of the Project and Future Outlook
+  - Pipeline: from Tablet to Graph
+  - Data and Annotations
 :::
 
-::: {.column width="30%"}
+::: {.column width="50%"}
 
 <br>
 
-![Scan and follow the presentation online!](img/qr_code.webp){fig-align="center"}
+![Scan to follow the presentation online](img/website_qr.jpeg){fig-align="center"}
 :::
 
 :::
 
 ---
-
 
 ## Diplomatics Background
 
@@ -86,13 +93,20 @@ format:
 
 ::: {.columns}
 
-::: {.column width="40%"}
-::: {.fragment fragment-index=1 .fade-in-then-semi-out}
+::: {.column width="45%"}
 - Verify the authenticity of traditional compositions
 - Legal authority of institutional and archival records
 - Consistent use of document features to establish age
 :::
+
+::: {.column width="55%"}
+
+![](img/BoFN01561.jpg){.absolute right="9%" top="40%" width="23%"}
+![](img/RS16_251_p56.jpg){.absolute right="8%" top="5%" width="25%"}
+![](img/AlT57_20_07_AlTqiv58.jpg){.absolute left="25%" top="48%" width="18%"}
+![](img/P282022_KAJ007.jpg){.absolute right="35%" top="5%" width="18%"}
 :::
+
 :::
 
 ---
@@ -108,16 +122,46 @@ format:
 ::: {.columns}
 
 ::: {.column width="40%"}
+::: {.fragment fragment-index=1 .fade-in-then-semi-out}
 - How to detect and measure which shape features make scribal habits distinguishable?
-- Which computational methods allow us to analyse these shapes over the longue durée (i.e. at scale)?
-- Can we generalise and generate a typical tablet and its script from a given period / genre / scribal school?
+:::
 
--> A "copilot" historian: answers need to be explainable, no black-boxes
+::: {.fragment fragment-index=2 .fade-in-then-semi-out}
+- Which computational methods allow us to analyse these shapes over the longue durée (i.e. at scale)?
 :::
+
+::: {.fragment fragment-index=3 .fade-in-then-semi-out}
+- Can we generalise and generate a typical tablet and its script from a given period / genre / scribal school?
 :::
+
+:::
+
 ::: {.column width="60%"}
-![After @Liverani2003](img/south_levant_ia2.webp){fig-align="center" width="95%"}
+
 :::
+
+:::
+
+::: {.fragment fragment-index=1 .fade-in-then-out}
+![](img/cketall2018ErstePhilo_p16.jpg){.absolute right="13%" top="24%" width="55%"}
+
+<span style="position:absolute;bottom:0;width:100%;text-align:center;font-size:0.8em;">After @cancik-kirschbaumErstePhilologien2018</span>
+:::
+
+::: {.fragment fragment-index=2 .fade-in-then-out}
+![](img/dendro_legal_w_images.jpg){.absolute right="0%" top="10%" width="60%"}
+
+<span style="position:absolute;bottom:0;right:5%;width:40%;text-align:right;font-size:0.8em;">After @kaponShapingHistory2024</span>
+
+![](img/j_itit-2023-0114_fig_006.jpg){.absolute left="15%" top="52%" width="22%"}
+
+<span style="position:absolute;bottom:0;left:15%;width:100%;text-align:left;font-size:0.8em;">After @yugayStylisticClassification2024</span>
+:::
+
+::: {.fragment fragment-index=3 .fade-in-then-out}
+![](img/interpulation_widget.jpg){.absolute right="0%" top="15%" width="55%"}
+
+<span style="position:absolute;bottom:0;right:5%;width:40%;text-align:right;font-size:0.8em;">After @kaponShapingHistory2024</span>
 :::
 
 ---
@@ -132,15 +176,14 @@ format:
 
 ::: {.columns}
 
-::: {.column width="40%"}
+::: {.column width="35%"}
 - How proficient are peripheral scribes?
-- Is the trajectory of the spread of cuneiform from Mesopotamia to the west retraceable using palaeography?
 - Peripheral Archives: Hattusa, Alalakh, Ugarit
 - Mesopotamian Archive (control group): MA Assur
 - Legal genres: signed, dated, verified(?)
 
 
-::: {.body-smaller}
+::: {.smallish}
 
 | City  | Text Group   |  Dates  |
 |-------------- | -------------- |  -----------   |
@@ -149,22 +192,22 @@ format:
 | Alalakh VII   | Legal texts     |     |
 | Alalakh IV    | Legal texts     |     |
 | Assur   | KAJ texts (Ebeling)     |     |
-: After @Palmisano.etal2019; @Sharon2013
 
 :::
 
 
 :::
 
-::: {.column width="60%"}
-![](img/south_levant_ia2_assyria.webp){fig-align="center" width="95%"}
+::: {.column width="65%"}
+![](img/handbook_hittite-empire_map_ANE.jpg){fig-align="center" width="95%"}
+<span style="position:absolute;bottom:10%;right:5%;width:40%;text-align:right;font-size:0.8em;">After @demartinoHandbookHittite2022</span>
 :::
 
 :::
 
----
 
-# Qualitative Descriptions as Baselines for (Statistical) Measurements
+
+# Qualitative Baselines for (Statistical) Measurements
 
 ::: {.absolute top="0" left="95%"}
 ::: {.sectionhead}
@@ -185,9 +228,17 @@ format:
 ::: {.columns}
 
 ::: {.column width="45%"}
-- Gordin 2015: Comparing scribal hands and qualifying them
-- Kryszeń 2025: Handwriting analysis, structural approach based on common sets of wedges
-- Cammarosano 2014: Defining the geometry of the wedge (3D data)
+::: {.fragment fragment-index=1 .fade-in-then-semi-out}
+- @gordinHittiteScribal2015: Comparing scribal hands and qualifying them
+:::
+
+::: {.fragment fragment-index=2 .fade-in-then-semi-out}
+- @kryszenScribesHands2025: Handwriting analysis, structural approach based on common sets of wedges
+:::
+
+::: {.fragment fragment-index=3 .fade-in-then-semi-out}
+- @cammarosanoSchriftmetrologieKeils2014: Defining the geometry of the wedge (3D data)
+:::
 
 :::
 
@@ -197,15 +248,23 @@ format:
 
 :::
 
-![](img/study_areas.webp){.absolute right="0%" top="15%" width="50%"}
-![](img/gerda-henkel-logo.webp){.absolute right="0%" top="85%" width="25%"}
-![](img/logo-unito.webp){.absolute right="24%" top="76%" width="15%"}
-![](img/lmu_logo.webp){.absolute right="40%" top="83%" width="15%"}
-![](img/radner.webp){.absolute left="5%" top="75%" width="12%"}
-![](img/novotny.webp){.absolute left="25%" top="75%" width="12%"}
+::: {.fragment fragment-index=1 .fade-in-then-out}
+![](img/StBoT59_personal_ductus.jpg){.absolute right="0%" top="10%" width="60%"}
+![](img/StBoT59_Hanikuili_signature.jpg){.absolute right="0%" top="65%" width="60%"}
+:::
+
+::: {.fragment fragment-index=2 .fade-in-then-out}
+![](img/Kryszeń2025_sign_taxonomy.jpg){.absolute right="0%" top="10%" width="50%"}
+![](img/Kryszeń2025_sign_groups.jpg){.absolute left="0%" bottom="18%" width="50%"}
+:::
+
+::: {.fragment fragment-index=3 .fade-in-then-out}
+![](img/Cammarosano2014_geometrie.jpg){.absolute right="0%" top="10%" width="47%"}
+![](img/Cammarosano2014_schema_MA.jpg){.absolute right="11%" bottom="0%" width="34%"}
+:::
 
 
----
+
 
 # Protosnap: Using Generative AI for Measuring Sign Gestalt
 
@@ -227,14 +286,19 @@ format:
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="50%" .body-small align-items="center"}
 - Can we use the structural consistency of cuneiform signs to identify deep image features and align them to a 2D image of a cuneiform sign?
 - Creating a tablet handcopy: synthesizing sign features
 - Extracting varied sign forms to create more artificial data, helps train OCR models
+
+<span style="position:absolute;bottom:35%;left:1%;width:40%;text-align:center;font-size:0.9em;">[See project page](https://tau-vailab.github.io/ProtoSnap/)!</span>
+![](img/qr_code_protosnap.png){.absolute left="15%" bottom="8%"}
 :::
 
 ::: {.column width="50%"}
-![](img/rank_size_all_areas.webp){fig-align=center}
+<span style="fig-align:center;font-size:0.8em;">@mikulinskyProtoSnapPrototype2025</span>
+![](img/tablet.png){fig-align=center}
+![](img/dataflow.png){fig-align=center}
 :::
 
 :::
@@ -251,7 +315,7 @@ format:
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="40%" .body-smaller} 
 - Stable Diffusion model trained specifically on cuneiform images for deep image understanding (SD)
 - This allows recognition of wedge impressions even with varying lighting, damage, and material textures
 - Deep diffusion features are used to find matches between prototype images (cuneiform fonts) and sign samples (“best buddy correspondences”)
@@ -262,7 +326,8 @@ format:
 :::
 
 ::: {.column width="50%"}
-![](img/rank_size_all_areas.webp){fig-align=center}
+![](img/sim_tensor_overview.png){fig-align=center}
+![](img/protosnap_alignment_results.png){fig-align=center} 
 :::
 
 :::
@@ -279,26 +344,43 @@ format:
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="50%" .body-small}
 
-- Created a benchmark corpus: 272 images, 25 sign classes, with expert-annotated landmark points
-- Compared expert labels to model predictions; Protosnap outperformed generic matching methods (F1 score: 27.14% vs. 16.14% at 20-pixel threshold)
-- The task is challenging due to subjectivity and expert disagreement
+::: {.fragment fragment-index=1 .fade-in-then-semi-out}
+- Protosnap outperformed generic matching methods 
 - The model can generate accurate synthetic cuneiform signs, addressing the lack of labeled data—especially for rare variants
 - Using synthetic data improved sign classification, especially for rare signs (accuracy: 53.17% vs. 25.84%)
-- Method is period- and language-agnostic: works for any cuneiform language or era
-- Demonstrated success on Hittite cuneiform, which the model had never seen before
+:::
+
+::: {.fragment fragment-index=2 .fade-in-then-semi-out}
+- Method is **period- and language-agnostic**: works for any cuneiform language or era
 - Next step: quantifying sign and wedge features in a manner interpretable for Assyriologists?
+:::
 
 :::
 
 ::: {.column width="50%"}
-![](img/rank_size_samaria.webp)
+
+:::
+
+::: {.fragment fragment-index=1 .fade-in-then-out}
+![](img/protosnap_evaluation.png){.absolute right="0%" top="10%" width="45%"}
+![](img/protosnap_ocr_results.png){.absolute right="0%" top="55%" width="45%"}
+![](img/protosnap_synth.jpg){.absolute left="3%" top="58%" width="42%"}
+:::
+
+::: {.fragment fragment-index=2 .fade-in-then-out}
+
+<span style="position:absolute; right:30%; top:10%; font-size:0.9em;">Hittite Tablets:</span>
+![](img/Protosnap_Hitt.jpg){.absolute right="0%" top="20%" width="45%"}
+![](img/mturk2.png){.absolute right="30%" top="70%"}
+![](img/multi.png){.absolute right="10%" top="70%"}
+![](img/multi2.png){.absolute right="10%" top="80%"}
 :::
 
 :::
 
----
+
 
 # Geometric-Morphometrics (GMM) for Sign Shape Analysis
 
@@ -320,13 +402,18 @@ format:
 
 ::: {.columns}
 
-::: {.column width="50%"}
+::: {.column width="45%" .body-small}
 - GMM quantitatively analyzes shape using geometric coordinates (not just measurements)
 - Shape is captured by placing landmarks (homologous points) on each object
 - Variables are the cartesian coordinates of these landmarks
 - Size is not included; the focus is on shape only
 - Results can be visualized as images
 - Several analysis variants exist (e.g., EDMA)
+:::
+
+::: {.column width="55%"}
+![](img/ug_tar1.png){fig-align=center width="80%"}
+![](img/ug_tar2.png){fig-align=center width="80%"}
 :::
 
 :::
@@ -343,58 +430,35 @@ format:
 
 ::: {.columns}
 
-::: {.column width="48%"}
-- Steps in GMM:
-  - Collect landmark data (same number & order for all shapes)
-  - Perform Procrustes superimposition to standardize shapes
-  - Analyze shape similarity and difference
-  - Procrustes superimposition:
-    - Removes size, translation, and rotation
-    - Aligns all shapes to a common coordinate system
-    - Also called Procrustes analysis, GPA, or least squares fitting
-    - Enables direct comparison of shape differences
-
-Superimposing shapes to measure differences is a relatively recent method in morphometrics.
-The Procrustes method, first used in multivariate statistics, was adapted for shape analysis.
-The term “Procrustes” comes from Greek mythology: Procrustes forced victims to fit his bed by stretching or cutting them.
-Similarly, Procrustes analysis fits and scales one shape onto another for comparison.
-
-![](img/armep.webp){fig-align="center"}
+::: {.column width="48%" .body-small}
+- Collect landmark data (same number & order for all shapes)
+- Perform Procrustes superimposition to standardize shapes
+- Analyze shape similarity and difference
+- Procrustes superimposition:
+  - Removes size, translation, and rotation
+  - Aligns all shapes to a common coordinate system
+  - Also called Procrustes analysis, GPA, or least squares fitting
+  - Enables direct comparison of shape differences
 :::
 
 ::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
+![](img/ug_tar3.png){fig-align="center" width="80%"}
+![](img/Prokrustes.jpg){fig-align="center" width="70%"}
+<span style="position:absolute;bottom:5%;right:5%;width:10%;text-align:left;font-size:0.7em;">As I see, Lady Liberty is somewhat too large - we want to change this immediately to her contention!</span>
+
+:::
+
+
+
 :::
 
 :::
 
----
 
-## Definition of Wedge Geometry and Landmark Choice
-
-::: {.absolute top="0" left="95%"}
-::: {.sectionhead}
-[1 2 3]{style="opacity:0.25"} 4 [5]{style="opacity:0.25"}
-:::
-:::
-
-::: {.columns}
-
-::: {.column width="48%"}
-- example photos of landmarks on cuneiform signs
-:::
-
-::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
-:::
-
-:::
-
----
 
 # State of the Project and Future Outlook
 
-::: {.absolute top="0" left="95%"}
+::: {.absolute top="0" left="96%"}
 ::: {.sectionhead}
 [1 2 3 4]{style="opacity:0.25"} 5
 :::
@@ -410,17 +474,7 @@ Similarly, Procrustes analysis fits and scales one shape onto another for compar
 :::
 :::
 
-::: {.columns}
-
-::: {.column width="48%"}
-- image of the pipeline
-:::
-
-::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
-:::
-
-:::
+![](img/Deeplomatics-pipeline.png){fig-align="center" width="90%"}
 
 ---
 
@@ -435,19 +489,50 @@ Similarly, Procrustes analysis fits and scales one shape onto another for compar
 ::: {.columns}
 
 ::: {.column width="48%"}
-- NEED: Cropped and identified sign images (potentially in the hundreds or thousands)
-- Approach:
-  1. Get tablets and metadata:
-    - High-quality PDF scans of books
-    - Online images (CDLI, Hethithesches Portal)
-    - Tablets that have not been photographed
-  2. Crop signs -> eBL model (state-of-the-art, actively under development)
-  3. Identify cropped signs -> Protosnap + eBL model + alignment with text editions (Denker et al.)
-  4. Annotate Landmarks -> manually + Protosnap
+::: {.fragment fragment-index=1 .fade-in-then-semi-out}
+1. Get tablets and metadata:
+  - High-quality PDF scans of books
+  - Online images (CDLI, HPM, eBL, etc.)
+  - Tablets that have not been photographed
+:::
+
+::: {.fragment fragment-index=2 .fade-in-then-semi-out}
+2. Crop signs -> eBL model (state-of-the-art, actively under development)
+:::
+
+::: {.fragment fragment-index=3 .fade-in-then-semi-out}
+3. Identify cropped signs -> Protosnap + eBL model + alignment with text editions [following @denckerDeepLearning2020]
+:::
+
+::: {.fragment fragment-index=4 .fade-in-then-semi-out}
+4. Annotate Landmarks -> manually + Protosnap
+:::
 :::
 
 ::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
+:::
+::: {.fragment fragment-index=1 .fade-in-then-out}
+![](img/EP_uga_ex.png){.absolute right="5%" top="0%" width="36%"}
+<span style="position:absolute;top:8%;right:40%;text-align:left;width:10%;font-size:0.6em;">@ernst-pradalScribesDOugarit2019</span>
+![](img/AlT8_HPM.png){.absolute left="0%" bottom="0%" width="45%"}
+![](img/KAJ006_CDLI.png){.absolute right="5%" bottom="0%" width="36%"}
+:::
+
+::: {.fragment fragment-index=2 .fade-in-then-out}
+<span style="position:absolute;top:8%;right:28%;text-align:left;font-size:0.6em;">hethiter.net/: fotarch BoFN11372</span>
+![](img/Bo_5440_with_boxes.jpeg){.absolute right="0%" top="10%" width="50%"}
+![](img/ug_tar.png){.absolute right="0%" top="65%" width="50%"}
+:::
+
+::: {.fragment fragment-index=3 .fade-in-then-out}
+![](img/Protosnap_Hitt.jpg){.absolute right="10%" top="5%" width="33%"}
+![](img/j_itit-2023-0114_fig_006.jpg){.absolute right="10%" top="40%" width="33%"}
+<span style="position:absolute;bottom:0%;right:42%;text-align:left;width:10%;font-size:0.6em;">@yugayStylisticClassification2024</span>
+:::
+
+::: {.fragment fragment-index=4 .fade-in-then-out}
+![](img/landmarks_ex.png){.absolute right="0%" top="50%" width="45%"}
+![](img/best_buddies.png){.absolute right="0%" top="20%" width="45%"}
 :::
 
 :::
@@ -473,7 +558,10 @@ Similarly, Procrustes analysis fits and scales one shape onto another for compar
 :::
 
 ::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
+![](img/AlT105_AlTqvii64.jpg){.absolute right="25%" top="20%" width="25%"}
+![](img/Phb07223b.jpg){.absolute right="7%" top="0%" width="20%"}
+<span style="position:absolute;top:8%;right:28%;text-align:left;font-size:0.6em;">hethiter.net/: fotarch Phb07223b</span>
+<span style="position:absolute;bottom:8%;right:0%;text-align:left;font-size:0.6em;">hethiter.net/: Alalah-Archiv AlTqvii64</span>
 :::
 
 :::
@@ -493,12 +581,14 @@ Similarly, Procrustes analysis fits and scales one shape onto another for compar
 ::: {.column width="48%"}
 - State-of-the-art eBL model: period agnostic, identifies locations of signs
 - Additional code: line clustering
-- Initial results on Hittite tablets were highly successful
+- Initial results on Hittite tablets were successful (will be finetuned)
 - Cases where signs are already cropped in book publications, e.g. from Ugarit. Cropped signs were extracted from the PDF
 :::
 
 ::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
+<span style="position:absolute;top:6%;right:26%;text-align:left;font-size:0.6em;">hethiter.net/: Alalah-Archiv AlTqiv58</span>
+![](img/AlT57_AlTqiv58_with_boxes.jpeg){.absolute right="0%" top="10%" width="50%"}
+![](img/AlT57_rev24-27.png){.absolute right="0%" top="70%" width="50%"}
 :::
 
 :::
@@ -519,11 +609,12 @@ Similarly, Procrustes analysis fits and scales one shape onto another for compar
 - Pre-cropped signs already come with sign-readings
 - eBL model can also be used to identify signs - however, not period agnostic, mostly trained on first millennium data (though work in progress!)
 - Protosnap is the way to go! Creating artificial data to improve model's results
-- Line identification allows alignment and validation against digital editions (Denker et al.)
+- Line identification allows alignment and validation against digital editions [following @denckerDeepLearning2020]
 :::
 
 ::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
+![](img/LSU_ID.jpg){fig-align="center" width="90%"}
+<span style="position:absolute;bottom:3%;right:33%;text-align:left;font-size:0.6em;">@rusterLandschenkungsurkundeHethitischer2012</span>
 :::
 
 :::
@@ -549,32 +640,36 @@ Similarly, Procrustes analysis fits and scales one shape onto another for compar
 :::
 
 ::: {.column width="50%"}
-![](img/data_management.webp){fig-align="center" width="70%"}
+![](img/Cammarosano2014_geometrie.jpg){fig-align="center" width="90%"}
+<span style="position:absolute;bottom:40%;right:33%;text-align:left;font-size:0.6em;">@cammarosanoSchriftmetrologieKeils2014</span>
+![](img/landmarks_ex2.png){.absolute right="27%" top="70%" width="25%"}
+![](img/semilandmarks_ex.png){.absolute right="0%" top="70%" width="23.5%"}
 :::
 
 :::
 
----
+::: {.slide background-image="img/clay_background.jpg" background-opacity="15%" style="text-align:center"}
 
-{background-image="img/background.webp" background-opacity="15%" style="text-align:center"}
+# Thank you for your attention!
 
 <br>
 
-Shai Gordin ([shaigo@ariel.ac.il](mailto:shaigo@ariel.ac.il)) - {{< ai orcid >}} [0000-0002-8359-382X](https://orcid.org/0000-0002-8359-382X)
+Shai Gordin ([shaigo@ariel.ac.il](mailto:shaigo@ariel.ac.il)) - {{< meta orcid-icon >}} [0000-0002-8359-382X](https://orcid.org/0000-0002-8359-382X)
 
 Digital Pasts Lab ([digpasts@gmail.com](mailto:digpasts@gmail.com))
 
 <br>
 
 
-![](img/qr_code.webp)
+![](img/website_qr.jpeg)
 <br>
 Presentation online at the qrcode above or at the following [link](https://www.andreatitolo.com/talks/2024-12-13-unito-empires-workshop/titolo_palmisano_tale_of_two_kingdoms.html)
 
 <br>
 
- {{< ai zenodo >}} [https://doi.org/10.5281/zenodo.12011486](https://doi.org/10.5281/zenodo.12011486)
+ {{< meta zenodo-icon >}} [https://doi.org/10.5281/zenodo.12011486](https://doi.org/10.5281/zenodo.12011486)
 
- {{< bi github >}} [Slides Source Code](https://github.com/UnitoAssyrianGovernance/evoa-2024) - [CC BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+ {{< meta github-icon >}} [Slides Source Code](https://github.com/UnitoAssyrianGovernance/evoa-2024) - [CC BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+:::
 
 # Bibliography
