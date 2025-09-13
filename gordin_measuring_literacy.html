@@ -6,8 +6,8 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.34">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <title>Measuring Scribal Literacy – Measuring Scribal Literacy Through Quantitative Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,7 +48,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-371137c6791a03f34db27ca6ed885891.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-58d103c08e697364641626bde8d01a38.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -370,7 +370,7 @@
 <p><img data-src="img/StBoT59_personal_ductus.jpg" class="absolute" style="top: 10%; right: 0%; width: 60%; "> <img data-src="img/StBoT59_Hanikuili_signature.jpg" class="absolute" style="top: 65%; right: 0%; width: 60%; "></p>
 </div>
 <div class="fragment fade-in-then-out" data-fragment-index="2">
-<p><img data-src="img/Kryszeń2025_sign_taxonomy.jpg" class="absolute" style="top: 10%; right: 0%; width: 50%; "> <img data-src="img/Kryszeń2025_sign_groups.jpg" class="absolute" style="left: 0%; bottom: 18%; width: 50%; "></p>
+<p><img data-src="img/Kryszen2025_sign_taxonomy.jpg" class="absolute" style="top: 10%; right: 0%; width: 50%; "> <img data-src="img/Kryszen2025_sign_groups.jpg" class="absolute" style="left: 0%; bottom: 18%; width: 50%; "></p>
 </div>
 <div class="fragment fade-in-then-out" data-fragment-index="3">
 <p><img data-src="img/Cammarosano2014_geometrie.jpg" class="absolute" style="top: 10%; right: 0%; width: 47%; "> <img data-src="img/Cammarosano2014_schema_MA.jpg" class="absolute" style="bottom: 0%; right: 11%; width: 34%; "></p>
@@ -898,7 +898,7 @@ Yugay, V., Paliwal, K., Cobanoglu, Y., Sáenz, L., Gogokhia, E., Gordin, S. and 
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -972,13 +972,14 @@ Yugay, V., Paliwal, K., Cobanoglu, Y., Sáenz, L., Gogokhia, E., Gordin, S. and 
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
