@@ -152,9 +152,6 @@ format:
 
 <span style="position:absolute;bottom:0;right:5%;width:40%;text-align:right;font-size:0.8em;">After @kaponShapingHistory2024</span>
 
-![](img/j_itit-2023-0114_fig_006.jpg){.absolute left="15%" top="52%" width="22%"}
-
-<span style="position:absolute;bottom:0;left:15%;width:100%;text-align:left;font-size:0.8em;">After @yugayStylisticClassification2024</span>
 :::
 
 ::: {.fragment fragment-index=3 .fade-in-then-out}
@@ -175,29 +172,29 @@ format:
 
 ::: {.columns}
 
-::: {.column width="35%"}
+::: {.column width="40%"}
 - How proficient are peripheral scribes?
-- Peripheral Archives: Hattusa, Alalakh, Ugarit
-- Mesopotamian Archive (control group): MA Assur
-- Legal genres: signed, dated, verified(?)
+- West Peripheral Archives: Hattusa, Alalakh, Ugarit
+- Mesopotamian control: MA Assur
+- Legal genres: signed, dated, verified
 
-::: {.smallish}
+::: {.small}
 
-| City  | Text Group   |  Dates  |
+| City  | Text Group   |  Dates (BCE)  |
 |-------------- | -------------- |  -----------   |
-| Hattusa    | Land grants     |     |
-| Ugarit   | Legal texts    |     |
-| Alalakh VII   | Legal texts     |     |
-| Alalakh IV    | Legal texts     |     |
-| Assur   | KAJ texts (Ebeling)     |     |
+| Hattusa    | Land grants (mostly Akk)    |  c. 1650-1400  |
+| Ugarit   | legal, economic   |  c. 1350-1200   |
+| Alalakh VII   | legal, economic, letters   | 17^th^ cent.  |
+| Alalakh IV    | historical, legal, economic, letters   |  15^th^ cent. |
+| Assur   | legal, economic (KAJ)  |  c. 1424/14-1056  |
 
 :::
 
 :::
 
-::: {.column width="65%"}
+::: {.column width="60%"}
 ![](img/handbook_hittite-empire_map_ANE.jpg){fig-align="center" width="95%"}
-<span style="position:absolute;bottom:10%;right:5%;width:40%;text-align:right;font-size:0.8em;">After @demartinoHandbookHittite2022</span>
+<span style="position:absolute;bottom:15%;right:5%;width:40%;text-align:right;font-size:0.8em;">After @demartinoHandbookHittite2022</span>
 :::
 
 :::
@@ -458,7 +455,7 @@ format:
 
 ---
 
-## The Pipeline
+## Results: Current Dataset
 
 ::: {.absolute top="0" left="95%"}
 ::: {.sectionhead}
@@ -466,7 +463,17 @@ format:
 :::
 :::
 
-![](img/Deeplomatics-pipeline.png){fig-align="center" width="90%"}
+<br>
+<br>
+
+| City  | Tablet images   |  Signs (est.)  |  lines (est.)  |
+|-------------- | -------------- |  -----------   |  -----------   |
+| Hattusa    |  208   |    12,026    |    2,188      |
+| Ugarit   |  455 (tablets)   |  1,299 (exactly 1297)   |     ??       |
+| Alalakh   |   1,594   |  44,630   |     17,506     |
+| Assur   |   287   |   19,071  |   3,457      |
+| **Total**   |   2,544   |  77,026   |   23,151      |
+
 
 ---
 
@@ -542,6 +549,7 @@ format:
 ::: {.columns}
 
 ::: {.column width="48%"}
+- Ethical approach to scraping; coding with LLM
 - Quality of images from scanned books and in online databases is inconsistent
 - Older images are from various angles, before tablet imaging was standardised
 - Copyrights: How to save, where to publish
@@ -655,13 +663,13 @@ Digital Pasts Lab ([digpasts@gmail.com](mailto:digpasts@gmail.com))
 
 ![](img/website_qr.jpeg)
 <br>
-Presentation online at the qrcode above or at the following [link](https://www.andreatitolo.com/talks/2024-12-13-unito-empires-workshop/titolo_palmisano_tale_of_two_kingdoms.html)
+Presentation online at the qrcode above or at the following [link](https://shaigordin.github.io/measuring-scribal-literacy/)
 
 <br>
 
  {{< meta zenodo-icon >}} [https://doi.org/10.5281/zenodo.12011486](https://doi.org/10.5281/zenodo.12011486)
 
- {{< meta github-icon >}} [Slides Source Code](https://github.com/UnitoAssyrianGovernance/evoa-2024) - [CC BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+ {{< meta github-icon >}} [Slides Source Code](https://github.com/shaigordin/measuring-scribal-literacy) - [CC BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 :::
 
 # Bibliography

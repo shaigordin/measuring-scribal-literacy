@@ -18,14 +18,14 @@
     "href": "gordin_measuring_literacy.html#cuneiform-deeplomatics-research-questions",
     "title": "Measuring Scribal Literacy Through Quantitative Analysis",
     "section": "Cuneiform Deeplomatics: Research Questions",
-    "text": "Cuneiform Deeplomatics: Research Questions\n\n\n1 2 3 4 5\n\n\n\n\n\n\nHow to detect and measure which shape features make scribal habits distinguishable?\n\n\n\n\nWhich computational methods allow us to analyse these shapes over the longue durée (i.e. at scale)?\n\n\n\n\nCan we generalise and generate a typical tablet and its script from a given period / genre / scribal school?\n\n\n\n\n\n\n\nAfter Cancik-Kirschbaum et al. (2018)\n\n\n\nAfter Kapon et al. (2024)\n\nAfter Yugay et al. (2024)\n\n\n\nAfter Kapon et al. (2024)"
+    "text": "Cuneiform Deeplomatics: Research Questions\n\n\n1 2 3 4 5\n\n\n\n\n\n\nHow to detect and measure which shape features make scribal habits distinguishable?\n\n\n\n\nWhich computational methods allow us to analyse these shapes over the longue durée (i.e. at scale)?\n\n\n\n\nCan we generalise and generate a typical tablet and its script from a given period / genre / scribal school?\n\n\n\n\n\n\n\nAfter Cancik-Kirschbaum et al. (2018)\n\n\n\nAfter Kapon et al. (2024)\n\n\n\nAfter Kapon et al. (2024)"
   },
   {
     "objectID": "gordin_measuring_literacy.html#writing-proficiency-the-case-of-peripheral-cuneiform",
     "href": "gordin_measuring_literacy.html#writing-proficiency-the-case-of-peripheral-cuneiform",
     "title": "Measuring Scribal Literacy Through Quantitative Analysis",
     "section": "Writing proficiency: The Case of Peripheral Cuneiform",
-    "text": "Writing proficiency: The Case of Peripheral Cuneiform\n\n\n1 2 3 4 5\n\n\n\n\n\nHow proficient are peripheral scribes?\nPeripheral Archives: Hattusa, Alalakh, Ugarit\nMesopotamian Archive (control group): MA Assur\nLegal genres: signed, dated, verified(?)\n\n\n\n\n\nCity\nText Group\nDates\n\n\n\n\nHattusa\nLand grants\n\n\n\nUgarit\nLegal texts\n\n\n\nAlalakh VII\nLegal texts\n\n\n\nAlalakh IV\nLegal texts\n\n\n\nAssur\nKAJ texts (Ebeling)\n\n\n\n\n\n\n After de Martino (2022)"
+    "text": "Writing proficiency: The Case of Peripheral Cuneiform\n\n\n1 2 3 4 5\n\n\n\n\n\nHow proficient are peripheral scribes?\nWest Peripheral Archives: Hattusa, Alalakh, Ugarit\nMesopotamian control: MA Assur\nLegal genres: signed, dated, verified\n\n\n\n\n\n\n\n\n\n\nCity\nText Group\nDates (BCE)\n\n\n\n\nHattusa\nLand grants (mostly Akk)\nc. 1650-1400\n\n\nUgarit\nlegal, economic\nc. 1350-1200\n\n\nAlalakh VII\nlegal, economic, letters\n17th cent.\n\n\nAlalakh IV\nhistorical, legal, economic, letters\n15th cent.\n\n\nAssur\nlegal, economic (KAJ)\nc. 1424/14-1056\n\n\n\n\n\n After de Martino (2022)"
   },
   {
     "objectID": "gordin_measuring_literacy.html#descriptive-to-measurable-palaeography",
@@ -70,11 +70,11 @@
     "text": "GMM Workflow & Procrustes Superimposition\n\n\n1 2 3 4 5\n\n\n\n\n\nCollect landmark data (same number & order for all shapes)\nPerform Procrustes superimposition to standardize shapes\nAnalyze shape similarity and difference\nProcrustes superimposition:\n\nRemoves size, translation, and rotation\nAligns all shapes to a common coordinate system\nAlso called Procrustes analysis, GPA, or least squares fitting\nEnables direct comparison of shape differences\n\n\n\n  As I see, Lady Liberty is somewhat too large - we want to change this immediately to her contention!"
   },
   {
-    "objectID": "gordin_measuring_literacy.html#the-pipeline",
-    "href": "gordin_measuring_literacy.html#the-pipeline",
+    "objectID": "gordin_measuring_literacy.html#results-current-dataset",
+    "href": "gordin_measuring_literacy.html#results-current-dataset",
     "title": "Measuring Scribal Literacy Through Quantitative Analysis",
-    "section": "The Pipeline",
-    "text": "The Pipeline\n\n\n1 2 3 4 5"
+    "section": "Results: Current Dataset",
+    "text": "Results: Current Dataset\n\n\n1 2 3 4 5\n\n\n \n\n\n\nCity\nTablet images\nSigns (est.)\nlines (est.)\n\n\n\n\nHattusa\n208\n12,026\n2,188\n\n\nUgarit\n455 (tablets)\n1,299 (exactly 1297)\n??\n\n\nAlalakh\n1,594\n44,630\n17,506\n\n\nAssur\n287\n19,071\n3,457\n\n\nTotal\n2,544\n77,026\n23,151"
   },
   {
     "objectID": "gordin_measuring_literacy.html#acquiring-data",
@@ -88,7 +88,7 @@
     "href": "gordin_measuring_literacy.html#issues-with-getting-tablets",
     "title": "Measuring Scribal Literacy Through Quantitative Analysis",
     "section": "Issues with Getting Tablets",
-    "text": "Issues with Getting Tablets\n\n\n1 2 3 4 5\n\n\n\n\n\nQuality of images from scanned books and in online databases is inconsistent\nOlder images are from various angles, before tablet imaging was standardised\nCopyrights: How to save, where to publish\nA variety of web frameworks and protocols\nStandardizing metadata from various sources, including OCR’ed publications\n\n\n  hethiter.net/: fotarch Phb07223b hethiter.net/: Alalah-Archiv AlTqvii64"
+    "text": "Issues with Getting Tablets\n\n\n1 2 3 4 5\n\n\n\n\n\nEthical approach to scraping; coding with LLM\nQuality of images from scanned books and in online databases is inconsistent\nOlder images are from various angles, before tablet imaging was standardised\nCopyrights: How to save, where to publish\nA variety of web frameworks and protocols\nStandardizing metadata from various sources, including OCR’ed publications\n\n\n  hethiter.net/: fotarch Phb07223b hethiter.net/: Alalah-Archiv AlTqvii64"
   },
   {
     "objectID": "gordin_measuring_literacy.html#cropping-signs",
