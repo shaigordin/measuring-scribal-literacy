@@ -62,13 +62,12 @@ format:
 ::: {.columns}
 
 ::: {.column width="50%"}
-- Deeplomatics
+- Diplomatics as a background to Deeplomatics
   - Sign Shape as indicator of Writing Skill: The Case of Peripheral Cuneiform
 - Qualitative Descriptions of Signs as Baselines for (Statistical) Measurements
 - Protosnap: Using Generative AI for Measuring Sign Gestalt
 - Geometric-Morphometrics (GMM) for Sign Shape Analysis
 - State of the Project and Future Outlook
-  - Pipeline: from Tablet to Graph
   - Data and Annotations
 :::
 
