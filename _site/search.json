@@ -110,5 +110,82 @@
     "title": "Measuring Scribal Literacy Through Quantitative Analysis",
     "section": "Annotating Landmarks",
     "text": "Annotating Landmarks\n\n\n1 2 3 4 5\n\n\n\n\n\nTechniques to annotate cropped images\nChoosing the “right” signs\nLandmarks vs. semi-landmarks\nHuman error in annotation, subjectivity in how we perceive signs and wedges, changing angles of shadows in 2D images, error analysis\nPlanning a DANES working group on computational palaeography, a place for discussion and group annotations!\n\n\n Cammarosano et al. (2014)"
+  },
+  {
+    "objectID": "orphans_archetypes.html#orphans-fragments-without-a-tradition",
+    "href": "orphans_archetypes.html#orphans-fragments-without-a-tradition",
+    "title": "Orphans and Archetypes",
+    "section": "Orphans: fragments without a tradition",
+    "text": "Orphans: fragments without a tradition\n\n\n\nLaroche’s residual category CTH 470: ritual fragments that could not be placed\nThe EBo fragments, now digitised in TLHdig 0.3 (May 2026)\nTraditional assignment needs a parallel passage, which is exactly what these texts lack\nSo: can the content and spelling of a fragment point to its tradition?\n\n\n\n\n\n\nTLHdig 0.3\ntexts\nmedian legible words\n\n\n\n\nCTH 470\n1,931\n10\n\n\nEBo (all CTHs)\n1,373\n4\n\n\nof which filed under CTH 832\n779\n\n\n\nof which filed under CTH 670\n384\n\n\n\n\n\nEBo fragments are filed mostly under CTH 832 and 670, which are themselves residual categories.\n\n\nPoint out that “orphan” in TLHdig is a spread condition: 470, 670 and 832 all collect them. The EBo median of 4 words is the hard constraint for everything that follows."
+  },
+  {
+    "objectID": "orphans_archetypes.html#where-we-left-off-stbot-73",
+    "href": "orphans_archetypes.html#where-we-left-off-stbot-73",
+    "title": "Orphans and Archetypes",
+    "section": "Where we left off: StBoT 73",
+    "text": "Where we left off: StBoT 73\n\n\n\nGordin, Yavasan and Romach 2025: tf-idf + t-SNE over ~1,000 Hurrian and Luwian festival texts\nThree “constellations”; Luwian cult centres coherent, the Hurrian groups split\nCTH 701 under the microscope: KBo 23.44 (a.B, Nananza under Anuwanza) vs KBo 38.281+ (a₁.3, MS)\nNext step announced there: test which word groups carry the signal"
+  },
+  {
+    "objectID": "orphans_archetypes.html#method-a-reference-space-of-traditions",
+    "href": "orphans_archetypes.html#method-a-reference-space-of-traditions",
+    "title": "Orphans and Archetypes",
+    "section": "Method: a reference space of traditions",
+    "text": "Method: a reference space of traditions\n\n\n\nCorpus: TLHdig 0.3 XML, 23,526 manuscripts, 1.24 M words, converted following Yavasan and Gordin, From Clay to Code (ALP 2025)\nTwo feature spaces\n\nword tf-idf (normalised forms) for content\nsign n-grams (1–3 signs within a word) for orthography\n\nTraditions as centroids: each tradition is the mean of its manuscripts\nAssignment: a fragment goes to its most similar centroid, or to none if the lead over the runner-up is too small (open set)\n\n\nReference traditions (StBoT 73, Table 3, plus ritual controls)\n\n\nKizzuwatna–Lower Land (Hurrian)\nSyro-Mesopotamia (Hurrian), incl. CTH 701\nLuwian cult centres\nMixed (Hurrian, Syrian, Luwian)\nKizzuwatna rituals (CTH 471–500)\nOld Anatolian rituals (CTH 390–469)\n\n\nOrphans (CTH 470 + EBo) are never part of the reference."
+  },
+  {
+    "objectID": "orphans_archetypes.html#validation-leave-one-manuscript-out",
+    "href": "orphans_archetypes.html#validation-leave-one-manuscript-out",
+    "title": "Orphans and Archetypes",
+    "section": "Validation: leave one manuscript out",
+    "text": "Validation: leave one manuscript out\n\n\nEvery manuscript of 17+ words is removed in turn and reassigned. Baselines: always guessing the largest class, and the same procedure with shuffled labels (200 permutations).\n\n\nHistorical groups: 72% over 6 classes, against a 23% majority baseline. CTH 670/701/832 as in the abstract: 89%, but the majority baseline is already 78% (CTH 670 dominates), so it shows little. This is why the reference space moved to historical groups."
+  },
+  {
+    "objectID": "orphans_archetypes.html#how-small-can-an-orphan-be",
+    "href": "orphans_archetypes.html#how-small-can-an-orphan-be",
+    "title": "Orphans and Archetypes",
+    "section": "How small can an orphan be?",
+    "text": "How small can an orphan be?\n\n\nLong manuscripts are cut into random windows of k words and reassigned. Words and signs perform alike, and signs are slightly better from about 8 words up.\n\n\n3 words: about 49%; 10 words: about 60%; 40 words: about 69%, against a chance level of 17%. This curve sets the abstention rule used for the orphans."
+  },
+  {
+    "objectID": "orphans_archetypes.html#is-it-vocabulary-orthography-or-date",
+    "href": "orphans_archetypes.html#is-it-vocabulary-orthography-or-date",
+    "title": "Orphans and Archetypes",
+    "section": "Is it vocabulary, orthography, or date?",
+    "text": "Is it vocabulary, orthography, or date?\n\n\nRemove all logograms (Sumero- and Akkadograms)\n\nword tf-idf: 72% → 66%\nsign n-grams: 72% → 70%\n\nThe signal survives without the cultic logographic vocabulary.\n\nScript date in CTH 701 (MS vs NS)\n\nthe same method cannot predict MS vs NS above the majority baseline\n\nSo the 701 groupings are not just script-date clusters."
+  },
+  {
+    "objectID": "orphans_archetypes.html#recovering-salvini-and-wegners-groups",
+    "href": "orphans_archetypes.html#recovering-salvini-and-wegners-groups",
+    "title": "Orphans and Archetypes",
+    "section": "Recovering Salvini and Wegner’s groups",
+    "text": "Recovering Salvini and Wegner’s groups\n\n\n\n\n\n82 manuscripts in 8 labelled groups (a–f)\n~60% recovered, against a 23% majority baseline\nThe unlabelled 701 fragments and group f are placed among a–e as candidate attributions (table in the repo)"
+  },
+  {
+    "objectID": "orphans_archetypes.html#where-do-cth-470-and-ebo-fragments-go",
+    "href": "orphans_archetypes.html#where-do-cth-470-and-ebo-fragments-go",
+    "title": "Orphans and Archetypes",
+    "section": "Where do CTH 470 and EBo fragments go?",
+    "text": "Where do CTH 470 and EBo fragments go?\n\n\nOrphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision."
+  },
+  {
+    "objectID": "orphans_archetypes.html#qtm-orphans-as-low-coverage-witnesses",
+    "href": "orphans_archetypes.html#qtm-orphans-as-low-coverage-witnesses",
+    "title": "Orphans and Archetypes",
+    "section": "QTM: orphans as low-coverage witnesses",
+    "text": "QTM: orphans as low-coverage witnesses\n\nEach tradition is treated as an archetype, approximated by its most characteristic terms\nEach orphan is a witness that attests a small part of it\nCoverage asks how much of each archetype the orphans collectively attest\nArchetypes with little coverage are transmissions we only see through the reference corpus. High coverage from orphans alone points to traditions that circulated widely in fragments.\n\n\nE6, first pass: the two ritual traditions (70 and 167 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.81, and “Mixed” (12 orphans) 0.39. Coverage grows with the number of orphans, so these numbers still need rarefaction (equal orphan counts per tradition) before they can be compared."
+  },
+  {
+    "objectID": "orphans_archetypes.html#limits-and-next-steps",
+    "href": "orphans_archetypes.html#limits-and-next-steps",
+    "title": "Orphans and Archetypes",
+    "section": "Limits and next steps",
+    "text": "Limits and next steps\n\nNormalisation: TLHdig trans forms are uneven across editors, and broken words are dropped\nPreservation bias: short fragments over-represent formulaic lines\nJoins: an orphan placed near a known manuscript is a candidate join to check on the tablet\nPalaeography: link to sign-shape measurement (DANES 2025) for the same fragments\nPhilological check: worked examples (top-ranked orphans per tradition) for colleagues to verify"
+  },
+  {
+    "objectID": "orphans_archetypes.html#thank-you",
+    "href": "orphans_archetypes.html#thank-you",
+    "title": "Orphans and Archetypes",
+    "section": "Thank you",
+    "text": "Thank you\nCode and data: github.com/shaigordin/measuring-scribal-literacy (orphans/)\nTLHdig 0.3: doi.org/10.5281/zenodo.20328284"
   }
 ]

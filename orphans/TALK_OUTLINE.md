@@ -16,8 +16,9 @@ Mainz workshop on Hittite and AI. The talk builds on Gordin, Yavasan and Romach 
 
 ## Experiments (code in `run_experiments.py`)
 
-- **E1 Reference space.** Leave-one-text-out nearest-centroid assignment across CTH 670, 701, 832 (+ controls 628, 699, 500, 694), compared against majority and label-permutation baselines.
+- **E1 Reference space.** Leave-one-text-out nearest-centroid assignment across the StBoT 73 Table 3 historical groups plus two ritual controls, and separately across CTH 670/701/832 as in the abstract. Both are compared against majority and label-permutation baselines.
 - **E2 Coverage curve.** Well-attested texts are cut to random k-word windows (5–60 words) to measure how small a fragment can be and still be assigned. This sets the abstention threshold for E5.
-- **E3 CTH 701 subgroups.** The same procedure on the a–f labels, where partial ground truth exists.
+- **E3 CTH 701 subgroups.** The same procedure on the a–f labels, where partial ground truth exists, with script date (MS/NS) tested as a rival explanation.
 - **E4 Ablation.** Logograms dropped, to separate scribal orthography from cultic vocabulary.
 - **E5 Orphan placement.** CTH 470 and EBo fragments scored against every tradition, with an open-set margin.
+- **E6 QTM coverage.** The share of each tradition's core terms attested by its assigned orphans (still needs rarefaction).

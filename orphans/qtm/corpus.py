@@ -8,7 +8,7 @@ import pandas as pd
 
 # editorial marks to drop before splitting into signs
 _EDIT = re.compile(r"[\[\]⸢⸣()?!~′'<>«»#*]|\bx\b")
-_SIGN_SPLIT = re.compile(r"[-.\s{}+]+")
+_SIGN_SPLIT = re.compile(r"[-.\s{}+˽]+")
 
 
 def signs(translit: str) -> list[str]:
