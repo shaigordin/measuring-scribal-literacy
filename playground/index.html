@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scribal Tradition Playground</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Scribal tradition playground</h1>
+  <p>Paste a Hittite fragment in transliteration and see which textual tradition it sits closest to. The model is the one from <i>Orphans and Archetypes</i> (Mainz 2026): word tf-idf plus sign n-grams, compared with the centroid of each reference tradition, built on TLHdig Beta 0.3.</p>
+  <nav class="tabs"><a href="index.html" aria-current="page">Place a fragment</a><a href="compare.html" id="cmpLink">Compare word by word</a></nav>
+</header>
+
+<main>
+<div class="grid">
+  <section class="card">
+    <h2>Your fragment</h2>
+    <p class="sub">One word per space, signs joined by hyphens, determinatives in braces: <span class="translit">{GIŠ}BANŠUR kat-ta-an da-a-i</span>. ASCII works too (<span class="translit">sz</span> for š, <span class="translit">h</span> for ḫ, <span class="translit">u2</span> for ú). Line numbers and broken words are ignored.</p>
+    <textarea id="input" spellcheck="false" placeholder="Paste transliteration here"></textarea>
+    <div class="row">
+      <select id="examples" aria-label="Load an example"><option value="">Load an example…</option></select>
+      <button id="random">Random orphan</button>
+      <button id="clear">Clear</button>
+    </div>
+    <div class="row small muted" id="parseInfo"></div>
+    <div class="chips" id="chips" style="margin-top:8px"></div>
+  </section>
+
+  <section class="card">
+    <h2>Result</h2>
+    <div id="verdict" class="verdict muted">Waiting for text.</div>
+    <p class="sub" id="verdictSub"></p>
+    <div class="bars" id="bars"></div>
+  </section>
+
+  <section class="card">
+    <h2>Tradition hexagon</h2>
+    <p class="sub">Each corner is a reference tradition. Every manuscript is pulled toward the corners it resembles, so the centre means "undecided". Dots are reference manuscripts; your fragment is the ringed marker. Hover a dot to see it, click to load its text.</p>
+    <svg id="hex" viewBox="-330 -232 660 464" width="100%" role="img" aria-label="Tradition hexagon map"></svg>
+    <div class="row small">
+      <label><input type="checkbox" id="showRef" checked> reference manuscripts</label>
+      <label><input type="checkbox" id="showOrph"> placed orphans</label>
+    </div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section class="card">
+    <h2>Why this tradition?</h2>
+    <p class="sub" id="whySub">The words and sign sequences that add most to the similarity with the nearest tradition.</p>
+    <div class="contrib" id="contrib"></div>
+    <h2 style="margin-top:16px">Archetype barcode</h2>
+    <p class="sub" id="barcodeSub">The 200 most characteristic features of the nearest tradition, strongest first. Dark cells are attested in your fragment.</p>
+    <div class="barcode" id="barcode"></div>
+    <div class="row"><a id="toCompare" href="compare.html">Compare this fragment word by word →</a></div>
+  </section>
+</div>
+</main>
+<footer>
+  Data: TLHdig Beta 0.3, Zenodo <a href="https://doi.org/10.5281/zenodo.20328284">10.5281/zenodo.20328284</a>. Reference groups follow Gordin, Yavasan &amp; Romach 2025 (StBoT 73, Table 3) plus two ritual controls. A fragment is assigned only when its nearest tradition beats the runner-up by at least the abstention margin, calibrated on held-out windows to about 80% precision. Everything runs in your browser; nothing you paste is sent anywhere.
+</footer>
+<div class="tip" id="tip"></div>
+
+<script type="module">
+import * as Q from "./qtm.js";
+
+const $ = id => document.getElementById(id);
+const model = await Q.loadModel();
+const corpus = await (await fetch("data/corpus.json")).json();
+let texts = null;
+const getTexts = async () => texts ??= await (await fetch("data/texts.json")).json();
+const labs = model.traditions;
+const R = 200;
+const NS = "http://www.w3.org/2000/svg";
+const el = (tag, attrs = {}, parent) => {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  parent?.appendChild(e);
+  return e;
+};
+const fmt = x => x.toFixed(3);
+const tip = $("tip");
+function showTip(ev, html) {
+  tip.innerHTML = html; tip.style.display = "block";
+  const w = tip.offsetWidth, h = tip.offsetHeight;
+  tip.style.left = Math.min(ev.clientX + 12, innerWidth - w - 8) + "px";
+  tip.style.top = Math.min(ev.clientY + 12, innerHeight - h - 8) + "px";
+}
+const hideTip = () => (tip.style.display = "none");
+
+// ---------- hexagon ----------
+const svg = $("hex");
+const gGrid = el("g", {}, svg), gRef = el("g", {}, svg), gOrph = el("g", {}, svg), gMe = el("g", {}, svg);
+const pts = Q.RING.map(l => Q.corner(l, R));
+el("polygon", { points: pts.map(p => p.join(",")).join(" "), fill: "none", stroke: "var(--border)", "stroke-width": 1.5 }, gGrid);
+for (const p of pts) el("line", { x1: 0, y1: 0, x2: p[0], y2: p[1], stroke: "var(--grid)", "stroke-width": 1 }, gGrid);
+for (const lab of Q.RING) {
+  const [x, y] = Q.corner(lab, R + 16);
+  const t = el("text", { x, y: y + (y > 10 ? 10 : y < -10 ? -2 : 4), "text-anchor": Math.abs(x) < 5 ? "middle" : x > 0 ? "start" : "end", class: "label-strong" }, gGrid);
+  t.textContent = Q.SHORT[lab];
+  el("circle", { cx: Q.corner(lab, R)[0], cy: Q.corner(lab, R)[1], r: 5, fill: Q.colorVar(lab) }, gGrid);
+}
+function dot(c, g, r, opacity) {
+  const [x, y] = Q.hexPos(c.s, labs, R);
+  const lab = c.label || c.assigned;
+  const d = el("circle", { cx: x, cy: y, r, fill: Q.colorVar(lab), "fill-opacity": opacity, stroke: "var(--surface-1)", "stroke-width": 0.6 }, g);
+  d.style.cursor = "pointer";
+  d.addEventListener("mousemove", ev => showTip(ev,
+    `<b>${c.id}</b> (CTH ${c.cth}, ${c.n} words)<br>${c.kind === "ref" ? "Reference: " + c.label : "Orphan placed in: " + c.assigned}`));
+  d.addEventListener("mouseleave", hideTip);
+  d.addEventListener("click", async () => { $("input").value = (await getTexts())[c.id]; run(c.id); });
+}
+for (const c of corpus) if (c.kind === "ref") dot(c, gRef, 2.6, 0.55);
+for (const c of corpus) if (c.kind === "orphan" && c.assigned) dot(c, gOrph, 3.2, 0.9);
+gOrph.style.display = "none";
+$("showRef").onchange = e => (gRef.style.display = e.target.checked ? "" : "none");
+$("showOrph").onchange = e => (gOrph.style.display = e.target.checked ? "" : "none");
+$("legend").innerHTML = Q.RING.map(l => `<span><span class="swatch" style="background:${Q.colorVar(l)}"></span>${l}</span>`).join("");
+
+// ---------- examples ----------
+const orphans = corpus.filter(c => c.kind === "orphan");
+const placed = orphans.filter(c => c.assigned).sort((a, b) => b.gap - a.gap);
+const ex = $("examples");
+const group = (label, items) => {
+  const og = document.createElement("optgroup"); og.label = label;
+  for (const c of items) og.append(new Option(`${c.id} (${c.n} words${c.assigned ? ", " + Q.SHORT[c.assigned] : c.label ? ", " + Q.SHORT[c.label] : ""})`, c.id));
+  ex.append(og);
+};
+group("Orphans the model places confidently", placed.slice(0, 8));
+group("Orphans too close to call", orphans.filter(c => !c.assigned && c.n >= 20).slice(0, 6));
+group("Reference manuscripts", Q.RING.map(l => corpus.find(c => c.kind === "ref" && c.label === l && c.n > 60 && c.n < 200)).filter(Boolean));
+ex.onchange = async () => { if (!ex.value) return; $("input").value = (await getTexts())[ex.value]; run(ex.value); };
+$("random").onclick = async () => { const c = orphans[Math.floor(Math.random() * orphans.length)]; $("input").value = (await getTexts())[c.id]; run(c.id); };
+$("clear").onclick = () => { $("input").value = ""; run(); };
+
+// ---------- scoring ----------
+let timer;
+$("input").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => run(), 200); });
+
+function run(fromId) {
+  const text = $("input").value.trim();
+  gMe.replaceChildren();
+  if (!text) {
+    $("verdict").textContent = "Waiting for text."; $("verdict").className = "verdict muted";
+    for (const id of ["verdictSub", "bars", "chips", "parseInfo", "contrib", "barcode"]) $(id).replaceChildren();
+    return;
+  }
+  const r = Q.scoreText(text, model);
+  const known = r.parsed.words.filter(w => w.word).length;
+  $("parseInfo").textContent = `${r.parsed.words.length} words read, ${known} in the model's vocabulary` +
+    (r.parsed.dropped.length ? `, ${r.parsed.dropped.length} broken words ignored` : "") + (fromId ? ` · loaded ${fromId}` : "");
+  $("chips").innerHTML = r.parsed.words.map(w =>
+    `<span class="chip translit ${w.word ? "" : "unk"}" title="${w.word ? "word form: " + w.word : "not in vocabulary: counts through its signs only"}">${w.translit}</span>`).join("") +
+    r.parsed.dropped.map(w => `<span class="chip translit drop" title="ignored">${w}</span>`).join("");
+
+  if (r.vec.size === 0) {
+    $("verdict").textContent = "Nothing in this text matches the model's vocabulary."; $("verdict").className = "verdict muted";
+    return;
+  }
+  const v = $("verdict");
+  v.className = "verdict";
+  v.innerHTML = r.assigned
+    ? `Placed in <b>${r.assigned}</b>`
+    : `Too close to call <span class="muted">(nearest: ${r.top})</span>`;
+  $("verdictSub").textContent = `Nearest ${fmt(r.topScore)}, runner-up ${r.runnerUp} ${fmt(r.topScore - r.gap)}. Margin ${fmt(r.gap)} ${r.gap >= model.margin ? "clears" : "is below"} the abstention threshold of ${model.margin}.` +
+    (r.parsed.words.length < 8 ? " Fragments under about 8 words are rarely placed reliably." : "");
+
+  const mx = Math.max(...r.s, 0.001);
+  $("bars").innerHTML = Q.RING.map(l => {
+    const i = labs.indexOf(l), s = r.s[i];
+    return `<span><span class="swatch" style="background:${Q.colorVar(l)}"></span>${l}</span>
+      <span class="track"><span class="fill" style="width:${(100 * Math.max(s, 0)) / mx}%;background:${Q.colorVar(l)}"></span></span>
+      <span class="val">${fmt(s)}</span>`;
+  }).join("");
+
+  // marker on the hexagon
+  const [x, y] = Q.hexPos(r.s, labs, R);
+  el("circle", { cx: x, cy: y, r: 11, fill: "none", stroke: "var(--hi)", "stroke-width": 2.5 }, gMe);
+  el("circle", { cx: x, cy: y, r: 5, fill: Q.colorVar(r.top), stroke: "var(--surface-1)", "stroke-width": 2 }, gMe);
+  const t = el("text", { x: x + 15, y: y + 4, class: "label-strong" }, gMe);
+  t.textContent = fromId || "your fragment";
+
+  // contributions
+  const ti = labs.indexOf(r.top);
+  const cs = Q.contributions(r.vec, model.cents[ti], model.vocab).slice(0, 12);
+  const cmax = cs[0]?.value || 1;
+  $("whySub").textContent = `What adds most to the similarity with ${r.top}. Sign sequences are marked §, signs joined by ·.`;
+  $("contrib").innerHTML = cs.map(c => `<span class="term translit" title="${c.term}">${c.term}</span>
+    <span class="track"><span class="fill" style="width:${(100 * c.value) / cmax}%;background:${Q.colorVar(r.top)}"></span></span>
+    <span class="val small muted">${(100 * c.value / r.topScore).toFixed(0)}%</span>`).join("");
+
+  // barcode
+  const core = model.core[r.top];
+  const hit = core.filter(j => r.vec.has(j)).length;
+  $("barcodeSub").textContent = `The 200 most characteristic features of ${r.top}, strongest first. Your fragment attests ${hit} of them.`;
+  $("barcode").innerHTML = core.map(j => `<div class="${r.vec.has(j) ? "on" : ""}" title="${model.vocab[j]}"></div>`).join("");
+
+  const state = { text, label: fromId || "your fragment", b: "T:" + r.top };
+  $("toCompare").href = "compare.html#" + encodeURIComponent(JSON.stringify(state));
+  $("cmpLink").href = $("toCompare").href;
+}
+
+// start with a confident example so the page is never empty
+$("input").value = (await getTexts())[placed[0].id];
+run(placed[0].id);
+</script>
+</body>
+</html>
