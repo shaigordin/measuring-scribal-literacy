@@ -4,9 +4,11 @@ A static, browser-only page for the Mainz Hittite & AI workshop. Paste a transli
 and see which textual tradition the *Orphans and Archetypes* model places it in, why, and how its
 words compare with any other manuscript or tradition.
 
-- `index.html`: place a fragment. Scores, the tradition hexagon, the features that drive the
-  score, and the archetype barcode (the tradition's 200 strongest features, with the ones the
-  fragment attests filled in).
+- `index.html`: place a fragment. Scores, and the four signature views: the tradition hexagon
+  (every manuscript placed between the six tradition corners), the archetype barcode (the
+  tradition's 200 strongest features, with the ones the fragment attests filled in), the
+  similarity rose (one wedge per tradition, pointing to its hexagon corner, with a gallery of
+  orphan roses), and the word butterfly (fragment vs. nearest tradition by word tf-idf).
 - `compare.html`: word-by-word tf-idf comparison of two witnesses (fragment, manuscript or
   tradition centroid), and for any word, the manuscripts where it carries the most weight.
   This follows the per-word tf-idf comparison of the Neo-Babylonian Dillard study (2023).

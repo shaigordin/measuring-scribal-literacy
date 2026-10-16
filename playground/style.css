@@ -132,3 +132,25 @@ table { border-collapse: collapse; width: 100%; font-size: 13px; }
 td, th { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--grid); }
 td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .scroll { max-height: 360px; overflow: auto; }
+
+/* word butterfly */
+.fly { display: grid; grid-template-columns: 3.2em minmax(0, 1fr) minmax(7ch, max-content) minmax(0, 1fr) 3.2em; gap: 3px 8px; align-items: center; font-size: 13px; }
+.fly .head { font-weight: 600; color: var(--text-primary); }
+.fly .l { display: flex; justify-content: flex-end; }
+.fly .r { display: flex; justify-content: flex-start; }
+.fly .bar { height: 12px; border-radius: 3px; }
+.fly .l .bar { border-radius: 3px 0 0 3px; }
+.fly .r .bar { border-radius: 0 3px 3px 0; }
+.fly .w { text-align: center; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fly .w:hover, .fly .w.sel { color: var(--accent); text-decoration: underline; }
+.fly .w.shared { font-weight: 650; color: var(--text-primary); }
+.fly .w:not(.shared) { color: var(--text-secondary); }
+.fly .num { font-variant-numeric: tabular-nums; color: var(--text-secondary); }
+
+/* similarity rose */
+.resultRow { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.resultRow .bars { flex: 1 1 260px; }
+.rose svg { display: block; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; }
+.gallery .tile { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 4px; background: var(--surface-0); }
+.gallery .tile span { line-height: 1.2; text-align: center; }

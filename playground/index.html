@@ -32,7 +32,11 @@
     <h2>Result</h2>
     <div id="verdict" class="verdict muted">Waiting for text.</div>
     <p class="sub" id="verdictSub"></p>
-    <div class="bars" id="bars"></div>
+    <div class="resultRow">
+      <div id="rose" class="rose" title="Similarity rose"></div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <p class="sub small" style="margin-top:8px">The rose shows the same six scores as wedges, each pointing to its tradition's corner of the hexagon; wedge area grows with similarity. A dashed ring means the model abstains.</p>
   </section>
 
   <section class="card">
@@ -53,7 +57,19 @@
     <h2 style="margin-top:16px">Archetype barcode</h2>
     <p class="sub" id="barcodeSub">The 200 most characteristic features of the nearest tradition, strongest first. Dark cells are attested in your fragment.</p>
     <div class="barcode" id="barcode"></div>
-    <div class="row"><a id="toCompare" href="compare.html">Compare this fragment word by word →</a></div>
+  </section>
+
+  <section class="card">
+    <h2>Word butterfly</h2>
+    <p class="sub" id="flySub">Word tf-idf in your fragment (left) against the nearest tradition (right). Bold words occur in both.</p>
+    <div class="fly" id="fly"></div>
+    <div class="row"><a id="toCompare" href="compare.html">Open the full word-by-word comparison →</a></div>
+  </section>
+
+  <section class="card">
+    <h2>Rose gallery</h2>
+    <p class="sub">Orphan fragments at a glance: the two the model places most confidently in each tradition, then four it leaves unplaced. Click one to load it.</p>
+    <div class="gallery" id="gallery"></div>
   </section>
 </div>
 </main>
@@ -70,6 +86,11 @@ const model = await Q.loadModel();
 const corpus = await (await fetch("data/corpus.json")).json();
 let texts = null;
 const getTexts = async () => texts ??= await (await fetch("data/texts.json")).json();
+let W = null;
+const getWords = async () => {
+  if (!W) { W = await (await fetch("data/words.json")).json(); W.index = new Map(W.vocab.map((t, i) => [t, i])); }
+  return W;
+};
 const labs = model.traditions;
 const R = 200;
 const NS = "http://www.w3.org/2000/svg";
@@ -143,7 +164,7 @@ function run(fromId) {
   gMe.replaceChildren();
   if (!text) {
     $("verdict").textContent = "Waiting for text."; $("verdict").className = "verdict muted";
-    for (const id of ["verdictSub", "bars", "chips", "parseInfo", "contrib", "barcode"]) $(id).replaceChildren();
+    for (const id of ["verdictSub", "bars", "chips", "parseInfo", "contrib", "barcode", "rose", "fly"]) $(id).replaceChildren();
     return;
   }
   const r = Q.scoreText(text, model);
@@ -174,6 +195,9 @@ function run(fromId) {
       <span class="val">${fmt(s)}</span>`;
   }).join("");
 
+  $("rose").innerHTML = Q.roseSVG(r.s, labs, { size: 132, assigned: r.assigned, title: "similarity rose" });
+  drawFly(r);
+
   // marker on the hexagon
   const [x, y] = Q.hexPos(r.s, labs, R);
   el("circle", { cx: x, cy: y, r: 11, fill: "none", stroke: "var(--hi)", "stroke-width": 2.5 }, gMe);
@@ -200,6 +224,27 @@ function run(fromId) {
   $("toCompare").href = "compare.html#" + encodeURIComponent(JSON.stringify(state));
   $("cmpLink").href = $("toCompare").href;
 }
+
+// ---------- word butterfly ----------
+async function drawFly(r) {
+  const W = await getWords();
+  const words = r.parsed.words.filter(w => w.word).map(w => w.word);
+  const A = Q.tfidf(words, W.index, W.idf);
+  const [idx, val] = W.centroids[labs.indexOf(r.top)];
+  const B = new Map(idx.map((j, k) => [j, val[k]]));
+  $("flySub").textContent = `Word tf-idf in your fragment (left) against ${r.top} (right). Bold words occur in both; the order puts what they share first.`;
+  $("fly").innerHTML = Q.butterflyHTML(Q.butterflyRows(A, B, "prod", 14), W.vocab, "var(--text-muted)", Q.colorVar(r.top),
+    { heads: ["fragment", Q.SHORT[r.top]] });
+}
+
+// ---------- rose gallery ----------
+const perTradition = Q.RING.flatMap(l => placed.filter(c => c.assigned === l).slice(0, 2));
+const galleryItems = [...perTradition, ...orphans.filter(c => !c.assigned && c.n >= 20).slice(0, 4)];
+$("gallery").innerHTML = galleryItems.map(c => `<button class="tile" data-id="${c.id}" title="${c.id}: ${c.assigned || "unplaced"}">
+  ${Q.roseSVG(c.s, labs, { size: 88, assigned: c.assigned, title: c.id })}
+  <span class="small">${c.id}</span><span class="small muted">${c.assigned ? Q.SHORT[c.assigned] : "unplaced"}</span></button>`).join("");
+for (const b of $("gallery").querySelectorAll(".tile"))
+  b.onclick = async () => { $("input").value = (await getTexts())[b.dataset.id]; run(b.dataset.id); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
 // start with a confident example so the page is never empty
 $("input").value = (await getTexts())[placed[0].id];

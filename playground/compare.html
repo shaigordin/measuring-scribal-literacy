@@ -6,17 +6,6 @@
 <title>Word-by-Word Comparison</title>
 <link rel="stylesheet" href="style.css">
 <style>
-  .fly { display: grid; grid-template-columns: 3.2em minmax(0, 1fr) minmax(7ch, max-content) minmax(0, 1fr) 3.2em; gap: 3px 8px; align-items: center; font-size: 13px; }
-  .fly .head { font-weight: 600; color: var(--text-primary); }
-  .fly .l { display: flex; justify-content: flex-end; }
-  .fly .r { display: flex; justify-content: flex-start; }
-  .fly .bar { height: 12px; border-radius: 3px; }
-  .fly .l .bar { border-radius: 3px 0 0 3px; }
-  .fly .r .bar { border-radius: 0 3px 3px 0; }
-  .fly .w { text-align: center; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .fly .w:hover, .fly .w.sel { color: var(--accent); text-decoration: underline; }
-  .fly .w.shared { font-weight: 650; color: var(--text-primary); }
-  .fly .w:not(.shared) { color: var(--text-secondary); }
   .num { font-variant-numeric: tabular-nums; color: var(--text-secondary); }
   .side { display: grid; gap: 6px; }
   .side label { font-size: 13px; color: var(--text-secondary); }
@@ -143,20 +132,9 @@ function draw() {
   for (const [j, x] of A.vec) { const y = B.vec.get(j); if (y) { dot += x * y; shared++; } }
   $("cos").textContent = dot.toFixed(3);
   $("shared").textContent = `${shared} shared word forms; A has ${A.vec.size}, B has ${B.vec.size}.`;
-  const keys = new Set([...A.vec.keys(), ...B.vec.keys()]);
-  const rows = [...keys].map(j => ({ j, a: A.vec.get(j) || 0, b: B.vec.get(j) || 0 }));
-  const key = { prod: r => r.a * r.b + 1e-6 * (r.a + r.b), a: r => r.a, b: r => r.b, diff: r => Math.abs(r.a - r.b) }[$("sort").value];
-  rows.sort((p, q) => key(q) - key(p));
-  const top = rows.slice(0, +$("nrows").value);
-  const mx = Math.max(...top.map(r => Math.max(r.a, r.b)), 1e-6);
+  const top = Q.butterflyRows(A.vec, B.vec, $("sort").value, +$("nrows").value);
   $("flyTitle").textContent = `${A.name}  ↔  ${B.name}`;
-  $("fly").innerHTML =
-    `<span></span><span class="head" style="text-align:right">A</span><span></span><span class="head">B</span><span></span>` +
-    top.map(r => `<span class="num">${r.a ? r.a.toFixed(3) : ""}</span>
-      <span class="l"><span class="bar" style="width:${(100 * r.a) / mx}%;background:${color(A.lab)}"></span></span>
-      <span class="w translit ${r.a && r.b ? "shared" : ""} ${W.vocab[r.j] === selWord ? "sel" : ""}" data-w="${W.vocab[r.j]}" title="${W.vocab[r.j]}">${W.vocab[r.j]}</span>
-      <span class="r"><span class="bar" style="width:${(100 * r.b) / mx}%;background:${color(B.lab)}"></span></span>
-      <span class="num">${r.b ? r.b.toFixed(3) : ""}</span>`).join("");
+  $("fly").innerHTML = Q.butterflyHTML(top, W.vocab, color(A.lab), color(B.lab), { sel: selWord });
   for (const w of $("fly").querySelectorAll(".w")) w.onclick = () => rank(w.dataset.w);
   if (!selWord && top[0]) rank(W.vocab[top[0].j]); else if (selWord) rank(selWord);
 }
