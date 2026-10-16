@@ -3,15 +3,7 @@ foreign 0.828 0.426 209
 lexicon 0.654 0.233 1619
 spelling 0.566 0.231 1578
 collapsed 0.584 0.23 1581
-indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 1637, 'classes': 6}
-/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
-  tot = cnt.sum(1)
-/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
-  tot = cnt.sum(1)
-/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
-  tot = cnt.sum(1)
-/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
-  tot = cnt.sum(1)
+indices {'acc': 0.327, 'majority': 0.231, 'null_mean': 0.22, 'p': 0.0099, 'n': 1637, 'classes': 6}
 {
  "corpus": {
   "texts": 1637,
@@ -21,7 +13,7 @@ indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 
   "logograms": {
    "acc": 0.647,
    "majority": 0.232,
-   "null_mean": 0.171,
+   "null_mean": 0.17,
    "p": 0.0099,
    "n": 1622,
    "classes": 6,
@@ -38,7 +30,7 @@ indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 
   "foreign": {
    "acc": 0.828,
    "majority": 0.426,
-   "null_mean": 0.219,
+   "null_mean": 0.225,
    "p": 0.0099,
    "n": 209,
    "classes": 6,
@@ -55,7 +47,7 @@ indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 
   "lexicon": {
    "acc": 0.654,
    "majority": 0.233,
-   "null_mean": 0.175,
+   "null_mean": 0.176,
    "p": 0.0099,
    "n": 1619,
    "classes": 6,
@@ -72,7 +64,7 @@ indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 
   "spelling": {
    "acc": 0.566,
    "majority": 0.231,
-   "null_mean": 0.167,
+   "null_mean": 0.17,
    "p": 0.0099,
    "n": 1578,
    "classes": 6,
@@ -89,7 +81,7 @@ indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 
   "collapsed": {
    "acc": 0.584,
    "majority": 0.23,
-   "null_mean": 0.168,
+   "null_mean": 0.167,
    "p": 0.0099,
    "n": 1581,
    "classes": 6,
@@ -104,9 +96,9 @@ indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 
    "texts_with_layer": 1581
   },
   "orthographic_indices": {
-   "acc": 0.332,
+   "acc": 0.327,
    "majority": 0.231,
-   "null_mean": 0.219,
+   "null_mean": 0.22,
    "p": 0.0099,
    "n": 1637,
    "classes": 6
@@ -170,10 +162,10 @@ indices {'acc': 0.332, 'majority': 0.231, 'null_mean': 0.219, 'p': 0.0099, 'n': 
  },
  "E7c_701_script_date": {
   "lda": {
-   "acc": 0.802,
+   "acc": 0.792,
    "majority": 0.832,
-   "null_mean": 0.813,
-   "p": 0.8713,
+   "null_mean": 0.815,
+   "p": 0.9901,
    "n": 101,
    "classes": 2
   },

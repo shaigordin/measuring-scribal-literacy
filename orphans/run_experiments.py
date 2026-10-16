@@ -25,7 +25,7 @@ import pandas as pd
 from qtm.corpus import load
 from qtm.features import tokens, vectorizer
 from qtm.assign import centroids, scores, loo_scores, assign
-from qtm.groups import HISTORICAL, ABSTRACT, label_map, is_orphan
+from qtm.groups import GROUPSETS, RESIDUE, HISTORICAL, ABSTRACT, label_map, is_orphan
 
 MIN_WORDS = 17          # as in Gordin, Yavasan & Romach 2025
 RNG = np.random.default_rng(0)
@@ -78,8 +78,8 @@ def coverage_curve(docs, y, space, ks=(3, 5, 8, 10, 17, 25, 40), reps=10, max_te
 
 
 def calibrate_margin(curve, target=0.8):
-    """Smallest gap at which fragments of any size reach the target accuracy."""
-    for m in np.arange(0, 0.5, 0.005):
+    """Smallest gap (to 0.001) at which fragments of any size reach the target accuracy."""
+    for m in np.arange(0, 0.5, 0.001):
         sel = curve[curve.gap >= m]
         if len(sel) > 50 and sel.hit.mean() >= target:
             return float(m), float(sel.hit.mean()), float(len(sel) / len(curve))
@@ -106,13 +106,15 @@ def main():
     ap.add_argument("tokens")
     ap.add_argument("--labels701")
     ap.add_argument("--out", default="results/run")
+    ap.add_argument("--groups", choices=sorted(GROUPSETS), default="historical",
+                    help="reference traditions: StBoT 73 Table 3 + CTH-range controls, or literature-defined")
     ap.add_argument("--perm", type=int, default=200)
     ap.add_argument("--orphan-min-words", type=int, default=5)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
-    report = {}
+    report = {"groups": a.groups}
 
-    allcths = sorted({str(c) for g in (HISTORICAL, ABSTRACT) for cs in g.values() for c in cs} | {"470"})
+    allcths = sorted({str(c) for g in (HISTORICAL, ABSTRACT, GROUPSETS[a.groups], RESIDUE) for cs in g.values() for c in cs} | {"470"})
     docs = load(a.tokens, cths=allcths)
     docs["orphan"] = [is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)]
     ref = docs[~docs.orphan & (docs.n_words >= MIN_WORDS)].copy()
@@ -121,7 +123,7 @@ def main():
                         "orphans_total": int(docs.orphan.sum()),
                         "orphan_words_median": float(docs[docs.orphan].n_words.median())}
 
-    hist = label_map(HISTORICAL)
+    hist = label_map(GROUPSETS[a.groups])
     abst = label_map(ABSTRACT)
     setups = {"historical": ref[ref.cth_number.isin(hist)].assign(label=lambda d: d.cth_number.map(hist)),
               "abstract_670_701_832": ref[ref.cth_number.isin(abst)].assign(label=lambda d: d.cth_number.map(abst))}
@@ -168,8 +170,13 @@ def main():
     curve.to_csv(f"{a.out}/E2_coverage_raw.csv", index=False)
     summ = curve.groupby(["space", "k"]).agg(acc=("hit", "mean"), gap_median=("gap", "median"), n=("hit", "size"))
     summ.round(3).to_csv(f"{a.out}/E2_coverage_curve.csv")
-    margin, prec, kept = calibrate_margin(curve[curve.space == "both"])
-    report["E2_abstention"] = {"margin": margin, "precision_above_margin": prec, "share_assigned": kept}
+    cb = curve[curve.space == "both"].reset_index(drop=True)
+    margin, prec, kept = calibrate_margin(cb)
+    # sampling uncertainty of the margin: bootstrap over the coverage-curve fragments
+    boot = [calibrate_margin(cb.sample(len(cb), replace=True, random_state=s))[0] for s in range(200)]
+    lo, hi = (float(q) for q in np.nanpercentile(np.array(boot, dtype=float), [5, 95]))
+    report["E2_abstention"] = {"margin": margin, "precision_above_margin": prec, "share_assigned": kept,
+                               "margin_90ci": [round(lo, 3), round(hi, 3)]}
 
     # E5 + E6: orphans
     vec, X = featurise(hsub, "both")
@@ -187,6 +194,20 @@ def main():
         "assigned": int(pd.notna(pred).sum()), "abstained": int(pd.isna(pred).sum()),
         "by_tradition": pd.Series(pred).value_counts().to_dict(),
         "by_filing": pd.crosstab(out.filed_under, out.assigned.fillna("(abstain)")).to_dict()}
+    # sensitivity of the orphan counts to the margin's sampling uncertainty
+    report["E5_orphans"]["assigned_at_margin_90ci"] = {
+        str(round(m, 3)): pd.Series(assign(S, labs, margin=m)[0]).value_counts().to_dict() for m in (lo, hi)}
+    # E5b: the CTH 390-469 texts no study claims are placed like orphans (literature groups only)
+    if a.groups == "literature":
+        res_c = {str(c) for cs in RESIDUE.values() for c in cs}
+        resd = docs[~docs.orphan & docs.cth_number.isin(res_c) & (docs.n_words >= MIN_WORDS)]
+        Sr = scores(vec.transform([tokens(r, "both") for _, r in resd.iterrows()]), C)
+        pr, tr, gr = assign(Sr, labs, margin=margin or 0.0)
+        pd.DataFrame({"txtid": resd.txtid.values, "cth": resd.cth_number.values, "n_words": resd.n_words.values,
+                      "assigned": pr, "top_sim": tr.round(4), "gap": gr.round(4)}
+                     ).sort_values("gap", ascending=False).to_csv(f"{a.out}/E5b_residue_placement.csv", index=False)
+        report["E5b_residue"] = {"texts": int(len(resd)), "assigned": int(pd.notna(pr).sum()),
+                                 "by_tradition": pd.Series(pr).value_counts().to_dict()}
     vocab = vec.get_feature_names_out()
     report["E6_archetype_coverage"] = archetype_coverage(X, y_h.to_numpy(), Xo, pred, vocab)
 

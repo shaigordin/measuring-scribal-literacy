@@ -7,7 +7,7 @@
     "logograms": {
       "acc": 0.647,
       "majority": 0.232,
-      "null_mean": 0.171,
+      "null_mean": 0.17,
       "p": 0.0099,
       "n": 1622,
       "classes": 6,
@@ -24,7 +24,7 @@
     "foreign": {
       "acc": 0.828,
       "majority": 0.426,
-      "null_mean": 0.219,
+      "null_mean": 0.225,
       "p": 0.0099,
       "n": 209,
       "classes": 6,
@@ -41,7 +41,7 @@
     "lexicon": {
       "acc": 0.654,
       "majority": 0.233,
-      "null_mean": 0.175,
+      "null_mean": 0.176,
       "p": 0.0099,
       "n": 1619,
       "classes": 6,
@@ -58,7 +58,7 @@
     "spelling": {
       "acc": 0.566,
       "majority": 0.231,
-      "null_mean": 0.167,
+      "null_mean": 0.17,
       "p": 0.0099,
       "n": 1578,
       "classes": 6,
@@ -75,7 +75,7 @@
     "collapsed": {
       "acc": 0.584,
       "majority": 0.23,
-      "null_mean": 0.168,
+      "null_mean": 0.167,
       "p": 0.0099,
       "n": 1581,
       "classes": 6,
@@ -90,9 +90,9 @@
       "texts_with_layer": 1581
     },
     "orthographic_indices": {
-      "acc": 0.332,
+      "acc": 0.327,
       "majority": 0.231,
-      "null_mean": 0.219,
+      "null_mean": 0.22,
       "p": 0.0099,
       "n": 1637,
       "classes": 6
@@ -156,10 +156,10 @@
   },
   "E7c_701_script_date": {
     "lda": {
-      "acc": 0.802,
+      "acc": 0.792,
       "majority": 0.832,
-      "null_mean": 0.813,
-      "p": 0.8713,
+      "null_mean": 0.815,
+      "p": 0.9901,
       "n": 101,
       "classes": 2
     },

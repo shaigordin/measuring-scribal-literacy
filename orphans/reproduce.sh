@@ -30,13 +30,18 @@ TOK=$DATA/tokens.csv
 L=()
 if [ -f "$LABELS701" ]; then L=(--labels701 "$LABELS701"); else echo "no CTH 701 labels: skipping the subgroup tests"; fi
 
-# 3. experiments
-python3 run_experiments.py "$TOK" "${L[@]}" --out "$OUT" --perm 200 > "$OUT/run.log"   # E1-E6
-python3 run_profiles.py   "$TOK" "${L[@]}" --out "$OUT" --perm 100 > "$OUT/E7_run.log" # E7
-python3 run_wordclass.py  "$TOK" "${L[@]}" --out "$OUT" --perm 100 > "$OUT/E8_run.log" # E8
-python3 stats_corpus.py   "$TOK" --out "$OUT"                                          # slide numbers
+# 3. experiments, for both reference setups (StBoT 73 Table 3 + CTH-range controls; literature-defined)
+for G in historical literature; do
+  O=$OUT; IMG=../img/orphans
+  [ "$G" = literature ] && O=${OUT}_literature && IMG=../img/orphans/literature
+  mkdir -p "$O"
+  python3 run_experiments.py "$TOK" "${L[@]}" --groups $G --out "$O" --perm 200 > "$O/run.log"   # E1-E6
+  python3 run_profiles.py   "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E7_run.log" # E7
+  python3 run_wordclass.py  "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E8_run.log" # E8
+  python3 make_figures.py "$O" "$IMG"
+  python3 make_profile_figures.py "$O" "$IMG"
+done
+python3 stats_corpus.py "$TOK" --out "$OUT"                                                    # slide numbers
 
-# 4. figures and slides
-python3 make_figures.py "$OUT" ../img/orphans
-python3 make_profile_figures.py "$OUT" ../img/orphans
+# 4. slides
 (cd .. && quarto render orphans_archetypes.qmd)

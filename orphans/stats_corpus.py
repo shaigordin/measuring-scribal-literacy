@@ -8,6 +8,7 @@ Usage: python stats_corpus.py TOKENS.csv --out results/<run>   (writes corpus_st
 import argparse
 import json
 
+import numpy as np
 import pandas as pd
 
 from qtm.corpus import load
@@ -35,7 +36,7 @@ def main():
 
     hist = label_map(HISTORICAL)
     ref = docs[docs.cth_number.isin(hist) & (docs.n_words >= MIN_WORDS)
-               & [not is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)]]
+               & np.array([not is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)])]
     rows = [{"word": w, "tradition": hist[d.cth_number], "cth": d.cth_number, "txtid": d.txtid, "plene": has_plene(sg)}
             for _, d in ref.iterrows() for w, sg in zip(d.words, d.signs) if w in CONTRAST_WORDS]
     r = pd.DataFrame(rows)

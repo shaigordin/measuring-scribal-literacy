@@ -73,4 +73,35 @@ for s in ax.spines.values():
     s.set_visible(False)
 ax.set_title("mean z-score vs all reference texts (blue = less, red = more)", loc="left", color=INK2, fontsize=13)
 save(fig, "orthography_profile")
+
+# 3. E8 word classes: each class alone vs everything except that class (word forms)
+E8 = json.loads((RES / "E8_report.json").read_text())
+CL = [("foreign", "Hurrian / foreign"), ("realia", "realia (nouns)"), ("deity", "divine names"),
+      ("agent", "agents"), ("verb", "verbs"), ("function", "function words")]
+fig, axes = plt.subplots(1, 2, figsize=(13, 5.2), sharey=True)
+h = E8["historical"]["all"]["words"]
+for ax, (key, title) in zip(axes, [("historical", f"{h['classes']} traditions ({h['n']:,} texts)"),
+                                   ("cth701_subgroups", "CTH 701 subgroups (82 texts)")]):
+    R = E8[key]
+    ax.grid(axis="x", color=GRID, lw=1)
+    allacc = R["all"]["words"]["acc"]
+    ax.axvline(allacc, color=INK2, lw=1.5, ls="--")
+    ax.text(allacc + 0.01, -0.75, f"all words {allacc:.0%}", ha="left", color=INK2, fontsize=11)
+    for i, (c, name) in enumerate(CL):
+        y = len(CL) - 1 - i
+        a, w = R[f"only_{c}"]["words"]["acc"], R[f"without_{c}"]["words"]["acc"]
+        ax.plot([a, w], [y + 0.12, y - 0.12], color=GRID, lw=3, zorder=1)
+        ax.plot(a, y + 0.12, "o", ms=11, color=CONTENT, mec=SURF, mew=2, zorder=3)
+        ax.plot(w, y - 0.12, "o", ms=11, color=SCRIBAL, mec=SURF, mew=2, zorder=3)
+        ax.plot(R[f"only_{c}"]["words"]["majority"], y, "|", ms=18, mew=2.5, color=INK, zorder=2)
+    ax.set_yticks(range(len(CL)), [n for _, n in CL][::-1])
+    ax.set(xlim=(0, 1), ylim=(-0.95, len(CL) - 0.5), title=title, xlabel="correct group (word forms)")
+    ax.title.set_color(INK2); ax.title.set_fontsize(13)
+axes[0].plot([], [], "o", ms=10, color=CONTENT, label="this class alone")
+axes[0].plot([], [], "o", ms=10, color=SCRIBAL, label="all words except this class")
+axes[0].plot([], [], "|", ms=12, mew=2.5, color=INK, label="majority class")
+fig.legend(frameon=False, loc="upper center", ncol=3, fontsize=12, bbox_to_anchor=(0.55, 1.0))
+fig.tight_layout(rect=(0, 0, 1, 0.93))
+fig.savefig(OUT / "wordclasses.png", dpi=200)
+plt.close(fig)
 print("figures in", OUT)

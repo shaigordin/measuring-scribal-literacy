@@ -1,0 +1,242 @@
+{
+  "orphans": {
+    "cth470_texts": 1919,
+    "cth470_median_words": 10.0,
+    "ebo_texts": 1151,
+    "ebo_median_words": 4.0,
+    "ebo_filed_under": {
+      "832": 562,
+      "670": 382,
+      "470": 37,
+      "214": 21,
+      "582": 12,
+      "825": 10,
+      "250": 8,
+      "530": 8,
+      "500": 7,
+      "791": 7
+    },
+    "orphans_total": 3033
+  },
+  "plene_clusters": {
+    "akuanzi": {
+      "Kizzuwatna rituals": {
+        "texts": 7,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 9,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Luwian cult centres": {
+        "texts": 66,
+        "texts_with_plene": 1,
+        "plene_cths": [
+          "694"
+        ]
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 2,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Old Anatolian rituals": {
+        "texts": 8,
+        "texts_with_plene": 1,
+        "plene_cths": [
+          "450"
+        ]
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 2,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      }
+    },
+    "memai": {
+      "Kizzuwatna rituals": {
+        "texts": 58,
+        "texts_with_plene": 4,
+        "plene_cths": [
+          "474",
+          "490",
+          "500"
+        ]
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 46,
+        "texts_with_plene": 18,
+        "plene_cths": [
+          "628",
+          "712"
+        ]
+      },
+      "Luwian cult centres": {
+        "texts": 11,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 8,
+        "texts_with_plene": 1,
+        "plene_cths": [
+          "705"
+        ]
+      },
+      "Old Anatolian rituals": {
+        "texts": 60,
+        "texts_with_plene": 3,
+        "plene_cths": [
+          "448",
+          "449"
+        ]
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 72,
+        "texts_with_plene": 3,
+        "plene_cths": [
+          "701"
+        ]
+      }
+    },
+    "peran": {
+      "Kizzuwatna rituals": {
+        "texts": 63,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 56,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Luwian cult centres": {
+        "texts": 43,
+        "texts_with_plene": 5,
+        "plene_cths": [
+          "665"
+        ]
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 34,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Old Anatolian rituals": {
+        "texts": 66,
+        "texts_with_plene": 2,
+        "plene_cths": [
+          "408"
+        ]
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 39,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      }
+    },
+    "šer": {
+      "Kizzuwatna rituals": {
+        "texts": 67,
+        "texts_with_plene": 1,
+        "plene_cths": [
+          "500"
+        ]
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 52,
+        "texts_with_plene": 2,
+        "plene_cths": [
+          "713"
+        ]
+      },
+      "Luwian cult centres": {
+        "texts": 24,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 23,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Old Anatolian rituals": {
+        "texts": 59,
+        "texts_with_plene": 4,
+        "plene_cths": [
+          "398",
+          "416"
+        ]
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 26,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      }
+    },
+    "ḫalzai": {
+      "Kizzuwatna rituals": {
+        "texts": 14,
+        "texts_with_plene": 13,
+        "plene_cths": [
+          "477",
+          "483",
+          "488",
+          "490",
+          "494",
+          "500"
+        ]
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 6,
+        "texts_with_plene": 6,
+        "plene_cths": [
+          "699",
+          "711",
+          "712"
+        ]
+      },
+      "Luwian cult centres": {
+        "texts": 9,
+        "texts_with_plene": 9,
+        "plene_cths": [
+          "665",
+          "691",
+          "692",
+          "694",
+          "771"
+        ]
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 6,
+        "texts_with_plene": 6,
+        "plene_cths": [
+          "704",
+          "705",
+          "706"
+        ]
+      },
+      "Old Anatolian rituals": {
+        "texts": 27,
+        "texts_with_plene": 18,
+        "plene_cths": [
+          "413",
+          "416",
+          "428",
+          "444",
+          "449",
+          "450"
+        ]
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 1,
+        "texts_with_plene": 1,
+        "plene_cths": [
+          "701"
+        ]
+      }
+    }
+  }
+}

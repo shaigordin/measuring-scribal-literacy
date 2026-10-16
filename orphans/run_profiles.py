@@ -27,7 +27,7 @@ from sklearn.preprocessing import StandardScaler
 
 from qtm.corpus import load
 from qtm.features import vectorizer
-from qtm.groups import HISTORICAL, label_map, is_orphan
+from qtm.groups import GROUPSETS, RESIDUE, HISTORICAL, label_map, is_orphan
 from qtm.layers import INDICES, has_plene, indices, layer_tokens, variable_words
 from run_experiments import MIN_WORDS, loo_eval
 
@@ -81,12 +81,14 @@ def main():
     ap.add_argument("tokens")
     ap.add_argument("--labels701")
     ap.add_argument("--out", default="results/run")
+    ap.add_argument("--groups", choices=sorted(GROUPSETS), default="historical",
+                    help="reference traditions: StBoT 73 Table 3 + CTH-range controls, or literature-defined")
     ap.add_argument("--perm", type=int, default=100)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     report = {}
 
-    hist = label_map(HISTORICAL)
+    hist = label_map(GROUPSETS[a.groups])
     docs = load(a.tokens, cths=list(hist))
     docs = docs[[not is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)]]
     ref = docs[docs.n_words >= MIN_WORDS].assign(label=lambda d: d.cth_number.map(hist)).reset_index(drop=True)

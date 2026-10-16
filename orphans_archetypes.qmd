@@ -55,10 +55,10 @@ format:
 
 | TLHdig 0.3 | texts | median legible words |
 |---|---:|---:|
-| CTH 470 | 1,931 | 10 |
-| EBo (all CTHs) | 1,373 | 4 |
-| of which filed under CTH 832 | 779 | |
-| of which filed under CTH 670 | 384 | |
+| CTH 470 | 1,919 | 10 |
+| EBo (all CTHs) | 1,151 | 4 |
+| of which filed under CTH 832 | 562 | |
+| of which filed under CTH 670 | 382 | |
 
 :::
 
@@ -163,7 +163,7 @@ Long manuscripts are cut into random windows of *k* words and reassigned. Words 
 :::
 
 ::: {.notes}
-3 words: about 49%; 10 words: about 60%; 40 words: about 69%, against a chance level of 17%.
+3 words: about 49%; 10 words: about 61%; 40 words: about 73%, against a chance level of 17%.
 This curve sets the abstention rule used for the orphans.
 :::
 
@@ -175,7 +175,7 @@ This curve sets the abstention rule used for the orphans.
 ::: {.column width="50%"}
 **Remove all logograms** (Sumero- and Akkadograms)
 
-- word tf-idf: 72% → 66%
+- word tf-idf: 69% → 66%
 - sign n-grams: 72% → 70%
 
 The signal survives without the cultic logographic vocabulary.
@@ -270,6 +270,22 @@ The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check 
 
 ---
 
+## Word classes: function words and verbs are not where tradition lives
+
+![](img/orphans/wordclasses.png){fig-align="center" width="85%"}
+
+::: {.small}
+The six categories of StBoT 73 Table 4, assigned from TLHdig's morphological analyses. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.
+:::
+
+::: {.notes}
+Removing function words *raises* accuracy for the six traditions (69% → 74%): they are shared across traditions, a common scribal and syntactic layer.
+Alone they still reach 57% against 23%, so formulae differ between traditions, but less than realia (66%) or Hurrian words (83%).
+Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (54% → 47%), yet 47% is still twice the majority baseline, so the Hittite frame text also differs between the subgroups.
+:::
+
+---
+
 # CTH 701 as a test bed
 
 ::: {.absolute top="0" left="96%"}
@@ -310,7 +326,7 @@ The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check 
 ![](img/orphans/orphans_by_tradition.png){fig-align="center" width="80%"}
 
 ::: {.small}
-Orphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision.
+Orphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision (0.020; bootstrap 90% interval 0.019–0.021, i.e. 461–548 orphans assigned).
 :::
 
 ---
@@ -323,7 +339,7 @@ Orphans with 5+ legible words. A fragment is assigned only when its lead over th
 - Archetypes with little coverage are transmissions we only see through the reference corpus. High coverage from orphans alone points to traditions that circulated widely in fragments.
 
 ::: {.notes}
-E6, first pass: the two ritual traditions (70 and 167 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.81, and "Mixed" (12 orphans) 0.39.
+E6, first pass: the two ritual traditions (125 and 288 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.85, and "Mixed" (16 orphans) 0.58.
 Coverage grows with the number of orphans, so these numbers still need rarefaction (equal orphan counts per tradition) before they can be compared.
 :::
 

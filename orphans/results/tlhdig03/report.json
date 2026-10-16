@@ -9,7 +9,7 @@
     "words": {
       "acc": 0.691,
       "majority": 0.231,
-      "null_mean": 0.176,
+      "null_mean": 0.177,
       "p": 0.005,
       "n": 1637,
       "classes": 6,
@@ -75,7 +75,7 @@
     "signs": {
       "acc": 0.695,
       "majority": 0.231,
-      "null_mean": 0.174,
+      "null_mean": 0.175,
       "p": 0.005,
       "n": 1637,
       "classes": 6,
@@ -93,7 +93,7 @@
     "words": {
       "acc": 0.884,
       "majority": 0.778,
-      "null_mean": 0.525,
+      "null_mean": 0.524,
       "p": 0.005,
       "n": 1254,
       "classes": 3,
@@ -119,7 +119,7 @@
     "both": {
       "acc": 0.887,
       "majority": 0.778,
-      "null_mean": 0.541,
+      "null_mean": 0.542,
       "p": 0.005,
       "n": 1254,
       "classes": 3,
@@ -134,7 +134,7 @@
     "words": {
       "acc": 0.856,
       "majority": 0.778,
-      "null_mean": 0.494,
+      "null_mean": 0.492,
       "p": 0.005,
       "n": 1254,
       "classes": 3,
@@ -147,7 +147,7 @@
     "signs": {
       "acc": 0.87,
       "majority": 0.778,
-      "null_mean": 0.506,
+      "null_mean": 0.509,
       "p": 0.005,
       "n": 1254,
       "classes": 3,
@@ -162,7 +162,7 @@
     "words": {
       "acc": 0.537,
       "majority": 0.232,
-      "null_mean": 0.142,
+      "null_mean": 0.147,
       "p": 0.005,
       "n": 82,
       "classes": 8,
@@ -180,7 +180,7 @@
     "signs": {
       "acc": 0.61,
       "majority": 0.232,
-      "null_mean": 0.145,
+      "null_mean": 0.151,
       "p": 0.005,
       "n": 82,
       "classes": 8,
@@ -198,7 +198,7 @@
     "both": {
       "acc": 0.598,
       "majority": 0.232,
-      "null_mean": 0.147,
+      "null_mean": 0.148,
       "p": 0.005,
       "n": 82,
       "classes": 8,
@@ -218,8 +218,8 @@
     "words": {
       "acc": 0.733,
       "majority": 0.832,
-      "null_mean": 0.719,
-      "p": 0.4279,
+      "null_mean": 0.725,
+      "p": 0.4627,
       "n": 101,
       "classes": 2,
       "recall_by_class": {
@@ -230,8 +230,8 @@
     "signs": {
       "acc": 0.752,
       "majority": 0.832,
-      "null_mean": 0.739,
-      "p": 0.4428,
+      "null_mean": 0.736,
+      "p": 0.403,
       "n": 101,
       "classes": 2,
       "recall_by_class": {
@@ -242,8 +242,8 @@
     "both": {
       "acc": 0.743,
       "majority": 0.832,
-      "null_mean": 0.737,
-      "p": 0.4876,
+      "null_mean": 0.739,
+      "p": 0.5373,
       "n": 101,
       "classes": 2,
       "recall_by_class": {
@@ -253,20 +253,24 @@
     }
   },
   "E2_abstention": {
-    "margin": 0.025,
-    "precision_above_margin": 0.8159113231373649,
-    "share_assigned": 0.4242261904761905
+    "margin": 0.02,
+    "precision_above_margin": 0.8048665249232223,
+    "share_assigned": 0.5039285714285714,
+    "margin_90ci": [
+      0.019,
+      0.021
+    ]
   },
   "E5_orphans": {
-    "assigned": 318,
-    "abstained": 1686,
+    "assigned": 511,
+    "abstained": 1493,
     "by_tradition": {
-      "Old Anatolian rituals": 167,
-      "Kizzuwatna rituals": 70,
-      "Kizzuwatna–Lower Land (Hurrian)": 32,
-      "Syro-Mesopotamia (Hurrian)": 19,
-      "Luwian cult centres": 18,
-      "Mixed (Hurrian, Syrian, Luwian)": 12
+      "Old Anatolian rituals": 288,
+      "Kizzuwatna rituals": 125,
+      "Kizzuwatna–Lower Land (Hurrian)": 39,
+      "Syro-Mesopotamia (Hurrian)": 24,
+      "Luwian cult centres": 19,
+      "Mixed (Hurrian, Syrian, Luwian)": 16
     },
     "by_filing": {
       "(abstain)": {
@@ -277,16 +281,16 @@
         "436": 0,
         "446": 2,
         "448": 1,
-        "470": 1407,
+        "470": 1232,
         "481": 1,
         "490": 1,
         "500": 2,
-        "670": 152,
+        "670": 140,
         "698": 1,
         "704": 0,
         "722": 0,
         "770": 1,
-        "832": 115
+        "832": 109
       },
       "Kizzuwatna rituals": {
         "409": 0,
@@ -296,16 +300,16 @@
         "436": 0,
         "446": 0,
         "448": 0,
-        "470": 67,
+        "470": 114,
         "481": 0,
         "490": 0,
         "500": 0,
-        "670": 2,
+        "670": 8,
         "698": 0,
         "704": 0,
         "722": 0,
         "770": 0,
-        "832": 1
+        "832": 3
       },
       "Kizzuwatna–Lower Land (Hurrian)": {
         "409": 0,
@@ -315,16 +319,16 @@
         "436": 0,
         "446": 0,
         "448": 0,
-        "470": 14,
+        "470": 18,
         "481": 0,
         "490": 0,
         "500": 0,
-        "670": 18,
+        "670": 20,
         "698": 0,
         "704": 0,
         "722": 0,
         "770": 0,
-        "832": 0
+        "832": 1
       },
       "Luwian cult centres": {
         "409": 0,
@@ -338,7 +342,7 @@
         "481": 0,
         "490": 0,
         "500": 0,
-        "670": 15,
+        "670": 16,
         "698": 0,
         "704": 0,
         "722": 0,
@@ -353,7 +357,7 @@
         "436": 0,
         "446": 0,
         "448": 0,
-        "470": 5,
+        "470": 9,
         "481": 0,
         "490": 0,
         "500": 0,
@@ -372,16 +376,16 @@
         "436": 1,
         "446": 0,
         "448": 0,
-        "470": 160,
+        "470": 276,
         "481": 0,
         "490": 0,
         "500": 0,
-        "670": 0,
+        "670": 2,
         "698": 0,
         "704": 0,
         "722": 0,
         "770": 0,
-        "832": 5
+        "832": 8
       },
       "Syro-Mesopotamia (Hurrian)": {
         "409": 0,
@@ -391,23 +395,41 @@
         "436": 0,
         "446": 0,
         "448": 0,
-        "470": 18,
+        "470": 22,
         "481": 0,
         "490": 0,
         "500": 1,
-        "670": 0,
+        "670": 1,
         "698": 0,
         "704": 0,
         "722": 0,
         "770": 0,
         "832": 0
       }
+    },
+    "assigned_at_margin_90ci": {
+      "0.019": {
+        "Old Anatolian rituals": 314,
+        "Kizzuwatna rituals": 138,
+        "Kizzuwatna–Lower Land (Hurrian)": 41,
+        "Syro-Mesopotamia (Hurrian)": 24,
+        "Mixed (Hurrian, Syrian, Luwian)": 19,
+        "Luwian cult centres": 19
+      },
+      "0.021": {
+        "Old Anatolian rituals": 261,
+        "Kizzuwatna rituals": 113,
+        "Kizzuwatna–Lower Land (Hurrian)": 37,
+        "Syro-Mesopotamia (Hurrian)": 23,
+        "Luwian cult centres": 19,
+        "Mixed (Hurrian, Syrian, Luwian)": 16
+      }
     }
   },
   "E6_archetype_coverage": [
     {
       "tradition": "Kizzuwatna rituals",
-      "orphans": 70,
+      "orphans": 125,
       "core_terms": 200,
       "core_attested": 200,
       "coverage": 1.0,
@@ -415,29 +437,29 @@
     },
     {
       "tradition": "Kizzuwatna–Lower Land (Hurrian)",
-      "orphans": 32,
+      "orphans": 39,
       "core_terms": 200,
-      "core_attested": 162,
-      "coverage": 0.81,
+      "core_attested": 169,
+      "coverage": 0.845,
       "unattested_examples": [
         "§ḫi",
-        "§pí",
         "§pát",
-        "§ma·nu",
         "§ḫa·an",
         "§RU",
-        "§zu",
-        "§lu",
         "§SÌR·RU",
-        "§SÌR"
+        "§SÌR",
+        "§aš·ši",
+        "§ru",
+        "SÌR-RU",
+        "§ḫé"
       ]
     },
     {
       "tradition": "Luwian cult centres",
-      "orphans": 18,
+      "orphans": 19,
       "core_terms": 200,
-      "core_attested": 127,
-      "coverage": 0.635,
+      "core_attested": 128,
+      "coverage": 0.64,
       "unattested_examples": [
         "§ša·an·na",
         "§ḫu·wa·aš",
@@ -453,26 +475,26 @@
     },
     {
       "tradition": "Mixed (Hurrian, Syrian, Luwian)",
-      "orphans": 12,
+      "orphans": 16,
       "core_terms": 200,
-      "core_attested": 77,
-      "coverage": 0.385,
+      "core_attested": 115,
+      "coverage": 0.575,
       "unattested_examples": [
         "§D·ḫé",
         "§D·ḫé·pát",
         "§ḫé·pát",
         "§ḫé",
-        "§i",
-        "§pa",
-        "§NA",
         "DINGIRna",
-        "§A·NA",
-        "§MEŠ·na"
+        "§MEŠ·na",
+        "§DINGIR·MEŠ·na",
+        "§šu",
+        "§we",
+        "§NA·D"
       ]
     },
     {
       "tradition": "Old Anatolian rituals",
-      "orphans": 167,
+      "orphans": 288,
       "core_terms": 200,
       "core_attested": 200,
       "coverage": 1.0,
@@ -480,21 +502,21 @@
     },
     {
       "tradition": "Syro-Mesopotamia (Hurrian)",
-      "orphans": 19,
+      "orphans": 24,
       "core_terms": 200,
-      "core_attested": 158,
-      "coverage": 0.79,
+      "core_attested": 167,
+      "coverage": 0.835,
       "unattested_examples": [
-        "§ḫur·li·li",
-        "§ḫur·li",
-        "§li·li",
-        "§li",
-        "§ḫur",
         "§uš·ḫi·ia",
         "§ni·eš",
         "§ḫi·ia",
         "ḫurlilima",
-        "§li·li·ma"
+        "§li·li·ma",
+        "§li·ma",
+        "§ge",
+        "§Ì",
+        "§ap",
+        "§ip"
       ]
     }
   ]
