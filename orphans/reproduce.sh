@@ -5,8 +5,8 @@
 #
 # DATA_DIR (default ./data) receives the TLHdig zip and the parsed token table.
 # The CTH 701 subgroup labels (Salvini-Wegner a-f, script date) are read from
-# $LABELS701 (default labels/cth701_labels.csv). Without them E3, E7c and the
-# CTH 701 part of E8 are skipped.
+# $LABELS701 (default labels/cth701_labels.csv, a snapshot of the Mainz Konkordanz;
+# set REFRESH_KONKORDANZ=1 to download the current Konkordanz page and rebuild it).
 # Needs Python 3.13 with requirements.txt, and Quarto 1.6 for the slides.
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -27,6 +27,10 @@ echo "$MD5  $ZIP" | md5sum -c -
 python3 -m qtm.tlhdig "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" "$DATA/tokens.csv" > "$DATA/parse.log" 2> "$DATA/parse.err"
 TOK=$DATA/tokens.csv
 
+if [ "${REFRESH_KONKORDANZ:-0}" = 1 ]; then
+  rm -f "$DATA/konkordanz/hetkonk_c701.html"
+  python3 -m qtm.konkordanz 701 "$DATA/konkordanz" labels/cth701_labels.csv
+fi
 L=()
 if [ -f "$LABELS701" ]; then L=(--labels701 "$LABELS701"); else echo "no CTH 701 labels: skipping the subgroup tests"; fi
 
