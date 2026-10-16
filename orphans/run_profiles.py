@@ -7,6 +7,8 @@ E7a  Which layer identifies a tradition? Leave-one-out nearest-centroid accuracy
 E7b  Profiles: the most distinctive features of each tradition per layer (weighted log-odds
      with an informative Dirichlet prior, Monroe et al. 2008, on document frequencies),
      and each tradition's mean orthographic indices (z-scores).
+E7d  Spelling contrasts: share of plene spellings of a few frequent verbs and adverbs
+     per tradition (the same word, written differently).
 E7c  Date check: do the orthographic indices separate Middle from New Script in CTH 701?
      If they do, part of the "scribal" profile may be date rather than tradition.
 
@@ -26,9 +28,10 @@ from sklearn.preprocessing import StandardScaler
 from qtm.corpus import load
 from qtm.features import vectorizer
 from qtm.groups import HISTORICAL, label_map, is_orphan
-from qtm.layers import INDICES, indices, layer_tokens, variable_words
+from qtm.layers import INDICES, has_plene, indices, layer_tokens, variable_words
 from run_experiments import MIN_WORDS, loo_eval
 
+CONTRAST_WORDS = ("memai", "peran", "ḫalzai", "akuanzi", "šer")
 LAYERS = ("logograms", "foreign", "lexicon", "spelling", "collapsed")
 RNG = np.random.default_rng(0)
 
@@ -118,6 +121,12 @@ def main():
     zt = z.groupby(y).mean().round(3)
     zt.to_csv(f"{a.out}/E7_index_profile.csv")
     report["E7b_index_profile_z"] = zt.to_dict(orient="index")
+
+    # E7d spelling contrasts
+    rows = [{"word": w, "tradition": lab, "plene": has_plene(sg)}
+            for (_, d), lab in zip(ref.iterrows(), y) for w, sg in zip(d.words, d.signs) if w in CONTRAST_WORDS]
+    con = pd.DataFrame(rows).groupby(["word", "tradition"]).plene.agg(["mean", "size"]).round(3)
+    con.to_csv(f"{a.out}/E7_spelling_contrasts.csv")
 
     # E7c script date inside CTH 701
     if a.labels701:

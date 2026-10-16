@@ -34,7 +34,7 @@ format:
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-1 [2 3 4 5]{style="opacity:0.25"}
+1 [2 3 4 5 6]{style="opacity:0.25"}
 :::
 :::
 
@@ -93,7 +93,7 @@ The EBo median of 4 words is the hard constraint for everything that follows.
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1]{style="opacity:0.25"} 2 [3 4 5]{style="opacity:0.25"}
+[1]{style="opacity:0.25"} 2 [3 4 5 6]{style="opacity:0.25"}
 :::
 :::
 
@@ -132,7 +132,7 @@ The EBo median of 4 words is the hard constraint for everything that follows.
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1 2]{style="opacity:0.25"} 3 [4 5]{style="opacity:0.25"}
+[1 2]{style="opacity:0.25"} 3 [4 5 6]{style="opacity:0.25"}
 :::
 :::
 
@@ -191,11 +191,90 @@ So the 701 groupings are not just script-date clusters.
 
 ---
 
+# Scribal or cultural?
+
+::: {.absolute top="0" left="96%"}
+::: sectionhead
+[1 2 3]{style="opacity:0.25"} 4 [5 6]{style="opacity:0.25"}
+:::
+:::
+
+---
+
+## What identifies a tradition: what is written, or how?
+
+![](img/orphans/layers.png){fig-align="center" width="78%"}
+
+::: {.small}
+Each layer alone, leave one manuscript out, 6 traditions, 1,637 manuscripts. *Only the 209 manuscripts with foreign-language words. Orthographic habits: 10-fold LDA on seven per-text rates.
+:::
+
+::: {.notes}
+Content carries the identity: logograms and Hittite vocabulary 65% each, foreign-language words 83% where present.
+Keeping the spelling of variable words adds nothing (57% vs 58% with spelling ignored): spelling choice does not mark a tradition beyond the words themselves.
+Text-level orthographic habits are a weak but real signal: 33% against 22% for shuffled labels (p = 0.01).
+:::
+
+---
+
+## Cultural profiles: each tradition's distinctive vocabulary
+
+::: {.small}
+
+| Tradition | Logograms | Hittite and foreign words |
+|---|---|---|
+| Kizzuwatna rituals | SISKUR, Ì.DU₁₀.GA, MUŠEN, SILA₄, ZA.GÌN | *tarpalli-*, *kureššar*, *ḫuittiya-*, *warnu-* |
+| Kizzuwatna–Lower Land | NINDA.GUR₄.RA, BA.BA.ZA, *UP-NI* | *manuzzi*, Išḫara, *šipant-* |
+| Luwian cult centres | SÌR-RU, NAR, *BE-EL* | *aku-* "drink", *palwai-* |
+| Mixed | KI.MIN, NINDA.SIG, Ḫepat | Ninatta, Kulitta |
+| Old Anatolian rituals | UTU, ŠU.GI, ALAM | *takna-*, *eštu* |
+| Syro-Mesopotamia | AZU, EREN, AD.KID, BANŠUR | *aḫrušḫi*, *ḫuprušḫi*, *ḫurlili* |
+
+:::
+
+[Weighted log-odds with an informative prior (Monroe et al. 2008), counted by manuscripts. Full lists in `E7_distinctive_features.csv`.]{.small}
+
+::: {.notes}
+These are ritual materials, offerings, performers and deities: the cultural and religious "artefacts" of each tradition.
+:::
+
+---
+
+## Scribal profiles: habits of copying lines, not regions
+
+::: {.columns}
+::: {.column width="58%"}
+![](img/orphans/orthography_profile.png){width="100%"}
+:::
+::: {.column width="42%"}
+::: {.small}
+
+| Same word, plene spelling | where it clusters |
+|---|---|
+| *me-ma-a-i* (vs *me-ma-i*) | 18 of 46 Kizzuwatna–Lower Land texts, all CTH 628 and 712 |
+| *pé-e-ra-an* (vs *pé-ra-an*) | 5 Luwian texts, all CTH 665 |
+| *ḫal-za-i* (vs *ḫal-za-a-i*) | 9 of 27 Old Anatolian ritual texts |
+
+:::
+
+- Spelling habits attach to **compositions and their copies**, not to whole traditions
+- The AZU corpus (CTH 701) stands out for plene writing
+- Script date (MS vs NS) is **not** predicted by these rates inside CTH 701
+:::
+:::
+
+::: {.notes}
+This is the QTM point: orthography marks the witness and its copying line; vocabulary marks the archetype.
+The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check against script labels.
+:::
+
+---
+
 # CTH 701 as a test bed
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1 2 3]{style="opacity:0.25"} 4 [5]{style="opacity:0.25"}
+[1 2 3 4]{style="opacity:0.25"} 5 [6]{style="opacity:0.25"}
 :::
 :::
 
@@ -220,7 +299,7 @@ So the 701 groupings are not just script-date clusters.
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1 2 3 4]{style="opacity:0.25"} 5
+[1 2 3 4 5]{style="opacity:0.25"} 6
 :::
 :::
 
