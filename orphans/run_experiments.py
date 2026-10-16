@@ -28,7 +28,8 @@ from qtm.assign import centroids, scores, loo_scores, assign
 from qtm.groups import GROUPSETS, RESIDUE, HISTORICAL, ABSTRACT, label_map, is_orphan
 
 MIN_WORDS = 17          # as in Gordin, Yavasan & Romach 2025
-RNG = np.random.default_rng(0)
+SEED = 0  # every experiment draws from its own generator seeded with SEED, so results do not
+          # depend on which experiments ran before it
 SPACES = ("words", "signs", "both")
 
 
@@ -39,11 +40,12 @@ def featurise(docs, space, **kw):
 
 
 def loo_eval(X, y, n_perm):
+    rng = np.random.default_rng(SEED)
     S, labs = loo_scores(X, y)
     pred, _, _ = assign(S, labs)
     acc = float(np.mean(pred == y))
     null = np.array([np.mean(assign(*loo_scores(X, p))[0] == p)
-                     for p in (RNG.permutation(y) for _ in range(n_perm))])
+                     for p in (rng.permutation(y) for _ in range(n_perm))])
     vc = pd.Series(y).value_counts(normalize=True)
     per_class = pd.Series(pred == y).groupby(y).mean().round(3).to_dict()
     return {"acc": round(acc, 3), "majority": round(float(vc.iloc[0]), 3),
@@ -58,6 +60,7 @@ def coverage_curve(docs, y, space, ks=(3, 5, 8, 10, 17, 25, 40), reps=10, max_te
     Only texts with at least max(ks) words are used, so every k is measured on the
     same texts (no survivorship bias). At most `max_texts` per class keep classes balanced.
     """
+    rng = np.random.default_rng(SEED)
     long_ = docs[docs.n_words >= max(ks)]
     long_ = long_.groupby(y[long_.index], group_keys=False).apply(
         lambda g: g.sample(min(len(g), max_texts), random_state=0))
@@ -69,7 +72,7 @@ def coverage_curve(docs, y, space, ks=(3, 5, 8, 10, 17, 25, 40), reps=10, max_te
         for k in ks:
             frags = []
             for _ in range(reps):
-                s = RNG.integers(0, d.n_words - k + 1)
+                s = rng.integers(0, d.n_words - k + 1)
                 frags.append(tokens({"words": d.words[s:s + k], "signs": d.signs[s:s + k]}, space))
             pred, top, gap = assign(scores(vec.transform(frags), C), labs)
             for p, g in zip(pred, gap):

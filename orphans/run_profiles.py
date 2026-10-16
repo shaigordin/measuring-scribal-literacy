@@ -29,11 +29,10 @@ from qtm.corpus import load
 from qtm.features import vectorizer
 from qtm.groups import GROUPSETS, RESIDUE, HISTORICAL, label_map, is_orphan
 from qtm.layers import INDICES, has_plene, indices, layer_tokens, variable_words
-from run_experiments import MIN_WORDS, loo_eval
+from run_experiments import MIN_WORDS, SEED, loo_eval
 
 CONTRAST_WORDS = ("memai", "peran", "ḫalzai", "akuanzi", "šer")
 LAYERS = ("logograms", "foreign", "lexicon", "spelling", "collapsed")
-RNG = np.random.default_rng(0)
 
 
 def layer_matrix(docs, layer, variable):
@@ -45,9 +44,10 @@ def layer_matrix(docs, layer, variable):
 def lda_eval(F, y, n_perm):
     model = make_pipeline(StandardScaler(), LinearDiscriminantAnalysis())
     cv = StratifiedKFold(10, shuffle=True, random_state=0)
+    rng = np.random.default_rng(SEED)
     acc = float(np.mean(cross_val_predict(model, F, y, cv=cv) == y))
     null = np.array([np.mean(cross_val_predict(model, F, p, cv=cv) == p)
-                     for p in (RNG.permutation(y) for _ in range(n_perm))])
+                     for p in (rng.permutation(y) for _ in range(n_perm))])
     vc = pd.Series(y).value_counts(normalize=True)
     return {"acc": round(acc, 3), "majority": round(float(vc.iloc[0]), 3),
             "null_mean": round(float(null.mean()), 3),

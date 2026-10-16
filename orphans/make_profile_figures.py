@@ -81,7 +81,7 @@ CL = [("foreign", "Hurrian / foreign"), ("realia", "realia (nouns)"), ("deity", 
 fig, axes = plt.subplots(1, 2, figsize=(13, 5.2), sharey=True)
 h = E8["historical"]["all"]["words"]
 for ax, (key, title) in zip(axes, [("historical", f"{h['classes']} traditions ({h['n']:,} texts)"),
-                                   ("cth701_subgroups", "CTH 701 subgroups (82 texts)")]):
+                                   ("cth701_subgroups", f"CTH 701 subgroups ({E8['cth701_subgroups']['all']['words']['n']} texts)")]):
     R = E8[key]
     ax.grid(axis="x", color=GRID, lw=1)
     allacc = R["all"]["words"]["acc"]
