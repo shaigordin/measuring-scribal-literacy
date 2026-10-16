@@ -187,5 +187,26 @@
     "title": "Orphans and Archetypes",
     "section": "Thank you",
     "text": "Thank you\nCode and data: github.com/shaigordin/measuring-scribal-literacy (orphans/)\nTLHdig 0.3: doi.org/10.5281/zenodo.20328284"
+  },
+  {
+    "objectID": "orphans_archetypes.html#what-identifies-a-tradition-what-is-written-or-how",
+    "href": "orphans_archetypes.html#what-identifies-a-tradition-what-is-written-or-how",
+    "title": "Orphans and Archetypes",
+    "section": "What identifies a tradition: what is written, or how?",
+    "text": "What identifies a tradition: what is written, or how?\n\n\nEach layer alone, leave one manuscript out, 6 traditions, 1,637 manuscripts. *Only the 209 manuscripts with foreign-language words. Orthographic habits: 10-fold LDA on seven per-text rates.\n\n\nContent carries the identity: logograms and Hittite vocabulary 65% each, foreign-language words 83% where present. Keeping the spelling of variable words adds nothing (57% vs 58% with spelling ignored): spelling choice does not mark a tradition beyond the words themselves. Text-level orthographic habits are a weak but real signal: 33% against 22% for shuffled labels (p = 0.01)."
+  },
+  {
+    "objectID": "orphans_archetypes.html#cultural-profiles-each-traditions-distinctive-vocabulary",
+    "href": "orphans_archetypes.html#cultural-profiles-each-traditions-distinctive-vocabulary",
+    "title": "Orphans and Archetypes",
+    "section": "Cultural profiles: each tradition’s distinctive vocabulary",
+    "text": "Cultural profiles: each tradition’s distinctive vocabulary\n\n\n\n\n\n\n\n\n\nTradition\nLogograms\nHittite and foreign words\n\n\n\n\nKizzuwatna rituals\nSISKUR, Ì.DU₁₀.GA, MUŠEN, SILA₄, ZA.GÌN\ntarpalli-, kureššar, ḫuittiya-, warnu-\n\n\nKizzuwatna–Lower Land\nNINDA.GUR₄.RA, BA.BA.ZA, UP-NI\nmanuzzi, Išḫara, šipant-\n\n\nLuwian cult centres\nSÌR-RU, NAR, BE-EL\naku- “drink”, palwai-\n\n\nMixed\nKI.MIN, NINDA.SIG, Ḫepat\nNinatta, Kulitta\n\n\nOld Anatolian rituals\nUTU, ŠU.GI, ALAM\ntakna-, eštu\n\n\nSyro-Mesopotamia\nAZU, EREN, AD.KID, BANŠUR\naḫrušḫi, ḫuprušḫi, ḫurlili\n\n\n\n\nWeighted log-odds with an informative prior (Monroe et al. 2008), counted by manuscripts. Full lists in E7_distinctive_features.csv.\n\nThese are ritual materials, offerings, performers and deities: the cultural and religious “artefacts” of each tradition."
+  },
+  {
+    "objectID": "orphans_archetypes.html#scribal-profiles-habits-of-copying-lines-not-regions",
+    "href": "orphans_archetypes.html#scribal-profiles-habits-of-copying-lines-not-regions",
+    "title": "Orphans and Archetypes",
+    "section": "Scribal profiles: habits of copying lines, not regions",
+    "text": "Scribal profiles: habits of copying lines, not regions\n\n\n\n\n\n\n\n\n\n\n\n\nSame word, plene spelling\nwhere it clusters\n\n\n\n\nme-ma-a-i (vs me-ma-i)\n18 of 46 Kizzuwatna–Lower Land texts, all CTH 628 and 712\n\n\npé-e-ra-an (vs pé-ra-an)\n5 Luwian texts, all CTH 665\n\n\nḫal-za-i (vs ḫal-za-a-i)\n9 of 27 Old Anatolian ritual texts\n\n\n\n\n\nSpelling habits attach to compositions and their copies, not to whole traditions\nThe AZU corpus (CTH 701) stands out for plene writing\nScript date (MS vs NS) is not predicted by these rates inside CTH 701\n\n\n\nThis is the QTM point: orthography marks the witness and its copying line; vocabulary marks the archetype. The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check against script labels."
   }
 ]

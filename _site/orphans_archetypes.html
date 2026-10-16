@@ -156,7 +156,7 @@
 <h1>The orphan problem</h1>
 <div class="absolute" style="top: 0px; left: 96%; ">
 <div class="sectionhead">
-<p>1 <span style="opacity:0.25">2 3 4 5</span></p>
+<p>1 <span style="opacity:0.25">2 3 4 5 6</span></p>
 </div>
 </div>
 </section>
@@ -242,7 +242,7 @@
 <h1>From exploration to assignment</h1>
 <div class="absolute" style="top: 0px; left: 96%; ">
 <div class="sectionhead">
-<p><span style="opacity:0.25">1</span> 2 <span style="opacity:0.25">3 4 5</span></p>
+<p><span style="opacity:0.25">1</span> 2 <span style="opacity:0.25">3 4 5 6</span></p>
 </div>
 </div>
 </section>
@@ -283,7 +283,7 @@
 <h1>Does it work?</h1>
 <div class="absolute" style="top: 0px; left: 96%; ">
 <div class="sectionhead">
-<p><span style="opacity:0.25">1 2</span> 3 <span style="opacity:0.25">4 5</span></p>
+<p><span style="opacity:0.25">1 2</span> 3 <span style="opacity:0.25">4 5 6</span></p>
 </div>
 </div>
 </section>
@@ -349,11 +349,162 @@
 
 </section></section>
 <section>
+<section id="scribal-or-cultural" class="title-slide slide level1 center">
+<h1>Scribal or cultural?</h1>
+<div class="absolute" style="top: 0px; left: 96%; ">
+<div class="sectionhead">
+<p><span style="opacity:0.25">1 2 3</span> 4 <span style="opacity:0.25">5 6</span></p>
+</div>
+</div>
+</section>
+<section id="what-identifies-a-tradition-what-is-written-or-how" class="slide level2">
+<h2>What identifies a tradition: what is written, or how?</h2>
+
+<img data-src="img/orphans/layers.png" class="quarto-figure quarto-figure-center r-stretch" style="width:78.0%"><div class="small">
+<p>Each layer alone, leave one manuscript out, 6 traditions, 1,637 manuscripts. *Only the 209 manuscripts with foreign-language words. Orthographic habits: 10-fold LDA on seven per-text rates.</p>
+</div>
+<aside class="notes">
+<p>Content carries the identity: logograms and Hittite vocabulary 65% each, foreign-language words 83% where present. Keeping the spelling of variable words adds nothing (57% vs 58% with spelling ignored): spelling choice does not mark a tradition beyond the words themselves. Text-level orthographic habits are a weak but real signal: 33% against 22% for shuffled labels (p = 0.01).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="cultural-profiles-each-traditions-distinctive-vocabulary" class="slide level2">
+<h2>Cultural profiles: each tradition’s distinctive vocabulary</h2>
+<div class="small">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tradition</th>
+<th>Logograms</th>
+<th>Hittite and foreign words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Kizzuwatna rituals</td>
+<td>SISKUR, Ì.DU₁₀.GA, MUŠEN, SILA₄, ZA.GÌN</td>
+<td><em>tarpalli-</em>, <em>kureššar</em>, <em>ḫuittiya-</em>, <em>warnu-</em></td>
+</tr>
+<tr class="even">
+<td>Kizzuwatna–Lower Land</td>
+<td>NINDA.GUR₄.RA, BA.BA.ZA, <em>UP-NI</em></td>
+<td><em>manuzzi</em>, Išḫara, <em>šipant-</em></td>
+</tr>
+<tr class="odd">
+<td>Luwian cult centres</td>
+<td>SÌR-RU, NAR, <em>BE-EL</em></td>
+<td><em>aku-</em> “drink”, <em>palwai-</em></td>
+</tr>
+<tr class="even">
+<td>Mixed</td>
+<td>KI.MIN, NINDA.SIG, Ḫepat</td>
+<td>Ninatta, Kulitta</td>
+</tr>
+<tr class="odd">
+<td>Old Anatolian rituals</td>
+<td>UTU, ŠU.GI, ALAM</td>
+<td><em>takna-</em>, <em>eštu</em></td>
+</tr>
+<tr class="even">
+<td>Syro-Mesopotamia</td>
+<td>AZU, EREN, AD.KID, BANŠUR</td>
+<td><em>aḫrušḫi</em>, <em>ḫuprušḫi</em>, <em>ḫurlili</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="small">Weighted log-odds with an informative prior (Monroe et al.&nbsp;2008), counted by manuscripts. Full lists in <code>E7_distinctive_features.csv</code>.</span></p>
+<aside class="notes">
+<p>These are ritual materials, offerings, performers and deities: the cultural and religious “artefacts” of each tradition.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="scribal-profiles-habits-of-copying-lines-not-regions" class="slide level2">
+<h2>Scribal profiles: habits of copying lines, not regions</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img data-src="img/orphans/orthography_profile.png" style="width:100.0%"></p>
+</div><div class="column" style="width:42%;">
+<div class="small">
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Same word, plene spelling</th>
+<th>where it clusters</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>me-ma-a-i</em> (vs <em>me-ma-i</em>)</td>
+<td>18 of 46 Kizzuwatna–Lower Land texts, all CTH 628 and 712</td>
+</tr>
+<tr class="even">
+<td><em>pé-e-ra-an</em> (vs <em>pé-ra-an</em>)</td>
+<td>5 Luwian texts, all CTH 665</td>
+</tr>
+<tr class="odd">
+<td><em>ḫal-za-i</em> (vs <em>ḫal-za-a-i</em>)</td>
+<td>9 of 27 Old Anatolian ritual texts</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Spelling habits attach to <strong>compositions and their copies</strong>, not to whole traditions</li>
+<li>The AZU corpus (CTH 701) stands out for plene writing</li>
+<li>Script date (MS vs NS) is <strong>not</strong> predicted by these rates inside CTH 701</li>
+</ul>
+</div></div>
+<aside class="notes">
+<p>This is the QTM point: orthography marks the witness and its copying line; vocabulary marks the archetype. The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check against script labels.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+</section></section>
+<section>
 <section id="cth-701-as-a-test-bed" class="title-slide slide level1 center">
 <h1>CTH 701 as a test bed</h1>
 <div class="absolute" style="top: 0px; left: 96%; ">
 <div class="sectionhead">
-<p><span style="opacity:0.25">1 2 3</span> 4 <span style="opacity:0.25">5</span></p>
+<p><span style="opacity:0.25">1 2 3 4</span> 5 <span style="opacity:0.25">6</span></p>
 </div>
 </div>
 </section>
@@ -378,7 +529,7 @@
 <h1>Orphans placed</h1>
 <div class="absolute" style="top: 0px; left: 96%; ">
 <div class="sectionhead">
-<p><span style="opacity:0.25">1 2 3 4</span> 5</p>
+<p><span style="opacity:0.25">1 2 3 4 5</span> 6</p>
 </div>
 </div>
 </section>
