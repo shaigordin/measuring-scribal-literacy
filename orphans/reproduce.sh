@@ -57,6 +57,7 @@ done
 python3 stats_corpus.py "$TOK" --out "$OUT"                                                    # slide numbers
 python3 stats_corpus.py "$TOK" --out "${OUT}_literature" --groups literature
 python3 review_wordclass.py examples --tokens "$TOK"                                           # annotation examples
+python3 review_wordclass.py rescore --tokens "$TOK"                                            # audit after the rule revisions
 
 # 4. slides
 (cd .. && quarto render orphans_archetypes.qmd)

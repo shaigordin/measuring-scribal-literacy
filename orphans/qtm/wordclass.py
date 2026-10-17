@@ -1,6 +1,9 @@
 """Word classes for TLHdig words, following the six categories of StBoT 73 Table 4
 (Gordin, Yavasan & Romach 2025: 119): agent, deity, function word, Hurrian (here: any
-foreign-language word), realia (here: all other nominal forms), verb.
+foreign-language word), realia, verb. Realia are narrowed to physical things (artifacts and
+buildings, ritual and cultic materials, food, plants); the other nominal words are classed by the
+meaning of their German gloss as places, animals, body parts, nature, abstract nouns, adjectives or
+measures (labels/gloss_lexicon.tsv, see meaning_class).
 
 The class comes from TLHdig's own morphological analyses (`mrp1`, `mrp2` ... on each <w>,
 format lemma@gloss@morphology@stem class@determinative; `mrp0sel` names the analysis the
@@ -19,12 +22,23 @@ high    a determinative ({D}, {LÚ} ...), the language tag (a logogram in a fore
 medium  an agent logogram from the list below, unselected candidate analyses that agree, or
         (for a word the editors left unselected) the class the editors chose for the same word
         form elsewhere, when at least 5 selected occurrences agree at 90% or more;
-low     candidate analyses that disagree (`ambiguous`), or no analysis (`unknown`).
+        A word without an analysis takes the class of a realia determinative ({GIŠ}, {UZU} ...) or
+        of a compound logogram's head (É.DINGIR, GIŠ.{D}INANNA "harp": an object, not a god);
+low     candidate analyses that disagree (`ambiguous`), or no analysis (`unknown`); for a broken
+        word without an analysis, an enclitic chain (-ma-kán, -ša-an, nu-uš(-)) makes it a function
+        word, and a third person plural ending (-a-an-zi) a verb. (Taking the class the editors
+        selected for words with the same readable beginning, ši-pa-an-, was tried and dropped: it
+        was wrong on 4 of the 5 audited cases, iš-pa-an-du- among them.)
+The rules for broken words and realia determinatives come from the philologist's audit of
+180 words (labels/wordclass_audit_marked.xlsx).
 A manual correction (labels/wordclass_corrections.csv, applied by qtm.tlhdig) is `manual`.
 """
+import csv
 import re
+from pathlib import Path
 
-CLASSES = ("agent", "deity", "function", "foreign", "realia", "verb")
+CLASSES = ("agent", "deity", "function", "foreign", "realia", "verb", "place", "animal", "body", "nature",
+           "abstract", "adjective")
 
 AGENT_LOGOGRAMS = {"LUGAL", "MUNUS.LUGAL", "BE-EL", "BE-LU", "SANGA", "AZU", "ŠU.GI", "DUMU.É.GAL",
                    "NAR", "GALA", "EN", "ḪAL", "GUDU₁₂", "LÚ", "DUMU", "DUMU.MEŠ", "ARAD", "GÉME", "UGULA", "ÉRIN.MEŠ"}
@@ -89,7 +103,20 @@ RULES = {"determinative_deity": "high", "determinative_agent": "high", "language
          "akkadian_function": "high",
          "analysis_selected": "high", "preposition_split": "high", "manual": "manual",
          "agent_logogram": "medium", "analysis_unanimous": "medium", "selected_elsewhere": "medium",
-         "analysis_ambiguous": "low", "no_analysis": "low"}
+         "determinative_noun": "medium",
+         "analysis_ambiguous": "low", "no_analysis": "low",
+         "broken_clitic": "low", "broken_ending": "low"}
+
+# determinatives and compound-logogram heads that mark an object, a material, a place or food
+REALIA_DET = r"GIŠ|UZU|DUG|NA₄|TÚG|KUŠ|URUDU|SÍG|GI|Ú|NINDA|URU|ḪUR\.SAG|ÍD|KUR|É|GAD|MUŠEN|KU₆|SAR|ZABAR|GIŠ\.ḪI\.A"
+_REALIA_DET = re.compile(r"\{(" + REALIA_DET + r")\}")
+_PLACE_DET = re.compile(r"\{(URU|KUR|ḪUR\.SAG|ÍD)\}")       # cities, lands, mountains, rivers
+_ANIMAL_DET = re.compile(r"\{(MUŠEN|KU₆)\}")               # birds, fish
+_REALIA_HEAD = re.compile(r"^(É|GIŠ|UZU|DUG|NA₄|TÚG|KUŠ|URUDU|NINDA)\.")
+# the local and sentence particles that close a Hittite enclitic chain after a lost beginning
+# (-ma-kán, but not the verb piš-kán-), and the words that open one
+_CLITIC_END = re.compile(r"(^|-)(kán|ša-an|aš-ta|pát)-?$")
+_CHAIN_START = re.compile(r"^(nu|EGIR-pa)-\S")   # nu-uš(-), EGIR-pa-ma-aš-; a bare nu- decides nothing
 
 # Akkadographic (and Sumerographic) prepositions that TLHdig writes in one <w> with their noun
 PREPOSITIONS = {"A-NA", "ANA", "A+NA", "I-NA", "INA", "I+NA", "ŠA", "ŠÀ", "ŠÁ", "IŠ-TU", "PA-NI", "PA-AN",
@@ -110,11 +137,13 @@ def word_class_rule(attrs: dict, translit: str, lang: str) -> tuple[str, str]:
     """(word class, rule); the rule's confidence level is RULES[rule]."""
     tl = translit or ""
     word = attrs.get("trans") or ""
-    if re.match(r"\{(m|f)\}", tl):                      # personal names, theophoric ones included
+    if re.match(r"\{(m|f|M|F)\}", tl):                      # personal names, theophoric ones included
         return "agent", "determinative_agent"           # ({m}SUM-{D}KAL is a man, not a god)
+    if _REALIA_HEAD.match(tl):                          # GIŠ.{D}INANNA "harp", É.DINGIR "temple"
+        return "realia", "determinative_noun"
     if "{D}" in tl or word.startswith("DINGIR"):
         return "deity", "determinative_deity"
-    if re.search(r"\{(LÚ|MUNUS|m|f)\}", tl) or re.match(r"(LÚ|MUNUS)\b", word):
+    if re.search(r"\{(LÚ|MUNUS)(\.〈?MEŠ〉?)?\}|\{(m|f)\}", tl) or re.match(r"(LÚ|MUNUS)\b", word):
         return "agent", "determinative_agent"
     if re.split(r"[-\s]", word)[0] in AGENT_LOGOGRAMS:
         return "agent", "agent_logogram"
@@ -137,15 +166,89 @@ def word_class_rule(attrs: dict, translit: str, lang: str) -> tuple[str, str]:
         if not (picked and all(not re.search(r"\b(LUW|PAL|HAT|HURR)\b", m) for m in picked.values())):
             return "foreign", "language"
     if not mrps:
-        return "unknown", "no_analysis"
+        return no_analysis_rule(tl)
     pool = [(m, chosen[n]) for n, m in picked.items()] or [(m, "") for m in mrps.values()]
     pos = {candidate_pos(m, l) for m, l in pool} - {"unknown"}
     if len(pos) == 1:
         p = pos.pop()
         if p == "ambiguous":
             return "ambiguous", "analysis_ambiguous"
-        return ("other" if p == "number" else p), ("analysis_selected" if picked else "analysis_unanimous")
+        rule = "analysis_selected" if picked else "analysis_unanimous"
+        if p == "realia":
+            return meaning_class(pool, tl), rule
+        return ("other" if p == "number" else p), rule
     return ("ambiguous", "analysis_ambiguous") if pos else ("unknown", "no_analysis")
+
+
+# A nominal word's class by meaning (decision of the philologist, 2026-10-17): realia are physical
+# artifacts and buildings, ritual and cultic materials, food, plants and things; the other nouns are
+# catalogued by the meaning of TLHdig's German gloss. labels/gloss_lexicon.tsv gives each gloss one
+# label. It was drafted by Claude from the German glosses (not by a rule), committed as a fixed file,
+# and can be corrected by hand; the names of gods, persons and places come from TLHdig's stem class.
+LEXICON_FILE = Path(__file__).parent.parent / "labels" / "gloss_lexicon.tsv"
+GLOSS_CLASS = {"realia": "realia", "person": "agent", "deity": "deity", "abstract": "abstract",
+               "adjective": "adjective", "animal": "animal", "body": "body", "nature": "nature",
+               "place": "place", "measure": "measure", "function": "function", "unknown": "other"}
+_NAME_CLASS = (("35", "deity"), ("36", "deity"), ("37", "agent"), ("38", "agent"), ("39", "place"))
+
+
+def _load_lexicon() -> dict:
+    if not LEXICON_FILE.exists():
+        return {}
+    with open(LEXICON_FILE, encoding="utf-8") as f:
+        return {r["gloss"]: GLOSS_CLASS[r["label"]] for r in csv.DictReader(f, delimiter="\t")}
+
+
+LEXICON = _load_lexicon()
+
+
+# a concrete gloss outranks the name stem class: stem class 36 also holds GUNNI "Herd" (hearth) and
+# GÌR "Fuß aus Holz", deified things that are realia when written without {D}
+_CONCRETE = {"realia", "animal", "body"}
+
+
+def gloss_class(mrp: str) -> str:
+    """Meaning class of one nominal analysis: a concrete gloss by its label, a name by its stem
+    class, else its gloss's label."""
+    f = [x.strip() for x in mrp.replace("①", "").split("@")]
+    stem = f[3] if len(f) > 3 else ""
+    label = LEXICON.get(f[1] if len(f) > 1 else "", "realia")
+    if label in _CONCRETE:
+        return label
+    for prefix, cls in _NAME_CLASS:
+        if stem == prefix or stem.startswith(prefix + "."):
+            return cls
+    return label
+
+
+def meaning_class(pool, tl: str) -> str:
+    """Class of a nominal word from the glosses of its analyses: one class if they agree; when they
+    disagree and one reading is a thing (ZA.GÌN "blau" / "Lapislazuli", IM "Wind" / "Lehm"), realia;
+    else `ambiguous`. A body part with the meat determinative ({UZU} NÍG.GIG) is ritual material."""
+    classes = {gloss_class(m) for m, l in pool if candidate_pos(m, l) == "realia"} or {"realia"}
+    if len(classes) > 1:
+        return "realia" if "realia" in classes else "ambiguous"
+    c = classes.pop()
+    return "realia" if c == "body" and "{UZU}" in tl else c
+
+
+def no_analysis_rule(tl: str) -> tuple[str, str]:
+    """A word TLHdig gives no analysis: a realia determinative, then, for a broken word (a
+    transliteration that begins or ends with a hyphen), an enclitic chain or a verbal ending."""
+    if _PLACE_DET.search(tl):
+        return "place", "determinative_noun"
+    if _ANIMAL_DET.search(tl):
+        return "animal", "determinative_noun"
+    if _REALIA_DET.search(tl):
+        return "realia", "determinative_noun"
+    t = tl.strip().replace("(-)", "-")
+    if t.startswith("-") or t.endswith("-"):
+        core = t.strip("-")
+        if (t.startswith("-") and _CLITIC_END.search(t)) or _CHAIN_START.match(core):
+            return "function", "broken_clitic"
+        if t.startswith("-") and core.endswith("an-zi"):
+            return "verb", "broken_ending"
+    return "unknown", "no_analysis"
 
 
 def word_class(attrs: dict, translit: str, lang: str) -> str:
@@ -155,9 +258,12 @@ def word_class(attrs: dict, translit: str, lang: str) -> str:
 # categories of StBoT 73 Table 4 with agents and deities together, and the rest as "Other words";
 # and the three layers a feature belongs to (sign n-grams with any upper-case sign, i.e. a
 # logogram or determinative, count as logographic writing).
-CATEGORY = {"function": "Function words", "verb": "Verbs", "realia": "Nouns and realia",
-            "agent": "Agents and deities", "deity": "Agents and deities", "foreign": "Foreign words"}
-CATEGORIES = ["Function words", "Verbs", "Nouns and realia", "Agents and deities", "Foreign words", "Other words"]
+CATEGORY = {"function": "Function words", "verb": "Verbs", "realia": "Realia",
+            "agent": "Agents and deities", "deity": "Agents and deities", "place": "Places",
+            "animal": "Animals, body, nature", "body": "Animals, body, nature", "nature": "Animals, body, nature",
+            "abstract": "Abstract nouns", "adjective": "Adjectives", "foreign": "Foreign words"}
+CATEGORIES = ["Function words", "Verbs", "Realia", "Agents and deities", "Places", "Animals, body, nature",
+              "Abstract nouns", "Adjectives", "Foreign words", "Other words"]
 LAYERS = ["Word form", "Syllabic spelling", "Logographic writing"]
 
 
