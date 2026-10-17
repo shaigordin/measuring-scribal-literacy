@@ -1,0 +1,180 @@
+{
+  "reviewed": 178,
+  "levels": {
+    "high": {
+      "reviewed": 59,
+      "right": 57,
+      "accuracy": 0.966,
+      "ci95": [
+        0.885,
+        0.991
+      ]
+    },
+    "low": {
+      "reviewed": 60,
+      "right": 53,
+      "accuracy": 0.883,
+      "ci95": [
+        0.778,
+        0.942
+      ]
+    },
+    "medium": {
+      "reviewed": 59,
+      "right": 52,
+      "accuracy": 0.881,
+      "ci95": [
+        0.775,
+        0.941
+      ]
+    }
+  },
+  "note": "in-sample: the rules were revised on these marks",
+  "corpus_accuracy_estimate": 0.936,
+  "still_wrong": [
+    {
+      "word": "tia",
+      "translit": "ti-ia",
+      "wclass": "foreign",
+      "accepted": "function",
+      "now": "foreign",
+      "rule_now": "language",
+      "note": "Should be checked if this is the initial ti that is also an old hittite clitic like nu"
+    },
+    {
+      "word": "ḫurlili",
+      "translit": "ḫur-li-li",
+      "wclass": "function",
+      "accepted": "other",
+      "now": "function",
+      "rule_now": "analysis_selected",
+      "note": "\"In Hurrian\""
+    },
+    {
+      "word": "1-NU-TUM",
+      "translit": "1-NU-TUM",
+      "wclass": "realia",
+      "accepted": "function",
+      "now": "measure",
+      "rule_now": "analysis_unanimous",
+      "note": ""
+    },
+    {
+      "word": "urra",
+      "translit": "u-úr-ra",
+      "wclass": "realia",
+      "accepted": "other",
+      "now": "agent",
+      "rule_now": "analysis_unanimous",
+      "note": "It looks like a noun meaning \"great\", but its very much context dependent"
+    },
+    {
+      "word": "aḫraš",
+      "translit": "a-aḫ-ra-aš",
+      "wclass": "realia",
+      "accepted": "other",
+      "now": "abstract",
+      "rule_now": "analysis_unanimous",
+      "note": "Its a noun meaning \"pain\""
+    },
+    {
+      "word": "šiunaš",
+      "translit": "ši-ú-na-aš",
+      "wclass": "realia",
+      "accepted": "other",
+      "now": "deity",
+      "rule_now": "analysis_unanimous",
+      "note": ""
+    },
+    {
+      "word": "takanzipiuš",
+      "translit": "da-ga-an-zi-pí-uš",
+      "wclass": "realia",
+      "accepted": "foreign",
+      "now": "ambiguous",
+      "rule_now": "analysis_unanimous",
+      "note": "It is realia, but foreign realia"
+    },
+    {
+      "word": "SÌR-RU",
+      "translit": "SÌR-RU",
+      "wclass": "verb",
+      "accepted": "realia",
+      "now": "verb",
+      "rule_now": "analysis_unanimous",
+      "note": ""
+    },
+    {
+      "word": "iškiši",
+      "translit": "iš-ki-ši",
+      "wclass": "realia",
+      "accepted": "verb",
+      "now": "ambiguous",
+      "rule_now": "analysis_unanimous",
+      "note": "Not sure, depends on the context"
+    },
+    {
+      "word": "ke",
+      "translit": "ke-e",
+      "wclass": "ambiguous",
+      "accepted": "function",
+      "now": "ambiguous",
+      "rule_now": "analysis_ambiguous",
+      "note": ""
+    },
+    {
+      "word": "iškaranta",
+      "translit": "iš-ga-ra-an-ta",
+      "wclass": "ambiguous",
+      "accepted": "realia",
+      "now": "ambiguous",
+      "rule_now": "analysis_ambiguous",
+      "note": "Could this be a foreign word? Needs to check literature and/or heth. Portal databases"
+    },
+    {
+      "word": "ḫameriki",
+      "translit": "ḫa-a-me-ri-ki",
+      "wclass": "unknown",
+      "accepted": "verb",
+      "now": "unknown",
+      "rule_now": "no_analysis",
+      "note": "Needs to check, looks like a verb"
+    },
+    {
+      "word": "apate",
+      "translit": "a-ba-te",
+      "wclass": "unknown",
+      "accepted": "foreign",
+      "now": "unknown",
+      "rule_now": "no_analysis",
+      "note": "Should check vs dictionary or other text publication"
+    },
+    {
+      "word": "išpantu~",
+      "translit": "iš-pa-an-du-",
+      "wclass": "unknown",
+      "accepted": "verb",
+      "now": "unknown",
+      "rule_now": "no_analysis",
+      "note": "Broken"
+    },
+    {
+      "word": "šipan~",
+      "translit": "ši-pa-an-",
+      "wclass": "unknown",
+      "accepted": "verb",
+      "now": "unknown",
+      "rule_now": "no_analysis",
+      "note": "End broken?"
+    },
+    {
+      "word": "EGIR",
+      "translit": "EGIR",
+      "wclass": "ambiguous",
+      "accepted": "ambiguous",
+      "now": "function",
+      "rule_now": "selected_elsewhere",
+      "note": ""
+    }
+  ]
+}

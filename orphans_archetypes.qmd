@@ -250,7 +250,7 @@ Figure from the paper (paper/figures/pipeline.tex), built from the same results 
 
 ## How a word gets its category
 
-[No language model is involved: the categories are **rules over TLHdig's own morphological analyses**, made by its editors (`qtm/wordclass.py`). The six categories follow StBoT 73, Table 4.]{.smallish}
+[The part of speech comes from **rules over TLHdig's own morphological analyses**, made by its editors (`qtm/wordclass.py`); the categories follow StBoT 73, Table 4. Nouns are then sorted by the **meaning of TLHdig's German gloss**: realia (things, ritual materials, plants), places, animals and body, abstract nouns, adjectives. That gloss list (5,494 glosses) was drafted by Claude and is a fixed, correctable file (`labels/gloss_lexicon.tsv`).]{.smallish}
 
 ::: {.smallest}
 
@@ -260,7 +260,7 @@ Figure from the paper (paper/figures/pipeline.tex), built from the same results 
 | na-at | *n=at* · CONNn=PPRO.3SG.N.NOM or .ACC "and it" (no choice made) | readings agree; head CONNn | Function word | medium |
 | A-NA {GIŠ}BANŠUR | one TLHdig word: BANŠUR "table", …:D/L.SG | split: preposition + noun | A-NA function word; BANŠUR noun | high |
 | da-a-i | *dā-* "take" · 3SG.PRS · stem class II.2 | verbal stem class | Verb | high |
-| BE-LÍ-IA | BĒLU "lord" · NOM.SG_PPRO.1SG.GEN | head (NOM.SG); the suffix "my" does not count | Noun | medium |
+| BE-LÍ-IA | BĒLU "lord" · NOM.SG_PPRO.1SG.GEN | head (NOM.SG); the suffix "my" does not count; gloss "Herr": a person | Agent | medium |
 | {MUNUS}ŠU.GI | determinative MUNUS "woman" | determinative | Agent | high |
 | {m}Kupanta-{D}KAL | determinative m (a man's name) | person before deity | Agent | high |
 | {D}UTU-uš | determinative D | determinative | Deity | high |
@@ -285,9 +285,9 @@ The rule order: the word's own language tag, then determinatives (m before D, so
 
 | Confidence | basis | share of words |
 |---|---|---:|
-| high | editor's selected analysis, determinative, language tag, split or Akkadian preposition | 63.7% |
-| medium | all analyses agree; same form selected elsewhere; agent logogram | 24.1% |
-| low | analyses disagree, or none (broken words) | 12.1% |
+| high | editor's selected analysis, determinative, language tag, split or Akkadian preposition | 62.7% |
+| medium | all analyses agree; same form selected elsewhere; agent logogram | 25.1% |
+| low | analyses disagree, or none (broken words) | 12.2% |
 
 :::
 
@@ -295,17 +295,19 @@ The rule order: the word's own language tag, then determinatives (m before D, so
 :::
 ::: {.column width="50%"}
 ::: {.smallish}
-- An **audit** of the rules found seven systematic errors (prepositions joined to nouns, possessive suffixes, theophoric names, GAL as an agent ...); fixing them changed **9.3%** of the words; a second pass (Akkadian *ana*, *ina*; logograms in foreign-language lines) changed 0.5% more, and **every experiment was rerun**
+- **A philologist's blind audit** of 178 words (about 60 per level): **93% right** at high confidence, **88%** at medium, **70%** at low; **89%** of all words, weighted by level
+- Five rules revised on the audit's notes (broken enclitic chains, determinatives of unanalysed words, compound logograms ...); 2.2% of the words changed. In-sample, the audit now scores 97 / 88 / 88%, **94%** overall (an upper bound), and **every experiment was rerun**
 - **Correcting by hand:** a review sheet of the most frequent forms and a corrections file that every run applies (`review_wordclass.py`)
-- **Known limits:** "realia" includes adjectives and place names; 10.5% unknown, half of them broken words; syllabic Akkadian *ša* has no analysis; participles count as verbs
-- A blind sample of 180 words (60 per level) is ready for a philologist's check
+- **Known limits:** 9.3% unknown, most of them broken words; syllabic Akkadian *ša* has no analysis; participles count as verbs; the noun meaning classes have not been audited
 :::
 :::
 :::
 
 ::: {.notes}
 The class results (word classes and decision shares) should be read with this confidence in mind; removing a whole class changes accuracy by at most 7 points (E8), so a few per cent of misclassified words cannot drive them.
-Rule changes before and after the audit: results/wordclass_rule_changes.csv.
+Audit: labels/wordclass_audit.csv (the philologist's marks and notes), results/wordclass_audit_scores.json (before and after the rule revisions, review_wordclass.py score / rescore).
+Rule changes: results/wordclass_rule_changes.csv (first audit), results/wordclass_rule_changes_audit.csv (philologist's audit and the meaning classes: 19% of the words moved, 2.2% by the revised rules).
+The noun meaning classes replace the single 'realia' class of StBoT 73 at the philologist's request: realia proper is the cultural layer and should not be mixed with abstract nouns and adjectives.
 :::
 
 # Results
@@ -491,12 +493,13 @@ The Hattian layer leans to plene writing and few logograms, which may be date (O
 ![](img/orphans/literature/wordclasses.png){fig-align="center" width="85%"}
 
 ::: {.small}
-The six categories of StBoT 73 Table 4. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.
+The categories of StBoT 73 Table 4, with its realia split by meaning. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.
 :::
 
 ::: {.notes}
-Removing function words, verbs or agents costs almost nothing (82% → 80–82%): these classes are shared across traditions, a common scribal and syntactic layer.
-Alone they still reach 54–57% against 30%, so formulae differ between traditions, but less than realia (70%) or foreign words (84%). Removing realia costs the most (82% → 75%), then foreign words (78%).
+Removing any one class except foreign words costs at most two points (82% → 80–82%): no single class carries tradition alone.
+Function words and verbs alone reach 54–56% against a majority baseline of 27%, so formulae differ between traditions, but less than agents (66%), realia (59%), places (59%) or foreign words (84%). Abstract nouns (53%) and adjectives (48%) carry the least. Removing foreign words costs the most (82% → 78%).
+Realia here are things only (artifacts, buildings, ritual materials, plants); before the split, the wider class 'realia' (all nouns and adjectives) reached 70% alone.
 Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (51% → 47%), yet 47% is still twice the majority baseline (21%).
 :::
 
@@ -515,7 +518,7 @@ The score is a cosine, so it splits exactly over the features, and each feature 
 
 ::: {.notes}
 This answers the playground observation that "nu" carries weight: it carries similarity, which is what the playground shades, but not the decision. The 25 most frequent forms are 15% of the similarity and 2% of the decision.
-What decides, by category: nouns and realia 33%, agents and deities 32%, foreign words 13%, verbs 11%, function words 9%. By layer: syllabic signs 51%, logographic signs 32%, word forms 17%.
+What decides, by category: agents and deities 44%, realia 16%, foreign words 13%, verbs 11%, function words 9%; places 2%, adjectives 1%, abstract nouns 1%. Agents and deities include persons named by gloss (LUGAL 'king'), which the earlier scheme counted as realia. By layer: syllabic signs 51%, logographic signs 32%, word forms 17%.
 Caveat: a syllabic sign n-gram carries the word as well as its spelling (ḫu-wa-aš is Ḫuwaššanna). The spelling layer of the layers slide isolates the spelling choice: it adds about one point.
 Files: run_attribution.py, E11_report.json, E11a_category_by_layer.csv, E11b_top_features.csv.
 :::
@@ -528,14 +531,14 @@ Files: run_attribution.py, E11_report.json, E11a_category_by_layer.csv, E11b_top
 
 | Tradition | What carries its decisions | Share |
 |---|---|---:|
-| Ḫuwaššanna festivals | agents and deities | 60% |
-| Palaic festivals | agents and deities; Palaic words | 61%; 32% |
-| Kizzuwatna rituals | nouns and realia (wool, lapis, oil, honey) | 55% |
-| Luwian festivals (Ištanuwa, Lallupiya) | nouns and realia | 82% |
-| Hattian cult layer | nouns and realia; agents; Hattian words | 32%; 25%; 24% |
+| Ḫuwaššanna festivals | agents and deities | 79% |
+| Palaic festivals | agents and deities; Palaic words | 60%; 32% |
+| Kizzuwatna rituals | realia (SÍG "wool"); function words | 26%; 14% |
+| Luwian festivals (Ištanuwa, Lallupiya) | agents and deities; places (Ištanuwa) | 35%; 28% |
+| Hattian cult layer | agents and deities; Hattian words; verbs | 47%; 24%; 18% |
 | Mixed (Hurrian, Syrian, Luwian) | agents and deities; function words (KI.MIN, EGIR-*anda-ma*) | 43%; 31% |
-| Syro-Mesopotamia (Hurrian) | nouns and realia; function words | 42%; 21% |
-| Kizzuwatna–Lower Land (Hurrian) | nouns and realia | 41% |
+| Syro-Mesopotamia (Hurrian) | realia; function words; foreign words | 37%; 21%; 17% |
+| Kizzuwatna–Lower Land (Hurrian) | realia (NINDA.GUR₄.RA "thick bread"); verbs | 28%; 17% |
 
 :::
 
@@ -593,7 +596,7 @@ Refitting without function words, 651 of the 847 assigned orphans keep their tra
 ::: {.column width="48%"}
 - Nearest: **Luwian rituals of Puriyanni and Kuwattalla** (similarity 0.39), runner-up the Kizzuwatna rituals (0.25)
 - Margin 0.144, **eight times** the abstention rule (0.018): a confident placement
-- Carried by **nouns and realia**: *EME-an* "tongue", *pangawaš* "of the multitude", *karpin* "anger"
+- Carried by three words: *EME-an* "tongue", *pangawaš* "of the multitude", *karpin* "anger"; the first two have readings that disagree, so they count as other words, *karpin* as an abstract noun
 - The function words and the common material **argue against** it (−14% and −21%): this is not a placement made on *nu*
 :::
 :::
@@ -776,13 +779,13 @@ Archetypes with little coverage are transmissions we see only through the refere
 - Short fragments: 10 words are right 65% of the time
 - Placements resting on **common material** are weak (227 of 847)
 - Small traditions (Arzawa, Puriyanni/Kuwattalla: 10–11 manuscripts) cannot yet be trusted
-- Word categories are rule-based and **12% low-confidence**; a philologist's audit is pending
+- Word categories are rule-based and **12% low-confidence**; the noun meanings come from a gloss list that has not been audited
 - Festival manuscripts differ by use (Burgin 2019), which word profiles may pick up
 :::
 :::
 
 ::: {.notes}
-Next steps: rarefied coverage; the 180-word audit; sign-shape measurement (DANES 2025) for the same fragments; worked examples per tradition for colleagues to verify.
+Next steps: rarefied coverage; an audit of the noun meaning classes; sign-shape measurement (DANES 2025) for the same fragments; worked examples per tradition for colleagues to verify.
 :::
 
 ---

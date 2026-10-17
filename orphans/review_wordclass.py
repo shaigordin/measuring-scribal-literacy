@@ -15,14 +15,16 @@ view:
   form    labels/wordclass_audit.xlsx: the audit sample as a spreadsheet to fill (rows shuffled,
           y/n and class drop-downs, the confidence level hidden), with instructions.
   collect FILE.xlsx: copies the marks from a filled form back into labels/wordclass_audit.csv.
-  compare OLD NEW: how a rule change moved the classes between two token tables built from the
+  compare OLD NEW [OUT]: how a rule change moved the classes between two token tables built from the
           same release (row by row) -> results/wordclass_rule_changes.csv, with examples.
   examples  results/wordclass_examples.csv: for every rule and class, the most frequent word
           forms with a transliteration, the TLHdig analysis the rule read, and a manuscript.
   score   accuracy per confidence level with a 95% Wilson interval, and the corpus-wide estimate
           weighted by the share of tokens at each level -> results/wordclass_audit.json.
+  rescore the same marks against the current token table, after rules were revised on them (an
+          in-sample upper bound) -> results/wordclass_audit_after_fixes.json.
 
-Usage: python review_wordclass.py {sheet,apply,audit,form,collect,score,compare,examples} [--tokens data/tokens.csv]
+Usage: python review_wordclass.py {sheet,apply,audit,form,collect,score,rescore,compare,examples} [--tokens data/tokens.csv]
 """
 import argparse
 import json
@@ -218,7 +220,73 @@ def score(t):
     print(json.dumps(out, indent=1, ensure_ascii=False))
 
 
-def compare(old, new):
+def rescore(t):
+    """The audit against the current token table: a row is right when its class now is the class
+    the philologist accepted (the proposed one if marked y, the corrected one if marked n). Rows
+    keep the confidence level they were drawn from, so the estimate weights them as `score` does.
+    Rules fitted to these marks make this an in-sample figure: read it as an upper bound."""
+    a = pd.read_csv(AUDIT, dtype=str).fillna("")
+    a = a[a.verdict.str.lower().isin(["y", "n"])].copy()
+    a["accepted"] = np.where(a.verdict.str.lower() == "y", a.wclass, a.correct_class)
+    now = t.drop_duplicates(["txtid", "lnr", "translit"])[["txtid", "lnr", "translit", "wclass", "wc_rule"]]
+    a = a.merge(now.rename(columns={"wclass": "now", "wc_rule": "rule_now"}), on=["txtid", "lnr", "translit"], how="left")
+    # the audit was marked in the earlier scheme, where every noun and adjective was `realia`: score
+    # the meaning classes of nouns (and a meaning tie among them) as that one class
+    noun = {"realia", "place", "animal", "body", "nature", "abstract", "adjective", "measure"}
+    coarse = np.where(a.now.isin(noun) | ((a.now == "ambiguous") & (a.rule_now != "analysis_ambiguous")),
+                      "realia", a.now)
+    a["right"] = (a.now == a.accepted) | (coarse == a.accepted)
+    share = {l: v["share_of_tokens"] for l, v in json.loads(SCORE.read_text())["levels"].items()}  # as drawn
+    out = {"reviewed": int(len(a)), "levels": {}, "note": "in-sample: the rules were revised on these marks"}
+    est = 0.0
+    for lev, g in a.groupby("wc_conf"):
+        k, n = int(g.right.sum()), len(g)
+        out["levels"][lev] = {"reviewed": n, "right": k, "accuracy": round(k / n, 3), "ci95": wilson(k, n)}
+        est += k / n * share.get(lev, 0)
+    out["corpus_accuracy_estimate"] = round(float(est / sum(share.get(l, 0) for l in out["levels"])), 3)
+    out["still_wrong"] = a[~a.right][["word", "translit", "wclass", "accepted", "now", "rule_now", "note"]].to_dict("records")
+    f = HERE / "results" / "wordclass_audit_after_fixes.json"
+    f.write_text(json.dumps(out, indent=2, ensure_ascii=False))
+    print(json.dumps({k: v for k, v in out.items() if k != "still_wrong"}, indent=1, ensure_ascii=False))
+    print(f"{f}: {len(out['still_wrong'])} rows still differ from the philologist's class")
+    scores(out, t, noun)
+
+
+AUDIT_FIXES = 5   # revised on the marks: {M}/{F} names, compound-logogram heads, determinatives
+#                   of words without analysis, broken enclitic chains, broken -anzi verbs (qtm/wordclass.py)
+FIX_RULES = {"determinative_agent", "determinative_noun", "broken_clitic", "broken_ending"}
+
+
+def scores(after, t, noun):
+    """One file with the audit before and after the rule revisions, for the paper: accuracy by
+    confidence level, the corpus-weighted estimate, and the share of words the revisions moved.
+    The share counts the words whose class now comes from a revised rule (FIX_RULES); the meaning
+    classes of nouns are not fixes, and their share is given apart."""
+    before = json.loads(SCORE.read_text())
+    lev = lambda d: {k: {x: v[x] for x in ("reviewed", "right", "accuracy", "ci95")} for k, v in d["levels"].items()}
+    ch = pd.read_csv(HERE / "results" / "wordclass_rule_changes_audit.csv")
+    legible = int((pd.read_csv(t.attrs["path"], usecols=["word"], dtype=str).word.fillna("") != "").sum())
+    fixes = ch[ch.rule.isin(FIX_RULES)].tokens.sum()   # the rest moved by meaning class or by evidence
+    out = {"sample_size": before["reviewed"], "sample_drawn": before["of"],
+           "before_fixes": {"levels": lev(before), "corpus_weighted_accuracy": before["corpus_accuracy_estimate"]},
+           "after_fixes": {"levels": lev(after), "corpus_weighted_accuracy": after["corpus_accuracy_estimate"],
+                           "in_sample": True, "rows_still_wrong": len(after["still_wrong"])},
+           "weights_share_of_tokens": {k: v["share_of_tokens"] for k, v in before["levels"].items()},
+           "rule_fixes": AUDIT_FIXES,
+           "share_of_words_changed_by_fixes": round(float(fixes / legible), 4),
+           "share_of_words_changed_incl_meaning_classes": round(float(ch.tokens.sum() / legible), 4),
+           "realia_split_included": True,
+           "note": "after-fix accuracy is in-sample (rules revised on these marks) and scored in the audit's "
+                   "scheme, where nouns and adjectives were one class (realia); the realia split into meaning "
+                   "classes (philologist's decision 2026-10-17) uses labels/gloss_lexicon.tsv, drafted by Claude "
+                   "from TLHdig's German glosses and not audited"}
+    f = HERE / "results" / "wordclass_audit_scores.json"
+    f.write_text(json.dumps(out, indent=2, ensure_ascii=False))
+    print(f"{f}: {out['share_of_words_changed_by_fixes']:.1%} of words changed by the fixes, "
+          f"{out['share_of_words_changed_incl_meaning_classes']:.1%} with the meaning classes")
+
+
+def compare(old, new, out=None):
     key = ["txtid", "lnr", "translit", "n"]
     load_ = lambda f, cols: (lambda d: d.assign(n=d.groupby(key[:3], dropna=False).cumcount()))(
         pd.read_csv(f, low_memory=False, usecols=key[:3] + cols, dtype=str))
@@ -233,7 +301,7 @@ def compare(old, new):
     g = d.groupby(["from", "to", "rule"]).agg(tokens=("word", "size"),
                                               examples=("word", lambda s: ", ".join(s.value_counts().index[:5])))
     g = g.reset_index().sort_values("tokens", ascending=False)
-    out = HERE / "results" / "wordclass_rule_changes.csv"
+    out = Path(out) if out else HERE / "results" / "wordclass_rule_changes.csv"
     g.to_csv(out, index=False)
     print(f"{out}: {int(ch.sum())} of {int(legible.sum())} legible tokens changed class ({ch.sum() / legible.sum():.1%})")
     print(g.head(20).to_string(index=False))
@@ -279,8 +347,8 @@ def examples(t, per=3):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["sheet", "apply", "audit", "form", "collect", "score", "compare", "examples"])
-    ap.add_argument("files", nargs="*", help="compare: OLD.csv NEW.csv")
+    ap.add_argument("step", choices=["sheet", "apply", "audit", "form", "collect", "score", "rescore", "compare", "examples"])
+    ap.add_argument("files", nargs="*", help="compare: OLD.csv NEW.csv [OUT.csv]")
     ap.add_argument("--tokens", default=str(HERE / "data" / "tokens.csv"))
     ap.add_argument("--top", type=int, default=2000, help="rows in the review sheet")
     a = ap.parse_args()
@@ -293,7 +361,8 @@ def main():
     if a.step == "collect":
         return collect(a.files[0])
     t = tokens(a.tokens)
-    sheet(t, a.top) if a.step == "sheet" else {"audit": audit, "score": score, "examples": examples}[a.step](t)
+    t.attrs["path"] = a.tokens
+    sheet(t, a.top) if a.step == "sheet" else {"audit": audit, "score": score, "rescore": rescore, "examples": examples}[a.step](t)
 
 
 if __name__ == "__main__":

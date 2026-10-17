@@ -39,12 +39,14 @@
   "rule_margin": 0.018000000000000002,
   "assigned": "Luwian rituals (Puriyanni, Kuwattalla)",
   "decision_by_layer_category": {
-    "Syllabic spelling | Nouns and realia": 0.6,
-    "Word form | Nouns and realia": 0.329,
-    "Logographic writing | Nouns and realia": 0.186,
-    "Syllabic spelling | Other words": 0.091,
+    "Syllabic spelling | Other words": 0.453,
+    "Word form | Other words": 0.268,
+    "Logographic writing | Other words": 0.174,
+    "Syllabic spelling | Abstract nouns": 0.149,
+    "Word form | Abstract nouns": 0.095,
+    "Syllabic spelling | Adjectives": 0.091,
     "Logographic writing | Agents and deities": 0.035,
-    "Word form | Other words": 0.022,
+    "Logographic writing | Abstract nouns": 0.03,
     "Word form | Function words": -0.021,
     "Syllabic spelling | Agents and deities": -0.055,
     "Syllabic spelling | Verbs": -0.084,
@@ -2023,7 +2025,7 @@
       "lnr": "r. Kol. 3′",
       "translit": "i-da-a-lu-un",
       "word": "italun",
-      "wclass": "realia",
+      "wclass": "adjective",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2031,7 +2033,7 @@
       "lnr": "r. Kol. 3′",
       "translit": "UD-an",
       "word": "UDan",
-      "wclass": "realia",
+      "wclass": "ambiguous",
       "wc_rule": "analysis_unanimous",
       "wc_conf": "medium"
     },
@@ -2055,7 +2057,7 @@
       "lnr": "r. Kol. 4′",
       "translit": "kar-pí-in",
       "word": "karpin",
-      "wclass": "realia",
+      "wclass": "abstract",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2063,7 +2065,7 @@
       "lnr": "r. Kol. 4′",
       "translit": "pa-an-ga-u-wa-aš",
       "word": "pankauaš",
-      "wclass": "realia",
+      "wclass": "ambiguous",
       "wc_rule": "analysis_unanimous",
       "wc_conf": "medium"
     },
@@ -2071,9 +2073,9 @@
       "lnr": "r. Kol. 4′",
       "translit": "EME-an",
       "word": "EMEan",
-      "wclass": "realia",
-      "wc_rule": "selected_elsewhere",
-      "wc_conf": "medium"
+      "wclass": "ambiguous",
+      "wc_rule": "analysis_ambiguous",
+      "wc_conf": "low"
     },
     {
       "lnr": "r. Kol. 5′",
@@ -2119,7 +2121,7 @@
       "lnr": "r. Kol. 6′",
       "translit": "ŠUM-ŠU",
       "word": "ŠUM-ŠU",
-      "wclass": "realia",
+      "wclass": "abstract",
       "wc_rule": "analysis_unanimous",
       "wc_conf": "medium"
     },
@@ -2151,7 +2153,7 @@
       "lnr": "r. Kol. 8′",
       "translit": "te-eš-ḫa-an",
       "word": "tešḫan",
-      "wclass": "realia",
+      "wclass": "abstract",
       "wc_rule": "analysis_unanimous",
       "wc_conf": "medium"
     },
@@ -2223,7 +2225,7 @@
       "lnr": "r. Kol. 11′",
       "translit": "kar-pí-in",
       "word": "karpin",
-      "wclass": "realia",
+      "wclass": "abstract",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2231,7 +2233,7 @@
       "lnr": "r. Kol. 11′",
       "translit": "pa-an-ga-u-wa-aš",
       "word": "pankauaš",
-      "wclass": "realia",
+      "wclass": "ambiguous",
       "wc_rule": "analysis_unanimous",
       "wc_conf": "medium"
     },
@@ -2279,7 +2281,7 @@
       "lnr": "r. Kol. 14′",
       "translit": "GU₄-un",
       "word": "GU₄un",
-      "wclass": "realia",
+      "wclass": "animal",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },

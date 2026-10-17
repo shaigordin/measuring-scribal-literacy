@@ -76,9 +76,10 @@ save(fig, "orthography_profile")
 
 # 3. E8 word classes: each class alone vs everything except that class (word forms)
 E8 = json.loads((RES / "E8_report.json").read_text())
-CL = [("foreign", "Hurrian / foreign"), ("realia", "realia (nouns)"), ("deity", "divine names"),
-      ("agent", "agents"), ("verb", "verbs"), ("function", "function words")]
-fig, axes = plt.subplots(1, 2, figsize=(13, 5.2), sharey=True)
+CL = [("foreign", "Hurrian / foreign"), ("realia", "realia"), ("place", "places"), ("deity", "divine names"),
+      ("agent", "agents"), ("abstract", "abstract nouns"), ("adjective", "adjectives"), ("verb", "verbs"),
+      ("function", "function words")]
+fig, axes = plt.subplots(1, 2, figsize=(13, 6.6), sharey=True)
 h = E8["historical"]["all"]["words"]
 for ax, (key, title) in zip(axes, [("historical", f"{h['classes']} traditions ({h['n']:,} texts)"),
                                    ("cth701_subgroups", f"CTH 701 subgroups ({E8['cth701_subgroups']['all']['words']['n']} texts)")]):
@@ -90,6 +91,10 @@ for ax, (key, title) in zip(axes, [("historical", f"{h['classes']} traditions ({
     for i, (c, name) in enumerate(CL):
         y = len(CL) - 1 - i
         a, w = R[f"only_{c}"]["words"]["acc"], R[f"without_{c}"]["words"]["acc"]
+        n = R[f"only_{c}"]["words"]["texts_with_class"]
+        if n < 20:  # too few texts carry the class for its own model
+            ax.text(0.02, y, f"only {n} texts have it", va="center", color=MUTED, fontsize=11)
+            continue
         ax.plot([a, w], [y + 0.12, y - 0.12], color=GRID, lw=3, zorder=1)
         ax.plot(a, y + 0.12, "o", ms=11, color=CONTENT, mec=SURF, mew=2, zorder=3)
         ax.plot(w, y - 0.12, "o", ms=11, color=SCRIBAL, mec=SURF, mew=2, zorder=3)

@@ -40,7 +40,7 @@ controls (`--groups historical`), shown once as the published baseline.
 | Where unplaced fragments end up | texts and median words per Laroche bin | `tlhdig03_literature/corpus_stats.json` → `laroche_bins` | `stats_corpus.py` |
 | The ten traditions | reference manuscripts per tradition | `tlhdig03_literature/case/case_KBo_41_22.json` → `ref_counts` | `run_case.py` |
 | How a word gets its category | worked examples with TLHdig's raw analyses | `wordclass_examples.csv` | `review_wordclass.py examples` |
-| How sure are the categories? | shares by confidence, rule and class; rule changes after the audit | `wordclass_confidence.json`, `wordclass_rule_changes.csv`, `wordclass_rule_changes_akk_logograms.csv` | `review_wordclass.py examples`, `compare` |
+| How sure are the categories? | shares by confidence, rule and class; the philologist's audit before and after the rule revisions; rule changes | `wordclass_confidence.json`, `wordclass_audit_scores.json` (from `wordclass_audit.json`, `wordclass_audit_after_fixes.json`), `wordclass_rule_changes.csv`, `wordclass_rule_changes_akk_logograms.csv`, `wordclass_rule_changes_audit.csv` | `review_wordclass.py examples`, `score`, `rescore`, `compare` |
 | Do the traditions hold? | leave-one-out accuracy, recall per tradition, baselines | `tlhdig03_literature/report.json` → `E1_historical`; `tlhdig03/report.json` (CTH ranges, notes) | `run_experiments.py` |
 | Leave one composition out | compositions placed in their scholarly tradition | `tlhdig03_literature/E10_report.json` → `E10a`, `E10a_leave_composition_out.csv` | `run_hypotheses.py` |
 | A contested attribution: the Ambazzi rituals | fit per tradition vs random rituals; signature words | `tlhdig03_literature/E10b_contested_fit.csv`, `E10c_*.csv` | `run_hypotheses.py` |
@@ -120,11 +120,17 @@ tradition.
   in 5 folds. It measures how often the margin rule still places them in a tradition, and how
   well a similarity floor or a genre gate (outside genres as classes of their own) catches them.
 - **Word classes (`qtm/wordclass.py`, `qtm/tlhdig.py`):** rules over TLHdig's own morphological
-  analyses (no language model): the word's language tag, determinatives, the analysis the editor
+  analyses: the word's language tag, determinatives, the analysis the editor
   selected, the analyses if they agree on the head word, else the class editors selected for the
   same form elsewhere (≥ 5 times, ≥ 90% agreement). Preposition + noun words are split. Each word
   carries its rule (`wc_rule`) and a confidence (`wc_conf`); `labels/wordclass_corrections.csv`
-  holds manual corrections, and `review_wordclass.py` builds the review sheet and the blind audit (`form` writes it as an xlsx with drop-downs, `collect` reads the verdicts back, `score` gives accuracy per confidence level).
+  holds manual corrections, and `review_wordclass.py` builds the review sheet and the blind audit (`form` writes it as an xlsx with drop-downs, `collect` reads the verdicts back, `score` gives accuracy per confidence level, `rescore` the same marks against the revised rules,
+  written with the before/after summary to `results/wordclass_audit_scores.json`). Nouns are then
+  classed by the meaning of TLHdig's German gloss (realia = things, ritual materials, plants;
+  places, animals, body, nature, abstract nouns, adjectives, measures); names take the class of
+  their TLHdig stem class (35–36 gods, 37–38 persons, 39 places). The gloss list
+  `labels/gloss_lexicon.tsv` (5,494 glosses) was drafted by Claude from the glosses, is committed as
+  a fixed file and has not been audited; correct it by hand and rerun.
 - **Worked example (`run_case.py`):** one orphan from its text to its placement: similarities,
   margin, the decision split by word and feature, the nearest manuscripts among the reference and
   the unassigned rituals, and the CTH numbers where its distinctive words occur.
