@@ -473,3 +473,187 @@ E9.orph.luwianritualspuriyannikuwattalla.historicaltextstreaties,0,tlhdig03_lite
 E9.orph.luwianritualspuriyannikuwattalla.instructions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
 E9.orph.luwianritualspuriyannikuwattalla.myths,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
 E9.orph.luwianritualspuriyannikuwattalla.oracles,1,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E10a.compositions,78,tlhdig03_literature/E10_report.json E10a.compositions
+E10a.compositions_correct,57,tlhdig03_literature/E10_report.json E10a.compositions_correct
+E10a.texts,"1{,}601",tlhdig03_literature/E10_report.json E10a.texts
+E10a.texts_correct,938,tlhdig03_literature/E10_report.json E10a.texts_correct
+E10a.texts_share,59\%,tlhdig03_literature/E10_report.json E10a
+E10a.kizzuwatnalowerlandhurrian,4 of 8,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.syromesopotamiahurrian,0 of 5,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.mixedhurriansyrianluwian,3 of 4,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.luwianfestivalsistanuwalallupiya,2 of 4,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.huwassannafestivals,5 of 5,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.palaicfestivals,1 of 5,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.kizzuwatnarituals,16 of 18,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.arzawawesternrituals,1 of 2,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.luwianritualspuriyannikuwattalla,0 of 2,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.hattiancultlayer,25 of 25,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.hurrian,7 of 17,tlhdig03_literature/E10_report.json E10a.by_tradition
+E10a.cth394.pred,Arzawa / western rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth394.texts,1 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth404.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth404.texts,18 of 21,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth433.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth433.texts,0 of 10,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth472.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth472.texts,1 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth474.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth474.texts,1 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth475.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth475.texts,14 of 22,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth477.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth477.texts,7 of 7,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth479.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth479.texts,7 of 8,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth480.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth480.texts,4 of 5,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth481.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth481.texts,3 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth482.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth482.texts,2 of 2,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth483.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth483.texts,15 of 22,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth484.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth484.texts,1 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth485.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth485.texts,3 of 5,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth487.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth487.texts,0 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth488.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth488.texts,6 of 6,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth490.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth490.texts,14 of 32,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth491.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth491.texts,4 of 7,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth494.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth494.texts,1 of 5,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth495.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth495.texts,11 of 14,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth591.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth591.texts,46 of 50,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth627.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth627.texts,135 of 145,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth628.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth628.texts,73 of 254,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth665.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth665.texts,3 of 16,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth690.pred,Ḫuwaššanna festivals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth690.texts,1 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth691.pred,Ḫuwaššanna festivals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth691.texts,6 of 11,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth692.pred,Ḫuwaššanna festivals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth692.texts,78 of 80,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth693.pred,Ḫuwaššanna festivals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth693.texts,7 of 7,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth694.pred,Ḫuwaššanna festivals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth694.texts,70 of 81,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth698.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth698.texts,0 of 27,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth699.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth699.texts,8 of 8,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth700.pred,Syro-Mesopotamia (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth700.texts,2 of 12,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth701.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth701.texts,0 of 121,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth704.pred,"Mixed (Hurrian, Syrian, Luwian)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth704.texts,39 of 47,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth705.pred,"Mixed (Hurrian, Syrian, Luwian)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth705.texts,46 of 63,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth706.pred,"Mixed (Hurrian, Syrian, Luwian)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth706.texts,26 of 72,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth711.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth711.texts,0 of 2,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth712.pred,"Mixed (Hurrian, Syrian, Luwian)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth712.texts,4 of 22,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth713.pred,"Mixed (Hurrian, Syrian, Luwian)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth713.texts,0 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth714.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth714.texts,1 of 11,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth715.pred,"Mixed (Hurrian, Syrian, Luwian)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth715.texts,1 of 3,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth719.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth719.texts,3 of 5,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth720.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth720.texts,3 of 17,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth721.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth721.texts,1 of 2,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth722.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth722.texts,4 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth725.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth725.texts,5 of 6,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth726.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth726.texts,6 of 7,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth727.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth727.texts,4 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth728.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth728.texts,3 of 3,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth729.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth729.texts,1 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth731.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth731.texts,6 of 7,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth732.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth732.texts,10 of 15,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth733.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth733.texts,10 of 12,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth734.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth734.texts,9 of 9,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth735.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth735.texts,10 of 10,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth736.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth736.texts,7 of 7,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth737.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth737.texts,1 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth738.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth738.texts,44 of 46,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth739.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth739.texts,6 of 11,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth740.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth740.texts,5 of 5,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth741.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth741.texts,8 of 8,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth742.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth742.texts,4 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth743.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth743.texts,12 of 17,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth744.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth744.texts,60 of 64,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth745.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth745.texts,17 of 17,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth746.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth746.texts,13 of 13,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth750.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth750.texts,0 of 18,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth751.pred,Palaic festivals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth751.texts,4 of 6,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth752.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth752.texts,0 of 3,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth753.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth753.texts,0 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth754.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth754.texts,0 of 3,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth760.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth760.texts,0 of 9,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth763.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth763.texts,0 of 1,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth771.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth771.texts,1 of 18,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth772.pred,"Luwian festivals (Ištanuwa, Lallupiya)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth772.texts,6 of 12,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth773.pred,"Luwian festivals (Ištanuwa, Lallupiya)",tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth773.texts,4 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth820.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth820.texts,8 of 12,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth821.pred,Hattian cult layer,tlhdig03_literature/E10a_leave_composition_out.csv
+E10a.cth821.texts,4 of 4,tlhdig03_literature/E10a_leave_composition_out.csv
+E10b.texts,6,tlhdig03_literature/E10_report.json contested.texts
+E10b.pool,300,tlhdig03_literature/E10_report.json contested.pool_texts
+E10b.cths,"391, 429, 463",tlhdig03_literature/E10_report.json contested.cths
+E10b.claim.rank,8,tlhdig03_literature/E10_report.json E10b.table (order by similarity)
+E10b.claim.p,0.17,tlhdig03_literature/E10_report.json E10b.table
+E10b.best,Kizzuwatna rituals,tlhdig03_literature/E10_report.json E10b.table
+E10b.best.p,0.68,tlhdig03_literature/E10_report.json E10b.table
+E10b.nearest,Kizzuwatna rituals,tlhdig03_literature/E10_report.json E10b.per_text_nearest
+E10b.nearest.n,5,tlhdig03_literature/E10_report.json E10b.per_text_nearest
+E10c.claim.signatures,20,tlhdig03_literature/E10c_signatures_in_contested.csv
+E10c.claim.attested,1,tlhdig03_literature/E10c_signatures_in_contested.csv
+E10c.claim.attested.words,Éri,tlhdig03_literature/E10c_signatures_in_contested.csv

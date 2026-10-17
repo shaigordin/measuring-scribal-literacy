@@ -294,6 +294,46 @@ def main():
         for g, n in d.items():
             put(f"E9.orph.{slugify(t)}.{slugify(g)}", n, f"{MAIN}/E9_report.json orphans.assigned_but_outside_by_tradition")
 
+    # ---- E10 the method against scholarly attributions
+    e10 = load(MAIN, "E10_report.json")
+    s10 = f"{MAIN}/E10_report.json"
+    a10 = e10["E10a"]
+    for k in ("compositions", "compositions_correct", "texts", "texts_correct"):
+        put(f"E10a.{k}", num(a10[k]), f"{s10} E10a.{k}")
+    put("E10a.texts_share", pct(a10["texts_correct"] / a10["texts"]), f"{s10} E10a")
+    rows = []
+    for t in trad:
+        r = a10["by_tradition"].get(t)
+        if not r:
+            continue
+        rows.append(f"{tex_escape(t)} & {r['correct']} of {r['compositions']} & {num(r['texts_correct'])} of {num(r['texts'])} \\\\")
+        put(f"E10a.{slugify(t)}", f"{r['correct']} of {r['compositions']}", f"{s10} E10a.by_tradition")
+    table("loco", rows)
+    hur = [a10["by_tradition"][t] for t in hurrian if t in a10["by_tradition"]]
+    put("E10a.hurrian", f"{sum(r['correct'] for r in hur)} of {sum(r['compositions'] for r in hur)}", f"{s10} E10a.by_tradition")
+    for r in load(MAIN, "E10a_leave_composition_out.csv"):
+        put(f"E10a.cth{r['cth']}.pred", tex_escape(r["composition_pred"]), f"{MAIN}/E10a_leave_composition_out.csv")
+        put(f"E10a.cth{r['cth']}.texts", f"{r['texts_correct']} of {r['texts']}", f"{MAIN}/E10a_leave_composition_out.csv")
+    b10 = e10["E10b"]["table"]
+    claim = e10["contested"]["claim"]
+    put("E10b.texts", e10["contested"]["texts"], f"{s10} contested.texts")
+    put("E10b.pool", num(e10["contested"]["pool_texts"]), f"{s10} contested.pool_texts")
+    put("E10b.cths", ", ".join(e10["contested"]["cths"]), f"{s10} contested.cths")
+    rank = [r["tradition"] for r in b10].index(claim) + 1
+    put("E10b.claim.rank", rank, f"{s10} E10b.table (order by similarity)")
+    put("E10b.claim.p", f"{next(r for r in b10 if r['tradition'] == claim)['p_fits_better_than_random_rituals']:.2f}", f"{s10} E10b.table")
+    put("E10b.best", tex_escape(b10[0]["tradition"]), f"{s10} E10b.table")
+    put("E10b.best.p", f"{b10[0]['p_fits_better_than_random_rituals']:.2f}", f"{s10} E10b.table")
+    nearest = e10["E10b"]["per_text_nearest"]
+    top = max(nearest, key=nearest.get)
+    put("E10b.nearest", tex_escape(top), f"{s10} E10b.per_text_nearest")
+    put("E10b.nearest.n", nearest[top], f"{s10} E10b.per_text_nearest")
+    sig = [r for r in load(MAIN, "E10c_signatures_in_contested.csv") if r["tradition"] == claim]
+    hit = [r["feature"] for r in sig if r["in_contested_texts"] != "0"]
+    put("E10c.claim.signatures", len(sig), f"{MAIN}/E10c_signatures_in_contested.csv")
+    put("E10c.claim.attested", len(hit), f"{MAIN}/E10c_signatures_in_contested.csv")
+    put("E10c.claim.attested.words", tex_escape(", ".join(hit)) or "--", f"{MAIN}/E10c_signatures_in_contested.csv")
+
     # ---- appendix: distinctive features (E7b), top 4 per layer and tradition
     feats = load(MAIN, "E7_distinctive_features.csv")
     rows = []

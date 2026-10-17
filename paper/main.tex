@@ -56,7 +56,9 @@
   carry only a weak signal that follows compositions and their copies. On \CTH{701}, where
   Salvini and Wegner's subgroups provide partial ground truth, the method recovers
   \Q{E3.both.acc} of subgroup labels (majority \Q{E3.both.majority}) and does not predict
-  script date. With a calibrated abstention margin, \Q{E5.assigned} of \Q{corpus.orphans_used}
+  script date. When whole compositions are held out, \Q{E10a.compositions_correct} of
+  \Q{E10a.compositions} return to their scholarly group: the Hattian, Ḫuwaššanna and Kizzuwatna
+  groups are recovered, the Hurrian festival groups and Palaic are not. With a calibrated abstention margin, \Q{E5.assigned} of \Q{corpus.orphans_used}
   orphans are placed; an open-set test shows that a closed reference must be paired with
   explicit outside classes before such placements can be read as ``this tradition''. We
   interpret the results through Quantitative Scribal Tradition Mapping (QTM), which treats
@@ -107,7 +109,8 @@ Our contributions are:
     the CTH ranges that no study claims set aside as test sets (Section~\ref{sec:data});
   \item a validation of nearest-centroid tradition assignment against majority and permutation
     baselines, as a function of fragment size, and on \CTH{701}, where partial ground truth
-    exists (Sections~\ref{sec:validation}--\ref{sec:cth701});
+    exists, and a leave-one-composition-out test of the scholarly groups themselves
+    (Sections~\ref{sec:validation}--\ref{sec:cth701});
   \item a decomposition of the signal into layers and word classes that separates what is
     written (cultural content) from how it is written (scribal habit)
     (Section~\ref{sec:layers});
@@ -198,7 +201,7 @@ practitioner's home; the Luwian rituals of Puriyanni, Kuwattalla and Šilalluḫ
 whose texts we take from the citations of his study in the Mainz Konkordanz \cite{konkordanz}.
 The Ambazzi rituals (\CTH{391}, 429, 463) show Luwian influence but no stated link to Arzawa
 \cite{christiansen2006ambazzi}, so they are not part of the western group and are placed with
-the residue. The published grouping of \cite{gordin2025matters} with two
+the residue; Section~\ref{sec:recovery} tests that decision. The published grouping of \cite{gordin2025matters} with two
 CTH-range controls (\CTH{471}--500 and \CTH{390}--469) is run as the baseline.
 
 Two sets leave the reference and are placed like orphans. \CTH{500}, ``fragments of festival
@@ -342,6 +345,50 @@ from \Q{E1.words.acc} to \Q{E4.words.acc} (words) and from \Q{E1.signs.acc} to
     \bottomrule
   \end{tabular}
 \end{table}
+
+\subsection{Does the method recover the scholarly groups?}
+\label{sec:recovery}
+Leave-one-manuscript-out accuracy is flattered by duplicates: copies and fragments of the same
+composition stay in the reference when one of them is held out. A stricter test removes a whole
+composition (all manuscripts of one CTH number), rebuilds the centroids, and asks whether the
+pooled composition returns to the group that scholarship assigned it to. \Q{E10a.compositions_correct}
+of \Q{E10a.compositions} compositions do, and \Q{E10a.texts_correct} of \Q{E10a.texts} manuscripts
+(\Q{E10a.texts_share}) are assigned correctly when their composition is unseen
+(Table~\ref{tab:loco}). The Hattian cult layer (\Q{E10a.hattiancultlayer}), the Ḫuwaššanna
+festivals (\Q{E10a.huwassannafestivals}) and the Kizzuwatna rituals (\Q{E10a.kizzuwatnarituals})
+are recovered as groups. The Hurrian festival groups (\Q{E10a.hurrian} together), the Palaic
+festivals (\Q{E10a.palaicfestivals}) and the small western (\Q{E10a.arzawawesternrituals}) and
+Luwian ritual groups (\Q{E10a.luwianritualspuriyannikuwattalla}) are not: their manuscripts resemble
+each other because they share compositions, not because the compositions share a profile that
+sets them apart. With \CTH{701} held out, its manuscripts go to the \Q{E10a.cth701.pred}
+(\Q{E10a.cth701.texts} to its own group). We read these groups as claims the present features
+do not support, not as claims the evidence refutes.
+
+\begin{table}[t]
+  \caption{Leave-one-composition-out recovery of the scholarly groups: compositions (CTH
+    numbers) and manuscripts assigned to their own group when the whole composition is held out.}
+  \label{tab:loco}
+  \small
+  \begin{tabular}{l r r}
+    \toprule
+    Tradition & compositions & manuscripts \\
+    \midrule
+    \gentab{loco}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{A contested attribution.}
+The Ambazzi rituals (\CTH{\Q{E10b.cths}}) have been read as western because of their Luwian
+elements \cite{christiansen2006ambazzi}. We pool their \Q{E10b.texts} manuscripts and score them
+against every tradition, comparing each tradition's lead over the best other with the same
+statistic for random sets of the same size drawn from the \Q{E10b.pool} unclaimed ritual
+manuscripts (\CTH{390}--469). Arzawa ranks \Q{E10b.claim.rank} of \Q{trad.count}
+($p = \Q{E10b.claim.p}$). The closest tradition is the \Q{E10b.best}, for \Q{E10b.nearest.n} of the
+\Q{E10b.texts} manuscripts, but no closer than random unclaimed rituals ($p = \Q{E10b.best.p}$). Of
+the \Q{E10c.claim.signatures} words most distinctive of the western group, \Q{E10c.claim.attested}
+occurs in the Ambazzi texts (\textit{\Q{E10c.claim.attested.words}}). On this evidence the Ambazzi
+rituals belong to the generic ritual residue, which is why they are not in the western reference.
 
 \subsection{How small can an orphan be?}
 \label{sec:size}
@@ -556,7 +603,7 @@ a larger ritual class.
 TLHdig's normalised forms are uneven across editors, and broken words are dropped, so short
 fragments over-represent formulaic lines. The idf weights are fitted on the whole reference
 set. Several traditions are small (\Q{trad.smallest} has \Q{trad.smallest.n} test manuscripts),
-and their recall is uncertain. Festival manuscripts differ by function (outline tablets, day
+and their recall is uncertain; held out by composition, several of them are not recovered at all (Section~\ref{sec:recovery}). Festival manuscripts differ by function (outline tablets, day
 tablets, cult inventories close to festival text \cite{cammarosano2021inventories}), which word
 profiles may track alongside tradition. The Hattian layer's preference for plene writing and few
 logograms may reflect Old Hittite manuscripts as much as tradition, and is still to be checked
