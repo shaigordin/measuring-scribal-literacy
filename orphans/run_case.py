@@ -96,7 +96,18 @@ def main():
            "decision_features": [[f, round(v / m, 3)] for f, v in sorted(feats.items(), key=lambda kv: -kv[1])[:15]],
            "against_features": [[f, round(v / m, 3)] for f, v in sorted(feats.items(), key=lambda kv: kv[1])[:5]],
            "nearest_manuscripts": nn[["txtid", "cth_number", "label", "n_words", "similarity"]].values.tolist(),
-           "distinctive_words_by_cth": where, "word_shares": tokens_out}
+           "distinctive_words_by_cth": where, "word_shares": tokens_out,
+           # every non-zero feature of the fragment, for figures that trace the decision term by term
+           "dim": int(len(names)), "n_features": int(x.nnz),
+           "features": [{"name": names[j], "x": round(float(v), 6), "idf": round(float(vec.idf_[j]), 6),
+                         "c_top": round(float(C[o[0], j]), 6), "c_second": round(float(C[o[1], j]), 6),
+                         "contribution": round(float(v * (C[o[0], j] - C[o[1], j])), 6)}
+                        for j, v in sorted(zip(x.indices, x.data), key=lambda jv: -jv[1] * (C[o[0], jv[0]] - C[o[1], jv[0]]))],
+           "ref_counts": ref.label.value_counts().to_dict(),
+           "tokens": [{"lnr": r.lnr, "translit": r.translit, "word": r.word if isinstance(r.word, str) else "",
+                       "wclass": r.wclass if isinstance(r.wclass, str) else "", "wc_rule": r.wc_rule if isinstance(r.wc_rule, str) else "",
+                       "wc_conf": r.wc_conf if isinstance(r.wc_conf, str) else ""}
+                      for r in raw[raw.txtid == a.txtid].itertuples()]}
     slug = a.txtid.replace(" ", "_").replace(".", "_")
     with open(f"{a.out}/case_{slug}.json", "w") as fh:
         json.dump(out, fh, indent=2, ensure_ascii=False, default=str)

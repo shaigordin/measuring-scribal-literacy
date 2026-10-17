@@ -14,6 +14,8 @@ view:
           the line they stand in. Mark `verdict` y (right) or n (wrong, and give `correct_class`).
   compare OLD NEW: how a rule change moved the classes between two token tables built from the
           same release (row by row) -> results/wordclass_rule_changes.csv, with examples.
+  examples  results/wordclass_examples.csv: for every rule and class, the most frequent word
+          forms with a transliteration, the TLHdig analysis the rule read, and a manuscript.
   score   accuracy per confidence level with a 95% Wilson interval, and the corpus-wide estimate
           weighted by the share of tokens at each level -> results/wordclass_audit.json.
 
@@ -152,9 +154,47 @@ def compare(old, new):
     print(g.head(20).to_string(index=False))
 
 
+def examples(t, per=3):
+    """Examples per (rule, class), with the raw TLHdig analysis read back from the XML."""
+    from lxml import etree
+    rows = []
+    for (rule, cls), g in t.groupby(["wc_rule", "wclass"]):
+        top = g.word.value_counts().index[:per]
+        for w in top:
+            r = g[g.word == w].iloc[0]
+            rows.append({"rule": rule, "class": cls, "confidence": r.wc_conf, "word": w, "translit": r.translit,
+                         "txtid": r.txtid, "lnr": r.lnr, "tokens": int((g.word == w).sum())})
+    ex = pd.DataFrame(rows)
+    # the analysis attributes of the first <w> with that transliteration in that manuscript
+    root = HERE / "data" / "TLHbasisONLINE25_1_ZENODO_Beta_03"
+    files = {p.stem: p for p in root.rglob("*.xml")}
+    ana = []
+    for r in ex.itertuples():
+        s = ""
+        f = files.get(r.txtid)
+        if f is not None:
+            tree = etree.parse(str(f), etree.XMLParser(recover=True, huge_tree=True))
+            for w in tree.iter("w"):
+                tr = w.get("trans") or ""
+                if tr == r.word or tr.endswith(" " + r.word) or tr.startswith(r.word + " "):
+                    s = " | ".join(f"{k}={v}" for k, v in w.attrib.items() if k.startswith("mrp") or k == "lg")
+                    break
+        ana.append(s[:400])
+    ex["analysis"] = ana
+    out = HERE / "results" / "wordclass_examples.csv"
+    ex.to_csv(out, index=False)
+    share = t.wc_conf.value_counts(normalize=True).round(3).to_dict()
+    (HERE / "results" / "wordclass_confidence.json").write_text(json.dumps(
+        {"scope": "legible words of the texts the experiments use (reference traditions, residue, orphan pools)",
+         "legible_tokens": int(len(t)), "confidence_share": share,
+         "rule_share": t.wc_rule.value_counts(normalize=True).round(4).to_dict(),
+         "class_share": t.wclass.value_counts(normalize=True).round(4).to_dict()}, indent=2, ensure_ascii=False))
+    print(f"{out}: {len(ex)} examples; confidence {share}")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["sheet", "apply", "audit", "score", "compare"])
+    ap.add_argument("step", choices=["sheet", "apply", "audit", "score", "compare", "examples"])
     ap.add_argument("files", nargs="*", help="compare: OLD.csv NEW.csv")
     ap.add_argument("--tokens", default=str(HERE / "data" / "tokens.csv"))
     ap.add_argument("--top", type=int, default=2000, help="rows in the review sheet")
@@ -164,7 +204,7 @@ def main():
     if a.step == "compare":
         return compare(*a.files)
     t = tokens(a.tokens)
-    sheet(t, a.top) if a.step == "sheet" else {"audit": audit, "score": score}[a.step](t)
+    sheet(t, a.top) if a.step == "sheet" else {"audit": audit, "score": score, "examples": examples}[a.step](t)
 
 
 if __name__ == "__main__":

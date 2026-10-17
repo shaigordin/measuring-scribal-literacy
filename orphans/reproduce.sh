@@ -44,14 +44,19 @@ for G in historical literature; do
   python3 run_experiments.py "$TOK" "${L[@]}" --groups $G --out "$O" --perm 200 > "$O/run.log"   # E1-E6
   python3 run_openset.py "$TOK" --report "$O/report.json" --out "$O" > "$O/E9_run.log"           # E9
   [ "$G" = literature ] && python3 run_hypotheses.py "$TOK" --out "$O" > "$O/E10_run.log"        # E10
+  [ "$G" = literature ] && mkdir -p "$O/tunnawiya" && python3 run_hypotheses.py "$TOK" --cths 409 \
+      --claim "Luwian rituals (Puriyanni, Kuwattalla)" --out "$O/tunnawiya" > "$O/tunnawiya/E10_run.log"  # E10, CTH 409
   [ "$G" = literature ] && python3 run_attribution.py "$TOK" --report "$O/report.json" --out "$O" > "$O/E11_run.log"  # E11
   python3 run_profiles.py   "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E7_run.log" # E7
   python3 run_wordclass.py  "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E8_run.log" # E8
+  [ "$G" = literature ] && mkdir -p "$O/case" && python3 run_case.py "$TOK" --run "$O" --txtid "KBo 41.22" --out "$O/case" > "$O/case/run.log" \
+      && python3 make_case_slide.py "$O/case/case_KBo_41_22.json"                                  # worked example
   python3 make_figures.py "$O" "$IMG"
   python3 make_profile_figures.py "$O" "$IMG"
 done
 python3 stats_corpus.py "$TOK" --out "$OUT"                                                    # slide numbers
 python3 stats_corpus.py "$TOK" --out "${OUT}_literature" --groups literature
+python3 review_wordclass.py examples --tokens "$TOK"                                           # annotation examples
 
 # 4. slides
 (cd .. && quarto render orphans_archetypes.qmd)

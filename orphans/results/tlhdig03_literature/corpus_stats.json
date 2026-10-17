@@ -18,6 +18,28 @@
     },
     "orphans_total": 3033
   },
+  "laroche_bins": {
+    "CTH 470 fragments of rituals": {
+      "texts": 1919,
+      "median_words": 10.0
+    },
+    "CTH 500 fragments of Kizzuwatna rituals": {
+      "texts": 479,
+      "median_words": 17.0
+    },
+    "CTH 670 fragments of festivals": {
+      "texts": 3506,
+      "median_words": 10.0
+    },
+    "CTH 832 fragments of various content": {
+      "texts": 4080,
+      "median_words": 4.0
+    },
+    "CTH 390-469 rituals no study groups": {
+      "texts": 571,
+      "median_words": 19.0
+    }
+  },
   "plene_clusters": {
     "akuanzi": {
       "Arzawa / western rituals": {
@@ -51,7 +73,7 @@
         "plene_cths": []
       },
       "Ḫuwaššanna festivals": {
-        "texts": 52,
+        "texts": 53,
         "texts_with_plene": 1,
         "plene_cths": [
           "694"
@@ -91,7 +113,7 @@
         ]
       },
       "Luwian festivals (Ištanuwa, Lallupiya)": {
-        "texts": 3,
+        "texts": 4,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -152,8 +174,8 @@
         "plene_cths": []
       },
       "Luwian festivals (Ištanuwa, Lallupiya)": {
-        "texts": 19,
-        "texts_with_plene": 5,
+        "texts": 21,
+        "texts_with_plene": 6,
         "plene_cths": [
           "665"
         ]
