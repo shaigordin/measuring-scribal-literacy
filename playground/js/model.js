@@ -142,6 +142,9 @@ export function scoreText(text, model, opts = {}) {
 
 // --- what the score rests on: word classes (E8) x layers (form, syllabic, logographic) ---
 export const wordClass = (w, model) => (w.word && model.wordCategory[w.word]) || "Other words";
+// How sure the class is (TLHdig annotation, qtm.wordclass.RULES): [high|medium|low|manual, rule].
+// Words outside the vocabulary have no class at all.
+export const classConfidence = (w, model) => (w.word && model.wordConfidence[w.word]) || ["low", "no_analysis"];
 const isLogo = g => g.slice(1).split("·").some(t => /^\p{Lu}/u.test(t));
 function wordFeatures(w) {
   const out = w.word ? [[w.word, 0]] : [];

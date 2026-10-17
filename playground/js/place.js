@@ -83,7 +83,7 @@ const CLS_ABBR = { "Function words": "fn", "Verbs": "v", "Nouns and realia": "n"
 const drop = { classes: new Set(), layers: new Set() };
 $("restLegend").innerHTML = model.layers.map((l, i) => `<span><span class="swatch sq" style="background:var(--layer-${i + 1})"></span>${l}</span>`).join("") +
   `<span><span class="tick-swatch"></span>same share in the tradition's manuscripts</span>` +
-  `<span class="muted">Word tags: ${Object.entries(CLS_ABBR).map(([k, v]) => v + " " + k.toLowerCase()).join(", ")}</span>`;
+  `<span class="muted">Word tags: ${Object.entries(CLS_ABBR).map(([k, v]) => v + " " + k.toLowerCase()).join(", ")}; a dashed tag marks a class of low confidence (the TLHdig analyses disagree or are missing).</span>`;
 $("dropRow").innerHTML = `<span class="muted">Leave out and rescore:</span>` +
   model.categories.map(c => `<label><input type="checkbox" data-c="${c}"> ${c.toLowerCase()}</label>`).join("") +
   model.layers.map((l, i) => `<label><input type="checkbox" data-l="${i}"> ${l.toLowerCase()}</label>`).join("");
@@ -99,6 +99,7 @@ const SUB = {
   decision: "Which words decide between the nearest tradition and the runner-up: the margin between the two scores, split by word class (the categories of StBoT 73 Table 4, from TLHdig's morphological analyses) and by layer: the word form itself, its syllabic spelling, or its logographic writing. Bars to the left pull toward the runner-up. Material every tradition shares, like nu, cancels out here. The tick marks the same share in that tradition's own correctly placed manuscripts. The words above are coloured by the tradition they pull toward.",
   similarity: "Each word's share of the similarity to the nearest tradition, by word class and layer. Much of any similarity is material all traditions share (nu, the signs a and i), so frequent function words look heavy here even when they decide nothing; switch to the first view to see what decides. The tick marks the same share in that tradition's own correctly placed manuscripts. The words above are shaded by their share.",
 };
+const E = model.e11, percent = x => Math.round(100 * x) + "%", range = ([a, b]) => `${Math.round(100 * a)}–${percent(b)}`;
 function drawRest(r, at) {
   $("restSub").textContent = SUB[mode];
   if (!at.matrix.length || !(at.sum > 0)) { $("rest").replaceChildren(); $("commonNote").replaceChildren(); return; }
@@ -124,8 +125,8 @@ function drawRest(r, at) {
   const cs = at.common / tot;
   $("commonNote").innerHTML = mode === "decision"
     ? `<b>${cs > 1 ? "More than all" : (100 * cs).toFixed(0) + "%"}</b> of the margin comes from common features (attested in at least a quarter of the reference manuscripts, like nu or the sign a). ` +
-      (cs > 0.5 ? `<b>When more than half of a placement rests on them, it is right only 50–66% of the time on test windows of 5–20 words, against 78–87% otherwise (experiment E11d); 255 of the 940 placed orphans are such cases.</b>` : `Across the correctly placed reference manuscripts that share is about 10%.`)
-    : `<span class="muted">${(100 * cs).toFixed(0)}% of this similarity comes from common features (attested in at least a quarter of the reference manuscripts), against about 10% of the decision.</span>`;
+      (cs > 0.5 ? `<b>When more than half of a placement rests on them, it is right only ${range(E.precision_mostly_common)} of the time on test windows of ${E.windows[0]}–${E.windows.at(-1)} words, against ${range(E.precision_rest)} otherwise (experiment E11d); ${E.assigned_mostly_common} of the ${E.assigned_orphans} placed orphans are such cases.</b>` : `Across the correctly placed reference manuscripts that share is about ${percent(E.common_share_of_decision)}.`)
+    : `<span class="muted">${(100 * cs).toFixed(0)}% of this similarity comes from common features (attested in at least a quarter of the reference manuscripts), against about ${percent(E.common_share_of_decision)} of the decision.</span>`;
 }
 
 let timer;
@@ -152,14 +153,14 @@ function run(fromId) {
   const wmax = Math.max(...at.perWord.map(p => Math.abs(p.total)), 1e-9), denom = at.sum || 1;
   const what = mode === "decision" ? "of the margin" : "of the score";
   $("chips").innerHTML = r.all.words.map(w => {
-    const p = share.get(w), cls = Q.wordClass(w, model);
+    const p = share.get(w), cls = Q.wordClass(w, model), [conf, rule] = Q.classConfidence(w, model);
     if (!p) return `<span class="chip translit drop" title="${cls}: left out">${w.translit}</span>`;
     const pct = (100 * p.total) / denom, f = v => `${((100 * v) / denom).toFixed(0)}%`;
     const toward = mode === "decision" ? (p.total >= 0 ? ` · pulls toward ${D.SHORT[r.top]}` : ` · pulls toward ${D.SHORT[r.runnerUp]}`) : "";
-    const tip = `${cls}${w.word ? " · word form " + w.word : " · not in vocabulary"} · ${pct.toFixed(0)}% ${what}${toward}` +
+    const tip = `${cls} (class confidence ${conf}, ${rule.replaceAll("_", " ")})${w.word ? " · word form " + w.word : " · not in vocabulary"} · ${pct.toFixed(0)}% ${what}${toward}` +
       ` (form ${f(p.parts[0])}, syllabic ${f(p.parts[1])}, logographic ${f(p.parts[2])})`;
     const col = mode === "decision" ? D.colorVar(p.total >= 0 ? r.top : r.runnerUp) : "var(--accent)";
-    return `<span class="chip translit ${w.word ? "" : "unk"}" title="${tip}" style="background:color-mix(in srgb, ${col} ${Math.round(70 * Math.abs(p.total) / wmax)}%, var(--surface-0))"><span class="cls">${CLS_ABBR[cls]}</span>${w.translit}</span>`;
+    return `<span class="chip translit ${w.word ? "" : "unk"}" title="${tip}" style="background:color-mix(in srgb, ${col} ${Math.round(70 * Math.abs(p.total) / wmax)}%, var(--surface-0))"><span class="cls ${conf === "low" ? "low" : ""}">${CLS_ABBR[cls]}</span>${w.translit}</span>`;
   }).join("") +
     r.parsed.dropped.map(w => `<span class="chip translit drop" title="ignored">${w}</span>`).join("");
 

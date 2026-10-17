@@ -166,10 +166,16 @@ def main():
     So, ov = judge(orph)
 
     # translit -> normalised word form, for words in the vocabulary
-    tl = pd.read_csv(a.tokens, usecols=["word", "translit", "wclass"], low_memory=False).dropna(subset=["word", "translit"])
+    tl = pd.read_csv(a.tokens, usecols=["word", "translit", "wclass", "wc_rule", "wc_conf"],
+                     low_memory=False).dropna(subset=["word", "translit"])
     # word class of each word form: its most frequent definite E8 class in the corpus
     definite = tl[tl.wclass.isin(list(CATEGORY))]
     wclass = definite.groupby("word").wclass.agg(lambda s: s.value_counts().index[0]).to_dict()
+    # how sure that class is (qtm.wordclass.RULES): the most frequent confidence and rule among the
+    # word's tokens of that class, or among all its tokens when it has no definite class
+    chosen = pd.concat([definite[definite.wclass == definite.word.map(wclass)], tl[~tl.word.isin(wclass)]])
+    mode = lambda col: chosen.dropna(subset=[col]).groupby("word")[col].agg(lambda s: s.value_counts().index[0]).to_dict()
+    wconf, wrule = mode("wc_conf"), mode("wc_rule")
     tl["clean"] = tl.translit.map(canon)
     words_in_vocab = {v for v in vocab if not v.startswith("§")}
     tl = tl[tl.word.isin(words_in_vocab)]
@@ -206,11 +212,21 @@ def main():
                    "similarity_share": baseline[lab][ci][li], "decision_share": decision[lab][ci][li]}
                   for lab in labs for ci in range(len(CATEGORIES)) for li in range(len(LAYERS))]
                  ).to_csv(f"{a.out}/category_shares.csv", index=False)
+    # E11d/E11b numbers the page quotes (precision of placed windows resting mostly on common features)
+    rep11 = json.load(open(f"{a.run}/E11_report.json"))
+    d = rep11["E11d"]
+    e11 = {"windows": sorted(int(k) for k in d),
+           "precision_mostly_common": [min(v["precision_mostly_common"] for v in d.values()), max(v["precision_mostly_common"] for v in d.values())],
+           "precision_rest": [min(v["precision_rest"] for v in d.values()), max(v["precision_rest"] for v in d.values())],
+           "assigned_orphans": rep11["E11b"]["assigned_orphans"],
+           "assigned_mostly_common": rep11["E11b"]["assigned_orphans_mostly_common"],
+           "common_share_of_decision": rep11["E11b"]["common_features_share"]["all_correct"],
+           "common_share_of_similarity": rep11["E11b"]["similarity_common_features_share"]}
     model = {
         "source": "TLHdig Beta 0.3 (Zenodo 10.5281/zenodo.20328284)",
         "traditions": labs.tolist(),
         "cths": {lab: groups[lab] for lab in labs},
-        "margin": margin,
+        "margin": round(float(margin), 6),
         "vocab": vocab,
         "idf": r(vec.idf_, 5),
         "centroids": [[np.nonzero(c)[0].tolist(), r(c[np.nonzero(c)[0]], 6)] for c in C],
@@ -220,8 +236,10 @@ def main():
         "categories": CATEGORIES,
         "layers": LAYERS,
         "wordCategory": {w: category(c) for w, c in wclass.items() if w in index},
+        "wordConfidence": {w: [wconf[w], wrule.get(w)] for w in wconf if w in index},
         "categoryBaseline": baseline,
         "decisionBaseline": decision,
+        "e11": e11,
         "common": np.nonzero(common)[0].tolist(),
     }
     dump(model, f"{a.out}/model.json")

@@ -17,7 +17,8 @@ and compares any two witnesses word by word. Nothing runs on a server; the versi
   Konkordanz link, or paste any transliteration. It shows the scores, the open-set verdict
   ("fits no known tradition" or "outside the reference", E9), what the score rests on (word
   classes and layers; by default the decision margin, as in E11, with a warning when most of
-  it comes from features common to all traditions), the tradition wheel, the archetype
+  it comes from features common to all traditions; word classes of low confidence in TLHdig's
+  annotation are marked), the tradition wheel, the archetype
   barcode, the similarity rose and the word butterfly. `place.html#id=KBo%2027.160` opens a text.
 - `compare.html`, **Compare word by word**: per-word tf-idf of two witnesses (fragment,
   manuscript or tradition centroid), after the Neo-Babylonian Dillard study (2023).
@@ -52,15 +53,16 @@ node tests/check.mjs
 
 The export reuses `../orphans/qtm`, `run_openset.py` and the margin and fit floors of
 `../orphans/results/tlhdig03_literature/`, the deck's main reference (literature groups with the
-HFR split). It reproduces the deck: 940 of 2,010 orphans assigned, 159 below the fit floor, 255
-nearest to an outside genre, 255 assigned orphans whose margin rests mostly on common features
-(E5, E9, E11b). Texts outside the reference and the orphan pool are judged the same way as
+HFR split). It reproduces the experiments (`build_data.py` prints the totals; as of 2026-10-17,
+on the corrected word classes): 847 of 2,026 orphans assigned, 150 below the fit floor, 212
+nearest to an outside genre, 227 assigned orphans whose margin rests mostly on common features
+(E5, E9, E11b). The page quotes the E11 numbers from `E11_report.json` via `data/model.json`. Texts outside the reference and the orphan pool are judged the same way as
 orphans; those the open-set gate was fitted on are marked, since their gate verdict is in-sample.
 `data/category_shares.csv` gives each tradition's similarity and decision shares by word class
 and layer (the decision shares match E11a).
 
 The browser maps pasted transliteration to word forms itself, so it agrees with the Python
-export on 98.3% of orphan placements and about 98.5% of the open-set flags; the rest differ
+export on 98.5% of orphan placements and about 98.7% of the open-set flags; the rest differ
 because a few transliterations map to more than one normalised word form.
 
 ## Serve locally

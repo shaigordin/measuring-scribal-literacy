@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.4.1 (2026-10-17)
+
+- Rebuilt on the corrected word-class annotation (prepositions split from their nouns): 847 of
+  2,026 orphans assigned, margin 0.018.
+- Word tags show the class confidence; low-confidence classes have a dashed tag.
+- The E11 numbers on the page come from the experiment report instead of the page text.
+
 ## 0.4.0 (2026-10-17)
 
 - New opening page, Browse by CTH: every TLHdig text in its original CTH bin against the
