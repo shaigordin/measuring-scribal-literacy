@@ -1,0 +1,12 @@
+hist agent {'words': 0.533, 'signs': 0.593} {'words': 0.749, 'signs': 0.773}
+hist deity {'words': 0.586, 'signs': 0.585} {'words': 0.741, 'signs': 0.763}
+hist function {'words': 0.594, 'signs': 0.589} {'words': 0.787, 'signs': 0.798}
+hist foreign {'words': 0.872, 'signs': 0.893} {'words': 0.736, 'signs': 0.753}
+hist realia {'words': 0.681, 'signs': 0.696} {'words': 0.724, 'signs': 0.761}
+hist verb {'words': 0.566, 'signs': 0.536} {'words': 0.76, 'signs': 0.783}
+701 agent {'words': 0.319, 'signs': 0.286} {'words': 0.506, 'signs': 0.593}
+701 deity {'words': 0.364, 'signs': 0.462} {'words': 0.481, 'signs': 0.568}
+701 function {'words': 0.392, 'signs': 0.43} {'words': 0.531, 'signs': 0.568}
+701 foreign {'words': 0.507, 'signs': 0.595} {'words': 0.463, 'signs': 0.519}
+701 realia {'words': 0.377, 'signs': 0.372} {'words': 0.531, 'signs': 0.543}
+701 verb {'words': 0.359, 'signs': 0.385} {'words': 0.494, 'signs': 0.58}

@@ -116,7 +116,7 @@
     "href": "orphans_archetypes.html#orphans-fragments-without-a-tradition",
     "title": "Orphans and Archetypes",
     "section": "Orphans: fragments without a tradition",
-    "text": "Orphans: fragments without a tradition\n\n\n\nLaroche’s residual category CTH 470: ritual fragments that could not be placed\nThe EBo fragments, now digitised in TLHdig 0.3 (May 2026)\nTraditional assignment needs a parallel passage, which is exactly what these texts lack\nSo: can the content and spelling of a fragment point to its tradition?\n\n\n\n\n\n\nTLHdig 0.3\ntexts\nmedian legible words\n\n\n\n\nCTH 470\n1,931\n10\n\n\nEBo (all CTHs)\n1,373\n4\n\n\nof which filed under CTH 832\n779\n\n\n\nof which filed under CTH 670\n384\n\n\n\n\n\nEBo fragments are filed mostly under CTH 832 and 670, which are themselves residual categories.\n\n\nPoint out that “orphan” in TLHdig is a spread condition: 470, 670 and 832 all collect them. The EBo median of 4 words is the hard constraint for everything that follows."
+    "text": "Orphans: fragments without a tradition\n\n\n\nLaroche’s residual category CTH 470: ritual fragments that could not be placed\nThe EBo fragments, now digitised in TLHdig 0.3 (May 2026)\nTraditional assignment needs a parallel passage, which is exactly what these texts lack\nSo: can the content and spelling of a fragment point to its tradition?\n\n\n\n\n\n\nTLHdig 0.3\ntexts\nmedian legible words\n\n\n\n\nCTH 470\n1,919\n10\n\n\nEBo (all CTHs)\n1,151\n4\n\n\nof which filed under CTH 832\n562\n\n\n\nof which filed under CTH 670\n382\n\n\n\n\n\nEBo fragments are filed mostly under CTH 832 and 670, which are themselves residual categories.\n\n\nPoint out that “orphan” in TLHdig is a spread condition: 470, 670 and 832 all collect them. The EBo median of 4 words is the hard constraint for everything that follows."
   },
   {
     "objectID": "orphans_archetypes.html#where-we-left-off-stbot-73",
@@ -144,35 +144,35 @@
     "href": "orphans_archetypes.html#how-small-can-an-orphan-be",
     "title": "Orphans and Archetypes",
     "section": "How small can an orphan be?",
-    "text": "How small can an orphan be?\n\n\nLong manuscripts are cut into random windows of k words and reassigned. Words and signs perform alike, and signs are slightly better from about 8 words up.\n\n\n3 words: about 49%; 10 words: about 60%; 40 words: about 69%, against a chance level of 17%. This curve sets the abstention rule used for the orphans."
+    "text": "How small can an orphan be?\n\n\nLong manuscripts are cut into random windows of k words and reassigned. Words and signs perform alike, and signs are slightly better from about 8 words up.\n\n\n3 words: about 50%; 10 words: about 62%; 40 words: about 73%, against a chance level of 17%. This curve sets the abstention rule used for the orphans."
   },
   {
     "objectID": "orphans_archetypes.html#is-it-vocabulary-orthography-or-date",
     "href": "orphans_archetypes.html#is-it-vocabulary-orthography-or-date",
     "title": "Orphans and Archetypes",
     "section": "Is it vocabulary, orthography, or date?",
-    "text": "Is it vocabulary, orthography, or date?\n\n\nRemove all logograms (Sumero- and Akkadograms)\n\nword tf-idf: 72% → 66%\nsign n-grams: 72% → 70%\n\nThe signal survives without the cultic logographic vocabulary.\n\nScript date in CTH 701 (MS vs NS)\n\nthe same method cannot predict MS vs NS above the majority baseline\n\nSo the 701 groupings are not just script-date clusters."
+    "text": "Is it vocabulary, orthography, or date?\n\n\nRemove all logograms (Sumero- and Akkadograms)\n\nword tf-idf: 69% → 66%\nsign n-grams: 72% → 70%\n\nThe signal survives without the cultic logographic vocabulary.\n\nScript date in CTH 701 (MS vs NS)\n\nthe same method cannot predict MS vs NS above the majority baseline\n\nSo the 701 groupings are not just script-date clusters."
   },
   {
     "objectID": "orphans_archetypes.html#recovering-salvini-and-wegners-groups",
     "href": "orphans_archetypes.html#recovering-salvini-and-wegners-groups",
     "title": "Orphans and Archetypes",
     "section": "Recovering Salvini and Wegner’s groups",
-    "text": "Recovering Salvini and Wegner’s groups\n\n\n\n\n\n82 manuscripts in 8 labelled groups (a–f)\n~60% recovered, against a 23% majority baseline\nThe unlabelled 701 fragments and group f are placed among a–e as candidate attributions (table in the repo)"
+    "text": "Recovering Salvini and Wegner’s groups\n\n\n\n\n\n81 manuscripts in 8 groups (a–f), labels from the Mainz Konkordanz\n~57% recovered, against a 21% majority baseline\nThe unlabelled 701 fragments and group f are placed among a–e as candidate attributions (table in the repo)"
   },
   {
     "objectID": "orphans_archetypes.html#where-do-cth-470-and-ebo-fragments-go",
     "href": "orphans_archetypes.html#where-do-cth-470-and-ebo-fragments-go",
     "title": "Orphans and Archetypes",
     "section": "Where do CTH 470 and EBo fragments go?",
-    "text": "Where do CTH 470 and EBo fragments go?\n\n\nOrphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision."
+    "text": "Where do CTH 470 and EBo fragments go?\n\n\nOrphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision (0.020; bootstrap 90% interval 0.019–0.021, i.e. 461–548 orphans assigned)."
   },
   {
     "objectID": "orphans_archetypes.html#qtm-orphans-as-low-coverage-witnesses",
     "href": "orphans_archetypes.html#qtm-orphans-as-low-coverage-witnesses",
     "title": "Orphans and Archetypes",
     "section": "QTM: orphans as low-coverage witnesses",
-    "text": "QTM: orphans as low-coverage witnesses\n\nEach tradition is treated as an archetype, approximated by its most characteristic terms\nEach orphan is a witness that attests a small part of it\nCoverage asks how much of each archetype the orphans collectively attest\nArchetypes with little coverage are transmissions we only see through the reference corpus. High coverage from orphans alone points to traditions that circulated widely in fragments.\n\n\nE6, first pass: the two ritual traditions (70 and 167 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.81, and “Mixed” (12 orphans) 0.39. Coverage grows with the number of orphans, so these numbers still need rarefaction (equal orphan counts per tradition) before they can be compared."
+    "text": "QTM: orphans as low-coverage witnesses\n\nEach tradition is treated as an archetype, approximated by its most characteristic terms\nEach orphan is a witness that attests a small part of it\nCoverage asks how much of each archetype the orphans collectively attest\nArchetypes with little coverage are transmissions we only see through the reference corpus. High coverage from orphans alone points to traditions that circulated widely in fragments.\n\n\nE6, first pass: the two ritual traditions (125 and 288 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.85, and “Mixed” (16 orphans) 0.58. Coverage grows with the number of orphans, so these numbers still need rarefaction (equal orphan counts per tradition) before they can be compared."
   },
   {
     "objectID": "orphans_archetypes.html#limits-and-next-steps",
@@ -187,5 +187,40 @@
     "title": "Orphans and Archetypes",
     "section": "Thank you",
     "text": "Thank you\nCode and data: github.com/shaigordin/measuring-scribal-literacy (orphans/)\nTLHdig 0.3: doi.org/10.5281/zenodo.20328284"
+  },
+  {
+    "objectID": "orphans_archetypes.html#what-identifies-a-tradition-what-is-written-or-how",
+    "href": "orphans_archetypes.html#what-identifies-a-tradition-what-is-written-or-how",
+    "title": "Orphans and Archetypes",
+    "section": "What identifies a tradition: what is written, or how?",
+    "text": "What identifies a tradition: what is written, or how?\n\n\nEach layer alone, leave one manuscript out, 6 traditions, 1,637 manuscripts. *Only the 209 manuscripts with foreign-language words. Orthographic habits: 10-fold LDA on seven per-text rates.\n\n\nContent carries the identity: logograms and Hittite vocabulary 65% each, foreign-language words 83% where present. Keeping the spelling of variable words adds nothing (57% vs 58% with spelling ignored): spelling choice does not mark a tradition beyond the words themselves. Text-level orthographic habits are a weak but real signal: 33% against 22% for shuffled labels (p = 0.01)."
+  },
+  {
+    "objectID": "orphans_archetypes.html#cultural-profiles-each-traditions-distinctive-vocabulary",
+    "href": "orphans_archetypes.html#cultural-profiles-each-traditions-distinctive-vocabulary",
+    "title": "Orphans and Archetypes",
+    "section": "Cultural profiles: each tradition’s distinctive vocabulary",
+    "text": "Cultural profiles: each tradition’s distinctive vocabulary\n\n\n\n\n\n\n\n\n\nTradition\nLogograms\nHittite and foreign words\n\n\n\n\nKizzuwatna rituals\nSISKUR, Ì.DU₁₀.GA, MUŠEN, SILA₄, ZA.GÌN\ntarpalli-, kureššar, ḫuittiya-, warnu-\n\n\nKizzuwatna–Lower Land\nNINDA.GUR₄.RA, BA.BA.ZA, UP-NI\nmanuzzi, Išḫara, šipant-\n\n\nLuwian cult centres\nSÌR-RU, NAR, BE-EL\naku- “drink”, palwai-\n\n\nMixed\nKI.MIN, NINDA.SIG, Ḫepat\nNinatta, Kulitta\n\n\nOld Anatolian rituals\nUTU, ŠU.GI, ALAM\ntakna-, eštu\n\n\nSyro-Mesopotamia\nAZU, EREN, AD.KID, BANŠUR\naḫrušḫi, ḫuprušḫi, ḫurlili\n\n\n\n\nWeighted log-odds with an informative prior (Monroe et al. 2008), counted by manuscripts. Full lists in E7_distinctive_features.csv.\n\nThese are ritual materials, offerings, performers and deities: the cultural and religious “artefacts” of each tradition."
+  },
+  {
+    "objectID": "orphans_archetypes.html#scribal-profiles-habits-of-copying-lines-not-regions",
+    "href": "orphans_archetypes.html#scribal-profiles-habits-of-copying-lines-not-regions",
+    "title": "Orphans and Archetypes",
+    "section": "Scribal profiles: habits of copying lines, not regions",
+    "text": "Scribal profiles: habits of copying lines, not regions\n\n\n\n\n\n\n\n\n\n\n\n\nSame word, plene spelling\nwhere it clusters\n\n\n\n\nme-ma-a-i (vs me-ma-i)\n18 of 46 Kizzuwatna–Lower Land texts, all CTH 628 and 712\n\n\npé-e-ra-an (vs pé-ra-an)\n5 Luwian texts, all CTH 665\n\n\nḫal-za-i (vs ḫal-za-a-i)\n9 of 27 Old Anatolian ritual texts\n\n\n\n\n\nSpelling habits attach to compositions and their copies, not to whole traditions\nThe AZU corpus (CTH 701) stands out for plene writing\nScript date (MS vs NS) is not predicted by these rates inside CTH 701\n\n\n\nThis is the QTM point: orthography marks the witness and its copying line; vocabulary marks the archetype. The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check against script labels."
+  },
+  {
+    "objectID": "orphans_archetypes.html#word-classes-function-words-and-verbs-are-not-where-tradition-lives",
+    "href": "orphans_archetypes.html#word-classes-function-words-and-verbs-are-not-where-tradition-lives",
+    "title": "Orphans and Archetypes",
+    "section": "Word classes: function words and verbs are not where tradition lives",
+    "text": "Word classes: function words and verbs are not where tradition lives\n\n\nThe six categories of StBoT 73 Table 4, assigned from TLHdig’s morphological analyses. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.\n\n\nRemoving function words raises accuracy for the six traditions (69% → 74%): they are shared across traditions, a common scribal and syntactic layer. Alone they still reach 57% against 23%, so formulae differ between traditions, but less than realia (66%) or Hurrian words (83%). Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (49% → 46%), yet 46% is still twice the majority baseline (21%), so the Hittite frame text also differs between the subgroups."
+  },
+  {
+    "objectID": "orphans_archetypes.html#validation-with-literature-defined-traditions",
+    "href": "orphans_archetypes.html#validation-with-literature-defined-traditions",
+    "title": "Orphans and Archetypes",
+    "section": "Validation with literature-defined traditions",
+    "text": "Validation with literature-defined traditions\n\n\nKizzuwatna rituals = CTH 471–500 + 404 (Miller 2004); Arzawa = CTH 391, 425, 429, 433, 463 (Christiansen 2006, Bawanypeck 2005); Hattian cult layer = Klinger 1996 (from the Konkordanz citations of StBoT 37); the four festival groups of StBoT 73. CTH 390–469 texts claimed by no study leave the reference.\n\n\n78% over 7 traditions against 26% majority, up from 72% with the CTH-range controls. Hattian 94% and Kizzuwatna 84% recalled; Arzawa only 31%, but it has just 16 manuscripts of 17+ words."
   }
 ]

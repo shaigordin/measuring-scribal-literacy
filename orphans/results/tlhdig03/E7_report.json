@@ -1,0 +1,187 @@
+{
+  "corpus": {
+    "texts": 1637,
+    "variable_words": 383
+  },
+  "E7a_layers": {
+    "logograms": {
+      "acc": 0.647,
+      "majority": 0.232,
+      "null_mean": 0.17,
+      "p": 0.0099,
+      "n": 1622,
+      "classes": 6,
+      "recall_by_class": {
+        "Kizzuwatna rituals": 0.543,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.726,
+        "Luwian cult centres": 0.689,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.563,
+        "Old Anatolian rituals": 0.719,
+        "Syro-Mesopotamia (Hurrian)": 0.626
+      },
+      "texts_with_layer": 1622
+    },
+    "foreign": {
+      "acc": 0.828,
+      "majority": 0.426,
+      "null_mean": 0.226,
+      "p": 0.0099,
+      "n": 209,
+      "classes": 6,
+      "recall_by_class": {
+        "Kizzuwatna rituals": 0.793,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.974,
+        "Luwian cult centres": 0.923,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.545,
+        "Old Anatolian rituals": 0.0,
+        "Syro-Mesopotamia (Hurrian)": 0.798
+      },
+      "texts_with_layer": 209
+    },
+    "lexicon": {
+      "acc": 0.654,
+      "majority": 0.233,
+      "null_mean": 0.177,
+      "p": 0.0099,
+      "n": 1619,
+      "classes": 6,
+      "recall_by_class": {
+        "Kizzuwatna rituals": 0.61,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.598,
+        "Luwian cult centres": 0.691,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.611,
+        "Old Anatolian rituals": 0.757,
+        "Syro-Mesopotamia (Hurrian)": 0.648
+      },
+      "texts_with_layer": 1619
+    },
+    "spelling": {
+      "acc": 0.566,
+      "majority": 0.231,
+      "null_mean": 0.171,
+      "p": 0.0099,
+      "n": 1578,
+      "classes": 6,
+      "recall_by_class": {
+        "Kizzuwatna rituals": 0.459,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.512,
+        "Luwian cult centres": 0.642,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.639,
+        "Old Anatolian rituals": 0.599,
+        "Syro-Mesopotamia (Hurrian)": 0.646
+      },
+      "texts_with_layer": 1578
+    },
+    "collapsed": {
+      "acc": 0.584,
+      "majority": 0.23,
+      "null_mean": 0.166,
+      "p": 0.0099,
+      "n": 1581,
+      "classes": 6,
+      "recall_by_class": {
+        "Kizzuwatna rituals": 0.492,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.528,
+        "Luwian cult centres": 0.638,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.644,
+        "Old Anatolian rituals": 0.639,
+        "Syro-Mesopotamia (Hurrian)": 0.642
+      },
+      "texts_with_layer": 1581
+    },
+    "orthographic_indices": {
+      "acc": 0.327,
+      "majority": 0.231,
+      "null_mean": 0.22,
+      "p": 0.0099,
+      "n": 1637,
+      "classes": 6
+    }
+  },
+  "E7b_index_profile_z": {
+    "Kizzuwatna rituals": {
+      "logogram_share": -0.033,
+      "akkadogram_share": 0.073,
+      "complement_rate": -0.235,
+      "determinative_rate": -0.251,
+      "plene_rate": -0.13,
+      "cvc_share": 0.0,
+      "u_acute_share": 0.071
+    },
+    "Kizzuwatna–Lower Land (Hurrian)": {
+      "logogram_share": 0.125,
+      "akkadogram_share": 0.344,
+      "complement_rate": -0.125,
+      "determinative_rate": 0.143,
+      "plene_rate": -0.075,
+      "cvc_share": -0.08,
+      "u_acute_share": -0.18
+    },
+    "Luwian cult centres": {
+      "logogram_share": 0.001,
+      "akkadogram_share": 0.119,
+      "complement_rate": -0.061,
+      "determinative_rate": 0.325,
+      "plene_rate": -0.034,
+      "cvc_share": -0.108,
+      "u_acute_share": 0.08
+    },
+    "Mixed (Hurrian, Syrian, Luwian)": {
+      "logogram_share": 0.197,
+      "akkadogram_share": -0.338,
+      "complement_rate": 0.268,
+      "determinative_rate": 0.436,
+      "plene_rate": 0.07,
+      "cvc_share": 0.144,
+      "u_acute_share": -0.001
+    },
+    "Old Anatolian rituals": {
+      "logogram_share": -0.135,
+      "akkadogram_share": -0.305,
+      "complement_rate": 0.361,
+      "determinative_rate": -0.374,
+      "plene_rate": -0.112,
+      "cvc_share": 0.209,
+      "u_acute_share": 0.131
+    },
+    "Syro-Mesopotamia (Hurrian)": {
+      "logogram_share": -0.121,
+      "akkadogram_share": 0.035,
+      "complement_rate": -0.197,
+      "determinative_rate": 0.059,
+      "plene_rate": 0.64,
+      "cvc_share": -0.291,
+      "u_acute_share": -0.211
+    }
+  },
+  "E7c_701_script_date": {
+    "lda": {
+      "acc": 0.747,
+      "majority": 0.828,
+      "null_mean": 0.806,
+      "p": 1.0,
+      "n": 99,
+      "classes": 2
+    },
+    "means": {
+      "jh.": {
+        "logogram_share": 0.333,
+        "akkadogram_share": 0.338,
+        "complement_rate": 0.168,
+        "determinative_rate": 0.176,
+        "plene_rate": 0.298,
+        "cvc_share": 0.043,
+        "u_acute_share": 0.242
+      },
+      "mh.": {
+        "logogram_share": 0.269,
+        "akkadogram_share": 0.341,
+        "complement_rate": 0.2,
+        "determinative_rate": 0.179,
+        "plene_rate": 0.304,
+        "cvc_share": 0.041,
+        "u_acute_share": 0.172
+      }
+    }
+  }
+}

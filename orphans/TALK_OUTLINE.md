@@ -9,6 +9,7 @@ Mainz workshop on Hittite and AI. The talk builds on Gordin, Yavasan and Romach 
 | 2 | **Where we left off (StBoT 73)** | 2 | 2 | Fig. 1 "galaxy" (tf-idf, t-SNE), CTH 701 under the microscope (KBo 23.44 vs KBo 38.281+) |
 | 3 | **From exploration to assignment** | 3 | 3 | Two reference spaces (word tf-idf; sign n-grams for orthography), nearest-centroid scores, open-set abstention |
 | 4 | **Does it work? Validation** | 4 | 4 | E1 leave-one-out accuracy vs majority/permutation baseline; E2 coverage curve (accuracy vs fragment size in words); E4 logogram ablation (orthography vs vocabulary) |
+| 4b | **Scribal or cultural? (core)** | 4 | 3 | E7 layer accuracy (content vs spelling vs orthographic rates); cultural profiles per tradition; spelling habits by composition |
 | 5 | **CTH 701 as a test bed** | 3 | 2 | E3 Salvini–Wegner subgroups a–f recovered or not; where group f and the unclassified 701 fragments land |
 | 6 | **Orphans placed** | 3 | 3 | E5 CTH 470 / EBo fragments: ranked candidate traditions, abstentions, two worked examples for philological check |
 | 7 | **QTM: witnesses and archetypes** | 2 | 2 | Fragments as low-coverage witnesses; how much of each tradition's "archetype" vocabulary the orphans cover; transmission questions |
@@ -21,4 +22,5 @@ Mainz workshop on Hittite and AI. The talk builds on Gordin, Yavasan and Romach 
 - **E3 CTH 701 subgroups.** The same procedure on the a–f labels, where partial ground truth exists, with script date (MS/NS) tested as a rival explanation.
 - **E4 Ablation.** Logograms dropped, to separate scribal orthography from cultic vocabulary.
 - **E5 Orphan placement.** CTH 470 and EBo fragments scored against every tradition, with an open-set margin.
+- **E7 Tradition profiles** (`run_profiles.py`). Each layer alone (logograms, Hittite vocabulary, foreign-language words, spelling of variable words vs the same words without spelling, seven orthographic rates); distinctive features per tradition (weighted log-odds); script-date check inside CTH 701.
 - **E6 QTM coverage.** The share of each tradition's core terms attested by its assigned orphans (still needs rarefaction).

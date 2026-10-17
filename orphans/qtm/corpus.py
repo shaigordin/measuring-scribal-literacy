@@ -26,8 +26,11 @@ def load(path: str, cths=None, min_words: int = 0) -> pd.DataFrame:
     agg = {"cth_number": "first", "word": list, "translit": list}
     if "subgroup" in df.columns:
         agg["subgroup"] = "first"
+    for col in ("lang", "wclass"):
+        if col in df.columns:
+            agg[col] = list
     docs = df.groupby("txtid", sort=False).agg(agg).reset_index()
-    docs = docs.rename(columns={"word": "words", "translit": "translits"})
+    docs = docs.rename(columns={"word": "words", "translit": "translits", "lang": "langs", "wclass": "wclasses"})
     docs["words"] = docs.words.apply(lambda ws: [str(w) for w in ws])
     docs["signs"] = docs.translits.apply(lambda ts: [signs(t) for t in ts])
     docs["n_words"] = docs.words.str.len()

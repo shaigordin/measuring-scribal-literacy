@@ -34,7 +34,7 @@ format:
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-1 [2 3 4 5]{style="opacity:0.25"}
+1 [2 3 4 5 6]{style="opacity:0.25"}
 :::
 :::
 
@@ -55,10 +55,10 @@ format:
 
 | TLHdig 0.3 | texts | median legible words |
 |---|---:|---:|
-| CTH 470 | 1,931 | 10 |
-| EBo (all CTHs) | 1,373 | 4 |
-| of which filed under CTH 832 | 779 | |
-| of which filed under CTH 670 | 384 | |
+| CTH 470 | 1,919 | 10 |
+| EBo (all CTHs) | 1,151 | 4 |
+| of which filed under CTH 832 | 562 | |
+| of which filed under CTH 670 | 382 | |
 
 :::
 
@@ -93,7 +93,7 @@ The EBo median of 4 words is the hard constraint for everything that follows.
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1]{style="opacity:0.25"} 2 [3 4 5]{style="opacity:0.25"}
+[1]{style="opacity:0.25"} 2 [3 4 5 6]{style="opacity:0.25"}
 :::
 :::
 
@@ -132,7 +132,7 @@ The EBo median of 4 words is the hard constraint for everything that follows.
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1 2]{style="opacity:0.25"} 3 [4 5]{style="opacity:0.25"}
+[1 2]{style="opacity:0.25"} 3 [4 5 6]{style="opacity:0.25"}
 :::
 :::
 
@@ -154,6 +154,21 @@ This is why the reference space moved to historical groups.
 
 ---
 
+## Validation with literature-defined traditions
+
+![](img/orphans/literature/validation.png){fig-align="center" width="80%"}
+
+::: {.small}
+Kizzuwatna rituals = CTH 471–500 + 404 (Miller 2004); Arzawa = CTH 391, 425, 429, 433, 463 (Christiansen 2006, Bawanypeck 2005); Hattian cult layer = Klinger 1996 (from the Konkordanz citations of StBoT 37); the four festival groups of StBoT 73. CTH 390–469 texts claimed by no study leave the reference.
+:::
+
+::: {.notes}
+78% over 7 traditions against 26% majority, up from 72% with the CTH-range controls.
+Hattian 94% and Kizzuwatna 84% recalled; Arzawa only 31%, but it has just 16 manuscripts of 17+ words.
+:::
+
+---
+
 ## How small can an orphan be?
 
 ![](img/orphans/coverage_curve.png){fig-align="center" width="75%"}
@@ -163,7 +178,7 @@ Long manuscripts are cut into random windows of *k* words and reassigned. Words 
 :::
 
 ::: {.notes}
-3 words: about 49%; 10 words: about 60%; 40 words: about 69%, against a chance level of 17%.
+3 words: about 50%; 10 words: about 62%; 40 words: about 73%, against a chance level of 17%.
 This curve sets the abstention rule used for the orphans.
 :::
 
@@ -175,7 +190,7 @@ This curve sets the abstention rule used for the orphans.
 ::: {.column width="50%"}
 **Remove all logograms** (Sumero- and Akkadograms)
 
-- word tf-idf: 72% → 66%
+- word tf-idf: 69% → 66%
 - sign n-grams: 72% → 70%
 
 The signal survives without the cultic logographic vocabulary.
@@ -191,11 +206,106 @@ So the 701 groupings are not just script-date clusters.
 
 ---
 
+# Scribal or cultural?
+
+::: {.absolute top="0" left="96%"}
+::: sectionhead
+[1 2 3]{style="opacity:0.25"} 4 [5 6]{style="opacity:0.25"}
+:::
+:::
+
+---
+
+## What identifies a tradition: what is written, or how?
+
+![](img/orphans/layers.png){fig-align="center" width="78%"}
+
+::: {.small}
+Each layer alone, leave one manuscript out, 6 traditions, 1,637 manuscripts. *Only the 209 manuscripts with foreign-language words. Orthographic habits: 10-fold LDA on seven per-text rates.
+:::
+
+::: {.notes}
+Content carries the identity: logograms and Hittite vocabulary 65% each, foreign-language words 83% where present.
+Keeping the spelling of variable words adds nothing (57% vs 58% with spelling ignored): spelling choice does not mark a tradition beyond the words themselves.
+Text-level orthographic habits are a weak but real signal: 33% against 22% for shuffled labels (p = 0.01).
+:::
+
+---
+
+## Cultural profiles: each tradition's distinctive vocabulary
+
+::: {.small}
+
+| Tradition | Logograms | Hittite and foreign words |
+|---|---|---|
+| Kizzuwatna rituals | SISKUR, Ì.DU₁₀.GA, MUŠEN, SILA₄, ZA.GÌN | *tarpalli-*, *kureššar*, *ḫuittiya-*, *warnu-* |
+| Kizzuwatna–Lower Land | NINDA.GUR₄.RA, BA.BA.ZA, *UP-NI* | *manuzzi*, Išḫara, *šipant-* |
+| Luwian cult centres | SÌR-RU, NAR, *BE-EL* | *aku-* "drink", *palwai-* |
+| Mixed | KI.MIN, NINDA.SIG, Ḫepat | Ninatta, Kulitta |
+| Old Anatolian rituals | UTU, ŠU.GI, ALAM | *takna-*, *eštu* |
+| Syro-Mesopotamia | AZU, EREN, AD.KID, BANŠUR | *aḫrušḫi*, *ḫuprušḫi*, *ḫurlili* |
+
+:::
+
+[Weighted log-odds with an informative prior (Monroe et al. 2008), counted by manuscripts. Full lists in `E7_distinctive_features.csv`.]{.small}
+
+::: {.notes}
+These are ritual materials, offerings, performers and deities: the cultural and religious "artefacts" of each tradition.
+:::
+
+---
+
+## Scribal profiles: habits of copying lines, not regions
+
+::: {.columns}
+::: {.column width="58%"}
+![](img/orphans/orthography_profile.png){width="100%"}
+:::
+::: {.column width="42%"}
+::: {.small}
+
+| Same word, plene spelling | where it clusters |
+|---|---|
+| *me-ma-a-i* (vs *me-ma-i*) | 18 of 46 Kizzuwatna–Lower Land texts, all CTH 628 and 712 |
+| *pé-e-ra-an* (vs *pé-ra-an*) | 5 Luwian texts, all CTH 665 |
+| *ḫal-za-i* (vs *ḫal-za-a-i*) | 9 of 27 Old Anatolian ritual texts |
+
+:::
+
+- Spelling habits attach to **compositions and their copies**, not to whole traditions
+- The AZU corpus (CTH 701) stands out for plene writing
+- Script date (MS vs NS) is **not** predicted by these rates inside CTH 701
+:::
+:::
+
+::: {.notes}
+This is the QTM point: orthography marks the witness and its copying line; vocabulary marks the archetype.
+The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check against script labels.
+:::
+
+---
+
+## Word classes: function words and verbs are not where tradition lives
+
+![](img/orphans/wordclasses.png){fig-align="center" width="85%"}
+
+::: {.small}
+The six categories of StBoT 73 Table 4, assigned from TLHdig's morphological analyses. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.
+:::
+
+::: {.notes}
+Removing function words *raises* accuracy for the six traditions (69% → 74%): they are shared across traditions, a common scribal and syntactic layer.
+Alone they still reach 57% against 23%, so formulae differ between traditions, but less than realia (66%) or Hurrian words (83%).
+Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (49% → 46%), yet 46% is still twice the majority baseline (21%), so the Hittite frame text also differs between the subgroups.
+:::
+
+---
+
 # CTH 701 as a test bed
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1 2 3]{style="opacity:0.25"} 4 [5]{style="opacity:0.25"}
+[1 2 3 4]{style="opacity:0.25"} 5 [6]{style="opacity:0.25"}
 :::
 :::
 
@@ -208,8 +318,8 @@ So the 701 groupings are not just script-date clusters.
 ![](img/orphans/cth701_subgroups.png){width="100%"}
 :::
 ::: {.column width="45%"}
-- 82 manuscripts in 8 labelled groups (a–f)
-- ~60% recovered, against a 23% majority baseline
+- 81 manuscripts in 8 groups (a–f), labels from the Mainz Konkordanz
+- ~57% recovered, against a 21% majority baseline
 - The unlabelled 701 fragments and group f are placed among a–e as candidate attributions (table in the repo)
 :::
 :::
@@ -220,7 +330,7 @@ So the 701 groupings are not just script-date clusters.
 
 ::: {.absolute top="0" left="96%"}
 ::: sectionhead
-[1 2 3 4]{style="opacity:0.25"} 5
+[1 2 3 4 5]{style="opacity:0.25"} 6
 :::
 :::
 
@@ -231,7 +341,7 @@ So the 701 groupings are not just script-date clusters.
 ![](img/orphans/orphans_by_tradition.png){fig-align="center" width="80%"}
 
 ::: {.small}
-Orphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision.
+Orphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision (0.020; bootstrap 90% interval 0.019–0.021, i.e. 461–548 orphans assigned).
 :::
 
 ---
@@ -244,7 +354,7 @@ Orphans with 5+ legible words. A fragment is assigned only when its lead over th
 - Archetypes with little coverage are transmissions we only see through the reference corpus. High coverage from orphans alone points to traditions that circulated widely in fragments.
 
 ::: {.notes}
-E6, first pass: the two ritual traditions (70 and 167 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.81, and "Mixed" (12 orphans) 0.39.
+E6, first pass: the two ritual traditions (125 and 288 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.85, and "Mixed" (16 orphans) 0.58.
 Coverage grows with the number of orphans, so these numbers still need rarefaction (equal orphan counts per tradition) before they can be compared.
 :::
 

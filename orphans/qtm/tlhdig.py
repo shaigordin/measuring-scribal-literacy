@@ -1,8 +1,8 @@
 """Parse the TLHdig XML release (Zenodo 10.5281/zenodo.20328284) into a token table.
 
-One row per <w> word: txtid, cth_number, source (HFR/TLH/...), lnr, lang, word, translit.
+One row per <w> word: txtid, cth_number, source (HFR/TLH/...), lnr, lang, word, translit, wclass.
 `word` is the normalised form from the `trans` attribute; `translit` is the sign
-sequence with determinatives as {DET}. Words that are wholly or partly illegible
+sequence with determinatives as {DET}. `wclass` is the word class from qtm.wordclass. Words that are wholly or partly illegible
 (`%` in trans, or only `x` signs) keep their translit but get an empty `word`.
 """
 import re
@@ -11,6 +11,8 @@ from pathlib import Path
 
 import pandas as pd
 from lxml import etree
+
+from .wordclass import word_class
 
 FOLDER = re.compile(r"CTH (\d+)[^_]*_XML_(\w+)")
 SKIP = {"space", "del_in", "del_fin", "laes_in", "laes_fin", "corr", "note", "gap"}
@@ -49,7 +51,8 @@ def parse_file(path, cth, source):
             continue
         trans = el.get("trans") or ""
         word = "" if ("%" in trans or not re.search(r"[^x\s\-.]", tl.replace("x", ""))) else trans
-        rows.append((txtid, cth, source, lnr, lang, word, tl))
+        wc = word_class(el.attrib, tl, lang) if word else ""
+        rows.append((txtid, cth, source, lnr, lang, word, tl, wc))
     return rows
 
 
@@ -59,12 +62,12 @@ def parse_release(root, cths=None):
         m = FOLDER.match(d.name)
         if not m or (cths and m.group(1) not in cths):
             continue
-        for f in d.rglob("*.xml"):
+        for f in sorted(d.rglob("*.xml")):  # sorted: same row order on every filesystem
             try:
                 out += parse_file(f, m.group(1), m.group(2))
             except Exception as e:  # malformed files are logged, not fatal
                 print(f"skip {f}: {e}", file=sys.stderr)
-    df = pd.DataFrame(out, columns=["txtid", "cth_number", "source", "lnr", "lang", "word", "translit"])
+    df = pd.DataFrame(out, columns=["txtid", "cth_number", "source", "lnr", "lang", "word", "translit", "wclass"])
     # the same manuscript can appear in an HFR and a TLH folder: keep the HFR copy
     rank = df.source.map({"HFR": 0}).fillna(1)
     keep = df.assign(r=rank).groupby("txtid").r.transform("min") == rank
