@@ -1,0 +1,205 @@
+// Client-side port of orphans/qtm: tokenisation, tf-idf, nearest-centroid scoring.
+// Mirrors qtm/corpus.py (signs), qtm/features.py ("both" space) and qtm/assign.py.
+
+const EDIT = /[\[\]⸢⸣()?!~′'<>«»#*]/g;
+const LONE_X = /(?<![\p{L}\p{N}_])x(?![\p{L}\p{N}_])/gu;
+const SIGN_SPLIT = /[-.\s{}+˽]+/;
+const DIGITS = /^[\p{Nd}²³¹⁰-₟]+$/u;
+const SUB = { 0: "₀", 1: "₁", 2: "₂", 3: "₃", 4: "₄", 5: "₅", 6: "₆", 7: "₇", 8: "₈", 9: "₉" };
+const ACUTE = { a: "á", e: "é", i: "í", u: "ú", A: "Á", E: "É", I: "Í", U: "Ú" };
+const GRAVE = { a: "à", e: "è", i: "ì", u: "ù", A: "À", E: "È", I: "Ì", U: "Ù" };
+
+// ASCII conveniences: sz/š, s,/ṣ, t,/ṭ, h/ḫ, u2/ú, u3/ù, ku4/ku₄
+function asciiSign(s) {
+  s = s.replace(/sz/g, "š").replace(/SZ|Sz/g, "Š").replace(/s,/g, "ṣ").replace(/S,/g, "Ṣ")
+       .replace(/t,/g, "ṭ").replace(/T,/g, "Ṭ").replace(/h/g, "ḫ").replace(/H/g, "Ḫ");
+  const m = s.match(/^(.*?)(\d+)$/);
+  if (!m || !m[1]) return s;
+  const [, base, n] = m;
+  const vowels = [...base].filter(c => ACUTE[c]);
+  if ((n === "2" || n === "3") && vowels.length === 1) {
+    const v = vowels[0], map = n === "2" ? ACUTE : GRAVE;
+    return base.replace(v, map[v]);
+  }
+  return base + [...n].map(d => SUB[d]).join("");
+}
+
+export function normaliseAscii(word) {
+  // keep separators, convert each sign
+  return word.split(/([-.{}+])/).map((p, i) => (i % 2 ? p : asciiSign(p))).join("");
+}
+
+export function signs(translit) {
+  const t = translit.replace(EDIT, "").replace(LONE_X, "");
+  return t.split(SIGN_SPLIT).filter(s => s && s !== "x" && !DIGITS.test(s));
+}
+
+function clean(w) { return w.replace(EDIT, "").trim(); }
+
+function illegible(w) {
+  return /%|…|\.\.\./.test(w) || signs(w).length === 0;
+}
+
+// Parse pasted transliteration: whitespace separates words. Words that are
+// partly illegible are dropped, as the corpus pipeline drops them.
+export function parse(text, model) {
+  const words = [], dropped = [];
+  for (let raw of text.split(/\s+/).filter(Boolean)) {
+    if (/^\d+[′'´]*\.?$/.test(raw) || /^(obv|rev|lk|rs|vs)\.?$/i.test(raw)) continue; // line numbers
+    if (illegible(raw)) { dropped.push(raw); continue; }
+    let w = clean(raw);
+    if (!model.lookup[w] && !model.index.has(w)) {
+      const a = normaliseAscii(w);
+      if (model.lookup[a] || model.index.has(a) || a !== w) w = a;
+    }
+    const form = model.lookup[w] || (model.index.has(w) ? w : null);
+    words.push({ raw, translit: w, word: form, signs: signs(w) });
+  }
+  return { words, dropped };
+}
+
+export function features(parsed) {
+  const toks = [];
+  for (const w of parsed.words) if (w.word) toks.push(w.word);
+  for (const w of parsed.words) {
+    const sg = w.signs;
+    for (let k = 1; k <= 3; k++)
+      for (let i = 0; i + k <= sg.length; i++) toks.push("§" + sg.slice(i, i + k).join("·"));
+  }
+  return toks;
+}
+
+// TfidfVectorizer(sublinear_tf=True, norm="l2") on a fixed vocabulary
+export function tfidf(toks, index, idf) {
+  const tf = new Map();
+  for (const t of toks) { const j = index.get(t); if (j !== undefined) tf.set(j, (tf.get(j) || 0) + 1); }
+  const v = new Map();
+  let n2 = 0;
+  for (const [j, c] of tf) { const x = (1 + Math.log(c)) * idf[j]; v.set(j, x); n2 += x * x; }
+  const n = Math.sqrt(n2) || 1;
+  for (const [j, x] of v) v.set(j, x / n);
+  return v;
+}
+
+export function denseCentroids(model) {
+  return model.centroids.map(([idx, val]) => {
+    const m = new Map();
+    idx.forEach((j, i) => m.set(j, val[i]));
+    return m;
+  });
+}
+
+export function score(vec, cents) {
+  return cents.map(c => { let s = 0; for (const [j, x] of vec) { const y = c.get(j); if (y) s += x * y; } return s; });
+}
+
+// per-feature contribution to the cosine with one centroid
+export function contributions(vec, cent, vocab) {
+  const out = [];
+  for (const [j, x] of vec) { const y = cent.get(j); if (y) out.push({ term: vocab[j], value: x * y, x, y }); }
+  return out.sort((a, b) => b.value - a.value);
+}
+
+export function assign(s, labs, margin) {
+  const order = s.map((v, i) => i).sort((a, b) => s[b] - s[a]);
+  const gap = s[order[0]] - s[order[1]];
+  return { top: labs[order[0]], topScore: s[order[0]], runnerUp: labs[order[1]], gap,
+           assigned: gap >= margin ? labs[order[0]] : null };
+}
+
+export async function loadModel(base = "data") {
+  const model = await (await fetch(`${base}/model.json`)).json();
+  model.index = new Map(model.vocab.map((t, i) => [t, i]));
+  model.cents = denseCentroids(model);
+  model.common = new Set(model.common);
+  const gate = await (await fetch(`${base}/gate.json`)).json();
+  gate.index = new Map(gate.vocab.map((t, i) => [t, i]));
+  gate.cents = denseCentroids(gate);
+  model.gate = gate;
+  return model;
+}
+
+// E9 open-set check. `lowFit`: the best similarity is below what 95% of reference fragments of
+// this size reach. `outside`: with outside genres (myths, oracles, treaties ...) added as classes,
+// the nearest class is one of them by at least the abstention margin.
+export function fitFloor(n, floors) {
+  const ks = Object.keys(floors).map(Number).sort((a, b) => a - b);
+  const k = ks.filter(k => k <= n).pop() ?? ks[0];
+  return floors[k];
+}
+export function openSet(toks, n, topScore, model) {
+  const g = model.gate, os = model.openset;
+  const s = score(tfidf(toks, g.index, g.idf), g.cents);
+  const a = assign(s, g.classes, 0);
+  const floor = fitFloor(n, os.floors);
+  const outside = os.outside.includes(a.top) && Math.round(a.gap * 1e4) / 1e4 >= model.margin ? a.top : null;
+  return { floor, lowFit: Math.round(topScore * 1e4) / 1e4 < floor, outside, gateTop: a.top, gateGap: a.gap };
+}
+
+export function scoreText(text, model, opts = {}) {
+  return scoreParsed(parse(text, model), model, opts);
+}
+
+// --- what the score rests on: word classes (E8) x layers (form, syllabic, logographic) ---
+export const wordClass = (w, model) => (w.word && model.wordCategory[w.word]) || "Other words";
+// How sure the class is (TLHdig annotation, qtm.wordclass.RULES): [high|medium|low|manual, rule].
+// Words outside the vocabulary have no class at all.
+export const classConfidence = (w, model) => (w.word && model.wordConfidence[w.word]) || ["low", "no_analysis"];
+const isLogo = g => g.slice(1).split("·").some(t => /^\p{Lu}/u.test(t));
+function wordFeatures(w) {
+  const out = w.word ? [[w.word, 0]] : [];
+  const sg = w.signs;
+  for (let k = 1; k <= 3; k++)
+    for (let i = 0; i + k <= sg.length; i++) {
+      const g = "§" + sg.slice(i, i + k).join("·");
+      out.push([g, isLogo(g) ? 2 : 1]);
+    }
+  return out;
+}
+
+// Leave out whole word classes and/or layers, then score as usual.
+export function scoreParsed(parsed, model, { dropClasses = [], dropLayers = [] } = {}) {
+  const words = parsed.words.filter(w => !dropClasses.includes(wordClass(w, model)));
+  const kept = { ...parsed, words };
+  const toks = words.flatMap(w => wordFeatures(w).filter(([, l]) => !dropLayers.includes(l)).map(([f]) => f));
+  const vec = tfidf(toks, model.index, model.idf);
+  const s = score(vec, model.cents);
+  const a = assign(s, model.traditions, model.margin);
+  return { parsed: kept, all: parsed, vec, s, ...a, open: openSet(toks, words.length, a.topScore, model),
+           dropLayers };
+}
+
+// What a score rests on. `weights` maps feature -> weight: the nearest centroid for the
+// similarity (x . c_top), or c_top - c_runner-up for the decision margin (as in E11). Each
+// feature's contribution x_f * w_f is shared among the words that produce it, so the parts sum
+// exactly to the score. `common` is the part carried by features attested in at least a quarter
+// of the reference texts (nu, the signs a and i ...), which all traditions share.
+export function decisionWeights(r, model) {
+  const labs = model.traditions, a = model.cents[labs.indexOf(r.top)], b = model.cents[labs.indexOf(r.runnerUp)];
+  const w = new Map();
+  for (const j of r.vec.keys()) w.set(j, (a.get(j) || 0) - (b.get(j) || 0));
+  return w;
+}
+
+export function attribute(r, weights, model) {
+  const feats = r.parsed.words.map(w => wordFeatures(w).filter(([, l]) => !r.dropLayers?.includes(l)));
+  const total = new Map();
+  for (const fs of feats) for (const [f] of fs) total.set(f, (total.get(f) || 0) + 1);
+  const C = model.categories.length, L = model.layers.length;
+  const matrix = Array.from({ length: C }, () => new Array(L).fill(0));
+  let common = 0;
+  const perWord = r.parsed.words.map((w, i) => {
+    const parts = new Array(L).fill(0);
+    for (const [f, l] of feats[i]) {
+      const j = model.index.get(f);
+      if (j === undefined) continue;
+      const v = ((r.vec.get(j) || 0) * (weights.get(j) || 0)) / total.get(f);
+      parts[l] += v;
+      if (model.common.has(j)) common += v;
+    }
+    const ci = model.categories.indexOf(wordClass(w, model));
+    parts.forEach((v, l) => (matrix[ci][l] += v));
+    return { word: w, cls: model.categories[ci], parts, total: parts.reduce((a, b) => a + b, 0) };
+  });
+  return { perWord, matrix, common, sum: perWord.reduce((a, p) => a + p.total, 0) };
+}

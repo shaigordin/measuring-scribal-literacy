@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scribal Tradition Playground</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>Scribal tradition playground</h1>
+  <p>Load a TLHdig text or paste a Hittite fragment in transliteration and see which textual tradition it sits closest to. The model is the one from <i>Orphans and Archetypes</i> (Mainz 2026): word tf-idf plus sign n-grams, compared with the centroid of each reference tradition, built on TLHdig Beta 0.3.</p>
+  <nav class="tabs"><a href="index.html">Browse by CTH</a><a href="place.html" aria-current="page">Place a fragment</a><a href="compare.html" id="cmpLink">Compare word by word</a></nav>
+</header>
+
+<main>
+<div class="grid">
+  <section class="card">
+    <h2>Your fragment</h2>
+    <form class="row" id="fetchForm" style="margin:0 0 8px">
+      <label class="small" for="fetchId">From TLHdig or the Konkordanz:</label>
+      <input type="text" id="fetchId" list="fetchIds" placeholder="KBo 27.160, or paste a link" style="flex:1 1 14em">
+      <button type="submit">Load</button>
+      <datalist id="fetchIds"></datalist>
+    </form>
+    <p class="small muted" id="fetchMsg" style="margin:0"></p>
+    <p class="sub">One word per space, signs joined by hyphens, determinatives in braces: <span class="translit">{GIŠ}BANŠUR kat-ta-an da-a-i</span>. ASCII works too (<span class="translit">sz</span> for š, <span class="translit">h</span> for ḫ, <span class="translit">u2</span> for ú). Line numbers and broken words are ignored.</p>
+    <textarea id="input" spellcheck="false" placeholder="Paste transliteration here"></textarea>
+    <div class="row">
+      <select id="examples" aria-label="Load an example"><option value="">Load an example…</option></select>
+      <button id="random">Random orphan</button>
+      <button id="clear">Clear</button>
+    </div>
+    <div class="row small muted" id="parseInfo"></div>
+    <div class="chips" id="chips" style="margin-top:8px"></div>
+  </section>
+
+  <section class="card">
+    <h2>Result</h2>
+    <div id="verdict" class="verdict muted">Waiting for text.</div>
+    <p class="sub" id="verdictSub"></p>
+    <div class="resultRow">
+      <div id="rose" class="rose" title="Similarity rose"></div>
+      <div class="bars" id="bars"></div>
+    </div>
+    <p class="sub small" style="margin-top:8px">The rose shows the same ten scores as wedges, each pointing to its tradition's corner of the wheel; wedge area grows with similarity. A dashed ring means the fragment is not placed.</p>
+  </section>
+
+  <section class="card span2">
+    <h2>What the score rests on</h2>
+    <div class="row small" id="modeRow" role="radiogroup" aria-label="What to break down">
+      <label><input type="radio" name="mode" value="decision" checked> What decides it: nearest against runner-up</label>
+      <label><input type="radio" name="mode" value="similarity"> Similarity to the nearest tradition</label>
+    </div>
+    <p class="sub" id="restSub"></p>
+    <div class="rest" id="rest"></div>
+    <p class="small" id="commonNote"></p>
+    <div class="legend" id="restLegend"></div>
+    <div class="row small" id="dropRow"></div>
+  </section>
+
+  <section class="card">
+    <h2>Tradition wheel</h2>
+    <p class="sub">Each corner is a reference tradition. Every manuscript is pulled toward the corners it resembles, so the centre means "undecided". Dots are reference manuscripts; your fragment is the ringed marker. Hover a dot to see it, click to load its text.</p>
+    <svg id="hex" viewBox="-345 -238 690 470" width="100%" role="img" aria-label="Tradition wheel map"></svg>
+    <div class="row small">
+      <label><input type="checkbox" id="showRef" checked> reference manuscripts</label>
+      <label><input type="checkbox" id="showOrph"> placed orphans</label>
+    </div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section class="card">
+    <h2>Why this tradition?</h2>
+    <p class="sub" id="whySub">The words and sign sequences that add most to the similarity with the nearest tradition.</p>
+    <div class="contrib" id="contrib"></div>
+    <h2 style="margin-top:16px">Archetype barcode</h2>
+    <p class="sub" id="barcodeSub">The 200 most characteristic features of the nearest tradition, strongest first. Dark cells are attested in your fragment.</p>
+    <div class="barcode" id="barcode"></div>
+  </section>
+
+  <section class="card">
+    <h2>Word butterfly</h2>
+    <p class="sub" id="flySub">Word tf-idf in your fragment (left) against the nearest tradition (right). Bold words occur in both.</p>
+    <div class="fly" id="fly"></div>
+    <div class="row"><a id="toCompare" href="compare.html">Open the full word-by-word comparison →</a></div>
+  </section>
+
+  <section class="card">
+    <h2>Rose gallery</h2>
+    <p class="sub">Orphan fragments at a glance: the one the model places most confidently in each tradition, three it leaves unplaced, and three the open-set check sends outside the reference. Click one to load it.</p>
+    <div class="gallery" id="gallery"></div>
+  </section>
+</div>
+</main>
+<footer>
+  Data: TLHdig Beta 0.3, Zenodo <a href="https://doi.org/10.5281/zenodo.20328284">10.5281/zenodo.20328284</a>. The ten reference traditions are defined from the literature: the Hurrian groups of Gordin, Yavasan &amp; Romach 2025 (StBoT 73, Table 3), the Luwian, Ḫuwaššanna and Palaic festivals as the HFR edition modules divide them, Kizzuwatna rituals (Miller 2004 and others), the Luwian rituals of Puriyanni and Kuwattalla (Yakubovich &amp; Mouton 2023), Arzawa / western rituals (Bawanypeck 2005, Mouton 2010) and the Hattian cult layer (Klinger 1996). A fragment is assigned only when its nearest tradition beats the runner-up by at least the abstention margin, calibrated on held-out windows to about 80% precision. The open-set check flags a fragment that fits none of them: either its best similarity is below what 95% of reference fragments of its size reach, or it sits nearest to a genre outside the reference (myths, prayers, oracles, treaties, instructions, cult inventories, festivals of other traditions, the Luwian rituals of Taurisa). Everything runs in your browser; nothing you paste is sent anywhere.
+</footer>
+<div class="tip" id="tip"></div>
+
+<script type="module" src="js/place.js"></script>
+</body>
+</html>
