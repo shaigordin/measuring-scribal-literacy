@@ -33,6 +33,10 @@ E11d Does it matter? Short windows (5, 10, 20 words) of reference texts, placed 
      the E2 margin: precision of the placed windows whose margin rests mostly (> 50%) on common
      features or on frequent words, against the rest.
 
+E11e Orphans without function words / without the 25 most frequent words: the reference is
+     refitted without them and the orphans placed again with the E2 margin; how many keep their
+     tradition, move, or drop out. E11a_by_tradition.csv collects the per-tradition shares.
+
 Usage: python run_attribution.py TOKENS.csv --report results/<run>/report.json --out results/<run>
 """
 import argparse
@@ -236,6 +240,32 @@ def window_test(ref, frequent, margin, ks=WINDOW_KS, reps=10, max_texts=40):
     return W, out
 
 
+def drop_words(d, keep):
+    """The same texts with the words for which keep(word, class) is False removed (word and signs)."""
+    idx = [[i for i, (w, c) in enumerate(zip(ws, cs)) if keep(w, c)] for ws, cs in zip(d.words, d.wclasses)]
+    return d.assign(**{col: [[v[i] for i in ix] for v, ix in zip(d[col], idx)] for col in ("words", "signs", "wclasses")})
+
+
+def orphan_stability(ref, orph, frequent, margin):
+    """E11e Refit without function words / without the frequent words: how many orphans change place."""
+    def place(r, o):
+        vec, X = featurise(r, "both")
+        C, labs = centroids(X, r.label.to_numpy())
+        return assign(scores(vec.transform([tokens(x, "both") for _, x in o.iterrows()]), C), labs, margin=margin)[0]
+    base = place(ref, orph)
+    out = {"assigned": int(pd.notna(base).sum())}
+    for name, keep in (("without_function_words", lambda w, c: c != "function"),
+                       ("without_frequent_words", lambda w, c: w not in frequent)):
+        p = place(drop_words(ref, keep), drop_words(orph, keep))
+        a = pd.notna(base)
+        out[name] = {"assigned": int(pd.notna(p).sum()),
+                     "same_tradition": int((a & (p == base)).sum()),
+                     "other_tradition": int((a & pd.notna(p) & (p != base)).sum()),
+                     "now_unassigned": int((a & pd.isna(p)).sum()),
+                     "newly_assigned": int((~a & pd.notna(p)).sum())}
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tokens")
@@ -309,6 +339,21 @@ def main():
     top = Fo.sort_values("share", ascending=False).groupby("tradition").head(15)
     top.to_csv(f"{a.out}/E11b_top_features.csv", index=False)
     report["E11b"]["top_features"] = {t: g[["feature", "share", "size"]].values.tolist() for t, g in top.groupby("tradition")}
+
+    # one table per tradition, for the paper: category and layer shares of the decision
+    tab = []
+    for key, src in [("all reference (correct)", report["E11a"]["all_correct"]),
+                     *report["E11a"]["by_tradition"].items(),
+                     ("assigned orphans", shares(O[O.margin >= rep["E2_abstention"]["margin"]].assign(all="all"), "all")["all"])]:
+        tab.append({"group": key, "texts": src["texts"], **src["by_category"], **src["by_layer"]})
+    tab = pd.DataFrame(tab)
+    fq = report["E11b"]["frequent_words_share"]
+    cm = report["E11b"]["common_features_share"]
+    placed_o = O[O.margin >= rep["E2_abstention"]["margin"]]
+    tab["frequent words (top 25)"] = [fq.get(g, fq["all_correct"] if g.startswith("all") else ratio(placed_o, "frequent_words")) for g in tab.group]
+    tab["common features"] = [cm.get(g, cm["all_correct"] if g.startswith("all") else ratio(placed_o, "common_features")) for g in tab.group]
+    tab.round(3).to_csv(f"{a.out}/E11a_by_tradition.csv", index=False)
+    report["E11e"] = orphan_stability(ref, orph, frequent, rep["E2_abstention"]["margin"])
 
     report["E11c"] = frequent_ablation(ref, freq_rank)
     W, report["E11d"] = window_test(ref, frequent, rep["E2_abstention"]["margin"])

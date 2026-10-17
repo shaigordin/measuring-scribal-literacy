@@ -1,16 +1,16 @@
-/home/user/measuring-scribal-literacy/orphans/run_attribution.py:98: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:102: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
   assert np.allclose(df[cols].sum(1), df.margin, atol=1e-9), "decomposition does not sum to the margin"
-/home/user/measuring-scribal-literacy/orphans/run_attribution.py:98: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:102: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
   assert np.allclose(df[cols].sum(1), df.margin, atol=1e-9), "decomposition does not sum to the margin"
-/home/user/measuring-scribal-literacy/orphans/run_attribution.py:98: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:102: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
   assert np.allclose(df[cols].sum(1), df.margin, atol=1e-9), "decomposition does not sum to the margin"
-/home/user/measuring-scribal-literacy/orphans/run_attribution.py:296: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
   "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
-/home/user/measuring-scribal-literacy/orphans/run_attribution.py:296: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
   "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
-/home/user/measuring-scribal-literacy/orphans/run_attribution.py:296: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
   "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
-/home/user/measuring-scribal-literacy/orphans/run_attribution.py:296: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
   "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
 {
  "groups": "literature",

@@ -48,7 +48,7 @@ controls (`--groups historical`), shown once as the published baseline.
 | Scribal profiles | index z-scores; plene clusters; date check | `tlhdig03_literature/E7_report.json`, `tlhdig03_literature/corpus_stats.json` → `plene_clusters` | `run_profiles.py`, `stats_corpus.py` |
 | Word classes | each class alone / removed | `tlhdig03_literature/E8_report.json` | `run_wordclass.py` |
 | What a placement rests on | similarity vs decision, by word category and layer; frequent words removed | `tlhdig03_literature/E11_report.json` → `E11a`, `E11b`, `E11c`; `E11a_category_by_layer.csv` | `run_attribution.py` |
-| When the decision rests on common material | precision of placed windows, mostly common features vs rest | `E11_report.json` → `E11d`; per orphan: `E11a_orphan_decomposition.csv` | `run_attribution.py` |
+| When the decision rests on common material | precision of placed windows, mostly common features vs rest | `E11_report.json` → `E11d`; per orphan: `E11a_orphan_decomposition.csv`; per tradition: `E11a_by_tradition.csv`; orphans without function / frequent words: `E11e` | `run_attribution.py` |
 | Recovering Salvini and Wegner's groups | CTH 701 subgroups | `tlhdig03_literature/report.json` → `E3_cth701_subgroups` | `run_experiments.py` |
 | Where do CTH 470 and EBo go? | orphans per tradition, margin and its interval | `tlhdig03_literature/report.json` → `E2_abstention`, `E5_orphans` | `run_experiments.py` |
 | Does a fragment fit any known tradition? | outside genres placed / recognised; orphans nearer an outside genre | `tlhdig03_literature/E9_report.json`, `E9_orphan_fit.csv` | `run_openset.py` |
