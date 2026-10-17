@@ -36,23 +36,30 @@ controls (`--groups historical`), shown once as the published baseline.
 
 | Slide | Numbers | File | Script |
 |---|---|---|---|
-| Orphans: fragments without a tradition | CTH 470 and EBo counts, median words, filing | `tlhdig03/corpus_stats.json` → `orphans` | `stats_corpus.py` |
-| Validation: the StBoT 73 groups | leave-one-out accuracy, baselines | `tlhdig03/report.json` → `E1_*` | `run_experiments.py` |
-| Validation with literature-defined traditions | accuracy, recall per tradition; CTH 500 and residue placement (notes) | `tlhdig03_literature/report.json` → `E1_historical`, `E5b_residue` | `run_experiments.py` |
+| KBo 41.22: a fragment filed under CTH 470 | text, legible words | `tlhdig03_literature/case/case_KBo_41_22.json`, `case_KBo_41_22_text.md` | `run_case.py`, `make_case_slide.py` |
+| Where unplaced fragments end up | texts and median words per Laroche bin | `tlhdig03_literature/corpus_stats.json` → `laroche_bins` | `stats_corpus.py` |
+| The ten traditions | reference manuscripts per tradition | `tlhdig03_literature/case/case_KBo_41_22.json` → `ref_counts` | `run_case.py` |
+| How a word gets its category | worked examples with TLHdig's raw analyses | `wordclass_examples.csv` | `review_wordclass.py examples` |
+| How sure are the categories? | shares by confidence, rule and class; rule changes after the audit | `wordclass_confidence.json`, `wordclass_rule_changes.csv` | `review_wordclass.py examples`, `compare` |
+| Do the traditions hold? | leave-one-out accuracy, recall per tradition, baselines | `tlhdig03_literature/report.json` → `E1_historical`; `tlhdig03/report.json` (CTH ranges, notes) | `run_experiments.py` |
 | Leave one composition out | compositions placed in their scholarly tradition | `tlhdig03_literature/E10_report.json` → `E10a`, `E10a_leave_composition_out.csv` | `run_hypotheses.py` |
 | A contested attribution: the Ambazzi rituals | fit per tradition vs random rituals; signature words | `tlhdig03_literature/E10b_contested_fit.csv`, `E10c_*.csv` | `run_hypotheses.py` |
-| How small can an orphan be? | accuracy by fragment size | `tlhdig03_literature/E2_coverage_curve.csv` | `run_experiments.py` |
-| Vocabulary, orthography or date? | logograms removed; MS vs NS | `tlhdig03_literature/report.json` → `E4_*`, `E3_cth701_script_date` | `run_experiments.py` |
+| How small can a fragment be? | accuracy by fragment size | `tlhdig03_literature/E2_coverage_curve.csv` | `run_experiments.py` |
+| Vocabulary, orthography or date? | logograms removed; MS vs NS | `tlhdig03_literature/report.json` → `E4_*`, `E3_cth701_script_date`; `E7_report.json` | `run_experiments.py`, `run_profiles.py` |
 | What identifies a tradition | accuracy per layer | `tlhdig03_literature/E7_report.json` → `E7a_layers` | `run_profiles.py` |
 | Cultural profiles | distinctive features | `tlhdig03_literature/E7_distinctive_features.csv` | `run_profiles.py` |
-| Scribal profiles | index z-scores; plene clusters; date check | `tlhdig03_literature/E7_report.json`, `tlhdig03_literature/corpus_stats.json` → `plene_clusters` | `run_profiles.py`, `stats_corpus.py` |
+| Scribal profiles | index z-scores; plene clusters | `tlhdig03_literature/E7_report.json`, `tlhdig03_literature/corpus_stats.json` → `plene_clusters` | `run_profiles.py`, `stats_corpus.py` |
 | Word classes | each class alone / removed | `tlhdig03_literature/E8_report.json` | `run_wordclass.py` |
 | What a placement rests on | similarity vs decision, by word category and layer; frequent words removed | `tlhdig03_literature/E11_report.json` → `E11a`, `E11b`, `E11c`; `E11a_category_by_layer.csv` | `run_attribution.py` |
-| When the decision rests on common material | precision of placed windows, mostly common features vs rest | `E11_report.json` → `E11d`; per orphan: `E11a_orphan_decomposition.csv`; per tradition: `E11a_by_tradition.csv`; orphans without function / frequent words: `E11e` | `run_attribution.py` |
-| Recovering Salvini and Wegner's groups | CTH 701 subgroups | `tlhdig03_literature/report.json` → `E3_cth701_subgroups` | `run_experiments.py` |
-| Where do CTH 470 and EBo go? | orphans per tradition, margin and its interval | `tlhdig03_literature/report.json` → `E2_abstention`, `E5_orphans` | `run_experiments.py` |
+| Each tradition is decided by different words | decision shares per tradition | `tlhdig03_literature/E11_report.json` → `E11a.by_tradition`; `E11a_by_tradition.csv` | `run_attribution.py` |
+| When the decision rests on common material | precision of placed windows, mostly common features vs rest; orphans without function / frequent words | `E11_report.json` → `E11d`, `E11e`; per orphan: `E11a_orphan_decomposition.csv` | `run_attribution.py` |
+| CTH 701: recovering Salvini and Wegner's groups | CTH 701 subgroups | `tlhdig03_literature/report.json` → `E3_cth701_subgroups` | `run_experiments.py` |
+| KBo 41.22: which words decide / its nearest manuscripts | similarities, margin, decision features, nearest manuscripts, words by CTH | `tlhdig03_literature/case/case_KBo_41_22.json`, `case_KBo_41_22_decision.md` | `run_case.py`, `make_case_slide.py` |
+| Is Tunnawiya part of the Kuwattalla tradition? | CTH 409 fit per tradition vs random rituals; per manuscript | `tlhdig03_literature/tunnawiya/E10_report.json`, `E10b_*.csv` | `run_hypotheses.py --cths 409` |
+| Where do CTH 470 and EBo fragments go? | orphans per tradition, margin and its interval | `tlhdig03_literature/report.json` → `E2_abstention`, `E5_orphans` | `run_experiments.py` |
+| Testing Laroche's bins | CTH 500 and CTH 390–469 placed | `tlhdig03_literature/report.json` → `E5b_residue` | `run_experiments.py` |
 | Does a fragment fit any known tradition? | outside genres placed / recognised; orphans nearer an outside genre | `tlhdig03_literature/E9_report.json`, `E9_orphan_fit.csv` | `run_openset.py` |
-| QTM | archetype coverage (notes) | `tlhdig03_literature/report.json` → `E6_archetype_coverage` | `run_experiments.py` |
+| QTM | archetype coverage | `tlhdig03_literature/report.json` → `E6_archetype_coverage` | `run_experiments.py` |
 
 The literature-defined groups split StBoT 73's Luwian group as the HFR edition modules split it
 (Hethitische Festrituale, hethport.net/HFR) and add HFR's Palaic festivals; see `qtm/groups.py`.
@@ -108,9 +115,18 @@ tradition.
   precision of short placed windows that rest mostly on common features.
 - **Open set (E9, `run_openset.py`):** texts of genres outside the reference (myths, prayers,
   oracles, historical texts and treaties, instructions, cult inventories, festivals of other
-  traditions, the Luwian rituals of Puriyanni and Kuwattalla) are cut into windows and scored
+  traditions, the Luwian rituals of Taurisa) are cut into windows and scored
   in 5 folds. It measures how often the margin rule still places them in a tradition, and how
   well a similarity floor or a genre gate (outside genres as classes of their own) catches them.
+- **Word classes (`qtm/wordclass.py`, `qtm/tlhdig.py`):** rules over TLHdig's own morphological
+  analyses (no language model): the word's language tag, determinatives, the analysis the editor
+  selected, the analyses if they agree on the head word, else the class editors selected for the
+  same form elsewhere (≥ 5 times, ≥ 90% agreement). Preposition + noun words are split. Each word
+  carries its rule (`wc_rule`) and a confidence (`wc_conf`); `labels/wordclass_corrections.csv`
+  holds manual corrections, and `review_wordclass.py` builds the review sheet and the blind audit.
+- **Worked example (`run_case.py`):** one orphan from its text to its placement: similarities,
+  margin, the decision split by word and feature, the nearest manuscripts among the reference and
+  the unassigned rituals, and the CTH numbers where its distinctive words occur.
 - **Orphans:** every CTH 470 text and every EBo text, wherever TLHdig files it. Orphans are
   never part of the reference.
 - **Features:** word tf-idf (normalised `trans` forms) and sign 1–3-grams within words.
