@@ -39,6 +39,14 @@
     <p class="sub small" style="margin-top:8px">The rose shows the same ten scores as wedges, each pointing to its tradition's corner of the wheel; wedge area grows with similarity. A dashed ring means the fragment is not placed.</p>
   </section>
 
+  <section class="card span2">
+    <h2>What the score rests on</h2>
+    <p class="sub" id="restSub">Each word's share of the similarity to the nearest tradition, by word class (the categories of StBoT 73 Table 4, from TLHdig's morphological analyses) and by layer: the word form itself, its syllabic spelling, or its logographic writing. The tick marks how much the class carries in that tradition's own manuscripts, on average. The words of your fragment above are shaded by the same shares.</p>
+    <div class="rest" id="rest"></div>
+    <div class="legend" id="restLegend"></div>
+    <div class="row small" id="dropRow"></div>
+  </section>
+
   <section class="card">
     <h2>Tradition wheel</h2>
     <p class="sub">Each corner is a reference tradition. Every manuscript is pulled toward the corners it resembles, so the centre means "undecided". Dots are reference manuscripts; your fragment is the ringed marker. Hover a dot to see it, click to load its text.</p>
@@ -157,23 +165,66 @@ $("random").onclick = async () => { const c = orphans[Math.floor(Math.random() *
 $("clear").onclick = () => { $("input").value = ""; run(); };
 
 // ---------- scoring ----------
+// ---------- what the score rests on ----------
+const CLS_ABBR = { "Function words": "fn", "Verbs": "v", "Nouns and realia": "n", "Agents and deities": "ag", "Foreign words": "for", "Other words": "?" };
+const drop = { classes: new Set(), layers: new Set() };
+$("restLegend").innerHTML = model.layers.map((l, i) => `<span><span class="swatch sq" style="background:var(--layer-${i + 1})"></span>${l}</span>`).join("") +
+  `<span><span class="tick-swatch"></span>tradition average</span>` +
+  `<span class="muted">Word tags: ${Object.entries(CLS_ABBR).map(([k, v]) => v + " " + k.toLowerCase()).join(", ")}</span>`;
+$("dropRow").innerHTML = `<span class="muted">Leave out and rescore:</span>` +
+  model.categories.map(c => `<label><input type="checkbox" data-c="${c}"> ${c.toLowerCase()}</label>`).join("") +
+  model.layers.map((l, i) => `<label><input type="checkbox" data-l="${i}"> ${l.toLowerCase()}</label>`).join("");
+for (const cb of $("dropRow").querySelectorAll("input")) cb.onchange = () => {
+  const set = cb.dataset.c ? drop.classes : drop.layers, key = cb.dataset.c ?? +cb.dataset.l;
+  cb.checked ? set.add(key) : set.delete(key);
+  run(currentId);
+};
+let currentId;
+function drawRest(r, at) {
+  if (!at.matrix.length) { $("rest").replaceChildren(); return; }
+  const tot = r.topScore || 1, base = model.categoryBaseline[r.top];
+  const rows = model.categories.map((c, ci) => ({ c, parts: at.matrix[ci].map(v => v / tot), base: base[ci].reduce((a, b) => a + b, 0) }));
+  const mx = Math.max(...rows.map(x => Math.max(x.parts.reduce((a, b) => a + b, 0), x.base)), 0.05);
+  const layerTot = model.layers.map((_, l) => rows.reduce((a, x) => a + x.parts[l], 0));
+  $("rest").innerHTML = rows.map(x => {
+    const sum = x.parts.reduce((a, b) => a + b, 0);
+    let left = 0;
+    const segs = x.parts.map((v, l) => { const w = (100 * Math.max(v, 0)) / mx, h = `<span class="seg" style="left:${left}%;width:${w}%;background:var(--layer-${l + 1})" title="${model.layers[l]}: ${(100 * v).toFixed(1)}%"></span>`; left += w; return h; }).join("");
+    return `<span class="lab">${x.c}${drop.classes.has(x.c) ? ' <span class="muted">(left out)</span>' : ""}</span>
+      <span class="track">${segs}<span class="tick" style="left:${(100 * x.base) / mx}%" title="${r.top} average: ${(100 * x.base).toFixed(0)}%"></span></span>
+      <span class="val">${(100 * sum).toFixed(0)}%</span>`;
+  }).join("") +
+  `<span class="lab muted">By layer</span><span class="small muted" style="grid-column: span 2">${model.layers.map((l, i) => `${l.toLowerCase()} ${(100 * layerTot[i]).toFixed(0)}%`).join(" · ")}</span>`;
+}
+
 let timer;
 $("input").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(() => run(), 200); });
 
 function run(fromId) {
+  currentId = fromId;
   const text = $("input").value.trim();
   gMe.replaceChildren();
   if (!text) {
     $("verdict").textContent = "Waiting for text."; $("verdict").className = "verdict muted";
-    for (const id of ["verdictSub", "bars", "chips", "parseInfo", "contrib", "barcode", "rose", "fly"]) $(id).replaceChildren();
+    for (const id of ["verdictSub", "bars", "chips", "parseInfo", "contrib", "barcode", "rose", "fly", "rest"]) $(id).replaceChildren();
     return;
   }
-  const r = Q.scoreText(text, model);
-  const known = r.parsed.words.filter(w => w.word).length;
-  $("parseInfo").textContent = `${r.parsed.words.length} words read, ${known} in the model's vocabulary` +
+  const r = Q.scoreText(text, model, { dropClasses: [...drop.classes], dropLayers: [...drop.layers] });
+  r.parsed.dropped = r.all.dropped;
+  const known = r.all.words.filter(w => w.word).length;
+  $("parseInfo").textContent = `${r.all.words.length} words read, ${known} in the model's vocabulary` +
     (r.parsed.dropped.length ? `, ${r.parsed.dropped.length} broken words ignored` : "") + (fromId ? ` · loaded ${fromId}` : "");
-  $("chips").innerHTML = r.parsed.words.map(w =>
-    `<span class="chip translit ${w.word ? "" : "unk"}" title="${w.word ? "word form: " + w.word : "not in vocabulary: counts through its signs only"}">${w.translit}</span>`).join("") +
+  const at = r.vec.size ? Q.attribute(r, model.cents[labs.indexOf(r.top)], model) : { perWord: [], matrix: [] };
+  const share = new Map(at.perWord.map(p => [p.word, p]));
+  const wmax = Math.max(...at.perWord.map(p => p.total), 1e-9);
+  $("chips").innerHTML = r.all.words.map(w => {
+    const p = share.get(w), cls = Q.wordClass(w, model);
+    if (!p) return `<span class="chip translit drop" title="${cls}: left out">${w.translit}</span>`;
+    const pct = r.topScore > 0 ? (100 * p.total) / r.topScore : 0;
+    const tip = `${cls}${w.word ? " · word form " + w.word : " · not in vocabulary"} · ${pct.toFixed(0)}% of the score` +
+      ` (form ${(100 * p.parts[0] / (r.topScore || 1)).toFixed(0)}%, syllabic ${(100 * p.parts[1] / (r.topScore || 1)).toFixed(0)}%, logographic ${(100 * p.parts[2] / (r.topScore || 1)).toFixed(0)}%)`;
+    return `<span class="chip translit ${w.word ? "" : "unk"}" title="${tip}" style="background:color-mix(in srgb, var(--accent) ${Math.round(70 * Math.max(p.total, 0) / wmax)}%, var(--surface-0))"><span class="cls">${CLS_ABBR[cls]}</span>${w.translit}</span>`;
+  }).join("") +
     r.parsed.dropped.map(w => `<span class="chip translit drop" title="ignored">${w}</span>`).join("");
 
   if (r.vec.size === 0) {
@@ -194,7 +245,10 @@ function run(fromId) {
       ? `With other genres added as classes, the nearest class is ${o.outside}, by a margin of ${fmt(o.gateGap)}. `
       : o.lowFit ? `Its best similarity, ${fmt(r.topScore)}, is below ${fmt(o.floor)}, which 95% of reference fragments of this size reach. ` : "") +
     `Nearest tradition ${fmt(r.topScore)}, runner-up ${r.runnerUp} ${fmt(r.topScore - r.gap)}. Margin ${fmt(r.gap)} ${r.gap >= model.margin ? "clears" : "is below"} the abstention threshold of ${model.margin}.` +
-    (r.parsed.words.length < 8 ? " Fragments under about 8 words are rarely placed reliably." : "");
+    (r.parsed.words.length < 8 ? " Fragments under about 8 words are rarely placed reliably." : "") +
+    (drop.classes.size || drop.layers.size ? ` Scored without: ${[...[...drop.classes].map(c => c.toLowerCase()), ...[...drop.layers].map(l => model.layers[l].toLowerCase())].join(", ")}.` : "");
+
+  drawRest(r, at);
 
   const mx = Math.max(...r.s, 0.001);
   $("bars").innerHTML = Q.RING.map(l => {

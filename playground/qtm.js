@@ -135,14 +135,54 @@ export function openSet(toks, n, topScore, model) {
   return { floor, lowFit: Math.round(topScore * 1e4) / 1e4 < floor, outside, gateTop: a.top, gateGap: a.gap };
 }
 
-export function scoreText(text, model) {
-  const parsed = parse(text, model);
-  const toks = features(parsed);
+export function scoreText(text, model, opts = {}) {
+  return scoreParsed(parse(text, model), model, opts);
+}
+
+// --- what the score rests on: word classes (E8) x layers (form, syllabic, logographic) ---
+export const wordClass = (w, model) => (w.word && model.wordCategory[w.word]) || "Other words";
+const isLogo = g => g.slice(1).split("·").some(t => /^\p{Lu}/u.test(t));
+function wordFeatures(w) {
+  const out = w.word ? [[w.word, 0]] : [];
+  const sg = w.signs;
+  for (let k = 1; k <= 3; k++)
+    for (let i = 0; i + k <= sg.length; i++) {
+      const g = "§" + sg.slice(i, i + k).join("·");
+      out.push([g, isLogo(g) ? 2 : 1]);
+    }
+  return out;
+}
+
+// Leave out whole word classes and/or layers, then score as usual.
+export function scoreParsed(parsed, model, { dropClasses = [], dropLayers = [] } = {}) {
+  const words = parsed.words.filter(w => !dropClasses.includes(wordClass(w, model)));
+  const kept = { ...parsed, words };
+  const toks = words.flatMap(w => wordFeatures(w).filter(([, l]) => !dropLayers.includes(l)).map(([f]) => f));
   const vec = tfidf(toks, model.index, model.idf);
   const s = score(vec, model.cents);
   const a = assign(s, model.traditions, model.margin);
-  const n = parsed.words.length;
-  return { parsed, vec, s, ...a, open: openSet(toks, n, a.topScore, model) };
+  return { parsed: kept, all: parsed, vec, s, ...a, open: openSet(toks, words.length, a.topScore, model),
+           dropLayers };
+}
+
+// Each feature's contribution x_f * c_f is shared among the words that produce it.
+export function attribute(r, cent, model) {
+  const feats = r.parsed.words.map(w => wordFeatures(w).filter(([, l]) => !r.dropLayers?.includes(l)));
+  const total = new Map();
+  for (const fs of feats) for (const [f] of fs) total.set(f, (total.get(f) || 0) + 1);
+  const C = model.categories.length, L = model.layers.length;
+  const matrix = Array.from({ length: C }, () => new Array(L).fill(0));
+  const perWord = r.parsed.words.map((w, i) => {
+    const parts = new Array(L).fill(0);
+    for (const [f, l] of feats[i]) {
+      const j = model.index.get(f), x = j === undefined ? 0 : r.vec.get(j) || 0, y = j === undefined ? 0 : cent.get(j) || 0;
+      parts[l] += (x * y) / total.get(f);
+    }
+    const ci = model.categories.indexOf(wordClass(w, model));
+    parts.forEach((v, l) => (matrix[ci][l] += v));
+    return { word: w, cls: model.categories[ci], parts, total: parts.reduce((a, b) => a + b, 0) };
+  });
+  return { perWord, matrix };
 }
 
 // --- shared presentation: tradition order around the wheel, and colours ---

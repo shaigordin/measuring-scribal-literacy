@@ -13,6 +13,12 @@ words compare with any other manuscript or tradition.
 
 The model is the deck's main reference: the literature-defined traditions with the HFR split
 (`--groups literature`, results in `../orphans/results/tlhdig03_literature/`).
+- "What the score rests on" (on `index.html`): every feature's contribution to the similarity is
+  shared among the words that produce it, so each word gets a share of the score, split into its
+  word form, syllabic spelling and logographic writing. Words are grouped by the E8 word classes
+  (`../orphans/qtm/wordclass.py`, after StBoT 73 Table 4). Any class or layer can be left out
+  and the fragment rescored. `data/category_shares.csv` gives the same breakdown averaged over
+  each tradition's reference manuscripts (one row per tradition, class and layer).
 - `compare.html`: word-by-word tf-idf comparison of two witnesses (fragment, manuscript or
   tradition centroid), and for any word, the manuscripts where it carries the most weight.
   This follows the per-word tf-idf comparison of the Neo-Babylonian Dillard study (2023).

@@ -43,6 +43,38 @@ def sparse_rows(X, n=4):
     return out
 
 
+# Word classes of experiment E8 (qtm/wordclass.py, after StBoT 73 Table 4), grouped for display.
+# Every feature is attributed to the words that produce it: a word form to its occurrences, a
+# sign n-gram to the words it occurs in. So each word's share of the score splits into three
+# layers: its form (what is written), its syllabic spelling and its logographic writing (how).
+WORD_CATEGORY = {"function": "Function words", "verb": "Verbs", "realia": "Nouns and realia",
+                 "agent": "Agents and deities", "deity": "Agents and deities", "foreign": "Foreign words"}
+CATEGORIES = ["Function words", "Verbs", "Nouns and realia", "Agents and deities", "Foreign words", "Other words"]
+LAYERS = ["Word form", "Syllabic spelling", "Logographic writing"]
+
+
+def word_ngrams(sg):
+    return ["§" + "·".join(sg[i:i + k]) for k in (1, 2, 3) for i in range(len(sg) - k + 1)]
+
+
+def attribute(words, signs, classes, x, c, index):
+    """(category x layer) contributions to x . c, distributing each feature over its words."""
+    out = np.zeros((len(CATEGORIES), len(LAYERS)))
+    per_word = [[(w, 0)] + [(g, 2 if any(t[:1].isupper() for t in g[1:].split("·")) else 1)
+                            for g in word_ngrams(sg)] for w, sg in zip(words, signs)]
+    total = {}
+    for feats in per_word:
+        for f, _ in feats:
+            total[f] = total.get(f, 0) + 1
+    for feats, cl in zip(per_word, classes):
+        ci = CATEGORIES.index(WORD_CATEGORY.get(cl, "Other words"))
+        for f, layer in feats:
+            j = index.get(f)
+            if j is not None:
+                out[ci, layer] += x[j] * c[j] / total[f]
+    return out
+
+
 def dump(obj, path):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, separators=(",", ":"))
@@ -119,13 +151,32 @@ def main():
     low_flag = np.array([round(t, 4) < floor_of(n) for t, n in zip(top, orph.n_words)])  # E9 uses the rounded score
 
     # translit -> normalised word form, for words in the vocabulary
-    tl = pd.read_csv(a.tokens, usecols=["word", "translit"], low_memory=False).dropna()
+    tl = pd.read_csv(a.tokens, usecols=["word", "translit", "wclass"], low_memory=False).dropna(subset=["word", "translit"])
+    # word class of each word form: its most frequent definite E8 class in the corpus
+    definite = tl[tl.wclass.isin(list(WORD_CATEGORY))]
+    wclass = definite.groupby("word").wclass.agg(lambda s: s.value_counts().index[0]).to_dict()
     tl["clean"] = tl.translit.map(canon)
     words_in_vocab = {v for v in vocab if not v.startswith("§")}
     tl = tl[tl.word.isin(words_in_vocab)]
     lookup = tl.groupby("clean").word.agg(lambda s: s.value_counts().index[0]).to_dict()
 
     core = {lab: np.argsort(-C[j])[:CORE].tolist() for j, lab in enumerate(labs)}
+
+    # how each tradition's reference texts divide their similarity to their own centroid among
+    # word classes and layers (share of the cosine, averaged over texts; token-level E8 classes)
+    index = {t: i for i, t in enumerate(vocab)}
+    own = np.searchsorted(labs, y)
+    Xd = X.tocsr()
+    shares = []
+    for i, (_, d) in enumerate(ref.iterrows()):
+        row = Xd[i].toarray().ravel()
+        m = attribute(d.words, d.signs, d.wclasses, row, C[own[i]], index)
+        shares.append(m / max(m.sum(), 1e-12))
+    shares = np.array(shares)
+    baseline = {lab: np.round(shares[own == j].mean(0), 3).tolist() for j, lab in enumerate(labs)}
+    pd.DataFrame([{"tradition": lab, "word_class": CATEGORIES[ci], "layer": LAYERS[li], "share": v[ci][li]}
+                  for lab, v in baseline.items() for ci in range(len(CATEGORIES)) for li in range(len(LAYERS))]
+                 ).to_csv(f"{a.out}/category_shares.csv", index=False)
     model = {
         "source": "TLHdig Beta 0.3 (Zenodo 10.5281/zenodo.20328284)",
         "traditions": labs.tolist(),
@@ -137,6 +188,10 @@ def main():
         "core": core,
         "lookup": lookup,
         "openset": {"floors": floors, "outside": list(outside)},
+        "categories": CATEGORIES,
+        "layers": LAYERS,
+        "wordCategory": {w: WORD_CATEGORY.get(c, "Other words") for w, c in wclass.items() if w in index},
+        "categoryBaseline": baseline,
     }
     dump(model, f"{a.out}/model.json")
     dump({"vocab": gvec.get_feature_names_out().tolist(), "idf": r(gvec.idf_, 5), "classes": glabs.tolist(),
