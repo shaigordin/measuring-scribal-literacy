@@ -1,0 +1,37 @@
+% Shared preamble of the worked-example figures (case_a/b/c.tex); data from ../generated/case_data.tex
+\usepackage{libertinus}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds,decorations.pathreplacing}
+\makeatletter
+\newcommand{\C}[1]{\@ifundefined{case@#1}{\textcolor{red}{[#1?]}}{\csname case@#1\endcsname}}
+\makeatother
+% word-class palette (decision_shares.png / playground), one slot per category
+\definecolor{catF}{HTML}{2A78D6}  % function words
+\definecolor{catV}{HTML}{EB6834}  % verbs
+\definecolor{catN}{HTML}{1BAF7A}  % nouns and realia
+\definecolor{catA}{HTML}{EDA100}  % agents and deities
+\definecolor{catX}{HTML}{E87BA4}  % foreign words
+\definecolor{catO}{HTML}{9A9A94}  % other / unclassified
+\definecolor{shade}{HTML}{EB6834}
+\definecolor{ink}{HTML}{2B2B2B}
+\definecolor{soft}{HTML}{8A8A8A}
+\definecolor{topc}{HTML}{1F7A6B}
+\definecolor{secc}{HTML}{5B4B8A}
+% a word tinted by its class; dashed frame when the class is low-confidence
+\tikzset{wc-low/.style={densely dashed}, wc-ok/.style={}, reset/.style={text width={}, minimum height=0pt, minimum width=0pt, align=center, draw=none, fill=none, solid, font=}}
+\newcommand{\wc}[3]{\tikz[baseline=(w.base)]\node[reset, inner sep=0.8pt, rounded corners=1pt, fill=#1!22,
+  draw=#1!70, line width=0.4pt, wc-#2](w){\strut #3};}
+% a word shaded by its share of the decision (0-100)
+\newcommand{\ws}[2]{\tikz[baseline=(w.base)]\node[reset, inner sep=0.8pt, rounded corners=1pt, fill=shade!#1](w){\strut #2};}
+\newcommand{\broken}[1]{\textcolor{soft}{#1}}
+\newcommand{\tline}[2]{\noindent\hangindent=5.7mm\hangafter=1\makebox[4.5mm][r]{\textcolor{soft}{#1}}\hspace{1.2mm}#2\par}
+\newcommand{\wf}[1]{\textbf{#1}}          % a word form
+\newcommand{\sg}[1]{\textit{#1}}          % a sign sequence
+\newcommand{\stepno}[1]{\tikz[baseline=-0.6ex]\node[reset, circle, fill=ink, text=white, inner sep=0.6pt, font=\scriptsize\bfseries]{#1};}
+\newcommand{\legend}{%
+  \wc{catF}{ok}{function} \wc{catV}{ok}{verb} \wc{catN}{ok}{noun, realia} \wc{catA}{ok}{agent, deity}
+  \wc{catX}{ok}{foreign} \wc{catO}{low}{unclear}}
+\input{../generated/case_data.tex}

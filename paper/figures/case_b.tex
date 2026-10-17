@@ -1,0 +1,66 @@
+% Worked example, version B: a storyboard, one row per step: in words | what it looks like | as a formula.
+\documentclass[border=3pt]{standalone}
+\input{case_common.tex}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily\scriptsize\color{ink},
+  words/.style={text width=34mm, anchor=north west, inner sep=2pt, align=left},
+  visual/.style={text width=78mm, anchor=north west, inner sep=2pt},
+  formula/.style={text width=36mm, anchor=north west, inner sep=3pt, fill=soft!8, rounded corners=2pt},
+  head/.style={font=\sffamily\scriptsize\bfseries\color{soft}, anchor=south west, inner sep=1pt}]
+\def\xw{0mm}\def\xv{37mm}\def\xf{118mm}
+\node[head] at (\xw,1mm) {IN WORDS}; \node[head] at (\xv,1mm) {ON THE FRAGMENT}; \node[head] at (\xf,1mm) {AS A FORMULA};
+% row 1
+\node[words] (w1) at (\xw,0) {\stepno{1} \textbf{Read.} An orphan, \C{txtid}, filed under CTH \C{filed}. Each legible word gets a word class from the edition's analysis; dashed: unclear.};
+\node[visual] (v1) at (\xv,0) {{\linespread{1.15}\selectfont\raggedright\CaseText}\vspace{1pt}{\tiny\legend}};
+\node[formula] (f1) at (\xf,0) {\C{words} legible words.};
+\path let \p1=(w1.south), \p2=(v1.south), \p3=(f1.south) in coordinate (r1) at (0,{min(\y1,\y2,\y3)-2mm});
+\draw[soft!50] (\xw, 0 |- r1) -- (\xf+38mm, 0 |- r1);
+% row 2
+\node[words] (w2) at (\xw, 0 |- r1) {\stepno{2} \textbf{Count.} Every word form and every sign sequence inside a word is a feature. A feature counts more when it is frequent in the fragment and rare in the corpus.};
+\node[visual] (v2) at (\xv, 0 |- r1) {%
+  \wc{catN}{ok}{pa-an-ga-u-wa-aš} $\to$ \wf{pankauaš} \C{x.w}, \sg{pa-an-ga} \C{x.n1}, \sg{an-ga-u} \C{x.n2}, \sg{ga-u-wa} \C{x.n3}\\[3pt]
+  Rare word \wf{pankauaš}: idf \C{idf.rare}. Common sign \sg{na}: idf \C{idf.common}.\\[2pt]
+  The fragment becomes a vector $\mathbf{x}$ with \C{nfeat} non-zero entries out of \C{dim}.};
+\node[formula] (f2) at (\xf, 0 |- r1) {$x_f \propto (1+\log \mathit{tf}_f)\,\mathit{idf}_f$\\[2pt] $\mathit{idf}_f=\log\frac{1+N}{1+\mathit{df}_f}+1$\\[2pt] $\lVert\mathbf{x}\rVert = 1$};
+\path let \p1=(w2.south), \p2=(v2.south), \p3=(f2.south) in coordinate (r2) at (0,{min(\y1,\y2,\y3)-2mm});
+\draw[soft!50] (\xw, 0 |- r2) -- (\xf+38mm, 0 |- r2);
+% row 3
+\node[words] (w3) at (\xw, 0 |- r2) {\stepno{3} \textbf{Compare.} Each tradition is the average of its manuscripts. The fragment is compared with each average.};
+\node[visual] (v3) at (\xv, 0 |- r2) {%
+  \begin{tikzpicture}[x=55mm, y=2.9mm]
+    \newcommand{\simbar}[4]{%
+      \def\k{#4}\def\kt{top}\def\ks{second}%
+      \ifx\k\kt\def\col{topc}\else\ifx\k\ks\def\col{secc}\else\def\col{soft!45}\fi\fi
+      \fill[\col] (0,-#1) rectangle (#3,-#1-0.72);
+      \node[anchor=east, inner sep=1pt, font=\tiny] at (0,-#1-0.36) {#2};
+      \node[anchor=west, inner sep=1pt, font=\tiny] at (#3,-#1-0.36) {#3};}
+    \CaseBars
+  \end{tikzpicture}};
+\node[formula] (f3) at (\xf, 0 |- r2) {$\mathbf{c}_t=\dfrac{\sum_{d\in t}\mathbf{x}_d}{\lVert\sum_{d\in t}\mathbf{x}_d\rVert}$\\[4pt] $s_t=\cos(\mathbf{x},\mathbf{c}_t)=\sum_f x_f\,c_{t,f}$};
+\path let \p1=(w3.south), \p2=(v3.south), \p3=(f3.south) in coordinate (r3) at (0,{min(\y1,\y2,\y3)-2mm});
+\draw[soft!50] (\xw, 0 |- r3) -- (\xf+38mm, 0 |- r3);
+% row 4
+\node[words] (w4) at (\xw, 0 |- r3) {\stepno{4} \textbf{Decide.} Place the fragment only if the nearest tradition leads the runner-up clearly; otherwise leave it unassigned.};
+\node[visual] (v4) at (\xv, 0 |- r3) {%
+  \begin{tikzpicture}[x=55mm, y=3mm]
+    \fill[topc] (0,0) rectangle (\C{s1},0.8); \node[anchor=east, font=\tiny] at (0,0.4) {\C{topshort}};
+    \fill[secc] (0,-1.2) rectangle (\C{s2},-0.4); \node[anchor=east, font=\tiny] at (0,-0.8) {\C{secondshort}};
+    \draw[decorate, decoration={brace, amplitude=3pt}, line width=0.6pt] (\C{s1},1.1) -- (\C{s2},1.1) node[pos=0.5, above=3pt, font=\tiny] {};
+    \draw[densely dotted] (\C{s2},-1.2) -- (\C{s2},1.1);
+    \node[anchor=west, font=\scriptsize] at (\C{s1}+0.02,0) {$m=\C{margin} \geq \C{tau}$ $\Rightarrow$ \textbf{\color{topc}\C{topshort}}};
+  \end{tikzpicture}};
+\node[formula] (f4) at (\xf, 0 |- r3) {$m=s_1-s_2=\C{s1}-\C{s2}$\\[2pt] place if $m\geq\tau=\C{tau}$ \\ ($\tau$: 80\% of test fragments right)};
+\path let \p1=(w4.south), \p2=(v4.south), \p3=(f4.south) in coordinate (r4) at (0,{min(\y1,\y2,\y3)-2mm});
+\draw[soft!50] (\xw, 0 |- r4) -- (\xf+38mm, 0 |- r4);
+% row 5
+\node[words] (w5) at (\xw, 0 |- r4) {\stepno{5} \textbf{Explain.} The lead is a sum over features, so each word's share of the decision can be shown. Here the formula \sg{pa-an-ga-u-wa-aš EME-an} decides.};
+\node[visual] (v5) at (\xv, 0 |- r4) {{\linespread{1.15}\selectfont\raggedright\CaseShaded}\vspace{1pt}{\tiny Darker: larger share of the lead.}};
+\node[formula] (f5) at (\xf, 0 |- r4) {$m=\sum_f \underbrace{x_f\,(c_{1,f}-c_{2,f})}_{\text{share of feature }f}$};
+\path let \p1=(w5.south), \p2=(v5.south), \p3=(f5.south) in coordinate (r5) at (0,{min(\y1,\y2,\y3)-2mm});
+\draw[soft!50] (\xw, 0 |- r5) -- (\xf+38mm, 0 |- r5);
+% row 6
+\node[words] (w6) at (\xw, 0 |- r5) {\stepno{6} \textbf{Check by hand.} The closest single manuscripts are candidates for the philologist.};
+\node[visual] (v6) at (\xv, 0 |- r5) {The five nearest manuscripts are all Tunnawiya's ritual (CTH \C{nn1cth}), which no reference group includes.};
+\node[formula] (f6) at (\xf, 0 |- r5) {$\arg\max_d \cos(\mathbf{x},\mathbf{x}_d)$};
+\end{tikzpicture}
+\end{document}

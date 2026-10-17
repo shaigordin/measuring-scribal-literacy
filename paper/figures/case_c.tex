@@ -1,0 +1,49 @@
+% Worked example, version C: a tug of war between the two nearest traditions.
+\documentclass[border=3pt]{standalone}
+\input{case_common.tex}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily\scriptsize\color{ink},
+  box/.style={draw=soft!60, rounded corners=3pt, line width=0.5pt, inner sep=4pt, fill=white},
+  title/.style={font=\sffamily\footnotesize\bfseries, anchor=south west, inner sep=1pt}]
+% the fragment, centred at the top
+\node[box, text width=72mm, anchor=north] (frag) at (0,0) {%
+  {\linespread{1.12}\selectfont\raggedright\CaseText}\vspace{1pt}{\tiny\legend}};
+\node[title] at (frag.north west) {\C{txtid}: an orphan (CTH \C{filed}), \C{words} legible words};
+% the two traditions as poles
+\node[box, draw=topc, fill=topc!8, text width=38mm, align=center, anchor=north east] (L) at (-44mm,-3mm) {%
+  \textbf{\color{topc}\C{top}}\\ \C{ntop} reference manuscripts\\[2pt] $s_1=\cos(\mathbf{x},\mathbf{c}_1)=\textbf{\C{s1}}$};
+\node[box, draw=secc, fill=secc!8, text width=38mm, align=center, anchor=north west] (R) at (44mm,-3mm) {%
+  \textbf{\color{secc}\C{second}}\\ \C{nsecond} reference manuscripts\\[2pt] $s_2=\cos(\mathbf{x},\mathbf{c}_2)=\textbf{\C{s2}}$};
+\node[font=\tiny, text width=38mm, align=center, anchor=north] at (L.south) {nearest tradition};
+\node[font=\tiny, text width=38mm, align=center, anchor=north] at (R.south) {runner-up};
+% the tug: each feature pulls toward the tradition where it is more typical
+\begin{scope}[shift={($(frag.south)+(0,-9mm)$)}, x=3.2mm, y=-4.2mm]
+  \node[title, anchor=south] at (0,-0.6) {Which features pull where: $x_f\,(c_{1,f}-c_{2,f})\times10^3$};
+  \newcommand{\tug}[3]{%
+    \pgfmathsetmacro{\v}{#3}
+    \pgfmathparse{\v>0 ? 1 : 0}
+    \ifnum\pgfmathresult=1
+      \fill[topc!80] (0,#1+0.15) rectangle (-\v,#1+0.85);
+      \node[anchor=west, inner sep=1pt] at (0.2,#1+0.5) {#2};
+      \node[anchor=east, inner sep=1pt, font=\tiny] at (-\v-0.1,#1+0.5) {\pgfmathprintnumber[fixed,precision=1]{\v}};
+    \else
+      \fill[secc!80] (0,#1+0.15) rectangle (-\v,#1+0.85);
+      \node[anchor=east, inner sep=1pt] at (-0.2,#1+0.5) {#2};
+      \node[anchor=west, inner sep=1pt, font=\tiny] at (-\v+0.1,#1+0.5) {\pgfmathprintnumber[fixed,precision=1]{\v}};
+    \fi}
+  \CaseTug
+  \draw[ink, line width=0.6pt] (0,-0.1) -- (0,8.2);
+  \node[anchor=north east, text=topc, font=\tiny\bfseries] at (-0.3,8.3) {$\leftarrow$ toward \C{topshort}};
+  \node[anchor=north west, text=secc, font=\tiny\bfseries] at (0.3,8.3) {toward \C{secondshort} $\rightarrow$};
+\end{scope}
+% decision and check
+\node[box, text width=60mm, anchor=north, align=center] (dec) at ($(frag.south)+(0,-50mm)$) {%
+  All pulls add up to the lead of the nearest tradition:\\[2pt] $m=\sum_f x_f(c_{1,f}-c_{2,f})=s_1-s_2=\textbf{\C{margin}}$\\[2pt]
+  $m \geq \tau=\C{tau}$ $\Rightarrow$ placed with \textbf{\color{topc}\C{topshort}}\\
+  {\tiny ($\tau$: the lead at which 80\% of test fragments are placed correctly)}};
+\node[box, text width=40mm, anchor=north west, draw=soft] (how) at ($(L.south west)+(0,-6mm)$) {%
+  \textbf{How a fragment becomes numbers.} Every word form and every sign sequence in a word is a feature $f$, weighted $x_f\propto(1+\log\mathit{tf}_f)\,\mathit{idf}_f$: frequent here, rare in the corpus. \wf{pankauaš}: idf \C{idf.rare}; the sign \sg{na}: \C{idf.common}. Each tradition is the average $\mathbf{c}_t$ of its manuscripts.};
+\node[box, text width=40mm, anchor=north east, draw=soft] (chk) at ($(R.south east)+(0,-6mm)$) {%
+  \textbf{Check by hand.} The five single manuscripts nearest to it are all Tunnawiya's ritual (CTH \C{nn1cth}), which no reference group includes: a lead for the philologist.};
+\end{tikzpicture}
+\end{document}

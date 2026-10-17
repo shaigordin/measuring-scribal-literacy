@@ -1,0 +1,70 @@
+% Worked example, version A: six panels in reading order, two rows (full text width).
+\documentclass[border=3pt]{standalone}
+\input{case_common.tex}
+\begin{document}
+\begin{tikzpicture}[font=\sffamily\scriptsize\color{ink},
+  panel/.style={draw=soft!60, rounded corners=3pt, line width=0.5pt, inner sep=4pt, anchor=north west, fill=white,
+},
+  title/.style={font=\sffamily\footnotesize\bfseries, anchor=south west, inner sep=1pt},
+  flow/.style={-{Stealth[length=2.4mm]}, line width=1pt, draw=ink!60}]
+% ---- row 1
+\node[panel, text width=60mm, align=left] (p1) at (0,0) {%
+  {\linespread{1.18}\selectfont\raggedright\CaseText}\vspace{2pt}
+  {\tiny\legend}};
+\node[title] at (p1.north west) {\stepno{1} Read: \C{txtid}, an orphan (CTH \C{filed})};
+\node[panel, text width=36mm] (p2) at ($(p1.north east)+(5mm,0)$) {%
+  Each word becomes several features, its form and its sign sequences:\\[3pt]
+  \wc{catN}{ok}{pa-an-ga-u-wa-aš}\\[2pt]
+  \hspace*{1mm}$\to$ word \wf{pankauaš} \hfill \C{x.w}\\
+  \hspace*{1mm}$\to$ signs \sg{pa-an-ga} \hfill \C{x.n1}\\
+  \hspace*{1mm}$\to$ signs \sg{an-ga-u} \hfill \C{x.n2}\\
+  \hspace*{1mm}$\to$ signs \sg{ga-u-wa} \hfill \C{x.n3}\\[4pt]
+  A feature weighs more if it is frequent here and rare in the corpus:\\[2pt]
+  \hspace*{1mm}$x_f \propto (1+\log \mathit{tf}_f)\cdot \mathit{idf}_f$\\[2pt]
+  \hspace*{1mm}idf of \wf{pankauaš} \C{idf.rare}; of the sign \sg{na} \C{idf.common}\\[3pt]
+  The fragment is a vector $\mathbf{x}$ with \C{nfeat} of \C{dim} features.};
+\node[title] at (p2.north west) {\stepno{2} Count};
+\node[panel, text width=46mm] (p3) at ($(p2.north east)+(5mm,0)$) {%
+  Each tradition is the average vector $\mathbf{c}_t$ of its manuscripts. Similarity is the cosine:\\[2pt]
+  \hspace*{1mm}$s_t=\cos(\mathbf{x},\mathbf{c}_t)=\sum_f x_f\,c_{t,f}$\\[4pt]
+  \begin{tikzpicture}[x=50mm, y=3.1mm]
+    \newcommand{\simbar}[4]{%
+      \def\k{#4}\def\kt{top}\def\ks{second}%
+      \ifx\k\kt\def\col{topc}\else\ifx\k\ks\def\col{secc}\else\def\col{soft!45}\fi\fi
+      \fill[\col] (0,-#1) rectangle (#3,-#1-0.72);
+      \node[anchor=east, inner sep=1pt, font=\tiny] at (0,-#1-0.36) {#2};
+      \node[anchor=west, inner sep=1pt, font=\tiny] at (#3,-#1-0.36) {#3};}
+    \CaseBars
+  \end{tikzpicture}};
+\node[title] at (p3.north west) {\stepno{3} Compare};
+% ---- row 2
+\node[panel, text width=36mm] (p4) at ($(p1.south west)+(0,-9mm)$) {%
+  The lead of the nearest tradition over the runner-up:\\[3pt]
+  \hspace*{1mm}$m = s_1 - s_2 = \C{s1} - \C{s2} = \C{margin}$\\[4pt]
+  Placed only if $m \geq \tau = \C{tau}$, the lead at which 80\% of test fragments are placed correctly; otherwise left unassigned.\\[4pt]
+  \textbf{\color{topc}$\Rightarrow$ \C{topshort}}};
+\node[title] at (p4.north west) {\stepno{4} Decide};
+\node[panel, text width=60mm] (p5) at ($(p4.north east)+(5mm,0)$) {%
+  The lead splits exactly over the features:\\[2pt]\hspace*{1mm}$m=\sum_f x_f\,(c_{1,f}-c_{2,f})$\\[3pt]
+  \begin{tabular}{@{}l r r r r@{}}
+    \toprule
+    feature & $x_f$ & $c_{1,f}$ & $c_{2,f}$ & share $\times10^3$ \\
+    \midrule
+    \CaseFeatRows
+    \bottomrule
+  \end{tabular}\\[2pt]
+  {\tiny $c_1$ \C{topshort}, $c_2$ \C{secondshort}; bold: word form, italic: signs.}};
+\node[title] at (p5.north west) {\stepno{5} Explain};
+\node[panel, text width=46mm] (p6) at ($(p5.north east)+(5mm,0)$) {%
+  {\linespread{1.12}\selectfont\raggedright\tiny\CaseShaded}\vspace{2pt}
+  {\tiny Darker: larger share of the lead.}\\[3pt]
+  The formula \sg{pa-an-ga-u-wa-aš EME-an} places it. The five nearest single manuscripts are all Tunnawiya's ritual (CTH \C{nn1cth}), which no reference group includes: a lead for the philologist.};
+\node[title] at (p6.north west) {\stepno{6} Check by hand};
+\draw[flow] (p1.east |- p2.west) -- (p2.west);
+\draw[flow] (p2.east |- p3.west) -- (p3.west);
+\coordinate (lane) at ($(p1.south)+(0,-2.5mm)$);
+\draw[flow] (p3.south) |- (lane) -| ($(p4.north)+(0,0)$);
+\draw[flow] (p4.east |- p5.west) -- (p5.west);
+\draw[flow] (p5.east |- p6.west) -- (p6.west);
+\end{tikzpicture}
+\end{document}
