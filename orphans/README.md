@@ -39,6 +39,8 @@ controls (`--groups historical`), shown once as the published baseline.
 | Orphans: fragments without a tradition | CTH 470 and EBo counts, median words, filing | `tlhdig03/corpus_stats.json` → `orphans` | `stats_corpus.py` |
 | Validation: the StBoT 73 groups | leave-one-out accuracy, baselines | `tlhdig03/report.json` → `E1_*` | `run_experiments.py` |
 | Validation with literature-defined traditions | accuracy, recall per tradition; CTH 500 and residue placement (notes) | `tlhdig03_literature/report.json` → `E1_historical`, `E5b_residue` | `run_experiments.py` |
+| Leave one composition out | compositions placed in their scholarly tradition | `tlhdig03_literature/E10_report.json` → `E10a`, `E10a_leave_composition_out.csv` | `run_hypotheses.py` |
+| A contested attribution: the Ambazzi rituals | fit per tradition vs random rituals; signature words | `tlhdig03_literature/E10b_contested_fit.csv`, `E10c_*.csv` | `run_hypotheses.py` |
 | How small can an orphan be? | accuracy by fragment size | `tlhdig03_literature/E2_coverage_curve.csv` | `run_experiments.py` |
 | Vocabulary, orthography or date? | logograms removed; MS vs NS | `tlhdig03_literature/report.json` → `E4_*`, `E3_cth701_script_date` | `run_experiments.py` |
 | What identifies a tradition | accuracy per layer | `tlhdig03_literature/E7_report.json` → `E7a_layers` | `run_profiles.py` |
@@ -89,6 +91,10 @@ tradition.
   the HFR modules). `HISTORICAL` (StBoT 73 Table 3, plus Kizzuwatna rituals CTH 471–500 and Old
   Anatolian rituals CTH 390–469 as controls) and the abstract's CTH 670 / 701 / 832 setup are run
   for comparison.
+- **Scholarly attributions (E10, `run_hypotheses.py`):** leave one composition out (each CTH number
+  held out with all its manuscripts); and a contested attribution (default: the Ambazzi rituals as
+  western/Arzawa) scored against every tradition, with a null from random sets of unassigned
+  rituals, plus the signature words behind it.
 - **Open set (E9, `run_openset.py`):** texts of genres outside the reference (myths, prayers,
   oracles, historical texts and treaties, instructions, cult inventories, festivals of other
   traditions, the Luwian rituals of Puriyanni and Kuwattalla) are cut into windows and scored

@@ -43,6 +43,7 @@ for G in historical literature; do
   mkdir -p "$O"
   python3 run_experiments.py "$TOK" "${L[@]}" --groups $G --out "$O" --perm 200 > "$O/run.log"   # E1-E6
   python3 run_openset.py "$TOK" --report "$O/report.json" --out "$O" > "$O/E9_run.log"           # E9
+  [ "$G" = literature ] && python3 run_hypotheses.py "$TOK" --out "$O" > "$O/E10_run.log"        # E10
   python3 run_profiles.py   "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E7_run.log" # E7
   python3 run_wordclass.py  "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E8_run.log" # E8
   python3 make_figures.py "$O" "$IMG"
