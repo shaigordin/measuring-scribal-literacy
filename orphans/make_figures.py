@@ -6,6 +6,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import matplotlib.ticker
 import pandas as pd
 
 RES, OUT = Path(sys.argv[1]), Path(sys.argv[2])
@@ -146,4 +147,44 @@ if (RES / "E10_report.json").exists():
     ax.set(xlabel="lead over the best other tradition (cosine)")
     ax.set_title("grey: 90% range for random sets of unassigned rituals of the same size", loc="left", color=INK2, fontsize=12)
     save(fig, "contested_fit")
+# 8. E11 what a placement rests on: similarity (what all traditions share counts) vs decision (it cancels)
+if (RES / "E11_report.json").exists():
+    e11 = json.loads((RES / "E11_report.json").read_text())
+    CAT6 = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300"]  # palette slots 1-6, fixed order
+    rows = [("similarity to its tradition", e11["E11a"]["similarity_all_correct"]),
+            ("decision: lead over runner-up", e11["E11a"]["all_correct"])]
+    fig, axes = plt.subplots(1, 2, figsize=(15, 4.8), sharey=True)
+    for ax, key, title in ((axes[0], "by_layer", "layer"), (axes[1], "by_category", "word category")):
+        names = list(rows[0][1][key])
+        for i, (lab, r) in enumerate(rows):
+            left = 0.0
+            for j, n in enumerate(names):
+                v = max(r[key][n], 0)
+                ax.barh(i, v, left=left, height=0.55, color=CAT6[j], edgecolor=SURF, linewidth=2,
+                        label=n if i == 0 else None)
+                if v >= 0.08:
+                    ax.text(left + v / 2, i, f"{v:.0%}", ha="center", va="center", color=SURF, fontsize=12, weight="bold")
+                left += v
+        ax.set_yticks(range(len(rows)), [r[0] for r in rows])
+        ax.set(xlim=(0, 1.0), xlabel=f"share, by {title}")
+        ax.xaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+        ax.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=3, fontsize=11, columnspacing=1.0, handlelength=1.2)
+    save(fig, "decision_shares")
+
+    # 9. E11d: placements resting mostly on common features are less often right
+    d = pd.DataFrame(e11["E11d"]).T
+    fig, ax = plt.subplots(figsize=(10, 5.2))
+    ax.grid(axis="y", color=GRID, lw=1)
+    x = range(len(d))
+    for off, col, c, lab in ((-0.18, SERIES["words"], "precision_rest", "rest of the placed windows"),
+                             (0.18, SERIES["signs"], "precision_mostly_common",
+                              "placed mostly (> 50%) on common features")):
+        ax.bar([i + off for i in x], d[c].astype(float), width=0.34, color=col, zorder=2, label=lab)
+        for i, v in zip(x, d[c].astype(float)):
+            ax.text(i + off, v + 0.015, f"{v:.0%}", ha="center", color=INK, fontsize=12)
+    ax.set_xticks(list(x), [f"{k} words" for k in d.index])
+    ax.set(ylim=(0, 1), ylabel="placed windows that are right")
+    ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
+    ax.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2, fontsize=12)
+    save(fig, "common_features")
 print("figures in", OUT)
