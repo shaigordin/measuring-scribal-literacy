@@ -60,3 +60,23 @@ def word_class(attrs: dict, translit: str, lang: str) -> str:
         p = pos.pop()
         return "other" if p == "number" else p
     return "ambiguous" if pos else "unknown"
+
+# Display grouping shared by E11 (run_attribution.py) and the workshop playground: the six
+# categories of StBoT 73 Table 4 with agents and deities together, and the rest as "Other words";
+# and the three layers a feature belongs to (sign n-grams with any upper-case sign, i.e. a
+# logogram or determinative, count as logographic writing).
+CATEGORY = {"function": "Function words", "verb": "Verbs", "realia": "Nouns and realia",
+            "agent": "Agents and deities", "deity": "Agents and deities", "foreign": "Foreign words"}
+CATEGORIES = ["Function words", "Verbs", "Nouns and realia", "Agents and deities", "Foreign words", "Other words"]
+LAYERS = ["Word form", "Syllabic spelling", "Logographic writing"]
+
+
+def category(wclass: str) -> str:
+    return CATEGORY.get(wclass, "Other words")
+
+
+def layer(feature: str) -> str:
+    """Layer of a 'both'-space feature: a word form, or a §-prefixed sign n-gram."""
+    if not feature.startswith("§"):
+        return "Word form"
+    return "Logographic writing" if any(s[:1].isupper() for s in feature[1:].split("·")) else "Syllabic spelling"

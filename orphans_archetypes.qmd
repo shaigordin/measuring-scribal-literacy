@@ -374,6 +374,42 @@ Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs 
 
 ---
 
+## What a placement rests on: similarity is not the decision
+
+![](img/orphans/literature/decision_shares.png){fig-align="center" width="100%"}
+
+::: {.small}
+The score is a cosine, so it splits exactly over the features, and each feature over the words it occurs in (word category, StBoT 73 Table 4) and its layer (word form, syllabic or logographic signs). Correctly placed reference manuscripts, leave one out.
+:::
+
+- **Similarity** to a tradition is 46% common material (nu, the signs *a*, *i*); **the decision** (lead over the runner-up) is 10%, because what all traditions share cancels
+- **Delete the 100 most frequent words** (40% of all words): accuracy 84% → 85%
+
+::: {.notes}
+This answers the playground observation that "nu" carries weight: it does carry similarity, which is what the playground shades, but not the decision between traditions. Frequent words (the 25 most frequent forms: nu, tai, anta, GAL, paršia ...) are 14% of the similarity and 3% of the decision.
+What decides, by category: nouns and realia 32%, agents and deities 31%, function words 13%, verbs 10%, foreign words 10%. By layer: syllabic signs 50%, logographic signs 34%, word forms 16%.
+It differs by tradition: Ḫuwaššanna and Palaic rest on agents and deities (58%), Palaic also on Palaic words (31%), the Hattian layer on Hattian words (24%) and syllabic spelling (64%); Kizzuwatna on realia (48%); the Mixed and Syro-Mesopotamian Hurrian groups on function words (32%, 28%: KI.MIN, EGIR-anda-ma ...).
+Caveat: a syllabic sign n-gram carries the word as well as its spelling (ḫu-wa-aš is Ḫuwaššanna). E7's spelling layer isolates the spelling choice: it adds about one point.
+Files: run_attribution.py, results/tlhdig03_literature/E11_report.json, E11a_category_by_layer.csv, E11b_top_features.csv.
+:::
+
+---
+
+## When the decision rests on common material, distrust it
+
+![](img/orphans/literature/common_features.png){fig-align="center" width="80%"}
+
+::: {.small}
+Windows of 5, 10 and 20 words from held-out reference manuscripts, placed with the abstention margin. Common features: attested in at least a quarter of the reference manuscripts.
+:::
+
+::: {.notes}
+Short windows placed mostly on common features are right 50–66% of the time, against 78–86% for the rest. For short fragments the user's worry is right: in orphans of 5–10 words common features carry 30% of the decision, against 10% in whole manuscripts.
+255 of the 940 orphans the margin assigns rest mostly on common features (107 mostly on frequent words). They are flagged in E11a_orphan_decomposition.csv and should be read as weaker placements.
+:::
+
+---
+
 # CTH 701 as a test bed
 
 ::: {.absolute top="0" left="96%"}
@@ -458,6 +494,7 @@ Coverage grows with the number of orphans, so these numbers still need rarefacti
 - **Function, not tradition:** festival manuscripts differ by use (Burgin 2019, StBoT 65), which word profiles may pick up
 - **Joins:** an orphan placed near a known manuscript is a candidate join to check on the tablet
 - **Palaeography:** link to sign-shape measurement (DANES 2025) for the same fragments
+- **Common material:** a quarter of the assigned orphans rest mostly on features every tradition shares; a rule to flag them is the next step
 - **Philological check:** worked examples (top-ranked orphans per tradition) for colleagues to verify
 
 ---

@@ -47,6 +47,8 @@ controls (`--groups historical`), shown once as the published baseline.
 | Cultural profiles | distinctive features | `tlhdig03_literature/E7_distinctive_features.csv` | `run_profiles.py` |
 | Scribal profiles | index z-scores; plene clusters; date check | `tlhdig03_literature/E7_report.json`, `tlhdig03_literature/corpus_stats.json` → `plene_clusters` | `run_profiles.py`, `stats_corpus.py` |
 | Word classes | each class alone / removed | `tlhdig03_literature/E8_report.json` | `run_wordclass.py` |
+| What a placement rests on | similarity vs decision, by word category and layer; frequent words removed | `tlhdig03_literature/E11_report.json` → `E11a`, `E11b`, `E11c`; `E11a_category_by_layer.csv` | `run_attribution.py` |
+| When the decision rests on common material | precision of placed windows, mostly common features vs rest | `E11_report.json` → `E11d`; per orphan: `E11a_orphan_decomposition.csv` | `run_attribution.py` |
 | Recovering Salvini and Wegner's groups | CTH 701 subgroups | `tlhdig03_literature/report.json` → `E3_cth701_subgroups` | `run_experiments.py` |
 | Where do CTH 470 and EBo go? | orphans per tradition, margin and its interval | `tlhdig03_literature/report.json` → `E2_abstention`, `E5_orphans` | `run_experiments.py` |
 | Does a fragment fit any known tradition? | outside genres placed / recognised; orphans nearer an outside genre | `tlhdig03_literature/E9_report.json`, `E9_orphan_fit.csv` | `run_openset.py` |
@@ -95,6 +97,15 @@ tradition.
   held out with all its manuscripts); and a contested attribution (default: the Ambazzi rituals as
   western/Arzawa) scored against every tradition, with a null from random sets of unassigned
   rituals, plus the signature words behind it.
+- **What a decision rests on (E11, `run_attribution.py`):** the margin between the nearest
+  tradition and the runner-up is a difference of cosines, so it splits exactly over the features,
+  and each feature over the words it occurs in: word category (StBoT 73 Table 4, grouped as in
+  `qtm.wordclass.CATEGORIES`, the same grouping as the playground) × layer (word form, syllabic or
+  logographic signs). The same split of the similarity to a text's own tradition shows why the two
+  differ: features all traditions share (nu, the sign *a*) dominate the similarity and cancel in
+  the margin. Also: the share carried by the 25 most frequent words and by common features
+  (attested in ≥ 25% of reference texts), accuracy with the k most frequent words deleted, and the
+  precision of short placed windows that rest mostly on common features.
 - **Open set (E9, `run_openset.py`):** texts of genres outside the reference (myths, prayers,
   oracles, historical texts and treaties, instructions, cult inventories, festivals of other
   traditions, the Luwian rituals of Puriyanni and Kuwattalla) are cut into windows and scored
