@@ -27,7 +27,7 @@ python3 build_data.py tokens.csv                                # writes data/*.
 The export reuses `../orphans/qtm` and the abstention margin from
 `../orphans/results/tlhdig03/report.json`, so the page scores exactly like `run_experiments.py`.
 Run on the 2,004 orphans, the browser scores match Python to within 0.002 on average and give the
-same verdict for 1,989 of them (99.3%); the rest differ because a few transliterations map to more
+same verdict for 1,978 of them (98.7%); the rest differ because a few transliterations map to more
 than one normalised word form, and the page picks the most frequent one.
 
 ## Serve locally

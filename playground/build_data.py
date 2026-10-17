@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "orphans"))
 from qtm.corpus import load  # noqa: E402
 from qtm.features import tokens, vectorizer  # noqa: E402
 from qtm.assign import centroids, scores, loo_scores, assign  # noqa: E402
-from qtm.groups import HISTORICAL, ABSTRACT, label_map, is_orphan  # noqa: E402
+from qtm.groups import HISTORICAL, ABSTRACT, RESIDUE, label_map, is_orphan  # noqa: E402
 
 MIN_WORDS = 17
 ORPHAN_MIN_WORDS = 5
@@ -68,7 +68,7 @@ def main():
     margin = json.load(open(a.report))["E2_abstention"]["margin"]
 
     hist = label_map(HISTORICAL)
-    allcths = set(hist) | {str(c) for cs in ABSTRACT.values() for c in cs} | {"470"}
+    allcths = set(hist) | {str(c) for g in (ABSTRACT, RESIDUE) for cs in g.values() for c in cs} | {"470"}
     docs = load(a.tokens, cths=sorted(allcths))  # same pool as run_experiments.py
     docs["orphan"] = [is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)]
     ref = docs[~docs.orphan & (docs.n_words >= MIN_WORDS) & docs.cth_number.isin(hist)].copy()
