@@ -23,8 +23,9 @@ parsed by `qtm/konkordanz.py`. `labels/cth701_labels.csv` is the snapshot used f
 (access date in `labels/cth701_labels.source.txt`); `REFRESH_KONKORDANZ=1 bash reproduce.sh`
 rebuilds it from the live page. Checked against the StBoT 73 working sheet (121 shared
 fragments): the groups agree for 120 and the dates for all 120 the sheet dates. The one group
-difference is KBo 64.168, "701.₂.I" in the Konkordanz and b₂ in the sheet; it is left unclassified
-here. Uncertain Konkordanz groups ("701.?", "701.Tf7.D") are unclassified too. The Konkordanz
+difference is KBo 64.168, listed as "701.₂.I" in the Konkordanz: the group letter is missing, an
+error in the Konkordanz. It is corrected to b₂ (as in the sheet) by the `CORRECTIONS` table in
+`qtm/konkordanz.py`, and the label file says so in its `note` column. Uncertain Konkordanz groups ("701.?", "701.Tf7.D") are unclassified too. The Konkordanz
 labels cover 155 of TLHdig's 167 CTH 701 texts, against 126 for the sheet.
 
 ## Where each number on the slides comes from
@@ -43,7 +44,15 @@ labels cover 155 of TLHdig's 167 CTH 701 texts, against 126 for the sheet.
 | QTM | archetype coverage (notes) | `report.json` → `E6_archetype_coverage` | `run_experiments.py` |
 
 `results/tlhdig03_literature/` holds the same experiments with the literature-defined groups
-(`--groups literature`, see `qtm/groups.py`).
+(`--groups literature`, see `qtm/groups.py`); the slides "Validation with literature-defined
+traditions" and its notes read `report.json` → `E1_historical`, `E5b_residue` there.
+`results/tlhdig03_hfr/` (`--groups hfr`) splits the Luwian group into the HFR festival modules
+and adds the Palaic festivals (slide "Test against the HFR festival modules").
+
+CTH 500 ("Fragmente von Fest- und Beschwörungsritualen aus Kizzuwatna") is not used as a
+reference: the Konkordanz numbers its fragments 500.1–500.600 as a running list, not by
+composition, and HFR counts CTH 500 among its festival texts. Its manuscripts are placed like
+orphans (`E5b_residue` → "CTH 500 Kizzuwatna fragments").
 
 ## Design
 

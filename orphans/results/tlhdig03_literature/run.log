@@ -8,90 +8,90 @@
  },
  "E1_historical": {
   "words": {
-   "acc": 0.753,
-   "majority": 0.264,
-   "null_mean": 0.178,
+   "acc": 0.801,
+   "majority": 0.303,
+   "null_mean": 0.182,
    "p": 0.005,
-   "n": 1814,
+   "n": 1580,
    "classes": 7,
    "recall_by_class": {
-    "Arzawa / western rituals": 0.5,
-    "Hattian cult layer": 0.897,
-    "Kizzuwatna rituals": 0.747,
-    "Kizzuwatna–Lower Land (Hurrian)": 0.733,
-    "Luwian cult centres": 0.722,
-    "Mixed (Hurrian, Syrian, Luwian)": 0.591,
-    "Syro-Mesopotamia (Hurrian)": 0.652
+    "Arzawa / western rituals": 0.588,
+    "Hattian cult layer": 0.906,
+    "Kizzuwatna rituals": 0.878,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.797,
+    "Luwian cult centres": 0.77,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.611,
+    "Syro-Mesopotamia (Hurrian)": 0.72
    }
   },
   "signs": {
-   "acc": 0.776,
-   "majority": 0.264,
-   "null_mean": 0.177,
+   "acc": 0.813,
+   "majority": 0.303,
+   "null_mean": 0.181,
    "p": 0.005,
-   "n": 1814,
+   "n": 1580,
    "classes": 7,
    "recall_by_class": {
-    "Arzawa / western rituals": 0.312,
-    "Hattian cult layer": 0.944,
-    "Kizzuwatna rituals": 0.825,
-    "Kizzuwatna–Lower Land (Hurrian)": 0.727,
-    "Luwian cult centres": 0.685,
-    "Mixed (Hurrian, Syrian, Luwian)": 0.636,
-    "Syro-Mesopotamia (Hurrian)": 0.616
+    "Arzawa / western rituals": 0.412,
+    "Hattian cult layer": 0.95,
+    "Kizzuwatna rituals": 0.915,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.823,
+    "Luwian cult centres": 0.714,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.672,
+    "Syro-Mesopotamia (Hurrian)": 0.659
    }
   },
   "both": {
-   "acc": 0.781,
-   "majority": 0.264,
-   "null_mean": 0.179,
+   "acc": 0.815,
+   "majority": 0.303,
+   "null_mean": 0.184,
    "p": 0.005,
-   "n": 1814,
+   "n": 1580,
    "classes": 7,
    "recall_by_class": {
-    "Arzawa / western rituals": 0.312,
-    "Hattian cult layer": 0.941,
-    "Kizzuwatna rituals": 0.835,
-    "Kizzuwatna–Lower Land (Hurrian)": 0.736,
-    "Luwian cult centres": 0.702,
-    "Mixed (Hurrian, Syrian, Luwian)": 0.636,
-    "Syro-Mesopotamia (Hurrian)": 0.61
+    "Arzawa / western rituals": 0.412,
+    "Hattian cult layer": 0.95,
+    "Kizzuwatna rituals": 0.915,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.826,
+    "Luwian cult centres": 0.722,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.662,
+    "Syro-Mesopotamia (Hurrian)": 0.671
    }
   }
  },
  "E4_historical_no_logograms": {
   "words": {
-   "acc": 0.706,
-   "majority": 0.264,
-   "null_mean": 0.176,
+   "acc": 0.749,
+   "majority": 0.303,
+   "null_mean": 0.18,
    "p": 0.005,
-   "n": 1814,
+   "n": 1580,
    "classes": 7,
    "recall_by_class": {
-    "Arzawa / western rituals": 0.438,
-    "Hattian cult layer": 0.824,
-    "Kizzuwatna rituals": 0.707,
-    "Kizzuwatna–Lower Land (Hurrian)": 0.633,
-    "Luwian cult centres": 0.698,
-    "Mixed (Hurrian, Syrian, Luwian)": 0.621,
-    "Syro-Mesopotamia (Hurrian)": 0.634
+    "Arzawa / western rituals": 0.647,
+    "Hattian cult layer": 0.847,
+    "Kizzuwatna rituals": 0.799,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.723,
+    "Luwian cult centres": 0.722,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.641,
+    "Syro-Mesopotamia (Hurrian)": 0.646
    }
   },
   "signs": {
-   "acc": 0.751,
-   "majority": 0.264,
-   "null_mean": 0.175,
+   "acc": 0.787,
+   "majority": 0.303,
+   "null_mean": 0.18,
    "p": 0.005,
-   "n": 1814,
+   "n": 1580,
    "classes": 7,
    "recall_by_class": {
-    "Arzawa / western rituals": 0.312,
-    "Hattian cult layer": 0.902,
-    "Kizzuwatna rituals": 0.807,
-    "Kizzuwatna–Lower Land (Hurrian)": 0.695,
-    "Luwian cult centres": 0.665,
-    "Mixed (Hurrian, Syrian, Luwian)": 0.646,
-    "Syro-Mesopotamia (Hurrian)": 0.585
+    "Arzawa / western rituals": 0.353,
+    "Hattian cult layer": 0.933,
+    "Kizzuwatna rituals": 0.86,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.794,
+    "Luwian cult centres": 0.673,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.677,
+    "Syro-Mesopotamia (Hurrian)": 0.622
    }
   }
  },
@@ -166,54 +166,54 @@
  },
  "E3_cth701_subgroups": {
   "words": {
-   "acc": 0.494,
-   "majority": 0.21,
-   "null_mean": 0.136,
+   "acc": 0.5,
+   "majority": 0.207,
+   "null_mean": 0.137,
    "p": 0.005,
-   "n": 81,
+   "n": 82,
    "classes": 8,
    "recall_by_class": {
     "a": 0.333,
     "a₁": 0.25,
     "b": 0.5,
     "b₁": 0.0,
-    "b₂": 0.778,
+    "b₂": 0.8,
     "d": 0.571,
     "e": 0.308,
     "f": 0.706
    }
   },
   "signs": {
-   "acc": 0.605,
-   "majority": 0.21,
-   "null_mean": 0.14,
+   "acc": 0.598,
+   "majority": 0.207,
+   "null_mean": 0.136,
    "p": 0.005,
-   "n": 81,
+   "n": 82,
    "classes": 8,
    "recall_by_class": {
     "a": 0.333,
     "a₁": 0.375,
     "b": 0.6,
     "b₁": 0.5,
-    "b₂": 0.778,
+    "b₂": 0.8,
     "d": 0.714,
-    "e": 0.308,
+    "e": 0.231,
     "f": 0.882
    }
   },
   "both": {
-   "acc": 0.568,
-   "majority": 0.21,
-   "null_mean": 0.139,
+   "acc": 0.585,
+   "majority": 0.207,
+   "null_mean": 0.136,
    "p": 0.005,
-   "n": 81,
+   "n": 82,
    "classes": 8,
    "recall_by_class": {
     "a": 0.333,
     "a₁": 0.375,
     "b": 0.6,
-    "b₁": 0.0,
-    "b₂": 0.778,
+    "b₁": 0.25,
+    "b₂": 0.8,
     "d": 0.714,
     "e": 0.308,
     "f": 0.824
@@ -259,49 +259,49 @@
   }
  },
  "E2_abstention": {
-  "margin": 0.02,
-  "precision_above_margin": 0.8029845107669059,
-  "share_assigned": 0.6074584050487665,
+  "margin": 0.017,
+  "precision_above_margin": 0.8021903959561921,
+  "share_assigned": 0.6810097532989099,
   "margin_90ci": [
-   0.019,
-   0.021
+   0.016,
+   0.018
   ]
  },
  "E5_orphans": {
-  "assigned": 841,
-  "abstained": 1168,
+  "assigned": 887,
+  "abstained": 1122,
   "by_tradition": {
-   "Kizzuwatna rituals": 675,
-   "Hattian cult layer": 85,
-   "Syro-Mesopotamia (Hurrian)": 24,
-   "Kizzuwatna–Lower Land (Hurrian)": 21,
-   "Mixed (Hurrian, Syrian, Luwian)": 20,
-   "Arzawa / western rituals": 9,
-   "Luwian cult centres": 7
+   "Kizzuwatna rituals": 550,
+   "Hattian cult layer": 133,
+   "Kizzuwatna–Lower Land (Hurrian)": 72,
+   "Syro-Mesopotamia (Hurrian)": 62,
+   "Mixed (Hurrian, Syrian, Luwian)": 26,
+   "Arzawa / western rituals": 25,
+   "Luwian cult centres": 19
   },
   "by_filing": {
    "(abstain)": {
     "409": 1,
     "418": 1,
-    "426": 1,
+    "426": 0,
     "427": 1,
     "436": 1,
     "446": 1,
     "448": 1,
-    "470": 945,
-    "481": 0,
+    "470": 928,
+    "481": 1,
     "490": 0,
-    "500": 2,
+    "500": 1,
     "591": 1,
     "627": 2,
-    "670": 102,
+    "670": 90,
     "698": 1,
     "704": 0,
     "722": 0,
-    "738": 1,
+    "738": 0,
     "745": 0,
     "770": 1,
-    "832": 106
+    "832": 91
    },
    "Arzawa / western rituals": {
     "409": 0,
@@ -311,20 +311,20 @@
     "436": 0,
     "446": 0,
     "448": 0,
-    "470": 9,
+    "470": 22,
     "481": 0,
     "490": 0,
     "500": 0,
     "591": 0,
     "627": 0,
-    "670": 0,
+    "670": 1,
     "698": 0,
     "704": 0,
     "722": 0,
     "738": 0,
     "745": 0,
     "770": 0,
-    "832": 0
+    "832": 2
    },
    "Hattian cult layer": {
     "409": 0,
@@ -334,20 +334,20 @@
     "436": 0,
     "446": 0,
     "448": 0,
-    "470": 16,
+    "470": 39,
     "481": 0,
     "490": 0,
     "500": 0,
     "591": 0,
     "627": 0,
-    "670": 64,
+    "670": 74,
     "698": 0,
     "704": 0,
     "722": 0,
-    "738": 0,
+    "738": 1,
     "745": 1,
     "770": 0,
-    "832": 4
+    "832": 18
    },
    "Kizzuwatna rituals": {
     "409": 0,
@@ -357,43 +357,43 @@
     "436": 0,
     "446": 1,
     "448": 0,
-    "470": 651,
-    "481": 1,
+    "470": 542,
+    "481": 0,
     "490": 1,
     "500": 0,
     "591": 0,
     "627": 0,
-    "670": 10,
+    "670": 2,
     "698": 0,
     "704": 0,
     "722": 0,
     "738": 0,
     "745": 0,
     "770": 0,
-    "832": 11
+    "832": 4
    },
    "Kizzuwatna–Lower Land (Hurrian)": {
     "409": 0,
     "418": 0,
-    "426": 0,
+    "426": 1,
     "427": 0,
     "436": 0,
     "446": 0,
     "448": 0,
-    "470": 14,
+    "470": 54,
     "481": 0,
     "490": 0,
-    "500": 0,
+    "500": 1,
     "591": 0,
     "627": 0,
-    "670": 7,
+    "670": 14,
     "698": 0,
     "704": 0,
     "722": 0,
     "738": 0,
     "745": 0,
     "770": 0,
-    "832": 0
+    "832": 2
    },
    "Luwian cult centres": {
     "409": 0,
@@ -403,20 +403,20 @@
     "436": 0,
     "446": 0,
     "448": 0,
-    "470": 3,
+    "470": 11,
     "481": 0,
     "490": 0,
     "500": 0,
     "591": 0,
     "627": 0,
-    "670": 3,
+    "670": 5,
     "698": 0,
     "704": 0,
     "722": 0,
     "738": 0,
     "745": 0,
     "770": 0,
-    "832": 1
+    "832": 3
    },
    "Mixed (Hurrian, Syrian, Luwian)": {
     "409": 0,
@@ -426,7 +426,7 @@
     "436": 0,
     "446": 0,
     "448": 0,
-    "470": 13,
+    "470": 18,
     "481": 0,
     "490": 0,
     "500": 0,
@@ -439,7 +439,7 @@
     "738": 0,
     "745": 0,
     "770": 0,
-    "832": 2
+    "832": 3
    },
    "Syro-Mesopotamia (Hurrian)": {
     "409": 0,
@@ -449,7 +449,7 @@
     "436": 0,
     "446": 0,
     "448": 0,
-    "470": 22,
+    "470": 59,
     "481": 0,
     "490": 0,
     "500": 1,
@@ -462,74 +462,86 @@
     "738": 0,
     "745": 0,
     "770": 0,
-    "832": 0
+    "832": 1
    }
   },
   "assigned_at_margin_90ci": {
-   "0.019": {
-    "Kizzuwatna rituals": 706,
-    "Hattian cult layer": 93,
-    "Syro-Mesopotamia (Hurrian)": 25,
-    "Kizzuwatna–Lower Land (Hurrian)": 22,
-    "Mixed (Hurrian, Syrian, Luwian)": 21,
-    "Arzawa / western rituals": 9,
-    "Luwian cult centres": 7
+   "0.016": {
+    "Kizzuwatna rituals": 588,
+    "Hattian cult layer": 140,
+    "Kizzuwatna–Lower Land (Hurrian)": 78,
+    "Syro-Mesopotamia (Hurrian)": 66,
+    "Mixed (Hurrian, Syrian, Luwian)": 28,
+    "Arzawa / western rituals": 27,
+    "Luwian cult centres": 23
    },
-   "0.021": {
-    "Kizzuwatna rituals": 637,
-    "Hattian cult layer": 82,
-    "Syro-Mesopotamia (Hurrian)": 23,
-    "Kizzuwatna–Lower Land (Hurrian)": 21,
-    "Mixed (Hurrian, Syrian, Luwian)": 19,
-    "Arzawa / western rituals": 9,
-    "Luwian cult centres": 6
+   "0.018": {
+    "Kizzuwatna rituals": 526,
+    "Hattian cult layer": 128,
+    "Kizzuwatna–Lower Land (Hurrian)": 67,
+    "Syro-Mesopotamia (Hurrian)": 57,
+    "Mixed (Hurrian, Syrian, Luwian)": 25,
+    "Arzawa / western rituals": 24,
+    "Luwian cult centres": 19
    }
   }
  },
  "E5b_residue": {
-  "texts": 301,
-  "assigned": 165,
-  "by_tradition": {
-   "Kizzuwatna rituals": 154,
-   "Hattian cult layer": 9,
-   "Mixed (Hurrian, Syrian, Luwian)": 1,
-   "Arzawa / western rituals": 1
+  "CTH 390–469 residue": {
+   "texts": 300,
+   "assigned": 172,
+   "by_tradition": {
+    "Kizzuwatna rituals": 149,
+    "Hattian cult layer": 15,
+    "Mixed (Hurrian, Syrian, Luwian)": 4,
+    "Arzawa / western rituals": 2,
+    "Luwian cult centres": 1,
+    "Kizzuwatna–Lower Land (Hurrian)": 1
+   }
+  },
+  "CTH 500 Kizzuwatna fragments": {
+   "texts": 235,
+   "assigned": 126,
+   "by_tradition": {
+    "Kizzuwatna rituals": 53,
+    "Syro-Mesopotamia (Hurrian)": 30,
+    "Kizzuwatna–Lower Land (Hurrian)": 29,
+    "Mixed (Hurrian, Syrian, Luwian)": 13,
+    "Hattian cult layer": 1
+   }
   }
  },
  "E6_archetype_coverage": [
   {
    "tradition": "Arzawa / western rituals",
-   "orphans": 9,
+   "orphans": 25,
    "core_terms": 200,
-   "core_attested": 98,
-   "coverage": 0.49,
+   "core_attested": 152,
+   "coverage": 0.76,
    "unattested_examples": [
-    "§D·KAL",
-    "§KAL",
-    "arḫa",
-    "§pé",
-    "§D",
-    "§an·zi",
-    "§an·da",
-    "§pé·e·da",
-    "§pé·e",
-    "§tar"
+    "§NA·D·KAL",
+    "A-NA KAL",
+    "§aš·ma·kán",
+    "§ku·iš",
+    "našmakan",
+    "§KÁ·GAL",
+    "§na·aš·ma",
+    "§aš·ma",
+    "paimi",
+    "§ma·aš·kán"
    ]
   },
   {
    "tradition": "Hattian cult layer",
-   "orphans": 85,
+   "orphans": 133,
    "core_terms": 200,
-   "core_attested": 190,
-   "coverage": 0.95,
+   "core_attested": 193,
+   "coverage": 0.965,
    "unattested_examples": [
-    "§le",
-    "§le·e",
     "§il",
     "§NIN·DINGIR",
     "§wu",
     "§NIN",
-    "§DINGIR",
     "§ma·aš",
     "§ba·ar",
     "§ba·ar·na"
@@ -537,7 +549,7 @@
   },
   {
    "tradition": "Kizzuwatna rituals",
-   "orphans": 675,
+   "orphans": 550,
    "core_terms": 200,
    "core_attested": 200,
    "coverage": 1.0,
@@ -545,29 +557,29 @@
   },
   {
    "tradition": "Kizzuwatna–Lower Land (Hurrian)",
-   "orphans": 21,
+   "orphans": 72,
    "core_terms": 200,
-   "core_attested": 162,
-   "coverage": 0.81,
+   "core_attested": 184,
+   "coverage": 0.92,
    "unattested_examples": [
-    "§ḫi",
-    "§pí",
-    "§pát",
-    "§ḫa·an",
-    "§pu",
-    "§É",
-    "§aš·ši",
     "§RU",
-    "§ra·a",
-    "§ru"
+    "§BALAG",
+    "§BALAG·DI",
+    "§SÌR·RU",
+    "§el",
+    "§SÌR",
+    "§nu·zi",
+    "§IŠKUR",
+    "§D·IŠKUR",
+    "§D·ḫé"
    ]
   },
   {
    "tradition": "Luwian cult centres",
-   "orphans": 7,
+   "orphans": 19,
    "core_terms": 200,
-   "core_attested": 94,
-   "coverage": 0.47,
+   "core_attested": 137,
+   "coverage": 0.685,
    "unattested_examples": [
     "§ša·an·na",
     "§ḫu·wa·aš",
@@ -583,40 +595,40 @@
   },
   {
    "tradition": "Mixed (Hurrian, Syrian, Luwian)",
-   "orphans": 20,
+   "orphans": 26,
    "core_terms": 200,
-   "core_attested": 124,
-   "coverage": 0.62,
+   "core_attested": 134,
+   "coverage": 0.67,
    "unattested_examples": [
     "§D·ḫé",
-    "§D·ḫé·pát",
     "§ḫé·pát",
+    "§D·ḫé·pát",
     "§ḫé",
     "DINGIRna",
     "§MEŠ·na",
     "§DINGIR·MEŠ·na",
     "§NA·D",
     "§A·NA·D",
-    "§šu"
+    "§ti"
    ]
   },
   {
    "tradition": "Syro-Mesopotamia (Hurrian)",
-   "orphans": 24,
+   "orphans": 62,
    "core_terms": 200,
-   "core_attested": 167,
-   "coverage": 0.835,
+   "core_attested": 184,
+   "coverage": 0.92,
    "unattested_examples": [
-    "§uš·ḫi·ia",
     "§ni·eš",
-    "§ḫi·ia",
     "ḫurlilima",
     "§li·li·ma",
     "§li·ma",
-    "§Ì",
     "§ge",
     "§Ì·GIŠ",
-    "§ap"
+    "§ḫu·up·ru",
+    "aḫrušḫiaz",
+    "§lum",
+    "§MUŠEN"
    ]
   }
  ]

@@ -159,12 +159,30 @@ This is why the reference space moved to historical groups.
 ![](img/orphans/literature/validation.png){fig-align="center" width="80%"}
 
 ::: {.small}
-Kizzuwatna rituals = CTH 471–500 + 404 (Miller 2004); Arzawa = CTH 391, 425, 429, 433, 463 (Christiansen 2006, Bawanypeck 2005); Hattian cult layer = Klinger 1996 (from the Konkordanz citations of StBoT 37); the four festival groups of StBoT 73. CTH 390–469 texts claimed by no study leave the reference.
+Kizzuwatna rituals = CTH 471–499 + 404 (Miller 2004); Arzawa = CTH 391, 429, 463 (Ambazzi; Christiansen 2006), 425, 433 (augurs; Bawanypeck 2005), 394, 402, 406, 410 (colophon: from Arzawa or Ḫapalla); Hattian cult layer = Klinger 1996 (from the Konkordanz citations of StBoT 37); the four festival groups of StBoT 73. CTH 390–469 texts claimed by no study, and the CTH 500 fragment collection, leave the reference and are placed like orphans.
 :::
 
 ::: {.notes}
-78% over 7 traditions against 26% majority, up from 72% with the CTH-range controls.
-Hattian 94% and Kizzuwatna 84% recalled; Arzawa only 31%, but it has just 16 manuscripts of 17+ words.
+82% over 7 traditions against 30% majority, up from 72% with the CTH-range controls.
+Hattian 95% and Kizzuwatna 92% recalled; Arzawa only 41%, but it has just 17 manuscripts long enough to test.
+CTH 500 ("fragments of Kizzuwatna rituals", 235 manuscripts) is a fragment collection, not a composition, and it pulled every generic ritual into Kizzuwatna. Placed like orphans, only 53 of its 126 assigned fragments go to the Kizzuwatna rituals; 72 go to the Hurrian festival groups. That fits HFR, which counts CTH 500 among its festival texts.
+The CTH 390–469 residue still goes to Kizzuwatna (149 of 172 assigned): the only large ritual class wins on genre, not on origin.
+:::
+
+---
+
+## Test against the HFR festival modules
+
+![](img/orphans/hfr/validation.png){fig-align="center" width="80%"}
+
+::: {.small}
+The Luwian group split as the HFR editions split it: Luwian festivals of Ištanuwa and Lallupiya (CTH 665, 771–773, as listed by HFR) and Ḫuwaššanna (CTH 690–694); Palaic festivals (CTH 750–754) added. Other groups as on the previous slide.
+:::
+
+::: {.notes}
+84% over 9 groups (30% majority). The HFR modules hold up: Ḫuwaššanna 91%, Ištanuwa/Lallupiya 84%, Palaic 82%.
+So StBoT 73's single "Luwian cult centres" group hides two cult traditions that the texts themselves keep apart.
+Only the module lists HFR publishes are used; its planned modules (Nerik, Zippalanda, KI.LAM ...) give no CTH lists yet.
 :::
 
 ---
@@ -296,7 +314,7 @@ The six categories of StBoT 73 Table 4, assigned from TLHdig's morphological ana
 ::: {.notes}
 Removing function words *raises* accuracy for the six traditions (69% → 74%): they are shared across traditions, a common scribal and syntactic layer.
 Alone they still reach 57% against 23%, so formulae differ between traditions, but less than realia (66%) or Hurrian words (83%).
-Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (49% → 46%), yet 46% is still twice the majority baseline (21%), so the Hittite frame text also differs between the subgroups.
+Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (50% → 47%), yet 47% is still twice the majority baseline (21%), so the Hittite frame text also differs between the subgroups.
 :::
 
 ---
@@ -318,8 +336,8 @@ Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs 
 ![](img/orphans/cth701_subgroups.png){width="100%"}
 :::
 ::: {.column width="45%"}
-- 81 manuscripts in 8 groups (a–f), labels from the Mainz Konkordanz
-- ~57% recovered, against a 21% majority baseline
+- 82 manuscripts in 8 groups (a–f), labels from the Mainz Konkordanz (one Konkordanz error corrected)
+- ~58% recovered, against a 21% majority baseline
 - The unlabelled 701 fragments and group f are placed among a–e as candidate attributions (table in the repo)
 :::
 :::

@@ -1,34 +1,33 @@
 word,tradition,mean,size
 akuanzi,Arzawa / western rituals,0.0,1
 akuanzi,Hattian cult layer,0.0,137
-akuanzi,Kizzuwatna rituals,0.0,7
 akuanzi,Kizzuwatna–Lower Land (Hurrian),0.0,43
 akuanzi,Luwian cult centres,0.007,138
 akuanzi,"Mixed (Hurrian, Syrian, Luwian)",0.0,3
 akuanzi,Syro-Mesopotamia (Hurrian),0.0,4
 memai,Arzawa / western rituals,0.0,7
 memai,Hattian cult layer,0.151,232
-memai,Kizzuwatna rituals,0.035,115
+memai,Kizzuwatna rituals,0.022,92
 memai,Kizzuwatna–Lower Land (Hurrian),0.342,184
 memai,Luwian cult centres,0.0,16
 memai,"Mixed (Hurrian, Syrian, Luwian)",0.083,12
 memai,Syro-Mesopotamia (Hurrian),0.013,230
 peran,Arzawa / western rituals,0.0,4
 peran,Hattian cult layer,0.079,254
-peran,Kizzuwatna rituals,0.0,130
+peran,Kizzuwatna rituals,0.0,80
 peran,Kizzuwatna–Lower Land (Hurrian),0.0,76
 peran,Luwian cult centres,0.136,88
 peran,"Mixed (Hurrian, Syrian, Luwian)",0.0,44
 peran,Syro-Mesopotamia (Hurrian),0.0,73
 šer,Arzawa / western rituals,0.0,5
 šer,Hattian cult layer,0.073,96
-šer,Kizzuwatna rituals,0.009,107
+šer,Kizzuwatna rituals,0.0,58
 šer,Kizzuwatna–Lower Land (Hurrian),0.032,95
 šer,Luwian cult centres,0.0,28
 šer,"Mixed (Hurrian, Syrian, Luwian)",0.0,37
 šer,Syro-Mesopotamia (Hurrian),0.0,49
 ḫalzai,Hattian cult layer,0.954,174
-ḫalzai,Kizzuwatna rituals,0.889,18
+ḫalzai,Kizzuwatna rituals,0.875,16
 ḫalzai,Kizzuwatna–Lower Land (Hurrian),1.0,21
 ḫalzai,Luwian cult centres,0.929,14
 ḫalzai,"Mixed (Hurrian, Syrian, Luwian)",1.0,7

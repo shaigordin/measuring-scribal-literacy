@@ -46,7 +46,7 @@ ax.legend(frameon=False, loc="upper left", fontsize=13)
 save(fig, "coverage_curve")
 
 # 2. reference-space validation: accuracy against both baselines
-REF_NAME = {"literature": "Literature-defined\ntraditions"}.get(rep.get("groups"), "Historical groups\n(Table 3 + rituals)")
+REF_NAME = {"literature": "Literature-defined\ntraditions", "hfr": "Literature groups,\nHFR festival modules"}.get(rep.get("groups"), "Historical groups\n(Table 3 + rituals)")
 rows = [(REF_NAME, rep["E1_historical"]["both"]),
         ("CTH 670 / 701 / 832\n(abstract)", rep["E1_abstract_670_701_832"]["both"]),
         ("CTH 701 subgroups\n(Salvini–Wegner)", rep["E3_cth701_subgroups"]["both"])]

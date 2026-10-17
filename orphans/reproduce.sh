@@ -34,10 +34,11 @@ fi
 L=()
 if [ -f "$LABELS701" ]; then L=(--labels701 "$LABELS701"); else echo "no CTH 701 labels: skipping the subgroup tests"; fi
 
-# 3. experiments, for both reference setups (StBoT 73 Table 3 + CTH-range controls; literature-defined)
-for G in historical literature; do
+# 3. experiments, for three reference setups: StBoT 73 Table 3 + CTH-range controls; literature-defined;
+#    literature-defined with the HFR festival modules (see qtm/groups.py)
+for G in historical literature hfr; do
   O=$OUT; IMG=../img/orphans
-  [ "$G" = literature ] && O=${OUT}_literature && IMG=../img/orphans/literature
+  [ "$G" != historical ] && O=${OUT}_$G && IMG=../img/orphans/$G
   mkdir -p "$O"
   python3 run_experiments.py "$TOK" "${L[@]}" --groups $G --out "$O" --perm 200 > "$O/run.log"   # E1-E6
   python3 run_profiles.py   "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E7_run.log" # E7
