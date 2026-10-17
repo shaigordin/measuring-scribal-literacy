@@ -1,0 +1,425 @@
+key,value,source
+trad.count,9,qtm/groups.py LITERATURE
+trad.countword,nine,qtm/groups.py LITERATURE
+orph.cth470_texts,"1{,}919",tlhdig03_literature/corpus_stats.json orphans.cth470_texts
+orph.ebo_texts,"1{,}151",tlhdig03_literature/corpus_stats.json orphans.ebo_texts
+orph.orphans_total,"3{,}033",tlhdig03_literature/corpus_stats.json orphans.orphans_total
+orph.cth470_median,10,tlhdig03_literature/corpus_stats.json
+orph.ebo_median,4,tlhdig03_literature/corpus_stats.json
+orph.ebo_832,562,tlhdig03_literature/corpus_stats.json ebo_filed_under.832
+orph.ebo_670,382,tlhdig03_literature/corpus_stats.json ebo_filed_under.670
+corpus.reference_texts,"3{,}282",tlhdig03_literature/report.json corpus.reference_texts
+corpus.orphans_used,"2{,}009",tlhdig03_literature/report.json corpus.orphans_used
+corpus.orphans_total,"2{,}898",tlhdig03_literature/report.json corpus.orphans_total
+corpus.orphan_median,7,tlhdig03_literature/report.json corpus
+E1.words.acc,82\%,tlhdig03_literature/report.json E1_historical.words.acc
+E1.words.majority,30\%,tlhdig03_literature/report.json E1_historical.words.majority
+E1.words.null_mean,16\%,tlhdig03_literature/report.json E1_historical.words.null_mean
+E1.words.p,0.005,tlhdig03_literature/report.json E1_historical.words.p
+E1.words.n,"1{,}596",tlhdig03_literature/report.json E1_historical.words.n
+E1.words.classes,9,tlhdig03_literature/report.json E1_historical.words.classes
+E1base.words.acc,69\%,tlhdig03/report.json E1_historical.words.acc
+E1base.words.majority,23\%,tlhdig03/report.json E1_historical.words.majority
+E1base.words.null_mean,18\%,tlhdig03/report.json E1_historical.words.null_mean
+E1base.words.p,0.005,tlhdig03/report.json E1_historical.words.p
+E1base.words.n,"1{,}637",tlhdig03/report.json E1_historical.words.n
+E1base.words.classes,6,tlhdig03/report.json E1_historical.words.classes
+E1abs.words.acc,88\%,tlhdig03_literature/report.json E1_abstract_670_701_832.words.acc
+E1abs.words.majority,78\%,tlhdig03_literature/report.json E1_abstract_670_701_832.words.majority
+E1abs.words.null_mean,53\%,tlhdig03_literature/report.json E1_abstract_670_701_832.words.null_mean
+E1abs.words.p,0.005,tlhdig03_literature/report.json E1_abstract_670_701_832.words.p
+E1abs.words.n,"1{,}254",tlhdig03_literature/report.json E1_abstract_670_701_832.words.n
+E1abs.words.classes,3,tlhdig03_literature/report.json E1_abstract_670_701_832.words.classes
+E1.signs.acc,84\%,tlhdig03_literature/report.json E1_historical.signs.acc
+E1.signs.majority,30\%,tlhdig03_literature/report.json E1_historical.signs.majority
+E1.signs.null_mean,16\%,tlhdig03_literature/report.json E1_historical.signs.null_mean
+E1.signs.p,0.005,tlhdig03_literature/report.json E1_historical.signs.p
+E1.signs.n,"1{,}596",tlhdig03_literature/report.json E1_historical.signs.n
+E1.signs.classes,9,tlhdig03_literature/report.json E1_historical.signs.classes
+E1base.signs.acc,72\%,tlhdig03/report.json E1_historical.signs.acc
+E1base.signs.majority,23\%,tlhdig03/report.json E1_historical.signs.majority
+E1base.signs.null_mean,18\%,tlhdig03/report.json E1_historical.signs.null_mean
+E1base.signs.p,0.005,tlhdig03/report.json E1_historical.signs.p
+E1base.signs.n,"1{,}637",tlhdig03/report.json E1_historical.signs.n
+E1base.signs.classes,6,tlhdig03/report.json E1_historical.signs.classes
+E1abs.signs.acc,89\%,tlhdig03_literature/report.json E1_abstract_670_701_832.signs.acc
+E1abs.signs.majority,78\%,tlhdig03_literature/report.json E1_abstract_670_701_832.signs.majority
+E1abs.signs.null_mean,53\%,tlhdig03_literature/report.json E1_abstract_670_701_832.signs.null_mean
+E1abs.signs.p,0.005,tlhdig03_literature/report.json E1_abstract_670_701_832.signs.p
+E1abs.signs.n,"1{,}254",tlhdig03_literature/report.json E1_abstract_670_701_832.signs.n
+E1abs.signs.classes,3,tlhdig03_literature/report.json E1_abstract_670_701_832.signs.classes
+E1.both.acc,84\%,tlhdig03_literature/report.json E1_historical.both.acc
+E1.both.majority,30\%,tlhdig03_literature/report.json E1_historical.both.majority
+E1.both.null_mean,17\%,tlhdig03_literature/report.json E1_historical.both.null_mean
+E1.both.p,0.005,tlhdig03_literature/report.json E1_historical.both.p
+E1.both.n,"1{,}596",tlhdig03_literature/report.json E1_historical.both.n
+E1.both.classes,9,tlhdig03_literature/report.json E1_historical.both.classes
+E1base.both.acc,72\%,tlhdig03/report.json E1_historical.both.acc
+E1base.both.majority,23\%,tlhdig03/report.json E1_historical.both.majority
+E1base.both.null_mean,18\%,tlhdig03/report.json E1_historical.both.null_mean
+E1base.both.p,0.005,tlhdig03/report.json E1_historical.both.p
+E1base.both.n,"1{,}637",tlhdig03/report.json E1_historical.both.n
+E1base.both.classes,6,tlhdig03/report.json E1_historical.both.classes
+E1abs.both.acc,89\%,tlhdig03_literature/report.json E1_abstract_670_701_832.both.acc
+E1abs.both.majority,78\%,tlhdig03_literature/report.json E1_abstract_670_701_832.both.majority
+E1abs.both.null_mean,55\%,tlhdig03_literature/report.json E1_abstract_670_701_832.both.null_mean
+E1abs.both.p,0.005,tlhdig03_literature/report.json E1_abstract_670_701_832.both.p
+E1abs.both.n,"1{,}254",tlhdig03_literature/report.json E1_abstract_670_701_832.both.n
+E1abs.both.classes,3,tlhdig03_literature/report.json E1_abstract_670_701_832.both.classes
+E4.words.acc,76\%,tlhdig03_literature/report.json E4_historical_no_logograms.words.acc
+E4.words.majority,30\%,tlhdig03_literature/report.json E4_historical_no_logograms.words.majority
+E4.words.null_mean,16\%,tlhdig03_literature/report.json E4_historical_no_logograms.words.null_mean
+E4.words.p,0.005,tlhdig03_literature/report.json E4_historical_no_logograms.words.p
+E4.words.n,"1{,}596",tlhdig03_literature/report.json E4_historical_no_logograms.words.n
+E4.words.classes,9,tlhdig03_literature/report.json E4_historical_no_logograms.words.classes
+E4.signs.acc,81\%,tlhdig03_literature/report.json E4_historical_no_logograms.signs.acc
+E4.signs.majority,30\%,tlhdig03_literature/report.json E4_historical_no_logograms.signs.majority
+E4.signs.null_mean,16\%,tlhdig03_literature/report.json E4_historical_no_logograms.signs.null_mean
+E4.signs.p,0.005,tlhdig03_literature/report.json E4_historical_no_logograms.signs.p
+E4.signs.n,"1{,}596",tlhdig03_literature/report.json E4_historical_no_logograms.signs.n
+E4.signs.classes,9,tlhdig03_literature/report.json E4_historical_no_logograms.signs.classes
+trad.kizzuwatnalowerlandhurrian.n,311,tlhdig03_literature/stats_historical.csv
+trad.kizzuwatnalowerlandhurrian.recall,83\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.kizzuwatnalowerlandhurrian.orphans,71,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.kizzuwatnalowerlandhurrian.coverage,93\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.syromesopotamiahurrian.n,164,tlhdig03_literature/stats_historical.csv
+trad.syromesopotamiahurrian.recall,67\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.syromesopotamiahurrian.orphans,58,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.syromesopotamiahurrian.coverage,92\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.mixedhurriansyrianluwian.n,198,tlhdig03_literature/stats_historical.csv
+trad.mixedhurriansyrianluwian.recall,67\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.mixedhurriansyrianluwian.orphans,25,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.mixedhurriansyrianluwian.coverage,67\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.luwianfestivalsistanuwalallupiya.n,50,tlhdig03_literature/stats_historical.csv
+trad.luwianfestivalsistanuwalallupiya.recall,84\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.luwianfestivalsistanuwalallupiya.orphans,8,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.luwianfestivalsistanuwalallupiya.coverage,57\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.huwassannafestivals.n,180,tlhdig03_literature/stats_historical.csv
+trad.huwassannafestivals.recall,91\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.huwassannafestivals.orphans,14,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.huwassannafestivals.coverage,56\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.palaicfestivals.n,34,tlhdig03_literature/stats_historical.csv
+trad.palaicfestivals.recall,82\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.palaicfestivals.orphans,4,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.palaicfestivals.coverage,34\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.kizzuwatnarituals.n,164,tlhdig03_literature/stats_historical.csv
+trad.kizzuwatnarituals.recall,92\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.kizzuwatnarituals.orphans,529,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.kizzuwatnarituals.coverage,100\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.arzawawesternrituals.n,17,tlhdig03_literature/stats_historical.csv
+trad.arzawawesternrituals.recall,41\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.arzawawesternrituals.orphans,25,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.arzawawesternrituals.coverage,76\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.hattiancultlayer.n,478,tlhdig03_literature/stats_historical.csv
+trad.hattiancultlayer.recall,95\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.hattiancultlayer.orphans,134,tlhdig03_literature/report.json E5_orphans.by_tradition
+trad.hattiancultlayer.coverage,98\%,tlhdig03_literature/report.json E6_archetype_coverage
+trad.minrecall,41\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.maxrecall,95\%,tlhdig03_literature/report.json E1_historical.both.recall_by_class
+trad.smallest,Arzawa / western rituals,tlhdig03_literature/stats_historical.csv
+trad.smallest.n,17,tlhdig03_literature/stats_historical.csv
+E2.both.k3,51\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.both.k5,59\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.both.k8,64\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.both.k10,66\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.both.k17,71\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.both.k25,74\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.both.k40,78\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.signs.k3,49\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.signs.k5,57\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.signs.k8,63\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.signs.k10,65\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.signs.k17,70\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.signs.k25,74\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.signs.k40,78\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.words.k3,47\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.words.k5,54\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.words.k8,60\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.words.k10,62\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.words.k17,69\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.words.k25,72\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.words.k40,77\%,tlhdig03_literature/E2_coverage_curve.csv
+E2.margin,0.017,tlhdig03_literature/report.json E2_abstention.margin
+E2.margin.lo,0.016,tlhdig03_literature/report.json E2_abstention.margin_90ci
+E2.margin.hi,0.017,tlhdig03_literature/report.json E2_abstention.margin_90ci
+E2.precision,81\%,tlhdig03_literature/report.json E2_abstention
+E2.share,67\%,tlhdig03_literature/report.json E2_abstention
+chance,11\%,1 / number of traditions
+E3.words.acc,50\%,tlhdig03_literature/report.json E3_cth701_subgroups.words.acc
+E3.words.majority,21\%,tlhdig03_literature/report.json E3_cth701_subgroups.words.majority
+E3.words.null_mean,14\%,tlhdig03_literature/report.json E3_cth701_subgroups.words.null_mean
+E3.words.p,0.005,tlhdig03_literature/report.json E3_cth701_subgroups.words.p
+E3.words.n,82,tlhdig03_literature/report.json E3_cth701_subgroups.words.n
+E3.words.classes,8,tlhdig03_literature/report.json E3_cth701_subgroups.words.classes
+E3date.words.acc,73\%,tlhdig03_literature/report.json E3_cth701_script_date.words.acc
+E3date.words.majority,83\%,tlhdig03_literature/report.json E3_cth701_script_date.words.majority
+E3date.words.null_mean,71\%,tlhdig03_literature/report.json E3_cth701_script_date.words.null_mean
+E3date.words.p,0.4129,tlhdig03_literature/report.json E3_cth701_script_date.words.p
+E3date.words.n,99,tlhdig03_literature/report.json E3_cth701_script_date.words.n
+E3date.words.classes,2,tlhdig03_literature/report.json E3_cth701_script_date.words.classes
+E3.signs.acc,60\%,tlhdig03_literature/report.json E3_cth701_subgroups.signs.acc
+E3.signs.majority,21\%,tlhdig03_literature/report.json E3_cth701_subgroups.signs.majority
+E3.signs.null_mean,14\%,tlhdig03_literature/report.json E3_cth701_subgroups.signs.null_mean
+E3.signs.p,0.005,tlhdig03_literature/report.json E3_cth701_subgroups.signs.p
+E3.signs.n,82,tlhdig03_literature/report.json E3_cth701_subgroups.signs.n
+E3.signs.classes,8,tlhdig03_literature/report.json E3_cth701_subgroups.signs.classes
+E3date.signs.acc,74\%,tlhdig03_literature/report.json E3_cth701_script_date.signs.acc
+E3date.signs.majority,83\%,tlhdig03_literature/report.json E3_cth701_script_date.signs.majority
+E3date.signs.null_mean,72\%,tlhdig03_literature/report.json E3_cth701_script_date.signs.null_mean
+E3date.signs.p,0.4229,tlhdig03_literature/report.json E3_cth701_script_date.signs.p
+E3date.signs.n,99,tlhdig03_literature/report.json E3_cth701_script_date.signs.n
+E3date.signs.classes,2,tlhdig03_literature/report.json E3_cth701_script_date.signs.classes
+E3.both.acc,58\%,tlhdig03_literature/report.json E3_cth701_subgroups.both.acc
+E3.both.majority,21\%,tlhdig03_literature/report.json E3_cth701_subgroups.both.majority
+E3.both.null_mean,14\%,tlhdig03_literature/report.json E3_cth701_subgroups.both.null_mean
+E3.both.p,0.005,tlhdig03_literature/report.json E3_cth701_subgroups.both.p
+E3.both.n,82,tlhdig03_literature/report.json E3_cth701_subgroups.both.n
+E3.both.classes,8,tlhdig03_literature/report.json E3_cth701_subgroups.both.classes
+E3date.both.acc,74\%,tlhdig03_literature/report.json E3_cth701_script_date.both.acc
+E3date.both.majority,83\%,tlhdig03_literature/report.json E3_cth701_script_date.both.majority
+E3date.both.null_mean,73\%,tlhdig03_literature/report.json E3_cth701_script_date.both.null_mean
+E3date.both.p,0.4527,tlhdig03_literature/report.json E3_cth701_script_date.both.p
+E3date.both.n,99,tlhdig03_literature/report.json E3_cth701_script_date.both.n
+E3date.both.classes,2,tlhdig03_literature/report.json E3_cth701_script_date.both.classes
+E3.unclassified,50,tlhdig03_literature/E3_701_unclassified_nearest.csv rows
+E5.assigned,868,tlhdig03_literature/report.json E5_orphans.assigned
+E5.abstained,"1{,}141",tlhdig03_literature/report.json E5_orphans.abstained
+E5.assigned.lo,868,tlhdig03_literature/report.json E5_orphans.assigned_at_margin_90ci
+E5.assigned.hi,925,tlhdig03_literature/report.json E5_orphans.assigned_at_margin_90ci
+E5.top,Kizzuwatna rituals,tlhdig03_literature/report.json E5_orphans.by_tradition
+E5.top.n,529,tlhdig03_literature/report.json E5_orphans.by_tradition
+E5.top.share,61\%,tlhdig03_literature/report.json E5_orphans.by_tradition
+E5b.res.texts,300,tlhdig03_literature/report.json E5b_residue.CTH 390–469 residue
+E5b.res.assigned,164,tlhdig03_literature/report.json E5b_residue.CTH 390–469 residue
+E5b.res.kizz,141,tlhdig03_literature/report.json E5b_residue.CTH 390–469 residue
+E5b.res.hurrian,4,tlhdig03_literature/report.json E5b_residue.CTH 390–469 residue
+E5b.c500.texts,235,tlhdig03_literature/report.json E5b_residue.CTH 500 Kizzuwatna fragments
+E5b.c500.assigned,125,tlhdig03_literature/report.json E5b_residue.CTH 500 Kizzuwatna fragments
+E5b.c500.kizz,52,tlhdig03_literature/report.json E5b_residue.CTH 500 Kizzuwatna fragments
+E5b.c500.hurrian,72,tlhdig03_literature/report.json E5b_residue.CTH 500 Kizzuwatna fragments
+E7.logograms.acc,70\%,tlhdig03_literature/E7_report.json E7a_layers.logograms.acc
+E7.logograms.majority,28\%,tlhdig03_literature/E7_report.json E7a_layers.logograms.majority
+E7.logograms.null_mean,14\%,tlhdig03_literature/E7_report.json E7a_layers.logograms.null_mean
+E7.logograms.p,0.0099,tlhdig03_literature/E7_report.json E7a_layers.logograms.p
+E7.logograms.n,"1{,}531",tlhdig03_literature/E7_report.json E7a_layers.logograms.n
+E7.logograms.classes,9,tlhdig03_literature/E7_report.json E7a_layers.logograms.classes
+E7.lexicon.acc,72\%,tlhdig03_literature/E7_report.json E7a_layers.lexicon.acc
+E7.lexicon.majority,27\%,tlhdig03_literature/E7_report.json E7a_layers.lexicon.majority
+E7.lexicon.null_mean,16\%,tlhdig03_literature/E7_report.json E7a_layers.lexicon.null_mean
+E7.lexicon.p,0.0099,tlhdig03_literature/E7_report.json E7a_layers.lexicon.p
+E7.lexicon.n,"1{,}526",tlhdig03_literature/E7_report.json E7a_layers.lexicon.n
+E7.lexicon.classes,9,tlhdig03_literature/E7_report.json E7a_layers.lexicon.classes
+E7.foreign.acc,88\%,tlhdig03_literature/E7_report.json E7a_layers.foreign.acc
+E7.foreign.majority,50\%,tlhdig03_literature/E7_report.json E7a_layers.foreign.majority
+E7.foreign.null_mean,24\%,tlhdig03_literature/E7_report.json E7a_layers.foreign.null_mean
+E7.foreign.p,0.0099,tlhdig03_literature/E7_report.json E7a_layers.foreign.p
+E7.foreign.n,396,tlhdig03_literature/E7_report.json E7a_layers.foreign.n
+E7.foreign.classes,8,tlhdig03_literature/E7_report.json E7a_layers.foreign.classes
+E7.collapsed.acc,62\%,tlhdig03_literature/E7_report.json E7a_layers.collapsed.acc
+E7.collapsed.majority,28\%,tlhdig03_literature/E7_report.json E7a_layers.collapsed.majority
+E7.collapsed.null_mean,12\%,tlhdig03_literature/E7_report.json E7a_layers.collapsed.null_mean
+E7.collapsed.p,0.0099,tlhdig03_literature/E7_report.json E7a_layers.collapsed.p
+E7.collapsed.n,"1{,}508",tlhdig03_literature/E7_report.json E7a_layers.collapsed.n
+E7.collapsed.classes,9,tlhdig03_literature/E7_report.json E7a_layers.collapsed.classes
+E7.spelling.acc,62\%,tlhdig03_literature/E7_report.json E7a_layers.spelling.acc
+E7.spelling.majority,28\%,tlhdig03_literature/E7_report.json E7a_layers.spelling.majority
+E7.spelling.null_mean,13\%,tlhdig03_literature/E7_report.json E7a_layers.spelling.null_mean
+E7.spelling.p,0.0099,tlhdig03_literature/E7_report.json E7a_layers.spelling.p
+E7.spelling.n,"1{,}504",tlhdig03_literature/E7_report.json E7a_layers.spelling.n
+E7.spelling.classes,9,tlhdig03_literature/E7_report.json E7a_layers.spelling.classes
+E7.orthographic_indices.acc,39\%,tlhdig03_literature/E7_report.json E7a_layers.orthographic_indices.acc
+E7.orthographic_indices.majority,30\%,tlhdig03_literature/E7_report.json E7a_layers.orthographic_indices.majority
+E7.orthographic_indices.null_mean,30\%,tlhdig03_literature/E7_report.json E7a_layers.orthographic_indices.null_mean
+E7.orthographic_indices.p,0.0099,tlhdig03_literature/E7_report.json E7a_layers.orthographic_indices.p
+E7.orthographic_indices.n,"1{,}597",tlhdig03_literature/E7_report.json E7a_layers.orthographic_indices.n
+E7.orthographic_indices.classes,9,tlhdig03_literature/E7_report.json E7a_layers.orthographic_indices.classes
+E7.variable_words,384,tlhdig03_literature/E7_report.json corpus
+E7.texts,"1{,}597",tlhdig03_literature/E7_report.json corpus
+E7date.acc,75\%,tlhdig03_literature/E7_report.json E7c_701_script_date.lda
+E7date.majority,83\%,tlhdig03_literature/E7_report.json E7c_701_script_date.lda
+plene.akuanzi.arzawawesternrituals,0 of 1,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.arzawawesternrituals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.hattiancultlayer,0 of 53,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.hattiancultlayer.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.kizzuwatnalowerlandhurrian,0 of 9,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.kizzuwatnalowerlandhurrian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.luwianfestivalsistanuwalallupiya,0 of 14,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.luwianfestivalsistanuwalallupiya.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.mixedhurriansyrianluwian,0 of 2,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.mixedhurriansyrianluwian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.syromesopotamiahurrian,0 of 2,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.syromesopotamiahurrian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.huwassannafestivals,1 of 52,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.akuanzi.huwassannafestivals.cths,694,tlhdig03_literature/corpus_stats.json plene_clusters.akuanzi
+plene.memai.arzawawesternrituals,0 of 2,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.arzawawesternrituals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.hattiancultlayer,10 of 79,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.hattiancultlayer.cths,"591, 627, 733, 820",tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.kizzuwatnarituals,2 of 47,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.kizzuwatnarituals.cths,"474, 490",tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.kizzuwatnalowerlandhurrian,18 of 46,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.kizzuwatnalowerlandhurrian.cths,"628, 712",tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.luwianfestivalsistanuwalallupiya,0 of 3,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.luwianfestivalsistanuwalallupiya.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.mixedhurriansyrianluwian,1 of 8,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.mixedhurriansyrianluwian.cths,705,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.palaicfestivals,0 of 7,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.palaicfestivals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.syromesopotamiahurrian,3 of 72,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.syromesopotamiahurrian.cths,701,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.huwassannafestivals,0 of 8,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.memai.huwassannafestivals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.memai
+plene.peran.arzawawesternrituals,0 of 3,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.arzawawesternrituals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.hattiancultlayer,12 of 118,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.hattiancultlayer.cths,"627, 731, 744, 820",tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.kizzuwatnarituals,0 of 31,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.kizzuwatnarituals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.kizzuwatnalowerlandhurrian,0 of 56,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.kizzuwatnalowerlandhurrian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.luwianfestivalsistanuwalallupiya,5 of 19,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.luwianfestivalsistanuwalallupiya.cths,665,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.mixedhurriansyrianluwian,0 of 34,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.mixedhurriansyrianluwian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.palaicfestivals,0 of 4,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.palaicfestivals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.syromesopotamiahurrian,0 of 39,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.syromesopotamiahurrian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.huwassannafestivals,0 of 24,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.peran.huwassannafestivals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.peran
+plene.šer.arzawawesternrituals,0 of 3,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.arzawawesternrituals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.hattiancultlayer,6 of 54,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.hattiancultlayer.cths,"627, 736, 738, 744",tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.kizzuwatnarituals,0 of 33,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.kizzuwatnarituals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.kizzuwatnalowerlandhurrian,2 of 52,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.kizzuwatnalowerlandhurrian.cths,713,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.luwianfestivalsistanuwalallupiya,0 of 5,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.luwianfestivalsistanuwalallupiya.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.mixedhurriansyrianluwian,0 of 23,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.mixedhurriansyrianluwian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.palaicfestivals,2 of 9,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.palaicfestivals.cths,752,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.syromesopotamiahurrian,0 of 26,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.syromesopotamiahurrian.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.huwassannafestivals,0 of 18,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.šer.huwassannafestivals.cths,--,tlhdig03_literature/corpus_stats.json plene_clusters.šer
+plene.ḫalzai.hattiancultlayer,74 of 78,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.hattiancultlayer.cths,"591, 627, 734, 738, 739, 741, 743, 744",tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.kizzuwatnarituals,11 of 13,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.kizzuwatnarituals.cths,"477, 483, 488, 490, 494",tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.kizzuwatnalowerlandhurrian,6 of 6,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.kizzuwatnalowerlandhurrian.cths,"699, 711, 712",tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.luwianfestivalsistanuwalallupiya,2 of 2,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.luwianfestivalsistanuwalallupiya.cths,"665, 771",tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.mixedhurriansyrianluwian,6 of 6,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.mixedhurriansyrianluwian.cths,"704, 705, 706",tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.syromesopotamiahurrian,1 of 1,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.syromesopotamiahurrian.cths,701,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.huwassannafestivals,7 of 7,tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+plene.ḫalzai.huwassannafestivals.cths,"691, 692, 694",tlhdig03_literature/corpus_stats.json plene_clusters.ḫalzai
+E8.all.words,82\%,tlhdig03_literature/E8_report.json historical.all
+E8.all.signs,84\%,tlhdig03_literature/E8_report.json historical.all
+E8.only_agent.words,53\%,tlhdig03_literature/E8_report.json historical.only_agent.words
+E8.only_agent.signs,61\%,tlhdig03_literature/E8_report.json historical.only_agent.signs
+E8.only_agent.majority,31\%,tlhdig03_literature/E8_report.json historical.only_agent
+E8.without_agent.words,81\%,tlhdig03_literature/E8_report.json historical.without_agent.words
+E8.without_agent.signs,83\%,tlhdig03_literature/E8_report.json historical.without_agent.signs
+E8.without_agent.majority,30\%,tlhdig03_literature/E8_report.json historical.without_agent
+E8.only_deity.words,60\%,tlhdig03_literature/E8_report.json historical.only_deity.words
+E8.only_deity.signs,60\%,tlhdig03_literature/E8_report.json historical.only_deity.signs
+E8.only_deity.majority,24\%,tlhdig03_literature/E8_report.json historical.only_deity
+E8.without_deity.words,80\%,tlhdig03_literature/E8_report.json historical.without_deity.words
+E8.without_deity.signs,82\%,tlhdig03_literature/E8_report.json historical.without_deity.signs
+E8.without_deity.majority,30\%,tlhdig03_literature/E8_report.json historical.without_deity
+E8.only_function.words,58\%,tlhdig03_literature/E8_report.json historical.only_function.words
+E8.only_function.signs,58\%,tlhdig03_literature/E8_report.json historical.only_function.signs
+E8.only_function.majority,27\%,tlhdig03_literature/E8_report.json historical.only_function
+E8.without_function.words,81\%,tlhdig03_literature/E8_report.json historical.without_function.words
+E8.without_function.signs,84\%,tlhdig03_literature/E8_report.json historical.without_function.signs
+E8.without_function.majority,30\%,tlhdig03_literature/E8_report.json historical.without_function
+E8.only_verb.words,56\%,tlhdig03_literature/E8_report.json historical.only_verb.words
+E8.only_verb.signs,54\%,tlhdig03_literature/E8_report.json historical.only_verb.signs
+E8.only_verb.majority,27\%,tlhdig03_literature/E8_report.json historical.only_verb
+E8.without_verb.words,81\%,tlhdig03_literature/E8_report.json historical.without_verb.words
+E8.without_verb.signs,84\%,tlhdig03_literature/E8_report.json historical.without_verb.signs
+E8.without_verb.majority,30\%,tlhdig03_literature/E8_report.json historical.without_verb
+E8.only_realia.words,71\%,tlhdig03_literature/E8_report.json historical.only_realia.words
+E8.only_realia.signs,73\%,tlhdig03_literature/E8_report.json historical.only_realia.signs
+E8.only_realia.majority,27\%,tlhdig03_literature/E8_report.json historical.only_realia
+E8.without_realia.words,76\%,tlhdig03_literature/E8_report.json historical.without_realia.words
+E8.without_realia.signs,79\%,tlhdig03_literature/E8_report.json historical.without_realia.signs
+E8.without_realia.majority,30\%,tlhdig03_literature/E8_report.json historical.without_realia
+E8.only_foreign.words,87\%,tlhdig03_literature/E8_report.json historical.only_foreign.words
+E8.only_foreign.signs,89\%,tlhdig03_literature/E8_report.json historical.only_foreign.signs
+E8.only_foreign.majority,49\%,tlhdig03_literature/E8_report.json historical.only_foreign
+E8.without_foreign.words,78\%,tlhdig03_literature/E8_report.json historical.without_foreign.words
+E8.without_foreign.signs,80\%,tlhdig03_literature/E8_report.json historical.without_foreign.signs
+E8.without_foreign.majority,28\%,tlhdig03_literature/E8_report.json historical.without_foreign
+E8.701.all.words,50\%,tlhdig03_literature/E8_report.json cth701_subgroups.all
+E8.701.all.majority,21\%,tlhdig03_literature/E8_report.json cth701_subgroups.all
+E8.701.without_foreign.words,47\%,tlhdig03_literature/E8_report.json cth701_subgroups.without_foreign
+E8.701.without_foreign.majority,20\%,tlhdig03_literature/E8_report.json cth701_subgroups.without_foreign
+E8.701.only_foreign.words,54\%,tlhdig03_literature/E8_report.json cth701_subgroups.only_foreign
+E8.701.only_foreign.majority,19\%,tlhdig03_literature/E8_report.json cth701_subgroups.only_foreign
+E9.k,10,tlhdig03_literature/E9_report.json by_k
+E9.ref.placed,70\%,tlhdig03_literature/E9_report.json by_k.10.reference
+E9.ref.correct,83\%,tlhdig03_literature/E9_report.json by_k.10.reference
+E9.ref.gate,21\%,tlhdig03_literature/E9_report.json by_k.10.reference
+E9.genres.placed.lo,23\%,tlhdig03_literature/E9_report.json by_k.10
+E9.genres.placed.hi,31\%,tlhdig03_literature/E9_report.json by_k.10
+E9.genres.gate.lo,87\%,tlhdig03_literature/E9_report.json by_k.10
+E9.genres.gate.hi,97\%,tlhdig03_literature/E9_report.json by_k.10
+E9.genres.auroc.lo,0.77,tlhdig03_literature/E9_report.json by_k.10
+E9.genres.auroc.hi,0.88,tlhdig03_literature/E9_report.json by_k.10
+E9.fest.placed,59\%,tlhdig03_literature/E9_report.json by_k.10.Festivals of other traditions
+E9.fest.auroc,0.57,tlhdig03_literature/E9_report.json by_k.10.Festivals of other traditions
+E9.fest.gate,66\%,tlhdig03_literature/E9_report.json by_k.10.Festivals of other traditions
+E9.genres.count,six,tlhdig03_literature/E9_report.json texts
+E9.orph.scored,"2{,}009",tlhdig03_literature/E9_report.json orphans.scored
+E9.orph.outside,247,tlhdig03_literature/E9_report.json orphans.outside_by_margin
+E9.orph.assigned_outside,85,tlhdig03_literature/E9_report.json orphans
+E9.orph.below_floor,156,tlhdig03_literature/E9_report.json orphans
+E9.orph.arzawawesternrituals.cultinventories,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.arzawawesternrituals.festivalsofothertraditions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.arzawawesternrituals.historicaltextstreaties,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.arzawawesternrituals.instructions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.arzawawesternrituals.luwianritualspuriyannikuwattalla,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.arzawawesternrituals.myths,1,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.arzawawesternrituals.oracles,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.hattiancultlayer.cultinventories,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.hattiancultlayer.festivalsofothertraditions,30,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.hattiancultlayer.historicaltextstreaties,3,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.hattiancultlayer.instructions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.hattiancultlayer.luwianritualspuriyannikuwattalla,1,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.hattiancultlayer.myths,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.hattiancultlayer.oracles,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnarituals.cultinventories,5,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnarituals.festivalsofothertraditions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnarituals.historicaltextstreaties,5,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnarituals.instructions,10,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnarituals.luwianritualspuriyannikuwattalla,5,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnarituals.myths,10,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnarituals.oracles,1,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnalowerlandhurrian.cultinventories,10,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnalowerlandhurrian.festivalsofothertraditions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnalowerlandhurrian.historicaltextstreaties,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnalowerlandhurrian.instructions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnalowerlandhurrian.luwianritualspuriyannikuwattalla,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnalowerlandhurrian.myths,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.kizzuwatnalowerlandhurrian.oracles,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.luwianfestivalsistanuwalallupiya.cultinventories,1,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.luwianfestivalsistanuwalallupiya.festivalsofothertraditions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.luwianfestivalsistanuwalallupiya.historicaltextstreaties,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.luwianfestivalsistanuwalallupiya.instructions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.luwianfestivalsistanuwalallupiya.luwianritualspuriyannikuwattalla,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.luwianfestivalsistanuwalallupiya.myths,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.luwianfestivalsistanuwalallupiya.oracles,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.mixedhurriansyrianluwian.cultinventories,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.mixedhurriansyrianluwian.festivalsofothertraditions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.mixedhurriansyrianluwian.historicaltextstreaties,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.mixedhurriansyrianluwian.instructions,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.mixedhurriansyrianluwian.luwianritualspuriyannikuwattalla,3,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.mixedhurriansyrianluwian.myths,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
+E9.orph.mixedhurriansyrianluwian.oracles,0,tlhdig03_literature/E9_report.json orphans.assigned_but_outside_by_tradition
