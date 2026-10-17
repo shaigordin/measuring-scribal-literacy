@@ -415,10 +415,15 @@ def main():
         put(f"wc.rule.{slugify(k)}", pct(v), f"wordclass_confidence.json rule_share.{k}")
     changes = load("", "wordclass_rule_changes.csv")
     put("wc.changed", num(sum(int(r["tokens"]) for r in changes)), "wordclass_rule_changes.csv tokens (sum)")
+    if os.path.exists(os.path.join(RES, "wordclass_rule_changes_akk_logograms.csv")):
+        changes2 = load("", "wordclass_rule_changes_akk_logograms.csv")
+        put("wc.changed2", num(sum(int(r["tokens"]) for r in changes2)),
+            "wordclass_rule_changes_akk_logograms.csv tokens (sum)")
     examples = load("", "wordclass_examples.csv")
     picks = [("determinative_deity", "DINGIR {MEŠ}", "a deity determinative or DINGIR"),
              ("determinative_agent", "{LÚ} SANGA", "a person determinative (LÚ, MUNUS, m, f)"),
              ("agent_logogram", "LUGAL", "a listed agent logogram"),
+             ("akkadian_function", "a-na", "a syllabic Akkadian preposition"),
              ("language", "pa-ap-pé-en-na", "the word or line is not Hittite"),
              ("analysis_selected", "e-ku-uz-zi", "the editor selected one analysis"),
              ("analysis_selected", "nu", "the editor selected one analysis"),

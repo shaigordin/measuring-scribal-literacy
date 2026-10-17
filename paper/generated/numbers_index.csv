@@ -365,7 +365,7 @@ E8.without_deity.signs,82\%,tlhdig03_literature/E8_report.json historical.withou
 E8.without_deity.majority,30\%,tlhdig03_literature/E8_report.json historical.without_deity
 E8.only_function.words,54\%,tlhdig03_literature/E8_report.json historical.only_function.words
 E8.only_function.signs,53\%,tlhdig03_literature/E8_report.json historical.only_function.signs
-E8.only_function.majority,26\%,tlhdig03_literature/E8_report.json historical.only_function
+E8.only_function.majority,27\%,tlhdig03_literature/E8_report.json historical.only_function
 E8.without_function.words,82\%,tlhdig03_literature/E8_report.json historical.without_function.words
 E8.without_function.signs,84\%,tlhdig03_literature/E8_report.json historical.without_function.signs
 E8.without_function.majority,30\%,tlhdig03_literature/E8_report.json historical.without_function
@@ -376,17 +376,17 @@ E8.without_verb.words,81\%,tlhdig03_literature/E8_report.json historical.without
 E8.without_verb.signs,83\%,tlhdig03_literature/E8_report.json historical.without_verb.signs
 E8.without_verb.majority,30\%,tlhdig03_literature/E8_report.json historical.without_verb
 E8.only_realia.words,70\%,tlhdig03_literature/E8_report.json historical.only_realia.words
-E8.only_realia.signs,71\%,tlhdig03_literature/E8_report.json historical.only_realia.signs
+E8.only_realia.signs,72\%,tlhdig03_literature/E8_report.json historical.only_realia.signs
 E8.only_realia.majority,27\%,tlhdig03_literature/E8_report.json historical.only_realia
 E8.without_realia.words,75\%,tlhdig03_literature/E8_report.json historical.without_realia.words
 E8.without_realia.signs,79\%,tlhdig03_literature/E8_report.json historical.without_realia.signs
 E8.without_realia.majority,30\%,tlhdig03_literature/E8_report.json historical.without_realia
-E8.only_foreign.words,83\%,tlhdig03_literature/E8_report.json historical.only_foreign.words
-E8.only_foreign.signs,81\%,tlhdig03_literature/E8_report.json historical.only_foreign.signs
+E8.only_foreign.words,84\%,tlhdig03_literature/E8_report.json historical.only_foreign.words
+E8.only_foreign.signs,82\%,tlhdig03_literature/E8_report.json historical.only_foreign.signs
 E8.only_foreign.majority,32\%,tlhdig03_literature/E8_report.json historical.only_foreign
 E8.without_foreign.words,78\%,tlhdig03_literature/E8_report.json historical.without_foreign.words
 E8.without_foreign.signs,79\%,tlhdig03_literature/E8_report.json historical.without_foreign.signs
-E8.without_foreign.majority,27\%,tlhdig03_literature/E8_report.json historical.without_foreign
+E8.without_foreign.majority,28\%,tlhdig03_literature/E8_report.json historical.without_foreign
 E8.701.all.words,51\%,tlhdig03_literature/E8_report.json cth701_subgroups.all
 E8.701.all.majority,21\%,tlhdig03_literature/E8_report.json cth701_subgroups.all
 E8.701.without_foreign.words,47\%,tlhdig03_literature/E8_report.json cth701_subgroups.without_foreign
@@ -716,11 +716,11 @@ E11b.mixedhurriansyrianluwian.common,0\%,tlhdig03_literature/E11_report.json E11
 E11b.mixedhurriansyrianluwian.features,"KI-MIN, MIN, KI.MIN, EGIRantama, KI",tlhdig03_literature/E11_report.json E11b.top_features
 E11a.luwianfestivalsistanuwalallupiya.top,nouns and realia,tlhdig03_literature/E11_report.json E11a.by_tradition
 E11a.luwianfestivalsistanuwalallupiya.top.share,82\%,tlhdig03_literature/E11_report.json E11a.by_tradition
-E11a.luwianfestivalsistanuwalallupiya.functionwords,−1\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.functionwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
 E11a.luwianfestivalsistanuwalallupiya.verbs,2\%,tlhdig03_literature/E11_report.json E11a.by_tradition
 E11a.luwianfestivalsistanuwalallupiya.nounsandrealia,82\%,tlhdig03_literature/E11_report.json E11a.by_tradition
 E11a.luwianfestivalsistanuwalallupiya.agentsanddeities,7\%,tlhdig03_literature/E11_report.json E11a.by_tradition
-E11a.luwianfestivalsistanuwalallupiya.foreignwords,10\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.foreignwords,9\%,tlhdig03_literature/E11_report.json E11a.by_tradition
 E11a.luwianfestivalsistanuwalallupiya.otherwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
 E11a.luwianfestivalsistanuwalallupiya.wordform,18\%,tlhdig03_literature/E11_report.json E11a.by_tradition
 E11a.luwianfestivalsistanuwalallupiya.syllabicspelling,37\%,tlhdig03_literature/E11_report.json E11a.by_tradition
@@ -846,7 +846,7 @@ E11d.w20.frequent.prec,56\%,tlhdig03_literature/E11_report.json E11d.20
 E11e.nofunc.sametradition,651,tlhdig03_literature/E11_report.json E11e.without_function_words.same_tradition
 E11e.nofunc.othertradition,5,tlhdig03_literature/E11_report.json E11e.without_function_words.other_tradition
 E11e.nofunc.nowunassigned,191,tlhdig03_literature/E11_report.json E11e.without_function_words.now_unassigned
-E11e.nofunc.newlyassigned,177,tlhdig03_literature/E11_report.json E11e.without_function_words.newly_assigned
+E11e.nofunc.newlyassigned,178,tlhdig03_literature/E11_report.json E11e.without_function_words.newly_assigned
 E11e.nofreq.sametradition,688,tlhdig03_literature/E11_report.json E11e.without_frequent_words.same_tradition
 E11e.nofreq.othertradition,7,tlhdig03_literature/E11_report.json E11e.without_frequent_words.other_tradition
 E11e.nofreq.nowunassigned,152,tlhdig03_literature/E11_report.json E11e.without_frequent_words.now_unassigned
@@ -874,4 +874,6 @@ wc.rule.prepositionsplit,5\%,wordclass_confidence.json rule_share.preposition_sp
 wc.rule.determinativeagent,3\%,wordclass_confidence.json rule_share.determinative_agent
 wc.rule.analysisambiguous,2\%,wordclass_confidence.json rule_share.analysis_ambiguous
 wc.rule.agentlogogram,1\%,wordclass_confidence.json rule_share.agent_logogram
+wc.rule.akkadianfunction,0\%,wordclass_confidence.json rule_share.akkadian_function
 wc.changed,"83{,}814",wordclass_rule_changes.csv tokens (sum)
+wc.changed2,"4{,}310",wordclass_rule_changes_akk_logograms.csv tokens (sum)
