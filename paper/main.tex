@@ -18,6 +18,8 @@
   \textbf{\textcolor{red}{[#1?]}}\PackageWarning{qtm}{Undefined number #1}\fi}
 \makeatother
 \input{generated/numbers.tex}
+\input{generated/case_data.tex}
+\makeatletter\newcommand{\C}[1]{\@ifundefined{case@#1}{\textcolor{red}{[#1?]}\PackageWarning{qtm}{Undefined number #1}}{\csname case@#1\endcsname}}\makeatother
 %% results tables; the primitive \input is expandable, so a table body can follow \midrule
 \makeatletter\newcommand{\gentab}[1]{\@@input generated/tab_#1.tex }\makeatother
 
@@ -250,6 +252,21 @@ as ``701.₂.I''), corrected to b₂ in a documented table.
 
 Figure~\ref{fig:pipeline} summarises the procedure and the tests reported in
 Section~\ref{sec:results}.
+Figure~\ref{fig:case} follows one orphan, \C{txtid}, through the procedure, with the actual
+values at each step.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\linewidth]{figures/case_a.pdf}
+  \caption{A worked example: the orphan \C{txtid} from its text to its placement. (1) The legible
+    words, tinted by word class (dashed: low-confidence class). (2) Each word becomes a word-form
+    feature and sign-sequence features, weighted by tf-idf. (3) Cosine similarity to the average
+    vector of each tradition. (4) The lead of the nearest tradition over the runner-up, against the
+    calibrated margin. (5) The lead split over the features that make it. (6) The same split on
+    the text, and the closest single manuscripts as leads for the philologist. All values are
+    generated from the experiment outputs.}
+  \label{fig:case}
+\end{figure*}
 
 \paragraph{Features.}
 Two representations are built for every manuscript \cite{salton1988weighting}. The word space
