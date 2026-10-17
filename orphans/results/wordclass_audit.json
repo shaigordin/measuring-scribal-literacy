@@ -1,0 +1,51 @@
+{
+  "reviewed": 178,
+  "of": 180,
+  "levels": {
+    "high": {
+      "reviewed": 59,
+      "right": 55,
+      "accuracy": 0.932,
+      "ci95": [
+        0.838,
+        0.973
+      ],
+      "share_of_tokens": 0.637,
+      "errors_by_class": {
+        "foreign": 1,
+        "realia": 1,
+        "deity": 1,
+        "function": 1
+      }
+    },
+    "low": {
+      "reviewed": 60,
+      "right": 42,
+      "accuracy": 0.7,
+      "ci95": [
+        0.575,
+        0.801
+      ],
+      "share_of_tokens": 0.121,
+      "errors_by_class": {
+        "unknown": 16,
+        "ambiguous": 2
+      }
+    },
+    "medium": {
+      "reviewed": 59,
+      "right": 52,
+      "accuracy": 0.881,
+      "ci95": [
+        0.775,
+        0.941
+      ],
+      "share_of_tokens": 0.241,
+      "errors_by_class": {
+        "realia": 6,
+        "verb": 1
+      }
+    }
+  },
+  "corpus_accuracy_estimate": 0.892
+}

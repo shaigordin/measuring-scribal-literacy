@@ -8,6 +8,8 @@ website:
     left:
       - href: gordin_measuring_literacy.qmd
         text: "Presentation"
+      - href: orphans_archetypes.qmd
+        text: "Orphans and Archetypes (Mainz 2026)"
 format:
   revealjs:
     theme: simple
