@@ -13,7 +13,8 @@ BANŠUR with "…:D/L.SG", the "…" standing for the preposition). qtm.tlhdig s
 the preposition (a function word) and the noun, which is classed from its own analysis.
 
 Every annotation also records the rule that produced it and a confidence level (RULES):
-high    a determinative ({D}, {LÚ} ...), the line's language, an editor-selected analysis
+high    a determinative ({D}, {LÚ} ...), the language tag (a logogram in a foreign line is not
+        foreign), a syllabic Akkadian preposition (ina, ana), an editor-selected analysis
         (`mrp0sel`) with one class, or a split-off preposition;
 medium  an agent logogram from the list below, unselected candidate analyses that agree, or
         (for a word the editors left unselected) the class the editors chose for the same word
@@ -37,7 +38,7 @@ FOREIGN = {"Hur", "Hat", "Luw", "Pal"}
 
 
 _ALT = re.compile(r"\{\s*([a-z])\s*→\s*([^}]*)\}")
-_HEAD_FUNC = re.compile(r"^(?:LUW\.|PAL\.|HAT\.)?(CONN\w*|ADV|POSP|PREV|CNJ\w*|PPRO|DEM\w*|REL|INT\w*|NEG|PTCL|OBP\w*|REFL|INDF\w*)\b")
+_HEAD_FUNC = re.compile(r"^(?:LUW\.|PAL\.|HAT\.)?(CONN\w*|ADV|POSP|PREV|PRP|CNJ\w*|PPRO|DEM\w*|REL|INT\w*|NEG|PTCL|OBP\w*|REFL|INDF\w*)\b")
 
 
 def alternatives(morph: str, letters: str = "") -> list[str]:
@@ -85,6 +86,7 @@ def candidate_pos(mrp: str, letters: str = "") -> str:
 
 
 RULES = {"determinative_deity": "high", "determinative_agent": "high", "language": "high",
+         "akkadian_function": "high",
          "analysis_selected": "high", "preposition_split": "high", "manual": "manual",
          "agent_logogram": "medium", "analysis_unanimous": "medium", "selected_elsewhere": "medium",
          "analysis_ambiguous": "low", "no_analysis": "low"}
@@ -92,6 +94,11 @@ RULES = {"determinative_deity": "high", "determinative_agent": "high", "language
 # Akkadographic (and Sumerographic) prepositions that TLHdig writes in one <w> with their noun
 PREPOSITIONS = {"A-NA", "ANA", "A+NA", "I-NA", "INA", "I+NA", "ŠA", "ŠÀ", "ŠÁ", "IŠ-TU", "PA-NI", "PA-AN",
                 "IT-TI", "QA-DU", "QA-DU₄", "TA", "AŠ-ŠUM", "ŠA-PAL", "A-DI"}
+
+
+# syllabically written Akkadian prepositions (i-na, a-na); TLHdig tags them AKK, mostly without an
+# analysis, and the rare noun analyses of the same form must not decide their class
+AKK_FUNCTION = {"ina", "ana", "ištu", "itti", "aššum"}
 
 
 def is_preposition(token: str) -> bool:
@@ -112,13 +119,19 @@ def word_class_rule(attrs: dict, translit: str, lang: str) -> tuple[str, str]:
     if re.split(r"[-\s]", word)[0] in AGENT_LOGOGRAMS:
         return "agent", "agent_logogram"
     sel = (attrs.get("mrp0sel") or "").strip()
-    lang = attrs.get("lg") or lang                     # a word's own language tag overrides its line's
+    if word in AKK_FUNCTION:
+        return "function", "akkadian_function"
+    own_lang = attrs.get("lg")
+    lang = own_lang or lang                     # a word's own language tag overrides its line's
     mrps = {int(k[3:]): v for k, v in attrs.items() if re.fullmatch(r"mrp[1-9]\d*", k)}
     chosen = {}
     for n, l in re.findall(r"(\d+)([a-z]*)", sel):      # '1a', '3c 3d', '1all'
         chosen[int(n)] = "all" if l == "all" or chosen.get(int(n)) == "all" else chosen.get(int(n), "") + l
     picked = {n: mrps[n] for n in chosen if n in mrps}
-    if lang in FOREIGN or sel == "HURR":
+    # a logogram (no lower-case sign: KI.MIN, DINGIR) in a foreign-language line is not a word of
+    # that language, unless the word itself is tagged
+    logogram = bool(word) and not re.search(r"[a-zšḫṣṭṯâêîûàèìùáéíú]", word) and not own_lang
+    if (lang in FOREIGN or sel == "HURR") and not logogram:
         # a Hittite word inside a foreign-language line (nu=za, tai in a Hurrian line) keeps its
         # Hittite analysis when the editor selected one with no language marker
         if not (picked and all(not re.search(r"\b(LUW|PAL|HAT|HURR)\b", m) for m in picked.values())):

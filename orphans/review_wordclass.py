@@ -12,6 +12,9 @@ view:
           when it builds the token table (`bash reproduce.sh` reruns everything).
   audit   labels/wordclass_audit.csv: a fixed random sample of tokens per confidence level, with
           the line they stand in. Mark `verdict` y (right) or n (wrong, and give `correct_class`).
+  form    labels/wordclass_audit.xlsx: the audit sample as a spreadsheet to fill (rows shuffled,
+          y/n and class drop-downs, the confidence level hidden), with instructions.
+  collect FILE.xlsx: copies the marks from a filled form back into labels/wordclass_audit.csv.
   compare OLD NEW: how a rule change moved the classes between two token tables built from the
           same release (row by row) -> results/wordclass_rule_changes.csv, with examples.
   examples  results/wordclass_examples.csv: for every rule and class, the most frequent word
@@ -19,7 +22,7 @@ view:
   score   accuracy per confidence level with a 95% Wilson interval, and the corpus-wide estimate
           weighted by the share of tokens at each level -> results/wordclass_audit.json.
 
-Usage: python review_wordclass.py {sheet,apply,audit,score} [--tokens data/tokens.csv]
+Usage: python review_wordclass.py {sheet,apply,audit,form,collect,score,compare,examples} [--tokens data/tokens.csv]
 """
 import argparse
 import json
@@ -36,6 +39,7 @@ HERE = Path(__file__).parent
 SHEET = HERE / "labels" / "wordclass_review.csv"
 CORR = HERE / "labels" / "wordclass_corrections.csv"
 AUDIT = HERE / "labels" / "wordclass_audit.csv"
+FORM = HERE / "labels" / "wordclass_audit.xlsx"
 SCORE = HERE / "results" / "wordclass_audit.json"
 VALID = set(CLASSES) | {"other", "ambiguous", "unknown"}
 LEVELS = ("high", "medium", "low", "manual")
@@ -102,6 +106,87 @@ def audit(t):
         raise SystemExit(f"{AUDIT} exists; delete it to draw a new sample")
     a.to_csv(AUDIT, index=False)
     print(f"{AUDIT}: {len(a)} tokens ({PER_LEVEL} per confidence level) to mark y/n")
+
+
+CLASS_HELP = [
+    ("function", "function word: connective, particle, pronoun, adverb, preverb, postposition, preposition (nu, -ma, kuit, arḫa, A-NA, ina)"),
+    ("verb", "finite or non-finite verb form, participles included (memai, dāi, ḫalziya)"),
+    ("realia", "noun, adjective or other nominal form: objects, materials, places, abstract nouns (NINDA.GUR₄.RA, GEŠTIN, ḫaššan)"),
+    ("agent", "a person or a group acting: personal names, titles, professions ({MUNUS}ŠU.GI, LUGAL, {m}Kupanta-{D}KAL)"),
+    ("deity", "a divine name or the word for god ({D}UTU-uš, DINGIR.MEŠ)"),
+    ("foreign", "a word in Hurrian, Hattian, Luwian or Palaic (not a logogram in such a line)"),
+    ("other", "a number or a word that fits none of the above"),
+    ("unknown", "too broken to tell"),
+]
+FORM_COLS = ["id", "manuscript", "line no.", "line (TLHdig transliteration)", "word as written",
+             "proposed category", "correct? (y/n)", "correct category (if n)", "note"]
+
+
+def form(t):
+    """The audit sample as an .xlsx form: shuffled so confidence levels are not grouped."""
+    from openpyxl import Workbook
+    from openpyxl.styles import Alignment, Font, PatternFill
+    from openpyxl.worksheet.datavalidation import DataValidation
+    a = pd.read_csv(AUDIT, dtype=str).fillna("").reset_index().rename(columns={"index": "id"})
+    a = a.sample(frac=1, random_state=SEED)
+    wb = Workbook()
+    ins = wb.active
+    ins.title = "Instructions"
+    text = ["Word-category audit: 180 words", "",
+            "Each row is one word, shown in the line it stands in. The category was set by rules over TLHdig's own "
+            "morphological analyses (no language model). Please judge the category of the word in this line.",
+            "", "For each row on the 'Audit' sheet:",
+            "  1. 'correct? (y/n)': y if the proposed category is right, n if it is wrong.",
+            "  2. If n, pick the right one under 'correct category'.",
+            "  3. 'note' is optional (e.g. 'adjective', 'place name', 'reading uncertain').",
+            "Leave a row empty if you cannot judge it; partial sheets can be scored too.", "",
+            "Categories (StBoT 73, Table 4):"] + [f"  {c}: {h}" for c, h in CLASS_HELP] + [
+            "", "When done, save the file under the same name in the shared folder. It is read back with",
+            "  python review_wordclass.py collect <file>  and scored with  python review_wordclass.py score",
+            "which gives the accuracy per confidence level and an estimate for the whole corpus."]
+    for i, line in enumerate(text, 1):
+        ins.cell(i, 1, line).font = Font(bold=(i == 1), size=14 if i == 1 else 11)
+    ins.column_dimensions["A"].width = 120
+    ws = wb.create_sheet("Audit")
+    ws.append(FORM_COLS)
+    for r in a.itertuples():
+        ws.append([int(r.id), r.txtid, r.lnr, r.line, r.translit, r.wclass, "", "", ""])
+    for c in ws[1]:
+        c.font = Font(bold=True)
+        c.fill = PatternFill("solid", fgColor="EDEBE6")
+    for col, w in zip("ABCDEFGHI", (5, 16, 18, 60, 22, 16, 13, 20, 30)):
+        ws.column_dimensions[col].width = w
+    for row in ws.iter_rows(min_row=2, min_col=4, max_col=4):
+        row[0].alignment = Alignment(wrap_text=True, vertical="top")
+    n = ws.max_row
+    yn = DataValidation(type="list", formula1='"y,n"', allow_blank=True)
+    cl = DataValidation(type="list", formula1='"' + ",".join(c for c, _ in CLASS_HELP) + '"', allow_blank=True)
+    ws.add_data_validation(yn)
+    ws.add_data_validation(cl)
+    yn.add(f"G2:G{n}")
+    cl.add(f"H2:H{n}")
+    ws.freeze_panes = "A2"
+    FORM.parent.mkdir(exist_ok=True)
+    wb.save(FORM)
+    print(f"{FORM}: {n - 1} rows")
+
+
+def collect(path):
+    """Copy verdicts from a filled form into the audit csv (matched on the row id)."""
+    f = pd.read_excel(path, sheet_name="Audit", dtype=str).fillna("")
+    a = pd.read_csv(AUDIT, dtype=str).fillna("")
+    for r in f.itertuples(index=False):
+        i = int(r[0])
+        v, c, note = str(r[6]).strip().lower(), str(r[7]).strip().lower(), str(r[8]).strip()
+        if v in ("y", "n"):
+            a.loc[i, "verdict"] = v
+        if c and c not in VALID:
+            raise SystemExit(f"row {i}: unknown category {c!r}")
+        a.loc[i, "correct_class"] = c
+        if note:
+            a.loc[i, "note"] = note
+    a.to_csv(AUDIT, index=False)
+    print(f"{AUDIT}: {int(a.verdict.isin(['y', 'n']).sum())} of {len(a)} marked")
 
 
 def wilson(k, n, z=1.96):
@@ -194,7 +279,7 @@ def examples(t, per=3):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["sheet", "apply", "audit", "score", "compare", "examples"])
+    ap.add_argument("step", choices=["sheet", "apply", "audit", "form", "collect", "score", "compare", "examples"])
     ap.add_argument("files", nargs="*", help="compare: OLD.csv NEW.csv")
     ap.add_argument("--tokens", default=str(HERE / "data" / "tokens.csv"))
     ap.add_argument("--top", type=int, default=2000, help="rows in the review sheet")
@@ -203,6 +288,10 @@ def main():
         return apply()
     if a.step == "compare":
         return compare(*a.files)
+    if a.step == "form":
+        return form(None)
+    if a.step == "collect":
+        return collect(a.files[0])
     t = tokens(a.tokens)
     sheet(t, a.top) if a.step == "sheet" else {"audit": audit, "score": score, "examples": examples}[a.step](t)
 

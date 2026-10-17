@@ -682,8 +682,8 @@
 <tbody>
 <tr class="odd">
 <td>high</td>
-<td>editor’s selected analysis, determinative, language tag, split preposition</td>
-<td style="text-align: right;">63.8%</td>
+<td>editor’s selected analysis, determinative, language tag, split or Akkadian preposition</td>
+<td style="text-align: right;">63.7%</td>
 </tr>
 <tr class="even">
 <td>medium</td>
@@ -702,9 +702,9 @@
 </div><div class="column" style="width:50%;">
 <div class="smallish">
 <ul>
-<li>An <strong>audit</strong> of the rules found seven systematic errors (prepositions joined to nouns, possessive suffixes, theophoric names, GAL as an agent …); fixing them changed <strong>9.3%</strong> of the words, and <strong>every experiment was rerun</strong></li>
+<li>An <strong>audit</strong> of the rules found seven systematic errors (prepositions joined to nouns, possessive suffixes, theophoric names, GAL as an agent …); fixing them changed <strong>9.3%</strong> of the words; a second pass (Akkadian <em>ana</em>, <em>ina</em>; logograms in foreign-language lines) changed 0.5% more, and <strong>every experiment was rerun</strong></li>
 <li><strong>Correcting by hand:</strong> a review sheet of the most frequent forms and a corrections file that every run applies (<code>review_wordclass.py</code>)</li>
-<li><strong>Known limits:</strong> “realia” includes adjectives and place names; 10.5% unknown, half of them broken words; syllabic Akkadian <em>ana</em>, <em>ša</em> have no analysis; participles count as verbs</li>
+<li><strong>Known limits:</strong> “realia” includes adjectives and place names; 10.5% unknown, half of them broken words; syllabic Akkadian <em>ša</em> has no analysis; participles count as verbs</li>
 <li>A blind sample of 180 words (60 per level) is ready for a philologist’s check</li>
 </ul>
 </div>
@@ -1005,7 +1005,7 @@
 <p>The six categories of StBoT 73 Table 4. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.</p>
 </div>
 <aside class="notes">
-<p>Removing function words, verbs or agents costs almost nothing (82% → 80–82%): these classes are shared across traditions, a common scribal and syntactic layer. Alone they still reach 54–57% against 30%, so formulae differ between traditions, but less than realia (70%) or foreign words (83%). Removing realia costs the most (82% → 75%), then foreign words (78%). Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (51% → 47%), yet 47% is still twice the majority baseline (21%).</p>
+<p>Removing function words, verbs or agents costs almost nothing (82% → 80–82%): these classes are shared across traditions, a common scribal and syntactic layer. Alone they still reach 54–57% against 30%, so formulae differ between traditions, but less than realia (70%) or foreign words (84%). Removing realia costs the most (82% → 75%), then foreign words (78%). Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (51% → 47%), yet 47% is still twice the majority baseline (21%).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1178,6 +1178,23 @@
 </div></div>
 <aside class="notes">
 <p>From run_case.py (case_KBo_41_22.json): decision_features, decision_by_layer_category. The Old Woman (ŠU.GI) is shared with the Kizzuwatna rituals and helps little.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="kbo-41.22-the-placement-step-by-step" class="slide level2">
+<h2>KBo 41.22: the placement, step by step</h2>
+<img data-src="img/orphans/kbo41_22_worked_example.png" class="r-stretch">
+<aside class="notes">
+<p>Same figure as the paper’s worked example (run_case.py, case_KBo_41_22.json). Every word and sign sequence is a feature; the pulls toward the nearest tradition add up exactly to the margin 0.14, eight times the abstention rule.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

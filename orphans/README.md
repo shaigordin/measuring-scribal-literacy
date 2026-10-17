@@ -40,7 +40,7 @@ controls (`--groups historical`), shown once as the published baseline.
 | Where unplaced fragments end up | texts and median words per Laroche bin | `tlhdig03_literature/corpus_stats.json` → `laroche_bins` | `stats_corpus.py` |
 | The ten traditions | reference manuscripts per tradition | `tlhdig03_literature/case/case_KBo_41_22.json` → `ref_counts` | `run_case.py` |
 | How a word gets its category | worked examples with TLHdig's raw analyses | `wordclass_examples.csv` | `review_wordclass.py examples` |
-| How sure are the categories? | shares by confidence, rule and class; rule changes after the audit | `wordclass_confidence.json`, `wordclass_rule_changes.csv` | `review_wordclass.py examples`, `compare` |
+| How sure are the categories? | shares by confidence, rule and class; rule changes after the audit | `wordclass_confidence.json`, `wordclass_rule_changes.csv`, `wordclass_rule_changes_akk_logograms.csv` | `review_wordclass.py examples`, `compare` |
 | Do the traditions hold? | leave-one-out accuracy, recall per tradition, baselines | `tlhdig03_literature/report.json` → `E1_historical`; `tlhdig03/report.json` (CTH ranges, notes) | `run_experiments.py` |
 | Leave one composition out | compositions placed in their scholarly tradition | `tlhdig03_literature/E10_report.json` → `E10a`, `E10a_leave_composition_out.csv` | `run_hypotheses.py` |
 | A contested attribution: the Ambazzi rituals | fit per tradition vs random rituals; signature words | `tlhdig03_literature/E10b_contested_fit.csv`, `E10c_*.csv` | `run_hypotheses.py` |
@@ -55,6 +55,7 @@ controls (`--groups historical`), shown once as the published baseline.
 | When the decision rests on common material | precision of placed windows, mostly common features vs rest; orphans without function / frequent words | `E11_report.json` → `E11d`, `E11e`; per orphan: `E11a_orphan_decomposition.csv` | `run_attribution.py` |
 | CTH 701: recovering Salvini and Wegner's groups | CTH 701 subgroups | `tlhdig03_literature/report.json` → `E3_cth701_subgroups` | `run_experiments.py` |
 | KBo 41.22: which words decide / its nearest manuscripts | similarities, margin, decision features, nearest manuscripts, words by CTH | `tlhdig03_literature/case/case_KBo_41_22.json`, `case_KBo_41_22_decision.md` | `run_case.py`, `make_case_slide.py` |
+| KBo 41.22: the placement, step by step | the paper's worked example (feature pulls, margin) | `img/orphans/kbo41_22_worked_example.png` (copy of the paper figure, from `case_KBo_41_22.json`) | `run_case.py` |
 | Is Tunnawiya part of the Kuwattalla tradition? | CTH 409 fit per tradition vs random rituals; per manuscript | `tlhdig03_literature/tunnawiya/E10_report.json`, `E10b_*.csv` | `run_hypotheses.py --cths 409` |
 | Where do CTH 470 and EBo fragments go? | orphans per tradition, margin and its interval | `tlhdig03_literature/report.json` → `E2_abstention`, `E5_orphans` | `run_experiments.py` |
 | Testing Laroche's bins | CTH 500 and CTH 390–469 placed | `tlhdig03_literature/report.json` → `E5b_residue` | `run_experiments.py` |
@@ -123,7 +124,7 @@ tradition.
   selected, the analyses if they agree on the head word, else the class editors selected for the
   same form elsewhere (≥ 5 times, ≥ 90% agreement). Preposition + noun words are split. Each word
   carries its rule (`wc_rule`) and a confidence (`wc_conf`); `labels/wordclass_corrections.csv`
-  holds manual corrections, and `review_wordclass.py` builds the review sheet and the blind audit.
+  holds manual corrections, and `review_wordclass.py` builds the review sheet and the blind audit (`form` writes it as an xlsx with drop-downs, `collect` reads the verdicts back, `score` gives accuracy per confidence level).
 - **Worked example (`run_case.py`):** one orphan from its text to its placement: similarities,
   margin, the decision split by word and feature, the nearest manuscripts among the reference and
   the unassigned rituals, and the CTH numbers where its distinctive words occur.
