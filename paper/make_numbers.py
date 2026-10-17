@@ -12,6 +12,7 @@ import argparse
 import csv
 import json
 import os
+import re
 import sys
 import unicodedata
 
@@ -158,9 +159,9 @@ def main():
     for r in load(MAIN, "E2_coverage_curve.csv"):
         put(f"E2.{r['space']}.k{r['k']}", pct(float(r["acc"])), f"{MAIN}/E2_coverage_curve.csv")
     ab = rep["E2_abstention"]
-    put("E2.margin", ab["margin"], f"{src} E2_abstention.margin")
-    put("E2.margin.lo", ab["margin_90ci"][0], f"{src} E2_abstention.margin_90ci")
-    put("E2.margin.hi", ab["margin_90ci"][1], f"{src} E2_abstention.margin_90ci")
+    put("E2.margin", f"{ab['margin']:.3f}", f"{src} E2_abstention.margin")
+    put("E2.margin.lo", f"{ab['margin_90ci'][0]:.3f}", f"{src} E2_abstention.margin_90ci")
+    put("E2.margin.hi", f"{ab['margin_90ci'][1]:.3f}", f"{src} E2_abstention.margin_90ci")
     put("E2.precision", pct(ab["precision_above_margin"]), f"{src} E2_abstention")
     put("E2.share", pct(ab["share_assigned"]), f"{src} E2_abstention")
     put("chance", pct(1 / len(trad)), "1 / number of traditions")
@@ -403,6 +404,39 @@ def main():
         for f in ("same_tradition", "other_tradition", "now_unassigned", "newly_assigned"):
             put(f"E11e.{key}.{f.replace('_', '')}", num(e[k][f]), f"{s11} E11e.{k}.{f}")
 
+    # ---- word classes: how each label is reached (qtm/wordclass.py on TLHdig's analyses)
+    conf = load("", "wordclass_confidence.json")
+    put("wc.tokens", num(conf["legible_tokens"]), "wordclass_confidence.json legible_tokens")
+    for k, v in conf["confidence_share"].items():
+        put(f"wc.conf.{k}", pct(v), f"wordclass_confidence.json confidence_share.{k}")
+    for k, v in conf["class_share"].items():
+        put(f"wc.class.{k}", pct(v), f"wordclass_confidence.json class_share.{k}")
+    for k, v in conf["rule_share"].items():
+        put(f"wc.rule.{slugify(k)}", pct(v), f"wordclass_confidence.json rule_share.{k}")
+    changes = load("", "wordclass_rule_changes.csv")
+    put("wc.changed", num(sum(int(r["tokens"]) for r in changes)), "wordclass_rule_changes.csv tokens (sum)")
+    examples = load("", "wordclass_examples.csv")
+    picks = [("determinative_deity", "DINGIR {MEŠ}", "a deity determinative or DINGIR"),
+             ("determinative_agent", "{LÚ} SANGA", "a person determinative (LÚ, MUNUS, m, f)"),
+             ("agent_logogram", "LUGAL", "a listed agent logogram"),
+             ("language", "pa-ap-pé-en-na", "the word or line is not Hittite"),
+             ("analysis_selected", "e-ku-uz-zi", "the editor selected one analysis"),
+             ("analysis_selected", "nu", "the editor selected one analysis"),
+             ("preposition_split", "IŠ-TU", "preposition split from its noun"),
+             ("analysis_unanimous", "na-aš-ta", "all candidate analyses agree"),
+             ("selected_elsewhere", "ar-ḫa", "editors' choice for the same form elsewhere"),
+             ("analysis_ambiguous", "EGIR", "candidate analyses disagree"),
+             ("no_analysis", "-zi", "no analysis (broken word)")]
+    rows = []
+    for rule, tl, how in picks:
+        r = next((e for e in examples if e["rule"] == rule and e["translit"] == tl), None)
+        if r is None:
+            print(f"warning: no word-class example {rule} {tl}", file=sys.stderr)
+            continue
+        rows.append(f"{tex_escape(how)} & \\textit{{{wc_translit(r['translit'])}}} & {wc_analysis(r['analysis'], rule)} & "
+                    f"{tex_escape(r['class'])} & {tex_escape(r['confidence'])} \\\\")
+    table("wcexamples", rows)
+
     # ---- appendix: distinctive features (E7b), top 4 per layer and tradition
     feats = load(MAIN, "E7_distinctive_features.csv")
     rows = []
@@ -421,6 +455,37 @@ def main():
         w.writerow(["key", "value", "source"])
         w.writerows(INDEX)
     print(f"{len(INDEX)} numbers, {len(trad)} traditions -> {OUT}")
+
+
+
+def wc_translit(t):
+    """A transliteration with determinatives as superscripts."""
+    parts = re.split(r"\s*\{([^}]*)\}\s*", t)
+    return "".join(tex_escape(x) if i % 2 == 0 else f"\\textsuperscript{{{tex_escape(x)}}}" for i, x in enumerate(parts))
+
+
+def wc_analysis(a, rule, width=50):
+    """TLHdig's analysis attributes, abridged: the selected analysis, or the candidates."""
+    parts = dict(p.split("=", 1) for p in (x.strip() for x in a.split(" | ")) if "=" in p)
+    sel = parts.get("mrp0sel", "").strip()
+    cands = [v for k, v in sorted(parts.items()) if k.startswith("mrp") and k != "mrp0sel"]
+
+    def show(v):
+        f = [x.strip() for x in v.split("@")] + ["", "", ""]
+        morph = f[2] or f[3]
+        morph = morph.replace("{ a → ", "").split("}")[0].strip() + ("…" if "{ b" in morph else "")
+        return (f"‘{f[1]}’ " if f[1] else "") + morph
+
+    num_sel = "".join(ch for ch in sel if ch.isdigit())
+    if rule == "preposition_split":
+        out = "noun: " + show(cands[0]) if cands else "–"
+    elif num_sel and int(num_sel) <= len(cands):
+        out = "selected: " + show(cands[int(num_sel) - 1])
+    elif not cands:
+        out = "none" if sel in ("", "DEL", "???") else f"language tag {sel}"
+    else:
+        out = f"{len(cands)} candidates: " + "; ".join(show(v) for v in cands[:2]) + ("; …" if len(cands) > 2 else "")
+    return tex_escape(out if len(out) <= width else out[:width - 1] + "…")
 
 
 def slugify(s):

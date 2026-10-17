@@ -9,6 +9,7 @@
 \sloppy
 \usepackage{tabularx}
 \usepackage{threeparttable}
+\usepackage{array}
 
 %% numbers generated from the experiment outputs
 \makeatletter
@@ -286,9 +287,51 @@ second. Seven per-manuscript orthographic rates (shares of logograms, Akkadogram
 complements, determinatives, plene spellings, CVC signs and \textit{ú}) are tested with a
 10-fold linear discriminant analysis. Following the categories of Table~4 in
 \cite{gordin2025matters} (agents, deities, function words, foreign words, realia and verbs),
-assigned from TLHdig's morphological analyses, we evaluate each word class alone and the text
+assigned as described below, we evaluate each word class alone and the text
 without it. Distinctive features per tradition are ranked by weighted log-odds with an
 informative Dirichlet prior \cite{monroe2008fightin}, on manuscript frequencies.
+
+\paragraph{How a word gets its class.}
+No word was classed by hand or by a language model. Each class is derived by fixed rules
+(\texttt{qtm/wordclass.py}) from what TLHdig's editors recorded for the word: its determinatives,
+its language, and its morphological analyses, of which the editor may have selected one. The rules
+apply in order, and the first that fits decides (Table~\ref{tab:wcexamples}). A determinative
+decides first, because deities and persons cut across parts of speech: DINGIR or \textsuperscript{D}
+makes a deity, \textsuperscript{LÚ}, \textsuperscript{MUNUS} or a personal-name marker an agent, and so
+do a short list of agent logograms (LUGAL, SANGA, \dots). A word in Hurrian, Hattian, Luwian or Palaic
+is foreign. Otherwise the editor's selected analysis gives the part of speech: a person-marked form
+is a verb; conjunctions, particles, pronouns, adverbs, preverbs and postpositions are function
+words; any other case-marked form is realia. An Akkadographic preposition that TLHdig stores in one
+word with its noun (A-NA \textsuperscript{GIŠ}BANŠUR) is split, and each part classed on its own. When
+no analysis is selected, the word takes the class on which all its candidate analyses agree, or else
+the class the editors selected for the same form elsewhere, if at least five selections agree in at
+least 90\% of cases. Each label records the rule that set it, and so a confidence: high for a
+determinative, a language tag, a selected analysis or a split preposition; medium for the agent list,
+unanimous candidates or the editors' choice elsewhere; low when candidates disagree or no analysis
+exists. Of the \Q{wc.tokens} legible words of the texts we use, \Q{wc.conf.high} are classed with high
+confidence, \Q{wc.conf.medium} with medium and \Q{wc.conf.low} with low; \Q{wc.class.unknown} have no
+analysis (mostly broken word ends) and \Q{wc.class.ambiguous} stay ambiguous. An audit of the rules
+against the examples they produced corrected eight systematic errors (among them A-NA with its noun
+read as one function word, possessive suffixes taken for the head, and GAL counted as an agent);
+\Q{wc.changed} words changed class. Two simplifications remain by design: realia covers every
+other nominal form, adjectives and place names included, and participles count as verbs.
+A sample of 180 classed words is being checked by hand, to give an accuracy per confidence level.
+
+\begin{table}[t]
+  \caption{How a word gets its class: one example per rule, with TLHdig's analysis as the editors
+    recorded it (glosses are TLHdig's, in German) and the class and confidence it receives. The
+    rules apply in this order.}
+  \label{tab:wcexamples}
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{>{\raggedright\arraybackslash}p{36mm} l >{\raggedright\arraybackslash}p{62mm} l l}
+    \toprule
+    Rule & Word & TLHdig analysis & Class & Conf. \\
+    \midrule
+    \gentab{wcexamples}
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \paragraph{Open set.}
 The margin rule asks only which tradition is nearest. To measure how often it is fooled, we
