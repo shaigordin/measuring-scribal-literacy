@@ -112,4 +112,38 @@ if (RES / "E9_report.json").exists():
     ax.plot([], [], "o", ms=10, color=SERIES["words"], label="recognised as outside (genre gate)")
     ax.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.4, 1.0), ncol=2, fontsize=12)
     save(fig, "openset")
+
+# 6. E10a leave one composition out, by tradition
+if (RES / "E10_report.json").exists():
+    e10 = json.loads((RES / "E10_report.json").read_text())
+    bt = pd.DataFrame(e10["E10a"]["by_tradition"]).T
+    bt["share"] = bt.correct / bt.compositions
+    bt = bt.sort_values(["share", "compositions"])
+    fig, ax = plt.subplots(figsize=(11, 5.6))
+    ax.grid(axis="x", color=GRID, lw=1)
+    ax.barh(range(len(bt)), bt.compositions, height=0.6, color=GRID, zorder=2, label="compositions")
+    ax.barh(range(len(bt)), bt.correct, height=0.6, color=SERIES["words"], zorder=3,
+            label="placed in their scholarly tradition")
+    for i, (n, r) in enumerate(bt.iterrows()):
+        ax.text(r.compositions + 0.3, i, f"{int(r.correct)} of {int(r.compositions)}", va="center", color=INK, fontsize=12)
+    ax.set_yticks(range(len(bt)), bt.index)
+    ax.set(xlabel="compositions (CTH numbers), each held out whole",
+           xlim=(0, bt.compositions.max() * 1.18))
+    ax.legend(frameon=False, loc="lower right", fontsize=12)
+    save(fig, "leave_composition_out")
+
+    # 7. E10b contested attribution: lead of each tradition for the pooled contested texts vs random rituals
+    tb = pd.DataFrame(e10["E10b"]["table"]).sort_values("lead_over_best_other")
+    claim = e10["contested"]["claim"]
+    fig, ax = plt.subplots(figsize=(11, 5.6))
+    ax.grid(axis="x", color=GRID, lw=1)
+    for i, (_, r) in enumerate(tb.iterrows()):
+        ax.plot([r.null_q05, r.null_q95], [i, i], color=GRID, lw=8, solid_capstyle="round", zorder=1)
+        col = SERIES["signs"] if r.tradition == claim else SERIES["words"]
+        ax.plot(r.lead_over_best_other, i, "o", ms=12, color=col, mec=SURF, mew=2, zorder=3)
+    ax.axvline(0, color=INK2, lw=1.2)
+    ax.set_yticks(range(len(tb)), [f"{t}  (claimed)" if t == claim else t for t in tb.tradition])
+    ax.set(xlabel="lead over the best other tradition (cosine)")
+    ax.set_title("grey: 90% range for random sets of unassigned rituals of the same size", loc="left", color=INK2, fontsize=12)
+    save(fig, "contested_fit")
 print("figures in", OUT)

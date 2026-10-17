@@ -195,6 +195,49 @@ The CTH 390–469 residue still goes mostly to Kizzuwatna (152 of 186 assigned),
 
 ---
 
+## Leave one composition out: are the scholarly groups recovered?
+
+![](img/orphans/literature/leave_composition_out.png){fig-align="center" width="78%"}
+
+::: {.small}
+Each CTH number is removed with all its manuscripts and placed against the traditions built from the rest, so no copy or duplicate of the same composition can help. A composition counts as placed when its pooled manuscripts are nearest to the tradition the literature gives it.
+:::
+
+::: {.notes}
+57 of 78 compositions (73%) land in their scholarly tradition.
+The literature is confirmed where a tradition has many compositions: Hattian layer 25 of 25, Ḫuwaššanna 5 of 5, Kizzuwatna rituals 16 of 18.
+StBoT 73's three Hurrian festival groups hold only 7 of 17: CTH 701 alone goes to the Kizzuwatna rituals and 698 to Kizzuwatna–Lower Land. These groups are held together by their large compositions more than by a shared signal.
+Palaic festivals: 3 of 5 go to the Hattian layer (inferred: shared Old Anatolian cult vocabulary).
+The two small ritual groups rest on one large composition each (433 augurs, 760 Kuwattalla); held out, both go to the Kizzuwatna rituals, so the method does not yet confirm them as separate traditions.
+:::
+
+---
+
+## A contested attribution: the Ambazzi rituals
+
+::: {.columns}
+::: {.column width="55%"}
+![](img/orphans/literature/contested_fit.png){width="100%"}
+:::
+::: {.column width="45%"}
+::: {.small}
+- The six Ambazzi manuscripts (CTH 391, 429, 463), pooled, rank the **western (Arzawa) group 8th of 10**; their lead is what random unassigned rituals get (p = 0.17)
+- **None of the 20 most distinctive western words** occurs in them except É: no *kurša-* "hunting bag" (7 of 11 western manuscripts), KAL, MUŠEN.DÙ "augur", TU₇, *paimi*, *pattar*
+- Their own words (*ḫaršialli*, *petaz*, *aki*, *ieššar*, NIM.LÀL) occur in at most 3% of any tradition's manuscripts
+- Nearest is Kizzuwatna (5 of 6), but no more than for any unassigned ritual (p = 0.68): **a generic ritual, not a member of a defined tradition**
+:::
+:::
+:::
+
+::: {.notes}
+This is the method tested against a scholarly attribution. Christiansen 2006 shows Luwian influence; grouping Ambazzi with the western rituals was our own first literature grouping, and the method does not support it.
+No Luwian tradition is preferred either (Luwian festivals 4th, Puriyanni/Kuwattalla 9th), but TLHdig tags no Luwian words in these manuscripts, so this tests the Hittite text only.
+Caveat: the western group is small and dominated by the augur rituals (CTH 433).
+Files: E10b_contested_fit.csv, E10c_signatures_in_contested.csv, E10c_contested_own_words.csv.
+:::
+
+---
+
 ## How small can an orphan be?
 
 ![](img/orphans/literature/coverage_curve.png){fig-align="center" width="75%"}
