@@ -95,6 +95,11 @@
         "texts_with_plene": 0,
         "plene_cths": []
       },
+      "Luwian rituals (Puriyanni, Kuwattalla)": {
+        "texts": 1,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
       "Mixed (Hurrian, Syrian, Luwian)": {
         "texts": 8,
         "texts_with_plene": 1,
@@ -122,7 +127,7 @@
     },
     "peran": {
       "Arzawa / western rituals": {
-        "texts": 3,
+        "texts": 2,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -153,6 +158,11 @@
           "665"
         ]
       },
+      "Luwian rituals (Puriyanni, Kuwattalla)": {
+        "texts": 2,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
       "Mixed (Hurrian, Syrian, Luwian)": {
         "texts": 34,
         "texts_with_plene": 0,
@@ -176,7 +186,7 @@
     },
     "šer": {
       "Arzawa / western rituals": {
-        "texts": 3,
+        "texts": 2,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -204,6 +214,11 @@
       },
       "Luwian festivals (Ištanuwa, Lallupiya)": {
         "texts": 5,
+        "texts_with_plene": 0,
+        "plene_cths": []
+      },
+      "Luwian rituals (Puriyanni, Kuwattalla)": {
+        "texts": 2,
         "texts_with_plene": 0,
         "plene_cths": []
       },
