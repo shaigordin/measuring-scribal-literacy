@@ -200,8 +200,9 @@ def main():
     # sensitivity of the orphan counts to the margin's sampling uncertainty
     report["E5_orphans"]["assigned_at_margin_90ci"] = {
         str(round(m, 3)): pd.Series(assign(S, labs, margin=m)[0]).value_counts().to_dict() for m in (lo, hi)}
-    # E5b: the CTH 390-469 texts no study claims are placed like orphans (literature groups only)
-    if a.groups == "literature":
+    # E5b: texts no study claims (CTH 390-469 residue, CTH 500 fragments) are placed like orphans
+    # (literature groups only)
+    if a.groups != "historical":
         res_c = {str(c) for cs in RESIDUE.values() for c in cs}
         resd = docs[~docs.orphan & docs.cth_number.isin(res_c) & (docs.n_words >= MIN_WORDS)]
         Sr = scores(vec.transform([tokens(r, "both") for _, r in resd.iterrows()]), C)
@@ -209,8 +210,11 @@ def main():
         pd.DataFrame({"txtid": resd.txtid.values, "cth": resd.cth_number.values, "n_words": resd.n_words.values,
                       "assigned": pr, "top_sim": tr.round(4), "gap": gr.round(4)}
                      ).sort_values("gap", ascending=False).to_csv(f"{a.out}/E5b_residue_placement.csv", index=False)
-        report["E5b_residue"] = {"texts": int(len(resd)), "assigned": int(pd.notna(pr).sum()),
-                                 "by_tradition": pd.Series(pr).value_counts().to_dict()}
+        pool = {str(c): name for name, cs in RESIDUE.items() for c in cs}
+        res = pd.DataFrame({"pool": resd.cth_number.map(pool).values, "assigned": pr})
+        report["E5b_residue"] = {name: {"texts": int(len(g)), "assigned": int(g.assigned.notna().sum()),
+                                        "by_tradition": g.assigned.value_counts().to_dict()}
+                                 for name, g in res.groupby("pool", sort=False)}
     vocab = vec.get_feature_names_out()
     report["E6_archetype_coverage"] = archetype_coverage(X, y_h.to_numpy(), Xo, pred, vocab)
 

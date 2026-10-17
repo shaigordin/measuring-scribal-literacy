@@ -57,12 +57,26 @@ def parse(page: str, cth: str) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+# Errors found in the Konkordanz, corrected here and flagged in the `note` column of the labels.
+# key: (CTH, publication) -> (field, corrected value, note)
+CORRECTIONS = {
+    ("701", "KBo 64.168"): ("subgroup", "b₂", "Konkordanz error: listed as '701.₂.I' (group letter missing); "
+                            "b₂ per the StBoT 73 working sheet (Salvini-Wegner group b₂)"),
+}
+
+
 def labels(df: pd.DataFrame, cth: str, groups=None) -> pd.DataFrame:
     """Experiment labels. `groups` lists the valid edition groups; anything else is unclassified."""
+    df = df.copy()
+    df["note"] = ""
+    for (c, pub), (field, value, note) in CORRECTIONS.items():
+        hit = (c == cth) & (df.publication == pub)
+        df.loc[hit, field] = value
+        df.loc[hit, "note"] = note
     key = df.publication.where(df.publication.str.len() > 1, df.fundnr)  # unpublished: "." -> find number
     ok = df.subgroup.isin(groups) if groups else df.subgroup.notna() & (df.subgroup != "?")
     out = pd.DataFrame({"txtid": key.str.rstrip("+").str.strip(), "cth_full": df.cth_full,
-                        "sub-category": df.subgroup.where(ok, cth), "Zeit": df.date})
+                        "sub-category": df.subgroup.where(ok, cth), "Zeit": df.date, "note": df.note})
     return out.drop_duplicates("txtid")
 
 

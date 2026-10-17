@@ -21,22 +21,35 @@ HISTORICAL = {
 # that argued for it; Laroche's CTH numbers stay the address of every text). See the doc
 # "Hittite ritual traditions: baselines and literature" for the sources.
 LITERATURE = {
-    # StBoT 73 Table 3, unchanged
+    # StBoT 73 Table 3, Hurrian groups unchanged
     "Kizzuwatna–Lower Land (Hurrian)": HISTORICAL["Kizzuwatna–Lower Land (Hurrian)"],
     "Syro-Mesopotamia (Hurrian)": HISTORICAL["Syro-Mesopotamia (Hurrian)"],
-    "Luwian cult centres": HISTORICAL["Luwian cult centres"],
     "Mixed (Hurrian, Syrian, Luwian)": HISTORICAL["Mixed (Hurrian, Syrian, Luwian)"],
-    # Miller 2004 (StBoT 46), Strauß 2006, Görke 2010: Laroche's Kizzuwatna block plus Maštigga (CTH 404)
-    "Kizzuwatna rituals": list(range(471, 501)) + [404],
-    # Christiansen 2006 (StBoT 48: Ambazzi, CTH 391, 429, 463); Bawanypeck 2005 (augurs, CTH 425, 433)
-    "Arzawa / western rituals": [391, 425, 429, 433, 463],
+    # StBoT 73's "Luwian cult centres" split as the HFR edition modules split it (Hethitische
+    # Festrituale, hethport.net/HFR, edition_liste.php, accessed 2026-10-17; decision 2026-10-17):
+    # Luwian festivals as HFR lists them (665, 771-773; CTH 770 is not in the module and is left
+    # out), Ḫuwaššanna (690-694, Laroche titles), and HFR's Palaic festivals (750-754).
+    "Luwian festivals (Ištanuwa, Lallupiya)": [665, 771, 772, 773],
+    "Ḫuwaššanna festivals": [690, 691, 692, 693, 694],
+    "Palaic festivals": [750, 751, 752, 753, 754],
+    # Miller 2004 (StBoT 46), Strauß 2006, Görke 2010: Laroche's Kizzuwatna block plus Maštigga (CTH 404).
+    # CTH 500 ("Kizzuwatna ritual fragments", 235 of 399 manuscripts) is a fragment category, not an
+    # identified composition: it made the class a generic-ritual attractor, so it is placed, not used
+    # (decision 2026-10-17).
+    "Kizzuwatna rituals": list(range(471, 500)) + [404],
+    # Christiansen 2006 (StBoT 48: Ambazzi, CTH 391, 429, 463); Bawanypeck 2005 (augurs, CTH 425, 433);
+    # rituals whose colophon names Arzawa or Ḫapalla as the practitioner's home: Ašḫella (394), Alli (402),
+    # Paškuwatti (406), Uḫḫamuwa (410) (CTH titles; Mouton 2010, Bawanypeck 2013). Added 2026-10-17.
+    "Arzawa / western rituals": [391, 425, 429, 433, 463] + [394, 402, 406, 410],
     # Klinger 1996 (StBoT 37): Monatsfest and KI.LAM editions, Hattian and Hattian-Hittite texts.
     # From the Portal Konkordanz citations of StBoT 37 (CTH 730 is not cited there).
     "Hattian cult layer": [591, 627] + [c for c in range(725, 747) if c != 730] + [820, 821],
 }
 # CTH 390-469 texts that no defining study claims: not a reference tradition, placed like orphans
+# CTH 500 (Kizzuwatna ritual fragments) is placed the same way.
 RESIDUE = {"CTH 390–469 residue": [c for c in range(390, 470) if c not in LITERATURE["Arzawa / western rituals"]
-                                   and c not in LITERATURE["Kizzuwatna rituals"]]}
+                                   and c not in LITERATURE["Kizzuwatna rituals"]],
+           "CTH 500 Kizzuwatna fragments": [500]}
 
 GROUPSETS = {"historical": HISTORICAL, "literature": LITERATURE}
 
