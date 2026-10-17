@@ -1920,6 +1920,23 @@
       ]
     }
   },
+  "E11e": {
+    "assigned": 940,
+    "without_function_words": {
+      "assigned": 967,
+      "same_tradition": 727,
+      "other_tradition": 17,
+      "now_unassigned": 196,
+      "newly_assigned": 223
+    },
+    "without_frequent_words": {
+      "assigned": 899,
+      "same_tradition": 746,
+      "other_tradition": 10,
+      "now_unassigned": 184,
+      "newly_assigned": 143
+    }
+  },
   "E11c": {
     "0": {
       "acc": 0.841,
