@@ -18,6 +18,28 @@
     },
     "orphans_total": 3033
   },
+  "laroche_bins": {
+    "CTH 470 fragments of rituals": {
+      "texts": 1919,
+      "median_words": 10.0
+    },
+    "CTH 500 fragments of Kizzuwatna rituals": {
+      "texts": 479,
+      "median_words": 17.0
+    },
+    "CTH 670 fragments of festivals": {
+      "texts": 3506,
+      "median_words": 10.0
+    },
+    "CTH 832 fragments of various content": {
+      "texts": 4080,
+      "median_words": 4.0
+    },
+    "CTH 390-469 rituals no study groups": {
+      "texts": 571,
+      "median_words": 19.0
+    }
+  },
   "plene_clusters": {
     "akuanzi": {
       "Kizzuwatna rituals": {
@@ -31,7 +53,7 @@
         "plene_cths": []
       },
       "Luwian cult centres": {
-        "texts": 66,
+        "texts": 67,
         "texts_with_plene": 1,
         "plene_cths": [
           "694"
@@ -74,7 +96,7 @@
         ]
       },
       "Luwian cult centres": {
-        "texts": 11,
+        "texts": 12,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -113,8 +135,8 @@
         "plene_cths": []
       },
       "Luwian cult centres": {
-        "texts": 43,
-        "texts_with_plene": 5,
+        "texts": 45,
+        "texts_with_plene": 6,
         "plene_cths": [
           "665"
         ]

@@ -1,25 +1,25 @@
 {
   "corpus": {
-    "texts": 1637,
-    "variable_words": 383
+    "texts": 1676,
+    "variable_words": 394
   },
   "E7a_layers": {
     "logograms": {
-      "acc": 0.647,
-      "majority": 0.232,
+      "acc": 0.639,
+      "majority": 0.231,
       "null_mean": 0.17,
       "p": 0.0099,
-      "n": 1622,
+      "n": 1661,
       "classes": 6,
       "recall_by_class": {
-        "Kizzuwatna rituals": 0.543,
-        "Kizzuwatna–Lower Land (Hurrian)": 0.726,
-        "Luwian cult centres": 0.689,
-        "Mixed (Hurrian, Syrian, Luwian)": 0.563,
-        "Old Anatolian rituals": 0.719,
-        "Syro-Mesopotamia (Hurrian)": 0.626
+        "Kizzuwatna rituals": 0.536,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.729,
+        "Luwian cult centres": 0.687,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.523,
+        "Old Anatolian rituals": 0.723,
+        "Syro-Mesopotamia (Hurrian)": 0.596
       },
-      "texts_with_layer": 1622
+      "texts_with_layer": 1661
     },
     "foreign": {
       "acc": 0.828,
@@ -39,148 +39,148 @@
       "texts_with_layer": 209
     },
     "lexicon": {
-      "acc": 0.654,
-      "majority": 0.233,
-      "null_mean": 0.177,
+      "acc": 0.657,
+      "majority": 0.232,
+      "null_mean": 0.176,
       "p": 0.0099,
-      "n": 1619,
+      "n": 1658,
       "classes": 6,
       "recall_by_class": {
-        "Kizzuwatna rituals": 0.61,
-        "Kizzuwatna–Lower Land (Hurrian)": 0.598,
-        "Luwian cult centres": 0.691,
-        "Mixed (Hurrian, Syrian, Luwian)": 0.611,
-        "Old Anatolian rituals": 0.757,
-        "Syro-Mesopotamia (Hurrian)": 0.648
-      },
-      "texts_with_layer": 1619
-    },
-    "spelling": {
-      "acc": 0.566,
-      "majority": 0.231,
-      "null_mean": 0.171,
-      "p": 0.0099,
-      "n": 1578,
-      "classes": 6,
-      "recall_by_class": {
-        "Kizzuwatna rituals": 0.459,
-        "Kizzuwatna–Lower Land (Hurrian)": 0.512,
-        "Luwian cult centres": 0.642,
-        "Mixed (Hurrian, Syrian, Luwian)": 0.639,
-        "Old Anatolian rituals": 0.599,
-        "Syro-Mesopotamia (Hurrian)": 0.646
-      },
-      "texts_with_layer": 1578
-    },
-    "collapsed": {
-      "acc": 0.584,
-      "majority": 0.23,
-      "null_mean": 0.166,
-      "p": 0.0099,
-      "n": 1581,
-      "classes": 6,
-      "recall_by_class": {
-        "Kizzuwatna rituals": 0.492,
-        "Kizzuwatna–Lower Land (Hurrian)": 0.528,
-        "Luwian cult centres": 0.638,
-        "Mixed (Hurrian, Syrian, Luwian)": 0.644,
-        "Old Anatolian rituals": 0.639,
+        "Kizzuwatna rituals": 0.597,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.601,
+        "Luwian cult centres": 0.689,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.65,
+        "Old Anatolian rituals": 0.766,
         "Syro-Mesopotamia (Hurrian)": 0.642
       },
-      "texts_with_layer": 1581
+      "texts_with_layer": 1658
+    },
+    "spelling": {
+      "acc": 0.556,
+      "majority": 0.229,
+      "null_mean": 0.169,
+      "p": 0.0099,
+      "n": 1644,
+      "classes": 6,
+      "recall_by_class": {
+        "Kizzuwatna rituals": 0.493,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.498,
+        "Luwian cult centres": 0.656,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.626,
+        "Old Anatolian rituals": 0.542,
+        "Syro-Mesopotamia (Hurrian)": 0.6
+      },
+      "texts_with_layer": 1644
+    },
+    "collapsed": {
+      "acc": 0.578,
+      "majority": 0.229,
+      "null_mean": 0.169,
+      "p": 0.0099,
+      "n": 1646,
+      "classes": 6,
+      "recall_by_class": {
+        "Kizzuwatna rituals": 0.515,
+        "Kizzuwatna–Lower Land (Hurrian)": 0.513,
+        "Luwian cult centres": 0.672,
+        "Mixed (Hurrian, Syrian, Luwian)": 0.662,
+        "Old Anatolian rituals": 0.589,
+        "Syro-Mesopotamia (Hurrian)": 0.584
+      },
+      "texts_with_layer": 1646
     },
     "orthographic_indices": {
-      "acc": 0.327,
-      "majority": 0.231,
+      "acc": 0.32,
+      "majority": 0.23,
       "null_mean": 0.22,
       "p": 0.0099,
-      "n": 1637,
+      "n": 1676,
       "classes": 6
     }
   },
   "E7b_index_profile_z": {
     "Kizzuwatna rituals": {
-      "logogram_share": -0.033,
-      "akkadogram_share": 0.073,
-      "complement_rate": -0.235,
-      "determinative_rate": -0.251,
-      "plene_rate": -0.13,
-      "cvc_share": 0.0,
-      "u_acute_share": 0.071
+      "logogram_share": -0.03,
+      "akkadogram_share": 0.043,
+      "complement_rate": -0.224,
+      "determinative_rate": -0.261,
+      "plene_rate": -0.131,
+      "cvc_share": -0.017,
+      "u_acute_share": 0.076
     },
     "Kizzuwatna–Lower Land (Hurrian)": {
-      "logogram_share": 0.125,
-      "akkadogram_share": 0.344,
+      "logogram_share": 0.117,
+      "akkadogram_share": 0.33,
       "complement_rate": -0.125,
-      "determinative_rate": 0.143,
-      "plene_rate": -0.075,
-      "cvc_share": -0.08,
-      "u_acute_share": -0.18
+      "determinative_rate": 0.15,
+      "plene_rate": -0.064,
+      "cvc_share": -0.091,
+      "u_acute_share": -0.191
     },
     "Luwian cult centres": {
-      "logogram_share": 0.001,
-      "akkadogram_share": 0.119,
-      "complement_rate": -0.061,
-      "determinative_rate": 0.325,
-      "plene_rate": -0.034,
-      "cvc_share": -0.108,
-      "u_acute_share": 0.08
+      "logogram_share": 0.014,
+      "akkadogram_share": 0.249,
+      "complement_rate": -0.09,
+      "determinative_rate": 0.329,
+      "plene_rate": -0.037,
+      "cvc_share": -0.117,
+      "u_acute_share": 0.062
     },
     "Mixed (Hurrian, Syrian, Luwian)": {
-      "logogram_share": 0.197,
-      "akkadogram_share": -0.338,
-      "complement_rate": 0.268,
-      "determinative_rate": 0.436,
-      "plene_rate": 0.07,
-      "cvc_share": 0.144,
-      "u_acute_share": -0.001
+      "logogram_share": 0.133,
+      "akkadogram_share": -0.36,
+      "complement_rate": 0.304,
+      "determinative_rate": 0.43,
+      "plene_rate": 0.028,
+      "cvc_share": 0.209,
+      "u_acute_share": 0.011
     },
     "Old Anatolian rituals": {
-      "logogram_share": -0.135,
-      "akkadogram_share": -0.305,
-      "complement_rate": 0.361,
-      "determinative_rate": -0.374,
-      "plene_rate": -0.112,
-      "cvc_share": 0.209,
-      "u_acute_share": 0.131
+      "logogram_share": -0.13,
+      "akkadogram_share": -0.29,
+      "complement_rate": 0.366,
+      "determinative_rate": -0.334,
+      "plene_rate": -0.089,
+      "cvc_share": 0.203,
+      "u_acute_share": 0.133
     },
     "Syro-Mesopotamia (Hurrian)": {
-      "logogram_share": -0.121,
-      "akkadogram_share": 0.035,
-      "complement_rate": -0.197,
-      "determinative_rate": 0.059,
-      "plene_rate": 0.64,
-      "cvc_share": -0.291,
-      "u_acute_share": -0.211
+      "logogram_share": -0.065,
+      "akkadogram_share": -0.082,
+      "complement_rate": -0.227,
+      "determinative_rate": -0.016,
+      "plene_rate": 0.632,
+      "cvc_share": -0.277,
+      "u_acute_share": -0.195
     }
   },
   "E7c_701_script_date": {
     "lda": {
-      "acc": 0.747,
-      "majority": 0.828,
-      "null_mean": 0.806,
-      "p": 1.0,
-      "n": 99,
+      "acc": 0.792,
+      "majority": 0.832,
+      "null_mean": 0.814,
+      "p": 0.9604,
+      "n": 101,
       "classes": 2
     },
     "means": {
       "jh.": {
-        "logogram_share": 0.333,
-        "akkadogram_share": 0.338,
-        "complement_rate": 0.168,
-        "determinative_rate": 0.176,
-        "plene_rate": 0.298,
+        "logogram_share": 0.366,
+        "akkadogram_share": 0.305,
+        "complement_rate": 0.145,
+        "determinative_rate": 0.159,
+        "plene_rate": 0.297,
         "cvc_share": 0.043,
-        "u_acute_share": 0.242
+        "u_acute_share": 0.238
       },
       "mh.": {
-        "logogram_share": 0.269,
-        "akkadogram_share": 0.341,
-        "complement_rate": 0.2,
-        "determinative_rate": 0.179,
-        "plene_rate": 0.304,
-        "cvc_share": 0.041,
-        "u_acute_share": 0.172
+        "logogram_share": 0.295,
+        "akkadogram_share": 0.338,
+        "complement_rate": 0.18,
+        "determinative_rate": 0.161,
+        "plene_rate": 0.301,
+        "cvc_share": 0.042,
+        "u_acute_share": 0.171
       }
     }
   }

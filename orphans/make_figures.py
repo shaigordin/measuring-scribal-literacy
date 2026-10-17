@@ -29,6 +29,23 @@ def save(fig, name):
     plt.close(fig)
 
 
+def contested_plot(e10, name):
+    """E10b: lead of each tradition for the pooled contested texts against random unassigned rituals."""
+    tb = pd.DataFrame(e10["E10b"]["table"]).sort_values("lead_over_best_other")
+    claim = e10["contested"]["claim"]
+    fig, ax = plt.subplots(figsize=(11, 5.6))
+    ax.grid(axis="x", color=GRID, lw=1)
+    for i, (_, r) in enumerate(tb.iterrows()):
+        ax.plot([r.null_q05, r.null_q95], [i, i], color=GRID, lw=8, solid_capstyle="round", zorder=1)
+        col = SERIES["signs"] if r.tradition == claim else SERIES["words"]
+        ax.plot(r.lead_over_best_other, i, "o", ms=12, color=col, mec=SURF, mew=2, zorder=3)
+    ax.axvline(0, color=INK2, lw=1.2)
+    ax.set_yticks(range(len(tb)), [f"{t}  (claimed)" if t == claim else t for t in tb.tradition])
+    ax.set(xlabel="lead over the best other tradition (cosine)")
+    ax.set_title("grey: 90% range for random sets of unassigned rituals of the same size", loc="left", color=INK2, fontsize=12)
+    save(fig, name)
+
+
 # 1. coverage curve: accuracy vs fragment size
 cur = pd.read_csv(RES / "E2_coverage_curve.csv")
 k_classes = rep["E1_historical"]["both"]["classes"]
@@ -133,20 +150,8 @@ if (RES / "E10_report.json").exists():
     ax.legend(frameon=False, loc="lower right", fontsize=12)
     save(fig, "leave_composition_out")
 
-    # 7. E10b contested attribution: lead of each tradition for the pooled contested texts vs random rituals
-    tb = pd.DataFrame(e10["E10b"]["table"]).sort_values("lead_over_best_other")
-    claim = e10["contested"]["claim"]
-    fig, ax = plt.subplots(figsize=(11, 5.6))
-    ax.grid(axis="x", color=GRID, lw=1)
-    for i, (_, r) in enumerate(tb.iterrows()):
-        ax.plot([r.null_q05, r.null_q95], [i, i], color=GRID, lw=8, solid_capstyle="round", zorder=1)
-        col = SERIES["signs"] if r.tradition == claim else SERIES["words"]
-        ax.plot(r.lead_over_best_other, i, "o", ms=12, color=col, mec=SURF, mew=2, zorder=3)
-    ax.axvline(0, color=INK2, lw=1.2)
-    ax.set_yticks(range(len(tb)), [f"{t}  (claimed)" if t == claim else t for t in tb.tradition])
-    ax.set(xlabel="lead over the best other tradition (cosine)")
-    ax.set_title("grey: 90% range for random sets of unassigned rituals of the same size", loc="left", color=INK2, fontsize=12)
-    save(fig, "contested_fit")
+    contested_plot(e10, "contested_fit")
+
 # 8. E11 what a placement rests on: similarity (what all traditions share counts) vs decision (it cancels)
 if (RES / "E11_report.json").exists():
     e11 = json.loads((RES / "E11_report.json").read_text())
@@ -187,4 +192,7 @@ if (RES / "E11_report.json").exists():
     ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
     ax.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2, fontsize=12)
     save(fig, "common_features")
+# 10. the same test for Tunnawiya's rituals (CTH 409) against the Luwian rituals of Puriyanni and Kuwattalla
+if (RES / "tunnawiya" / "E10_report.json").exists():
+    contested_plot(json.loads((RES / "tunnawiya" / "E10_report.json").read_text()), "contested_fit_tunnawiya")
 print("figures in", OUT)

@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 
 from qtm.corpus import load
-from qtm.groups import GROUPSETS, label_map, is_orphan
+from qtm.groups import GROUPSETS, RESIDUE, label_map, is_orphan
 from qtm.layers import has_plene
 from run_experiments import MIN_WORDS
 from run_profiles import CONTRAST_WORDS
@@ -34,6 +34,14 @@ def main():
         "ebo_texts": int(len(ebo)), "ebo_median_words": float(ebo.n_words.median()),
         "ebo_filed_under": ebo.cth_number.value_counts().head(10).to_dict(),
         "orphans_total": int(sum(is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)))}
+
+    # Laroche's residual bins and the unassigned ritual range, as TLHdig files them
+    bins = {"CTH 470 fragments of rituals": ["470"], "CTH 500 fragments of Kizzuwatna rituals": ["500"],
+            "CTH 670 fragments of festivals": ["670"], "CTH 832 fragments of various content": ["832"],
+            "CTH 390-469 rituals no study groups": [str(c) for c in RESIDUE["CTH 390–469 residue"]]}
+    out["laroche_bins"] = {k: {"texts": int(docs.cth_number.isin(v).sum()),
+                               "median_words": float(docs[docs.cth_number.isin(v)].n_words.median())}
+                           for k, v in bins.items()}
 
     hist = label_map(GROUPSETS[a.groups])
     ref = docs[docs.cth_number.isin(hist) & (docs.n_words >= MIN_WORDS)
