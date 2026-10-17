@@ -16,7 +16,8 @@ import sys
 import numpy as np
 import pandas as pd
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "orphans"))
+APP = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))      # playground/
+sys.path.insert(0, os.path.join(APP, "..", "orphans"))
 from qtm.corpus import load  # noqa: E402
 from qtm.features import tokens, vectorizer  # noqa: E402
 from qtm.assign import centroids, scores, loo_scores, assign  # noqa: E402
@@ -92,9 +93,9 @@ def text_of(d):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tokens")
-    ap.add_argument("--run", default=os.path.join(os.path.dirname(__file__), "..", "orphans",
+    ap.add_argument("--run", default=os.path.join(APP, "..", "orphans",
                                                   "results", "tlhdig03_literature"))
-    ap.add_argument("--out", default=os.path.join(os.path.dirname(__file__), "data"))
+    ap.add_argument("--out", default=os.path.join(APP, "data"))
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     report = json.load(open(f"{a.run}/report.json"))
@@ -132,20 +133,37 @@ def main():
     C, labs = centroids(X, y)
     vocab = vec.get_feature_names_out().tolist()
     loo, _ = loo_scores(X, y)
-    Xo = vec.transform([tokens(d, "both") for _, d in orph.iterrows()])
-    So = scores(Xo, C)
-    pred, top, gap = assign(So, labs, margin=margin)
 
     # E9 genre gate: reference traditions and outside genres as classes, fitted on both
     gdocs = pd.concat([ref, oth])
     gvec = vectorizer()
     GX = gvec.fit_transform([tokens(d, "both") for _, d in gdocs.iterrows()])
     GC, glabs = centroids(GX, gdocs.label.to_numpy())
-    gpred, _, ggap = assign(scores(gvec.transform([tokens(d, "both") for _, d in orph.iterrows()]), GC), glabs)
     ks = np.array(sorted(floors))
     floor_of = lambda n: floors[int(ks[ks <= n].max())] if n >= ks.min() else floors[int(ks.min())]
-    out_flag = np.array([g in outside and round(gg, 4) >= margin for g, gg in zip(gpred, ggap)])  # E9 compares the rounded gap
-    low_flag = np.array([round(t, 4) < floor_of(n) for t, n in zip(top, orph.n_words)])  # E9 uses the rounded score
+    common = np.asarray((X > 0).mean(0)).ravel() >= COMMON
+
+    def judge(df):
+        """Placement (E5), open-set check (E9) and common-feature share of the margin (E11b)
+        for texts outside the reference."""
+        Xd = vec.transform([tokens(d, "both") for _, d in df.iterrows()]).tocsr()
+        S = scores(Xd, C)
+        pred, top, gap = assign(S, labs, margin=margin)
+        gpred, _, ggap = assign(scores(gvec.transform([tokens(d, "both") for _, d in df.iterrows()]), GC), glabs)
+        out = np.array([g in outside and round(gg, 4) >= margin for g, gg in zip(gpred, ggap)])  # E9 rounds the gap
+        low = np.array([round(t, 4) < floor_of(n) for t, n in zip(top, df.n_words)])  # E9 rounds the score
+        share = np.zeros(len(df))
+        for i in range(len(df)):
+            o = np.argsort(-S[i])
+            x = Xd[i]
+            dv = C[o[0], x.indices] - C[o[1], x.indices]
+            m = float(x.data @ dv)
+            share[i] = float((x.data * dv * common[x.indices]).sum()) / m if m > 0 else 0.0
+        return S, [{"assigned": pred[i], "gap": round(float(gap[i]), 4), "low_fit": bool(low[i]),
+                    "outside": gpred[i] if out[i] else None, "common": round(float(share[i]), 3)}
+                   for i in range(len(df))]
+
+    So, ov = judge(orph)
 
     # translit -> normalised word form, for words in the vocabulary
     tl = pd.read_csv(a.tokens, usecols=["word", "translit", "wclass"], low_memory=False).dropna(subset=["word", "translit"])
@@ -163,7 +181,6 @@ def main():
     # (b) their decision margin (nearest minus runner-up, E11) among word classes and layers, with
     # leave-one-out centroids as in E11a: ratio of sums over the correctly placed texts.
     index = {t: i for i, t in enumerate(vocab)}
-    common = np.asarray((X > 0).mean(0)).ravel() >= COMMON
     sums = np.vstack([np.asarray(X[y == lab].sum(0)).ravel() for lab in labs])
     Cn = sums / np.linalg.norm(sums, axis=1, keepdims=True)
     own = np.searchsorted(labs, y)
@@ -212,33 +229,36 @@ def main():
           "centroids": [[np.nonzero(c)[0].tolist(), r(c[np.nonzero(c)[0]], 6)] for c in GC]},
          f"{a.out}/gate.json")
 
-    # --- corpus: every reference text (leave-one-out scores) and every orphan ---
-    def rows(df, S, kind, extra):
+    # --- corpus: every TLHdig text (reference texts with leave-one-out scores) ---
+    def rows(df, S, kind, extra, with_scores=True):
         out = []
         for i, (_, d) in enumerate(df.iterrows()):
-            out.append({"id": d.txtid, "cth": d.cth_number, "kind": kind, "n": int(d.n_words),
-                        "s": r(np.where(np.isfinite(S[i]), S[i], 0)), **extra(i, d)})
+            s = {"s": r(np.where(np.isfinite(S[i]), S[i], 0))} if with_scores else {}
+            out.append({"id": d.txtid, "cth": d.cth_number, "kind": kind, "n": int(d.n_words), **s, **extra(i, d)})
         return out
 
-    # share of each orphan's margin carried by common features (E11b)
-    Xo = Xo.tocsr()
-    common_share = np.zeros(len(orph))
-    for i in range(len(orph)):
-        o = np.argsort(-So[i])
-        x = Xo[i]
-        dvec = C[o[0], x.indices] - C[o[1], x.indices]
-        m = float(x.data @ dvec)
-        common_share[i] = float((x.data * dvec * common[x.indices]).sum()) / m if m > 0 else 0.0
-    mostly = int(((gap >= margin) & (common_share > 0.5)).sum())
+    # every other TLHdig text, judged the same way, so the page can show each CTH bin
+    seen = set(ref.txtid) | set(orph.txtid)
+    rest = load(a.tokens)
+    rest = rest[~rest.txtid.isin(seen)]
+    rest_long = rest[rest.n_words >= ORPHAN_MIN_WORDS]
+    Sr, rv = judge(rest_long)
+    trained = set(oth.txtid)  # texts the genre gate was fitted on: their gate verdict is in-sample
+    short = pd.concat([docs[docs.orphan & pool & (docs.n_words < ORPHAN_MIN_WORDS)].assign(kind="orphan"),
+                       rest[rest.n_words < ORPHAN_MIN_WORDS].assign(kind="other")])
 
     corpus = rows(ref, loo, "ref", lambda i, d: {"label": d.label}) + \
-        rows(orph, So, "orphan", lambda i, d: {"assigned": pred[i], "gap": round(float(gap[i]), 4),
-                                         "low_fit": bool(low_flag[i]),
-                                         "common": round(float(common_share[i]), 3),
-                                         "outside": gpred[i] if out_flag[i] else None})
-    texts = {d.txtid: text_of(d) for df in (ref, orph) for _, d in df.iterrows()}
+        rows(orph, So, "orphan", lambda i, d: ov[i]) + \
+        rows(rest_long, Sr, "other", lambda i, d: {**rv[i], **({"gate_fit": True} if d.txtid in trained else {})},
+             with_scores=False) + \
+        [{"id": d.txtid, "cth": d.cth_number, "kind": d.kind, "n": int(d.n_words), "short": True} for _, d in short.iterrows()]
     dump(corpus, f"{a.out}/corpus.json")
-    dump(texts, f"{a.out}/texts.json")
+    titles = pd.read_csv(os.path.join(APP, "sources", "cth_titles.csv"), dtype=str)  # build/cth_titles.py
+    dump(dict(zip(titles.cth, titles.title)), f"{a.out}/cth_titles.json")
+    # transliterations: the model's texts first, the rest of TLHdig in a second file loaded on demand
+    dump({d.txtid: text_of(d) for df in (ref, orph) for _, d in df.iterrows()}, f"{a.out}/texts.json")
+    dump({d.txtid: text_of(d) for _, d in pd.concat([rest, short[short.kind == "orphan"]]).iterrows()},
+         f"{a.out}/texts_more.json")
 
     # --- word-level tf-idf per manuscript (words space), for the comparison view ---
     wvec = vectorizer()
@@ -252,10 +272,11 @@ def main():
          f"{a.out}/words.json")
 
     acc = float(np.mean(assign(loo, labs)[0] == y))
-    print(f"assigned orphans whose margin is mostly common features: {mostly}")
+    n = lambda k: sum(bool(v[k]) for v in ov)
     print(f"reference {len(ref)}, orphans {len(orph)}, vocab {len(vocab)}, LOO acc {acc:.3f}, "
-          f"orphans assigned {int(pd.notna(pred).sum())}, below fit floor {int(low_flag.sum())}, "
-          f"outside genre by margin {int(out_flag.sum())}")
+          f"orphans assigned {n('assigned')}, below fit floor {n('low_fit')}, outside genre by margin {n('outside')}, "
+          f"assigned with mostly common features {sum(bool(v['assigned']) and v['common'] > 0.5 for v in ov)}")
+    print(f"other TLHdig texts {len(rest_long)} judged, {len(short)} under {ORPHAN_MIN_WORDS} words")
 
 
 if __name__ == "__main__":
