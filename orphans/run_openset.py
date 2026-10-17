@@ -9,8 +9,8 @@ using texts whose genre is known and lies outside the reference (Laroche's own g
   1-220, instructions 251-275, cult inventories 501-530 (Cammarosano 2021, StBoT 68: local-cult
   vocabulary close to festival texts), and two hard cases of the same genres with an unknown
   tradition: festivals of traditions not in the reference (591-720 minus the reference CTHs and
-  the orphan pool CTH 670), and the Luwian rituals of Puriyanni, Kuwattalla and Šilalluḫi
-  (758-763; Yakubovich and Mouton 2023, StBoT 72: a Lower Land tradition, not Kizzuwatna).
+  the orphan pool CTH 670), and the Luwian rituals of Taurisa (764-766; Mouton and Yakubovich
+  2021, JLR 19/1: a Luwian ritual group of its own).
 
 Protocol (5 folds over texts): centroids come from the reference texts outside the fold; every
 held-out reference text and out-of-reference text yields `reps` random windows of k words.
@@ -55,7 +55,7 @@ def outside_genres(reference_cths):
             "Instructions": list(range(251, 276)),
             "Cult inventories": list(range(501, 531)),
             "Festivals of other traditions": festivals,
-            "Luwian rituals (Puriyanni, Kuwattalla)": list(range(758, 764))}
+            "Luwian rituals of Taurisa": list(range(764, 767))}
 
 
 def windows(doc, k, reps, rng):
