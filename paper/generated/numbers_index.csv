@@ -657,3 +657,191 @@ E10b.nearest.n,5,tlhdig03_literature/E10_report.json E10b.per_text_nearest
 E10c.claim.signatures,20,tlhdig03_literature/E10c_signatures_in_contested.csv
 E10c.claim.attested,1,tlhdig03_literature/E10c_signatures_in_contested.csv
 E10c.claim.attested.words,Éri,tlhdig03_literature/E10c_signatures_in_contested.csv
+E11a.acc,84\%,tlhdig03_literature/E11_report.json E11a.accuracy
+E11a.texts,"1{,}346",tlhdig03_literature/E11_report.json E11a.all_correct.texts
+E11a.decision.functionwords,13\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_category
+E11a.decision.verbs,10\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_category
+E11a.decision.nounsandrealia,32\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_category
+E11a.decision.agentsanddeities,31\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_category
+E11a.decision.foreignwords,10\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_category
+E11a.decision.otherwords,4\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_category
+E11a.decision.wordform,16\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_layer
+E11a.decision.syllabicspelling,50\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_layer
+E11a.decision.logographicwriting,34\%,tlhdig03_literature/E11_report.json E11a.all_correct.by_layer
+E11a.similarity.functionwords,20\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_category
+E11a.similarity.verbs,20\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_category
+E11a.similarity.nounsandrealia,27\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_category
+E11a.similarity.agentsanddeities,18\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_category
+E11a.similarity.foreignwords,8\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_category
+E11a.similarity.otherwords,6\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_category
+E11a.similarity.wordform,12\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_layer
+E11a.similarity.syllabicspelling,61\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_layer
+E11a.similarity.logographicwriting,27\%,tlhdig03_literature/E11_report.json E11a.similarity_all_correct.by_layer
+E11a.kizzuwatnalowerlandhurrian.top,nouns and realia,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.top.share,42\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.functionwords,16\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.verbs,17\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.nounsandrealia,42\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.agentsanddeities,13\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.foreignwords,5\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.otherwords,6\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.wordform,18\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.syllabicspelling,33\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.logographicwriting,49\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.kizzuwatnalowerlandhurrian.common,27\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.kizzuwatnalowerlandhurrian.features,"NINDA-GUR₄, NINDA-GUR₄-RA, GUR₄, GUR₄-RA, RA",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.syromesopotamiahurrian.top,nouns and realia,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.top.share,33\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.functionwords,28\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.verbs,7\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.nounsandrealia,33\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.agentsanddeities,14\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.foreignwords,17\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.otherwords,1\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.wordform,20\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.syllabicspelling,53\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.syromesopotamiahurrian.logographicwriting,27\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.syromesopotamiahurrian.common,6\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.syromesopotamiahurrian.features,"LÚ-AZU, AZU, uš-ḫi, ru-uš-ḫi, ḫur-li-li",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.mixedhurriansyrianluwian.top,agents and deities,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.top.share,41\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.functionwords,32\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.verbs,3\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.nounsandrealia,20\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.agentsanddeities,41\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.foreignwords,1\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.otherwords,3\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.wordform,22\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.syllabicspelling,39\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.logographicwriting,39\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.mixedhurriansyrianluwian.common,0\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.mixedhurriansyrianluwian.features,"KI-MIN, KI.MIN, MIN, EGIRantama, KI",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.luwianfestivalsistanuwalallupiya.top,nouns and realia,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.top.share,68\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.functionwords,2\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.verbs,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.nounsandrealia,68\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.agentsanddeities,18\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.foreignwords,12\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.otherwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.wordform,18\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.syllabicspelling,36\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianfestivalsistanuwalallupiya.logographicwriting,46\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.luwianfestivalsistanuwalallupiya.common,−27\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.luwianfestivalsistanuwalallupiya.features,"URU-iš-ta, URU-iš, al-lu, iš-ta-nu, ištanua",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.huwassannafestivals.top,agents and deities,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.top.share,57\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.functionwords,10\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.verbs,7\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.nounsandrealia,23\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.agentsanddeities,57\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.foreignwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.otherwords,2\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.wordform,15\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.syllabicspelling,49\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.huwassannafestivals.logographicwriting,36\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.huwassannafestivals.common,2\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.huwassannafestivals.features,"wa-aš-ša, ša-an-na, ḫu-wa-aš, an-na, MUNUS-ḫu",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.palaicfestivals.top,agents and deities,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.top.share,58\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.functionwords,1\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.verbs,−7\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.nounsandrealia,16\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.agentsanddeities,58\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.foreignwords,31\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.otherwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.wordform,16\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.syllabicspelling,66\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.palaicfestivals.logographicwriting,18\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.palaicfestivals.common,−30\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.palaicfestivals.features,"pár-wa, zi-pár-wa, zi-pár, D-zi-pár, pár-wa-a",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.kizzuwatnarituals.top,nouns and realia,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.top.share,48\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.functionwords,15\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.verbs,10\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.nounsandrealia,48\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.agentsanddeities,8\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.foreignwords,4\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.otherwords,15\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.wordform,22\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.syllabicspelling,50\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.kizzuwatnarituals.logographicwriting,28\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.kizzuwatnarituals.common,3\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.kizzuwatnarituals.features,"SÍG, SISKUR, MUNUS-ŠU, MUNUS-ŠU-GI, MUNUS",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.arzawawesternrituals.top,nouns and realia,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.top.share,88\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.functionwords,−19\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.verbs,2\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.nounsandrealia,88\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.agentsanddeities,52\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.foreignwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.otherwords,−23\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.wordform,30\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.syllabicspelling,−18\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.logographicwriting,88\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.arzawawesternrituals.common,−70\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.arzawawesternrituals.features,"KUŠ-kur, D-KAL, KUŠ-kur-ša, KAL, kur-ša-aš",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.luwianritualspuriyannikuwattalla.top,other words,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.top.share,78\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.functionwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.verbs,−12\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.nounsandrealia,44\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.agentsanddeities,−11\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.foreignwords,0\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.otherwords,78\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.wordform,50\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.syllabicspelling,16\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.logographicwriting,34\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.luwianritualspuriyannikuwattalla.common,−49\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.luwianritualspuriyannikuwattalla.features,"EMEan, EME-an, EME, aḫ-ra-an, aḫ-ra",tlhdig03_literature/E11_report.json E11b.top_features
+E11a.hattiancultlayer.top,nouns and realia,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.top.share,31\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.functionwords,2\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.verbs,17\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.nounsandrealia,31\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.agentsanddeities,23\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.foreignwords,24\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.otherwords,3\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.wordform,12\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.syllabicspelling,64\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.logographicwriting,25\%,tlhdig03_literature/E11_report.json E11a.by_tradition
+E11b.hattiancultlayer.common,26\%,tlhdig03_literature/E11_report.json E11b.common_features_share
+E11b.hattiancultlayer.features,"LUGAL, i, a, LÚ, ú",tlhdig03_literature/E11_report.json E11b.top_features
+E11b.common.ref,10\%,tlhdig03_literature/E11_report.json E11b.common_features_share.all_correct
+E11b.frequent.ref,3\%,tlhdig03_literature/E11_report.json E11b.frequent_words_share.all_correct
+E11b.common.orph,22\%,tlhdig03_literature/E11_report.json E11b.common_features_share.orphans
+E11b.frequent.orph,10\%,tlhdig03_literature/E11_report.json E11b.frequent_words_share.orphans
+E11b.common.similarity,46\%,tlhdig03_literature/E11_report.json E11b.similarity_common_features_share
+E11b.frequent.similarity,14\%,tlhdig03_literature/E11_report.json E11b.similarity_frequent_words_share
+E11b.assigned_orphans,940,tlhdig03_literature/E11_report.json E11b.assigned_orphans
+E11b.assigned_orphans_mostly_common,255,tlhdig03_literature/E11_report.json E11b.assigned_orphans_mostly_common
+E11b.assigned_orphans_mostly_frequent_words,107,tlhdig03_literature/E11_report.json E11b.assigned_orphans_mostly_frequent_words
+E11b.len510.common,30\%,tlhdig03_literature/E11_report.json E11b.orphans_by_length
+E11b.len1120.common,20\%,tlhdig03_literature/E11_report.json E11b.orphans_by_length
+E11b.len2150.common,12\%,tlhdig03_literature/E11_report.json E11b.orphans_by_length
+E11b.len50.common,10\%,tlhdig03_literature/E11_report.json E11b.orphans_by_length
+E11b.frequentlist,"nu, 1, tai, anta, GAL, paršia, našta, para, 2, NINDA.GUR₄.RA",tlhdig03_literature/E11_report.json frequent_words
+E11c.k0.acc,84\%,tlhdig03_literature/E11_report.json E11c.0.acc
+E11c.k0.removed,0\%,tlhdig03_literature/E11_report.json E11c.0.word_tokens_kept
+E11c.k10.acc,84\%,tlhdig03_literature/E11_report.json E11c.10.acc
+E11c.k10.removed,14\%,tlhdig03_literature/E11_report.json E11c.10.word_tokens_kept
+E11c.k25.acc,85\%,tlhdig03_literature/E11_report.json E11c.25.acc
+E11c.k25.removed,21\%,tlhdig03_literature/E11_report.json E11c.25.word_tokens_kept
+E11c.k50.acc,84\%,tlhdig03_literature/E11_report.json E11c.50.acc
+E11c.k50.removed,29\%,tlhdig03_literature/E11_report.json E11c.50.word_tokens_kept
+E11c.k100.acc,85\%,tlhdig03_literature/E11_report.json E11c.100.acc
+E11c.k100.removed,40\%,tlhdig03_literature/E11_report.json E11c.100.word_tokens_kept
+E11c.k200.acc,83\%,tlhdig03_literature/E11_report.json E11c.200.acc
+E11c.k200.removed,50\%,tlhdig03_literature/E11_report.json E11c.200.word_tokens_kept
+E11d.w5.common.n,294,tlhdig03_literature/E11_report.json E11d.5
+E11d.w5.common.prec,50\%,tlhdig03_literature/E11_report.json E11d.5
+E11d.w5.rest.prec,78\%,tlhdig03_literature/E11_report.json E11d.5
+E11d.w5.frequent.prec,42\%,tlhdig03_literature/E11_report.json E11d.5
+E11d.w10.common.n,240,tlhdig03_literature/E11_report.json E11d.10
+E11d.w10.common.prec,62\%,tlhdig03_literature/E11_report.json E11d.10
+E11d.w10.rest.prec,83\%,tlhdig03_literature/E11_report.json E11d.10
+E11d.w10.frequent.prec,51\%,tlhdig03_literature/E11_report.json E11d.10
+E11d.w20.common.n,223,tlhdig03_literature/E11_report.json E11d.20
+E11d.w20.common.prec,66\%,tlhdig03_literature/E11_report.json E11d.20
+E11d.w20.rest.prec,86\%,tlhdig03_literature/E11_report.json E11d.20
+E11d.w20.frequent.prec,51\%,tlhdig03_literature/E11_report.json E11d.20

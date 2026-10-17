@@ -35,7 +35,12 @@ def tex_escape(s):
 
 
 def pct(x, nd=0):
-    return "--" if x is None else f"{100 * x:.{nd}f}\\%"
+    if x is None:
+        return "--"
+    v = f"{100 * x:.{nd}f}"
+    if float(v) == 0:
+        v = v.lstrip("-")
+    return v.replace("-", "\u2212") + "\\%"
 
 
 def num(x):
@@ -333,6 +338,65 @@ def main():
     put("E10c.claim.signatures", len(sig), f"{MAIN}/E10c_signatures_in_contested.csv")
     put("E10c.claim.attested", len(hit), f"{MAIN}/E10c_signatures_in_contested.csv")
     put("E10c.claim.attested.words", tex_escape(", ".join(hit)) or "--", f"{MAIN}/E10c_signatures_in_contested.csv")
+
+    # ---- E11 what a decision rests on (margin decomposition)
+    e11 = load(MAIN, "E11_report.json")
+    s11 = f"{MAIN}/E11_report.json"
+    a11, b11 = e11["E11a"], e11["E11b"]
+    put("E11a.acc", pct(a11["accuracy"]), f"{s11} E11a.accuracy")
+    put("E11a.texts", num(a11["all_correct"]["texts"]), f"{s11} E11a.all_correct.texts")
+    cats = list(a11["all_correct"]["by_category"])
+    layers = list(a11["all_correct"]["by_layer"])
+    for part, src in (("decision", "all_correct"), ("similarity", "similarity_all_correct")):
+        for c in cats:
+            put(f"E11a.{part}.{slugify(c)}", pct(a11[src]["by_category"][c]), f"{s11} E11a.{src}.by_category")
+        for l in layers:
+            put(f"E11a.{part}.{slugify(l)}", pct(a11[src]["by_layer"][l]), f"{s11} E11a.{src}.by_layer")
+    rows = []
+    for t in trad:
+        r = a11["by_tradition"].get(t)
+        if not r:
+            continue
+        top = max(cats, key=r["by_category"].get)
+        put(f"E11a.{slugify(t)}.top", tex_escape(top.lower()), f"{s11} E11a.by_tradition")
+        put(f"E11a.{slugify(t)}.top.share", pct(r["by_category"][top]), f"{s11} E11a.by_tradition")
+        for c in cats:
+            put(f"E11a.{slugify(t)}.{slugify(c)}", pct(r["by_category"][c]), f"{s11} E11a.by_tradition")
+        for l in layers:
+            put(f"E11a.{slugify(t)}.{slugify(l)}", pct(r["by_layer"][l]), f"{s11} E11a.by_tradition")
+        put(f"E11b.{slugify(t)}.common", pct(b11["common_features_share"][t]), f"{s11} E11b.common_features_share")
+        rows.append(f"{tex_escape(t)} & {num(r['texts'])} & "
+                    + " & ".join(pct(r["by_category"][c]) for c in cats if c != "Other words") + " & "
+                    + " & ".join(pct(r["by_layer"][l]) for l in layers) + f" & {pct(b11['common_features_share'][t])} \\\\")
+        feats = []
+        for f, _, _ in b11["top_features"][t]:
+            f = f.lstrip("§").replace("·", "-")
+            if f not in feats:
+                feats.append(f)
+        put(f"E11b.{slugify(t)}.features", tex_escape(", ".join(feats[:5])), f"{s11} E11b.top_features")
+    r = a11["all_correct"]
+    rows.append("\\midrule\nAll correctly placed & " + num(r["texts"]) + " & "
+                + " & ".join(pct(r["by_category"][c]) for c in cats if c != "Other words") + " & "
+                + " & ".join(pct(r["by_layer"][l]) for l in layers) + f" & {pct(b11['common_features_share']['all_correct'])} \\\\")
+    table("decision", rows)
+    for k, key in (("all_correct", "ref"), ("orphans", "orph")):
+        put(f"E11b.common.{key}", pct(b11["common_features_share"][k]), f"{s11} E11b.common_features_share.{k}")
+        put(f"E11b.frequent.{key}", pct(b11["frequent_words_share"][k]), f"{s11} E11b.frequent_words_share.{k}")
+    put("E11b.common.similarity", pct(b11["similarity_common_features_share"]), f"{s11} E11b.similarity_common_features_share")
+    put("E11b.frequent.similarity", pct(b11["similarity_frequent_words_share"]), f"{s11} E11b.similarity_frequent_words_share")
+    for k in ("assigned_orphans", "assigned_orphans_mostly_common", "assigned_orphans_mostly_frequent_words"):
+        put(f"E11b.{k}", num(b11[k]), f"{s11} E11b.{k}")
+    for L, d in b11["orphans_by_length"].items():
+        put(f"E11b.len{slugify(L) or 'over50'}.common", pct(d["common_features"]), f"{s11} E11b.orphans_by_length")
+    put("E11b.frequentlist", tex_escape(", ".join(list(e11["frequent_words"])[:10])), f"{s11} frequent_words")
+    for k, d in e11["E11c"].items():
+        put(f"E11c.k{k}.acc", pct(d["acc"]), f"{s11} E11c.{k}.acc")
+        put(f"E11c.k{k}.removed", pct(1 - d["word_tokens_kept"]), f"{s11} E11c.{k}.word_tokens_kept")
+    for w, d in e11["E11d"].items():
+        put(f"E11d.w{w}.common.n", num(d["mostly_common"]), f"{s11} E11d.{w}")
+        put(f"E11d.w{w}.common.prec", pct(d["precision_mostly_common"]), f"{s11} E11d.{w}")
+        put(f"E11d.w{w}.rest.prec", pct(d["precision_rest"]), f"{s11} E11d.{w}")
+        put(f"E11d.w{w}.frequent.prec", pct(d["precision_mostly_frequent_words"]), f"{s11} E11d.{w}")
 
     # ---- appendix: distinctive features (E7b), top 4 per layer and tradition
     feats = load(MAIN, "E7_distinctive_features.csv")
