@@ -79,7 +79,11 @@ $("clear").onclick = () => { $("input").value = ""; run(); };
 
 // ---------- scoring ----------
 // ---------- what the score rests on ----------
-const CLS_ABBR = { "Function words": "fn", "Verbs": "v", "Nouns and realia": "n", "Agents and deities": "ag", "Foreign words": "for", "Other words": "?" };
+// short tags for the word categories of qtm/wordclass.py (CATEGORIES), in the same order
+const CLS_ABBR = Object.fromEntries(model.categories.map(c => [c, {
+  "Function words": "fn", "Verbs": "v", "Realia": "re", "Agents and deities": "ag", "Places": "pl",
+  "Animals, body, nature": "nat", "Abstract nouns": "abs", "Adjectives": "adj", "Foreign words": "for", "Other words": "?",
+}[c] ?? c.slice(0, 3).toLowerCase()]));
 const drop = { classes: new Set(), layers: new Set() };
 $("restLegend").innerHTML = model.layers.map((l, i) => `<span><span class="swatch sq" style="background:var(--layer-${i + 1})"></span>${l}</span>`).join("") +
   `<span><span class="tick-swatch"></span>same share in the tradition's manuscripts</span>` +
@@ -96,7 +100,7 @@ let currentId;
 let mode = "decision";
 for (const rb of document.querySelectorAll("input[name=mode]")) rb.onchange = () => { mode = rb.value; run(currentId); };
 const SUB = {
-  decision: "Which words decide between the nearest tradition and the runner-up: the margin between the two scores, split by word class (the categories of StBoT 73 Table 4, from TLHdig's morphological analyses) and by layer: the word form itself, its syllabic spelling, or its logographic writing. Bars to the left pull toward the runner-up. Material every tradition shares, like nu, cancels out here. The tick marks the same share in that tradition's own correctly placed manuscripts. The words above are coloured by the tradition they pull toward.",
+  decision: "Which words decide between the nearest tradition and the runner-up: the margin between the two scores, split by word class (after StBoT 73 Table 4, with realia split by meaning; from TLHdig's morphological analyses) and by layer: the word form itself, its syllabic spelling, or its logographic writing. Bars to the left pull toward the runner-up. Material every tradition shares, like nu, cancels out here. The tick marks the same share in that tradition's own correctly placed manuscripts. The words above are coloured by the tradition they pull toward.",
   similarity: "Each word's share of the similarity to the nearest tradition, by word class and layer. Much of any similarity is material all traditions share (nu, the signs a and i), so frequent function words look heavy here even when they decide nothing; switch to the first view to see what decides. The tick marks the same share in that tradition's own correctly placed manuscripts. The words above are shaded by their share.",
 };
 const E = model.e11, percent = x => Math.round(100 * x) + "%", range = ([a, b]) => `${Math.round(100 * a)}–${percent(b)}`;

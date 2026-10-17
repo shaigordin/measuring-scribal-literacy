@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2 (2026-10-17)
+
+- Ten word categories (realia split into realia, places, animals/body/nature, abstract nouns
+  and adjectives), following the experiments' audited scheme; placements unchanged.
+
 ## 0.4.1 (2026-10-17)
 
 - Rebuilt on the corrected word-class annotation (prepositions split from their nouns): 847 of
