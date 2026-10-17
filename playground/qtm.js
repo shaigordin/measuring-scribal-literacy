@@ -111,6 +111,7 @@ export async function loadModel(base = "data") {
   const model = await (await fetch(`${base}/model.json`)).json();
   model.index = new Map(model.vocab.map((t, i) => [t, i]));
   model.cents = denseCentroids(model);
+  model.common = new Set(model.common);
   const gate = await (await fetch(`${base}/gate.json`)).json();
   gate.index = new Map(gate.vocab.map((t, i) => [t, i]));
   gate.cents = denseCentroids(gate);
@@ -165,24 +166,39 @@ export function scoreParsed(parsed, model, { dropClasses = [], dropLayers = [] }
            dropLayers };
 }
 
-// Each feature's contribution x_f * c_f is shared among the words that produce it.
-export function attribute(r, cent, model) {
+// What a score rests on. `weights` maps feature -> weight: the nearest centroid for the
+// similarity (x . c_top), or c_top - c_runner-up for the decision margin (as in E11). Each
+// feature's contribution x_f * w_f is shared among the words that produce it, so the parts sum
+// exactly to the score. `common` is the part carried by features attested in at least a quarter
+// of the reference texts (nu, the signs a and i ...), which all traditions share.
+export function decisionWeights(r, model) {
+  const labs = model.traditions, a = model.cents[labs.indexOf(r.top)], b = model.cents[labs.indexOf(r.runnerUp)];
+  const w = new Map();
+  for (const j of r.vec.keys()) w.set(j, (a.get(j) || 0) - (b.get(j) || 0));
+  return w;
+}
+
+export function attribute(r, weights, model) {
   const feats = r.parsed.words.map(w => wordFeatures(w).filter(([, l]) => !r.dropLayers?.includes(l)));
   const total = new Map();
   for (const fs of feats) for (const [f] of fs) total.set(f, (total.get(f) || 0) + 1);
   const C = model.categories.length, L = model.layers.length;
   const matrix = Array.from({ length: C }, () => new Array(L).fill(0));
+  let common = 0;
   const perWord = r.parsed.words.map((w, i) => {
     const parts = new Array(L).fill(0);
     for (const [f, l] of feats[i]) {
-      const j = model.index.get(f), x = j === undefined ? 0 : r.vec.get(j) || 0, y = j === undefined ? 0 : cent.get(j) || 0;
-      parts[l] += (x * y) / total.get(f);
+      const j = model.index.get(f);
+      if (j === undefined) continue;
+      const v = ((r.vec.get(j) || 0) * (weights.get(j) || 0)) / total.get(f);
+      parts[l] += v;
+      if (model.common.has(j)) common += v;
     }
     const ci = model.categories.indexOf(wordClass(w, model));
     parts.forEach((v, l) => (matrix[ci][l] += v));
     return { word: w, cls: model.categories[ci], parts, total: parts.reduce((a, b) => a + b, 0) };
   });
-  return { perWord, matrix };
+  return { perWord, matrix, common, sum: perWord.reduce((a, p) => a + p.total, 0) };
 }
 
 // --- shared presentation: tradition order around the wheel, and colours ---

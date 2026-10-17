@@ -13,12 +13,20 @@ words compare with any other manuscript or tradition.
 
 The model is the deck's main reference: the literature-defined traditions with the HFR split
 (`--groups literature`, results in `../orphans/results/tlhdig03_literature/`).
-- "What the score rests on" (on `index.html`): every feature's contribution to the similarity is
-  shared among the words that produce it, so each word gets a share of the score, split into its
-  word form, syllabic spelling and logographic writing. Words are grouped by the E8 word classes
-  (`../orphans/qtm/wordclass.py`, after StBoT 73 Table 4). Any class or layer can be left out
-  and the fragment rescored. `data/category_shares.csv` gives the same breakdown averaged over
-  each tradition's reference manuscripts (one row per tradition, class and layer).
+- "What the score rests on" (on `index.html`): every feature's contribution to a score is
+  shared among the words that produce it, so each word gets a share, split into its word form,
+  syllabic spelling and logographic writing. Words are grouped by the E8 word classes
+  (`../orphans/qtm/wordclass.py`, after StBoT 73 Table 4; the grouping is shared with E11).
+  Two views: by default the decision margin (nearest minus runner-up, x·(c_top − c_2), as in
+  E11), where material every tradition shares cancels; or the similarity to the nearest
+  tradition (x·c_top), where frequent words such as nu look heavy. The page also gives the
+  share of the margin carried by common features (attested in ≥ 25% of the reference texts)
+  and warns when a placement rests more than half on them (E11d: such placements are right
+  50–66% of the time on 5–20-word windows, against 78–87%; 255 of the 940 placed orphans;
+  `build_data.py` prints the count, the browser flags 254). Any class or layer can be left
+  out and the fragment rescored. `data/category_shares.csv` gives both breakdowns (similarity
+  and decision shares, ratio of sums over each tradition's correctly placed reference
+  manuscripts with leave-one-out centroids); the decision shares match E11a.
 - `compare.html`: word-by-word tf-idf comparison of two witnesses (fragment, manuscript or
   tradition centroid), and for any word, the manuscripts where it carries the most weight.
   This follows the per-word tf-idf comparison of the Neo-Babylonian Dillard study (2023).

@@ -21,6 +21,7 @@ from qtm.corpus import load  # noqa: E402
 from qtm.features import tokens, vectorizer  # noqa: E402
 from qtm.assign import centroids, scores, loo_scores, assign  # noqa: E402
 from qtm.groups import GROUPSETS, HISTORICAL, ABSTRACT, RESIDUE, label_map, is_orphan  # noqa: E402
+from qtm.wordclass import CATEGORY, CATEGORIES, LAYERS, category, layer  # noqa: E402
 from run_openset import outside_genres  # noqa: E402
 
 MIN_WORDS = 17
@@ -43,14 +44,11 @@ def sparse_rows(X, n=4):
     return out
 
 
-# Word classes of experiment E8 (qtm/wordclass.py, after StBoT 73 Table 4), grouped for display.
+# Word classes of experiment E8 grouped for display (qtm/wordclass.py, shared with E11).
 # Every feature is attributed to the words that produce it: a word form to its occurrences, a
-# sign n-gram to the words it occurs in. So each word's share of the score splits into three
+# sign n-gram to the words it occurs in. So each word's share of a score splits into three
 # layers: its form (what is written), its syllabic spelling and its logographic writing (how).
-WORD_CATEGORY = {"function": "Function words", "verb": "Verbs", "realia": "Nouns and realia",
-                 "agent": "Agents and deities", "deity": "Agents and deities", "foreign": "Foreign words"}
-CATEGORIES = ["Function words", "Verbs", "Nouns and realia", "Agents and deities", "Foreign words", "Other words"]
-LAYERS = ["Word form", "Syllabic spelling", "Logographic writing"]
+COMMON = 0.25       # a feature attested in at least a quarter of the reference texts is "common" (E11)
 
 
 def word_ngrams(sg):
@@ -60,18 +58,17 @@ def word_ngrams(sg):
 def attribute(words, signs, classes, x, c, index):
     """(category x layer) contributions to x . c, distributing each feature over its words."""
     out = np.zeros((len(CATEGORIES), len(LAYERS)))
-    per_word = [[(w, 0)] + [(g, 2 if any(t[:1].isupper() for t in g[1:].split("·")) else 1)
-                            for g in word_ngrams(sg)] for w, sg in zip(words, signs)]
+    per_word = [[w] + word_ngrams(sg) for w, sg in zip(words, signs)]
     total = {}
     for feats in per_word:
-        for f, _ in feats:
+        for f in feats:
             total[f] = total.get(f, 0) + 1
     for feats, cl in zip(per_word, classes):
-        ci = CATEGORIES.index(WORD_CATEGORY.get(cl, "Other words"))
-        for f, layer in feats:
+        ci = CATEGORIES.index(category(cl))
+        for f in feats:
             j = index.get(f)
             if j is not None:
-                out[ci, layer] += x[j] * c[j] / total[f]
+                out[ci, LAYERS.index(layer(f))] += x[j] * c[j] / total[f]
     return out
 
 
@@ -153,7 +150,7 @@ def main():
     # translit -> normalised word form, for words in the vocabulary
     tl = pd.read_csv(a.tokens, usecols=["word", "translit", "wclass"], low_memory=False).dropna(subset=["word", "translit"])
     # word class of each word form: its most frequent definite E8 class in the corpus
-    definite = tl[tl.wclass.isin(list(WORD_CATEGORY))]
+    definite = tl[tl.wclass.isin(list(CATEGORY))]
     wclass = definite.groupby("word").wclass.agg(lambda s: s.value_counts().index[0]).to_dict()
     tl["clean"] = tl.translit.map(canon)
     words_in_vocab = {v for v in vocab if not v.startswith("§")}
@@ -162,20 +159,35 @@ def main():
 
     core = {lab: np.argsort(-C[j])[:CORE].tolist() for j, lab in enumerate(labs)}
 
-    # how each tradition's reference texts divide their similarity to their own centroid among
-    # word classes and layers (share of the cosine, averaged over texts; token-level E8 classes)
+    # How each tradition's reference texts divide (a) their similarity to their own centroid and
+    # (b) their decision margin (nearest minus runner-up, E11) among word classes and layers, with
+    # leave-one-out centroids as in E11a: ratio of sums over the correctly placed texts.
     index = {t: i for i, t in enumerate(vocab)}
+    common = np.asarray((X > 0).mean(0)).ravel() >= COMMON
+    sums = np.vstack([np.asarray(X[y == lab].sum(0)).ravel() for lab in labs])
+    Cn = sums / np.linalg.norm(sums, axis=1, keepdims=True)
     own = np.searchsorted(labs, y)
     Xd = X.tocsr()
-    shares = []
+    sim, dec, simtot, dectot, ok = [], [], [], [], []
     for i, (_, d) in enumerate(ref.iterrows()):
         row = Xd[i].toarray().ravel()
-        m = attribute(d.words, d.signs, d.wclasses, row, C[own[i]], index)
-        shares.append(m / max(m.sum(), 1e-12))
-    shares = np.array(shares)
-    baseline = {lab: np.round(shares[own == j].mean(0), 3).tolist() for j, lab in enumerate(labs)}
-    pd.DataFrame([{"tradition": lab, "word_class": CATEGORIES[ci], "layer": LAYERS[li], "share": v[ci][li]}
-                  for lab, v in baseline.items() for ci in range(len(CATEGORIES)) for li in range(len(LAYERS))]
+        Ci = Cn.copy()
+        Ci[own[i]] = (sums[own[i]] - row) / np.linalg.norm(sums[own[i]] - row)
+        s = Ci @ row
+        o = np.argsort(-s)
+        sim.append(attribute(d.words, d.signs, d.wclasses, row, Ci[own[i]], index))
+        dec.append(attribute(d.words, d.signs, d.wclasses, row, Ci[o[0]] - Ci[o[1]], index))
+        simtot.append(s[own[i]])
+        dectot.append(s[o[0]] - s[o[1]])
+        ok.append(o[0] == own[i])
+    sim, dec, simtot, dectot, ok = map(np.array, (sim, dec, simtot, dectot, ok))
+    assert np.allclose(dec.sum((1, 2)), dectot) and np.allclose(sim.sum((1, 2)), simtot)
+    ratio = lambda m, t, sel: (m[sel].sum(0) / t[sel].sum()).round(3).tolist()
+    baseline = {lab: ratio(sim, simtot, ok & (own == j)) for j, lab in enumerate(labs)}
+    decision = {lab: ratio(dec, dectot, ok & (own == j)) for j, lab in enumerate(labs)}
+    pd.DataFrame([{"tradition": lab, "word_class": CATEGORIES[ci], "layer": LAYERS[li],
+                   "similarity_share": baseline[lab][ci][li], "decision_share": decision[lab][ci][li]}
+                  for lab in labs for ci in range(len(CATEGORIES)) for li in range(len(LAYERS))]
                  ).to_csv(f"{a.out}/category_shares.csv", index=False)
     model = {
         "source": "TLHdig Beta 0.3 (Zenodo 10.5281/zenodo.20328284)",
@@ -190,8 +202,10 @@ def main():
         "openset": {"floors": floors, "outside": list(outside)},
         "categories": CATEGORIES,
         "layers": LAYERS,
-        "wordCategory": {w: WORD_CATEGORY.get(c, "Other words") for w, c in wclass.items() if w in index},
+        "wordCategory": {w: category(c) for w, c in wclass.items() if w in index},
         "categoryBaseline": baseline,
+        "decisionBaseline": decision,
+        "common": np.nonzero(common)[0].tolist(),
     }
     dump(model, f"{a.out}/model.json")
     dump({"vocab": gvec.get_feature_names_out().tolist(), "idf": r(gvec.idf_, 5), "classes": glabs.tolist(),
@@ -206,9 +220,21 @@ def main():
                         "s": r(np.where(np.isfinite(S[i]), S[i], 0)), **extra(i, d)})
         return out
 
+    # share of each orphan's margin carried by common features (E11b)
+    Xo = Xo.tocsr()
+    common_share = np.zeros(len(orph))
+    for i in range(len(orph)):
+        o = np.argsort(-So[i])
+        x = Xo[i]
+        dvec = C[o[0], x.indices] - C[o[1], x.indices]
+        m = float(x.data @ dvec)
+        common_share[i] = float((x.data * dvec * common[x.indices]).sum()) / m if m > 0 else 0.0
+    mostly = int(((gap >= margin) & (common_share > 0.5)).sum())
+
     corpus = rows(ref, loo, "ref", lambda i, d: {"label": d.label}) + \
         rows(orph, So, "orphan", lambda i, d: {"assigned": pred[i], "gap": round(float(gap[i]), 4),
                                          "low_fit": bool(low_flag[i]),
+                                         "common": round(float(common_share[i]), 3),
                                          "outside": gpred[i] if out_flag[i] else None})
     texts = {d.txtid: text_of(d) for df in (ref, orph) for _, d in df.iterrows()}
     dump(corpus, f"{a.out}/corpus.json")
@@ -226,6 +252,7 @@ def main():
          f"{a.out}/words.json")
 
     acc = float(np.mean(assign(loo, labs)[0] == y))
+    print(f"assigned orphans whose margin is mostly common features: {mostly}")
     print(f"reference {len(ref)}, orphans {len(orph)}, vocab {len(vocab)}, LOO acc {acc:.3f}, "
           f"orphans assigned {int(pd.notna(pred).sum())}, below fit floor {int(low_flag.sum())}, "
           f"outside genre by margin {int(out_flag.sum())}")

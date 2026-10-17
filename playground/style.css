@@ -187,3 +187,4 @@ td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
 .tick-swatch { display: inline-block; width: 2px; height: 12px; background: var(--text-primary); margin-right: 6px; vertical-align: -1px; }
 .chip .cls { font-family: system-ui, sans-serif; font-size: 10px; color: var(--text-muted); margin-right: 4px; }
 #dropRow label { white-space: nowrap; }
+.rest .zero { position: absolute; top: -3px; bottom: -3px; width: 1px; background: var(--text-muted); }
