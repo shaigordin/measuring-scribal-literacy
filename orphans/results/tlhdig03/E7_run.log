@@ -30,7 +30,7 @@ indices {'acc': 0.327, 'majority': 0.231, 'null_mean': 0.22, 'p': 0.0099, 'n': 1
   "foreign": {
    "acc": 0.828,
    "majority": 0.426,
-   "null_mean": 0.225,
+   "null_mean": 0.226,
    "p": 0.0099,
    "n": 209,
    "classes": 6,
@@ -47,7 +47,7 @@ indices {'acc': 0.327, 'majority': 0.231, 'null_mean': 0.22, 'p': 0.0099, 'n': 1
   "lexicon": {
    "acc": 0.654,
    "majority": 0.233,
-   "null_mean": 0.176,
+   "null_mean": 0.177,
    "p": 0.0099,
    "n": 1619,
    "classes": 6,
@@ -64,7 +64,7 @@ indices {'acc': 0.327, 'majority': 0.231, 'null_mean': 0.22, 'p': 0.0099, 'n': 1
   "spelling": {
    "acc": 0.566,
    "majority": 0.231,
-   "null_mean": 0.17,
+   "null_mean": 0.171,
    "p": 0.0099,
    "n": 1578,
    "classes": 6,
@@ -81,7 +81,7 @@ indices {'acc': 0.327, 'majority': 0.231, 'null_mean': 0.22, 'p': 0.0099, 'n': 1
   "collapsed": {
    "acc": 0.584,
    "majority": 0.23,
-   "null_mean": 0.167,
+   "null_mean": 0.166,
    "p": 0.0099,
    "n": 1581,
    "classes": 6,
@@ -162,22 +162,22 @@ indices {'acc': 0.327, 'majority': 0.231, 'null_mean': 0.22, 'p': 0.0099, 'n': 1
  },
  "E7c_701_script_date": {
   "lda": {
-   "acc": 0.792,
-   "majority": 0.832,
-   "null_mean": 0.815,
-   "p": 0.9901,
-   "n": 101,
+   "acc": 0.747,
+   "majority": 0.828,
+   "null_mean": 0.806,
+   "p": 1.0,
+   "n": 99,
    "classes": 2
   },
   "means": {
    "jh.": {
-    "logogram_share": 0.328,
-    "akkadogram_share": 0.336,
-    "complement_rate": 0.166,
+    "logogram_share": 0.333,
+    "akkadogram_share": 0.338,
+    "complement_rate": 0.168,
     "determinative_rate": 0.176,
     "plene_rate": 0.298,
-    "cvc_share": 0.044,
-    "u_acute_share": 0.252
+    "cvc_share": 0.043,
+    "u_acute_share": 0.242
    },
    "mh.": {
     "logogram_share": 0.269,

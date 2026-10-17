@@ -1,4 +1,5 @@
 {
+ "groups": "historical",
  "corpus": {
   "reference_texts": 2770,
   "orphans_used": 2004,
@@ -41,7 +42,7 @@
   "both": {
    "acc": 0.723,
    "majority": 0.231,
-   "null_mean": 0.176,
+   "null_mean": 0.177,
    "p": 0.005,
    "n": 1637,
    "classes": 6,
@@ -59,7 +60,7 @@
   "words": {
    "acc": 0.658,
    "majority": 0.231,
-   "null_mean": 0.174,
+   "null_mean": 0.176,
    "p": 0.005,
    "n": 1637,
    "classes": 6,
@@ -75,7 +76,7 @@
   "signs": {
    "acc": 0.695,
    "majority": 0.231,
-   "null_mean": 0.175,
+   "null_mean": 0.174,
    "p": 0.005,
    "n": 1637,
    "classes": 6,
@@ -93,7 +94,7 @@
   "words": {
    "acc": 0.884,
    "majority": 0.778,
-   "null_mean": 0.524,
+   "null_mean": 0.527,
    "p": 0.005,
    "n": 1254,
    "classes": 3,
@@ -106,7 +107,7 @@
   "signs": {
    "acc": 0.888,
    "majority": 0.778,
-   "null_mean": 0.528,
+   "null_mean": 0.532,
    "p": 0.005,
    "n": 1254,
    "classes": 3,
@@ -119,7 +120,7 @@
   "both": {
    "acc": 0.887,
    "majority": 0.778,
-   "null_mean": 0.542,
+   "null_mean": 0.546,
    "p": 0.005,
    "n": 1254,
    "classes": 3,
@@ -134,7 +135,7 @@
   "words": {
    "acc": 0.856,
    "majority": 0.778,
-   "null_mean": 0.492,
+   "null_mean": 0.496,
    "p": 0.005,
    "n": 1254,
    "classes": 3,
@@ -147,7 +148,7 @@
   "signs": {
    "acc": 0.87,
    "majority": 0.778,
-   "null_mean": 0.509,
+   "null_mean": 0.511,
    "p": 0.005,
    "n": 1254,
    "classes": 3,
@@ -160,102 +161,102 @@
  },
  "E3_cth701_subgroups": {
   "words": {
-   "acc": 0.537,
-   "majority": 0.232,
-   "null_mean": 0.147,
+   "acc": 0.494,
+   "majority": 0.21,
+   "null_mean": 0.136,
    "p": 0.005,
-   "n": 82,
+   "n": 81,
    "classes": 8,
    "recall_by_class": {
-    "a": 0.4,
-    "a₁": 0.375,
-    "b": 0.6,
+    "a": 0.333,
+    "a₁": 0.25,
+    "b": 0.5,
     "b₁": 0.0,
-    "b₂": 0.889,
+    "b₂": 0.778,
     "d": 0.571,
     "e": 0.308,
-    "f": 0.684
+    "f": 0.706
    }
   },
   "signs": {
-   "acc": 0.61,
-   "majority": 0.232,
-   "null_mean": 0.151,
+   "acc": 0.605,
+   "majority": 0.21,
+   "null_mean": 0.14,
    "p": 0.005,
-   "n": 82,
+   "n": 81,
    "classes": 8,
    "recall_by_class": {
-    "a": 0.4,
+    "a": 0.333,
     "a₁": 0.375,
-    "b": 0.5,
+    "b": 0.6,
     "b₁": 0.5,
-    "b₂": 0.889,
+    "b₂": 0.778,
     "d": 0.714,
     "e": 0.308,
-    "f": 0.842
+    "f": 0.882
    }
   },
   "both": {
-   "acc": 0.598,
-   "majority": 0.232,
-   "null_mean": 0.148,
+   "acc": 0.568,
+   "majority": 0.21,
+   "null_mean": 0.139,
    "p": 0.005,
-   "n": 82,
+   "n": 81,
    "classes": 8,
    "recall_by_class": {
-    "a": 0.4,
+    "a": 0.333,
     "a₁": 0.375,
-    "b": 0.5,
-    "b₁": 0.25,
-    "b₂": 0.889,
+    "b": 0.6,
+    "b₁": 0.0,
+    "b₂": 0.778,
     "d": 0.714,
     "e": 0.308,
-    "f": 0.842
+    "f": 0.824
    }
   }
  },
  "E3_cth701_script_date": {
   "words": {
-   "acc": 0.733,
-   "majority": 0.832,
-   "null_mean": 0.725,
-   "p": 0.4627,
-   "n": 101,
+   "acc": 0.727,
+   "majority": 0.828,
+   "null_mean": 0.713,
+   "p": 0.4129,
+   "n": 99,
    "classes": 2,
    "recall_by_class": {
-    "jh.": 0.786,
+    "jh.": 0.78,
     "mh.": 0.471
    }
   },
   "signs": {
-   "acc": 0.752,
-   "majority": 0.832,
-   "null_mean": 0.736,
-   "p": 0.403,
-   "n": 101,
+   "acc": 0.737,
+   "majority": 0.828,
+   "null_mean": 0.725,
+   "p": 0.4229,
+   "n": 99,
    "classes": 2,
    "recall_by_class": {
-    "jh.": 0.81,
+    "jh.": 0.793,
     "mh.": 0.471
    }
   },
   "both": {
-   "acc": 0.743,
-   "majority": 0.832,
-   "null_mean": 0.739,
-   "p": 0.5373,
-   "n": 101,
+   "acc": 0.737,
+   "majority": 0.828,
+   "null_mean": 0.726,
+   "p": 0.4527,
+   "n": 99,
    "classes": 2,
    "recall_by_class": {
-    "jh.": 0.81,
-    "mh.": 0.412
+    "jh.": 0.793,
+    "mh.": 0.471
    }
   }
  },
  "E2_abstention": {
   "margin": 0.02,
-  "precision_above_margin": 0.8048665249232223,
-  "share_assigned": 0.5039285714285714,
+  "precision_above_margin": 0.8053399200188192,
+  "share_assigned": 0.5060714285714286,
   "margin_90ci": [
    0.019,
    0.021
