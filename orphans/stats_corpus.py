@@ -12,7 +12,7 @@ import numpy as np
 import pandas as pd
 
 from qtm.corpus import load
-from qtm.groups import HISTORICAL, label_map, is_orphan
+from qtm.groups import GROUPSETS, label_map, is_orphan
 from qtm.layers import has_plene
 from run_experiments import MIN_WORDS
 from run_profiles import CONTRAST_WORDS
@@ -22,6 +22,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tokens")
     ap.add_argument("--out", default="results/run")
+    ap.add_argument("--groups", choices=sorted(GROUPSETS), default="historical")
     a = ap.parse_args()
     out = {}
 
@@ -34,7 +35,7 @@ def main():
         "ebo_filed_under": ebo.cth_number.value_counts().head(10).to_dict(),
         "orphans_total": int(sum(is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)))}
 
-    hist = label_map(HISTORICAL)
+    hist = label_map(GROUPSETS[a.groups])
     ref = docs[docs.cth_number.isin(hist) & (docs.n_words >= MIN_WORDS)
                & np.array([not is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)])]
     rows = [{"word": w, "tradition": hist[d.cth_number], "cth": d.cth_number, "txtid": d.txtid, "plene": has_plene(sg)}

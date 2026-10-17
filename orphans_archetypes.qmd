@@ -111,15 +111,14 @@ The EBo median of 4 words is the hard constraint for everything that follows.
 4. **Assignment:** a fragment goes to its most similar centroid, *or to none* if the lead over the runner-up is too small (open set)
 :::
 ::: {.column width="50%"}
-**Reference traditions** (StBoT 73, Table 3, plus ritual controls)
+**Reference traditions**, each defined by the study that argued for it
 
 ::: {.small}
-- Kizzuwatna–Lower Land (Hurrian)
-- Syro-Mesopotamia (Hurrian), incl. CTH 701
-- Luwian cult centres
-- Mixed (Hurrian, Syrian, Luwian)
-- Kizzuwatna rituals (CTH 471–500)
-- Old Anatolian rituals (CTH 390–469)
+- Hurrian festivals (StBoT 73): Kizzuwatna–Lower Land; Syro-Mesopotamia, incl. CTH 701; Mixed
+- Luwian and Palaic festivals (HFR modules): Ištanuwa and Lallupiya; Ḫuwaššanna; Palaic
+- Kizzuwatna rituals (Miller 2004): CTH 471–499 + 404
+- Arzawa rituals (Christiansen 2006; Bawanypeck 2005; colophons)
+- Hattian cult layer (Klinger 1996)
 :::
 
 [Orphans (CTH 470 + EBo) are never part of the reference.]{.small}
@@ -138,7 +137,7 @@ The EBo median of 4 words is the hard constraint for everything that follows.
 
 ---
 
-## Validation: leave one manuscript out
+## Validation: the StBoT 73 groups
 
 ![](img/orphans/validation.png){fig-align="center" width="80%"}
 
@@ -149,7 +148,7 @@ Every manuscript of 17+ words is removed in turn and reassigned. Baselines: alwa
 ::: {.notes}
 Historical groups: 72% over 6 classes, against a 23% majority baseline.
 CTH 670/701/832 as in the abstract: 89%, but the majority baseline is already 78% (CTH 670 dominates), so it shows little.
-This is why the reference space moved to historical groups.
+This is why the reference space moved to historical groups, and then to traditions defined in the literature (next slide).
 :::
 
 ---
@@ -159,44 +158,29 @@ This is why the reference space moved to historical groups.
 ![](img/orphans/literature/validation.png){fig-align="center" width="80%"}
 
 ::: {.small}
-Kizzuwatna rituals = CTH 471–499 + 404 (Miller 2004); Arzawa = CTH 391, 429, 463 (Ambazzi; Christiansen 2006), 425, 433 (augurs; Bawanypeck 2005), 394, 402, 406, 410 (colophon: from Arzawa or Ḫapalla); Hattian cult layer = Klinger 1996 (from the Konkordanz citations of StBoT 37); the four festival groups of StBoT 73. CTH 390–469 texts claimed by no study, and the CTH 500 fragment collection, leave the reference and are placed like orphans.
+Kizzuwatna rituals = CTH 471–499 + 404 (Miller 2004); Arzawa = CTH 391, 429, 463 (Ambazzi; Christiansen 2006), 425, 433 (augurs; Bawanypeck 2005), 394, 402, 406, 410 (colophon: from Arzawa or Ḫapalla); Hattian cult layer = Klinger 1996 (from the Konkordanz citations of StBoT 37); the three Hurrian festival groups of StBoT 73; StBoT 73's Luwian group split as the HFR edition modules split it (Ištanuwa and Lallupiya: CTH 665, 771–773; Ḫuwaššanna: 690–694), plus HFR's Palaic festivals (750–754). CTH 390–469 texts claimed by no study, and the CTH 500 fragment collection, leave the reference and are placed like orphans.
 :::
 
 ::: {.notes}
-82% over 7 traditions against 30% majority, up from 72% with the CTH-range controls.
-Hattian 95% and Kizzuwatna 92% recalled; Arzawa only 41%, but it has just 17 manuscripts long enough to test.
-CTH 500 ("fragments of Kizzuwatna rituals", 235 manuscripts) is a fragment collection, not a composition, and it pulled every generic ritual into Kizzuwatna. Placed like orphans, only 53 of its 126 assigned fragments go to the Kizzuwatna rituals; 72 go to the Hurrian festival groups. That fits HFR, which counts CTH 500 among its festival texts.
-The CTH 390–469 residue still goes to Kizzuwatna (149 of 172 assigned): the only large ritual class wins on genre, not on origin.
-:::
-
----
-
-## Test against the HFR festival modules
-
-![](img/orphans/hfr/validation.png){fig-align="center" width="80%"}
-
-::: {.small}
-The Luwian group split as the HFR editions split it: Luwian festivals of Ištanuwa and Lallupiya (CTH 665, 771–773, as listed by HFR) and Ḫuwaššanna (CTH 690–694); Palaic festivals (CTH 750–754) added. Other groups as on the previous slide.
-:::
-
-::: {.notes}
-84% over 9 groups (30% majority). The HFR modules hold up: Ḫuwaššanna 91%, Ištanuwa/Lallupiya 84%, Palaic 82%.
-So StBoT 73's single "Luwian cult centres" group hides two cult traditions that the texts themselves keep apart.
-Only the module lists HFR publishes are used; its planned modules (Nerik, Zippalanda, KI.LAM ...) give no CTH lists yet.
+84% over 9 traditions against 30% majority, up from 72% with the CTH-range controls.
+Hattian 95%, Kizzuwatna 92%, Ḫuwaššanna 91%, Ištanuwa/Lallupiya 84%, Palaic 82%; Arzawa only 41%, but it has just 17 manuscripts long enough to test.
+The HFR split holds: StBoT 73's single Luwian group hides two cult traditions that the texts keep apart.
+CTH 500 ("fragments of Kizzuwatna rituals", 235 manuscripts) is a fragment collection, not a composition, and it pulled every generic ritual into Kizzuwatna. Placed like orphans, only 52 of its 125 assigned fragments go to the Kizzuwatna rituals; 72 go to the Hurrian festival groups. That fits HFR, which counts CTH 500 among its festival texts.
+The CTH 390–469 residue still goes to Kizzuwatna (141 of 164 assigned): the only large ritual class wins on genre, not on origin.
 :::
 
 ---
 
 ## How small can an orphan be?
 
-![](img/orphans/coverage_curve.png){fig-align="center" width="75%"}
+![](img/orphans/literature/coverage_curve.png){fig-align="center" width="75%"}
 
 ::: {.small}
 Long manuscripts are cut into random windows of *k* words and reassigned. Words and signs perform alike, and signs are slightly better from about 8 words up.
 :::
 
 ::: {.notes}
-3 words: about 50%; 10 words: about 62%; 40 words: about 73%, against a chance level of 17%.
+3 words: about 51%; 10 words: about 66%; 40 words: about 78%, against a chance level of 11% (9 traditions).
 This curve sets the abstention rule used for the orphans.
 :::
 
@@ -208,8 +192,8 @@ This curve sets the abstention rule used for the orphans.
 ::: {.column width="50%"}
 **Remove all logograms** (Sumero- and Akkadograms)
 
-- word tf-idf: 69% → 66%
-- sign n-grams: 72% → 70%
+- word tf-idf: 82% → 76%
+- sign n-grams: 84% → 81%
 
 The signal survives without the cultic logographic vocabulary.
 :::
@@ -236,16 +220,16 @@ So the 701 groupings are not just script-date clusters.
 
 ## What identifies a tradition: what is written, or how?
 
-![](img/orphans/layers.png){fig-align="center" width="78%"}
+![](img/orphans/literature/layers.png){fig-align="center" width="78%"}
 
 ::: {.small}
-Each layer alone, leave one manuscript out, 6 traditions, 1,637 manuscripts. *Only the 209 manuscripts with foreign-language words. Orthographic habits: 10-fold LDA on seven per-text rates.
+Each layer alone, leave one manuscript out, 9 traditions, 1,597 manuscripts. *Only the 396 manuscripts with foreign-language words. Orthographic habits: 10-fold LDA on seven per-text rates.
 :::
 
 ::: {.notes}
-Content carries the identity: logograms and Hittite vocabulary 65% each, foreign-language words 83% where present.
-Keeping the spelling of variable words adds nothing (57% vs 58% with spelling ignored): spelling choice does not mark a tradition beyond the words themselves.
-Text-level orthographic habits are a weak but real signal: 33% against 22% for shuffled labels (p = 0.01).
+Content carries the identity: logograms 70%, Hittite vocabulary 72%, foreign-language words 88% where present.
+Keeping the spelling of variable words adds nothing (62% with and without spelling): spelling choice does not mark a tradition beyond the words themselves.
+Text-level orthographic habits are a weak but real signal: 39% against 30% for shuffled labels (p = 0.01).
 :::
 
 ---
@@ -256,12 +240,15 @@ Text-level orthographic habits are a weak but real signal: 33% against 22% for s
 
 | Tradition | Logograms | Hittite and foreign words |
 |---|---|---|
-| Kizzuwatna rituals | SISKUR, Ì.DU₁₀.GA, MUŠEN, SILA₄, ZA.GÌN | *tarpalli-*, *kureššar*, *ḫuittiya-*, *warnu-* |
-| Kizzuwatna–Lower Land | NINDA.GUR₄.RA, BA.BA.ZA, *UP-NI* | *manuzzi*, Išḫara, *šipant-* |
-| Luwian cult centres | SÌR-RU, NAR, *BE-EL* | *aku-* "drink", *palwai-* |
-| Mixed | KI.MIN, NINDA.SIG, Ḫepat | Ninatta, Kulitta |
-| Old Anatolian rituals | UTU, ŠU.GI, ALAM | *takna-*, *eštu* |
-| Syro-Mesopotamia | AZU, EREN, AD.KID, BANŠUR | *aḫrušḫi*, *ḫuprušḫi*, *ḫurlili* |
+| Kizzuwatna rituals | SÍG, ZA.GÌN, SA₅, LÀL, ŠU.GI | *tarpalli-*, *ḫuittiya-*, *kureššar*, *lukkatta* |
+| Kizzuwatna–Lower Land | *UP-NI*, BA.BA.ZA, *NAM-MA-AN-DUM* | *manuzzi*, *nupatik*, *šipant-*, *keldi* |
+| Syro-Mesopotamia | AZU, EREN, SÍSKUR, AD.KID | *ḫurlili*, *ḫuprušḫi*, *aḫrušḫi*, *kelu* |
+| Mixed | KI.MIN, NINDA.SIG, IŠTAR | Ḫepat, Ninatta, Kulitta |
+| Ištanuwa and Lallupiya | ZA.LAM.GAR, KA.GAG, DUMU.LUGAL | *ḫuḫupal*, *kimri*, *ḫuwaši* |
+| Ḫuwaššanna | *BE-EL*, NAR, SÌR-RU, KAŠ | *palwai-*, *aku-* "drink", *takarmun* |
+| Palaic festivals | GEŠTIN, ŠU.GI, *AŠ-RI* | *išnuri*, *ziparwa*, *kataḫzipuri*, *ḫašammili* |
+| Hattian cult layer | LUGAL, DUMU.É.GAL, GIŠ.INANNA, ALAM.ZU₉, MUḪALDIM | *ḫalzai*, *petai*, *taparna*, *katte* |
+| Arzawa (17 texts) | KAL, MUŠEN.DÙ, SÍSKUR | *kurša-*, *maiantatar*, *pattar* |
 
 :::
 
@@ -277,7 +264,7 @@ These are ritual materials, offerings, performers and deities: the cultural and 
 
 ::: {.columns}
 ::: {.column width="58%"}
-![](img/orphans/orthography_profile.png){width="100%"}
+![](img/orphans/literature/orthography_profile.png){width="100%"}
 :::
 ::: {.column width="42%"}
 ::: {.small}
@@ -285,35 +272,35 @@ These are ritual materials, offerings, performers and deities: the cultural and 
 | Same word, plene spelling | where it clusters |
 |---|---|
 | *me-ma-a-i* (vs *me-ma-i*) | 18 of 46 Kizzuwatna–Lower Land texts, all CTH 628 and 712 |
-| *pé-e-ra-an* (vs *pé-ra-an*) | 5 Luwian texts, all CTH 665 |
-| *ḫal-za-i* (vs *ḫal-za-a-i*) | 9 of 27 Old Anatolian ritual texts |
+| *pé-e-ra-an* (vs *pé-ra-an*) | 5 of 19 Ištanuwa/Lallupiya texts, all CTH 665 |
+| *me-ma-a-i* | 10 of 79 Hattian-layer texts, CTH 591, 627, 733, 820 |
 
 :::
 
 - Spelling habits attach to **compositions and their copies**, not to whole traditions
-- The AZU corpus (CTH 701) stands out for plene writing
+- Palaic festivals: fewest logograms, most phonetic complements
 - Script date (MS vs NS) is **not** predicted by these rates inside CTH 701
 :::
 :::
 
 ::: {.notes}
 This is the QTM point: orthography marks the witness and its copying line; vocabulary marks the archetype.
-The ḫalzai contrast may be date (Old Hittite) rather than tradition; to check against script labels.
+The Hattian layer leans to plene writing and few logograms, which may be date (Old Hittite manuscripts) as much as tradition; to check against script labels.
 :::
 
 ---
 
 ## Word classes: function words and verbs are not where tradition lives
 
-![](img/orphans/wordclasses.png){fig-align="center" width="85%"}
+![](img/orphans/literature/wordclasses.png){fig-align="center" width="85%"}
 
 ::: {.small}
 The six categories of StBoT 73 Table 4, assigned from TLHdig's morphological analyses. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.
 :::
 
 ::: {.notes}
-Removing function words *raises* accuracy for the six traditions (69% → 74%): they are shared across traditions, a common scribal and syntactic layer.
-Alone they still reach 57% against 23%, so formulae differ between traditions, but less than realia (66%) or Hurrian words (83%).
+Removing function words, verbs or agents costs almost nothing for the nine traditions (82% → 81%): these classes are shared across traditions, a common scribal and syntactic layer.
+Alone they still reach 53–58% against 30%, so formulae differ between traditions, but less than realia (71%) or foreign words (87%). Removing foreign words costs the most (82% → 79%).
 Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (50% → 47%), yet 47% is still twice the majority baseline (21%), so the Hittite frame text also differs between the subgroups.
 :::
 
@@ -333,7 +320,7 @@ Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs 
 
 ::: {.columns}
 ::: {.column width="55%"}
-![](img/orphans/cth701_subgroups.png){width="100%"}
+![](img/orphans/literature/cth701_subgroups.png){width="100%"}
 :::
 ::: {.column width="45%"}
 - 82 manuscripts in 8 groups (a–f), labels from the Mainz Konkordanz (one Konkordanz error corrected)
@@ -356,10 +343,27 @@ Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs 
 
 ## Where do CTH 470 and EBo fragments go?
 
-![](img/orphans/orphans_by_tradition.png){fig-align="center" width="80%"}
+![](img/orphans/literature/orphans_by_tradition.png){fig-align="center" width="80%"}
 
 ::: {.small}
-Orphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision (0.020; bootstrap 90% interval 0.019–0.021, i.e. 461–548 orphans assigned).
+Orphans with 5+ legible words. A fragment is assigned only when its lead over the runner-up passes the margin at which the coverage experiment reaches 80% precision (0.017; bootstrap 90% interval 0.016–0.017, i.e. 868–925 orphans assigned).
+:::
+
+---
+
+## Does a fragment fit any known tradition?
+
+![](img/orphans/literature/openset.png){fig-align="center" width="80%"}
+
+::: {.small}
+Texts of genres outside the reference (Laroche's genre blocks; cult inventories, Cammarosano 2021; Luwian rituals of Puriyanni and Kuwattalla, CTH 758–763, Yakubovich and Mouton 2023), cut to 10-word windows, 5 folds. Orange: share placed in a tradition anyway. Blue: share recognised as outside when the outside genres become classes of their own.
+:::
+
+::: {.notes}
+The margin rule only asks "which tradition, if any": it still places 23–31% of myth, prayer, oracle, treaty, instruction and inventory windows, 43% of the Puriyanni/Kuwattalla windows, and 59% of festivals of other traditions.
+A "fit" floor (similarity below what 95% of reference windows reach) separates other genres fairly well (AUROC 0.77–0.88) but not other festivals (0.58).
+A genre gate works better: it recognises 87–97% of the other genres and 66% of the other festivals, at the cost of sending 21% of reference windows away.
+Applied to the orphans: 247 of 2,009 are closer to an outside genre than to any tradition, beyond the margin; 85 of them had been assigned, mostly Hattian-layer orphans that look like festivals of other traditions (30) and Kizzuwatna orphans that look like myths or instructions (10 each). These are candidates for re-filing.
 :::
 
 ---
@@ -372,7 +376,7 @@ Orphans with 5+ legible words. A fragment is assigned only when its lead over th
 - Archetypes with little coverage are transmissions we only see through the reference corpus. High coverage from orphans alone points to traditions that circulated widely in fragments.
 
 ::: {.notes}
-E6, first pass: the two ritual traditions (125 and 288 assigned orphans) attest all 200 of their core terms, the Hurrian festival groups 0.64–0.85, and "Mixed" (16 orphans) 0.58.
+E6, first pass: the Kizzuwatna rituals (529 assigned orphans) and the Hattian layer (134) attest 100% and 98% of their 200 core terms, the Hurrian festival groups 67–93%, and the Luwian and Palaic festivals, with 4–14 orphans each, 34–57%.
 Coverage grows with the number of orphans, so these numbers still need rarefaction (equal orphan counts per tradition) before they can be compared.
 :::
 
@@ -382,6 +386,8 @@ Coverage grows with the number of orphans, so these numbers still need rarefacti
 
 - **Normalisation:** TLHdig `trans` forms are uneven across editors, and broken words are dropped
 - **Preservation bias:** short fragments over-represent formulaic lines
+- **Open set:** the genre gate needs more outside classes; the Luwian rituals of Puriyanni and Kuwattalla (StBoT 72) are the obvious next tradition
+- **Function, not tradition:** festival manuscripts differ by use (Burgin 2019, StBoT 65), which word profiles may pick up
 - **Joins:** an orphan placed near a known manuscript is a candidate join to check on the tablet
 - **Palaeography:** link to sign-shape measurement (DANES 2025) for the same fragments
 - **Philological check:** worked examples (top-ranked orphans per tradition) for colleagues to verify

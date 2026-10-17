@@ -21,11 +21,17 @@ HISTORICAL = {
 # that argued for it; Laroche's CTH numbers stay the address of every text). See the doc
 # "Hittite ritual traditions: baselines and literature" for the sources.
 LITERATURE = {
-    # StBoT 73 Table 3, unchanged
+    # StBoT 73 Table 3, Hurrian groups unchanged
     "Kizzuwatna–Lower Land (Hurrian)": HISTORICAL["Kizzuwatna–Lower Land (Hurrian)"],
     "Syro-Mesopotamia (Hurrian)": HISTORICAL["Syro-Mesopotamia (Hurrian)"],
-    "Luwian cult centres": HISTORICAL["Luwian cult centres"],
     "Mixed (Hurrian, Syrian, Luwian)": HISTORICAL["Mixed (Hurrian, Syrian, Luwian)"],
+    # StBoT 73's "Luwian cult centres" split as the HFR edition modules split it (Hethitische
+    # Festrituale, hethport.net/HFR, edition_liste.php, accessed 2026-10-17; decision 2026-10-17):
+    # Luwian festivals as HFR lists them (665, 771-773; CTH 770 is not in the module and is left
+    # out), Ḫuwaššanna (690-694, Laroche titles), and HFR's Palaic festivals (750-754).
+    "Luwian festivals (Ištanuwa, Lallupiya)": [665, 771, 772, 773],
+    "Ḫuwaššanna festivals": [690, 691, 692, 693, 694],
+    "Palaic festivals": [750, 751, 752, 753, 754],
     # Miller 2004 (StBoT 46), Strauß 2006, Görke 2010: Laroche's Kizzuwatna block plus Maštigga (CTH 404).
     # CTH 500 ("Kizzuwatna ritual fragments", 235 of 399 manuscripts) is a fragment category, not an
     # identified composition: it made the class a generic-ritual attractor, so it is placed, not used
@@ -45,18 +51,7 @@ RESIDUE = {"CTH 390–469 residue": [c for c in range(390, 470) if c not in LITE
                                    and c not in LITERATURE["Kizzuwatna rituals"]],
            "CTH 500 Kizzuwatna fragments": [500]}
 
-# HFR test (Hethitische Festrituale, hethport.net/HFR): the literature groups, with the Luwian
-# festivals split as the HFR edition modules split them, plus the Palaic festivals. Only module
-# CTH lists that HFR states (edition_liste.php, accessed 2026-10-17) or that are Laroche's own
-# titles are used: Luwian festivals 665, 771-773 (as HFR lists them; CTH 770, in StBoT 73's Luwian
-# group, is not in the HFR module and is left out), Ḫuwaššanna 690-694 (Laroche titles), Palaic
-# festivals 750-754.
-HFR = {k: v for k, v in LITERATURE.items() if k != "Luwian cult centres"}
-HFR.update({"Luwian festivals (Ištanuwa, Lallupiya)": [665, 771, 772, 773],
-            "Ḫuwaššanna festivals": [690, 691, 692, 693, 694],
-            "Palaic festivals": [750, 751, 752, 753, 754]})
-
-GROUPSETS = {"historical": HISTORICAL, "literature": LITERATURE, "hfr": HFR}
+GROUPSETS = {"historical": HISTORICAL, "literature": LITERATURE}
 
 # the three CTHs named in the abstract
 ABSTRACT = {"CTH 670": [670], "CTH 701": [701], "CTH 832": [832]}

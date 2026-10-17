@@ -46,7 +46,7 @@ ax.legend(frameon=False, loc="upper left", fontsize=13)
 save(fig, "coverage_curve")
 
 # 2. reference-space validation: accuracy against both baselines
-REF_NAME = {"literature": "Literature-defined\ntraditions", "hfr": "Literature groups,\nHFR festival modules"}.get(rep.get("groups"), "Historical groups\n(Table 3 + rituals)")
+REF_NAME = {"literature": "Literature-defined\ntraditions"}.get(rep.get("groups"), "Historical groups\n(Table 3 + rituals)")
 rows = [(REF_NAME, rep["E1_historical"]["both"]),
         ("CTH 670 / 701 / 832\n(abstract)", rep["E1_abstract_670_701_832"]["both"]),
         ("CTH 701 subgroups\n(Salvini–Wegner)", rep["E3_cth701_subgroups"]["both"])]
@@ -90,4 +90,26 @@ for i, v in enumerate(rc.values):
 ax.set_yticks(range(len(rc)), [f"701.{s}" for s in rc.index])
 ax.set(xlim=(0, 1.1), xlabel="share recovered (leave-one-out)")
 save(fig, "cth701_subgroups")
+
+# 5. E9 open set: texts of known outside genres, cut to 10-word windows
+if (RES / "E9_report.json").exists():
+    e9 = json.loads((RES / "E9_report.json").read_text())["by_k"]["10"]
+    refw = e9.pop("reference")
+    e9.pop("fit_floor")
+    g = pd.DataFrame(e9).T.sort_values("gate_sent_outside")
+    fig, ax = plt.subplots(figsize=(11, 5.6))
+    ax.grid(axis="x", color=GRID, lw=1)
+    for i, (name, r) in enumerate(g.iterrows()):
+        ax.plot([r.placed, r.gate_sent_outside], [i, i], color=GRID, lw=3, zorder=1)
+        ax.plot(r.placed, i, "o", ms=11, color=SERIES["signs"], mec=SURF, mew=2, zorder=3)
+        ax.plot(r.gate_sent_outside, i, "o", ms=11, color=SERIES["words"], mec=SURF, mew=2, zorder=3)
+    ax.axvline(refw["gate_sent_outside"], color=INK2, lw=1.5, ls="--")
+    ax.text(refw["gate_sent_outside"] + 0.01, -0.85, f"reference texts sent away: {refw['gate_sent_outside']:.0%}",
+            color=INK2, fontsize=11)
+    ax.set_yticks(range(len(g)), g.index)
+    ax.set(xlim=(0, 1), ylim=(-1.1, len(g) - 0.5), xlabel="share of 10-word windows")
+    ax.plot([], [], "o", ms=10, color=SERIES["signs"], label="wrongly placed in a tradition (margin rule)")
+    ax.plot([], [], "o", ms=10, color=SERIES["words"], label="recognised as outside (genre gate)")
+    ax.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.4, 1.0), ncol=2, fontsize=12)
+    save(fig, "openset")
 print("figures in", OUT)
