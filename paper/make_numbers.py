@@ -192,6 +192,8 @@ def main():
         put(f"E5b.{key}.assigned", num(r["assigned"]), f"{src} E5b_residue.{name}")
         put(f"E5b.{key}.kizz", num(r["by_tradition"].get("Kizzuwatna rituals", 0)), f"{src} E5b_residue.{name}")
         put(f"E5b.{key}.hurrian", num(sum(r["by_tradition"].get(t, 0) for t in hurrian)), f"{src} E5b_residue.{name}")
+        for t in trad:
+            put(f"E5b.{key}.{slugify(t)}", num(r["by_tradition"].get(t, 0)), f"{src} E5b_residue.{name}.by_tradition")
 
     # ---- E7 layers, profiles, date check
     lay = e7["E7a_layers"]
@@ -276,6 +278,11 @@ def main():
     put("E9.fest.placed", pct(bk[fest]["placed"]), f"{MAIN}/E9_report.json by_k.{k}.{fest}")
     put("E9.fest.auroc", f"{bk[fest]['auroc']:.2f}", f"{MAIN}/E9_report.json by_k.{k}.{fest}")
     put("E9.fest.gate", pct(bk[fest]["gate_sent_outside"]), f"{MAIN}/E9_report.json by_k.{k}.{fest}")
+    for g in outside:
+        put(f"E9.{slugify(g)}.texts", num(e9["texts"][g]), f"{MAIN}/E9_report.json texts")
+        for key in ("placed", "gate_sent_outside"):
+            put(f"E9.{slugify(g)}.{key}", pct(bk[g][key]), f"{MAIN}/E9_report.json by_k.{k}.{g}")
+        put(f"E9.{slugify(g)}.auroc", f"{bk[g]['auroc']:.2f}", f"{MAIN}/E9_report.json by_k.{k}.{g}")
     put("E9.genres.count", words.get(len(genres), len(genres)), f"{MAIN}/E9_report.json texts")
     eo = e9["orphans"]
     put("E9.orph.scored", num(eo["scored"]), f"{MAIN}/E9_report.json orphans.scored")

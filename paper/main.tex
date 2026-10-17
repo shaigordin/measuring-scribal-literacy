@@ -190,11 +190,15 @@ literature (Table~\ref{tab:traditions}). The Hurrian festival groups follow Tabl
 \cite{gordin2025matters}. Its single Luwian group is split as the HFR edition modules split it,
 into the festivals of Ištanuwa and Lallupiya and those of Ḫuwaššanna, and HFR's Palaic
 festivals are added \cite{hfr}. The ritual traditions are the Kizzuwatna rituals as delimited
-by Miller \cite{miller2004studies}, the Arzawa rituals of Christiansen and Bawanypeck together
-with the rituals whose colophon names Arzawa or Ḫapalla as the practitioner's home
-\cite{christiansen2006ambazzi,bawanypeck2005auguren}, and the Hattian cult layer of Klinger
-\cite{klinger1996hattische}, whose texts we take from the citations of his study in the Mainz
-Konkordanz \cite{konkordanz}. The published grouping of \cite{gordin2025matters} with two
+by Miller \cite{miller2004studies}; the western (Arzawa) rituals, that is, the augur rituals
+\cite{bawanypeck2005auguren} and the rituals whose colophon names Arzawa or Ḫapalla as the
+practitioner's home; the Luwian rituals of Puriyanni, Kuwattalla and Šilalluḫi
+(\CTH{758}--763), which Yakubovich and Mouton place in the Lower Land rather than Kizzuwatna
+\cite{yakubovich2023luwili}; and the Hattian cult layer of Klinger \cite{klinger1996hattische},
+whose texts we take from the citations of his study in the Mainz Konkordanz \cite{konkordanz}.
+The Ambazzi rituals (\CTH{391}, 429, 463) show Luwian influence but no stated link to Arzawa
+\cite{christiansen2006ambazzi}, so they are not part of the western group and are placed with
+the residue. The published grouping of \cite{gordin2025matters} with two
 CTH-range controls (\CTH{471}--500 and \CTH{390}--469) is run as the baseline.
 
 Two sets leave the reference and are placed like orphans. \CTH{500}, ``fragments of festival
@@ -275,8 +279,8 @@ The margin rule asks only which tradition is nearest. To measure how often it is
 score texts whose genre is known and lies outside the reference, taken from Laroche's own genre
 blocks: myths, prayers and hymns, oracles, historical texts and treaties, instructions, cult
 inventories \cite{cammarosano2021inventories}, festivals of traditions not in the reference, and
-the Luwian rituals of Puriyanni, Kuwattalla and Šilalluḫi (\CTH{758}--763), which Yakubovich and
-Mouton place in the Lower Land \cite{yakubovich2023luwili}. Reference and outside texts are cut
+the Luwian rituals of Taurisa (\CTH{764}--766), a further Luwian ritual tradition outside the
+reference. Reference and outside texts are cut
 into windows and scored in five folds. We measure the share of outside windows that pass the
 margin, how well the top similarity separates reference from outside windows (AUROC), and a
 \term{genre gate} in which the outside genres become classes of their own.
@@ -480,7 +484,9 @@ separates other genres fairly well (AUROC \Q{E9.genres.auroc.lo}--\Q{E9.genres.a
 not other festivals (\Q{E9.fest.auroc}). A genre gate works better: with the outside genres as
 classes of their own, \Q{E9.genres.gate.lo}--\Q{E9.genres.gate.hi} of their windows and
 \Q{E9.fest.gate} of the other festivals are recognised as outside, at the cost of sending
-\Q{E9.ref.gate} of reference windows away.
+\Q{E9.ref.gate} of reference windows away. The Luwian rituals of Taurisa are placed in \Q{E9.luwianritualsoftaurisa.placed} of
+windows and recognised by the gate in \Q{E9.luwianritualsoftaurisa.gate_sent_outside}, but rest
+on only \Q{E9.luwianritualsoftaurisa.texts} texts.
 
 \begin{table}[t]
   \caption{Open-set test, windows of \Q{E9.k} words, five folds. Placed: share passing the
@@ -541,9 +547,10 @@ The residue result shows the main risk of the method. A fragment is placed by wh
 with the reference, and the largest shared layer is genre. A Hittite ritual from outside every
 reference tradition will look most like the largest ritual class. The open-set test shows the
 same risk across genres. A placement should therefore be read as ``nearest of these'' unless the
-reference includes the plausible alternatives as classes; the genre gate is a first step, and
-each new tradition (such as the Luwian rituals of \CTH{758}--763 \cite{yakubovich2023luwili})
-narrows the gap.
+reference includes the plausible alternatives as classes. The genre gate is a first step, and
+each new tradition narrows the gap: with the Luwian rituals of \CTH{758}--763 in the reference,
+\Q{E5b.res.luwianritualspuriyannikuwattalla} residue texts are placed with them rather than with
+a larger ritual class.
 
 \paragraph{Limitations.}
 TLHdig's normalised forms are uneven across editors, and broken words are dropped, so short
