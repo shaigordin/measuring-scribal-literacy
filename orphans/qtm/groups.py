@@ -37,10 +37,16 @@ LITERATURE = {
     # identified composition: it made the class a generic-ritual attractor, so it is placed, not used
     # (decision 2026-10-17).
     "Kizzuwatna rituals": list(range(471, 500)) + [404],
-    # Christiansen 2006 (StBoT 48: Ambazzi, CTH 391, 429, 463); Bawanypeck 2005 (augurs, CTH 425, 433);
-    # rituals whose colophon names Arzawa or Ḫapalla as the practitioner's home: Ašḫella (394), Alli (402),
-    # Paškuwatti (406), Uḫḫamuwa (410) (CTH titles; Mouton 2010, Bawanypeck 2013). Added 2026-10-17.
-    "Arzawa / western rituals": [391, 425, 429, 433, 463] + [394, 402, 406, 410],
+    # Western (Arzawa) rituals: practitioners whose colophon names Arzawa or Ḫapalla, Ašḫella (394),
+    # Alli (402), Paškuwatti (406), Uḫḫamuwa (410) (CTH titles; Mouton 2010, Bawanypeck 2013), and the
+    # augur rituals (Bawanypeck 2005, THeth 25: CTH 425, 433), one of which names an augur from Arzawa
+    # (Archi 2015, BiOr 72: the augur rituals are held to be western Anatolian, in particular Arzawan).
+    # The Ambazzi rituals (CTH 391, 429, 463; Christiansen 2006, StBoT 48) show Luwian influence but
+    # no stated link to Arzawa, so they left the group on 2026-10-17 and are placed like orphans.
+    "Arzawa / western rituals": [394, 402, 406, 410, 425, 433],
+    # Luwian rituals of Puriyanni, Kuwattalla and Šilalluḫi (Yakubovich and Mouton 2023, Luwili, StBoT 72;
+    # Mouton and Yakubovich 2021, JLR 19/1): a Lower Land tradition, not Kizzuwatna. Added 2026-10-17.
+    "Luwian rituals (Puriyanni, Kuwattalla)": [758, 759, 760, 761, 762, 763],
     # Klinger 1996 (StBoT 37): Monatsfest and KI.LAM editions, Hattian and Hattian-Hittite texts.
     # From the Portal Konkordanz citations of StBoT 37 (CTH 730 is not cited there).
     "Hattian cult layer": [591, 627] + [c for c in range(725, 747) if c != 730] + [820, 821],

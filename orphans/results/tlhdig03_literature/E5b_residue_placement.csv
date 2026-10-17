@@ -1,536 +1,542 @@
 txtid,cth,n_words,assigned,top_sim,gap
-KUB 44.44,500,44,Syro-Mesopotamia (Hurrian),0.4713,0.1452
-DAAM 3.121,500,29,Syro-Mesopotamia (Hurrian),0.3581,0.1083
-KUB 7.53+,409,1204,Kizzuwatna rituals,0.4439,0.1004
-KUB 39.27,450,62,Hattian cult layer,0.3647,0.0959
-KBo 12.121,500,20,Syro-Mesopotamia (Hurrian),0.3369,0.0948
-IBoT 4.24,450,24,Hattian cult layer,0.3117,0.0939
-CHDS 7.54+,500,49,Kizzuwatna rituals,0.3011,0.0905
-KBo 10.45+,446,1207,Kizzuwatna rituals,0.4266,0.0902
+KBo 64.11,409,32,"Luwian rituals (Puriyanni, Kuwattalla)",0.4197,0.2805
+KBo 53.222+,409,49,"Luwian rituals (Puriyanni, Kuwattalla)",0.4237,0.2335
+CHDS 7.140+,409,71,"Luwian rituals (Puriyanni, Kuwattalla)",0.4593,0.2166
+KBo 9.125+,409,193,"Luwian rituals (Puriyanni, Kuwattalla)",0.5271,0.2108
+KUB 9.34,409,536,"Luwian rituals (Puriyanni, Kuwattalla)",0.5083,0.1701
+KUB 44.44,500,44,Syro-Mesopotamia (Hurrian),0.4714,0.1453
+KBo 60.21,409,17,"Luwian rituals (Puriyanni, Kuwattalla)",0.2813,0.1168
+KBo 47.130+,409,99,"Luwian rituals (Puriyanni, Kuwattalla)",0.4024,0.1122
+KUB 55.20+,409,496,"Luwian rituals (Puriyanni, Kuwattalla)",0.4548,0.1093
+DAAM 3.121,500,29,Syro-Mesopotamia (Hurrian),0.3582,0.1084
+KBo 10.45+,446,1207,Kizzuwatna rituals,0.4263,0.1031
+KUB 7.53+,409,1204,Kizzuwatna rituals,0.4411,0.0994
+KUB 39.27,450,62,Hattian cult layer,0.3648,0.0958
+KBo 12.121,500,20,Syro-Mesopotamia (Hurrian),0.3371,0.095
+IBoT 4.24,450,24,Hattian cult layer,0.3118,0.0938
+KBo 48.89+,446,845,Kizzuwatna rituals,0.4133,0.0925
+CHDS 7.54+,500,49,Kizzuwatna rituals,0.3011,0.0906
 KBo 59.57,500,19,Syro-Mesopotamia (Hurrian),0.3157,0.0899
-KBo 4.2+,398,1134,Kizzuwatna rituals,0.4311,0.0881
-KBo 48.89+,446,845,Kizzuwatna rituals,0.4134,0.0865
-KBo 59.58+,500,311,Kizzuwatna rituals,0.3785,0.086
-KBo 9.117,500,50,Kizzuwatna rituals,0.3398,0.0832
-KBo 44.113,500,20,Syro-Mesopotamia (Hurrian),0.2892,0.0827
-KBo 38.262,500,26,Syro-Mesopotamia (Hurrian),0.2794,0.0824
-KUB 43.55,448,288,Kizzuwatna rituals,0.4362,0.0823
-KBo 40.33,500,20,Syro-Mesopotamia (Hurrian),0.3492,0.0803
-ABoT 2.90,500,26,Syro-Mesopotamia (Hurrian),0.2605,0.0803
-KUB 4.47,432,552,Kizzuwatna rituals,0.3879,0.0737
-KBo 12.106+,412,388,Kizzuwatna rituals,0.3197,0.0734
-KBo 55.48,448,42,Kizzuwatna rituals,0.2887,0.0733
-KBo 69.321+,409,43,Kizzuwatna rituals,0.2924,0.0725
-KBo 30.95,500,19,"Mixed (Hurrian, Syrian, Luwian)",0.3623,0.0709
-KBo 41.44,500,26,Syro-Mesopotamia (Hurrian),0.3198,0.0707
-KBo 35.228,500,40,Syro-Mesopotamia (Hurrian),0.3817,0.0701
-KBo 38.256,500,41,Kizzuwatna–Lower Land (Hurrian),0.2935,0.0699
-KUB 44.50,500,143,Kizzuwatna rituals,0.3394,0.0698
-KBo 62.38,500,101,Kizzuwatna rituals,0.3234,0.0695
-KBo 62.13,500,36,Syro-Mesopotamia (Hurrian),0.3466,0.0693
-KBo 57.106,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.2559,0.0676
-KBo 8.108,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.2839,0.0671
+KBo 4.2+,398,1134,Kizzuwatna rituals,0.4307,0.0879
+KBo 59.58+,500,311,Kizzuwatna rituals,0.3785,0.0859
+KBo 44.113,500,20,Syro-Mesopotamia (Hurrian),0.2891,0.0828
+KBo 9.117,500,50,Kizzuwatna rituals,0.3393,0.0827
+KBo 38.262,500,26,Syro-Mesopotamia (Hurrian),0.2795,0.0825
+KUB 43.55,448,288,Kizzuwatna rituals,0.4363,0.0823
+KBo 40.33,500,20,Syro-Mesopotamia (Hurrian),0.3494,0.0805
+ABoT 2.90,500,26,Syro-Mesopotamia (Hurrian),0.2607,0.0804
+KUB 59.46+,409,90,"Luwian rituals (Puriyanni, Kuwattalla)",0.386,0.0778
+KBo 29.197+,409,44,"Luwian rituals (Puriyanni, Kuwattalla)",0.3702,0.0742
+KUB 4.47,432,552,Kizzuwatna rituals,0.3877,0.0737
+KBo 55.48,448,42,Kizzuwatna rituals,0.2889,0.0733
+KBo 12.106+,412,388,Kizzuwatna rituals,0.3207,0.0733
+KBo 69.321+,409,43,Kizzuwatna rituals,0.2922,0.0725
+KBo 41.44,500,26,Syro-Mesopotamia (Hurrian),0.3201,0.0708
+KBo 30.95,500,19,"Mixed (Hurrian, Syrian, Luwian)",0.3621,0.0706
+KBo 35.228,500,40,Syro-Mesopotamia (Hurrian),0.3818,0.0702
+KBo 38.256,500,41,Kizzuwatna–Lower Land (Hurrian),0.2936,0.07
+KUB 44.50,500,143,Kizzuwatna rituals,0.3395,0.0698
+KBo 62.38,500,101,Kizzuwatna rituals,0.3236,0.0694
+KBo 62.13,500,36,Syro-Mesopotamia (Hurrian),0.3467,0.0693
+KBo 57.106,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.256,0.0676
+KBo 8.108,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.2837,0.0668
 VSNF 12.80,500,40,Kizzuwatna rituals,0.2622,0.0657
-KUB 7.41,446,241,Kizzuwatna rituals,0.3777,0.065
-KUB 24.12,448,295,Kizzuwatna rituals,0.3356,0.0644
-KBo 21.6,409,101,Kizzuwatna rituals,0.3393,0.0628
-CHDS 5.162,500,247,Kizzuwatna rituals,0.3758,0.0627
-KBo 47.52,500,17,Kizzuwatna–Lower Land (Hurrian),0.2544,0.062
-KBo 14.108,500,35,Kizzuwatna rituals,0.2633,0.0618
-KBo 31.142,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.3685,0.0615
-IBoT 4.162,500,28,Kizzuwatna–Lower Land (Hurrian),0.31,0.0613
-KBo 58.17+,413,605,Kizzuwatna rituals,0.3503,0.0612
-DAAM 6.113,500,80,Kizzuwatna rituals,0.33,0.0607
-IBoT 4.312+,500,238,Kizzuwatna–Lower Land (Hurrian),0.3964,0.0602
-KBo 21.1+,409,458,Kizzuwatna rituals,0.3652,0.0584
-KBo 29.197+,409,44,Kizzuwatna rituals,0.3025,0.0581
-KBo 21.20,461,170,Kizzuwatna rituals,0.3347,0.0581
-KBo 43.45,500,19,Syro-Mesopotamia (Hurrian),0.3154,0.0568
-KUB 59.48,448,28,Kizzuwatna rituals,0.2457,0.0561
-KUB 44.55,500,65,Kizzuwatna rituals,0.318,0.0559
-KUB 9.28,442,416,Kizzuwatna rituals,0.405,0.0549
-KUB 39.41,450,107,Kizzuwatna rituals,0.3202,0.0549
-CHDS 7.70,452,50,Kizzuwatna rituals,0.2543,0.0548
-KUB 12.22,450,30,Kizzuwatna rituals,0.2826,0.0541
-KBo 22.161,500,65,Kizzuwatna rituals,0.3568,0.0538
-KBo 33.159,500,26,Kizzuwatna rituals,0.2547,0.0538
-KUB 60.157,458,179,Kizzuwatna rituals,0.3622,0.0535
-KBo 59.41+,500,21,Kizzuwatna rituals,0.2428,0.0534
-KBo 27.54,500,72,Kizzuwatna–Lower Land (Hurrian),0.3721,0.053
-KUB 7.2,408,245,Kizzuwatna rituals,0.3636,0.0529
-KBo 59.60,500,50,Syro-Mesopotamia (Hurrian),0.3643,0.0525
-KBo 71.182,418,86,Kizzuwatna rituals,0.3514,0.0519
-IBoT 4.23,450,33,Kizzuwatna rituals,0.2752,0.0515
-KBo 27.203,500,64,Kizzuwatna rituals,0.2687,0.0514
-KBo 21.23,500,107,Syro-Mesopotamia (Hurrian),0.43,0.0514
-HHCTO 8,500,31,Kizzuwatna–Lower Land (Hurrian),0.2988,0.0514
-KUB 46.61,500,54,Syro-Mesopotamia (Hurrian),0.3636,0.051
-KBo 59.12,450,18,Kizzuwatna rituals,0.235,0.0508
-CHDS 7.46+,448,69,Kizzuwatna rituals,0.3063,0.0502
+KBo 47.52,500,17,Kizzuwatna–Lower Land (Hurrian),0.2665,0.0656
+KUB 7.41,446,241,Kizzuwatna rituals,0.3797,0.0652
+KUB 24.12,448,295,Kizzuwatna rituals,0.3354,0.0643
+CHDS 5.162,500,247,Kizzuwatna rituals,0.376,0.0628
+KBo 14.108,500,35,Kizzuwatna rituals,0.2634,0.0618
+KBo 31.142,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.3688,0.0617
+IBoT 4.162,500,28,Kizzuwatna–Lower Land (Hurrian),0.3104,0.0614
+KBo 58.17+,413,605,Kizzuwatna rituals,0.3501,0.0611
+DAAM 6.113,500,80,Kizzuwatna rituals,0.3303,0.0608
+IBoT 4.312+,500,238,Kizzuwatna–Lower Land (Hurrian),0.3967,0.0602
+KUB 44.55,500,65,Kizzuwatna rituals,0.3181,0.0595
+KUB 60.157,458,179,Kizzuwatna rituals,0.3622,0.0591
+KBo 21.1+,409,458,Kizzuwatna rituals,0.3651,0.0583
+KBo 24.2,409,39,"Luwian rituals (Puriyanni, Kuwattalla)",0.2829,0.0583
+KBo 21.20,461,170,Kizzuwatna rituals,0.3343,0.0581
+KBo 43.45,500,19,Syro-Mesopotamia (Hurrian),0.3154,0.0569
+VBoT 111,412,80,Kizzuwatna rituals,0.2663,0.0569
+KUB 48.112,500,45,Kizzuwatna rituals,0.2497,0.0568
+KUB 59.48,448,28,Kizzuwatna rituals,0.2456,0.0558
+KUB 12.22,450,30,Kizzuwatna rituals,0.2827,0.0557
+CHDS 7.70,452,50,Kizzuwatna rituals,0.257,0.0554
+KUB 9.28,442,416,Kizzuwatna rituals,0.4059,0.055
+KUB 39.41,450,107,Kizzuwatna rituals,0.3189,0.0547
+KBo 22.161,500,65,Kizzuwatna rituals,0.3589,0.054
+KUB 58.101,434,106,Kizzuwatna rituals,0.32,0.0538
+KBo 59.41+,500,21,Kizzuwatna rituals,0.243,0.0535
+KUB 57.28,458,20,"Luwian rituals (Puriyanni, Kuwattalla)",0.198,0.0534
+KBo 33.159,500,26,Kizzuwatna rituals,0.2546,0.0533
+KBo 27.54,500,72,Kizzuwatna–Lower Land (Hurrian),0.3722,0.053
+KUB 7.2,408,245,Kizzuwatna rituals,0.3636,0.0528
+KBo 59.60,500,50,Syro-Mesopotamia (Hurrian),0.3644,0.0525
+KBo 71.182,418,86,Kizzuwatna rituals,0.3513,0.0518
+CHDS 7.46+,448,69,Kizzuwatna rituals,0.3131,0.0516
+KBo 27.203,500,64,Kizzuwatna rituals,0.269,0.0515
+HHCTO 8,500,31,Kizzuwatna–Lower Land (Hurrian),0.299,0.0514
+KBo 21.23,500,107,Syro-Mesopotamia (Hurrian),0.4303,0.0514
+IBoT 4.23,450,33,Kizzuwatna rituals,0.2728,0.0512
+KUB 46.61,500,54,Syro-Mesopotamia (Hurrian),0.3639,0.0511
+HHT 76+,448,63,Kizzuwatna rituals,0.3025,0.0509
+KBo 59.12,450,18,Kizzuwatna rituals,0.2349,0.0506
 KBo 64.331,500,17,Syro-Mesopotamia (Hurrian),0.2558,0.0502
-KUB 48.112,500,45,Kizzuwatna rituals,0.2547,0.05
 VBoT 109,500,32,Kizzuwatna rituals,0.2805,0.05
-KBo 70.2,500,83,Syro-Mesopotamia (Hurrian),0.3611,0.0494
-HHT 76+,448,63,Kizzuwatna rituals,0.2955,0.0494
-IBoT 2.99,500,28,Kizzuwatna–Lower Land (Hurrian),0.1925,0.0492
-KBo 8.68,500,156,Kizzuwatna rituals,0.3688,0.0492
-KBo 21.23+,500,110,Syro-Mesopotamia (Hurrian),0.4251,0.0486
-KBo 31.161,500,21,Syro-Mesopotamia (Hurrian),0.2642,0.0485
-KUB 51.82,500,42,Kizzuwatna rituals,0.3223,0.0484
-KBo 47.130+,409,99,Kizzuwatna rituals,0.2986,0.0484
-KUB 46.30+,448,140,Kizzuwatna rituals,0.3451,0.0483
-KBo 62.14,500,47,Kizzuwatna rituals,0.3282,0.048
-KBo 13.167,500,121,Syro-Mesopotamia (Hurrian),0.3894,0.0477
-KBo 8.80,500,35,Syro-Mesopotamia (Hurrian),0.3527,0.0476
-KBo 24.4+,408,139,Kizzuwatna rituals,0.3262,0.0476
-KBo 14.27,500,43,Kizzuwatna–Lower Land (Hurrian),0.2932,0.047
-KBo 53.42+,450,37,"Luwian festivals (Ištanuwa, Lallupiya)",0.2577,0.047
-KUB 44.61,461,219,Kizzuwatna rituals,0.3415,0.047
-KUB 30.15+,450,485,Kizzuwatna rituals,0.442,0.0469
-KBo 71.130,430,37,Kizzuwatna rituals,0.2611,0.0463
-KBo 18.193,460,62,Kizzuwatna rituals,0.2225,0.0461
-KBo 17.62+,409,178,Kizzuwatna rituals,0.3339,0.0461
-KBo 17.7+,416,638,Hattian cult layer,0.3597,0.0459
+KBo 70.2,500,83,Syro-Mesopotamia (Hurrian),0.3613,0.0494
+KBo 8.68,500,156,Kizzuwatna rituals,0.3691,0.0493
+IBoT 2.99,500,28,Kizzuwatna–Lower Land (Hurrian),0.1926,0.0492
+KBo 21.23+,500,110,Syro-Mesopotamia (Hurrian),0.4254,0.0487
+KUB 51.82,500,42,Kizzuwatna rituals,0.3225,0.0485
+KBo 31.161,500,21,Syro-Mesopotamia (Hurrian),0.2642,0.0484
+KUB 46.30+,448,140,Kizzuwatna rituals,0.3449,0.0483
+KBo 62.14,500,47,Kizzuwatna rituals,0.3279,0.0479
+KBo 8.80,500,35,Syro-Mesopotamia (Hurrian),0.3528,0.0477
+KBo 13.167,500,121,Syro-Mesopotamia (Hurrian),0.3896,0.0477
+KBo 24.4+,408,139,Kizzuwatna rituals,0.3248,0.0473
+KUB 44.61,461,219,Kizzuwatna rituals,0.3417,0.0471
+KBo 14.27,500,43,Kizzuwatna–Lower Land (Hurrian),0.2932,0.0471
+KBo 18.193,460,62,Kizzuwatna rituals,0.2271,0.0471
+KBo 53.42+,450,37,"Luwian festivals (Ištanuwa, Lallupiya)",0.2578,0.047
+KUB 30.15+,450,485,Kizzuwatna rituals,0.4428,0.047
+KBo 21.21,461,73,Kizzuwatna rituals,0.2862,0.0469
+KBo 71.130,430,37,Kizzuwatna rituals,0.2598,0.046
+KBo 15.22+,408,160,Kizzuwatna rituals,0.2864,0.046
+KBo 17.7+,416,638,Hattian cult layer,0.3598,0.0459
+KBo 17.62+,409,178,Kizzuwatna rituals,0.3331,0.0459
+KUB 55.30,500,31,Kizzuwatna–Lower Land (Hurrian),0.275,0.0459
 CHDS 4.203,500,22,Kizzuwatna rituals,0.2467,0.0458
-KUB 55.30,500,31,Kizzuwatna–Lower Land (Hurrian),0.2746,0.0458
-DBH 46_2.156,500,97,Kizzuwatna rituals,0.3373,0.0455
-KBo 47.45,500,34,Kizzuwatna rituals,0.2418,0.0452
-KBo 55.46,446,120,Kizzuwatna rituals,0.331,0.0452
-KBo 25.8+,416,161,Hattian cult layer,0.3,0.0451
-KBo 42.18,500,27,Syro-Mesopotamia (Hurrian),0.2998,0.0448
-CHDS 6.99,448,27,Kizzuwatna rituals,0.2421,0.0444
-KUB 55.66,448,87,Kizzuwatna rituals,0.2727,0.0441
-KBo 15.1,407,496,Kizzuwatna rituals,0.3526,0.044
-KBo 40.32,500,34,Kizzuwatna–Lower Land (Hurrian),0.3408,0.0437
+DBH 46_2.156,500,97,Kizzuwatna rituals,0.3374,0.0456
+KBo 47.45,500,34,Kizzuwatna rituals,0.2419,0.0452
+KBo 25.8+,416,161,Hattian cult layer,0.2999,0.0451
+KBo 55.46,446,120,Kizzuwatna rituals,0.33,0.045
+KUB 7.44+,409,60,Kizzuwatna rituals,0.256,0.0445
+CHDS 6.99,448,27,Kizzuwatna rituals,0.2419,0.0444
+KUB 55.66,448,87,Kizzuwatna rituals,0.2728,0.0442
+KBo 15.1,407,496,Kizzuwatna rituals,0.3528,0.044
+KBo 42.18,500,27,Syro-Mesopotamia (Hurrian),0.2925,0.0439
 KBo 7.62,500,22,Kizzuwatna rituals,0.2334,0.0437
-KBo 53.33+,427,704,Kizzuwatna rituals,0.369,0.0437
-KBo 56.14,412,19,Kizzuwatna rituals,0.2241,0.0432
-KBo 30.33+,416,742,Hattian cult layer,0.3655,0.0428
-KBo 45.212,460,53,Kizzuwatna–Lower Land (Hurrian),0.1625,0.0423
-KBo 53.84+,500,190,Kizzuwatna–Lower Land (Hurrian),0.4127,0.0421
-KBo 31.220,460,32,Kizzuwatna rituals,0.1745,0.042
-KBo 47.55,500,52,Syro-Mesopotamia (Hurrian),0.3135,0.042
-KBo 39.12,446,39,Kizzuwatna rituals,0.2793,0.0419
-KBo 66.11,500,42,Kizzuwatna rituals,0.2753,0.0415
-KBo 55.268,500,29,Syro-Mesopotamia (Hurrian),0.2736,0.0414
-KBo 55.37,408,22,Kizzuwatna rituals,0.1549,0.0413
-KBo 44.107,500,27,Kizzuwatna rituals,0.2467,0.0413
-KBo 33.210,500,25,Kizzuwatna–Lower Land (Hurrian),0.2079,0.0413
-KBo 10.36,448,107,Kizzuwatna rituals,0.3634,0.0412
-KBo 42.17,458,70,Kizzuwatna rituals,0.2791,0.041
-KUB 58.101,434,106,Kizzuwatna rituals,0.3127,0.0409
-KUB 39.25,450,21,Hattian cult layer,0.2227,0.0404
-KBo 21.10,427,40,Kizzuwatna rituals,0.2526,0.0398
-KBo 41.40+,411,52,Kizzuwatna rituals,0.2572,0.0397
-DAAM 6.37,500,26,Kizzuwatna rituals,0.2594,0.0396
+KBo 40.32,500,34,Kizzuwatna–Lower Land (Hurrian),0.341,0.0436
+KBo 53.33+,427,704,Kizzuwatna rituals,0.3684,0.0436
+KBo 56.14,412,19,Kizzuwatna rituals,0.2249,0.0433
+KBo 20.75,500,77,Kizzuwatna rituals,0.2802,0.0429
+KBo 30.33+,416,742,Hattian cult layer,0.3657,0.0428
+KBo 45.212,460,53,Kizzuwatna–Lower Land (Hurrian),0.1628,0.0425
+KBo 53.84+,500,190,Kizzuwatna–Lower Land (Hurrian),0.4129,0.0421
+KBo 47.55,500,52,Syro-Mesopotamia (Hurrian),0.3136,0.042
+KBo 31.220,460,32,Kizzuwatna rituals,0.1747,0.042
+KBo 39.12,446,39,Kizzuwatna rituals,0.2793,0.0418
+KBo 66.11,500,42,Kizzuwatna rituals,0.2754,0.0416
+KBo 55.37,408,22,Kizzuwatna rituals,0.1551,0.0415
+KBo 44.107,500,27,Kizzuwatna rituals,0.2468,0.0414
+KBo 55.268,500,29,Syro-Mesopotamia (Hurrian),0.2737,0.0413
+KBo 33.210,500,25,Kizzuwatna–Lower Land (Hurrian),0.2078,0.0412
+KBo 10.36,448,107,Kizzuwatna rituals,0.3635,0.0412
+KBo 42.17,458,70,Kizzuwatna rituals,0.2789,0.0409
+KUB 39.25,450,21,Hattian cult layer,0.2229,0.0404
+KBo 21.10,427,40,Kizzuwatna rituals,0.2524,0.0398
+DAAM 6.37,500,26,Kizzuwatna rituals,0.2596,0.0396
 KUB 41.4+,435,86,Kizzuwatna rituals,0.3047,0.0395
-KBo 34.95,500,30,"Mixed (Hurrian, Syrian, Luwian)",0.3354,0.0391
-KBo 20.75,500,77,Kizzuwatna rituals,0.2797,0.039
-KBo 21.7,448,34,Kizzuwatna rituals,0.2527,0.0388
-KUB 42.94+,448,150,Kizzuwatna rituals,0.3038,0.0382
-KBo 31.152,500,37,Kizzuwatna–Lower Land (Hurrian),0.2671,0.038
-KBo 55.83,459,59,Kizzuwatna rituals,0.3058,0.0376
-KUB 39.45,450,84,Kizzuwatna rituals,0.2247,0.0375
-KUB 12.63+,412,401,Kizzuwatna rituals,0.3431,0.0373
-KBo 55.66,460,20,Kizzuwatna rituals,0.1385,0.0373
-KBo 40.28,500,32,Kizzuwatna rituals,0.2252,0.0371
-KBo 49.125,500,46,"Mixed (Hurrian, Syrian, Luwian)",0.2778,0.0371
-KUB 44.52,500,90,Kizzuwatna rituals,0.3053,0.037
-KBo 31.157,500,20,Kizzuwatna–Lower Land (Hurrian),0.1715,0.0369
-KUB 47.88,457,21,Kizzuwatna rituals,0.2079,0.0369
-KUB 47.91,500,38,Syro-Mesopotamia (Hurrian),0.2858,0.0368
-KBo 34.218,500,51,Kizzuwatna–Lower Land (Hurrian),0.2933,0.0367
-KBo 22.100,412,20,"Mixed (Hurrian, Syrian, Luwian)",0.1865,0.0367
-KBo 53.90,500,23,Kizzuwatna rituals,0.2573,0.0367
-DAAM 3.97,448,42,Kizzuwatna rituals,0.218,0.0355
-KUB 39.56,500,51,Kizzuwatna rituals,0.2358,0.0354
-VSNF 12.102,500,22,"Mixed (Hurrian, Syrian, Luwian)",0.2252,0.0351
-KBo 46.74,500,17,"Mixed (Hurrian, Syrian, Luwian)",0.1733,0.0351
-KUB 58.77,428,120,Kizzuwatna rituals,0.3476,0.035
-KUB 43.41,448,55,Kizzuwatna rituals,0.2882,0.035
+KBo 41.40+,411,52,Kizzuwatna rituals,0.2561,0.0394
+KBo 34.95,500,30,"Mixed (Hurrian, Syrian, Luwian)",0.3357,0.0392
+KBo 21.7,448,34,Kizzuwatna rituals,0.2528,0.0388
+KUB 42.94+,448,150,Kizzuwatna rituals,0.3042,0.0382
+KBo 31.152,500,37,Kizzuwatna–Lower Land (Hurrian),0.2673,0.038
+KBo 22.111,409,55,Kizzuwatna rituals,0.2636,0.0377
+KBo 71.183,430,169,Kizzuwatna rituals,0.3115,0.0375
+KUB 39.45,450,84,Kizzuwatna rituals,0.2248,0.0374
+KBo 55.66,460,20,Kizzuwatna rituals,0.1386,0.0373
+KUB 12.63+,412,401,Kizzuwatna rituals,0.3429,0.0372
+KBo 49.125,500,46,"Mixed (Hurrian, Syrian, Luwian)",0.278,0.0372
+KUB 44.52,500,90,Kizzuwatna rituals,0.3055,0.0371
+KBo 40.28,500,32,Kizzuwatna rituals,0.2254,0.0371
+KBo 31.157,500,20,Kizzuwatna–Lower Land (Hurrian),0.1718,0.037
+KBo 34.218,500,51,Kizzuwatna–Lower Land (Hurrian),0.2935,0.0369
+KUB 47.88,457,21,Kizzuwatna rituals,0.208,0.0369
+KUB 47.91,500,38,Syro-Mesopotamia (Hurrian),0.2856,0.0367
+KBo 53.90,500,23,Kizzuwatna rituals,0.2573,0.0366
+KBo 55.74+,461,26,Kizzuwatna rituals,0.2577,0.0365
+KBo 55.83,459,59,Kizzuwatna rituals,0.2981,0.0364
+KUB 43.41,448,55,Kizzuwatna rituals,0.2911,0.0356
+DAAM 3.97,448,42,Kizzuwatna rituals,0.2183,0.0356
+CHDS 6.64,409,37,Kizzuwatna rituals,0.1907,0.0353
+KUB 39.56,500,51,Kizzuwatna rituals,0.2344,0.0353
+VSNF 12.102,500,22,"Mixed (Hurrian, Syrian, Luwian)",0.2253,0.0351
+KUB 58.77,428,120,Kizzuwatna rituals,0.3478,0.035
 KBo 35.112,500,18,Kizzuwatna rituals,0.2917,0.0349
-KBo 15.22+,408,160,Kizzuwatna rituals,0.2857,0.0349
-KUB 59.62,460,30,Kizzuwatna rituals,0.2086,0.0348
-KUB 39.46,450,37,Kizzuwatna rituals,0.2352,0.0345
-CHDS 6.64,409,37,Kizzuwatna rituals,0.1907,0.0342
-KBo 56.19,500,39,Kizzuwatna–Lower Land (Hurrian),0.2746,0.0339
-KUB 53.59,458,34,Hattian cult layer,0.2154,0.0339
-KBo 25.184,450,438,Hattian cult layer,0.4215,0.0338
-KBo 59.14,453,28,Arzawa / western rituals,0.2041,0.0338
-KUB 4.1,422,501,Kizzuwatna rituals,0.3587,0.0336
-KBo 21.21,461,73,Kizzuwatna rituals,0.2867,0.0335
-KBo 48.95,446,36,Kizzuwatna rituals,0.236,0.0335
-IBoT 3.112,448,24,Kizzuwatna rituals,0.2176,0.0333
-VBoT 111,412,80,Kizzuwatna rituals,0.2662,0.0332
-KBo 55.42,444,42,Kizzuwatna rituals,0.2674,0.0332
-DBH 46_2.114,500,33,Kizzuwatna rituals,0.2433,0.0329
-KBo 9.125+,409,193,Kizzuwatna rituals,0.3262,0.0328
-KUB 59.46+,409,90,Kizzuwatna rituals,0.3137,0.0327
-ABoT 2.29,446,27,Kizzuwatna rituals,0.2207,0.0326
-DAAM 3.127,409,36,"Luwian festivals (Ištanuwa, Lallupiya)",0.225,0.0326
-ABoT 2.102,500,17,Syro-Mesopotamia (Hurrian),0.2176,0.0325
-KUB 30.17,450,50,Kizzuwatna rituals,0.2828,0.0324
-KUB 9.34,409,536,Kizzuwatna rituals,0.3467,0.0324
-KBo 71.238,500,52,Kizzuwatna–Lower Land (Hurrian),0.2246,0.0322
-KUB 34.85+,428,74,Kizzuwatna rituals,0.2453,0.032
+KUB 59.62,460,30,Kizzuwatna rituals,0.2085,0.0347
+KBo 46.74,500,17,"Mixed (Hurrian, Syrian, Luwian)",0.1729,0.0346
+KBo 56.19,500,39,Kizzuwatna–Lower Land (Hurrian),0.2746,0.034
+KUB 53.59,458,34,Hattian cult layer,0.2155,0.0339
+KBo 25.184,450,438,Hattian cult layer,0.4211,0.0338
+KBo 48.95,446,36,Kizzuwatna rituals,0.2375,0.0337
+KUB 4.1,422,501,Kizzuwatna rituals,0.3589,0.0336
+KUB 39.46,450,37,Kizzuwatna rituals,0.2249,0.0334
+DBH 46_2.114,500,33,Kizzuwatna rituals,0.2458,0.0333
+IBoT 3.112,448,24,Kizzuwatna rituals,0.2177,0.0333
+KBo 55.42,444,42,Kizzuwatna rituals,0.2677,0.0332
+ABoT 2.29,446,27,Kizzuwatna rituals,0.2205,0.0326
+KBo 71.238,500,52,Kizzuwatna–Lower Land (Hurrian),0.2249,0.0325
+ABoT 2.102,500,17,Syro-Mesopotamia (Hurrian),0.2177,0.0325
+DAAM 3.127,409,36,"Luwian festivals (Ištanuwa, Lallupiya)",0.2249,0.0325
+KUB 30.17,450,50,Kizzuwatna rituals,0.2829,0.0324
+CHDS 7.121++,408,194,Kizzuwatna rituals,0.273,0.0318
+KUB 34.85+,428,74,Kizzuwatna rituals,0.2453,0.0318
 KUB 7.10,448,69,Kizzuwatna rituals,0.2824,0.0317
-CHDS 7.149,453,51,Kizzuwatna rituals,0.2503,0.0315
-KUB 51.46,500,35,Syro-Mesopotamia (Hurrian),0.305,0.0315
-CHDS 7.51,458,37,Kizzuwatna rituals,0.2405,0.031
-KBo 23.7,500,70,Kizzuwatna–Lower Land (Hurrian),0.3616,0.0309
-KUB 55.20+,409,496,Kizzuwatna rituals,0.3518,0.0306
-KUB 44.64,461,143,Kizzuwatna rituals,0.3136,0.0304
-KUB 39.2,450,19,Kizzuwatna rituals,0.2412,0.03
-KUB 39.22,450,57,Kizzuwatna rituals,0.3134,0.03
-KBo 10.52+,448,112,Kizzuwatna rituals,0.3263,0.03
-KBo 24.53,500,21,"Mixed (Hurrian, Syrian, Luwian)",0.2231,0.0299
-KUB 39.48,450,34,Kizzuwatna rituals,0.2535,0.0298
-KUB 57.107,458,24,Kizzuwatna rituals,0.2157,0.0297
-KBo 35.220,500,37,Kizzuwatna–Lower Land (Hurrian),0.2563,0.0293
-KUB 20.86+,500,116,Kizzuwatna rituals,0.3436,0.0293
-KBo 8.81,500,21,"Mixed (Hurrian, Syrian, Luwian)",0.2793,0.0291
-CHDS 7.59,458,62,Kizzuwatna rituals,0.3041,0.0287
-KBo 13.248,500,95,Kizzuwatna rituals,0.2628,0.0286
-Bo 3391+,408,152,Kizzuwatna rituals,0.2606,0.0285
-KBo 57.32,448,29,Kizzuwatna rituals,0.2164,0.0284
-IBoT 4.166,460,26,Kizzuwatna rituals,0.2102,0.028
-KBo 22.172+,500,18,Hattian cult layer,0.1877,0.0279
-CHDS 4.92,450,58,Kizzuwatna rituals,0.2206,0.0277
-IBoT 4.30,500,19,Kizzuwatna rituals,0.1789,0.0276
-KBo 29.207,500,33,Kizzuwatna–Lower Land (Hurrian),0.2506,0.0276
-KBo 43.46,500,17,Kizzuwatna rituals,0.2257,0.0274
-KBo 71.181,390,132,Kizzuwatna rituals,0.364,0.0273
-KBo 56.56,500,17,Kizzuwatna–Lower Land (Hurrian),0.2391,0.0272
+CHDS 7.149,453,51,Kizzuwatna rituals,0.2519,0.0316
+KUB 51.46,500,35,Syro-Mesopotamia (Hurrian),0.3051,0.0315
+KBo 23.7,500,70,Kizzuwatna–Lower Land (Hurrian),0.3619,0.0311
+KUB 57.107,458,24,Kizzuwatna rituals,0.2157,0.031
+CHDS 7.51,458,37,Kizzuwatna rituals,0.2415,0.0309
+KUB 44.64,461,143,Kizzuwatna rituals,0.3132,0.0303
+KBo 10.52+,448,112,Kizzuwatna rituals,0.3281,0.0302
+KUB 39.2,450,19,Kizzuwatna rituals,0.2411,0.03
+KBo 24.53,500,21,"Mixed (Hurrian, Syrian, Luwian)",0.2232,0.0299
+KUB 39.22,450,57,Kizzuwatna rituals,0.3135,0.0298
+KUB 39.48,450,34,Kizzuwatna rituals,0.2517,0.0297
+KUB 55.42,458,37,Kizzuwatna rituals,0.27,0.0295
+KUB 20.86+,500,116,Kizzuwatna rituals,0.3437,0.0294
+CHDS 6.127,458,19,Kizzuwatna rituals,0.1643,0.0294
+KBo 35.220,500,37,Kizzuwatna–Lower Land (Hurrian),0.2564,0.0293
+KBo 8.81,500,21,"Mixed (Hurrian, Syrian, Luwian)",0.2794,0.0292
+KUB 12.20,409,38,Kizzuwatna rituals,0.2182,0.029
+KBo 13.248,500,95,Kizzuwatna rituals,0.263,0.0287
+CHDS 7.59,458,62,Kizzuwatna rituals,0.3041,0.0286
+Bo 3391+,408,152,Kizzuwatna rituals,0.261,0.0284
+KBo 57.32,448,29,Kizzuwatna rituals,0.2166,0.0284
+IBoT 4.166,460,26,Kizzuwatna rituals,0.2103,0.0281
+KBo 22.172+,500,18,Hattian cult layer,0.1879,0.028
+IBoT 4.30,500,19,Kizzuwatna rituals,0.179,0.0277
+KBo 29.207,500,33,Kizzuwatna–Lower Land (Hurrian),0.2507,0.0276
+CHDS 4.92,450,58,Kizzuwatna rituals,0.2202,0.0275
+KBo 43.46,500,17,Kizzuwatna rituals,0.2258,0.0274
+KBo 56.56,500,17,Kizzuwatna–Lower Land (Hurrian),0.2395,0.0274
+KBo 71.181,390,132,Kizzuwatna rituals,0.364,0.0272
+KUB 39.9,450,47,Hattian cult layer,0.2629,0.0272
 KBo 47.12,444,41,Kizzuwatna rituals,0.2523,0.0272
-KUB 39.9,450,47,Hattian cult layer,0.2614,0.0271
-KBo 41.54,500,21,Kizzuwatna–Lower Land (Hurrian),0.3247,0.027
 KUB 17.17,455,36,Kizzuwatna rituals,0.2175,0.027
-KBo 38.272,500,25,Kizzuwatna–Lower Land (Hurrian),0.2685,0.0269
-KBo 24.71+,500,101,Syro-Mesopotamia (Hurrian),0.3459,0.0269
-KUB 60.87,450,35,Kizzuwatna rituals,0.2451,0.0268
-KBo 29.202+,399,52,Kizzuwatna rituals,0.2908,0.0267
-KUB 20.97,500,26,Kizzuwatna–Lower Land (Hurrian),0.2163,0.0264
+KBo 41.54,500,21,Kizzuwatna–Lower Land (Hurrian),0.3249,0.027
+KBo 38.272,500,25,Kizzuwatna–Lower Land (Hurrian),0.2687,0.0269
+KBo 24.71+,500,101,Syro-Mesopotamia (Hurrian),0.3451,0.0269
+KBo 29.202+,399,52,Kizzuwatna rituals,0.291,0.0267
+KUB 60.87,450,35,Kizzuwatna rituals,0.2433,0.0267
+KUB 53.50,463,70,Kizzuwatna rituals,0.2573,0.0264
+KUB 20.97,500,26,Kizzuwatna–Lower Land (Hurrian),0.2164,0.0264
 CHDS 5.15,500,57,Kizzuwatna–Lower Land (Hurrian),0.3303,0.0263
-DAAM 1.4,500,40,Kizzuwatna rituals,0.2721,0.026
-KBo 15.15,448,48,Kizzuwatna rituals,0.2354,0.0257
-KUB 58.110,448,55,Kizzuwatna rituals,0.2626,0.0256
-KUB 31.139,448,25,Arzawa / western rituals,0.1819,0.0256
-KBo 38.277,500,24,Kizzuwatna rituals,0.2009,0.0255
-342_u+,427,177,Kizzuwatna rituals,0.3203,0.0254
-KBo 20.34,395,98,Kizzuwatna rituals,0.3111,0.0253
-CHDS 6.134,461,42,Kizzuwatna rituals,0.247,0.0247
-KUB 60.120,500,28,"Mixed (Hurrian, Syrian, Luwian)",0.15,0.0247
+DAAM 5.109,449,20,Hattian cult layer,0.1922,0.0262
+DAAM 1.4,500,40,Kizzuwatna rituals,0.2738,0.0261
+KUB 58.110,448,55,Kizzuwatna rituals,0.2627,0.0257
+KBo 38.277,500,24,Kizzuwatna rituals,0.201,0.0255
+KBo 20.34,395,98,Kizzuwatna rituals,0.3112,0.0254
+KBo 15.15,448,48,Kizzuwatna rituals,0.2342,0.0254
+342_u+,427,177,Kizzuwatna rituals,0.3203,0.0253
+KUB 60.120,500,28,"Mixed (Hurrian, Syrian, Luwian)",0.1501,0.0248
+CHDS 6.134,461,42,Kizzuwatna rituals,0.2456,0.0246
 KBo 55.170,500,22,Kizzuwatna rituals,0.1542,0.0244
-KUB 55.42,458,37,Kizzuwatna rituals,0.2699,0.0244
-KBo 35.205,500,20,Kizzuwatna rituals,0.2292,0.0241
-KBo 45.50,500,29,Kizzuwatna–Lower Land (Hurrian),0.1928,0.0241
+KBo 19.132,442,52,Kizzuwatna rituals,0.3147,0.0243
+KBo 35.205,500,20,Kizzuwatna rituals,0.2293,0.0242
+KBo 45.50,500,29,Kizzuwatna–Lower Land (Hurrian),0.1929,0.0241
+KBo 59.10,448,18,Kizzuwatna rituals,0.203,0.0241
 KBo 55.97,448,25,Kizzuwatna rituals,0.181,0.0241
-KBo 19.132,442,52,Kizzuwatna rituals,0.3107,0.024
-KUB 48.75,427,30,Kizzuwatna rituals,0.214,0.024
-CHDS 6.196,500,104,Kizzuwatna rituals,0.3307,0.0239
-KBo 30.111,500,21,Syro-Mesopotamia (Hurrian),0.2934,0.0236
-KBo 52.29,448,17,Kizzuwatna rituals,0.1576,0.0234
+KUB 48.75,427,30,Kizzuwatna rituals,0.2141,0.024
+CHDS 6.196,500,104,Kizzuwatna rituals,0.3308,0.0239
+KBo 30.111,500,21,Syro-Mesopotamia (Hurrian),0.2937,0.0236
+KBo 52.29,448,17,Kizzuwatna rituals,0.1572,0.0234
 CHDS 5.110,500,42,Kizzuwatna–Lower Land (Hurrian),0.3,0.0231
-DBH 46_2.104,458,17,Kizzuwatna rituals,0.1721,0.023
+DBH 46_2.104,458,17,Kizzuwatna rituals,0.1723,0.0231
 CHDS 7.244,500,29,Syro-Mesopotamia (Hurrian),0.2517,0.0229
-KUB 30.48,390,43,Kizzuwatna rituals,0.2344,0.0228
+KBo 53.35+,409,20,Kizzuwatna rituals,0.1614,0.0228
+KUB 30.48,390,43,Kizzuwatna rituals,0.2343,0.0227
 KUB 44.58,500,41,Kizzuwatna rituals,0.2762,0.0227
-CHDS 7.203,448,126,Kizzuwatna rituals,0.29,0.0226
-KBo 61.83,500,26,Kizzuwatna rituals,0.2197,0.0225
-KBo 49.173,460,28,Kizzuwatna rituals,0.1723,0.0225
-CHDS 7.121++,408,194,Kizzuwatna rituals,0.2727,0.0224
-KUB 35.146,458,101,Kizzuwatna rituals,0.2843,0.0223
-KBo 35.209,500,21,Kizzuwatna rituals,0.2199,0.0222
-KUB 7.4+,449,56,Kizzuwatna rituals,0.3705,0.0222
-IBoT 4.19,458,17,Kizzuwatna rituals,0.1826,0.022
-KUB 40.13,427,40,Kizzuwatna rituals,0.2142,0.0218
-KUB 35.148+,412,386,Kizzuwatna rituals,0.3304,0.0218
-DAAM 5.109,449,20,Hattian cult layer,0.1922,0.0217
-KUB 7.7,448,22,Kizzuwatna rituals,0.2159,0.0215
-KBo 51.57,460,20,Kizzuwatna rituals,0.1602,0.0215
+CHDS 7.203,448,126,Kizzuwatna rituals,0.2902,0.0226
+IBoT 4.19,458,17,Kizzuwatna rituals,0.1877,0.0226
+KBo 61.83,500,26,Kizzuwatna rituals,0.2199,0.0225
+KBo 49.173,460,28,Kizzuwatna rituals,0.1725,0.0225
+KUB 7.7,448,22,Kizzuwatna rituals,0.2206,0.0223
+KBo 35.209,500,21,Kizzuwatna rituals,0.22,0.0221
+KUB 7.4+,449,56,Kizzuwatna rituals,0.3705,0.022
+KUB 40.13,427,40,Kizzuwatna rituals,0.2143,0.0218
 DAAM 6.4,448,28,Kizzuwatna rituals,0.2544,0.0215
-KBo 22.129a+,428,59,Kizzuwatna rituals,0.2542,0.0215
-KBo 41.48,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.2522,0.0213
-KUB 47.42,500,70,Kizzuwatna rituals,0.2535,0.0213
-KBo 25.193,409,45,Kizzuwatna rituals,0.2468,0.0212
-VBoT 97+,408,60,Kizzuwatna rituals,0.2749,0.0211
-KBo 42.4,458,45,Hattian cult layer,0.1851,0.021
-KUB 54.59,500,23,Kizzuwatna–Lower Land (Hurrian),0.1743,0.0208
-KUB 59.63,448,43,Kizzuwatna rituals,0.2562,0.0206
-KBo 47.309,458,19,Hattian cult layer,0.1729,0.0205
-KBo 27.108+,392,245,Kizzuwatna rituals,0.313,0.0204
-CHDS 7.34,458,56,Kizzuwatna rituals,0.2423,0.0204
+KBo 22.129a+,428,59,Kizzuwatna rituals,0.2545,0.0215
+KBo 51.57,460,20,Kizzuwatna rituals,0.1603,0.0215
+KUB 35.148+,412,386,Kizzuwatna rituals,0.3296,0.0215
+KBo 41.48,500,18,"Mixed (Hurrian, Syrian, Luwian)",0.2524,0.0214
+KUB 47.42,500,70,Kizzuwatna rituals,0.2536,0.0212
+CHDS 7.34,458,56,Kizzuwatna rituals,0.2483,0.021
+VBoT 97+,408,60,Kizzuwatna rituals,0.2748,0.021
+KBo 42.4,458,45,Hattian cult layer,0.1846,0.021
+KUB 54.59,500,23,Kizzuwatna–Lower Land (Hurrian),0.1742,0.0208
+KUB 59.63,448,43,Kizzuwatna rituals,0.2563,0.0206
+KBo 47.309,458,19,Hattian cult layer,0.1733,0.0205
+KBo 27.108+,392,245,Kizzuwatna rituals,0.3131,0.0204
 KBo 45.194,446,22,Kizzuwatna rituals,0.2142,0.0202
-KBo 21.16,461,34,Kizzuwatna rituals,0.2058,0.0201
-KBo 71.183,430,169,Kizzuwatna rituals,0.3124,0.0201
-KBo 9.114,430,43,Kizzuwatna rituals,0.2602,0.0197
-KBo 49.7,500,23,Kizzuwatna rituals,0.1778,0.0197
-DAAM 3.112,500,18,Kizzuwatna rituals,0.2334,0.0197
-KUB 51.50,448,137,"Mixed (Hurrian, Syrian, Luwian)",0.2928,0.0194
-KBo 12.112,412,86,Kizzuwatna rituals,0.2677,0.0194
-KUB 55.11,500,17,Kizzuwatna rituals,0.1507,0.0189
-KBo 60.21,409,17,"Mixed (Hurrian, Syrian, Luwian)",0.1697,0.0189
+KBo 21.16,461,34,Kizzuwatna rituals,0.205,0.0201
+KBo 49.7,500,23,Kizzuwatna rituals,0.1779,0.0198
+KBo 9.114,430,43,Kizzuwatna rituals,0.2603,0.0197
+DAAM 3.112,500,18,Kizzuwatna rituals,0.2336,0.0197
+DAAM 4.27,429,52,Kizzuwatna rituals,0.2583,0.0196
+KBo 12.112,412,86,Kizzuwatna rituals,0.269,0.0196
+KUB 51.50,448,137,"Mixed (Hurrian, Syrian, Luwian)",0.2923,0.0193
+KBo 13.156,429,46,Kizzuwatna rituals,0.2465,0.0191
+KUB 55.11,500,17,Kizzuwatna rituals,0.1506,0.0189
 KBo 34.93,500,32,Kizzuwatna–Lower Land (Hurrian),0.2481,0.0187
-KBo 13.133,444,20,Hattian cult layer,0.227,0.0186
-KUB 43.43,448,24,Kizzuwatna rituals,0.187,0.0186
-CHDS 6.127,458,19,Kizzuwatna rituals,0.1645,0.0186
-KUB 17.8,457,52,Kizzuwatna rituals,0.2437,0.0185
-KUB 57.28,458,20,Hattian cult layer,0.1466,0.0184
-CHDS 7.158,448,55,Kizzuwatna rituals,0.2137,0.0184
-KBo 34.55+,450,44,Kizzuwatna rituals,0.2502,0.0184
-CHDS 7.9,448,108,Kizzuwatna rituals,0.2891,0.0183
+CHDS 6.16,458,24,Kizzuwatna rituals,0.195,0.0187
+KUB 43.43,448,24,Kizzuwatna rituals,0.1869,0.0186
+KBo 60.246+,421,55,Kizzuwatna rituals,0.1649,0.0186
+CHDS 7.158,448,55,Kizzuwatna rituals,0.2148,0.0186
+KUB 17.8,457,52,Kizzuwatna rituals,0.2437,0.0184
+KBo 34.55+,450,44,Kizzuwatna rituals,0.2503,0.0184
+KBo 13.133,444,20,Hattian cult layer,0.2271,0.0184
+KBo 71.258,458,27,Hattian cult layer,0.2036,0.0183
+KBo 54.19,446,32,Kizzuwatna rituals,0.2398,0.0183
 CHDS 6.49,448,24,Kizzuwatna rituals,0.2318,0.0182
-KBo 54.19,446,32,Kizzuwatna rituals,0.2397,0.0182
-KBo 47.8,460,38,Kizzuwatna rituals,0.1611,0.0181
-IBoT 2.128+,446,40,Kizzuwatna rituals,0.2643,0.0179
-KBo 8.89,500,49,Kizzuwatna rituals,0.2385,0.0175
-KBo 35.233+,500,34,Kizzuwatna rituals,0.2176,0.0175
-KUB 51.27,500,68,Kizzuwatna rituals,0.3007,0.0174
-KBo 35.216,500,19,"Mixed (Hurrian, Syrian, Luwian)",0.2297,0.0173
-KBo 71.258,458,27,Hattian cult layer,0.1896,0.0172
-KBo 53.31,420,18,,0.1957,0.0169
-CHDS 7.105,448,41,,0.2233,0.0168
-KBo 57.111+,500,57,,0.2907,0.0168
-DAAM 3.42,421,37,,0.2591,0.0168
-KUB 2.2+,413,1022,,0.3726,0.0167
-HFAC 14,450,39,,0.2841,0.0166
-KBo 54.16+,413,45,,0.2288,0.0165
-KBo 55.47+,409,178,,0.3392,0.0164
-KBo 55.54,458,22,,0.2416,0.0163
-KUB 39.6,450,129,,0.3221,0.0163
-KBo 31.160,500,35,,0.2818,0.0162
-KBo 22.111,409,55,,0.264,0.0162
-KBo 59.10,448,18,,0.2195,0.0162
-KUB 39.28,450,30,,0.2457,0.0161
+CHDS 7.9,448,108,Kizzuwatna rituals,0.2892,0.0182
+KBo 61.78,500,28,Kizzuwatna rituals,0.2498,0.0181
+KBo 47.8,460,38,Kizzuwatna rituals,0.1612,0.0181
+IBoT 2.128+,446,40,Kizzuwatna rituals,0.2646,0.018
+KBo 35.233+,500,34,Kizzuwatna rituals,0.2179,0.0177
+KBo 8.89,500,49,Kizzuwatna rituals,0.2386,0.0175
+KBo 35.216,500,19,"Mixed (Hurrian, Syrian, Luwian)",0.2298,0.0173
+KUB 51.27,500,68,Kizzuwatna rituals,0.301,0.0173
+HHT 77,448,23,Kizzuwatna rituals,0.1631,0.0171
+KBo 53.31,420,18,Kizzuwatna rituals,0.1959,0.0169
+CHDS 7.105,448,41,Kizzuwatna rituals,0.2236,0.0168
+HFAC 14,450,39,Hattian cult layer,0.2843,0.0167
+DAAM 3.42,421,37,Kizzuwatna rituals,0.2589,0.0167
+KUB 2.2+,413,1022,Kizzuwatna rituals,0.3729,0.0166
+KBo 54.16+,413,45,Kizzuwatna rituals,0.2286,0.0165
+KBo 55.54,458,22,Kizzuwatna–Lower Land (Hurrian),0.2418,0.0164
+KBo 31.160,500,35,Kizzuwatna–Lower Land (Hurrian),0.282,0.0164
+KBo 57.111+,500,57,Kizzuwatna rituals,0.289,0.0164
+KUB 39.6,450,129,Kizzuwatna rituals,0.3222,0.0163
+KBo 55.47+,409,178,Kizzuwatna rituals,0.3385,0.0163
+FHL 4,448,31,Kizzuwatna rituals,0.1878,0.0163
+KUB 39.28,450,30,Hattian cult layer,0.2458,0.0161
+KBo 25.193,409,45,"Luwian rituals (Puriyanni, Kuwattalla)",0.2608,0.016
 KUB 39.29,450,20,,0.2234,0.0159
-KUB 39.30,450,52,,0.2666,0.0159
-KBo 51.59,460,21,,0.1605,0.0157
-KBo 24.2,409,39,,0.2266,0.0157
-KBo 14.99,500,51,,0.3196,0.0157
-KBo 11.72+,447,38,,0.3134,0.0156
-KUB 57.117,428,27,,0.1849,0.0155
-DAAM 3.137,500,28,,0.2239,0.0154
-KBo 13.119,444,218,,0.3295,0.0154
-KBo 15.3,455,23,,0.2158,0.0152
-KUB 55.19,500,90,,0.3054,0.0152
-ABoT 2.99,500,19,,0.2424,0.0152
-KBo 7.32,500,17,,0.2133,0.0152
-KBo 24.52,412,18,,0.1679,0.0151
-KUB 39.5+,450,230,,0.3538,0.015
-KBo 35.226+,500,96,,0.337,0.0148
+KUB 39.30,450,52,,0.2666,0.0158
+KBo 51.59,460,21,,0.1604,0.0157
+KUB 12.56,446,28,,0.1739,0.0156
+KBo 14.99,500,51,,0.3197,0.0156
+KUB 57.117,428,27,,0.185,0.0155
+KBo 13.119,444,218,,0.3294,0.0154
+KBo 11.72+,447,38,,0.3134,0.0154
+DAAM 3.137,500,28,,0.224,0.0154
+ABoT 2.99,500,19,,0.2427,0.0153
+KBo 7.32,500,17,,0.2135,0.0153
+KUB 55.19,500,90,,0.3055,0.0152
+KBo 24.52,412,18,,0.168,0.0152
+KBo 35.226+,500,96,,0.3374,0.015
+KBo 15.3,455,23,,0.2159,0.015
+KBo 58.19,458,17,,0.1966,0.0149
+KUB 39.5+,450,230,,0.3538,0.0149
+CHDS 6.14,449,19,,0.1741,0.0148
 KBo 17.69,500,66,,0.2529,0.0148
-CHDS 6.14,449,19,,0.1739,0.0148
-KBo 38.291,500,40,,0.2777,0.0147
-KBo 30.89+,500,26,,0.3464,0.0147
-KUB 54.46,500,40,,0.2583,0.0146
-KBo 38.266,500,42,,0.3169,0.0146
-KBo 64.108,460,21,,0.1374,0.0145
+KBo 38.266,500,42,,0.3171,0.0147
+KBo 38.291,500,40,,0.278,0.0147
+KUB 54.46,500,40,,0.2584,0.0146
+KBo 30.89+,500,26,,0.3466,0.0146
+KBo 64.108,460,21,,0.1379,0.0146
 VSNF 12.89+,450,27,,0.2311,0.0145
-KBo 52.86,500,38,,0.259,0.0144
-KBo 38.226,500,31,,0.1931,0.0143
-KBo 39.219+,500,59,,0.3101,0.0142
-KBo 61.78,500,28,,0.2467,0.0142
-KUB 39.4+,450,345,,0.3907,0.0141
-KBo 35.145,500,26,,0.2871,0.0139
-KUB 59.43,458,76,,0.2936,0.0139
-DBH 46_2.166,500,30,,0.2316,0.0139
+HHCTO 11,426,18,,0.179,0.0145
+KBo 22.100,412,20,,0.1836,0.0144
+KBo 52.86,500,38,,0.2592,0.0144
+KBo 38.226,500,31,,0.1932,0.0143
+KBo 39.219+,500,59,,0.3102,0.0142
+KBo 35.145,500,26,,0.2873,0.014
+KUB 39.4+,450,345,,0.3907,0.014
+KUB 59.43,458,76,,0.2938,0.0139
+KUB 33.44,412,25,,0.18,0.0139
+KUB 49.3,458,76,,0.2561,0.0139
+DBH 46_2.166,500,30,,0.2317,0.0139
+KBo 31.148,500,23,,0.2865,0.0138
 KUB 48.84,422,22,,0.2006,0.0138
-KBo 31.148,500,23,,0.2863,0.0138
-KBo 47.49,500,47,,0.3108,0.0137
+KBo 47.49,500,47,,0.3109,0.0136
 KBo 22.112,448,17,,0.2044,0.0135
-VSNF 12.75,500,50,,0.2939,0.0133
-KBo 13.199,500,35,,0.3231,0.013
-KBo 71.115,415,21,,0.1661,0.013
-Bo 9301,448,17,,0.1597,0.0129
-KBo 44.79,500,17,,0.2449,0.0129
-KBo 13.96,420,21,,0.1508,0.0127
-KUB 59.60,500,92,,0.2653,0.0127
-KBo 55.74+,461,26,,0.2574,0.0126
-CHDS 4.90,500,21,,0.2597,0.0125
-KBo 7.57+,446,17,,0.1864,0.0125
-KBo 13.94,412,44,,0.2425,0.0124
-CHDS 4.173,448,20,,0.2192,0.0124
-CHDS 6.128,500,20,,0.208,0.0123
-KBo 47.47,500,26,,0.3131,0.0122
-KBo 21.17,461,54,,0.2652,0.0122
-FHL 4,448,31,,0.2001,0.0121
-KBo 53.93,500,35,,0.2829,0.0121
-KBo 15.14+,419,97,,0.2614,0.0118
-KUB 44.51,500,43,,0.1924,0.0118
-CHDS 5.46,423,39,,0.2278,0.0117
-KBo 47.9,458,18,,0.198,0.0116
-KBo 35.227,500,45,,0.2503,0.0115
-CHDS 4.99,500,23,,0.2622,0.0115
-CHDS 6.16,458,24,,0.1949,0.0113
-KBo 21.19,461,36,,0.2032,0.011
-KUB 55.63,500,60,,0.3263,0.011
-KBo 44.101,500,36,,0.328,0.011
-CHDS 7.118,448,24,,0.2233,0.0109
-KUB 58.104,448,79,,0.2593,0.0108
-KBo 43.57,500,25,,0.1822,0.0107
-KUB 39.91,500,40,,0.257,0.0106
-CHDS 7.45,458,74,,0.2993,0.0106
-KUB 58.111,412,70,,0.2128,0.0106
-KBo 33.167,500,110,,0.3295,0.0106
-KUB 46.63,500,25,,0.298,0.0105
-KBo 38.270,500,35,,0.2478,0.0105
-KUB 39.18,450,22,,0.2392,0.0102
-KBo 31.151,500,40,,0.2546,0.0102
-KBo 59.59,500,61,,0.2318,0.0102
-KBo 22.49,500,29,,0.2013,0.0101
+VSNF 12.75,500,50,,0.294,0.0133
+KBo 13.96,420,21,,0.1555,0.0132
+KBo 71.115,415,21,,0.166,0.0131
+KBo 13.199,500,35,,0.3233,0.013
+KUB 59.60,500,92,,0.2653,0.0129
+Bo 9301,448,17,,0.1598,0.0129
+KBo 44.79,500,17,,0.2447,0.0128
+KBo 7.57+,446,17,,0.1865,0.0126
+CHDS 4.173,448,20,,0.2197,0.0126
+CHDS 4.90,500,21,,0.2598,0.0125
+KBo 47.47,500,26,,0.3133,0.0124
+CHDS 6.128,500,20,,0.2082,0.0124
+KBo 13.94,412,44,,0.2425,0.0123
+KBo 21.17,461,54,,0.2653,0.0121
+KBo 53.93,500,35,,0.2828,0.0121
+KBo 54.17,429,36,,0.2289,0.012
+KBo 15.14+,419,97,,0.2621,0.0119
+CHDS 5.46,423,39,,0.228,0.0118
+KUB 44.51,500,43,,0.1925,0.0118
+KBo 47.9,458,18,,0.1982,0.0116
+KBo 35.227,500,45,,0.2504,0.0116
+CHDS 4.99,500,23,,0.2624,0.0115
+CHDS 4.114,448,35,,0.1784,0.0114
+KBo 21.6,409,101,,0.3485,0.0113
+CHDS 7.161,463,60,,0.2505,0.0111
+KUB 55.63,500,60,,0.3264,0.0111
+CHDS 7.118,448,24,,0.2238,0.011
+KBo 21.19,461,36,,0.2033,0.0109
+KBo 44.101,500,36,,0.3282,0.0109
+KBo 43.57,500,25,,0.1823,0.0107
+KUB 39.91,500,40,,0.2559,0.0107
+KUB 58.104,448,79,,0.2601,0.0107
+CHDS 7.45,458,74,,0.2996,0.0106
+KBo 38.270,500,35,,0.2481,0.0106
+KBo 33.167,500,110,,0.3296,0.0106
+KUB 58.111,412,70,,0.2132,0.0106
+KUB 46.63,500,25,,0.2981,0.0104
+KUB 39.18,450,22,,0.2391,0.0103
+KBo 59.59,500,61,,0.2319,0.0102
 KBo 12.119,448,23,,0.1633,0.0101
 KBo 31.101,460,24,,0.2145,0.0101
-CHDS 6.55,459,25,,0.1879,0.0099
-KBo 53.47,458,20,,0.1477,0.0099
-KUB 39.15,450,54,,0.3141,0.0099
-KBo 56.45,460,17,,0.1412,0.0098
-KUB 39.10,450,36,,0.2618,0.0097
-KBo 54.76,500,31,,0.2818,0.0095
-KUB 58.10,500,33,,0.2401,0.0095
-KUB 39.8+,450,465,,0.3931,0.0094
-KBo 35.206,500,38,,0.197,0.0094
-KUB 39.31,450,49,,0.2692,0.0091
-KUB 35.147,412,31,,0.2121,0.0089
-KUB 12.20,409,38,,0.2271,0.0088
-KUB 7.51,500,92,,0.3327,0.0088
-KUB 39.65,409,22,,0.1889,0.0088
-KBo 54.82,500,22,,0.1713,0.0087
-KBo 47.42,500,106,,0.3265,0.0087
-KBo 32.150,500,64,,0.3517,0.0087
-KBo 64.11,409,32,,0.1489,0.0086
-KBo 56.48,500,45,,0.2717,0.0084
-KBo 15.12,448,46,,0.2724,0.0084
-KUB 55.40,500,28,,0.1483,0.0084
-CHDS 7.10,500,168,,0.3546,0.0082
-CHDS 4.114,448,35,,0.177,0.008
-KBo 41.10,500,31,,0.2678,0.008
-CHDS 4.172,500,17,,0.1598,0.0079
-KUB 60.121,500,282,,0.4214,0.0079
-CHDS 3.11,448,59,,0.2318,0.0079
-KBo 44.104,500,79,,0.2685,0.0078
-KUB 53.58,448,18,,0.185,0.0077
-FHL 2,500,27,,0.2166,0.0077
-KBo 53.92,500,26,,0.2298,0.0076
-CHDS 5.10,448,42,,0.1954,0.0076
-KBo 39.94,448,27,,0.203,0.0075
-KUB 60.132,500,23,,0.205,0.0075
-KUB 12.56,446,28,,0.174,0.0075
-KBo 61.85,500,24,,0.2884,0.0074
-KBo 18.195,460,28,,0.1215,0.0074
-KBo 18.196,460,22,,0.1503,0.0072
-KBo 38.283,500,22,,0.1498,0.0072
-KBo 13.143,450,24,,0.2284,0.0072
-KBo 40.30,500,24,,0.2243,0.0071
-KBo 47.214,500,179,,0.3766,0.0071
-KBo 38.267,500,20,,0.2299,0.0069
-KBo 41.53,500,46,,0.282,0.0069
-KBo 60.246+,421,55,,0.1643,0.0069
+KBo 31.151,500,40,,0.2546,0.0101
+KBo 53.47,458,20,,0.1479,0.0099
+CHDS 6.55,459,25,,0.1878,0.0099
+KBo 22.49,500,29,,0.199,0.0098
+KUB 39.10,450,36,,0.2617,0.0098
+KUB 39.15,450,54,,0.3142,0.0098
+KBo 56.45,460,17,,0.1414,0.0097
+KUB 35.146,458,101,,0.2923,0.0096
+KUB 39.8+,450,465,,0.3934,0.0095
+KBo 35.206,500,38,,0.1972,0.0095
+KBo 54.76,500,31,,0.282,0.0095
+KUB 58.10,500,33,,0.2403,0.0094
+KUB 39.31,450,49,,0.2694,0.0091
+KUB 7.51,500,92,,0.3331,0.009
+KUB 35.147,412,31,,0.2116,0.0089
+KBo 54.82,500,22,,0.1714,0.0088
+KBo 32.150,500,64,,0.3519,0.0088
+KBo 47.42,500,106,,0.3275,0.0087
+KUB 39.65,409,22,,0.1891,0.0087
+KBo 15.12,448,46,,0.2723,0.0086
+KUB 55.40,500,28,,0.1484,0.0084
+KBo 56.48,500,45,,0.2716,0.0083
+CHDS 7.10,500,168,,0.3547,0.0082
+CHDS 7.116,409,31,,0.1937,0.0081
+KUB 60.121,500,282,,0.4215,0.0081
+KBo 41.10,500,31,,0.2679,0.008
+CHDS 4.172,500,17,,0.1599,0.0079
+KUB 53.58,448,18,,0.1847,0.0078
+CHDS 3.11,448,59,,0.232,0.0078
+KBo 44.104,500,79,,0.2685,0.0077
+FHL 2,500,27,,0.2166,0.0076
+KBo 39.94,448,27,,0.2046,0.0076
+KBo 53.92,500,26,,0.2299,0.0076
+CHDS 5.10,448,42,,0.1956,0.0076
+KUB 60.132,500,23,,0.2047,0.0075
+KBo 18.195,460,28,,0.1216,0.0075
+KBo 38.283,500,22,,0.15,0.0074
+KBo 61.85,500,24,,0.289,0.0073
+KBo 13.143,450,24,,0.2282,0.0072
+KBo 18.196,460,22,,0.1504,0.0072
+KBo 47.214,500,179,,0.3768,0.0072
+KBo 40.30,500,24,,0.2245,0.0071
+KBo 38.267,500,20,,0.23,0.0071
+KBo 59.14,453,28,,0.1697,0.007
+KBo 48.103,391,30,,0.2284,0.007
+KBo 41.53,500,46,,0.2821,0.0069
 KBo 47.19,458,18,,0.1686,0.0068
-KUB 47.61,500,20,,0.2198,0.0067
-KBo 61.20,458,24,,0.2082,0.0066
-KBo 22.118,412,44,,0.2499,0.0066
-KBo 35.219,500,18,,0.234,0.0065
-CHDS 6.59,458,49,,0.129,0.0065
-KBo 49.56,430,20,,0.1585,0.0064
-DAAM 1.12,447,21,,0.225,0.0064
-KUB 9.1,428,263,,0.3701,0.0063
-KBo 56.227,458,20,,0.1697,0.0063
-KBo 41.19,428,17,,0.2035,0.0063
-KUB 39.36+,450,141,,0.351,0.0062
-DBH 46_2.79,500,45,,0.3182,0.0061
-CHDS 7.116,409,31,,0.194,0.0061
-KBo 44.103,500,19,,0.228,0.006
-KUB 57.64,450,22,,0.2146,0.006
-KBo 21.2,409,35,,0.1401,0.0058
-DAAM 3.147,500,21,,0.2026,0.0058
-KBo 38.168+,412,95,,0.2347,0.0057
-HHCTO 9,500,31,,0.2656,0.0057
-KUB 39.21,450,100,,0.3172,0.0056
-KUB 33.44,412,25,,0.1799,0.0056
-KBo 52.35,458,31,,0.1673,0.0056
-HT 70,500,19,,0.1599,0.0054
-KBo 13.120,444,38,,0.2339,0.0053
-DAAM 4.23,458,21,,0.2009,0.0053
+KUB 47.61,500,20,,0.2199,0.0066
+KBo 35.219,500,18,,0.2345,0.0066
+KBo 22.118,412,44,,0.2484,0.0064
+KBo 41.19,428,17,,0.2034,0.0064
+KUB 9.1,428,263,,0.3703,0.0064
+KBo 61.20,458,24,,0.2083,0.0064
+CHDS 6.59,458,49,,0.1279,0.0064
+DAAM 1.12,447,21,,0.2248,0.0063
+KBo 56.227,458,20,,0.1698,0.0063
+KBo 49.56,430,20,,0.1603,0.0062
+KUB 39.36+,450,141,,0.3511,0.0062
+KUB 57.64,450,22,,0.2148,0.0061
+DBH 46_2.79,500,45,,0.3185,0.0061
+DAAM 3.147,500,21,,0.1929,0.006
+KBo 44.103,500,19,,0.2281,0.006
+KBo 21.2,409,35,,0.1402,0.0058
+KUB 39.21,450,100,,0.3149,0.0057
+HHCTO 9,500,31,,0.2657,0.0057
+KBo 38.168+,412,95,,0.2348,0.0057
+KBo 52.35,458,31,,0.1674,0.0055
+KUB 31.139,448,25,,0.1558,0.0054
+DAAM 4.23,458,21,,0.2005,0.0054
+HT 70,500,19,,0.16,0.0053
+KBo 13.120,444,38,,0.2341,0.0053
 CHDS 4.15,500,28,,0.1917,0.0053
-KBo 57.105,500,18,,0.2596,0.0052
-KBo 61.82,500,18,,0.1231,0.0051
-KUB 44.53,444,36,,0.2517,0.0051
-KBo 23.40,500,30,,0.2235,0.0051
-KUB 58.85,449,77,,0.3122,0.005
-KBo 64.31+,409,23,,0.1962,0.005
-KBo 61.80,500,24,,0.1645,0.0049
+KBo 61.82,500,18,,0.1228,0.0051
+KBo 57.105,500,18,,0.2597,0.0051
+KUB 44.53,444,36,,0.2518,0.0051
+KBo 64.31+,409,23,,0.1966,0.005
+KBo 23.40,500,30,,0.2234,0.005
+KBo 30.30+,412,117,,0.2188,0.0049
+KBo 61.80,500,24,,0.1646,0.0049
 KBo 14.98,412,78,,0.2421,0.0049
-KBo 43.43,500,25,,0.168,0.0048
-KBo 35.210,500,24,,0.195,0.0047
-KBo 30.30+,412,117,,0.2185,0.0047
-CHDS 4.125,428,110,,0.2033,0.0046
-KBo 55.169,500,63,,0.3007,0.0046
-KBo 67.176,409,26,,0.1816,0.0046
-KBo 17.71+,500,19,,0.2019,0.0046
-ABoT 2.27,412,26,,0.1699,0.0044
-KBo 12.101,416,25,,0.1903,0.0044
-KUB 39.51,450,26,,0.2194,0.0044
-KBo 58.19,458,17,,0.1964,0.0043
-ABoT 2.153,448,18,,0.1807,0.0043
-KUB 60.125,500,27,,0.2165,0.0043
+KBo 35.210,500,24,,0.195,0.0048
+KBo 43.43,500,25,,0.1681,0.0048
+KUB 58.85,449,77,,0.3123,0.0048
+KBo 67.176,409,26,,0.1817,0.0046
+ABoT 2.27,412,26,,0.1699,0.0045
+KBo 12.101,416,25,,0.1918,0.0045
+KBo 17.71+,500,19,,0.2019,0.0045
+KBo 55.169,500,63,,0.3029,0.0045
+KUB 60.125,500,27,,0.217,0.0044
 DAAM 3.149+,448,29,,0.1819,0.0043
-KBo 54.77,500,30,,0.2732,0.0042
-KBo 53.222+,409,49,,0.1995,0.0042
-KUB 32.110+,500,33,,0.2962,0.0041
-KUB 44.65,461,19,,0.1579,0.0041
-KBo 39.290,450,81,,0.2975,0.0041
+CHDS 4.125,428,110,,0.2044,0.0043
+KBo 54.77,500,30,,0.2732,0.0043
+ABoT 2.153,448,18,,0.1808,0.0043
+KBo 39.290,450,81,,0.2977,0.0042
 KBo 52.88,500,19,,0.2566,0.0041
-KBo 49.263,460,21,,0.1572,0.0039
-KBo 8.79,500,86,,0.2897,0.0038
+KUB 32.110+,500,33,,0.2962,0.0041
+KUB 44.65,461,19,,0.158,0.0041
+KBo 8.79,500,86,,0.2908,0.0039
+KUB 39.51,450,26,,0.2117,0.0039
+KBo 49.263,460,21,,0.1572,0.0038
 CHDS 7.41,458,17,,0.1885,0.0038
-KBo 23.78,500,48,,0.289,0.0036
-KBo 53.46,458,18,,0.217,0.0034
-KUB 43.53,412,152,,0.1939,0.0034
-KBo 31.88,455,27,,0.1689,0.0034
-KBo 21.11,448,35,,0.2188,0.0033
-KBo 53.37+,448,40,,0.2582,0.0031
-IBoT 3.81,500,17,,0.1803,0.003
-KBo 49.235,500,23,,0.1758,0.003
-KBo 35.88+,500,71,,0.3191,0.0029
+KBo 23.78,500,48,,0.2893,0.0036
+KBo 31.88,455,27,,0.1689,0.0036
+KBo 53.46,458,18,,0.2171,0.0034
+KBo 21.11,448,35,,0.2187,0.0032
+KUB 43.53,412,152,,0.1938,0.0032
+KBo 53.37+,448,40,,0.2584,0.0032
+IBoT 3.81,500,17,,0.1806,0.0031
+KBo 49.235,500,23,,0.176,0.003
+KBo 35.88+,500,71,,0.3179,0.0029
 KUB 39.17,450,46,,0.2776,0.0028
-KUB 7.44+,409,60,,0.2563,0.0027
-HHCTO 11,426,18,,0.1815,0.0026
-DAAM 3.98,500,43,,0.1978,0.0025
-KUB 55.47,500,27,,0.2122,0.0025
-KBo 34.184+,500,53,,0.2116,0.0025
-IBoT 4.22,409,19,,0.1059,0.0023
-HHT 77,448,23,,0.1634,0.0023
-CHDS 4.222,500,21,,0.2549,0.0023
-CHDS 5.111,500,27,,0.2118,0.0021
-KBo 27.49,442,30,,0.1753,0.002
-KBo 38.171,448,72,,0.279,0.0019
-KBo 56.15,412,20,,0.1444,0.0018
-Privat 16,412,58,,0.2156,0.0018
-KUB 7.35,500,26,,0.2488,0.0018
-KBo 38.257,500,31,,0.2499,0.0017
-KBo 24.60+,500,85,,0.1825,0.0017
-KBo 39.289,450,48,,0.2878,0.0016
-KBo 34.102,500,17,,0.183,0.0015
-KBo 13.142,450,24,,0.1666,0.0014
-IBoT 4.31,500,19,,0.2478,0.0014
-KBo 38.263+,500,48,,0.2345,0.0013
-KBo 38.284,500,21,,0.2192,0.0013
+KUB 55.47,500,27,,0.2122,0.0026
+KBo 34.184+,500,53,,0.2117,0.0025
+DAAM 3.98,500,43,,0.1979,0.0024
+IBoT 4.22,409,19,,0.1059,0.0024
+Privat 16,412,58,,0.2162,0.0021
+CHDS 5.111,500,27,,0.2121,0.0021
+KBo 27.49,442,30,,0.1754,0.002
+KUB 7.35,500,26,,0.249,0.002
+CHDS 4.222,500,21,,0.255,0.002
+KBo 38.171,448,72,,0.2787,0.0019
+KBo 38.257,500,31,,0.2514,0.0017
+KBo 56.15,412,20,,0.1444,0.0017
+KBo 24.60+,500,85,,0.1826,0.0016
+KBo 39.289,450,48,,0.2876,0.0016
+KBo 13.142,450,24,,0.1667,0.0015
+KBo 34.102,500,17,,0.1833,0.0015
+IBoT 4.31,500,19,,0.2479,0.0014
+KBo 38.284,500,21,,0.2193,0.0012
 HT 12,448,35,,0.201,0.0009
-KBo 53.35+,409,20,,0.1633,0.0009
-KBo 24.46,500,24,,0.2248,0.0008
-KBo 45.249+,500,53,,0.3747,0.0007
-KBo 56.41,460,18,,0.1338,0.0005
-KBo 45.196,450,23,,0.2127,0.0005
-KBo 31.163,500,19,,0.241,0.0005
-KBo 27.12,427,31,,0.1979,0.0005
+KBo 38.263+,500,48,,0.2342,0.0008
+KBo 24.46,500,24,,0.2249,0.0008
+KBo 45.249+,500,53,,0.3748,0.0006
+KBo 56.41,460,18,,0.1339,0.0005
+KBo 27.12,427,31,,0.1981,0.0005
+KBo 31.163,500,19,,0.241,0.0004
 KBo 71.113,500,32,,0.2091,0.0004
-KBo 51.98,500,20,,0.1702,0.0004
-KBo 31.87,428,23,,0.2079,0.0003
 CHDS 4.63,458,54,,0.242,0.0003
-KUB 49.3,458,76,,0.255,0.0002
-CHDS 7.140+,409,71,,0.2502,0.0002
-CHDS 4.62,449,39,,0.2021,0.0001
-KBo 33.145+,500,57,,0.3063,0.0001
-IBoT 4.290,500,22,,0.2746,0.0001
-KUB 51.63,500,25,,0.2095,0.0
-KBo 7.51,408,18,,0.1254,0.0
+KBo 51.98,500,20,,0.1702,0.0003
+KBo 31.87,428,23,,0.208,0.0003
+KBo 45.196,450,23,,0.2095,0.0003
+KUB 51.63,500,25,,0.212,0.0002
+KBo 7.51,408,18,,0.1256,0.0002
+CHDS 4.62,449,39,,0.2022,0.0001
+IBoT 4.290,500,22,,0.2748,0.0001
+KBo 33.145+,500,57,,0.3065,0.0
