@@ -36,13 +36,13 @@
       <div id="rose" class="rose" title="Similarity rose"></div>
       <div class="bars" id="bars"></div>
     </div>
-    <p class="sub small" style="margin-top:8px">The rose shows the same six scores as wedges, each pointing to its tradition's corner of the hexagon; wedge area grows with similarity. A dashed ring means the model abstains.</p>
+    <p class="sub small" style="margin-top:8px">The rose shows the same nine scores as wedges, each pointing to its tradition's corner of the wheel; wedge area grows with similarity. A dashed ring means the fragment is not placed.</p>
   </section>
 
   <section class="card">
-    <h2>Tradition hexagon</h2>
+    <h2>Tradition wheel</h2>
     <p class="sub">Each corner is a reference tradition. Every manuscript is pulled toward the corners it resembles, so the centre means "undecided". Dots are reference manuscripts; your fragment is the ringed marker. Hover a dot to see it, click to load its text.</p>
-    <svg id="hex" viewBox="-330 -232 660 464" width="100%" role="img" aria-label="Tradition hexagon map"></svg>
+    <svg id="hex" viewBox="-345 -238 690 470" width="100%" role="img" aria-label="Tradition wheel map"></svg>
     <div class="row small">
       <label><input type="checkbox" id="showRef" checked> reference manuscripts</label>
       <label><input type="checkbox" id="showOrph"> placed orphans</label>
@@ -68,13 +68,13 @@
 
   <section class="card">
     <h2>Rose gallery</h2>
-    <p class="sub">Orphan fragments at a glance: the two the model places most confidently in each tradition, then four it leaves unplaced. Click one to load it.</p>
+    <p class="sub">Orphan fragments at a glance: the one the model places most confidently in each tradition, three it leaves unplaced, and three the open-set check sends outside the reference. Click one to load it.</p>
     <div class="gallery" id="gallery"></div>
   </section>
 </div>
 </main>
 <footer>
-  Data: TLHdig Beta 0.3, Zenodo <a href="https://doi.org/10.5281/zenodo.20328284">10.5281/zenodo.20328284</a>. Reference groups follow Gordin, Yavasan &amp; Romach 2025 (StBoT 73, Table 3) plus two ritual controls. A fragment is assigned only when its nearest tradition beats the runner-up by at least the abstention margin, calibrated on held-out windows to about 80% precision. Everything runs in your browser; nothing you paste is sent anywhere.
+  Data: TLHdig Beta 0.3, Zenodo <a href="https://doi.org/10.5281/zenodo.20328284">10.5281/zenodo.20328284</a>. The nine reference traditions are defined from the literature: the Hurrian groups of Gordin, Yavasan &amp; Romach 2025 (StBoT 73, Table 3), the Luwian, Ḫuwaššanna and Palaic festivals as the HFR edition modules divide them, Kizzuwatna rituals (Miller 2004 and others), Arzawa / western rituals (Christiansen 2006, Bawanypeck 2005) and the Hattian cult layer (Klinger 1996). A fragment is assigned only when its nearest tradition beats the runner-up by at least the abstention margin, calibrated on held-out windows to about 80% precision. The open-set check flags a fragment that fits none of them: either its best similarity is below what 95% of reference fragments of its size reach, or it sits nearest to a genre outside the reference (myths, prayers, oracles, treaties, instructions, cult inventories, festivals of other traditions). Everything runs in your browser; nothing you paste is sent anywhere.
 </footer>
 <div class="tip" id="tip"></div>
 
@@ -145,11 +145,12 @@ const placed = orphans.filter(c => c.assigned).sort((a, b) => b.gap - a.gap);
 const ex = $("examples");
 const group = (label, items) => {
   const og = document.createElement("optgroup"); og.label = label;
-  for (const c of items) og.append(new Option(`${c.id} (${c.n} words${c.assigned ? ", " + Q.SHORT[c.assigned] : c.label ? ", " + Q.SHORT[c.label] : ""})`, c.id));
+  for (const c of items) og.append(new Option(`${c.id} (${c.n} words${c.outside ? ", outside: " + c.outside : c.assigned ? ", " + Q.SHORT[c.assigned] : c.label ? ", " + Q.SHORT[c.label] : ""})`, c.id));
   ex.append(og);
 };
-group("Orphans the model places confidently", placed.slice(0, 8));
-group("Orphans too close to call", orphans.filter(c => !c.assigned && c.n >= 20).slice(0, 6));
+group("Orphans the model places confidently", placed.filter(c => !c.outside && !c.low_fit).slice(0, 8));
+group("Orphans too close to call", orphans.filter(c => !c.assigned && !c.outside && !c.low_fit && c.n >= 20).slice(0, 6));
+group("Orphans that fit no known tradition", orphans.filter(c => c.outside && c.n >= 15).slice(0, 6));
 group("Reference manuscripts", Q.RING.map(l => corpus.find(c => c.kind === "ref" && c.label === l && c.n > 60 && c.n < 200)).filter(Boolean));
 ex.onchange = async () => { if (!ex.value) return; $("input").value = (await getTexts())[ex.value]; run(ex.value); };
 $("random").onclick = async () => { const c = orphans[Math.floor(Math.random() * orphans.length)]; $("input").value = (await getTexts())[c.id]; run(c.id); };
@@ -181,10 +182,18 @@ function run(fromId) {
   }
   const v = $("verdict");
   v.className = "verdict";
-  v.innerHTML = r.assigned
-    ? `Placed in <b>${r.assigned}</b>`
-    : `Too close to call <span class="muted">(nearest: ${r.top})</span>`;
-  $("verdictSub").textContent = `Nearest ${fmt(r.topScore)}, runner-up ${r.runnerUp} ${fmt(r.topScore - r.gap)}. Margin ${fmt(r.gap)} ${r.gap >= model.margin ? "clears" : "is below"} the abstention threshold of ${model.margin}.` +
+  const o = r.open, placedHere = r.assigned && !o.outside && !o.lowFit;
+  v.innerHTML = o.outside
+    ? `Outside the reference traditions <span class="muted">(closest genre: ${o.outside})</span>`
+    : o.lowFit
+      ? `Fits no known tradition <span class="muted">(nearest: ${r.top})</span>`
+      : r.assigned
+        ? `Placed in <b>${r.assigned}</b>`
+        : `Too close to call <span class="muted">(nearest: ${r.top})</span>`;
+  $("verdictSub").textContent = (o.outside
+      ? `With other genres added as classes, the nearest class is ${o.outside}, by a margin of ${fmt(o.gateGap)}. `
+      : o.lowFit ? `Its best similarity, ${fmt(r.topScore)}, is below ${fmt(o.floor)}, which 95% of reference fragments of this size reach. ` : "") +
+    `Nearest tradition ${fmt(r.topScore)}, runner-up ${r.runnerUp} ${fmt(r.topScore - r.gap)}. Margin ${fmt(r.gap)} ${r.gap >= model.margin ? "clears" : "is below"} the abstention threshold of ${model.margin}.` +
     (r.parsed.words.length < 8 ? " Fragments under about 8 words are rarely placed reliably." : "");
 
   const mx = Math.max(...r.s, 0.001);
@@ -195,10 +204,10 @@ function run(fromId) {
       <span class="val">${fmt(s)}</span>`;
   }).join("");
 
-  $("rose").innerHTML = Q.roseSVG(r.s, labs, { size: 132, assigned: r.assigned, title: "similarity rose" });
+  $("rose").innerHTML = Q.roseSVG(r.s, labs, { size: 132, assigned: placedHere, title: "similarity rose" });
   drawFly(r);
 
-  // marker on the hexagon
+  // marker on the wheel
   const [x, y] = Q.hexPos(r.s, labs, R);
   el("circle", { cx: x, cy: y, r: 11, fill: "none", stroke: "var(--hi)", "stroke-width": 2.5 }, gMe);
   el("circle", { cx: x, cy: y, r: 5, fill: Q.colorVar(r.top), stroke: "var(--surface-1)", "stroke-width": 2 }, gMe);
@@ -238,17 +247,22 @@ async function drawFly(r) {
 }
 
 // ---------- rose gallery ----------
-const perTradition = Q.RING.flatMap(l => placed.filter(c => c.assigned === l).slice(0, 2));
-const galleryItems = [...perTradition, ...orphans.filter(c => !c.assigned && c.n >= 20).slice(0, 4)];
-$("gallery").innerHTML = galleryItems.map(c => `<button class="tile" data-id="${c.id}" title="${c.id}: ${c.assigned || "unplaced"}">
-  ${Q.roseSVG(c.s, labs, { size: 88, assigned: c.assigned, title: c.id })}
-  <span class="small">${c.id}</span><span class="small muted">${c.assigned ? Q.SHORT[c.assigned] : "unplaced"}</span></button>`).join("");
+const fits = c => !c.outside && !c.low_fit;
+const perTradition = Q.RING.flatMap(l => placed.filter(c => c.assigned === l && fits(c)).slice(0, 1));
+const outsiders = orphans.filter(c => c.outside && c.n >= 15).sort((a, b) => b.n - a.n);
+const galleryItems = [...perTradition, ...orphans.filter(c => !c.assigned && fits(c) && c.n >= 20).slice(0, 3),
+  ...[...new Map(outsiders.map(c => [c.outside, c])).values()].slice(0, 3)];
+const tag = c => c.outside ? "outside: " + c.outside : c.low_fit ? "fits nothing known" : c.assigned ? Q.SHORT[c.assigned] : "unplaced";
+$("gallery").innerHTML = galleryItems.map(c => `<button class="tile" data-id="${c.id}" title="${c.id}: ${tag(c)}">
+  ${Q.roseSVG(c.s, labs, { size: 88, assigned: c.assigned && fits(c), title: c.id })}
+  <span class="small">${c.id}</span><span class="small muted">${tag(c)}</span></button>`).join("");
 for (const b of $("gallery").querySelectorAll(".tile"))
   b.onclick = async () => { $("input").value = (await getTexts())[b.dataset.id]; run(b.dataset.id); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
 // start with a confident example so the page is never empty
-$("input").value = (await getTexts())[placed[0].id];
-run(placed[0].id);
+const first = placed.find(c => !c.outside && !c.low_fit);
+$("input").value = (await getTexts())[first.id];
+run(first.id);
 </script>
 </body>
 </html>

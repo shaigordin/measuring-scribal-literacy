@@ -111,55 +111,87 @@ export async function loadModel(base = "data") {
   const model = await (await fetch(`${base}/model.json`)).json();
   model.index = new Map(model.vocab.map((t, i) => [t, i]));
   model.cents = denseCentroids(model);
+  const gate = await (await fetch(`${base}/gate.json`)).json();
+  gate.index = new Map(gate.vocab.map((t, i) => [t, i]));
+  gate.cents = denseCentroids(gate);
+  model.gate = gate;
   return model;
+}
+
+// E9 open-set check. `lowFit`: the best similarity is below what 95% of reference fragments of
+// this size reach. `outside`: with outside genres (myths, oracles, treaties ...) added as classes,
+// the nearest class is one of them by at least the abstention margin.
+export function fitFloor(n, floors) {
+  const ks = Object.keys(floors).map(Number).sort((a, b) => a - b);
+  const k = ks.filter(k => k <= n).pop() ?? ks[0];
+  return floors[k];
+}
+export function openSet(toks, n, topScore, model) {
+  const g = model.gate, os = model.openset;
+  const s = score(tfidf(toks, g.index, g.idf), g.cents);
+  const a = assign(s, g.classes, 0);
+  const floor = fitFloor(n, os.floors);
+  const outside = os.outside.includes(a.top) && Math.round(a.gap * 1e4) / 1e4 >= model.margin ? a.top : null;
+  return { floor, lowFit: topScore < floor, outside, gateTop: a.top, gateGap: a.gap };
 }
 
 export function scoreText(text, model) {
   const parsed = parse(text, model);
-  const vec = tfidf(features(parsed), model.index, model.idf);
+  const toks = features(parsed);
+  const vec = tfidf(toks, model.index, model.idf);
   const s = score(vec, model.cents);
-  return { parsed, vec, s, ...assign(s, model.traditions, model.margin) };
+  const a = assign(s, model.traditions, model.margin);
+  const n = parsed.words.length;
+  return { parsed, vec, s, ...a, open: openSet(toks, n, a.topScore, model) };
 }
 
-// --- shared presentation: tradition order around the hexagon, and colours ---
-// Neighbours on the hexagon are historically related groups.
+// --- shared presentation: tradition order around the wheel, and colours ---
+// Neighbours on the wheel are related groups: the Anatolian festival layers (Hattian, Palaic,
+// Luwian, Ḫuwaššanna), then the Hurrian festival groups, then the ritual traditions.
 export const RING = [
-  "Old Anatolian rituals",
-  "Kizzuwatna rituals",
-  "Kizzuwatna–Lower Land (Hurrian)",
-  "Syro-Mesopotamia (Hurrian)",
+  "Hattian cult layer",
+  "Palaic festivals",
+  "Luwian festivals (Ištanuwa, Lallupiya)",
+  "Ḫuwaššanna festivals",
   "Mixed (Hurrian, Syrian, Luwian)",
-  "Luwian cult centres",
+  "Syro-Mesopotamia (Hurrian)",
+  "Kizzuwatna–Lower Land (Hurrian)",
+  "Kizzuwatna rituals",
+  "Arzawa / western rituals",
 ];
 export const SHORT = {
-  "Old Anatolian rituals": "Old Anatolian rit.",
-  "Kizzuwatna rituals": "Kizzuwatna rit.",
-  "Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna–Lower Land",
-  "Syro-Mesopotamia (Hurrian)": "Syro-Mesopotamia",
+  "Hattian cult layer": "Hattian",
+  "Palaic festivals": "Palaic fest.",
+  "Luwian festivals (Ištanuwa, Lallupiya)": "Luwian fest.",
+  "Ḫuwaššanna festivals": "Ḫuwaššanna",
   "Mixed (Hurrian, Syrian, Luwian)": "Mixed",
-  "Luwian cult centres": "Luwian centres",
+  "Syro-Mesopotamia (Hurrian)": "Syro-Mesopotamia",
+  "Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna–Lower Land",
+  "Kizzuwatna rituals": "Kizzuwatna rit.",
+  "Arzawa / western rituals": "Arzawa / western",
 };
 export const colorVar = lab => `var(--series-${RING.indexOf(lab) + 1})`;
+const angle = lab => -Math.PI / 2 + (2 * Math.PI * RING.indexOf(lab)) / RING.length;
 
-// Barycentric placement in the hexagon: softmax-weighted average of corner positions.
+// Barycentric placement in the tradition wheel: softmax-weighted average of corner positions.
 export const TAU = 0.02;
 export function hexPos(s, labs, R) {
   const mx = Math.max(...s);
   let x = 0, y = 0, z = 0;
   labs.forEach((lab, i) => {
-    const k = RING.indexOf(lab), a = -Math.PI / 2 + (k * Math.PI) / 3;
+    const a = angle(lab);
     const w = Math.exp((s[i] - mx) / TAU);
     x += w * Math.cos(a); y += w * Math.sin(a); z += w;
   });
   return [(R * x) / z, (R * y) / z];
 }
 export function corner(lab, R) {
-  const k = RING.indexOf(lab), a = -Math.PI / 2 + (k * Math.PI) / 3;
+  const a = angle(lab);
   return [R * Math.cos(a), R * Math.sin(a)];
 }
 
 // ---------- signature glyphs ----------
-// Similarity rose: one wedge per tradition, at the same angle as its hexagon corner.
+// Similarity rose: one wedge per tradition, at the same angle as its corner of the wheel.
 // Radius is sqrt(score / ROSE_MAX), so wedge area tracks the score and roses are
 // comparable across fragments. A dashed ring marks a fragment the model abstains on.
 export const ROSE_MAX = 0.5;
@@ -170,9 +202,9 @@ export function roseSVG(s, labs, { size = 120, assigned = null, title = "" } = {
   for (const g of [0.1, 0.2, 0.3, 0.4])
     out += `<circle r="${(R * Math.sqrt(g / ROSE_MAX)).toFixed(2)}" fill="none" stroke="var(--grid)" stroke-width="1"/>`;
   labs.forEach((lab, i) => {
-    const k = RING.indexOf(lab), mid = -Math.PI / 2 + (k * Math.PI) / 3;
+    const mid = angle(lab);
     const r = R * Math.sqrt(Math.min(Math.max(s[i], 0), ROSE_MAX) / ROSE_MAX);
-    const a0 = mid - Math.PI / 6, a1 = mid + Math.PI / 6;
+    const a0 = mid - Math.PI / RING.length, a1 = mid + Math.PI / RING.length;
     out += `<path d="M0,0 L${pt(a0, r)} A${r.toFixed(2)},${r.toFixed(2)} 0 0 1 ${pt(a1, r)} Z" fill="${colorVar(lab)}"
       fill-opacity="${lab === top ? 1 : 0.4}" stroke="var(--surface-1)" stroke-width="1.5"><title>${lab}: ${s[i].toFixed(3)}</title></path>`;
   });

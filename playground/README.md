@@ -4,16 +4,21 @@ A static, browser-only page for the Mainz Hittite & AI workshop. Paste a transli
 and see which textual tradition the *Orphans and Archetypes* model places it in, why, and how its
 words compare with any other manuscript or tradition.
 
-- `index.html`: place a fragment. Scores, and the four signature views: the tradition hexagon
-  (every manuscript placed between the six tradition corners), the archetype barcode (the
+- `index.html`: place a fragment. Scores, the open-set verdict ("fits no known tradition" or
+  "outside the reference", from E9), and the four signature views: the tradition wheel
+  (every manuscript placed between the nine tradition corners), the archetype barcode (the
   tradition's 200 strongest features, with the ones the fragment attests filled in), the
   similarity rose (one wedge per tradition, pointing to its hexagon corner, with a gallery of
   orphan roses), and the word butterfly (fragment vs. nearest tradition by word tf-idf).
+
+The model is the deck's main reference: the literature-defined traditions with the HFR split
+(`--groups literature`, results in `../orphans/results/tlhdig03_literature/`).
 - `compare.html`: word-by-word tf-idf comparison of two witnesses (fragment, manuscript or
   tradition centroid), and for any word, the manuscripts where it carries the most weight.
   This follows the per-word tf-idf comparison of the Neo-Babylonian Dillard study (2023).
 - `qtm.js`: JavaScript port of `../orphans/qtm` (sign splitting, "both" feature space,
-  sublinear tf-idf, nearest-centroid cosine, abstention margin).
+  sublinear tf-idf, nearest-centroid cosine, abstention margin) and of the E9 open-set check
+  of `../orphans/run_openset.py` (fit floor by fragment size, genre gate).
 - `data/`: the model exported by `build_data.py`.
 
 ## Rebuild the data
@@ -24,10 +29,12 @@ python3 -m qtm.tlhdig <TLHdig 0.3 release dir> tokens.csv      # run inside ../o
 python3 build_data.py tokens.csv                                # writes data/*.json
 ```
 
-The export reuses `../orphans/qtm` and the abstention margin from
-`../orphans/results/tlhdig03/report.json`, so the page scores exactly like `run_experiments.py`.
-Run on the 2,004 orphans, the browser scores match Python to within 0.002 on average and give the
-same verdict for 1,978 of them (98.7%); the rest differ because a few transliterations map to more
+The export reuses `../orphans/qtm`, `run_openset.py` and the margin and fit floors from
+`../orphans/results/tlhdig03_literature/`, and it reproduces the deck exactly: 868 of 2,009
+orphans placed, 156 below the fit floor, 247 nearest to an outside genre (checked against
+`E5_orphan_placement.csv` and `E9_orphan_fit.csv`). The browser, which has to map pasted
+transliteration to word forms itself, gives the same placement for 1,977 orphans (98.4%) and the
+same open-set flags for about 98%; the rest differ because a few transliterations map to more
 than one normalised word form, and the page picks the most frequent one.
 
 ## Serve locally
