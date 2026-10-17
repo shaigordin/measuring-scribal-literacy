@@ -1,0 +1,2099 @@
+{
+  "groups": "literature",
+  "frequent_words": {
+    "nu": 870,
+    "1": 833,
+    "tai": 704,
+    "anta": 505,
+    "GAL": 461,
+    "paršia": 456,
+    "našta": 445,
+    "para": 420,
+    "2": 397,
+    "NINDA.GUR₄.RA": 382,
+    "~zi": 369,
+    "arḫa": 359,
+    "šipanti": 351,
+    "namma": 337,
+    "peran": 329,
+    "tianzi": 329,
+    "A-NA": 322,
+    "GEŠTIN": 316,
+    "SÌR-RU": 310,
+    "nat": 305,
+    "NINDA.SIG": 287,
+    "pai": 284,
+    "LUGALuš": 278,
+    "nuššan": 276,
+    "memai": 273
+  },
+  "reference_texts": 1600,
+  "E11a": {
+    "accuracy": 0.841,
+    "all_correct": {
+      "texts": 1346,
+      "by_layer": {
+        "Word form": 0.164,
+        "Syllabic spelling": 0.501,
+        "Logographic writing": 0.335
+      },
+      "by_category": {
+        "Function words": 0.133,
+        "Verbs": 0.101,
+        "Nouns and realia": 0.316,
+        "Agents and deities": 0.309,
+        "Foreign words": 0.105,
+        "Other words": 0.036
+      },
+      "cells": {
+        "Word form|Agents and deities": 0.0371,
+        "Word form|Verbs": 0.0232,
+        "Word form|Function words": 0.0307,
+        "Logographic writing|Agents and deities": 0.1355,
+        "Logographic writing|Nouns and realia": 0.1202,
+        "Logographic writing|Other words": 0.0067,
+        "Logographic writing|Function words": 0.067,
+        "Syllabic spelling|Other words": 0.0245,
+        "Syllabic spelling|Verbs": 0.0724,
+        "Syllabic spelling|Function words": 0.0358,
+        "Syllabic spelling|Nouns and realia": 0.1391,
+        "Word form|Nouns and realia": 0.0569,
+        "Logographic writing|Verbs": 0.0051,
+        "Syllabic spelling|Agents and deities": 0.1361,
+        "Syllabic spelling|Foreign words": 0.0934,
+        "Word form|Foreign words": 0.0108
+      }
+    },
+    "by_tradition": {
+      "Arzawa / western rituals": {
+        "texts": 7,
+        "by_layer": {
+          "Word form": 0.3,
+          "Syllabic spelling": -0.175,
+          "Logographic writing": 0.875
+        },
+        "by_category": {
+          "Function words": -0.191,
+          "Verbs": 0.022,
+          "Nouns and realia": 0.879,
+          "Agents and deities": 0.523,
+          "Foreign words": 0.0,
+          "Other words": -0.233
+        },
+        "cells": {
+          "Word form|Other words": 0.0053,
+          "Word form|Agents and deities": 0.1209,
+          "Word form|Verbs": 0.0618,
+          "Word form|Function words": -0.0367,
+          "Logographic writing|Agents and deities": 0.4167,
+          "Logographic writing|Nouns and realia": 0.428,
+          "Logographic writing|Other words": 0.0143,
+          "Logographic writing|Function words": 0.016,
+          "Syllabic spelling|Other words": -0.2525,
+          "Syllabic spelling|Verbs": -0.0402,
+          "Syllabic spelling|Function words": -0.1698,
+          "Syllabic spelling|Nouns and realia": 0.3022,
+          "Word form|Nouns and realia": 0.1487,
+          "Syllabic spelling|Agents and deities": -0.0145
+        }
+      },
+      "Hattian cult layer": {
+        "texts": 452,
+        "by_layer": {
+          "Word form": 0.115,
+          "Syllabic spelling": 0.637,
+          "Logographic writing": 0.248
+        },
+        "by_category": {
+          "Function words": 0.023,
+          "Verbs": 0.17,
+          "Nouns and realia": 0.313,
+          "Agents and deities": 0.234,
+          "Foreign words": 0.236,
+          "Other words": 0.026
+        },
+        "cells": {
+          "Word form|Other words": -0.0062,
+          "Word form|Agents and deities": 0.0372,
+          "Word form|Verbs": 0.0248,
+          "Logographic writing|Agents and deities": 0.1414,
+          "Logographic writing|Nouns and realia": 0.1319,
+          "Logographic writing|Function words": -0.0278,
+          "Syllabic spelling|Other words": 0.0308,
+          "Syllabic spelling|Verbs": 0.1441,
+          "Syllabic spelling|Function words": 0.0517,
+          "Syllabic spelling|Nouns and realia": 0.1355,
+          "Word form|Nouns and realia": 0.0452,
+          "Syllabic spelling|Agents and deities": 0.0551,
+          "Syllabic spelling|Foreign words": 0.2196,
+          "Word form|Foreign words": 0.0154
+        }
+      },
+      "Kizzuwatna rituals": {
+        "texts": 150,
+        "by_layer": {
+          "Word form": 0.215,
+          "Syllabic spelling": 0.503,
+          "Logographic writing": 0.282
+        },
+        "by_category": {
+          "Function words": 0.15,
+          "Verbs": 0.1,
+          "Nouns and realia": 0.483,
+          "Agents and deities": 0.079,
+          "Foreign words": 0.036,
+          "Other words": 0.151
+        },
+        "cells": {
+          "Word form|Other words": 0.034,
+          "Word form|Agents and deities": 0.0244,
+          "Word form|Verbs": 0.0055,
+          "Word form|Function words": 0.0426,
+          "Logographic writing|Agents and deities": 0.0423,
+          "Logographic writing|Nouns and realia": 0.1749,
+          "Logographic writing|Other words": 0.0329,
+          "Logographic writing|Function words": 0.0238,
+          "Syllabic spelling|Other words": 0.0846,
+          "Syllabic spelling|Verbs": 0.0888,
+          "Syllabic spelling|Function words": 0.0833,
+          "Syllabic spelling|Nouns and realia": 0.2055,
+          "Word form|Nouns and realia": 0.1024,
+          "Logographic writing|Verbs": 0.0061,
+          "Syllabic spelling|Agents and deities": 0.0128,
+          "Syllabic spelling|Foreign words": 0.0277,
+          "Word form|Foreign words": 0.0066
+        }
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 257,
+        "by_layer": {
+          "Word form": 0.175,
+          "Syllabic spelling": 0.333,
+          "Logographic writing": 0.492
+        },
+        "by_category": {
+          "Function words": 0.164,
+          "Verbs": 0.168,
+          "Nouns and realia": 0.422,
+          "Agents and deities": 0.13,
+          "Foreign words": 0.052,
+          "Other words": 0.063
+        },
+        "cells": {
+          "Word form|Other words": 0.0229,
+          "Word form|Agents and deities": 0.0152,
+          "Word form|Verbs": 0.0272,
+          "Word form|Function words": 0.0285,
+          "Logographic writing|Agents and deities": 0.0804,
+          "Logographic writing|Nouns and realia": 0.2256,
+          "Logographic writing|Other words": 0.0077,
+          "Logographic writing|Function words": 0.1597,
+          "Syllabic spelling|Other words": 0.0324,
+          "Syllabic spelling|Verbs": 0.1243,
+          "Syllabic spelling|Function words": -0.0246,
+          "Syllabic spelling|Nouns and realia": 0.1246,
+          "Word form|Nouns and realia": 0.0721,
+          "Logographic writing|Verbs": 0.0168,
+          "Syllabic spelling|Agents and deities": 0.0347,
+          "Syllabic spelling|Foreign words": 0.0416,
+          "Word form|Foreign words": 0.0089
+        }
+      },
+      "Luwian festivals (Ištanuwa, Lallupiya)": {
+        "texts": 42,
+        "by_layer": {
+          "Word form": 0.184,
+          "Syllabic spelling": 0.357,
+          "Logographic writing": 0.459
+        },
+        "by_category": {
+          "Function words": 0.022,
+          "Verbs": 0.004,
+          "Nouns and realia": 0.675,
+          "Agents and deities": 0.184,
+          "Foreign words": 0.117,
+          "Other words": -0.002
+        },
+        "cells": {
+          "Word form|Other words": 0.0079,
+          "Word form|Agents and deities": 0.0296,
+          "Word form|Verbs": 0.0156,
+          "Word form|Function words": 0.0197,
+          "Logographic writing|Agents and deities": 0.1242,
+          "Logographic writing|Nouns and realia": 0.2752,
+          "Logographic writing|Function words": 0.0327,
+          "Syllabic spelling|Other words": -0.0093,
+          "Syllabic spelling|Verbs": -0.0337,
+          "Syllabic spelling|Function words": -0.0299,
+          "Syllabic spelling|Nouns and realia": 0.3094,
+          "Word form|Nouns and realia": 0.0901,
+          "Logographic writing|Verbs": 0.022,
+          "Syllabic spelling|Agents and deities": 0.03,
+          "Syllabic spelling|Foreign words": 0.0904,
+          "Word form|Foreign words": 0.0212,
+          "Logographic writing|Foreign words": 0.0051
+        }
+      },
+      "Luwian rituals (Puriyanni, Kuwattalla)": {
+        "texts": 4,
+        "by_layer": {
+          "Word form": 0.499,
+          "Syllabic spelling": 0.164,
+          "Logographic writing": 0.336
+        },
+        "by_category": {
+          "Function words": 0.003,
+          "Verbs": -0.118,
+          "Nouns and realia": 0.44,
+          "Agents and deities": -0.109,
+          "Foreign words": 0.0,
+          "Other words": 0.784
+        },
+        "cells": {
+          "Word form|Other words": 0.3515,
+          "Word form|Agents and deities": -0.0084,
+          "Word form|Verbs": -0.0081,
+          "Word form|Function words": 0.0138,
+          "Logographic writing|Agents and deities": -0.0908,
+          "Logographic writing|Nouns and realia": -0.0456,
+          "Logographic writing|Other words": 0.4386,
+          "Logographic writing|Function words": 0.034,
+          "Syllabic spelling|Other words": -0.0062,
+          "Syllabic spelling|Verbs": -0.1099,
+          "Syllabic spelling|Function words": -0.0451,
+          "Syllabic spelling|Nouns and realia": 0.3353,
+          "Word form|Nouns and realia": 0.1505,
+          "Syllabic spelling|Agents and deities": -0.0098
+        }
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 132,
+        "by_layer": {
+          "Word form": 0.217,
+          "Syllabic spelling": 0.391,
+          "Logographic writing": 0.392
+        },
+        "by_category": {
+          "Function words": 0.319,
+          "Verbs": 0.032,
+          "Nouns and realia": 0.197,
+          "Agents and deities": 0.412,
+          "Foreign words": 0.011,
+          "Other words": 0.029
+        },
+        "cells": {
+          "Word form|Other words": 0.0065,
+          "Word form|Agents and deities": 0.0531,
+          "Word form|Verbs": 0.0156,
+          "Word form|Function words": 0.0906,
+          "Logographic writing|Agents and deities": 0.175,
+          "Logographic writing|Nouns and realia": 0.0279,
+          "Logographic writing|Function words": 0.1905,
+          "Syllabic spelling|Other words": 0.0227,
+          "Syllabic spelling|Verbs": 0.0177,
+          "Syllabic spelling|Function words": 0.0382,
+          "Syllabic spelling|Nouns and realia": 0.1187,
+          "Word form|Nouns and realia": 0.0504,
+          "Syllabic spelling|Agents and deities": 0.1835,
+          "Syllabic spelling|Foreign words": 0.0098
+        }
+      },
+      "Palaic festivals": {
+        "texts": 28,
+        "by_layer": {
+          "Word form": 0.16,
+          "Syllabic spelling": 0.66,
+          "Logographic writing": 0.18
+        },
+        "by_category": {
+          "Function words": 0.012,
+          "Verbs": -0.066,
+          "Nouns and realia": 0.155,
+          "Agents and deities": 0.584,
+          "Foreign words": 0.313,
+          "Other words": 0.001
+        },
+        "cells": {
+          "Word form|Other words": -0.0107,
+          "Word form|Agents and deities": 0.0552,
+          "Word form|Verbs": -0.0105,
+          "Logographic writing|Agents and deities": 0.182,
+          "Logographic writing|Nouns and realia": 0.0246,
+          "Logographic writing|Other words": 0.0062,
+          "Logographic writing|Function words": -0.0175,
+          "Syllabic spelling|Other words": 0.0054,
+          "Syllabic spelling|Verbs": -0.051,
+          "Syllabic spelling|Function words": 0.0263,
+          "Syllabic spelling|Nouns and realia": 0.0969,
+          "Word form|Nouns and realia": 0.0338,
+          "Syllabic spelling|Agents and deities": 0.3472,
+          "Syllabic spelling|Foreign words": 0.2352,
+          "Word form|Foreign words": 0.0893,
+          "Logographic writing|Foreign words": -0.011
+        }
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 110,
+        "by_layer": {
+          "Word form": 0.198,
+          "Syllabic spelling": 0.532,
+          "Logographic writing": 0.27
+        },
+        "by_category": {
+          "Function words": 0.277,
+          "Verbs": 0.073,
+          "Nouns and realia": 0.329,
+          "Agents and deities": 0.137,
+          "Foreign words": 0.174,
+          "Other words": 0.01
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0333,
+          "Word form|Verbs": 0.028,
+          "Word form|Function words": 0.0607,
+          "Logographic writing|Agents and deities": 0.1093,
+          "Logographic writing|Nouns and realia": 0.0929,
+          "Logographic writing|Function words": 0.0639,
+          "Syllabic spelling|Other words": 0.0134,
+          "Syllabic spelling|Verbs": 0.0432,
+          "Syllabic spelling|Function words": 0.1519,
+          "Syllabic spelling|Nouns and realia": 0.1776,
+          "Word form|Nouns and realia": 0.0582,
+          "Syllabic spelling|Agents and deities": -0.0056,
+          "Syllabic spelling|Foreign words": 0.1516,
+          "Word form|Foreign words": 0.0213
+        }
+      },
+      "Ḫuwaššanna festivals": {
+        "texts": 164,
+        "by_layer": {
+          "Word form": 0.147,
+          "Syllabic spelling": 0.488,
+          "Logographic writing": 0.365
+        },
+        "by_category": {
+          "Function words": 0.099,
+          "Verbs": 0.066,
+          "Nouns and realia": 0.234,
+          "Agents and deities": 0.575,
+          "Foreign words": -0.0,
+          "Other words": 0.025
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0447,
+          "Word form|Verbs": 0.0277,
+          "Word form|Function words": 0.0243,
+          "Logographic writing|Agents and deities": 0.1732,
+          "Logographic writing|Nouns and realia": 0.085,
+          "Logographic writing|Other words": 0.0086,
+          "Logographic writing|Function words": 0.0912,
+          "Syllabic spelling|Other words": 0.0148,
+          "Syllabic spelling|Verbs": 0.0317,
+          "Syllabic spelling|Function words": -0.0162,
+          "Syllabic spelling|Nouns and realia": 0.101,
+          "Word form|Nouns and realia": 0.0484,
+          "Logographic writing|Verbs": 0.0068,
+          "Syllabic spelling|Agents and deities": 0.3573
+        }
+      }
+    },
+    "similarity_all_correct": {
+      "texts": 1346,
+      "by_layer": {
+        "Word form": 0.116,
+        "Syllabic spelling": 0.614,
+        "Logographic writing": 0.271
+      },
+      "by_category": {
+        "Function words": 0.201,
+        "Verbs": 0.199,
+        "Nouns and realia": 0.272,
+        "Agents and deities": 0.179,
+        "Foreign words": 0.084,
+        "Other words": 0.065
+      },
+      "cells": {
+        "Word form|Other words": 0.0133,
+        "Word form|Agents and deities": 0.0178,
+        "Word form|Verbs": 0.0218,
+        "Word form|Function words": 0.0289,
+        "Logographic writing|Agents and deities": 0.0862,
+        "Logographic writing|Nouns and realia": 0.1032,
+        "Logographic writing|Other words": 0.0063,
+        "Logographic writing|Function words": 0.0687,
+        "Syllabic spelling|Other words": 0.0456,
+        "Syllabic spelling|Verbs": 0.1718,
+        "Syllabic spelling|Function words": 0.1035,
+        "Syllabic spelling|Nouns and realia": 0.1388,
+        "Word form|Nouns and realia": 0.0301,
+        "Logographic writing|Verbs": 0.0054,
+        "Syllabic spelling|Agents and deities": 0.0745,
+        "Syllabic spelling|Foreign words": 0.0794
+      }
+    },
+    "similarity_by_tradition": {
+      "Arzawa / western rituals": {
+        "texts": 7,
+        "by_layer": {
+          "Word form": 0.128,
+          "Syllabic spelling": 0.507,
+          "Logographic writing": 0.365
+        },
+        "by_category": {
+          "Function words": 0.166,
+          "Verbs": 0.166,
+          "Nouns and realia": 0.327,
+          "Agents and deities": 0.174,
+          "Foreign words": 0.0,
+          "Other words": 0.167
+        },
+        "cells": {
+          "Word form|Other words": 0.0296,
+          "Word form|Agents and deities": 0.0281,
+          "Word form|Verbs": 0.0163,
+          "Word form|Function words": 0.0156,
+          "Logographic writing|Agents and deities": 0.1366,
+          "Logographic writing|Nouns and realia": 0.1549,
+          "Logographic writing|Other words": 0.0105,
+          "Logographic writing|Function words": 0.0629,
+          "Syllabic spelling|Other words": 0.1274,
+          "Syllabic spelling|Verbs": 0.1493,
+          "Syllabic spelling|Function words": 0.0871,
+          "Syllabic spelling|Nouns and realia": 0.1338,
+          "Word form|Nouns and realia": 0.0384,
+          "Syllabic spelling|Agents and deities": 0.0095
+        }
+      },
+      "Hattian cult layer": {
+        "texts": 452,
+        "by_layer": {
+          "Word form": 0.09,
+          "Syllabic spelling": 0.689,
+          "Logographic writing": 0.221
+        },
+        "by_category": {
+          "Function words": 0.132,
+          "Verbs": 0.229,
+          "Nouns and realia": 0.266,
+          "Agents and deities": 0.137,
+          "Foreign words": 0.179,
+          "Other words": 0.056
+        },
+        "cells": {
+          "Word form|Other words": 0.008,
+          "Word form|Agents and deities": 0.0168,
+          "Word form|Verbs": 0.0215,
+          "Word form|Function words": 0.0148,
+          "Logographic writing|Agents and deities": 0.081,
+          "Logographic writing|Nouns and realia": 0.1072,
+          "Logographic writing|Function words": 0.0199,
+          "Syllabic spelling|Other words": 0.0431,
+          "Syllabic spelling|Verbs": 0.2013,
+          "Syllabic spelling|Function words": 0.0976,
+          "Syllabic spelling|Nouns and realia": 0.1356,
+          "Word form|Nouns and realia": 0.0236,
+          "Logographic writing|Verbs": 0.0067,
+          "Syllabic spelling|Agents and deities": 0.0392,
+          "Syllabic spelling|Foreign words": 0.1726,
+          "Word form|Foreign words": 0.0052
+        }
+      },
+      "Kizzuwatna rituals": {
+        "texts": 150,
+        "by_layer": {
+          "Word form": 0.121,
+          "Syllabic spelling": 0.627,
+          "Logographic writing": 0.252
+        },
+        "by_category": {
+          "Function words": 0.221,
+          "Verbs": 0.184,
+          "Nouns and realia": 0.324,
+          "Agents and deities": 0.067,
+          "Foreign words": 0.053,
+          "Other words": 0.15
+        },
+        "cells": {
+          "Word form|Other words": 0.0278,
+          "Word form|Agents and deities": 0.0111,
+          "Word form|Verbs": 0.012,
+          "Word form|Function words": 0.0307,
+          "Logographic writing|Agents and deities": 0.0437,
+          "Logographic writing|Nouns and realia": 0.1313,
+          "Logographic writing|Other words": 0.016,
+          "Logographic writing|Function words": 0.0583,
+          "Syllabic spelling|Other words": 0.1058,
+          "Syllabic spelling|Verbs": 0.1702,
+          "Syllabic spelling|Function words": 0.1323,
+          "Syllabic spelling|Nouns and realia": 0.1559,
+          "Word form|Nouns and realia": 0.0371,
+          "Syllabic spelling|Agents and deities": 0.0127,
+          "Syllabic spelling|Foreign words": 0.0499
+        }
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 257,
+        "by_layer": {
+          "Word form": 0.122,
+          "Syllabic spelling": 0.553,
+          "Logographic writing": 0.325
+        },
+        "by_category": {
+          "Function words": 0.233,
+          "Verbs": 0.225,
+          "Nouns and realia": 0.314,
+          "Agents and deities": 0.135,
+          "Foreign words": 0.031,
+          "Other words": 0.062
+        },
+        "cells": {
+          "Word form|Other words": 0.0194,
+          "Word form|Agents and deities": 0.0112,
+          "Word form|Verbs": 0.0231,
+          "Word form|Function words": 0.0319,
+          "Logographic writing|Agents and deities": 0.0754,
+          "Logographic writing|Nouns and realia": 0.1339,
+          "Logographic writing|Other words": 0.0054,
+          "Logographic writing|Function words": 0.1037,
+          "Syllabic spelling|Other words": 0.0375,
+          "Syllabic spelling|Verbs": 0.1968,
+          "Syllabic spelling|Function words": 0.0973,
+          "Syllabic spelling|Nouns and realia": 0.1458,
+          "Word form|Nouns and realia": 0.0344,
+          "Logographic writing|Verbs": 0.0056,
+          "Syllabic spelling|Agents and deities": 0.0479,
+          "Syllabic spelling|Foreign words": 0.0279
+        }
+      },
+      "Luwian festivals (Ištanuwa, Lallupiya)": {
+        "texts": 42,
+        "by_layer": {
+          "Word form": 0.115,
+          "Syllabic spelling": 0.589,
+          "Logographic writing": 0.295
+        },
+        "by_category": {
+          "Function words": 0.2,
+          "Verbs": 0.163,
+          "Nouns and realia": 0.397,
+          "Agents and deities": 0.104,
+          "Foreign words": 0.104,
+          "Other words": 0.032
+        },
+        "cells": {
+          "Word form|Other words": 0.0138,
+          "Word form|Agents and deities": 0.0136,
+          "Word form|Verbs": 0.0153,
+          "Word form|Function words": 0.0299,
+          "Logographic writing|Agents and deities": 0.0716,
+          "Logographic writing|Nouns and realia": 0.1508,
+          "Logographic writing|Function words": 0.0554,
+          "Syllabic spelling|Other words": 0.0152,
+          "Syllabic spelling|Verbs": 0.1358,
+          "Syllabic spelling|Function words": 0.115,
+          "Syllabic spelling|Nouns and realia": 0.2101,
+          "Word form|Nouns and realia": 0.0362,
+          "Logographic writing|Verbs": 0.0117,
+          "Syllabic spelling|Agents and deities": 0.0193,
+          "Syllabic spelling|Foreign words": 0.0937,
+          "Word form|Foreign words": 0.0068
+        }
+      },
+      "Luwian rituals (Puriyanni, Kuwattalla)": {
+        "texts": 4,
+        "by_layer": {
+          "Word form": 0.185,
+          "Syllabic spelling": 0.572,
+          "Logographic writing": 0.243
+        },
+        "by_category": {
+          "Function words": 0.116,
+          "Verbs": 0.078,
+          "Nouns and realia": 0.313,
+          "Agents and deities": 0.065,
+          "Foreign words": 0.0,
+          "Other words": 0.427
+        },
+        "cells": {
+          "Word form|Other words": 0.1126,
+          "Word form|Agents and deities": 0.0074,
+          "Word form|Function words": 0.0178,
+          "Logographic writing|Agents and deities": 0.0516,
+          "Logographic writing|Nouns and realia": 0.0109,
+          "Logographic writing|Other words": 0.1408,
+          "Logographic writing|Function words": 0.0401,
+          "Syllabic spelling|Other words": 0.1736,
+          "Syllabic spelling|Verbs": 0.075,
+          "Syllabic spelling|Function words": 0.0583,
+          "Syllabic spelling|Nouns and realia": 0.2585,
+          "Word form|Nouns and realia": 0.0441,
+          "Syllabic spelling|Agents and deities": 0.0064
+        }
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 132,
+        "by_layer": {
+          "Word form": 0.141,
+          "Syllabic spelling": 0.539,
+          "Logographic writing": 0.319
+        },
+        "by_category": {
+          "Function words": 0.252,
+          "Verbs": 0.157,
+          "Nouns and realia": 0.25,
+          "Agents and deities": 0.277,
+          "Foreign words": 0.01,
+          "Other words": 0.054
+        },
+        "cells": {
+          "Word form|Other words": 0.0161,
+          "Word form|Agents and deities": 0.0254,
+          "Word form|Verbs": 0.0215,
+          "Word form|Function words": 0.0467,
+          "Logographic writing|Agents and deities": 0.1268,
+          "Logographic writing|Nouns and realia": 0.0713,
+          "Logographic writing|Function words": 0.1158,
+          "Syllabic spelling|Other words": 0.0349,
+          "Syllabic spelling|Verbs": 0.1336,
+          "Syllabic spelling|Function words": 0.0893,
+          "Syllabic spelling|Nouns and realia": 0.148,
+          "Word form|Nouns and realia": 0.0312,
+          "Syllabic spelling|Agents and deities": 0.1243,
+          "Syllabic spelling|Foreign words": 0.0094
+        }
+      },
+      "Palaic festivals": {
+        "texts": 28,
+        "by_layer": {
+          "Word form": 0.096,
+          "Syllabic spelling": 0.708,
+          "Logographic writing": 0.195
+        },
+        "by_category": {
+          "Function words": 0.124,
+          "Verbs": 0.136,
+          "Nouns and realia": 0.196,
+          "Agents and deities": 0.252,
+          "Foreign words": 0.257,
+          "Other words": 0.035
+        },
+        "cells": {
+          "Word form|Other words": 0.0064,
+          "Word form|Agents and deities": 0.0168,
+          "Word form|Verbs": 0.0112,
+          "Word form|Function words": 0.0147,
+          "Logographic writing|Agents and deities": 0.084,
+          "Logographic writing|Nouns and realia": 0.069,
+          "Logographic writing|Function words": 0.0358,
+          "Syllabic spelling|Other words": 0.0233,
+          "Syllabic spelling|Verbs": 0.1245,
+          "Syllabic spelling|Function words": 0.0739,
+          "Syllabic spelling|Nouns and realia": 0.1063,
+          "Word form|Nouns and realia": 0.0211,
+          "Syllabic spelling|Agents and deities": 0.1511,
+          "Syllabic spelling|Foreign words": 0.2292,
+          "Word form|Foreign words": 0.0261
+        }
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 110,
+        "by_layer": {
+          "Word form": 0.139,
+          "Syllabic spelling": 0.624,
+          "Logographic writing": 0.238
+        },
+        "by_category": {
+          "Function words": 0.317,
+          "Verbs": 0.159,
+          "Nouns and realia": 0.265,
+          "Agents and deities": 0.098,
+          "Foreign words": 0.136,
+          "Other words": 0.025
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0183,
+          "Word form|Verbs": 0.0225,
+          "Word form|Function words": 0.0496,
+          "Logographic writing|Agents and deities": 0.0698,
+          "Logographic writing|Nouns and realia": 0.0828,
+          "Logographic writing|Function words": 0.0793,
+          "Syllabic spelling|Other words": 0.02,
+          "Syllabic spelling|Verbs": 0.1345,
+          "Syllabic spelling|Function words": 0.1884,
+          "Syllabic spelling|Nouns and realia": 0.1465,
+          "Word form|Nouns and realia": 0.0356,
+          "Syllabic spelling|Agents and deities": 0.0097,
+          "Syllabic spelling|Foreign words": 0.1245,
+          "Word form|Foreign words": 0.0087
+        }
+      },
+      "Ḫuwaššanna festivals": {
+        "texts": 164,
+        "by_layer": {
+          "Word form": 0.117,
+          "Syllabic spelling": 0.589,
+          "Logographic writing": 0.293
+        },
+        "by_category": {
+          "Function words": 0.17,
+          "Verbs": 0.195,
+          "Nouns and realia": 0.204,
+          "Agents and deities": 0.359,
+          "Foreign words": 0.0,
+          "Other words": 0.071
+        },
+        "cells": {
+          "Word form|Other words": 0.0097,
+          "Word form|Agents and deities": 0.0268,
+          "Word form|Verbs": 0.0289,
+          "Word form|Function words": 0.0251,
+          "Logographic writing|Agents and deities": 0.1184,
+          "Logographic writing|Nouns and realia": 0.0728,
+          "Logographic writing|Other words": 0.0091,
+          "Logographic writing|Function words": 0.0845,
+          "Syllabic spelling|Other words": 0.0526,
+          "Syllabic spelling|Verbs": 0.1573,
+          "Syllabic spelling|Function words": 0.0607,
+          "Syllabic spelling|Nouns and realia": 0.1044,
+          "Word form|Nouns and realia": 0.0269,
+          "Logographic writing|Verbs": 0.0087,
+          "Syllabic spelling|Agents and deities": 0.2141
+        }
+      }
+    },
+    "orphans_by_nearest": {
+      "Arzawa / western rituals": {
+        "texts": 35,
+        "by_layer": {
+          "Word form": 0.245,
+          "Syllabic spelling": -0.297,
+          "Logographic writing": 1.052
+        },
+        "by_category": {
+          "Function words": -0.331,
+          "Verbs": 0.192,
+          "Nouns and realia": 1.006,
+          "Agents and deities": 0.438,
+          "Foreign words": 0.031,
+          "Other words": -0.336
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0756,
+          "Word form|Other words": -0.0139,
+          "Logographic writing|Agents and deities": 0.3926,
+          "Syllabic spelling|Other words": -0.2918,
+          "Syllabic spelling|Function words": -0.2449,
+          "Word form|Nouns and realia": 0.1558,
+          "Word form|Function words": -0.0192,
+          "Logographic writing|Nouns and realia": 0.7144,
+          "Logographic writing|Function words": -0.067,
+          "Syllabic spelling|Nouns and realia": 0.1357,
+          "Syllabic spelling|Verbs": 0.1466,
+          "Word form|Verbs": 0.0468,
+          "Syllabic spelling|Agents and deities": -0.0302,
+          "Logographic writing|Other words": -0.0307,
+          "Syllabic spelling|Foreign words": -0.0122,
+          "Logographic writing|Foreign words": 0.0435
+        }
+      },
+      "Hattian cult layer": {
+        "texts": 384,
+        "by_layer": {
+          "Word form": 0.049,
+          "Syllabic spelling": 0.754,
+          "Logographic writing": 0.198
+        },
+        "by_category": {
+          "Function words": -0.142,
+          "Verbs": 0.212,
+          "Nouns and realia": 0.134,
+          "Agents and deities": 0.31,
+          "Foreign words": 0.003,
+          "Other words": 0.484
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0485,
+          "Word form|Other words": 0.041,
+          "Logographic writing|Agents and deities": 0.2238,
+          "Syllabic spelling|Other words": 0.4278,
+          "Syllabic spelling|Function words": -0.0143,
+          "Word form|Nouns and realia": 0.0105,
+          "Word form|Function words": -0.0629,
+          "Logographic writing|Nouns and realia": 0.0303,
+          "Logographic writing|Function words": -0.0647,
+          "Syllabic spelling|Nouns and realia": 0.0936,
+          "Syllabic spelling|Verbs": 0.2067,
+          "Word form|Verbs": 0.0113,
+          "Logographic writing|Verbs": -0.0065,
+          "Syllabic spelling|Agents and deities": 0.0374,
+          "Logographic writing|Other words": 0.0146
+        }
+      },
+      "Kizzuwatna rituals": {
+        "texts": 1040,
+        "by_layer": {
+          "Word form": 0.235,
+          "Syllabic spelling": 0.433,
+          "Logographic writing": 0.332
+        },
+        "by_category": {
+          "Function words": 0.239,
+          "Verbs": 0.01,
+          "Nouns and realia": 0.29,
+          "Agents and deities": 0.086,
+          "Foreign words": 0.0,
+          "Other words": 0.375
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0335,
+          "Word form|Other words": 0.0907,
+          "Logographic writing|Agents and deities": 0.0548,
+          "Syllabic spelling|Other words": 0.202,
+          "Syllabic spelling|Function words": 0.1375,
+          "Word form|Nouns and realia": 0.0629,
+          "Word form|Function words": 0.0545,
+          "Logographic writing|Nouns and realia": 0.1458,
+          "Logographic writing|Function words": 0.0471,
+          "Syllabic spelling|Nouns and realia": 0.0809,
+          "Syllabic spelling|Verbs": 0.0145,
+          "Word form|Verbs": -0.0066,
+          "Logographic writing|Other words": 0.0826
+        }
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "texts": 213,
+        "by_layer": {
+          "Word form": 0.159,
+          "Syllabic spelling": 0.082,
+          "Logographic writing": 0.758
+        },
+        "by_category": {
+          "Function words": 0.086,
+          "Verbs": 0.193,
+          "Nouns and realia": 0.613,
+          "Agents and deities": -0.037,
+          "Foreign words": 0.007,
+          "Other words": 0.138
+        },
+        "cells": {
+          "Word form|Agents and deities": -0.0204,
+          "Word form|Other words": 0.0603,
+          "Logographic writing|Agents and deities": -0.0121,
+          "Syllabic spelling|Other words": -0.0295,
+          "Syllabic spelling|Function words": -0.0157,
+          "Word form|Nouns and realia": 0.0895,
+          "Logographic writing|Nouns and realia": 0.5697,
+          "Logographic writing|Function words": 0.1036,
+          "Syllabic spelling|Nouns and realia": -0.0461,
+          "Syllabic spelling|Verbs": 0.1727,
+          "Word form|Verbs": 0.0298,
+          "Logographic writing|Verbs": -0.0096,
+          "Logographic writing|Other words": 0.1067,
+          "Syllabic spelling|Foreign words": 0.0052
+        }
+      },
+      "Luwian festivals (Ištanuwa, Lallupiya)": {
+        "texts": 47,
+        "by_layer": {
+          "Word form": 0.173,
+          "Syllabic spelling": -0.298,
+          "Logographic writing": 1.126
+        },
+        "by_category": {
+          "Function words": 0.368,
+          "Verbs": -0.108,
+          "Nouns and realia": 0.986,
+          "Agents and deities": -0.054,
+          "Foreign words": 0.0,
+          "Other words": -0.192
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0153,
+          "Word form|Other words": -0.0382,
+          "Logographic writing|Agents and deities": -0.0611,
+          "Syllabic spelling|Other words": -0.0607,
+          "Syllabic spelling|Function words": -0.0879,
+          "Word form|Nouns and realia": 0.1331,
+          "Word form|Function words": 0.0747,
+          "Logographic writing|Nouns and realia": 0.9001,
+          "Logographic writing|Function words": 0.3814,
+          "Syllabic spelling|Nouns and realia": -0.0471,
+          "Syllabic spelling|Verbs": -0.0944,
+          "Word form|Verbs": -0.0123,
+          "Syllabic spelling|Agents and deities": -0.0084,
+          "Logographic writing|Other words": -0.0933
+        }
+      },
+      "Luwian rituals (Puriyanni, Kuwattalla)": {
+        "texts": 43,
+        "by_layer": {
+          "Word form": 0.411,
+          "Syllabic spelling": 0.136,
+          "Logographic writing": 0.454
+        },
+        "by_category": {
+          "Function words": 0.182,
+          "Verbs": -0.103,
+          "Nouns and realia": 0.301,
+          "Agents and deities": 0.004,
+          "Foreign words": 0.0,
+          "Other words": 0.616
+        },
+        "cells": {
+          "Word form|Agents and deities": -0.0087,
+          "Word form|Other words": 0.3116,
+          "Logographic writing|Agents and deities": 0.028,
+          "Syllabic spelling|Other words": -0.1218,
+          "Syllabic spelling|Function words": 0.1391,
+          "Word form|Nouns and realia": 0.0458,
+          "Word form|Function words": 0.0555,
+          "Logographic writing|Nouns and realia": 0.0111,
+          "Logographic writing|Function words": -0.0128,
+          "Syllabic spelling|Nouns and realia": 0.244,
+          "Syllabic spelling|Verbs": -0.1101,
+          "Word form|Verbs": 0.0066,
+          "Syllabic spelling|Agents and deities": -0.0154,
+          "Logographic writing|Other words": 0.4267
+        }
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "texts": 67,
+        "by_layer": {
+          "Word form": 0.246,
+          "Syllabic spelling": 0.238,
+          "Logographic writing": 0.515
+        },
+        "by_category": {
+          "Function words": 0.865,
+          "Verbs": 0.089,
+          "Nouns and realia": 0.023,
+          "Agents and deities": -0.018,
+          "Foreign words": 0.0,
+          "Other words": 0.041
+        },
+        "cells": {
+          "Word form|Agents and deities": -0.0354,
+          "Word form|Other words": 0.0369,
+          "Logographic writing|Agents and deities": 0.0268,
+          "Syllabic spelling|Other words": -0.0141,
+          "Syllabic spelling|Function words": 0.1845,
+          "Word form|Nouns and realia": 0.0181,
+          "Word form|Function words": 0.1874,
+          "Logographic writing|Function words": 0.4927,
+          "Syllabic spelling|Nouns and realia": 0.0068,
+          "Syllabic spelling|Verbs": 0.0712,
+          "Word form|Verbs": 0.0393,
+          "Logographic writing|Verbs": -0.0209,
+          "Syllabic spelling|Agents and deities": -0.0099,
+          "Logographic writing|Other words": 0.0186
+        }
+      },
+      "Palaic festivals": {
+        "texts": 19,
+        "by_layer": {
+          "Word form": 0.128,
+          "Syllabic spelling": 0.269,
+          "Logographic writing": 0.602
+        },
+        "by_category": {
+          "Function words": -0.171,
+          "Verbs": -0.008,
+          "Nouns and realia": 0.493,
+          "Agents and deities": 0.348,
+          "Foreign words": 0.033,
+          "Other words": 0.304
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0177,
+          "Word form|Other words": -0.0058,
+          "Logographic writing|Agents and deities": 0.194,
+          "Syllabic spelling|Other words": 0.1453,
+          "Syllabic spelling|Function words": -0.0604,
+          "Word form|Nouns and realia": 0.1255,
+          "Word form|Function words": -0.0369,
+          "Logographic writing|Nouns and realia": 0.2978,
+          "Logographic writing|Function words": -0.0735,
+          "Syllabic spelling|Nouns and realia": 0.0698,
+          "Syllabic spelling|Verbs": -0.0137,
+          "Word form|Verbs": -0.0134,
+          "Logographic writing|Verbs": 0.0193,
+          "Syllabic spelling|Agents and deities": 0.1365,
+          "Logographic writing|Other words": 0.1647,
+          "Word form|Foreign words": 0.0412,
+          "Syllabic spelling|Foreign words": -0.0083
+        }
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "texts": 124,
+        "by_layer": {
+          "Word form": 0.303,
+          "Syllabic spelling": 0.17,
+          "Logographic writing": 0.527
+        },
+        "by_category": {
+          "Function words": 0.256,
+          "Verbs": 0.195,
+          "Nouns and realia": 0.302,
+          "Agents and deities": 0.393,
+          "Foreign words": 0.002,
+          "Other words": -0.148
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.1003,
+          "Word form|Other words": -0.0397,
+          "Logographic writing|Agents and deities": 0.2939,
+          "Syllabic spelling|Other words": -0.094,
+          "Syllabic spelling|Function words": 0.1427,
+          "Word form|Nouns and realia": 0.0914,
+          "Word form|Function words": 0.0771,
+          "Logographic writing|Nouns and realia": 0.2017,
+          "Logographic writing|Function words": 0.0365,
+          "Syllabic spelling|Nouns and realia": 0.0086,
+          "Syllabic spelling|Verbs": 0.112,
+          "Word form|Verbs": 0.0743,
+          "Logographic writing|Verbs": 0.0083,
+          "Logographic writing|Other words": -0.0139
+        }
+      },
+      "Ḫuwaššanna festivals": {
+        "texts": 38,
+        "by_layer": {
+          "Word form": 0.286,
+          "Syllabic spelling": -0.142,
+          "Logographic writing": 0.856
+        },
+        "by_category": {
+          "Function words": 0.139,
+          "Verbs": 0.012,
+          "Nouns and realia": 0.463,
+          "Agents and deities": 0.429,
+          "Foreign words": 0.0,
+          "Other words": -0.043
+        },
+        "cells": {
+          "Word form|Agents and deities": 0.0962,
+          "Logographic writing|Agents and deities": 0.2946,
+          "Syllabic spelling|Other words": -0.0757,
+          "Syllabic spelling|Function words": -0.1982,
+          "Word form|Nouns and realia": 0.1354,
+          "Word form|Function words": 0.0428,
+          "Logographic writing|Nouns and realia": 0.2357,
+          "Logographic writing|Function words": 0.2945,
+          "Syllabic spelling|Nouns and realia": 0.092,
+          "Word form|Verbs": 0.0113,
+          "Syllabic spelling|Agents and deities": 0.0379,
+          "Logographic writing|Other words": 0.0328
+        }
+      }
+    }
+  },
+  "E11b": {
+    "frequent_words_share": {
+      "all_correct": 0.031,
+      "Arzawa / western rituals": -0.122,
+      "Hattian cult layer": -0.015,
+      "Kizzuwatna rituals": -0.055,
+      "Kizzuwatna–Lower Land (Hurrian)": 0.225,
+      "Luwian festivals (Ištanuwa, Lallupiya)": -0.012,
+      "Luwian rituals (Puriyanni, Kuwattalla)": -0.133,
+      "Mixed (Hurrian, Syrian, Luwian)": 0.043,
+      "Palaic festivals": -0.114,
+      "Syro-Mesopotamia (Hurrian)": 0.107,
+      "Ḫuwaššanna festivals": -0.019,
+      "orphans": 0.101
+    },
+    "similarity_frequent_words_share": 0.142,
+    "similarity_common_features_share": 0.463,
+    "common_features_share": {
+      "all_correct": 0.103,
+      "Arzawa / western rituals": -0.697,
+      "Hattian cult layer": 0.265,
+      "Kizzuwatna rituals": 0.026,
+      "Kizzuwatna–Lower Land (Hurrian)": 0.267,
+      "Luwian festivals (Ištanuwa, Lallupiya)": -0.266,
+      "Luwian rituals (Puriyanni, Kuwattalla)": -0.487,
+      "Mixed (Hurrian, Syrian, Luwian)": 0.003,
+      "Palaic festivals": -0.304,
+      "Syro-Mesopotamia (Hurrian)": 0.064,
+      "Ḫuwaššanna festivals": 0.025,
+      "orphans": 0.224
+    },
+    "orphans_by_length": {
+      "5-10": {
+        "orphans": 1044,
+        "frequent_words": 0.119,
+        "common_features": 0.304,
+        "word_form": 0.185
+      },
+      "11-20": {
+        "orphans": 537,
+        "frequent_words": 0.131,
+        "common_features": 0.197,
+        "word_form": 0.235
+      },
+      "21-50": {
+        "orphans": 354,
+        "frequent_words": 0.072,
+        "common_features": 0.125,
+        "word_form": 0.223
+      },
+      ">50": {
+        "orphans": 75,
+        "frequent_words": -0.056,
+        "common_features": 0.099,
+        "word_form": 0.204
+      }
+    },
+    "assigned_orphans": 940,
+    "assigned_orphans_mostly_common": 255,
+    "assigned_orphans_mostly_frequent_words": 107,
+    "top_features": {
+      "Arzawa / western rituals": [
+        [
+          "§KUŠ·kur",
+          0.1806,
+          5
+        ],
+        [
+          "§D·KAL",
+          0.1699,
+          7
+        ],
+        [
+          "§KUŠ·kur·ša",
+          0.1692,
+          5
+        ],
+        [
+          "§KAL",
+          0.1585,
+          7
+        ],
+        [
+          "§kur·ša·aš",
+          0.1482,
+          5
+        ],
+        [
+          "kuršaš",
+          0.1423,
+          5
+        ],
+        [
+          "§kur·ša",
+          0.1416,
+          5
+        ],
+        [
+          "§kur",
+          0.1025,
+          5
+        ],
+        [
+          "§NA·D·KAL",
+          0.0875,
+          5
+        ],
+        [
+          "A-NA KAL",
+          0.0875,
+          5
+        ],
+        [
+          "§KUŠ",
+          0.0831,
+          5
+        ],
+        [
+          "KAL",
+          0.0444,
+          4
+        ],
+        [
+          "§ša·aš",
+          0.0408,
+          5
+        ],
+        [
+          "arḫa",
+          0.0327,
+          5
+        ],
+        [
+          "paimi",
+          0.0312,
+          3
+        ]
+      ],
+      "Hattian cult layer": [
+        [
+          "§LUGAL",
+          0.0267,
+          253
+        ],
+        [
+          "§i",
+          0.0253,
+          418
+        ],
+        [
+          "§a",
+          0.0245,
+          446
+        ],
+        [
+          "§LÚ",
+          0.0221,
+          307
+        ],
+        [
+          "§ú",
+          0.0188,
+          324
+        ],
+        [
+          "§ta",
+          0.0183,
+          410
+        ],
+        [
+          "§e",
+          0.017,
+          378
+        ],
+        [
+          "§tu",
+          0.0155,
+          245
+        ],
+        [
+          "§LÚ·MEŠ",
+          0.0148,
+          214
+        ],
+        [
+          "§zi",
+          0.013,
+          414
+        ],
+        [
+          "§LUGAL·i",
+          0.012,
+          147
+        ],
+        [
+          "LUGALi",
+          0.0119,
+          145
+        ],
+        [
+          "§te",
+          0.0116,
+          255
+        ],
+        [
+          "§ka",
+          0.0114,
+          221
+        ],
+        [
+          "§wa",
+          0.0108,
+          386
+        ]
+      ],
+      "Kizzuwatna rituals": [
+        [
+          "§SÍG",
+          0.0192,
+          46
+        ],
+        [
+          "§SISKUR",
+          0.018,
+          40
+        ],
+        [
+          "§MUNUS·ŠU",
+          0.0159,
+          28
+        ],
+        [
+          "§MUNUS·ŠU·GI",
+          0.0159,
+          28
+        ],
+        [
+          "SÍG",
+          0.0136,
+          38
+        ],
+        [
+          "§MUNUS",
+          0.0133,
+          74
+        ],
+        [
+          "§ŠU·GI",
+          0.0133,
+          28
+        ],
+        [
+          "§ki",
+          0.0128,
+          100
+        ],
+        [
+          "SISKUR",
+          0.0124,
+          33
+        ],
+        [
+          "§an",
+          0.0115,
+          147
+        ],
+        [
+          "ŠU.GI",
+          0.0112,
+          26
+        ],
+        [
+          "§ar·ḫa",
+          0.0109,
+          68
+        ],
+        [
+          "§GI",
+          0.0109,
+          31
+        ],
+        [
+          "§ar",
+          0.0107,
+          103
+        ],
+        [
+          "§ia",
+          0.0107,
+          137
+        ]
+      ],
+      "Kizzuwatna–Lower Land (Hurrian)": [
+        [
+          "§NINDA·GUR₄",
+          0.0214,
+          127
+        ],
+        [
+          "§NINDA·GUR₄·RA",
+          0.0214,
+          127
+        ],
+        [
+          "§GUR₄",
+          0.0214,
+          127
+        ],
+        [
+          "§GUR₄·RA",
+          0.0214,
+          127
+        ],
+        [
+          "§RA",
+          0.0189,
+          140
+        ],
+        [
+          "NINDA.GUR₄.RA",
+          0.0172,
+          119
+        ],
+        [
+          "§EGIR·ŠÚ·ma",
+          0.0168,
+          80
+        ],
+        [
+          "§NI",
+          0.0167,
+          147
+        ],
+        [
+          "§EGIR·ŠU",
+          0.0166,
+          98
+        ],
+        [
+          "§ši·pa·an",
+          0.0165,
+          138
+        ],
+        [
+          "§ŠÚ·ma",
+          0.0165,
+          80
+        ],
+        [
+          "§ši·pa",
+          0.0164,
+          140
+        ],
+        [
+          "§EGIR·ŠÚ",
+          0.0159,
+          81
+        ],
+        [
+          "EGIR-ŠÚma",
+          0.0158,
+          78
+        ],
+        [
+          "§EGIR·ŠU·ma",
+          0.0158,
+          94
+        ]
+      ],
+      "Luwian festivals (Ištanuwa, Lallupiya)": [
+        [
+          "§URU·iš·ta",
+          0.0305,
+          17
+        ],
+        [
+          "§URU·iš",
+          0.03,
+          17
+        ],
+        [
+          "§al·lu",
+          0.0258,
+          15
+        ],
+        [
+          "§iš·ta·nu",
+          0.0249,
+          17
+        ],
+        [
+          "ištanua",
+          0.0239,
+          16
+        ],
+        [
+          "§la·al·lu",
+          0.0222,
+          13
+        ],
+        [
+          "§a·šu",
+          0.0207,
+          13
+        ],
+        [
+          "§MEŠ·GAL",
+          0.0202,
+          9
+        ],
+        [
+          "§LÚ·MEŠ·GAL",
+          0.0202,
+          9
+        ],
+        [
+          "§MEŠ·GAL·ŠU",
+          0.0202,
+          9
+        ],
+        [
+          "§ta·nu·wa",
+          0.02,
+          17
+        ],
+        [
+          "§GAL·ŠU·NU",
+          0.0186,
+          15
+        ],
+        [
+          "§GAL·ŠU",
+          0.0184,
+          15
+        ],
+        [
+          "GAL-ŠU-NU",
+          0.0175,
+          15
+        ],
+        [
+          "§a·šu·ša",
+          0.0153,
+          11
+        ]
+      ],
+      "Luwian rituals (Puriyanni, Kuwattalla)": [
+        [
+          "EMEan",
+          0.2949,
+          3
+        ],
+        [
+          "§EME·an",
+          0.2787,
+          3
+        ],
+        [
+          "§EME",
+          0.1755,
+          3
+        ],
+        [
+          "§aḫ·ra·an",
+          0.1272,
+          2
+        ],
+        [
+          "§aḫ·ra",
+          0.1076,
+          2
+        ],
+        [
+          "pankauaš",
+          0.0707,
+          3
+        ],
+        [
+          "§ga·u·wa",
+          0.0613,
+          3
+        ],
+        [
+          "§an·ga·u",
+          0.055,
+          3
+        ],
+        [
+          "§pa·an·ga",
+          0.055,
+          3
+        ],
+        [
+          "aḫran",
+          0.0481,
+          2
+        ],
+        [
+          "§wa·aḫ·ra",
+          0.0481,
+          2
+        ],
+        [
+          "waḫran",
+          0.0481,
+          2
+        ],
+        [
+          "§a·aḫ·ra",
+          0.0416,
+          2
+        ],
+        [
+          "§ga·u",
+          0.0404,
+          3
+        ],
+        [
+          "§an·ga",
+          0.0347,
+          3
+        ]
+      ],
+      "Mixed (Hurrian, Syrian, Luwian)": [
+        [
+          "§KI·MIN",
+          0.0453,
+          70
+        ],
+        [
+          "KI.MIN",
+          0.0453,
+          70
+        ],
+        [
+          "§MIN",
+          0.0453,
+          70
+        ],
+        [
+          "EGIRantama",
+          0.038,
+          53
+        ],
+        [
+          "§KI",
+          0.0364,
+          71
+        ],
+        [
+          "§an·da·ma",
+          0.0316,
+          55
+        ],
+        [
+          "§EGIR·an·da",
+          0.0313,
+          58
+        ],
+        [
+          "§D·ḫé",
+          0.029,
+          79
+        ],
+        [
+          "§D·ḫé·pát",
+          0.0284,
+          78
+        ],
+        [
+          "§ḫé·pát",
+          0.0284,
+          78
+        ],
+        [
+          "§da·ma",
+          0.028,
+          55
+        ],
+        [
+          "NINDA.SIG",
+          0.0269,
+          77
+        ],
+        [
+          "§NINDA·SIG",
+          0.0267,
+          80
+        ],
+        [
+          "§SIG",
+          0.0261,
+          80
+        ],
+        [
+          "§EGIR·an",
+          0.0248,
+          61
+        ]
+      ],
+      "Palaic festivals": [
+        [
+          "§pár·wa",
+          0.0373,
+          13
+        ],
+        [
+          "§zi·pár·wa",
+          0.0371,
+          8
+        ],
+        [
+          "§zi·pár",
+          0.0371,
+          8
+        ],
+        [
+          "§D·zi·pár",
+          0.0371,
+          8
+        ],
+        [
+          "§pár·wa·a",
+          0.0318,
+          9
+        ],
+        [
+          "§D·zi",
+          0.0216,
+          8
+        ],
+        [
+          "§ḫa·ša",
+          0.0211,
+          14
+        ],
+        [
+          "§URU·pa·la",
+          0.0129,
+          7
+        ],
+        [
+          "§la·ši·na",
+          0.0124,
+          5
+        ],
+        [
+          "§la·ši",
+          0.0122,
+          5
+        ],
+        [
+          "§ši·na·aš",
+          0.0116,
+          5
+        ],
+        [
+          "§GEŠTIN·it",
+          0.0115,
+          8
+        ],
+        [
+          "§an·ta",
+          0.0113,
+          15
+        ],
+        [
+          "§URU·pa",
+          0.0112,
+          7
+        ],
+        [
+          "§D·ḫa·ša",
+          0.0112,
+          10
+        ]
+      ],
+      "Syro-Mesopotamia (Hurrian)": [
+        [
+          "§LÚ·AZU",
+          0.0369,
+          82
+        ],
+        [
+          "§AZU",
+          0.0363,
+          82
+        ],
+        [
+          "§uš·ḫi",
+          0.0234,
+          73
+        ],
+        [
+          "§ru·uš·ḫi",
+          0.0214,
+          70
+        ],
+        [
+          "AZU",
+          0.0213,
+          74
+        ],
+        [
+          "§ḫur·li·li",
+          0.0212,
+          69
+        ],
+        [
+          "§ḫur·li",
+          0.0203,
+          69
+        ],
+        [
+          "§li·li",
+          0.0197,
+          69
+        ],
+        [
+          "§ru·uš",
+          0.018,
+          70
+        ],
+        [
+          "§DUG·GAL",
+          0.0167,
+          55
+        ],
+        [
+          "§da·a·i",
+          0.0151,
+          97
+        ],
+        [
+          "tai",
+          0.0149,
+          97
+        ],
+        [
+          "§ni·eš",
+          0.0148,
+          52
+        ],
+        [
+          "§uš·ḫi·ia",
+          0.0147,
+          55
+        ],
+        [
+          "§SÍSKUR",
+          0.0145,
+          69
+        ]
+      ],
+      "Ḫuwaššanna festivals": [
+        [
+          "§wa·aš·ša",
+          0.0533,
+          127
+        ],
+        [
+          "§ša·an·na",
+          0.0487,
+          120
+        ],
+        [
+          "§ḫu·wa·aš",
+          0.0441,
+          105
+        ],
+        [
+          "§an·na",
+          0.0277,
+          139
+        ],
+        [
+          "§MUNUS·ḫu",
+          0.0257,
+          77
+        ],
+        [
+          "§al·ḫu",
+          0.0235,
+          88
+        ],
+        [
+          "§ḫu·wa",
+          0.0229,
+          108
+        ],
+        [
+          "§BE·EL",
+          0.0221,
+          82
+        ],
+        [
+          "§wa·aš",
+          0.0221,
+          129
+        ],
+        [
+          "§BE",
+          0.0218,
+          83
+        ],
+        [
+          "§MUNUS·al",
+          0.021,
+          83
+        ],
+        [
+          "§MUNUS·al·ḫu",
+          0.0208,
+          83
+        ],
+        [
+          "§al·ḫu·it",
+          0.0205,
+          83
+        ],
+        [
+          "§EL",
+          0.0204,
+          82
+        ],
+        [
+          "§na·al",
+          0.0202,
+          76
+        ]
+      ]
+    }
+  },
+  "E11c": {
+    "0": {
+      "acc": 0.841,
+      "word_tokens_kept": 1.0,
+      "removed": []
+    },
+    "10": {
+      "acc": 0.845,
+      "word_tokens_kept": 0.864,
+      "removed": [
+        "nu",
+        "1",
+        "tai",
+        "anta",
+        "GAL",
+        "paršia",
+        "našta",
+        "para",
+        "2",
+        "NINDA.GUR₄.RA"
+      ]
+    },
+    "25": {
+      "acc": 0.847,
+      "word_tokens_kept": 0.785,
+      "removed": [
+        "nu",
+        "1",
+        "tai",
+        "anta",
+        "GAL",
+        "paršia",
+        "našta",
+        "para",
+        "2",
+        "NINDA.GUR₄.RA",
+        "~zi",
+        "arḫa",
+        "šipanti",
+        "namma",
+        "peran",
+        "tianzi",
+        "A-NA",
+        "GEŠTIN",
+        "SÌR-RU",
+        "nat",
+        "NINDA.SIG",
+        "pai",
+        "LUGALuš",
+        "nuššan",
+        "memai"
+      ]
+    },
+    "50": {
+      "acc": 0.845,
+      "word_tokens_kept": 0.708,
+      "removed": [
+        "nu",
+        "1",
+        "tai",
+        "anta",
+        "GAL",
+        "paršia",
+        "našta",
+        "para",
+        "2",
+        "NINDA.GUR₄.RA",
+        "~zi",
+        "arḫa",
+        "šipanti",
+        "namma",
+        "peran",
+        "tianzi",
+        "A-NA",
+        "GEŠTIN",
+        "SÌR-RU",
+        "nat",
+        "NINDA.SIG",
+        "pai",
+        "LUGALuš",
+        "nuššan",
+        "memai"
+      ]
+    },
+    "100": {
+      "acc": 0.846,
+      "word_tokens_kept": 0.604,
+      "removed": [
+        "nu",
+        "1",
+        "tai",
+        "anta",
+        "GAL",
+        "paršia",
+        "našta",
+        "para",
+        "2",
+        "NINDA.GUR₄.RA",
+        "~zi",
+        "arḫa",
+        "šipanti",
+        "namma",
+        "peran",
+        "tianzi",
+        "A-NA",
+        "GEŠTIN",
+        "SÌR-RU",
+        "nat",
+        "NINDA.SIG",
+        "pai",
+        "LUGALuš",
+        "nuššan",
+        "memai"
+      ]
+    },
+    "200": {
+      "acc": 0.83,
+      "word_tokens_kept": 0.505,
+      "removed": [
+        "nu",
+        "1",
+        "tai",
+        "anta",
+        "GAL",
+        "paršia",
+        "našta",
+        "para",
+        "2",
+        "NINDA.GUR₄.RA",
+        "~zi",
+        "arḫa",
+        "šipanti",
+        "namma",
+        "peran",
+        "tianzi",
+        "A-NA",
+        "GEŠTIN",
+        "SÌR-RU",
+        "nat",
+        "NINDA.SIG",
+        "pai",
+        "LUGALuš",
+        "nuššan",
+        "memai"
+      ]
+    }
+  },
+  "E11d": {
+    "5": {
+      "placed": 1685,
+      "precision": 0.729,
+      "mostly_common": 294,
+      "precision_mostly_common": 0.5,
+      "precision_rest": 0.778,
+      "mostly_frequent_words": 174,
+      "precision_mostly_frequent_words": 0.42
+    },
+    "10": {
+      "placed": 1914,
+      "precision": 0.804,
+      "mostly_common": 240,
+      "precision_mostly_common": 0.617,
+      "precision_rest": 0.831,
+      "mostly_frequent_words": 145,
+      "precision_mostly_frequent_words": 0.51
+    },
+    "20": {
+      "placed": 2174,
+      "precision": 0.844,
+      "mostly_common": 223,
+      "precision_mostly_common": 0.655,
+      "precision_rest": 0.865,
+      "mostly_frequent_words": 121,
+      "precision_mostly_frequent_words": 0.512
+    }
+  }
+}
