@@ -46,15 +46,15 @@
     "Other words": 0.023
    },
    "cells": {
-    "Word form|Function words": 0.0258,
+    "Word form|Function words": 0.0257,
     "Word form|Nouns and realia": 0.0633,
     "Word form|Agents and deities": 0.0425,
     "Word form|Verbs": 0.0251,
-    "Logographic writing|Function words": 0.031,
+    "Logographic writing|Function words": 0.0307,
     "Logographic writing|Agents and deities": 0.1325,
     "Logographic writing|Nouns and realia": 0.1442,
     "Syllabic spelling|Verbs": 0.0773,
-    "Syllabic spelling|Function words": 0.0351,
+    "Syllabic spelling|Function words": 0.0352,
     "Syllabic spelling|Other words": 0.0193,
     "Syllabic spelling|Nouns and realia": 0.1235,
     "Logographic writing|Verbs": 0.0061,
@@ -107,24 +107,24 @@
      "Verbs": 0.179,
      "Nouns and realia": 0.315,
      "Agents and deities": 0.247,
-     "Foreign words": 0.235,
+     "Foreign words": 0.236,
      "Other words": 0.021
     },
     "cells": {
-     "Word form|Other words": -0.0075,
-     "Word form|Function words": -0.0093,
-     "Word form|Nouns and realia": 0.0459,
+     "Word form|Other words": -0.0074,
+     "Word form|Function words": -0.0096,
+     "Word form|Nouns and realia": 0.0458,
      "Word form|Agents and deities": 0.0361,
      "Word form|Verbs": 0.0264,
-     "Logographic writing|Function words": -0.0385,
+     "Logographic writing|Function words": -0.0391,
      "Logographic writing|Agents and deities": 0.1551,
-     "Logographic writing|Nouns and realia": 0.131,
+     "Logographic writing|Nouns and realia": 0.1309,
      "Syllabic spelling|Verbs": 0.152,
-     "Syllabic spelling|Function words": 0.0501,
+     "Syllabic spelling|Function words": 0.0502,
      "Syllabic spelling|Other words": 0.0269,
-     "Syllabic spelling|Nouns and realia": 0.1384,
+     "Syllabic spelling|Nouns and realia": 0.1383,
      "Syllabic spelling|Agents and deities": 0.0557,
-     "Word form|Foreign words": 0.0151,
+     "Word form|Foreign words": 0.0154,
      "Syllabic spelling|Foreign words": 0.2191
     }
    },
@@ -138,19 +138,19 @@
     "by_category": {
      "Function words": 0.135,
      "Verbs": 0.098,
-     "Nouns and realia": 0.551,
+     "Nouns and realia": 0.554,
      "Agents and deities": 0.098,
-     "Foreign words": 0.04,
+     "Foreign words": 0.037,
      "Other words": 0.078
     },
     "cells": {
-     "Word form|Other words": 0.0118,
+     "Word form|Other words": 0.0119,
      "Word form|Function words": 0.042,
-     "Word form|Nouns and realia": 0.1294,
+     "Word form|Nouns and realia": 0.1304,
      "Word form|Agents and deities": 0.0312,
      "Logographic writing|Function words": -0.0128,
      "Logographic writing|Agents and deities": 0.0544,
-     "Logographic writing|Nouns and realia": 0.2125,
+     "Logographic writing|Nouns and realia": 0.2141,
      "Syllabic spelling|Verbs": 0.0897,
      "Syllabic spelling|Function words": 0.1057,
      "Syllabic spelling|Other words": 0.0524,
@@ -158,7 +158,7 @@
      "Logographic writing|Other words": 0.014,
      "Logographic writing|Verbs": 0.0051,
      "Syllabic spelling|Agents and deities": 0.0122,
-     "Word form|Foreign words": 0.0076,
+     "Word form|Foreign words": 0.0065,
      "Syllabic spelling|Foreign words": 0.0307
     }
    },
@@ -199,7 +199,7 @@
    },
    "Luwian festivals (Ištanuwa, Lallupiya)": {
     "texts": 43,
-    "by_laye
+    "by_l
 {
  "frequent_words_share": {
   "all_correct": 0.019,

@@ -1,7 +1,7 @@
 category,Word form,Syllabic spelling,Logographic writing
-Function words,0.0258,0.0351,0.031
+Function words,0.0257,0.0352,0.0307
 Verbs,0.0251,0.0773,0.0061
 Nouns and realia,0.0633,0.1235,0.1442
 Agents and deities,0.0425,0.1439,0.1325
-Foreign words,0.0145,0.112,0.0006
-Other words,0.0003,0.0193,0.0029
+Foreign words,0.0145,0.112,0.0008
+Other words,0.0004,0.0193,0.0029

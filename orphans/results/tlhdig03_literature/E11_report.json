@@ -46,15 +46,15 @@
         "Other words": 0.023
       },
       "cells": {
-        "Word form|Function words": 0.0258,
+        "Word form|Function words": 0.0257,
         "Word form|Nouns and realia": 0.0633,
         "Word form|Agents and deities": 0.0425,
         "Word form|Verbs": 0.0251,
-        "Logographic writing|Function words": 0.031,
+        "Logographic writing|Function words": 0.0307,
         "Logographic writing|Agents and deities": 0.1325,
         "Logographic writing|Nouns and realia": 0.1442,
         "Syllabic spelling|Verbs": 0.0773,
-        "Syllabic spelling|Function words": 0.0351,
+        "Syllabic spelling|Function words": 0.0352,
         "Syllabic spelling|Other words": 0.0193,
         "Syllabic spelling|Nouns and realia": 0.1235,
         "Logographic writing|Verbs": 0.0061,
@@ -107,24 +107,24 @@
           "Verbs": 0.179,
           "Nouns and realia": 0.315,
           "Agents and deities": 0.247,
-          "Foreign words": 0.235,
+          "Foreign words": 0.236,
           "Other words": 0.021
         },
         "cells": {
-          "Word form|Other words": -0.0075,
-          "Word form|Function words": -0.0093,
-          "Word form|Nouns and realia": 0.0459,
+          "Word form|Other words": -0.0074,
+          "Word form|Function words": -0.0096,
+          "Word form|Nouns and realia": 0.0458,
           "Word form|Agents and deities": 0.0361,
           "Word form|Verbs": 0.0264,
-          "Logographic writing|Function words": -0.0385,
+          "Logographic writing|Function words": -0.0391,
           "Logographic writing|Agents and deities": 0.1551,
-          "Logographic writing|Nouns and realia": 0.131,
+          "Logographic writing|Nouns and realia": 0.1309,
           "Syllabic spelling|Verbs": 0.152,
-          "Syllabic spelling|Function words": 0.0501,
+          "Syllabic spelling|Function words": 0.0502,
           "Syllabic spelling|Other words": 0.0269,
-          "Syllabic spelling|Nouns and realia": 0.1384,
+          "Syllabic spelling|Nouns and realia": 0.1383,
           "Syllabic spelling|Agents and deities": 0.0557,
-          "Word form|Foreign words": 0.0151,
+          "Word form|Foreign words": 0.0154,
           "Syllabic spelling|Foreign words": 0.2191
         }
       },
@@ -138,19 +138,19 @@
         "by_category": {
           "Function words": 0.135,
           "Verbs": 0.098,
-          "Nouns and realia": 0.551,
+          "Nouns and realia": 0.554,
           "Agents and deities": 0.098,
-          "Foreign words": 0.04,
+          "Foreign words": 0.037,
           "Other words": 0.078
         },
         "cells": {
-          "Word form|Other words": 0.0118,
+          "Word form|Other words": 0.0119,
           "Word form|Function words": 0.042,
-          "Word form|Nouns and realia": 0.1294,
+          "Word form|Nouns and realia": 0.1304,
           "Word form|Agents and deities": 0.0312,
           "Logographic writing|Function words": -0.0128,
           "Logographic writing|Agents and deities": 0.0544,
-          "Logographic writing|Nouns and realia": 0.2125,
+          "Logographic writing|Nouns and realia": 0.2141,
           "Syllabic spelling|Verbs": 0.0897,
           "Syllabic spelling|Function words": 0.1057,
           "Syllabic spelling|Other words": 0.0524,
@@ -158,7 +158,7 @@
           "Logographic writing|Other words": 0.014,
           "Logographic writing|Verbs": 0.0051,
           "Syllabic spelling|Agents and deities": 0.0122,
-          "Word form|Foreign words": 0.0076,
+          "Word form|Foreign words": 0.0065,
           "Syllabic spelling|Foreign words": 0.0307
         }
       },
@@ -205,29 +205,29 @@
           "Logographic writing": 0.453
         },
         "by_category": {
-          "Function words": -0.007,
+          "Function words": -0.004,
           "Verbs": 0.016,
           "Nouns and realia": 0.821,
           "Agents and deities": 0.073,
-          "Foreign words": 0.095,
-          "Other words": 0.001
+          "Foreign words": 0.092,
+          "Other words": 0.002
         },
         "cells": {
-          "Word form|Other words": 0.0071,
-          "Word form|Function words": 0.0099,
-          "Word form|Nouns and realia": 0.1088,
+          "Word form|Other words": 0.0072,
+          "Word form|Function words": 0.0108,
+          "Word form|Nouns and realia": 0.1087,
           "Word form|Agents and deities": 0.0166,
           "Word form|Verbs": 0.0189,
-          "Logographic writing|Function words": 0.0062,
+          "Logographic writing|Function words": 0.0084,
           "Logographic writing|Agents and deities": 0.0261,
-          "Logographic writing|Nouns and realia": 0.3907,
+          "Logographic writing|Nouns and realia": 0.3904,
           "Syllabic spelling|Verbs": -0.0295,
           "Syllabic spelling|Function words": -0.0231,
           "Syllabic spelling|Other words": -0.006,
           "Syllabic spelling|Nouns and realia": 0.3219,
           "Logographic writing|Verbs": 0.027,
           "Syllabic spelling|Agents and deities": 0.0302,
-          "Word form|Foreign words": 0.0178,
+          "Word form|Foreign words": 0.0171,
           "Syllabic spelling|Foreign words": 0.0743
         }
       },
@@ -301,20 +301,20 @@
           "Logographic writing": 0.172
         },
         "by_category": {
-          "Function words": -0.029,
+          "Function words": -0.027,
           "Verbs": -0.055,
           "Nouns and realia": 0.154,
           "Agents and deities": 0.61,
-          "Foreign words": 0.32,
+          "Foreign words": 0.319,
           "Other words": -0.001
         },
         "cells": {
           "Word form|Other words": -0.0115,
-          "Word form|Function words": -0.0172,
+          "Word form|Function words": -0.0168,
           "Word form|Nouns and realia": 0.0328,
           "Word form|Agents and deities": 0.0785,
           "Word form|Verbs": -0.0067,
-          "Logographic writing|Function words": -0.0318,
+          "Logographic writing|Function words": -0.0311,
           "Logographic writing|Agents and deities": 0.1794,
           "Logographic writing|Nouns and realia": 0.024,
           "Syllabic spelling|Verbs": -0.0442,
@@ -322,7 +322,7 @@
           "Syllabic spelling|Nouns and realia": 0.0967,
           "Logographic writing|Other words": 0.0055,
           "Syllabic spelling|Agents and deities": 0.3525,
-          "Word form|Foreign words": 0.0914,
+          "Word form|Foreign words": 0.091,
           "Syllabic spelling|Foreign words": 0.2299
         }
       },
@@ -334,26 +334,26 @@
           "Logographic writing": 0.226
         },
         "by_category": {
-          "Function words": 0.209,
+          "Function words": 0.208,
           "Verbs": 0.085,
           "Nouns and realia": 0.418,
           "Agents and deities": 0.113,
-          "Foreign words": 0.171,
+          "Foreign words": 0.172,
           "Other words": 0.005
         },
         "cells": {
-          "Word form|Function words": 0.0527,
+          "Word form|Function words": 0.0524,
           "Word form|Nouns and realia": 0.0788,
           "Word form|Agents and deities": 0.0377,
           "Word form|Verbs": 0.03,
           "Logographic writing|Agents and deities": 0.0822,
-          "Logographic writing|Nouns and realia": 0.1394,
+          "Logographic writing|Nouns and realia": 0.1393,
           "Syllabic spelling|Verbs": 0.0526,
           "Syllabic spelling|Function words": 0.1529,
           "Syllabic spelling|Other words": 0.0094,
           "Syllabic spelling|Nouns and realia": 0.1994,
           "Syllabic spelling|Agents and deities": -0.0071,
-          "Word form|Foreign words": 0.0199,
+          "Word form|Foreign words": 0.0202,
           "Syllabic spelling|Foreign words": 0.1522
         }
       },
@@ -397,29 +397,29 @@
         "Logographic writing": 0.259
       },
       "by_category": {
-        "Function words": 0.189,
+        "Function words": 0.19,
         "Verbs": 0.204,
         "Nouns and realia": 0.285,
         "Agents and deities": 0.174,
-        "Foreign words": 0.101,
+        "Foreign words": 0.1,
         "Other words": 0.046
       },
       "cells": {
         "Word form|Other words": 0.0105,
-        "Word form|Function words": 0.0347,
+        "Word form|Function words": 0.0348,
         "Word form|Nouns and realia": 0.0357,
         "Word form|Agents and deities": 0.0199,
         "Word form|Verbs": 0.0225,
-        "Logographic writing|Function words": 0.0492,
+        "Logographic writing|Function words": 0.0493,
         "Logographic writing|Agents and deities": 0.0777,
-        "Logographic writing|Nouns and realia": 0.1212,
+        "Logographic writing|Nouns and realia": 0.1213,
         "Syllabic spelling|Verbs": 0.1757,
         "Syllabic spelling|Function words": 0.1056,
         "Syllabic spelling|Other words": 0.0321,
         "Syllabic spelling|Nouns and realia": 0.1284,
         "Logographic writing|Verbs": 0.0059,
         "Syllabic spelling|Agents and deities": 0.0764,
-        "Syllabic spelling|Foreign words": 0.095
+        "Syllabic spelling|Foreign words": 0.0949
       }
     },
     "similarity_by_tradition": {
@@ -469,21 +469,20 @@
           "Other words": 0.047
         },
         "cells": {
-          "Word form|Other words": 0.0069,
-          "Word form|Function words": 0.0169,
+          "Word form|Other words": 0.007,
+          "Word form|Function words": 0.017,
           "Word form|Nouns and realia": 0.0279,
           "Word form|Agents and deities": 0.015,
           "Word form|Verbs": 0.0217,
-          "Logographic writing|Function words": 0.0118,
+          "Logographic writing|Function words": 0.0119,
           "Logographic writing|Agents and deities": 0.0769,
-          "Logographic writing|Nouns and realia": 0.1182,
+          "Logographic writing|Nouns and realia": 0.1184,
           "Syllabic spelling|Verbs": 0.2048,
-          "Syllabic spelling|Function words": 0.0988,
-          "Syllabic spelling|Other words": 0.0357,
-          "Syllabic spelling|Nouns and realia": 0.139,
+          "Syllabic spelling|Function words": 0.0989,
+          "Syllabic spelling|Other words": 0.0358,
+          "Syllabic spelling|Nouns and realia": 0.1389,
           "Logographic writing|Verbs": 0.0065,
           "Syllabic spelling|Agents and deities": 0.0391,
-          "Word form|Foreign words": 0.005,
           "Syllabic spelling|Foreign words": 0.1702
         }
       },
@@ -497,20 +496,20 @@
         "by_category": {
           "Function words": 0.234,
           "Verbs": 0.191,
-          "Nouns and realia": 0.363,
+          "Nouns and realia": 0.364,
           "Agents and deities": 0.071,
-          "Foreign words": 0.055,
+          "Foreign words": 0.054,
           "Other words": 0.085
         },
         "cells": {
-          "Word form|Other words": 0.0168,
+          "Word form|Other words": 0.0171,
           "Word form|Function words": 0.0423,
-          "Word form|Nouns and realia": 0.048,
+          "Word form|Nouns and realia": 0.0483,
           "Word form|Agents and deities": 0.0138,
           "Word form|Verbs": 0.0125,
           "Logographic writing|Function words": 0.0409,
           "Logographic writing|Agents and deities": 0.0446,
-          "Logographic writing|Nouns and realia": 0.152,
+          "Logographic writing|Nouns and realia": 0.1525,
           "Syllabic spelling|Verbs": 0.1773,
           "Syllabic spelling|Function words": 0.1512,
           "Syllabic spelling|Other words": 0.0619,
@@ -561,29 +560,29 @@
           "Logographic writing": 0.284
         },
         "by_category": {
-          "Function words": 0.196,
+          "Function words": 0.197,
           "Verbs": 0.169,
           "Nouns and realia": 0.444,
           "Agents and deities": 0.062,
-          "Foreign words": 0.099,
+          "Foreign words": 0.098,
           "Other words": 0.03
         },
         "cells": {
-          "Word form|Other words": 0.0134,
-          "Word form|Function words": 0.0336,
+          "Word form|Other words": 0.0135,
+          "Word form|Function words": 0.0339,
           "Word form|Nouns and realia": 0.0438,
           "Word form|Agents and deities": 0.0101,
           "Word form|Verbs": 0.0161,
-          "Logographic writing|Function words": 0.0391,
+          "Logographic writing|Function words": 0.0399,
           "Logographic writing|Agents and deities": 0.033,
-          "Logographic writing|Nouns and realia": 0.1939,
+          "Logographic writing|Nouns and realia": 0.194,
           "Syllabic spelling|Verbs": 0.1397,
           "Syllabic spelling|Function words": 0.123,
           "Syllabic spelling|Other words": 0.0135,
           "Syllabic spelling|Nouns and realia": 0.2066,
           "Logographic writing|Verbs": 0.0127,
           "Syllabic spelling|Agents and deities": 0.0192,
-          "Word form|Foreign words": 0.0056,
+          "Word form|Foreign words": 0.0053,
           "Syllabic spelling|Foreign words": 0.0916
         }
       },
@@ -659,7 +658,7 @@
           "Logographic writing": 0.191
         },
         "by_category": {
-          "Function words": 0.118,
+          "Function words": 0.119,
           "Verbs": 0.133,
           "Nouns and realia": 0.207,
           "Agents and deities": 0.262,
@@ -668,11 +667,11 @@
         },
         "cells": {
           "Word form|Other words": 0.0055,
-          "Word form|Function words": 0.0148,
+          "Word form|Function words": 0.0149,
           "Word form|Nouns and realia": 0.0219,
           "Word form|Agents and deities": 0.0242,
           "Word form|Verbs": 0.0107,
-          "Logographic writing|Function words": 0.0257,
+          "Logographic writing|Function words": 0.0261,
           "Logographic writing|Agents and deities": 0.0833,
           "Logographic writing|Nouns and realia": 0.0759,
           "Syllabic spelling|Verbs": 0.1221,
@@ -680,7 +679,7 @@
           "Syllabic spelling|Other words": 0.0162,
           "Syllabic spelling|Nouns and realia": 0.109,
           "Syllabic spelling|Agents and deities": 0.1548,
-          "Word form|Foreign words": 0.0258,
+          "Word form|Foreign words": 0.0256,
           "Syllabic spelling|Foreign words": 0.2264
         }
       },
@@ -692,19 +691,19 @@
           "Logographic writing": 0.212
         },
         "by_category": {
-          "Function words": 0.275,
+          "Function words": 0.276,
           "Verbs": 0.165,
           "Nouns and realia": 0.315,
           "Agents and deities": 0.089,
-          "Foreign words": 0.137,
+          "Foreign words": 0.136,
           "Other words": 0.02
         },
         "cells": {
-          "Word form|Function words": 0.0532,
+          "Word form|Function words": 0.0534,
           "Word form|Nouns and realia": 0.0464,
           "Word form|Agents and deities": 0.0222,
           "Word form|Verbs": 0.0233,
-          "Logographic writing|Function words": 0.0372,
+          "Logographic writing|Function words": 0.0379,
           "Logographic writing|Agents and deities": 0.0566,
           "Logographic writing|Nouns and realia": 0.1133,
           "Syllabic spelling|Verbs": 0.1396,
@@ -712,7 +711,7 @@
           "Syllabic spelling|Other words": 0.0158,
           "Syllabic spelling|Nouns and realia": 0.1549,
           "Syllabic spelling|Agents and deities": 0.0098,
-          "Word form|Foreign words": 0.0079,
+          "Word form|Foreign words": 0.0077,
           "Syllabic spelling|Foreign words": 0.1273
         }
       },
@@ -762,8 +761,8 @@
           "Verbs": 0.168,
           "Nouns and realia": 0.877,
           "Agents and deities": 0.557,
-          "Foreign words": 0.028,
-          "Other words": -0.383
+          "Foreign words": -0.011,
+          "Other words": -0.344
         },
         "cells": {
           "Word form|Agents and deities": 0.1867,
@@ -778,9 +777,8 @@
           "Word form|Verbs": 0.0268,
           "Syllabic spelling|Verbs": 0.1425,
           "Syllabic spelling|Agents and deities": -0.0601,
-          "Logographic writing|Other words": -0.0292,
-          "Syllabic spelling|Foreign words": -0.0108,
-          "Logographic writing|Foreign words": 0.0389
+          "Logographic writing|Other words": 0.0096,
+          "Syllabic spelling|Foreign words": -0.0108
         }
       },
       "Hattian cult layer": {
@@ -1908,11 +1906,11 @@
   "E11e": {
     "assigned": 847,
     "without_function_words": {
-      "assigned": 833,
+      "assigned": 834,
       "same_tradition": 651,
       "other_tradition": 5,
       "now_unassigned": 191,
-      "newly_assigned": 177
+      "newly_assigned": 178
     },
     "without_frequent_words": {
       "assigned": 831,
