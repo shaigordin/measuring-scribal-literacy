@@ -6,6 +6,8 @@
   2,026 orphans assigned, margin 0.018.
 - Word tags show the class confidence; low-confidence classes have a dashed tag.
 - The E11 numbers on the page come from the experiment report instead of the page text.
+- Word-class shading rebuilt after the word-class fixes (syllabic Akkadian prepositions are
+  function words; logograms in foreign-language lines keep their own class).
 
 ## 0.4.0 (2026-10-17)
 

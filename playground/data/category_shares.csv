@@ -17,9 +17,9 @@ Arzawa / western rituals,Foreign words,Logographic writing,0.0,0.0
 Arzawa / western rituals,Other words,Word form,0.004,-0.026
 Arzawa / western rituals,Other words,Syllabic spelling,0.052,-0.148
 Arzawa / western rituals,Other words,Logographic writing,0.0,-0.004
-Hattian cult layer,Function words,Word form,0.017,-0.009
+Hattian cult layer,Function words,Word form,0.017,-0.01
 Hattian cult layer,Function words,Syllabic spelling,0.099,0.05
-Hattian cult layer,Function words,Logographic writing,0.012,-0.038
+Hattian cult layer,Function words,Logographic writing,0.012,-0.039
 Hattian cult layer,Verbs,Word form,0.022,0.026
 Hattian cult layer,Verbs,Syllabic spelling,0.205,0.152
 Hattian cult layer,Verbs,Logographic writing,0.007,0.001
@@ -31,8 +31,8 @@ Hattian cult layer,Agents and deities,Syllabic spelling,0.039,0.056
 Hattian cult layer,Agents and deities,Logographic writing,0.077,0.155
 Hattian cult layer,Foreign words,Word form,0.005,0.015
 Hattian cult layer,Foreign words,Syllabic spelling,0.17,0.219
-Hattian cult layer,Foreign words,Logographic writing,0.001,0.001
-Hattian cult layer,Other words,Word form,0.007,-0.008
+Hattian cult layer,Foreign words,Logographic writing,0.001,0.002
+Hattian cult layer,Other words,Word form,0.007,-0.007
 Hattian cult layer,Other words,Syllabic spelling,0.036,0.027
 Hattian cult layer,Other words,Logographic writing,0.004,0.002
 Kizzuwatna rituals,Function words,Word form,0.042,0.042
@@ -41,15 +41,15 @@ Kizzuwatna rituals,Function words,Logographic writing,0.041,-0.013
 Kizzuwatna rituals,Verbs,Word form,0.013,0.003
 Kizzuwatna rituals,Verbs,Syllabic spelling,0.177,0.09
 Kizzuwatna rituals,Verbs,Logographic writing,0.002,0.005
-Kizzuwatna rituals,Nouns and realia,Word form,0.048,0.129
+Kizzuwatna rituals,Nouns and realia,Word form,0.048,0.13
 Kizzuwatna rituals,Nouns and realia,Syllabic spelling,0.163,0.209
-Kizzuwatna rituals,Nouns and realia,Logographic writing,0.152,0.212
+Kizzuwatna rituals,Nouns and realia,Logographic writing,0.152,0.214
 Kizzuwatna rituals,Agents and deities,Word form,0.014,0.031
 Kizzuwatna rituals,Agents and deities,Syllabic spelling,0.013,0.012
 Kizzuwatna rituals,Agents and deities,Logographic writing,0.045,0.054
-Kizzuwatna rituals,Foreign words,Word form,0.002,0.008
+Kizzuwatna rituals,Foreign words,Word form,0.002,0.006
 Kizzuwatna rituals,Foreign words,Syllabic spelling,0.052,0.031
-Kizzuwatna rituals,Foreign words,Logographic writing,0.001,0.002
+Kizzuwatna rituals,Foreign words,Logographic writing,0.0,0.0
 Kizzuwatna rituals,Other words,Word form,0.017,0.012
 Kizzuwatna rituals,Other words,Syllabic spelling,0.062,0.052
 Kizzuwatna rituals,Other words,Logographic writing,0.006,0.014
@@ -71,21 +71,21 @@ Kizzuwatna–Lower Land (Hurrian),Foreign words,Logographic writing,0.0,-0.0
 Kizzuwatna–Lower Land (Hurrian),Other words,Word form,0.019,0.022
 Kizzuwatna–Lower Land (Hurrian),Other words,Syllabic spelling,0.029,0.03
 Kizzuwatna–Lower Land (Hurrian),Other words,Logographic writing,0.004,0.006
-"Luwian festivals (Ištanuwa, Lallupiya)",Function words,Word form,0.034,0.01
+"Luwian festivals (Ištanuwa, Lallupiya)",Function words,Word form,0.034,0.011
 "Luwian festivals (Ištanuwa, Lallupiya)",Function words,Syllabic spelling,0.123,-0.023
-"Luwian festivals (Ištanuwa, Lallupiya)",Function words,Logographic writing,0.039,0.006
+"Luwian festivals (Ištanuwa, Lallupiya)",Function words,Logographic writing,0.04,0.008
 "Luwian festivals (Ištanuwa, Lallupiya)",Verbs,Word form,0.016,0.019
 "Luwian festivals (Ištanuwa, Lallupiya)",Verbs,Syllabic spelling,0.14,-0.029
 "Luwian festivals (Ištanuwa, Lallupiya)",Verbs,Logographic writing,0.013,0.027
 "Luwian festivals (Ištanuwa, Lallupiya)",Nouns and realia,Word form,0.044,0.109
 "Luwian festivals (Ištanuwa, Lallupiya)",Nouns and realia,Syllabic spelling,0.207,0.322
-"Luwian festivals (Ištanuwa, Lallupiya)",Nouns and realia,Logographic writing,0.194,0.391
+"Luwian festivals (Ištanuwa, Lallupiya)",Nouns and realia,Logographic writing,0.194,0.39
 "Luwian festivals (Ištanuwa, Lallupiya)",Agents and deities,Word form,0.01,0.017
 "Luwian festivals (Ištanuwa, Lallupiya)",Agents and deities,Syllabic spelling,0.019,0.03
 "Luwian festivals (Ištanuwa, Lallupiya)",Agents and deities,Logographic writing,0.033,0.026
-"Luwian festivals (Ištanuwa, Lallupiya)",Foreign words,Word form,0.006,0.018
+"Luwian festivals (Ištanuwa, Lallupiya)",Foreign words,Word form,0.005,0.017
 "Luwian festivals (Ištanuwa, Lallupiya)",Foreign words,Syllabic spelling,0.092,0.074
-"Luwian festivals (Ištanuwa, Lallupiya)",Foreign words,Logographic writing,0.002,0.003
+"Luwian festivals (Ištanuwa, Lallupiya)",Foreign words,Logographic writing,0.001,0.001
 "Luwian festivals (Ištanuwa, Lallupiya)",Other words,Word form,0.013,0.007
 "Luwian festivals (Ištanuwa, Lallupiya)",Other words,Syllabic spelling,0.014,-0.006
 "Luwian festivals (Ištanuwa, Lallupiya)",Other words,Logographic writing,0.003,0.0
@@ -127,7 +127,7 @@ Kizzuwatna–Lower Land (Hurrian),Other words,Logographic writing,0.004,0.006
 "Mixed (Hurrian, Syrian, Luwian)",Other words,Logographic writing,0.002,-0.002
 Palaic festivals,Function words,Word form,0.015,-0.017
 Palaic festivals,Function words,Syllabic spelling,0.078,0.02
-Palaic festivals,Function words,Logographic writing,0.026,-0.032
+Palaic festivals,Function words,Logographic writing,0.026,-0.031
 Palaic festivals,Verbs,Word form,0.011,-0.007
 Palaic festivals,Verbs,Syllabic spelling,0.122,-0.044
 Palaic festivals,Verbs,Logographic writing,0.0,-0.004
@@ -139,13 +139,13 @@ Palaic festivals,Agents and deities,Syllabic spelling,0.155,0.352
 Palaic festivals,Agents and deities,Logographic writing,0.083,0.179
 Palaic festivals,Foreign words,Word form,0.026,0.091
 Palaic festivals,Foreign words,Syllabic spelling,0.226,0.23
-Palaic festivals,Foreign words,Logographic writing,0.001,-0.001
+Palaic festivals,Foreign words,Logographic writing,0.0,-0.002
 Palaic festivals,Other words,Word form,0.006,-0.012
 Palaic festivals,Other words,Syllabic spelling,0.016,0.005
 Palaic festivals,Other words,Logographic writing,0.005,0.006
-Syro-Mesopotamia (Hurrian),Function words,Word form,0.053,0.053
+Syro-Mesopotamia (Hurrian),Function words,Word form,0.053,0.052
 Syro-Mesopotamia (Hurrian),Function words,Syllabic spelling,0.184,0.153
-Syro-Mesopotamia (Hurrian),Function words,Logographic writing,0.037,0.003
+Syro-Mesopotamia (Hurrian),Function words,Logographic writing,0.038,0.002
 Syro-Mesopotamia (Hurrian),Verbs,Word form,0.023,0.03
 Syro-Mesopotamia (Hurrian),Verbs,Syllabic spelling,0.14,0.053
 Syro-Mesopotamia (Hurrian),Verbs,Logographic writing,0.002,0.002
@@ -157,7 +157,7 @@ Syro-Mesopotamia (Hurrian),Agents and deities,Syllabic spelling,0.01,-0.007
 Syro-Mesopotamia (Hurrian),Agents and deities,Logographic writing,0.057,0.082
 Syro-Mesopotamia (Hurrian),Foreign words,Word form,0.008,0.02
 Syro-Mesopotamia (Hurrian),Foreign words,Syllabic spelling,0.127,0.152
-Syro-Mesopotamia (Hurrian),Foreign words,Logographic writing,0.001,-0.001
+Syro-Mesopotamia (Hurrian),Foreign words,Logographic writing,0.001,-0.0
 Syro-Mesopotamia (Hurrian),Other words,Word form,0.003,-0.005
 Syro-Mesopotamia (Hurrian),Other words,Syllabic spelling,0.016,0.009
 Syro-Mesopotamia (Hurrian),Other words,Logographic writing,0.001,0.0
