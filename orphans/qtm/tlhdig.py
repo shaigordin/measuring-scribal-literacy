@@ -7,7 +7,7 @@ becomes two rows, the preposition and the noun (see qtm.wordclass).
 sequence with determinatives as {DET}. `wclass` is the word class from qtm.wordclass, `wc_rule` the
 rule that set it and `wc_conf` its confidence; manual corrections from a CSV (word, translit,
 wclass, note, reviewer; translit empty = every occurrence of the word) override them. Words that are wholly or partly illegible
-(`%` in trans, or only `x` signs) keep their translit but get an empty `word`.
+(`%` in trans, only `x` signs, or only `…`) keep their translit but get an empty `word`.
 """
 import re
 import sys
@@ -54,7 +54,9 @@ def parse_file(path, cth, source):
         if not tl:
             continue
         trans = el.get("trans") or ""
-        word = "" if ("%" in trans or not re.search(r"[^x\s\-.]", tl.replace("x", ""))) else trans
+        # illegible: '%' in trans, only x signs, or only '…' (TLHdig's mark for a lost word)
+        word = "" if ("%" in trans or not re.search(r"[^x\s\-.…]", tl.replace("x", ""))
+                      or not trans.strip(" …")) else trans
         if not word:
             rows.append((txtid, cth, source, lnr, lang, word, tl, "", ""))
             continue
@@ -103,7 +105,28 @@ def parse_release(root, cths=None):
     return df[keep].reset_index(drop=True)
 
 
+BACKOFF_MIN, BACKOFF_AGREE = 5, 0.9
+
+
+def backoff(df):
+    """Words the editors left unselected (ambiguous, or only unselected candidates) take the class
+    the editors selected for the same word form elsewhere, when that choice is clear."""
+    sel = df[df.wc_rule == "analysis_selected"]
+    share = sel.groupby("word").wclass.value_counts(normalize=True)
+    n = sel.groupby("word").size()
+    top = share[share.groupby(level=0).transform("max") == share].reset_index()
+    top = top[top.proportion >= BACKOFF_AGREE].drop_duplicates("word").set_index("word").wclass
+    top = top[n.reindex(top.index) >= BACKOFF_MIN]
+    hit = df.wc_rule.isin(["analysis_ambiguous", "analysis_unanimous", "no_analysis"]) & df.word.isin(top.index)
+    new = df.loc[hit, "word"].map(top)
+    change = hit & (new.reindex(df.index) != df.wclass)
+    df.loc[change, "wclass"] = new[change[hit].values].values
+    df.loc[change, "wc_rule"] = "selected_elsewhere"
+    return df
+
+
 def finish(df, corrections=None):
+    df = backoff(df)
     df = apply_corrections(df, corrections)
     df["wc_conf"] = df.wc_rule.map(RULES).fillna("")
     return df

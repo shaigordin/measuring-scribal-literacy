@@ -12,6 +12,8 @@ view:
           when it builds the token table (`bash reproduce.sh` reruns everything).
   audit   labels/wordclass_audit.csv: a fixed random sample of tokens per confidence level, with
           the line they stand in. Mark `verdict` y (right) or n (wrong, and give `correct_class`).
+  compare OLD NEW: how a rule change moved the classes between two token tables built from the
+          same release (row by row) -> results/wordclass_rule_changes.csv, with examples.
   score   accuracy per confidence level with a 95% Wilson interval, and the corpus-wide estimate
           weighted by the share of tokens at each level -> results/wordclass_audit.json.
 
@@ -129,14 +131,38 @@ def score(t):
     print(json.dumps(out, indent=1, ensure_ascii=False))
 
 
+def compare(old, new):
+    key = ["txtid", "lnr", "translit", "n"]
+    load_ = lambda f, cols: (lambda d: d.assign(n=d.groupby(key[:3], dropna=False).cumcount()))(
+        pd.read_csv(f, low_memory=False, usecols=key[:3] + cols, dtype=str))
+    a = load_(old, ["word", "wclass"])
+    b = load_(new, ["word", "wclass", "wc_rule"])
+    b = b.merge(a.rename(columns={"word": "old_word", "wclass": "old_class"}), on=key, how="inner")
+    a = b.assign(word=b.old_word, wclass=b.old_class)
+    legible = b.word.notna() & (b.word != "")
+    ch = legible & (a.wclass.fillna("") != b.wclass.fillna(""))
+    d = pd.DataFrame({"from": a.wclass[ch].fillna("(illegible)"), "to": b.wclass[ch], "rule": b.wc_rule[ch],
+                      "word": b.word[ch], "translit": b.translit[ch]})
+    g = d.groupby(["from", "to", "rule"]).agg(tokens=("word", "size"),
+                                              examples=("word", lambda s: ", ".join(s.value_counts().index[:5])))
+    g = g.reset_index().sort_values("tokens", ascending=False)
+    out = HERE / "results" / "wordclass_rule_changes.csv"
+    g.to_csv(out, index=False)
+    print(f"{out}: {int(ch.sum())} of {int(legible.sum())} legible tokens changed class ({ch.sum() / legible.sum():.1%})")
+    print(g.head(20).to_string(index=False))
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("step", choices=["sheet", "apply", "audit", "score"])
+    ap.add_argument("step", choices=["sheet", "apply", "audit", "score", "compare"])
+    ap.add_argument("files", nargs="*", help="compare: OLD.csv NEW.csv")
     ap.add_argument("--tokens", default=str(HERE / "data" / "tokens.csv"))
     ap.add_argument("--top", type=int, default=2000, help="rows in the review sheet")
     a = ap.parse_args()
     if a.step == "apply":
         return apply()
+    if a.step == "compare":
+        return compare(*a.files)
     t = tokens(a.tokens)
     sheet(t, a.top) if a.step == "sheet" else {"audit": audit, "score": score}[a.step](t)
 
