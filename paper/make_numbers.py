@@ -398,6 +398,11 @@ def main():
         put(f"E11d.w{w}.rest.prec", pct(d["precision_rest"]), f"{s11} E11d.{w}")
         put(f"E11d.w{w}.frequent.prec", pct(d["precision_mostly_frequent_words"]), f"{s11} E11d.{w}")
 
+    e = e11["E11e"]
+    for k, key in (("without_function_words", "nofunc"), ("without_frequent_words", "nofreq")):
+        for f in ("same_tradition", "other_tradition", "now_unassigned", "newly_assigned"):
+            put(f"E11e.{key}.{f.replace('_', '')}", num(e[k][f]), f"{s11} E11e.{k}.{f}")
+
     # ---- appendix: distinctive features (E7b), top 4 per layer and tradition
     feats = load(MAIN, "E7_distinctive_features.csv")
     rows = []

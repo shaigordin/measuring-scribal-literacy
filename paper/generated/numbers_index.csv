@@ -845,3 +845,11 @@ E11d.w20.common.n,223,tlhdig03_literature/E11_report.json E11d.20
 E11d.w20.common.prec,66\%,tlhdig03_literature/E11_report.json E11d.20
 E11d.w20.rest.prec,86\%,tlhdig03_literature/E11_report.json E11d.20
 E11d.w20.frequent.prec,51\%,tlhdig03_literature/E11_report.json E11d.20
+E11e.nofunc.sametradition,727,tlhdig03_literature/E11_report.json E11e.without_function_words.same_tradition
+E11e.nofunc.othertradition,17,tlhdig03_literature/E11_report.json E11e.without_function_words.other_tradition
+E11e.nofunc.nowunassigned,196,tlhdig03_literature/E11_report.json E11e.without_function_words.now_unassigned
+E11e.nofunc.newlyassigned,223,tlhdig03_literature/E11_report.json E11e.without_function_words.newly_assigned
+E11e.nofreq.sametradition,746,tlhdig03_literature/E11_report.json E11e.without_frequent_words.same_tradition
+E11e.nofreq.othertradition,10,tlhdig03_literature/E11_report.json E11e.without_frequent_words.other_tradition
+E11e.nofreq.nowunassigned,184,tlhdig03_literature/E11_report.json E11e.without_frequent_words.now_unassigned
+E11e.nofreq.newlyassigned,143,tlhdig03_literature/E11_report.json E11e.without_frequent_words.newly_assigned
