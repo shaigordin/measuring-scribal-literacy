@@ -17,7 +17,8 @@ CASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "orphans",
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated", "case_data.tex")
 # word class -> category colour (the palette of the playground and of decision_shares.png)
 CATCOLOR = {"function": "catF", "verb": "catV", "realia": "catN", "agent": "catA", "deity": "catA",
-            "foreign": "catX"}
+            "place": "catP", "animal": "catB", "body": "catB", "nature": "catB", "abstract": "catT",
+            "adjective": "catJ", "foreign": "catX"}
 FIRST, LAST = 3, 15          # lines shown (r. Kol. 3'-15'; 1'-2' and 16'-17' are broken)
 
 
@@ -103,13 +104,17 @@ def main():
             a.append(f"\\broken{{{t}}}"); b.append(f"\\broken{{{t}}}")
             continue
         col = CATCOLOR.get(wc, "catO")
-        a.append(f"\\wc{{{col}}}{{{'low' if conf == 'low' else 'ok'}}}{{{t}}}")
+        a.append(f"\\wc{{{col}}}{{{'low' if conf == 'low' or col == 'catO' else 'ok'}}}{{{t}}}")
         s = shares.get((lnr, tl), 0.0)
         b.append(f"\\ws{{{max(0, min(100, round(s * 300)))}}}{{{t}}}")
     rows.append((cur, a)); shaded.append((cur, b))
     fmt = lambda rr: "".join(f"\\tline{{{line_no(l)}′}}{{{' '.join(ws)}}}" for l, ws in rr)
     L.append("\\def\\CaseText{" + fmt(rows) + "}")
     L.append("\\def\\CaseShaded{" + fmt(shaded) + "}")
+
+    # the word followed from text to features in step 2, tinted by its class
+    key = next(t for t in extra["tokens"] if t[1] == "pa-an-ga-u-wa-aš")
+    L.append(f"\\def\\CaseKeyWord{{\\wc{{{CATCOLOR.get(key[3], 'catO')}}}{{{'low' if key[5] == 'low' or key[3] not in CATCOLOR else 'ok'}}}{{pa-an-ga-u-wa-aš}}}}")
 
     # 2. similarity to each tradition (bar chart rows: name, value, is-top)
     bars = [f"\\simbar{{{i}}}{{{esc(short(t))}}}{{{v:.3f}}}{{{'top' if t == top else ('second' if t == second else 'other')}}}"

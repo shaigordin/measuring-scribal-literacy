@@ -259,7 +259,7 @@ values at each step.
   \centering
   \includegraphics[width=\linewidth]{figures/case_a.pdf}
   \caption{A worked example: the orphan \C{txtid} from its text to its placement. (1) The legible
-    words, tinted by word class (dashed: low-confidence class). (2) Each word becomes a word-form
+    words, tinted by word category (dashed: a low-confidence or unclear class). (2) Each word becomes a word-form
     feature and sign-sequence features, weighted by tf-idf. (3) Cosine similarity to the average
     vector of each tradition. (4) The lead of the nearest tradition over the runner-up, against the
     calibrated margin. (5) The lead split over the features that make it. (6) The same split on
@@ -304,41 +304,70 @@ second. Seven per-manuscript orthographic rates (shares of logograms, Akkadogram
 complements, determinatives, plene spellings, CVC signs and \textit{ú}) are tested with a
 10-fold linear discriminant analysis. Following the categories of Table~4 in
 \cite{gordin2025matters} (agents, deities, function words, foreign words, realia and verbs),
+with realia narrowed to physical things and the other nominal words grouped by meaning (places;
+animals, body parts and nature; abstract nouns; adjectives; measures),
 assigned as described below, we evaluate each word class alone and the text
 without it. Distinctive features per tradition are ranked by weighted log-odds with an
 informative Dirichlet prior \cite{monroe2008fightin}, on manuscript frequencies.
 
 \paragraph{How a word gets its class.}
-No word was classed by hand or by a language model. Each class is derived by fixed rules
-(\texttt{qtm/wordclass.py}) from what TLHdig's editors recorded for the word: its determinatives,
-its language, and its morphological analyses, of which the editor may have selected one. The rules
-apply in order, and the first that fits decides (Table~\ref{tab:wcexamples}). A determinative
-decides first, because deities and persons cut across parts of speech: DINGIR or \textsuperscript{D}
-makes a deity, \textsuperscript{LÚ}, \textsuperscript{MUNUS} or a personal-name marker an agent, and so
-do a short list of agent logograms (LUGAL, SANGA, \dots). A syllabically written Akkadian
-preposition (\textit{ina}, \textit{ana}, \textit{ištu}, \textit{itti}, \textit{aššum}) is a function
-word. A word in Hurrian, Hattian, Luwian or Palaic is foreign; a logogram without a language tag of
-its own (KI.MIN in a Hurrian line) is not, and goes on to its analysis. Otherwise the editor's selected analysis gives the part of speech: a person-marked form
-is a verb; conjunctions, particles, pronouns, adverbs, preverbs and postpositions are function
-words; any other case-marked form is realia. An Akkadographic preposition that TLHdig stores in one
-word with its noun (A-NA \textsuperscript{GIŠ}BANŠUR) is split, and each part classed on its own. When
-no analysis is selected, the word takes the class on which all its candidate analyses agree, or else
-the class the editors selected for the same form elsewhere, if at least five selections agree in at
-least 90\% of cases. Each label records the rule that set it, and so a confidence: high for a
-determinative, a language tag, an Akkadian preposition, a selected analysis or a split preposition; medium for the agent list,
-unanimous candidates or the editors' choice elsewhere; low when candidates disagree or no analysis
-exists. Of the \Q{wc.tokens} legible words of the texts we use, \Q{wc.conf.high} are classed with high
-confidence, \Q{wc.conf.medium} with medium and \Q{wc.conf.low} with low; \Q{wc.class.unknown} have no
-analysis (mostly broken word ends) and \Q{wc.class.ambiguous} stay ambiguous. An audit of the rules
-against the examples they produced corrected eight systematic errors (among them A-NA with its noun
-read as one function word, possessive suffixes taken for the head, and GAL counted as an agent),
-and a second pass two more (syllabic Akkadian prepositions left to their analyses, and logograms
-in foreign-language lines counted as foreign);
-\Q{wc.changed} and \Q{wc.changed2} words changed class in the two passes. Two simplifications remain by design: realia covers every
-other nominal form, adjectives and place names included, and participles count as verbs. A bare 10 or 30 stays a number, as the editors select it in
-most cases; the Storm-god and the Moon-god, written \textsuperscript{D}10 and
-\textsuperscript{D}30, are deities by their determinative.
-A sample of 180 classed words is being checked by hand, to give an accuracy per confidence level.
+No word was classed by hand. Each class is derived by fixed rules (\texttt{qtm/wordclass.py}) from
+what TLHdig's editors recorded for the word: its determinatives, its language, and its
+morphological analyses, of which the editor may have selected one. The rules apply in order, and
+the first that fits decides (Table~\ref{tab:wcexamples}). A determinative decides first, because
+deities and persons cut across parts of speech: DINGIR or \textsuperscript{D} makes a deity,
+\textsuperscript{LÚ}, \textsuperscript{MUNUS} or a personal-name marker an agent, and so do a short
+list of agent logograms (LUGAL, SANGA, \dots); a compound logogram headed by an object sign is an
+object (GIŠ.\textsuperscript{D}INANNA, `lyre'). A syllabically written Akkadian preposition
+(\textit{ina}, \textit{ana}, \textit{ištu}, \textit{itti}, \textit{aššum}) is a function word. A word
+in Hurrian, Hattian, Luwian or Palaic is foreign; a logogram without a language tag of its own
+(KI.MIN in a Hurrian line) is not, and goes on to its analysis. Otherwise the editor's selected
+analysis gives the part of speech: a person-marked form is a verb; conjunctions, particles,
+pronouns, adverbs, preverbs and postpositions are function words; any other case-marked form is
+nominal. An Akkadographic preposition that TLHdig stores in one word with its noun (A-NA
+\textsuperscript{GIŠ}BANŠUR) is split, and each part classed on its own. When no analysis is
+selected, the word takes the class on which all its candidate analyses agree, or else the class
+the editors selected for the same form elsewhere, if at least five selections agree in at least
+90\% of cases. A word with no analysis at all takes its class from a determinative
+(\textsuperscript{URU} a place, \textsuperscript{MUŠEN} an animal, \textsuperscript{GIŠ},
+\textsuperscript{NINDA} and the like an object); a broken word that ends in an enclitic chain
+(\textit{-ša-an}) is a function word, and one that ends in \textit{-anzi} a verb.
+
+A nominal word is then classed by meaning. Names take their class from TLHdig's stem class (gods,
+persons, places). Every other noun and adjective takes the class of its German gloss in TLHdig,
+looked up in a list that assigns each of the \Q{wc.glosses} glosses one meaning class
+(\texttt{labels/gloss\_lexicon.tsv}): realia for artifacts, buildings, ritual materials, food and
+plants, and otherwise animals, body parts, nature, abstract nouns, adjectives or measures. This
+list is the one step not derived from the editors' records: it was drafted with a language model
+(Claude), is committed as a fixed file that can be corrected by hand, and has not yet been checked.
+When the glosses of a word's candidate analyses fall in different classes, it is realia if one of
+them is, and ambiguous otherwise.
+
+Each label records the rule that set it, and so a confidence: high for a determinative, a language
+tag, an Akkadian preposition, a selected analysis or a split preposition; medium for the agent
+list, unanimous candidates, the editors' choice elsewhere or a determinative without analysis; low
+when candidates disagree, for the rules for broken words, and when no analysis exists. Of the
+\Q{wc.tokens} legible words of the texts we use, \Q{wc.conf.high} are classed with high
+confidence, \Q{wc.conf.medium} with medium and \Q{wc.conf.low} with low; \Q{wc.class.unknown} have
+no analysis (mostly broken word ends) and \Q{wc.class.ambiguous} stay ambiguous. Participles count
+as verbs. A bare 10 or 30 stays a number, as the editors select it in most cases; the Storm-god and
+the Moon-god, written \textsuperscript{D}10 and \textsuperscript{D}30, are deities by their
+determinative.
+
+The rules were checked twice. An audit of the rules against the examples they produced corrected
+ten systematic errors (among them A-NA with its noun read as one function word, possessive suffixes
+taken for the head, GAL counted as an agent, and logograms in foreign-language lines counted as
+foreign); \Q{wc.changed} and \Q{wc.changed2} words changed class. The first author then checked by
+hand a sample of \Q{wc.audit.n} words, drawn evenly from the three confidence levels. The rules were
+right for \Q{wc.audit.before.high} of high-confidence words (95\% interval
+\Q{wc.audit.before.high.ci}), \Q{wc.audit.before.medium} of medium (\Q{wc.audit.before.medium.ci})
+and \Q{wc.audit.before.low} of low (\Q{wc.audit.before.low.ci}); weighted by the share of each level
+in the corpus, \Q{wc.audit.before.corpus} of words are classed correctly. The errors led to
+\Q{wc.audit.fixes} further rules (the rules for broken words and for object determinatives among
+them), which changed \Q{wc.audit.changed} of words. On the same sample the revised rules reach
+\Q{wc.audit.after.corpus}; as they were written with this sample in view, that figure is an upper
+bound. The audit scored all nominal words as one class, so it does not cover the split by meaning,
+which together with the fixes changed the class of \Q{wc.audit.changed.meaning} of words.
 
 \begin{table}[t]
   \caption{How a word gets its class: one example per rule, with TLHdig's analysis as the editors
@@ -518,8 +547,9 @@ Removing function words, verbs or agents costs almost nothing (\Q{E8.all.words} 
 \Q{E8.without_function.words} without function words, \Q{E8.without_verb.words} without verbs):
 these classes form a layer shared across traditions. Alone they still reach
 \Q{E8.only_function.words} and \Q{E8.only_verb.words}, well above the majority baseline, so the
-formulae differ between traditions, but less than realia (\Q{E8.only_realia.words}) or foreign
-words (\Q{E8.only_foreign.words}). The previous study suggested that shared Akkadograms among
+formulae differ between traditions, but less than agents (\Q{E8.only_agent.words}), realia
+(\Q{E8.only_realia.words}) or foreign words (\Q{E8.only_foreign.words}). Removing foreign words
+costs the most (\Q{E8.without_foreign.words}). The previous study suggested that shared Akkadograms among
 function words and verbs might reveal a writing habit \cite{gordin2025matters}; at the scale of
 traditions, that layer is common ground rather than a marker.
 
@@ -580,16 +610,18 @@ For whole manuscripts, then, the particles look decisive but are not.
   \label{fig:decision}
 \end{figure}
 
-The decision rests on content words: nouns and realia \Q{E11a.decision.nounsandrealia}, agents and
-deities \Q{E11a.decision.agentsanddeities}, function words \Q{E11a.decision.functionwords}, verbs
-\Q{E11a.decision.verbs} and foreign words \Q{E11a.decision.foreignwords}. Each tradition has its
+The decision rests on content words: agents and deities \Q{E11a.decision.agentsanddeities},
+realia \Q{E11a.decision.realia}, foreign words \Q{E11a.decision.foreignwords}, verbs
+\Q{E11a.decision.verbs}, function words \Q{E11a.decision.functionwords}, and the other nouns
+(places, animals, abstract nouns, adjectives) together \Q{E11a.decision.othernouns}. Each tradition has its
 own decisive category (Table~\ref{tab:decision}). The Ḫuwaššanna and Palaic festivals rest on
 agents and deities (\Q{E11a.huwassannafestivals.agentsanddeities},
 \Q{E11a.palaicfestivals.agentsanddeities}), Palaic also on Palaic words
 (\Q{E11a.palaicfestivals.foreignwords}). The Kizzuwatna rituals rest on realia
-(\Q{E11a.kizzuwatnarituals.nounsandrealia}: \Q{E11b.kizzuwatnarituals.features}). The Ištanuwa and
-Lallupiya festivals rest on nouns, chiefly their own place names
-(\Q{E11a.luwianfestivalsistanuwalallupiya.nounsandrealia}). Function words decide only where a
+(\Q{E11a.kizzuwatnarituals.realia}: \Q{E11b.kizzuwatnarituals.features}). The Ištanuwa and
+Lallupiya festivals rest on agents and deities
+(\Q{E11a.luwianfestivalsistanuwalallupiya.agentsanddeities}) and on their own place names
+(\Q{E11a.luwianfestivalsistanuwalallupiya.places}). Function words decide only where a
 formula is particular to a group: in the Mixed group (\Q{E11a.mixedhurriansyrianluwian.functionwords}) the repetition mark KI.MIN and \textit{EGIR-anda-ma}
 belong to how its festival lists are laid out. The common features, the negative column of the
 table, often argue against the small traditions; the Hattian cult layer is the exception, where
@@ -604,16 +636,17 @@ rates, not features of the cosine, and cannot be split into the decision this wa
   \caption{What the decision rests on, per tradition: share of the lead over the runner-up by
     word category and by layer, and the share carried by common features (in $\geq$25\% of
     reference texts), over the correctly placed manuscripts ($n$). Shares can be negative when a
-    category argues for the runner-up; ``other words'' (not shown) completes the categories to
-    100\%. Traditions with fewer than ten manuscripts are unstable.}
+    category argues for the runner-up. ``Other'' are the other nouns (places, animals, body
+    parts, nature, abstract nouns, adjectives); ``other words'' (not shown) completes the
+    categories to 100\%. Traditions with fewer than ten manuscripts are unstable.}
   \label{tab:decision}
   \footnotesize
   \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{l r r r r r r r r r r}
+  \begin{tabular}{l r r r r r r r r r r r}
     \toprule
-    & & \multicolumn{5}{c}{word category} & \multicolumn{3}{c}{layer} & \\
-    \cmidrule(lr){3-7}\cmidrule(lr){8-10}
-    Tradition & $n$ & funct. & verbs & nouns & agents & foreign & form & syll. & logo. & common \\
+    & & \multicolumn{6}{c}{word category} & \multicolumn{3}{c}{layer} & \\
+    \cmidrule(lr){3-8}\cmidrule(lr){9-11}
+    Tradition & $n$ & funct. & verbs & realia & agents & other & foreign & form & syll. & logo. & common \\
     \midrule
     \gentab{decision}
     \bottomrule
@@ -783,7 +816,9 @@ and their recall is uncertain; held out by composition, several of them are not 
 tablets, cult inventories close to festival text \cite{cammarosano2021inventories}), which word
 profiles may track alongside tradition. The Hattian layer's preference for plene writing and few
 logograms may reflect Old Hittite manuscripts as much as tradition, and is still to be checked
-against script dates. Finally, every placement is a hypothesis for philological verification on
+against script dates. The word categories enter only the analysis of what a decision rests on,
+not the placements; their rules were checked by hand on a sample, but the meaning classes of nouns
+rest on a gloss list drafted with a language model that is still to be checked. Finally, every placement is a hypothesis for philological verification on
 the tablet: an orphan placed near a known manuscript is a candidate join, not a join.
 
 %% ==========================================================================================

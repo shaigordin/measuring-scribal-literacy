@@ -9,11 +9,15 @@
 \newcommand{\C}[1]{\@ifundefined{case@#1}{\textcolor{red}{[#1?]}}{\csname case@#1\endcsname}}
 \makeatother
 % word-class palette (decision_shares.png / playground), one slot per category
-\definecolor{catF}{HTML}{2A78D6}  % function words
+\definecolor{catF}{HTML}{2A78D6}  % function words   (colours of decision_shares.png and the playground)
 \definecolor{catV}{HTML}{EB6834}  % verbs
-\definecolor{catN}{HTML}{1BAF7A}  % nouns and realia
+\definecolor{catN}{HTML}{1BAF7A}  % realia (physical things)
 \definecolor{catA}{HTML}{EDA100}  % agents and deities
-\definecolor{catX}{HTML}{E87BA4}  % foreign words
+\definecolor{catP}{HTML}{E87BA4}  % places
+\definecolor{catB}{HTML}{008300}  % animals, body, nature
+\definecolor{catT}{HTML}{00A3B8}  % abstract nouns
+\definecolor{catJ}{HTML}{6250D6}  % adjectives
+\definecolor{catX}{HTML}{A3368F}  % foreign words
 \definecolor{catO}{HTML}{9A9A94}  % other / unclassified
 \definecolor{shade}{HTML}{EB6834}
 \definecolor{ink}{HTML}{2B2B2B}
@@ -32,6 +36,7 @@
 \newcommand{\sg}[1]{\textit{#1}}          % a sign sequence
 \newcommand{\stepno}[1]{\tikz[baseline=-0.6ex]\node[reset, circle, fill=ink, text=white, inner sep=0.6pt, font=\scriptsize\bfseries]{#1};}
 \newcommand{\legend}{%
-  \wc{catF}{ok}{function} \wc{catV}{ok}{verb} \wc{catN}{ok}{noun, realia} \wc{catA}{ok}{agent, deity}
+  \wc{catF}{ok}{function} \wc{catV}{ok}{verb} \wc{catN}{ok}{realia} \wc{catA}{ok}{agent, deity}
+  \wc{catP}{ok}{place} \wc{catB}{ok}{animal, body, nature} \wc{catT}{ok}{abstract} \wc{catJ}{ok}{adjective}
   \wc{catX}{ok}{foreign} \wc{catO}{low}{unclear}}
 \input{../generated/case_data.tex}

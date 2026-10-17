@@ -18,7 +18,7 @@
 % row 2
 \node[words] (w2) at (\xw, 0 |- r1) {\stepno{2} \textbf{Count.} Every word form and every sign sequence inside a word is a feature. A feature counts more when it is frequent in the fragment and rare in the corpus.};
 \node[visual] (v2) at (\xv, 0 |- r1) {%
-  \wc{catN}{ok}{pa-an-ga-u-wa-aš} $\to$ \wf{pankauaš} \C{x.w}, \sg{pa-an-ga} \C{x.n1}, \sg{an-ga-u} \C{x.n2}, \sg{ga-u-wa} \C{x.n3}\\[3pt]
+  \CaseKeyWord $\to$ \wf{pankauaš} \C{x.w}, \sg{pa-an-ga} \C{x.n1}, \sg{an-ga-u} \C{x.n2}, \sg{ga-u-wa} \C{x.n3}\\[3pt]
   Rare word \wf{pankauaš}: idf \C{idf.rare}. Common sign \sg{na}: idf \C{idf.common}.\\[2pt]
   The fragment becomes a vector $\mathbf{x}$ with \C{nfeat} non-zero entries out of \C{dim}.};
 \node[formula] (f2) at (\xf, 0 |- r1) {$x_f \propto (1+\log \mathit{tf}_f)\,\mathit{idf}_f$\\[2pt] $\mathit{idf}_f=\log\frac{1+N}{1+\mathit{df}_f}+1$\\[2pt] $\lVert\mathbf{x}\rVert = 1$};

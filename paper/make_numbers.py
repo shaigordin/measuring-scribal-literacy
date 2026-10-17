@@ -237,7 +237,9 @@ def main():
 
     # ---- E8 word classes
     cls = {"agent": "Agents", "deity": "Deities", "function": "Function words", "verb": "Verbs",
-           "realia": "Realia", "foreign": "Foreign-language words"}
+           "realia": "Realia", "place": "Places", "animal": "Animals", "body": "Body parts",
+           "nature": "Nature", "abstract": "Abstract nouns", "adjective": "Adjectives",
+           "foreign": "Foreign-language words"}
     h = e8["historical"]
     put("E8.all.words", pct(h["all"]["words"]["acc"]), f"{MAIN}/E8_report.json historical.all")
     put("E8.all.signs", pct(h["all"]["signs"]["acc"]), f"{MAIN}/E8_report.json historical.all")
@@ -347,6 +349,11 @@ def main():
     put("E11a.acc", pct(a11["accuracy"]), f"{s11} E11a.accuracy")
     put("E11a.texts", num(a11["all_correct"]["texts"]), f"{s11} E11a.all_correct.texts")
     cats = list(a11["all_correct"]["by_category"])
+    MEANING = ["Places", "Animals, body, nature", "Abstract nouns", "Adjectives"]   # one table column
+    TABCATS = ["Function words", "Verbs", "Realia", "Agents and deities", "Other nouns", "Foreign words"]
+    for d in [a11["all_correct"], a11["similarity_all_correct"], *a11["by_tradition"].values()]:
+        d["by_category"]["Other nouns"] = sum(d["by_category"][c] for c in MEANING)
+    cats = cats + ["Other nouns"]
     layers = list(a11["all_correct"]["by_layer"])
     for part, src in (("decision", "all_correct"), ("similarity", "similarity_all_correct")):
         for c in cats:
@@ -367,7 +374,7 @@ def main():
             put(f"E11a.{slugify(t)}.{slugify(l)}", pct(r["by_layer"][l]), f"{s11} E11a.by_tradition")
         put(f"E11b.{slugify(t)}.common", pct(b11["common_features_share"][t]), f"{s11} E11b.common_features_share")
         rows.append(f"{tex_escape(t)} & {num(r['texts'])} & "
-                    + " & ".join(pct(r["by_category"][c]) for c in cats if c != "Other words") + " & "
+                    + " & ".join(pct(r["by_category"][c]) for c in TABCATS) + " & "
                     + " & ".join(pct(r["by_layer"][l]) for l in layers) + f" & {pct(b11['common_features_share'][t])} \\\\")
         feats = []
         for f, _, _ in b11["top_features"][t]:
@@ -377,7 +384,7 @@ def main():
         put(f"E11b.{slugify(t)}.features", tex_escape(", ".join(feats[:5])), f"{s11} E11b.top_features")
     r = a11["all_correct"]
     rows.append("\\midrule\nAll correctly placed & " + num(r["texts"]) + " & "
-                + " & ".join(pct(r["by_category"][c]) for c in cats if c != "Other words") + " & "
+                + " & ".join(pct(r["by_category"][c]) for c in TABCATS) + " & "
                 + " & ".join(pct(r["by_layer"][l]) for l in layers) + f" & {pct(b11['common_features_share']['all_correct'])} \\\\")
     table("decision", rows)
     for k, key in (("all_correct", "ref"), ("orphans", "orph")):
@@ -419,6 +426,22 @@ def main():
         changes2 = load("", "wordclass_rule_changes_akk_logograms.csv")
         put("wc.changed2", num(sum(int(r["tokens"]) for r in changes2)),
             "wordclass_rule_changes_akk_logograms.csv tokens (sum)")
+    audit = load("", "wordclass_audit_scores.json")
+    put("wc.audit.n", num(audit["sample_size"]), "wordclass_audit_scores.json sample_size")
+    put("wc.audit.drawn", num(audit["sample_drawn"]), "wordclass_audit_scores.json sample_drawn")
+    for stage, key in (("before_fixes", "before"), ("after_fixes", "after")):
+        a = audit[stage]
+        put(f"wc.audit.{key}.corpus", pct(a["corpus_weighted_accuracy"]), f"wordclass_audit_scores.json {stage}.corpus_weighted_accuracy")
+        for lv, d in a["levels"].items():
+            put(f"wc.audit.{key}.{lv}", pct(d["accuracy"]), f"wordclass_audit_scores.json {stage}.levels.{lv}.accuracy")
+            put(f"wc.audit.{key}.{lv}.n", num(d["reviewed"]), f"wordclass_audit_scores.json {stage}.levels.{lv}.reviewed")
+            put(f"wc.audit.{key}.{lv}.ci", f"{pct(d['ci95'][0])}--{pct(d['ci95'][1])}", f"wordclass_audit_scores.json {stage}.levels.{lv}.ci95")
+    put("wc.audit.fixes", num(audit["rule_fixes"]), "wordclass_audit_scores.json rule_fixes")
+    put("wc.audit.changed", pct(audit["share_of_words_changed_by_fixes"]), "wordclass_audit_scores.json share_of_words_changed_by_fixes")
+    put("wc.audit.changed.meaning", pct(audit["share_of_words_changed_incl_meaning_classes"]),
+        "wordclass_audit_scores.json share_of_words_changed_incl_meaning_classes")
+    with open(os.path.join(RES, "..", "labels", "gloss_lexicon.tsv"), encoding="utf-8") as f:
+        put("wc.glosses", num(sum(1 for _ in f) - 1), "labels/gloss_lexicon.tsv rows")
     examples = load("", "wordclass_examples.csv")
     picks = [("determinative_deity", "DINGIR {MEŠ}", "a deity determinative or DINGIR"),
              ("determinative_agent", "{LÚ} SANGA", "a person determinative (LÚ, MUNUS, m, f)"),
@@ -430,7 +453,11 @@ def main():
              ("preposition_split", "IŠ-TU", "preposition split from its noun"),
              ("analysis_unanimous", "na-aš-ta", "all candidate analyses agree"),
              ("selected_elsewhere", "ar-ḫa", "editors' choice for the same form elsewhere"),
-             ("analysis_ambiguous", "EGIR", "candidate analyses disagree"),
+             ("analysis_selected", "ḪA-AT-TI", "a noun: its meaning class from its gloss"),
+             ("determinative_noun", "NINDA.SIG {MEŠ}", "an object determinative or compound head"),
+             ("analysis_ambiguous", "GAL", "candidate analyses disagree"),
+             ("broken_clitic", "-ša-an", "broken word ending in an enclitic chain"),
+             ("broken_ending", "-an-zi", "broken word ending in 3rd person plural"),
              ("no_analysis", "-zi", "no analysis (broken word)")]
     rows = []
     for rule, tl, how in picks:
@@ -479,7 +506,8 @@ def wc_analysis(a, rule, width=50):
         f = [x.strip() for x in v.split("@")] + ["", "", ""]
         morph = f[2] or f[3]
         morph = morph.replace("{ a → ", "").split("}")[0].strip() + ("…" if "{ b" in morph else "")
-        return (f"‘{f[1]}’ " if f[1] else "") + morph
+        gloss = f[1].strip("‚‘’ ")
+        return (f"‘{gloss}’ " if gloss else "") + morph
 
     num_sel = "".join(ch for ch in sel if ch.isdigit())
     if rule == "preposition_split":
@@ -489,7 +517,7 @@ def wc_analysis(a, rule, width=50):
     elif not cands:
         out = "none" if sel in ("", "DEL", "???") else f"language tag {sel}"
     else:
-        out = f"{len(cands)} candidates: " + "; ".join(show(v) for v in cands[:2]) + ("; …" if len(cands) > 2 else "")
+        out = f"{len(cands)} candidate{'s' if len(cands) > 1 else ''}: " + "; ".join(show(v) for v in cands[:2]) + ("; …" if len(cands) > 2 else "")
     return tex_escape(out if len(out) <= width else out[:width - 1] + "…")
 
 
