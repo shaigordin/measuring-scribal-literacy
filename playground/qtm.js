@@ -132,7 +132,7 @@ export function openSet(toks, n, topScore, model) {
   const a = assign(s, g.classes, 0);
   const floor = fitFloor(n, os.floors);
   const outside = os.outside.includes(a.top) && Math.round(a.gap * 1e4) / 1e4 >= model.margin ? a.top : null;
-  return { floor, lowFit: topScore < floor, outside, gateTop: a.top, gateGap: a.gap };
+  return { floor, lowFit: Math.round(topScore * 1e4) / 1e4 < floor, outside, gateTop: a.top, gateGap: a.gap };
 }
 
 export function scoreText(text, model) {
@@ -147,7 +147,8 @@ export function scoreText(text, model) {
 
 // --- shared presentation: tradition order around the wheel, and colours ---
 // Neighbours on the wheel are related groups: the Anatolian festival layers (Hattian, Palaic,
-// Luwian, Ḫuwaššanna), then the Hurrian festival groups, then the ritual traditions.
+// Luwian, Ḫuwaššanna), then the Hurrian festival groups, then the ritual traditions
+// (Kizzuwatna, the Lower Land Luwian rituals, Arzawa).
 export const RING = [
   "Hattian cult layer",
   "Palaic festivals",
@@ -157,6 +158,7 @@ export const RING = [
   "Syro-Mesopotamia (Hurrian)",
   "Kizzuwatna–Lower Land (Hurrian)",
   "Kizzuwatna rituals",
+  "Luwian rituals (Puriyanni, Kuwattalla)",
   "Arzawa / western rituals",
 ];
 export const SHORT = {
@@ -169,6 +171,7 @@ export const SHORT = {
   "Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna–Lower Land",
   "Kizzuwatna rituals": "Kizzuwatna rit.",
   "Arzawa / western rituals": "Arzawa / western",
+  "Luwian rituals (Puriyanni, Kuwattalla)": "Luwian rit.",
 };
 export const colorVar = lab => `var(--series-${RING.indexOf(lab) + 1})`;
 const angle = lab => -Math.PI / 2 + (2 * Math.PI * RING.indexOf(lab)) / RING.length;

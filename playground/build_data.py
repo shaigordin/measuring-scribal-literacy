@@ -73,6 +73,12 @@ def main():
     margin = report["E2_abstention"]["margin"]
     groups = GROUPSETS[report["groups"]]
     floors = {int(k): v["fit_floor"] for k, v in e9["by_k"].items()}
+    # unrounded floors, as run_openset.py applies them (the report rounds them to 4 places)
+    fit = pd.read_csv(f"{a.run}/E9_orphan_fit.csv")
+    for k in floors:
+        exact = fit.loc[fit.fit_floor.round(4) == floors[k], "fit_floor"]
+        if len(exact):
+            floors[k] = float(exact.iloc[0])
 
     hist = label_map(groups)
     outside = outside_genres(hist)
@@ -110,7 +116,7 @@ def main():
     ks = np.array(sorted(floors))
     floor_of = lambda n: floors[int(ks[ks <= n].max())] if n >= ks.min() else floors[int(ks.min())]
     out_flag = np.array([g in outside and round(gg, 4) >= margin for g, gg in zip(gpred, ggap)])  # E9 compares the rounded gap
-    low_flag = np.array([t < floor_of(n) for t, n in zip(top, orph.n_words)])
+    low_flag = np.array([round(t, 4) < floor_of(n) for t, n in zip(top, orph.n_words)])  # E9 uses the rounded score
 
     # translit -> normalised word form, for words in the vocabulary
     tl = pd.read_csv(a.tokens, usecols=["word", "translit"], low_memory=False).dropna()

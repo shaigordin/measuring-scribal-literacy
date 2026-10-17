@@ -6,7 +6,7 @@ words compare with any other manuscript or tradition.
 
 - `index.html`: place a fragment. Scores, the open-set verdict ("fits no known tradition" or
   "outside the reference", from E9), and the four signature views: the tradition wheel
-  (every manuscript placed between the nine tradition corners), the archetype barcode (the
+  (every manuscript placed between the ten tradition corners), the archetype barcode (the
   tradition's 200 strongest features, with the ones the fragment attests filled in), the
   similarity rose (one wedge per tradition, pointing to its hexagon corner, with a gallery of
   orphan roses), and the word butterfly (fragment vs. nearest tradition by word tf-idf).
@@ -30,10 +30,10 @@ python3 build_data.py tokens.csv                                # writes data/*.
 ```
 
 The export reuses `../orphans/qtm`, `run_openset.py` and the margin and fit floors from
-`../orphans/results/tlhdig03_literature/`, and it reproduces the deck exactly: 868 of 2,009
-orphans placed, 156 below the fit floor, 247 nearest to an outside genre (checked against
+`../orphans/results/tlhdig03_literature/`, and it reproduces the deck exactly: 940 of 2,010
+orphans placed, 159 below the fit floor, 255 nearest to an outside genre (checked against
 `E5_orphan_placement.csv` and `E9_orphan_fit.csv`). The browser, which has to map pasted
-transliteration to word forms itself, gives the same placement for 1,977 orphans (98.4%) and the
+transliteration to word forms itself, gives the same placement for 1,975 orphans (98.3%) and the
 same open-set flags for about 98%; the rest differ because a few transliterations map to more
 than one normalised word form, and the page picks the most frequent one.
 
