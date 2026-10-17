@@ -547,7 +547,7 @@
 </section>
 <section id="how-a-word-gets-its-category" class="slide level2">
 <h2>How a word gets its category</h2>
-<p><span class="smallish">No language model is involved: the categories are <strong>rules over TLHdig’s own morphological analyses</strong>, made by its editors (<code>qtm/wordclass.py</code>). The six categories follow StBoT 73, Table 4.</span></p>
+<p><span class="smallish">The part of speech comes from <strong>rules over TLHdig’s own morphological analyses</strong>, made by its editors (<code>qtm/wordclass.py</code>); the categories follow StBoT 73, Table 4. Nouns are then sorted by the <strong>meaning of TLHdig’s German gloss</strong>: realia (things, ritual materials, plants), places, animals and body, abstract nouns, adjectives. That gloss list (5,494 glosses) was drafted by Claude and is a fixed, correctable file (<code>labels/gloss_lexicon.tsv</code>).</span></p>
 <div class="smallest">
 <table class="caption-top">
 <colgroup>
@@ -598,8 +598,8 @@
 <tr class="odd">
 <td>BE-LÍ-IA</td>
 <td>BĒLU “lord” · NOM.SG_PPRO.1SG.GEN</td>
-<td>head (NOM.SG); the suffix “my” does not count</td>
-<td>Noun</td>
+<td>head (NOM.SG); the suffix “my” does not count; gloss “Herr”: a person</td>
+<td>Agent</td>
 <td>medium</td>
 </tr>
 <tr class="even">
@@ -683,17 +683,17 @@
 <tr class="odd">
 <td>high</td>
 <td>editor’s selected analysis, determinative, language tag, split or Akkadian preposition</td>
-<td style="text-align: right;">63.7%</td>
+<td style="text-align: right;">62.7%</td>
 </tr>
 <tr class="even">
 <td>medium</td>
 <td>all analyses agree; same form selected elsewhere; agent logogram</td>
-<td style="text-align: right;">24.1%</td>
+<td style="text-align: right;">25.1%</td>
 </tr>
 <tr class="odd">
 <td>low</td>
 <td>analyses disagree, or none (broken words)</td>
-<td style="text-align: right;">12.1%</td>
+<td style="text-align: right;">12.2%</td>
 </tr>
 </tbody>
 </table>
@@ -702,15 +702,15 @@
 </div><div class="column" style="width:50%;">
 <div class="smallish">
 <ul>
-<li>An <strong>audit</strong> of the rules found seven systematic errors (prepositions joined to nouns, possessive suffixes, theophoric names, GAL as an agent …); fixing them changed <strong>9.3%</strong> of the words; a second pass (Akkadian <em>ana</em>, <em>ina</em>; logograms in foreign-language lines) changed 0.5% more, and <strong>every experiment was rerun</strong></li>
+<li><strong>A philologist’s blind audit</strong> of 178 words (about 60 per level): <strong>93% right</strong> at high confidence, <strong>88%</strong> at medium, <strong>70%</strong> at low; <strong>89%</strong> of all words, weighted by level</li>
+<li>Five rules revised on the audit’s notes (broken enclitic chains, determinatives of unanalysed words, compound logograms …); 2.2% of the words changed. In-sample, the audit now scores 97 / 88 / 88%, <strong>94%</strong> overall (an upper bound), and <strong>every experiment was rerun</strong></li>
 <li><strong>Correcting by hand:</strong> a review sheet of the most frequent forms and a corrections file that every run applies (<code>review_wordclass.py</code>)</li>
-<li><strong>Known limits:</strong> “realia” includes adjectives and place names; 10.5% unknown, half of them broken words; syllabic Akkadian <em>ša</em> has no analysis; participles count as verbs</li>
-<li>A blind sample of 180 words (60 per level) is ready for a philologist’s check</li>
+<li><strong>Known limits:</strong> 9.3% unknown, most of them broken words; syllabic Akkadian <em>ša</em> has no analysis; participles count as verbs; the noun meaning classes have not been audited</li>
 </ul>
 </div>
 </div></div>
 <aside class="notes">
-<p>The class results (word classes and decision shares) should be read with this confidence in mind; removing a whole class changes accuracy by at most 7 points (E8), so a few per cent of misclassified words cannot drive them. Rule changes before and after the audit: results/wordclass_rule_changes.csv.</p>
+<p>The class results (word classes and decision shares) should be read with this confidence in mind; removing a whole class changes accuracy by at most 7 points (E8), so a few per cent of misclassified words cannot drive them. Audit: labels/wordclass_audit.csv (the philologist’s marks and notes), results/wordclass_audit_scores.json (before and after the rule revisions, review_wordclass.py score / rescore). Rule changes: results/wordclass_rule_changes.csv (first audit), results/wordclass_rule_changes_audit.csv (philologist’s audit and the meaning classes: 19% of the words moved, 2.2% by the revised rules). The noun meaning classes replace the single ‘realia’ class of StBoT 73 at the philologist’s request: realia proper is the cultural layer and should not be mixed with abstract nouns and adjectives.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1002,10 +1002,10 @@
 <h2>Word classes: function words and verbs are not where tradition lives</h2>
 
 <img data-src="img/orphans/literature/wordclasses.png" class="quarto-figure quarto-figure-center r-stretch" style="width:85.0%"><div class="small">
-<p>The six categories of StBoT 73 Table 4. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.</p>
+<p>The categories of StBoT 73 Table 4, with its realia split by meaning. Each class alone (blue) and everything except it (orange); word forms, leave one manuscript out.</p>
 </div>
 <aside class="notes">
-<p>Removing function words, verbs or agents costs almost nothing (82% → 80–82%): these classes are shared across traditions, a common scribal and syntactic layer. Alone they still reach 54–57% against 30%, so formulae differ between traditions, but less than realia (70%) or foreign words (84%). Removing realia costs the most (82% → 75%), then foreign words (78%). Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (51% → 47%), yet 47% is still twice the majority baseline (21%).</p>
+<p>Removing any one class except foreign words costs at most two points (82% → 80–82%): no single class carries tradition alone. Function words and verbs alone reach 54–56% against a majority baseline of 27%, so formulae differ between traditions, but less than agents (66%), realia (59%), places (59%) or foreign words (84%). Abstract nouns (53%) and adjectives (48%) carry the least. Removing foreign words costs the most (82% → 78%). Realia here are things only (artifacts, buildings, ritual materials, plants); before the split, the wider class ‘realia’ (all nouns and adjectives) reached 70% alone. Inside CTH 701 the Hurrian recitations carry the subgroups: removing them costs the most (51% → 47%), yet 47% is still twice the majority baseline (21%).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1029,7 +1029,7 @@
 <li><strong>Delete the 100 most frequent words</strong> (44% of all words): accuracy 84% → 83%</li>
 </ul>
 <aside class="notes">
-<p>This answers the playground observation that “nu” carries weight: it carries similarity, which is what the playground shades, but not the decision. The 25 most frequent forms are 15% of the similarity and 2% of the decision. What decides, by category: nouns and realia 33%, agents and deities 32%, foreign words 13%, verbs 11%, function words 9%. By layer: syllabic signs 51%, logographic signs 32%, word forms 17%. Caveat: a syllabic sign n-gram carries the word as well as its spelling (ḫu-wa-aš is Ḫuwaššanna). The spelling layer of the layers slide isolates the spelling choice: it adds about one point. Files: run_attribution.py, E11_report.json, E11a_category_by_layer.csv, E11b_top_features.csv.</p>
+<p>This answers the playground observation that “nu” carries weight: it carries similarity, which is what the playground shades, but not the decision. The 25 most frequent forms are 15% of the similarity and 2% of the decision. What decides, by category: agents and deities 44%, realia 16%, foreign words 13%, verbs 11%, function words 9%; places 2%, adjectives 1%, abstract nouns 1%. Agents and deities include persons named by gloss (LUGAL ‘king’), which the earlier scheme counted as realia. By layer: syllabic signs 51%, logographic signs 32%, word forms 17%. Caveat: a syllabic sign n-gram carries the word as well as its spelling (ḫu-wa-aš is Ḫuwaššanna). The spelling layer of the layers slide isolates the spelling choice: it adds about one point. Files: run_attribution.py, E11_report.json, E11a_category_by_layer.csv, E11b_top_features.csv.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1062,27 +1062,27 @@
 <tr class="odd">
 <td>Ḫuwaššanna festivals</td>
 <td>agents and deities</td>
-<td style="text-align: right;">60%</td>
+<td style="text-align: right;">79%</td>
 </tr>
 <tr class="even">
 <td>Palaic festivals</td>
 <td>agents and deities; Palaic words</td>
-<td style="text-align: right;">61%; 32%</td>
+<td style="text-align: right;">60%; 32%</td>
 </tr>
 <tr class="odd">
 <td>Kizzuwatna rituals</td>
-<td>nouns and realia (wool, lapis, oil, honey)</td>
-<td style="text-align: right;">55%</td>
+<td>realia (SÍG “wool”); function words</td>
+<td style="text-align: right;">26%; 14%</td>
 </tr>
 <tr class="even">
 <td>Luwian festivals (Ištanuwa, Lallupiya)</td>
-<td>nouns and realia</td>
-<td style="text-align: right;">82%</td>
+<td>agents and deities; places (Ištanuwa)</td>
+<td style="text-align: right;">35%; 28%</td>
 </tr>
 <tr class="odd">
 <td>Hattian cult layer</td>
-<td>nouns and realia; agents; Hattian words</td>
-<td style="text-align: right;">32%; 25%; 24%</td>
+<td>agents and deities; Hattian words; verbs</td>
+<td style="text-align: right;">47%; 24%; 18%</td>
 </tr>
 <tr class="even">
 <td>Mixed (Hurrian, Syrian, Luwian)</td>
@@ -1091,13 +1091,13 @@
 </tr>
 <tr class="odd">
 <td>Syro-Mesopotamia (Hurrian)</td>
-<td>nouns and realia; function words</td>
-<td style="text-align: right;">42%; 21%</td>
+<td>realia; function words; foreign words</td>
+<td style="text-align: right;">37%; 21%; 17%</td>
 </tr>
 <tr class="even">
 <td>Kizzuwatna–Lower Land (Hurrian)</td>
-<td>nouns and realia</td>
-<td style="text-align: right;">41%</td>
+<td>realia (NINDA.GUR₄.RA “thick bread”); verbs</td>
+<td style="text-align: right;">28%; 17%</td>
 </tr>
 </tbody>
 </table>
@@ -1172,7 +1172,7 @@
 <ul>
 <li>Nearest: <strong>Luwian rituals of Puriyanni and Kuwattalla</strong> (similarity 0.39), runner-up the Kizzuwatna rituals (0.25)</li>
 <li>Margin 0.144, <strong>eight times</strong> the abstention rule (0.018): a confident placement</li>
-<li>Carried by <strong>nouns and realia</strong>: <em>EME-an</em> “tongue”, <em>pangawaš</em> “of the multitude”, <em>karpin</em> “anger”</li>
+<li>Carried by three words: <em>EME-an</em> “tongue”, <em>pangawaš</em> “of the multitude”, <em>karpin</em> “anger”; the first two have readings that disagree, so they count as other words, <em>karpin</em> as an abstract noun</li>
 <li>The function words and the common material <strong>argue against</strong> it (−14% and −21%): this is not a placement made on <em>nu</em></li>
 </ul>
 </div></div>
@@ -1435,12 +1435,12 @@
 <li>Short fragments: 10 words are right 65% of the time</li>
 <li>Placements resting on <strong>common material</strong> are weak (227 of 847)</li>
 <li>Small traditions (Arzawa, Puriyanni/Kuwattalla: 10–11 manuscripts) cannot yet be trusted</li>
-<li>Word categories are rule-based and <strong>12% low-confidence</strong>; a philologist’s audit is pending</li>
+<li>Word categories are rule-based and <strong>12% low-confidence</strong>; the noun meanings come from a gloss list that has not been audited</li>
 <li>Festival manuscripts differ by use (Burgin 2019), which word profiles may pick up</li>
 </ul>
 </div></div>
 <aside class="notes">
-<p>Next steps: rarefied coverage; the 180-word audit; sign-shape measurement (DANES 2025) for the same fragments; worked examples per tradition for colleagues to verify.</p>
+<p>Next steps: rarefied coverage; an audit of the noun meaning classes; sign-shape measurement (DANES 2025) for the same fragments; worked examples per tradition for colleagues to verify.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

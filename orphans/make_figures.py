@@ -155,7 +155,9 @@ if (RES / "E10_report.json").exists():
 # 8. E11 what a placement rests on: similarity (what all traditions share counts) vs decision (it cancels)
 if (RES / "E11_report.json").exists():
     e11 = json.loads((RES / "E11_report.json").read_text())
-    CAT6 = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300"]  # palette slots 1-6, fixed order
+    # nine category hues in fixed order (the playground's slots 1-9, adjacent pairs pass the CVD validator)
+    # and gray for "Other words", the fold-in class
+    CAT = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4", "#008300", "#00a3b8", "#6250d6", "#a3368f", MUTED]
     rows = [("similarity to its tradition", e11["E11a"]["similarity_all_correct"]),
             ("decision: lead over runner-up", e11["E11a"]["all_correct"])]
     fig, axes = plt.subplots(1, 2, figsize=(15, 4.8), sharey=True)
@@ -165,7 +167,7 @@ if (RES / "E11_report.json").exists():
             left = 0.0
             for j, n in enumerate(names):
                 v = max(r[key][n], 0)
-                ax.barh(i, v, left=left, height=0.55, color=CAT6[j], edgecolor=SURF, linewidth=2,
+                ax.barh(i, v, left=left, height=0.55, color=CAT[j], edgecolor=SURF, linewidth=2,
                         label=n if i == 0 else None)
                 if v >= 0.08:
                     ax.text(left + v / 2, i, f"{v:.0%}", ha="center", va="center", color=SURF, fontsize=12, weight="bold")
