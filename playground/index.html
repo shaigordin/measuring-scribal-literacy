@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scribal Tradition Playground</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>Scribal tradition playground</h1>
+  <p>Every text of TLHdig in its CTH bin, as the Konkordanz files it, set against where the model of <i>Orphans and Archetypes</i> (Mainz 2026) places it. Open a bin to see its fragments, then load any of them to see why it lands where it does.</p>
+  <nav class="tabs"><a href="index.html" aria-current="page">Browse by CTH</a><a href="place.html">Place a fragment</a><a href="compare.html">Compare word by word</a></nav>
+</header>
+
+<main>
+<div class="grid">
+  <section class="card span2">
+    <h2>How far the method gets</h2>
+    <p class="sub">Texts of five or more legible words are judged; shorter ones are counted but not judged. "Placed" means the nearest tradition wins by the abstention margin and the open-set check finds nothing against it. Reference manuscripts are judged held out, without themselves in their tradition.</p>
+    <div class="tiles" id="tiles"></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section class="card span2">
+    <div class="row" style="margin-top:0">
+      <label class="small" for="group">Group by</label>
+      <select id="group">
+        <option value="cth">original CTH bin</option>
+        <option value="verdict">new classification</option>
+      </select>
+      <label class="small" for="kind">Texts</label>
+      <select id="kind">
+        <option value="all">all of TLHdig</option>
+        <option value="orphan">orphans (CTH 470 and EBo)</option>
+        <option value="other">other non-reference texts</option>
+        <option value="ref">reference manuscripts</option>
+      </select>
+      <label class="small" for="sort">Order</label>
+      <select id="sort">
+        <option value="size">most texts first</option>
+        <option value="placed">most placed first</option>
+        <option value="key">by number</option>
+      </select>
+      <input type="search" id="q" placeholder="CTH, title or siglum" aria-label="Filter bins" style="flex:1 1 12em">
+    </div>
+    <p class="small muted" id="count"></p>
+    <div class="bins" id="bins"></div>
+  </section>
+</div>
+</main>
+<footer>
+  <span id="version"></span> Data: TLHdig Beta 0.3, Zenodo <a href="https://doi.org/10.5281/zenodo.20328284">10.5281/zenodo.20328284</a>. CTH bins and titles as TLHdig and the Konkordanz der hethitischen Keilschrifttafeln (S. Košak, <a href="https://hethport.net">hethport.net</a>) give them. The ten reference traditions, the abstention margin and the open-set check are explained on <a href="place.html">Place a fragment</a>. Everything runs in your browser.
+</footer>
+<script type="module" src="js/browse.js"></script>
+</body>
+</html>

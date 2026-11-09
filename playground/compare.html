@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word-by-Word Comparison</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .num { font-variant-numeric: tabular-nums; color: var(--text-secondary); }
+  .side { display: grid; gap: 6px; }
+  .side label { font-size: 13px; color: var(--text-secondary); }
+  .rank td.bar { width: 40%; }
+  .rank td.bar span { display: block; height: 10px; border-radius: 0 3px 3px 0; }
+  .rank tr { cursor: pointer; }
+  .rank tr:hover td { background: var(--grid); }
+  .big { font-size: 28px; font-weight: 650; font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Word-by-word comparison</h1>
+  <p>Weigh every word of two witnesses against each other by tf-idf, as in the Neo-Babylonian Dillard study: which words a text leans on, which it shares with another text or tradition, and where else each word carries weight.</p>
+  <nav class="tabs"><a href="index.html">Browse by CTH</a><a href="place.html" id="backLink">Place a fragment</a><a href="compare.html" aria-current="page">Compare word by word</a></nav>
+</header>
+<main>
+<div class="grid">
+  <section class="card">
+    <div class="grid" style="margin-top:0">
+      <div class="side">
+        <label for="a">Left (A)</label>
+        <select id="a"></select>
+        <input type="text" id="aId" list="ids" placeholder="or type a manuscript, e.g. KBo 27.160">
+      </div>
+      <div class="side">
+        <label for="b">Right (B)</label>
+        <select id="b"></select>
+        <input type="text" id="bId" list="ids" placeholder="or type a manuscript">
+      </div>
+    </div>
+    <datalist id="ids"></datalist>
+    <div class="row">
+      <label class="small" for="sort">Order words by</label>
+      <select id="sort">
+        <option value="prod">what they share (A × B)</option>
+        <option value="a">weight in A</option>
+        <option value="b">weight in B</option>
+        <option value="diff">what sets them apart (|A − B|)</option>
+      </select>
+      <label class="small" for="nrows">show</label>
+      <select id="nrows"><option>20</option><option selected>30</option><option>60</option></select>
+      <button id="swap">Swap A and B</button>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Word-level similarity</h2>
+    <div class="big" id="cos">–</div>
+    <p class="sub" id="cosSub">Cosine similarity of the two word tf-idf vectors (sign n-grams left out here, so this differs from the score on the first page).</p>
+    <p class="small" id="shared"></p>
+  </section>
+  <section class="card">
+    <h2 id="flyTitle">Words</h2>
+    <p class="sub">Bars to the left are the word's tf-idf in A, to the right in B. Bold words occur in both. Click a word to see where else it weighs most.</p>
+    <div class="fly" id="fly"></div>
+  </section>
+  <section class="card">
+    <h2 id="rankTitle">Pick a word</h2>
+    <p class="sub" id="rankSub">The manuscripts in which a word carries the highest tf-idf weight, coloured by tradition. Click a row to put it on the right.</p>
+    <div class="scroll"><table class="rank" id="rank"></table></div>
+  </section>
+</div>
+</main>
+<footer>Word forms are the normalised TLHdig <code>trans</code> forms. tf-idf uses sublinear term frequency and l2 normalisation, with idf fitted on the reference manuscripts; traditions are the l2-normalised centroids of their manuscripts.</footer>
+<div class="tip" id="tip"></div>
+
+<script type="module" src="js/compare.js"></script>
+</body>
+</html>
