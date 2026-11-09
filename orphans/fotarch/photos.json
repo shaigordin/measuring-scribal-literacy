@@ -1,0 +1,94 @@
+[
+ {
+  "pub": "KBo 41.22",
+  "fundnr": "394/d",
+  "cth": "458",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=394%2Fd",
+  "photos_available": 3,
+  "bildnr": "N05945",
+  "bytes": 178215,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch N05945"
+ },
+ {
+  "pub": "KUB 35.146",
+  "fundnr": "767/c",
+  "cth": "458",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=767%2Fc",
+  "photos_available": 11,
+  "bildnr": "B2874",
+  "bytes": 3318595,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch B2874"
+ },
+ {
+  "pub": "KBo 17.54",
+  "fundnr": "474/b",
+  "cth": "458.1.1.A",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=474%2Fb",
+  "photos_available": 19,
+  "bildnr": "N00255",
+  "bytes": 581343,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch N00255"
+ },
+ {
+  "pub": "KBo 47.130",
+  "fundnr": "2000/u",
+  "cth": "409.IV.Tf05.D",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=2000%2Fu",
+  "photos_available": 6,
+  "bildnr": "B0845d",
+  "bytes": 424879,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch B0845d"
+ },
+ {
+  "pub": "KBo 9.125",
+  "fundnr": "195/n",
+  "cth": "409.IV.Tf05.A",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=195%2Fn",
+  "photos_available": 6,
+  "bildnr": "N10582",
+  "bytes": 188804,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch N10582"
+ },
+ {
+  "pub": "KBo 13.240",
+  "fundnr": "596/t",
+  "cth": "470.1333",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=596%2Ft",
+  "photos_available": 2,
+  "bildnr": "B0491a",
+  "bytes": 988127,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch B0491a"
+ },
+ {
+  "pub": "EBo 851",
+  "status": "no photo link"
+ },
+ {
+  "pub": "KBo 40.141",
+  "fundnr": "1879/c",
+  "cth": "470.970",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=1879%2Fc",
+  "photos_available": 2,
+  "bildnr": "N13761b",
+  "bytes": 54989,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch N13761b"
+ },
+ {
+  "pub": "KBo 61.39",
+  "fundnr": "Bo 69/628",
+  "cth": "470.1893",
+  "href": "https://hethport.net/hetkonk/bildpraep.php?fundnr=Bo%2069%2F628",
+  "photos_available": 1,
+  "bildnr": "Phb02377c",
+  "bytes": 76376,
+  "status": "ok",
+  "citation": "hethiter.net/: fotarch Phb02377c"
+ }
+]
