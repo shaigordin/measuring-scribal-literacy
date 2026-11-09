@@ -1,0 +1,223 @@
+%% Orphans and Archetypes: long paper for SIGHUM 2027 (EACL), ACL style, anonymous review version.
+%% Build: bash build.sh  (regenerates every number from ../../orphans/results, then lualatex + bibtex,
+%% and writes main.docx, a Word copy for review).
+%%
+%% Every result in the text is a macro \Q{key} defined in ../generated/numbers.tex and every results
+%% table is ../generated/tab_*.tex; both are written by ../make_numbers.py. Do not type results by hand.
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{microtype}
+\usepackage[english]{babel}
+\babelfont{rm}{TeX Gyre Termes}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+
+%% numbers generated from the experiment outputs
+\makeatletter
+\newcommand{\qtmdef}[2]{\expandafter\def\csname qtm@#1\endcsname{#2}}
+\newcommand{\Q}[1]{\ifcsname qtm@#1\endcsname\csname qtm@#1\endcsname\else
+  \textbf{\textcolor{red}{[#1?]}}\PackageWarning{qtm}{Undefined number #1}\fi}
+\makeatother
+\input{../generated/numbers.tex}
+\input{../generated/case_data.tex}
+\makeatletter\newcommand{\C}[1]{\@ifundefined{case@#1}{\textcolor{red}{[#1?]}\PackageWarning{qtm}{Undefined number #1}}{\csname case@#1\endcsname}}\makeatother
+\makeatletter\newcommand{\gentab}[1]{\@@input ../generated/tab_#1.tex }\makeatother
+
+\graphicspath{{../../img/orphans/literature/}{../figures/}}
+\newcommand{\CTH}[1]{CTH~#1}
+\newcommand{\term}[1]{\textit{#1}}
+%% marks text not yet drafted in this version
+\newcommand{\todraft}[1]{\textit{[#1]}}
+
+\title{Orphans and Archetypes: Placing Unassigned Hittite Ritual Fragments\\ in Their Traditions}
+
+\author{Anonymous submission}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Thousands of Hittite ritual and festival fragments cannot be assigned to a composition because no
+parallel passage survives. Laroche's residual category \CTH{470} and the recently digitised EBo
+fragments hold \Q{orph.orphans_total} such manuscripts in the TLHdig 0.3 release, with a median of
+\Q{orph.cth470_median} legible words in \CTH{470} and \Q{orph.ebo_median} among the EBo. We ask whether the words of a
+fragment and the way they are spelled can place it in a ritual or festival tradition, and how far
+such a placement can be trusted. Ten reference traditions are taken from the studies that argued
+for them and mapped to Laroche's CTH numbers. Nearest-centroid assignment over tf-idf features of
+word forms and sign sequences returns \Q{E1.both.acc} of held-out manuscripts to their tradition
+(majority baseline \Q{E1.both.majority}), and \Q{E10a.compositions_correct} of
+\Q{E10a.compositions} compositions held out whole return to their scholarly group. A margin
+calibrated on held-out fragments of matching size lets the method abstain; it places
+\Q{E5.assigned} of \Q{corpus.orphans_used} orphans at an expected precision of
+\Q{E2.precision}. Splitting each decision exactly over its features shows that traditions are
+identified by what is written, above all agents, deities, realia and foreign-language words, and
+hardly by how it is spelled; common particles make up \Q{E11b.common.similarity} of the
+similarity but \Q{E11b.common.ref} of the decision. Code and outputs are released, and every
+number in the paper is generated from them.
+\end{abstract}
+
+%% ==========================================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Emmanuel Laroche's \textit{Catalogue des textes hittites} \citep{laroche1971catalogue} gave every
+Hittite composition a number, and with it a place: rituals in one block, festivals in another,
+texts in Hattian, Luwian and Hurrian in blocks of their own. What could not be placed went into
+residual categories. \CTH{470}, ``fragments of rituals'', is the largest of them, and it has grown
+with every volume of hand copies since 1971. The Mainz Hethitologie-Portal keeps Laroche's numbers
+as a shared address system while moving fragments after joins \citep{cthportal,konkordanz}. The
+digitisation of the EBo fragments in TLHdig 0.3 \citep{tlhdig03} adds \Q{orph.ebo_texts} more
+manuscripts with a median of \Q{orph.ebo_median} legible words, most of them filed under two
+further residual numbers, \CTH{832} and \CTH{670}.
+
+A philologist assigns such a fragment through a parallel: a duplicate, or a close parallel
+passage in an identified composition. For most of these orphans that route is closed by
+definition. We ask instead whether the content of a fragment, its words and their spellings, can
+point to its tradition, and how far such a pointer can be trusted. Put this way, the task is
+attribution, and two known weaknesses of attribution apply with full force: accuracy falls with
+the length of the sample \citep{eder2015size}, and a classifier with a closed set of candidates
+always names one of them, even when the true source is not among them \citep{koppel2011wild}.
+A placement is also only useful to a philologist who can check it, which requires knowing what
+it rests on.
+
+\citet{gordin2025matters} mapped about 1,000 Hurrian and Luwian festival manuscripts with tf-idf
+and t-SNE and proposed, as a next step, to test which word groups carry the signal. We turn that
+exploration into assignment, with explicit baselines, held-out evaluation and a rule for when not
+to assign. Our contributions are:
+\begin{enumerate}
+  \item a reference of \Q{trad.countword} ritual and festival traditions, each defined by the
+    study that argued for it and mapped to Laroche's CTH numbers, with the ranges that no study
+    claims set aside as test sets (Section~\ref{sec:data});
+  \item an evaluation that holds out manuscripts and whole compositions, so that the scholarly
+    groupings themselves, and one contested attribution, are tested; that follows accuracy
+    down to fragment size; and that calibrates a margin for abstention
+    (Section~\ref{sec:results});
+  \item an exact decomposition of each decision over word categories and writing layers, which
+    separates what is written from how it is written and shows how much rests on common
+    particles such as \textit{nu} (Section~\ref{sec:decision});
+  \item a placement of \Q{E5.assigned} orphans, each with the features it rests on, as leads
+    for verification on the tablet.
+\end{enumerate}
+
+%% ==========================================================================================
+\section{Background}
+\label{sec:related}
+
+\paragraph{Traditions and the catalogue.}
+Laroche sorted by genre first and by language second, while later scholarship defines a ritual
+tradition by the origin of its practitioners, its cult and its ritual language. One tradition
+therefore ends up scattered over several CTH ranges. The Kizzuwatna rituals occupy
+\CTH{471}--500, but the ritual of the Kizzuwatnean Old Woman Maštigga is filed with the named
+practitioners at \CTH{404} \citep{miller2004studies}; the rituals of the AZU priest (\CTH{701})
+sit in the Hurrian block \citep{salvini1986chs}; and the named-practitioner rituals of
+\CTH{390}--469 come from Arzawa, the Lower Land and Kizzuwatna alike
+\citep{christiansen2006ambazzi,bawanypeck2005auguren}. The festivals have been regrouped by cult
+geography \citep{gordin2025matters,gorke2022hurrian,trameri2024kizzuwatna} and, in the
+Hethitische Festrituale project (HFR), into edition modules such as the Luwian and the Palaic
+festivals \citep{hfr,gorke2020hatti}.
+
+\paragraph{Scribal habit and attribution.}
+Hittite scribes copied, excerpted and re-edited ritual texts over two centuries, and their
+habits of logographic writing, plene spelling and sign choice vary with date, school and
+individual \citep{gordin2015scribal,weeden2011logograms,vandenhout2009dating,waal2015diplomatics}.
+Whether a habit marks a tradition, a circle of scribes or a date is therefore a question to test,
+not an assumption. Stylometry supplies frequency-based representations, distance measures and
+protocols with held-out evaluation \citep{burrows2002delta,juola2008authorship,
+stamatatos2009survey}, and open-set recognition the means to reject a sample that fits no
+candidate \citep{scheirer2013openset}.
+
+\paragraph{Computational work on cuneiform.}
+Machine learning on cuneiform has addressed transliteration and translation
+\citep{gordin2020reading,yavasan2025clay}, language and dialect identification
+\citep{jauhiainen2019cuneiform}, the matching of fragments to known compositions by sign
+sequences \citep{simonjetz2024reconstruction}, and palaeographic style \citep{yugay2024stylistic}.
+Fragment matching finds a known text; it does not place a fragment whose parallels are lost, and
+all of these studies are closed-set. We know of no published study that uses content features to
+assign Hittite fragments to religious traditions, or that asks when a fragment fits none of them.
+
+%% ==========================================================================================
+\section{Data}
+\label{sec:data}
+
+\paragraph{Corpus.}
+We use the TLHdig Beta 0.3 release \citep{tlhdig03}, converted to one row per word following
+\citet{yavasan2025clay}. Each word carries its normalised form, its transliteration split into
+signs, its language and, where the editors provide one, a morphological analysis. The release is
+downloaded by script and checked by its checksum, so the word table can be rebuilt from the public
+data alone. As in \citet{gordin2025matters}, reference manuscripts must have at least 17 legible
+words.
+
+\paragraph{Orphans.}
+Orphans are all \CTH{470} manuscripts and all EBo manuscripts, wherever TLHdig files them,
+\Q{orph.orphans_total} in all. \CTH{670} and 832, where most EBo fragments are filed, are pools of
+orphans, not traditions. Of the \Q{corpus.orphans_total} orphans in the CTH ranges we load,
+\Q{corpus.orphans_used} have at least five legible words and are placed (median
+\Q{corpus.orphan_median} words). Orphans never enter the reference.
+
+\paragraph{Reference traditions.}
+Each tradition is defined by the study that argued for it (Table~\ref{tab:traditions}). The
+Hurrian festival groups follow Table~3 of \citet{gordin2025matters}. Its single Luwian group is
+split as HFR splits it, into the festivals of Ištanuwa and Lallupiya and those of Ḫuwaššanna, and
+HFR's Palaic festivals are added \citep{hfr}. The ritual traditions are the Kizzuwatna rituals as
+delimited by \citet{miller2004studies}; the western rituals, that is, the augur rituals
+\citep{bawanypeck2005auguren} and those whose colophon names Arzawa or Ḫapalla as the
+practitioner's home; the Luwian rituals of Puriyanni, Kuwattalla and Šilalluḫi
+(\CTH{758}--763), which \citet{yakubovich2023luwili} place in the Lower Land rather than in
+Kizzuwatna; and the Hattian cult layer of \citet{klinger1996hattische}, whose texts we take from
+the citations of his study in the Mainz Konkordanz \citep{konkordanz}. The Ambazzi rituals
+(\CTH{391}, 429, 463) show Luwian influence but no stated link to Arzawa
+\citep{christiansen2006ambazzi}, so they stay outside the western group; Section~\ref{sec:recovery}
+tests that decision.
+
+Two sets leave the reference and are placed like orphans: the texts of \CTH{390}--469 that no
+defining study claims, and \CTH{500}, ``fragments of festival and incantation rituals from
+Kizzuwatna'', which is a running list of fragments rather than a composition. For \CTH{701},
+the subgroups a--f of \citet{salvini1986chs} and the script dates come from the Konkordanz and
+serve as partial ground truth.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{23mm} >{\raggedright\arraybackslash}p{13mm}
+      >{\raggedright\arraybackslash}p{26mm} r@{}}
+    \toprule
+    Tradition & CTH & Defining studies & $n$ \\
+    \midrule
+    \gentab{traditions_short}
+    \bottomrule
+  \end{tabular}
+  \caption{Reference traditions, the studies that define them, and the number of reference
+    manuscripts with 17 or more legible words. CTH numbers follow the Portal CTH
+    \citep{cthportal}.}
+  \label{tab:traditions}
+\end{table}
+
+%% ==========================================================================================
+\section{Method}
+\label{sec:method}
+\todraft{Next draft: features, assignment, margin and abstention, word categories and their
+audit; Figure 1, the worked example.}
+
+\section{Results}
+\label{sec:results}
+\todraft{Next drafts.}
+
+\subsection{Testing scholarly groupings}
+\label{sec:recovery}
+\todraft{Composition recovery and the Ambazzi rituals.}
+
+\subsection{What a placement rests on}
+\label{sec:decision}
+\todraft{Decision split by word category and layer.}
+
+\section{Discussion and conclusion}
+\todraft{Genre before origin; QTM in one paragraph.}
+
+\section*{Limitations}
+\todraft{Uneven editions, small traditions, the unchecked gloss list.}
+
+\bibliography{../references}
+
+\end{document}

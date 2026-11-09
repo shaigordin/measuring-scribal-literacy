@@ -20,6 +20,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "orphans"))
 from qtm.groups import LITERATURE, RESIDUE  # noqa: E402  (the reference traditions as the experiments define them)
 
+# shorter tradition names for one-column tables
+SHORT = {"Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna and Lower Land (Hurr.)",
+         "Syro-Mesopotamia (Hurrian)": "Syro-Mesopotamia (Hurr.)",
+         "Mixed (Hurrian, Syrian, Luwian)": "Mixed (Hurr., Syr., Luw.)",
+         "Luwian festivals (Ištanuwa, Lallupiya)": "Ištanuwa and Lallupiya festivals",
+         "Luwian rituals (Puriyanni, Kuwattalla)": "Luwian rituals (Lower Land)",
+         "Arzawa / western rituals": "Arzawa (western) rituals"}
 MAIN = "tlhdig03_literature"   # the paper's main reference (literature-defined traditions)
 BASE = "tlhdig03"              # StBoT 73 Table 3 + CTH-range controls (published baseline)
 
@@ -130,7 +137,7 @@ def main():
     rec = rep["E1_historical"]
     e5 = rep["E5_orphans"]["by_tradition"]
     e6 = {r["tradition"]: r for r in rep["E6_archetype_coverage"]}
-    t1, t2 = [], []
+    t1, t1s, t2 = [], [], []
     for t in trad:
         cths = LITERATURE[t]
         j = next((just[str(c)] for c in cths if str(c) in just), None)
@@ -139,6 +146,7 @@ def main():
         rng = cth_ranges(cths)
         n = int(float(stats[t]["count"])) if t in stats else 0
         t1.append(f"{tex_escape(t)} & {rng} & {studies} & {crit} & {num(n)} \\\\")
+        t1s.append(f"{tex_escape(SHORT.get(t, t))} & {rng} & {studies} & {num(n)} \\\\")
         t2.append(f"{tex_escape(t)} & {num(n)} & {pct(rec['words']['recall_by_class'].get(t))} & "
                   f"{pct(rec['signs']['recall_by_class'].get(t))} & {pct(rec['both']['recall_by_class'].get(t))} & "
                   f"{num(int(e5.get(t, 0)))} & {pct(e6[t]['coverage']) if t in e6 else '--'} \\\\")
@@ -149,6 +157,7 @@ def main():
         if t in e6:
             put(f"trad.{slug}.coverage", pct(e6[t]["coverage"]), f"{src} E6_archetype_coverage")
     table("traditions", t1)
+    table("traditions_short", t1s)    # without the criterion column, for a one-column table
     table("pertradition", t2)
     put("trad.minrecall", pct(min(rec["both"]["recall_by_class"].values())), f"{src} E1_historical.both.recall_by_class")
     put("trad.maxrecall", pct(max(rec["both"]["recall_by_class"].values())), f"{src} E1_historical.both.recall_by_class")
