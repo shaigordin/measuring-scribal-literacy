@@ -40,6 +40,7 @@ def main():
     docs["orphan"] = [is_orphan(t, c) for t, c in zip(docs.txtid, docs.cth_number)]
     ref = docs[~docs.orphan & docs.cth_number.isin(hist) & (docs.n_words >= MIN_WORDS)].reset_index(drop=True)
     pool = docs[~docs.orphan & docs.cth_number.isin(set(hist) | set(res)) & (docs.n_words >= MIN_WORDS)].reset_index(drop=True)
+    pool = pool[pool.txtid != a.txtid].reset_index(drop=True)  # never its own neighbour
     frag = docs[docs.txtid == a.txtid].iloc[0]
     vec, X = featurise(ref, a.space)
     vocab = np.array(vec.get_feature_names_out())
