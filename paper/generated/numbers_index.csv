@@ -1000,6 +1000,11 @@ R1.A.kbo47130.gap,0.094,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
 R1.A.kbo47130.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
 R1.A.kbo47130.analysed,105,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
 R1.A.kbo47130.legible,107,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.ebo133.top,Ḫuwaššanna festivals,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.ebo133.gap,0.044,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.ebo133.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.ebo133.analysed,19,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.ebo133.legible,20,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
 R1.B.n,"1{,}897",tlhdig03_literature/R1_spellings_only.json runs.B.n
 R1.B.acc,84\%,tlhdig03_literature/R1_spellings_only.json runs.B.loo_acc
 R1.B.arzawawesternrituals.n,35,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
@@ -1053,6 +1058,79 @@ R1.B.kbo47130.gap,0.016,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
 R1.B.kbo47130.placed,not placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
 R1.B.kbo47130.analysed,105,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
 R1.B.kbo47130.legible,107,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.ebo133.top,Ḫuwaššanna festivals,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.ebo133.gap,0.045,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.ebo133.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.ebo133.analysed,19,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.ebo133.legible,20,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+J1.units,"19{,}821",tlhdig03_literature/joins/J1_report.json units
+J1.pieces,"2{,}738",tlhdig03_literature/joins/J1_report.json pieces
+J1.query_pieces,"2{,}335",tlhdig03_literature/joins/J1_report.json query_pieces
+J1.joined_texts,897,tlhdig03_literature/joins/J1_report.json joined_texts
+J1.k,200,tlhdig03_literature/joins/J1_report.json k
+J1.pairs,"770{,}700",tlhdig03_literature/joins/J1_report.json pairs
+J1.partner_in_top_k,78\%,tlhdig03_literature/joins/J1_report.json partner_in_top_k
+J1.sim.r1,11\%,tlhdig03_literature/joins/J1_report.json similarity_ranking.recall@1
+J1.sim.r5,30\%,tlhdig03_literature/joins/J1_report.json similarity_ranking.recall@5
+J1.sim.r20,48\%,tlhdig03_literature/joins/J1_report.json similarity_ranking.recall@20
+J1.sim.median,24,tlhdig03_literature/joins/J1_report.json similarity_ranking.median_rank
+J1.konk.duplicate.sim.r20,79\%,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate.similarity_ranking
+J1.konk.duplicate.sim.hits20,137,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate.similarity_ranking
+J1.konk.duplicate.sim.median,2,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate.similarity_ranking
+J1.konk.duplicate.queries,174,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate
+J1.konk.join.sim.r20,30\%,tlhdig03_literature/joins/J1_report.json konkordanz.join.similarity_ranking
+J1.konk.join.sim.hits20,3,tlhdig03_literature/joins/J1_report.json konkordanz.join.similarity_ranking
+J1.konk.join.sim.median,138,tlhdig03_literature/joins/J1_report.json konkordanz.join.similarity_ranking
+J1.konk.join.queries,10,tlhdig03_literature/joins/J1_report.json konkordanz.join
+J1.model.r1,13\%,tlhdig03_literature/joins/J1_report.json model_reranking.recall@1
+J1.model.r5,32\%,tlhdig03_literature/joins/J1_report.json model_reranking.recall@5
+J1.model.r20,51\%,tlhdig03_literature/joins/J1_report.json model_reranking.recall@20
+J1.model.median,9,tlhdig03_literature/joins/J1_report.json model_reranking.median_rank
+J1.konk.duplicate.model.r20,75\%,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate.model_reranking
+J1.konk.duplicate.model.hits20,130,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate.model_reranking
+J1.konk.duplicate.model.median,2,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate.model_reranking
+J1.konk.duplicate.queries,174,tlhdig03_literature/joins/J1_report.json konkordanz.duplicate
+J1.konk.join.model.r20,40\%,tlhdig03_literature/joins/J1_report.json konkordanz.join.model_reranking
+J1.konk.join.model.hits20,4,tlhdig03_literature/joins/J1_report.json konkordanz.join.model_reranking
+J1.konk.join.model.median,33,tlhdig03_literature/joins/J1_report.json konkordanz.join.model_reranking
+J1.konk.join.queries,10,tlhdig03_literature/joins/J1_report.json konkordanz.join
+J1.w.cosine,+0.85,tlhdig03_literature/joins/J1_report.json weights.cosine
+J1.w.cosine.ci,0.77 to 0.95,tlhdig03_literature/joins/J1_report.json weights.cosine
+J1.w.traditioncos,+0.49,tlhdig03_literature/joins/J1_report.json weights.tradition_cos
+J1.w.traditioncos.ci,0.36 to 0.63,tlhdig03_literature/joins/J1_report.json weights.tradition_cos
+J1.w.compositioncos,+0.58,tlhdig03_literature/joins/J1_report.json weights.composition_cos
+J1.w.compositioncos.ci,0.38 to 0.74,tlhdig03_literature/joins/J1_report.json weights.composition_cos
+J1.w.wordoverlap,−0.26,tlhdig03_literature/joins/J1_report.json weights.word_overlap
+J1.w.wordoverlap.ci,−0.40 to −0.12,tlhdig03_literature/joins/J1_report.json weights.word_overlap
+J1.w.phraseoverlap,−0.00,tlhdig03_literature/joins/J1_report.json weights.phrase_overlap
+J1.w.phraseoverlap.ci,−0.05 to 0.05,tlhdig03_literature/joins/J1_report.json weights.phrase_overlap
+J1.w.samespelling,+0.20,tlhdig03_literature/joins/J1_report.json weights.same_spelling
+J1.w.samespelling.ci,0.11 to 0.29,tlhdig03_literature/joins/J1_report.json weights.same_spelling
+J1.w.scribaldistance,−0.07,tlhdig03_literature/joins/J1_report.json weights.scribal_distance
+J1.w.scribaldistance.ci,−0.16 to 0.02,tlhdig03_literature/joins/J1_report.json weights.scribal_distance
+J1.w.columnoverlap,+0.23,tlhdig03_literature/joins/J1_report.json weights.column_overlap
+J1.w.columnoverlap.ci,0.16 to 0.31,tlhdig03_literature/joins/J1_report.json weights.column_overlap
+J1.w.sameseries,+0.09,tlhdig03_literature/joins/J1_report.json weights.same_series
+J1.w.sameseries.ci,0.03 to 0.14,tlhdig03_literature/joins/J1_report.json weights.same_series
+J1.w.samefindseries,−0.02,tlhdig03_literature/joins/J1_report.json weights.same_find_series
+J1.w.samefindseries.ci,−0.11 to 0.04,tlhdig03_literature/joins/J1_report.json weights.same_find_series
+J1.w.logwordsa,−0.36,tlhdig03_literature/joins/J1_report.json weights.log_words_a
+J1.w.logwordsa.ci,−0.44 to −0.30,tlhdig03_literature/joins/J1_report.json weights.log_words_a
+J1.w.logwordsb,−0.12,tlhdig03_literature/joins/J1_report.json weights.log_words_b
+J1.w.logwordsb.ci,−0.17 to −0.04,tlhdig03_literature/joins/J1_report.json weights.log_words_b
+KJ.duplicate.pairs,212,tlhdig03_literature/known_joins/known_joins.json duplicate.pairs
+KJ.duplicate.top1,91,tlhdig03_literature/known_joins/known_joins.json duplicate.top1
+KJ.duplicate.top5,141,tlhdig03_literature/known_joins/known_joins.json duplicate.top5
+KJ.duplicate.top20,165,tlhdig03_literature/known_joins/known_joins.json duplicate.top20
+KJ.duplicate.top100,186,tlhdig03_literature/known_joins/known_joins.json duplicate.top100
+KJ.duplicate.median,2,tlhdig03_literature/known_joins/known_joins.json duplicate.median_rank
+KJ.join.pairs,11,tlhdig03_literature/known_joins/known_joins.json join.pairs
+KJ.join.top1,0,tlhdig03_literature/known_joins/known_joins.json join.top1
+KJ.join.top5,1,tlhdig03_literature/known_joins/known_joins.json join.top5
+KJ.join.top20,3,tlhdig03_literature/known_joins/known_joins.json join.top20
+KJ.join.top100,4,tlhdig03_literature/known_joins/known_joins.json join.top100
+KJ.join.median,134,tlhdig03_literature/known_joins/known_joins.json join.median_rank
+KJ.pool,"18{,}490",tlhdig03_literature/known_joins/known_joins.json pool
 wc.tokens,"320{,}638",wordclass_confidence.json legible_tokens
 wc.conf.high,63\%,wordclass_confidence.json confidence_share.high
 wc.conf.medium,25\%,wordclass_confidence.json confidence_share.medium

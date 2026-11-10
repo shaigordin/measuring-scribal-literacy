@@ -449,6 +449,41 @@ def main():
         rows.append(f"\\midrule All & {num(A['n'])} & {pct(A['loo_acc'])} & {num(B['n'])} & {pct(B['loo_acc'])} \\\\")
         table("spellings_only", rows)
 
+    # ---- J1 join model (run_join_model.py) and the Konkordanz duplicates and joins (run_known_joins.py)
+    j1p = os.path.join(RES, MAIN, "joins", "J1_report.json")
+    if os.path.exists(j1p):
+        j1 = load(MAIN, "joins/J1_report.json")
+        sj = f"{MAIN}/joins/J1_report.json"
+        for k in ("units", "pieces", "query_pieces", "joined_texts", "k", "pairs"):
+            put(f"J1.{k}", num(j1[k]), f"{sj} {k}")
+        put("J1.partner_in_top_k", pct(j1["partner_in_top_k"]), f"{sj} partner_in_top_k")
+        rows = []
+        for key, lab in (("similarity_ranking", "sim"), ("model_reranking", "model")):
+            r = j1[key]
+            for m in ("recall@1", "recall@5", "recall@20"):
+                put(f"J1.{lab}.r{m.split('@')[1]}", pct(r[m]), f"{sj} {key}.{m}")
+            put(f"J1.{lab}.median", num(int(r["median_rank"])), f"{sj} {key}.median_rank")
+            for kind in ("duplicate", "join"):
+                q = j1["konkordanz"][kind][key]
+                put(f"J1.konk.{kind}.{lab}.r20", pct(q["recall@20"]), f"{sj} konkordanz.{kind}.{key}")
+                put(f"J1.konk.{kind}.{lab}.hits20", num(round(q["recall@20"] * q["queries"])), f"{sj} konkordanz.{kind}.{key}")
+                put(f"J1.konk.{kind}.{lab}.median", num(int(q["median_rank"])), f"{sj} konkordanz.{kind}.{key}")
+                put(f"J1.konk.{kind}.queries", num(q["queries"]), f"{sj} konkordanz.{kind}")
+            label = "Similarity ranking" if lab == "sim" else "Join model (re-ranking)"
+            rows.append(f"{label} & {pct(r['recall@1'])} & {pct(r['recall@5'])} & {pct(r['recall@20'])} & {num(int(r['median_rank']))} \\\\")
+        table("joins", rows)
+        for f, w in j1["weights"].items():
+            k = f.replace("_", "")
+            put(f"J1.w.{k}", f"{w['weight']:+.2f}".replace("-", "−"), f"{sj} weights.{f}")
+            put(f"J1.w.{k}.ci", f"{w['ci_low']:.2f} to {w['ci_high']:.2f}".replace("-", "−"), f"{sj} weights.{f}")
+        kj = load(MAIN, "known_joins/known_joins.json")
+        sk = f"{MAIN}/known_joins/known_joins.json"
+        for kind in ("duplicate", "join"):
+            for f in ("pairs", "top1", "top5", "top20", "top100"):
+                put(f"KJ.{kind}.{f}", num(kj[kind][f]), f"{sk} {kind}.{f}")
+            put(f"KJ.{kind}.median", num(int(kj[kind]["median_rank"])), f"{sk} {kind}.median_rank")
+        put("KJ.pool", num(kj["pool"]), f"{sk} pool")
+
     # ---- word classes: how each label is reached (qtm/wordclass.py on TLHdig's analyses)
     conf = load("", "wordclass_confidence.json")
     put("wc.tokens", num(conf["legible_tokens"]), "wordclass_confidence.json legible_tokens")
