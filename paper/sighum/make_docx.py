@@ -58,6 +58,9 @@ def plain_tabular(text):
 body = plain_tabular(body)
 body = re.sub(r"\\todraft\{", r"\\emph{", body)
 body = body.replace("\\bibliography{../references}", "")
+# Word cannot show PDF figures: use the PNG rendered next to each figure PDF.
+body = re.sub(r"\\includegraphics(\[[^]]*\])?\{([^}]+)\.pdf\}",
+              lambda m: "\\includegraphics" + (m.group(1) or "") + "{../figures/" + m.group(2) + ".png}", body)
 tex = "\\documentclass{article}\n\\usepackage{booktabs}\n" + body
 tmp = os.path.join(HERE, "_docx_source.tex")
 open(tmp, "w", encoding="utf-8").write(tex)

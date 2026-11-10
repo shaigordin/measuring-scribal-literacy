@@ -201,8 +201,87 @@ serve as partial ground truth.
 %% ==========================================================================================
 \section{Method}
 \label{sec:method}
-\todraft{Next draft: features, assignment, margin and abstention, word categories and their
-audit; Figure 1, the worked example.}
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=\linewidth]{case_a.pdf}
+  \caption{The worked example: the orphan \C{txtid} (filed under \CTH{\C{filed}} in TLHdig 0.3)
+    from its text to its placement. (1) The legible words, tinted by word category (dashed: a
+    low-confidence or unclear class). (2) Each word becomes a word-form feature and sign-sequence
+    features, weighted by tf-idf. (3) Cosine similarity to the centroid of each tradition. (4) The
+    lead of the nearest tradition over the runner-up, against the calibrated margin. (5) The lead
+    split over the features that make it. (6) The same split on the text, and the closest single
+    manuscripts as leads for the philologist. All values are generated from the experiment
+    outputs.}
+  \label{fig:case}
+\end{figure*}
+
+Figure~\ref{fig:case} follows one orphan, \C{txtid}, through the procedure with the actual values
+at each step.
+
+\paragraph{Features.}
+Every manuscript is represented twice \citep{salton1988weighting}. The word space holds tf-idf
+weights of normalised word forms and stands for \term{what} is written; the sign space holds
+tf-idf weights of sign n-grams ($n=1$--3) within words and stands for \term{how} it is written.
+The main model concatenates both. Weights are sublinear, rows are L2-normalised, and features
+found in fewer than two manuscripts are dropped. \C{txtid} has \C{words} legible words, which
+yield \C{nfeat} non-zero features out of \C{dim}.
+
+\paragraph{Assignment and abstention.}
+Each tradition is represented by the normalised centroid of its manuscripts, and a fragment is
+scored by its cosine similarity to every centroid. It is placed in the most similar tradition
+when its lead over the runner-up, the \term{margin}, reaches a threshold $\tau$, and is left
+unplaced otherwise. We choose $\tau$ on held-out data rather than by hand: manuscripts with at
+least 40 words (at most 40 per tradition) are held out in turn and cut into ten random windows of
+$k \in \{3,5,8,10,17,25,40\}$ words, and $\tau$ is the smallest margin at which these windows
+reach \Q{E2.precision} precision. This gives $\tau=\Q{E2.margin}$ (90\% bootstrap interval
+\Q{E2.margin.lo}--\Q{E2.margin.hi}). \C{txtid} is closest to the \C{topshort} (\C{s1}) and next
+to the \C{secondshort} (\C{s2}); its margin of \C{margin} is well above $\tau$, and so it is
+placed. The placement depends on the reference set, however: once every legible manuscript is
+used, including those without word analyses (Section~\ref{sec:spellings}), its margin falls to
+\Q{R1.B.kbo4122.gap} and it is \Q{R1.B.kbo4122.placed}. We keep it as the example because it
+shows each step clearly, and because it shows how thin the evidence of a small fragment can be.
+
+\paragraph{Decomposing a decision.}
+Because the score is a dot product, the margin splits exactly into one term per feature,
+$x_f(c_{\mathrm{top},f}-c_{2,f})$, where $x$ is the fragment and $c$ the two centroids. Summing
+these terms by word category or layer shows what a placement rests on, and listing the largest
+ones gives the words a philologist can check (Figure~\ref{fig:case}, panels 5--6). This matters
+because similarity and decision differ: common words such as \textit{nu} make up much of a
+fragment's similarity to every tradition but little of the difference between two.
+
+\paragraph{Validation.}
+Validation is leave-one-manuscript-out: each reference manuscript is removed from its own centroid
+(in closed form) and reassigned. We report accuracy and per-tradition recall against two
+baselines, always guessing the largest tradition (majority) and the same procedure with shuffled
+labels (200 permutations, which also give a $p$-value). Idf weights are fitted on the whole
+reference set.
+
+\paragraph{Layers and word categories.}
+To separate cultural content from scribal habit, the word space is split into layers, each
+evaluated alone: logograms, Hittite vocabulary, foreign-language words (Hurrian, Luwian, Hattian,
+Palaic), and the \Q{E7.variable_words} words attested in more than one spelling, once with their
+spelling kept and once collapsed to the normalised form. If spelling carried tradition beyond
+the word itself, the first would beat the second. We also use the word categories of
+\citet[Table~4]{gordin2025matters}: agents, deities, function words, foreign words, realia and
+verbs, with realia narrowed to physical things and the remaining nouns grouped by meaning
+(places; animals, body parts and nature; abstract nouns; adjectives; measures).
+
+No word was classed by hand. Fixed rules derive each category from what TLHdig's editors
+recorded for the word, applied in order: its determinative (DINGIR makes a deity,
+\textsuperscript{LÚ} an agent), its language tag, and its selected morphological analysis (a
+person-marked form is a verb, a particle or pronoun a function word); unanalysed words fall back
+on the editors' choices for the same form elsewhere. Nouns and adjectives are then classed by
+their German gloss, through a list of \Q{wc.glosses} glosses that was drafted with a language
+model and has not been checked by hand; it is the one step not derived from the editors'
+records. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
+\Q{wc.tokens} legible words are classed with high confidence, \Q{wc.conf.medium} with medium and
+\Q{wc.conf.low} with low. A domain expert checked a stratified sample of \Q{wc.audit.n} words:
+\Q{wc.audit.before.high}, \Q{wc.audit.before.medium} and \Q{wc.audit.before.low} were correct at
+the three levels, \Q{wc.audit.before.corpus} overall when weighted by corpus shares. Fixing the
+\Q{wc.audit.fixes} rules that the errors pointed to raises the overall figure to
+\Q{wc.audit.after.corpus}, an upper bound since it is measured on the same sample. The audit
+scored all nominal words as one class, so it does not cover the split by meaning.
 
 \section{Results}
 \label{sec:results}
@@ -293,7 +372,7 @@ them; that needs physical evidence.
 \begin{table}[t]
   \centering
   \footnotesize
-  \setlength{\tabcolsep}{4pt}
+  \setlength{\tabcolsep}{3pt}
   \begin{tabular}{@{}l rrrr@{}}
     \toprule
     & top 1 & top 5 & top 20 & median rank \\
