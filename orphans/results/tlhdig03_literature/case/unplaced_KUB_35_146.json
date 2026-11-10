@@ -1,0 +1,378 @@
+{
+ "txtid": "KUB 35.146",
+ "cth": "458",
+ "translit": "ki-iš-ta-nu-nu-un ki-iš-ta-nu-nu-un pa-an-ga-u-wa-aš ḫu-uš-ši-i-il EGIR-an-da-ma-kán pa-an-ga-u-wa-aš ki-iš-ta-nu-nu-un {GI}pát-tar da-a-i na-aš-ta pád-da-ni kat-ta zi-na-ak-ki {NINDA}ni-ni-ia-mi-iš {NINDA}ḫar-na-an-ta-aš-ši-iš {GIŠ} ḪAŠḪUR ku-un-ku-ma-a-an {GIŠ} PÈŠ ḫa-aš-ta-i wa-al-li-in-za nu-uš-ši-kán {GI}pát-tar še-er ar-ḫa wa-aḫ-nu-uš-ke-ez-zi ḫu-uk-ki-iš-ke-ez-zi-ma ki-iš-ša-an ku-i-e-eš ú-wa-an-zi nu-za zi-in-na-ak-ki da-an-du -an-zi-ma-an ku-i-e-eš nu-za {NINDA}ni-ni-ia-mi-in da-an-du kar-di-mi-ia-aḫ-ḫa-an-zi-an-kán ku-i-e-eš nu-za {NINDA}ḫar-na-an-ta-aš-ši-in da-an-du pa-aš-tar-nu-wa-an-zi-an ku-i-e-eš nu-za {GIŠ} ḪAŠḪUR da-an-du ku-mar-nu-wa-an-zi-an ku-i-e-eš nu-za ku-un-ku-ma-a-an da-an-du la-aḫ-la-aḫ-ḫi-nu-uš-ke-er-ra-an-kán ku-i-e-eš nu-za {GIŠ} PÈŠ da-an-du ku-i-e-eš i-ia-an-ta-ri nu-za ḫa-aš-ta-i -li-in-ti ku-i-e-eš nu-za wa-al-li-in al-wa-an-zé-ni-ma-kán an-tu-uḫ-ši ḫu-it-ti-ia-nu-un -zi ḫa-du-ga-uš KI.MIN i-da-a-la-mu-uš MUŠEN {ḪI.A} KI.MIN pa-an-ga-u-wa-aš EME-an KI.MIN ir-ḫa-a-ez-zi na-an-kán a-ra-aḫ-za-an-da 9 KASKAL-NI-ma-kán pa-ra-a -ma ki-iš-ša-an me-ma-i ši-wa-an-ni-e-eš 12 {UZU} ÚR {ḪI.A} EGIR-an {UZU} Ì.UDU-ma-wa túḫ-ša-an-ni-an-du -iš-kán-du nam-ma-an wa-al-ḫa-an-zi kar-aš-ke-mi -ši-iš-ke-mi (-)ú-i-ta-ú -ri-iš-ke-du tu-ra-ad-du -ad-du",
+ "words": [
+  "kištanunun",
+  "kištanunun",
+  "pankauaš",
+  "ḫuššil",
+  "EGIRantamakan",
+  "pankauaš",
+  "kištanunun",
+  "pattar",
+  "tai",
+  "našta",
+  "pattani",
+  "katta",
+  "zinakki",
+  "niniamiš",
+  "ḫarnantaššiš",
+  "ḪAŠḪUR",
+  "kunkuman",
+  "PÈŠ",
+  "ḫaštai",
+  "wallinza",
+  "nuššikan",
+  "pattar",
+  "šer",
+  "arḫa",
+  "waḫnuškezi",
+  "ḫukkiškezima",
+  "kiššan",
+  "kuieš",
+  "uanzi",
+  "nuza",
+  "zinnakki",
+  "tantu",
+  "~anziman",
+  "kuieš",
+  "nuza",
+  "niniamin",
+  "tantu",
+  "kartimiaḫḫanziankan",
+  "kuieš",
+  "nuza",
+  "ḫarnantaššin",
+  "tantu",
+  "paštarnuanzian",
+  "kuieš",
+  "nuza",
+  "ḪAŠḪUR",
+  "tantu",
+  "kumarnuanzian",
+  "kuieš",
+  "nuza",
+  "kunkuman",
+  "tantu",
+  "laḫlaḫḫinuškerrankan",
+  "kuieš",
+  "nuza",
+  "PÈŠ",
+  "tantu",
+  "kuieš",
+  "iantari",
+  "nuza",
+  "ḫaštai",
+  "~linti",
+  "kuieš",
+  "nuza",
+  "wallin",
+  "aluanzenimakan",
+  "antuḫši",
+  "ḫuittianun",
+  "~zi",
+  "ḫatukauš",
+  "KI.MIN",
+  "italamuš",
+  "MUŠEN",
+  "KI.MIN",
+  "pankauaš",
+  "EMEan",
+  "KI.MIN",
+  "irḫaizi",
+  "nankan",
+  "araḫzanta",
+  "9",
+  "KASKAL-NImakan",
+  "para",
+  "~ma",
+  "kiššan",
+  "memai",
+  "šiuannieš",
+  "12",
+  "ÚR",
+  "EGIRan",
+  "Ì.UDUmaua",
+  "tuḫšanniantu",
+  "~iškantu",
+  "namman",
+  "walḫanzi",
+  "karaškemi",
+  "~šiškemi",
+  "~uitau",
+  "~rišketu",
+  "turattu",
+  "~attu"
+ ],
+ "margin": 0.018000000000000002,
+ "traditions": [
+  [
+   "Luwian rituals (Puriyanni, Kuwattalla)",
+   0.2943
+  ],
+  [
+   "Kizzuwatna rituals",
+   0.2819
+  ],
+  [
+   "Hattian cult layer",
+   0.2608
+  ],
+  [
+   "Luwian festivals (Ištanuwa, Lallupiya)",
+   0.259
+  ],
+  [
+   "Palaic festivals",
+   0.2301
+  ],
+  [
+   "Syro-Mesopotamia (Hurrian)",
+   0.2287
+  ],
+  [
+   "Kizzuwatna–Lower Land (Hurrian)",
+   0.2275
+  ],
+  [
+   "Arzawa / western rituals",
+   0.2258
+  ],
+  [
+   "Mixed (Hurrian, Syrian, Luwian)",
+   0.2219
+  ],
+  [
+   "Ḫuwaššanna festivals",
+   0.183
+  ]
+ ],
+ "nearest": [
+  {
+   "txtid": "KUB 55.20+",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.3081,
+   "top_terms_share": [
+    [
+     "pankauaš",
+     0.021
+    ],
+    [
+     "§nu·nu·un",
+     0.019
+    ],
+    [
+     "EMEan",
+     0.018
+    ],
+    [
+     "§ga·u·wa",
+     0.018
+    ],
+    [
+     "§EME·an",
+     0.017
+    ]
+   ]
+  },
+  {
+   "txtid": "KUB 9.34",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.2874,
+   "top_terms_share": [
+    [
+     "pankauaš",
+     0.026
+    ],
+    [
+     "EMEan",
+     0.024
+    ],
+    [
+     "§EME·an",
+     0.023
+    ],
+    [
+     "§ga·u·wa",
+     0.023
+    ],
+    [
+     "§an·ga·u",
+     0.021
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 9.125+",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.2714,
+   "top_terms_share": [
+    [
+     "pankauaš",
+     0.043
+    ],
+    [
+     "§pa·an·ga",
+     0.035
+    ],
+    [
+     "§an·ga·u",
+     0.035
+    ],
+    [
+     "§ga·u·wa",
+     0.033
+    ],
+    [
+     "EMEan",
+     0.031
+    ]
+   ]
+  },
+  {
+   "txtid": "KUB 7.53+",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.2662,
+   "top_terms_share": [
+    [
+     "§ke·mi",
+     0.019
+    ],
+    [
+     "§pát·tar",
+     0.014
+    ],
+    [
+     "pankauaš",
+     0.014
+    ],
+    [
+     "pattar",
+     0.014
+    ],
+    [
+     "§aš·ke·mi",
+     0.013
+    ]
+   ]
+  },
+  {
+   "txtid": "CHDS 7.140+",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.2573,
+   "top_terms_share": [
+    [
+     "pankauaš",
+     0.053
+    ],
+    [
+     "EMEan",
+     0.046
+    ],
+    [
+     "§ga·u·wa",
+     0.046
+    ],
+    [
+     "§EME·an",
+     0.044
+    ],
+    [
+     "§pa·an·ga",
+     0.043
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 64.11",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.2501,
+   "top_terms_share": [
+    [
+     "pankauaš",
+     0.085
+    ],
+    [
+     "EMEan",
+     0.079
+    ],
+    [
+     "§EME·an",
+     0.075
+    ],
+    [
+     "§ga·u·wa",
+     0.074
+    ],
+    [
+     "§an·ga·u",
+     0.069
+    ]
+   ]
+  },
+  {
+   "txtid": "KUB 59.46+",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.2275,
+   "top_terms_share": [
+    [
+     "pankauaš",
+     0.033
+    ],
+    [
+     "§ga·u·wa",
+     0.029
+    ],
+    [
+     "§an·ga·u",
+     0.027
+    ],
+    [
+     "§pa·an·ga",
+     0.027
+    ],
+    [
+     "§nu·un",
+     0.023
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 47.130+",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.2264,
+   "top_terms_share": [
+    [
+     "EMEan",
+     0.045
+    ],
+    [
+     "§EME·an",
+     0.043
+    ],
+    [
+     "§ke·mi",
+     0.032
+    ],
+    [
+     "§aš·ke·mi",
+     0.029
+    ],
+    [
+     "§EME",
+     0.028
+    ]
+   ]
+  }
+ ],
+ "pool_size": 2181
+}
