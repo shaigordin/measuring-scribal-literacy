@@ -166,8 +166,16 @@ def main():
     r = r[r.filed_under_cth.map(comp).fillna(0) >= 2]
     ranks = [l.split("; ") for l in r.compositions_top5]
     own = ["CTH " + c for c in r.filed_under_cth]
+    # check of the manuscript ranking and the join checks against the Konkordanz (run_known_joins.py)
+    kj = pd.read_csv(os.path.join(os.path.dirname(__file__) or ".", "results", "tlhdig03_literature",
+                                  "known_joins", "known_joins.csv"))
+    kd, kjn = kj[kj.relation == "duplicate"], kj[kj.relation == "join"]
+    known = {"kd_n": len(kd), "kd_median": f"{kd['rank'].median():g}", "kd_top1": int((kd['rank'] == 1).sum()),
+             "kd_top5": int((kd['rank'] <= 5).sum()), "kd_top20": int((kd['rank'] <= 20).sum()),
+             "kd_pass": int(kd.passes_join_checks.sum()), "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
+             "kj_median": f"{kjn['rank'].median():g}", "kj_pass": int(kjn.passes_join_checks.sum())}
     audit = json.load(open(os.path.join(os.path.dirname(__file__) or ".", "results", "wordclass_audit_scores.json")))
-    v = {"known_n": f"{len(r):,}", "known_top1": f"{sum(o == l[0] for o, l in zip(own, ranks)):,}",
+    v = {**known, "known_n": f"{len(r):,}", "known_top1": f"{sum(o == l[0] for o, l in zip(own, ranks)):,}",
          "known_top1_share": f"{sum(o == l[0] for o, l in zip(own, ranks)) / len(r):.0%}",
          "known_top5": f"{sum(o in l for o, l in zip(own, ranks)):,}",
          "known_top5_share": f"{sum(o in l for o, l in zip(own, ranks)) / len(r):.0%}",

@@ -73,6 +73,16 @@ $traditions_table
    of the fragment's content words, (2) every shared word spelled exactly as in the fragment, and (3) at
    least one shared two-word phrase. $with_joins fragments have at least one candidate that passes
    ($join_pairs pairs in all).
+   **Checked against the Konkordanz.** The Konkordanz notes duplicates ("Dupl.") and suspected joins
+   for many fragments of these bins. Where both pieces are separate TLHdig texts of 5 or more words,
+   the method was asked where it ranks the known partner (`run_known_joins.py`). For the $kd_n
+   duplicates, the partner ranks first $kd_top1 times, in the top 5 $kd_top5 times and in the top 20
+   $kd_top20 times (median rank $kd_median); $kd_pass pairs pass the join checks. For the $kj_n suspected
+   joins, the partner is in the top 20 only $kj_top20 times (median rank $kj_median), and $kj_pass pass the
+   checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
+   **The ranking and the checks therefore find duplicates and parallel copies well, and joins poorly.**
+   A candidate that passes is first of all a text with the same wording and spelling: a duplicate, a
+   parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).
 8. **Word-category profile.** The `words_*` columns give the share of a fragment's analysed words in each
    of ten categories (function words, verbs, realia, agents and deities, places, animals/body/nature,
    abstract nouns, adjectives, foreign words, other). Categories come from rules over the TLHdig editors'
@@ -136,8 +146,9 @@ $example_kbo
 - **Leads, not attributions.** A placement says that a fragment's words and spellings are closest to a
   tradition, not that it belongs to it. Use the margin, the open-set flags and `rests_on_common_features`
   to judge how strong a placement is.
-- **Join or duplicate?** The barcode cannot tell a join from another copy of the same text. A candidate that
-  passes the checks may be a duplicate or a parallel text. Small fragments pass the checks more easily
+- **Join or duplicate?** The barcode cannot tell a join from another copy of the same text, and the check
+  against the Konkordanz (above) shows that most candidates that pass are duplicates or parallels. Known
+  joins rarely pass. Small fragments pass the checks more easily
   (table below), so a candidate for a fragment with few words is weak evidence.
 
 $size_table
