@@ -12,6 +12,9 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{graphicx}
+\renewcommand{\dbltopfraction}{0.9}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.07}
 
 %% numbers generated from the experiment outputs
 \makeatletter
@@ -101,6 +104,20 @@ to assign. Our contributions are:
 \end{enumerate}
 
 %% ==========================================================================================
+\begin{figure*}[!t]
+  \centering
+  \includegraphics[width=\linewidth]{case_a.pdf}
+  \caption{The worked example: the orphan \C{txtid} (filed under \CTH{\C{filed}} in TLHdig 0.3)
+    from its text to its placement. (1) The legible words, tinted by word category (dashed: a
+    low-confidence or unclear class). (2) Each word becomes a word-form feature and sign-sequence
+    features, weighted by tf-idf. (3) Cosine similarity to the centroid of each tradition. (4) The
+    lead of the nearest tradition over the runner-up, against the calibrated margin. (5) The lead
+    split over the features that make it. (6) The same split on the text, and the closest single
+    manuscripts as leads for the philologist. All values are generated from the experiment
+    outputs.}
+  \label{fig:case}
+\end{figure*}
+
 \section{Background}
 \label{sec:related}
 
@@ -202,19 +219,6 @@ serve as partial ground truth.
 \section{Method}
 \label{sec:method}
 
-\begin{figure*}[t]
-  \centering
-  \includegraphics[width=\linewidth]{case_a.pdf}
-  \caption{The worked example: the orphan \C{txtid} (filed under \CTH{\C{filed}} in TLHdig 0.3)
-    from its text to its placement. (1) The legible words, tinted by word category (dashed: a
-    low-confidence or unclear class). (2) Each word becomes a word-form feature and sign-sequence
-    features, weighted by tf-idf. (3) Cosine similarity to the centroid of each tradition. (4) The
-    lead of the nearest tradition over the runner-up, against the calibrated margin. (5) The lead
-    split over the features that make it. (6) The same split on the text, and the closest single
-    manuscripts as leads for the philologist. All values are generated from the experiment
-    outputs.}
-  \label{fig:case}
-\end{figure*}
 
 Figure~\ref{fig:case} follows one orphan, \C{txtid}, through the procedure with the actual values
 at each step.
@@ -285,11 +289,76 @@ scored all nominal words as one class, so it does not cover the split by meaning
 
 \section{Results}
 \label{sec:results}
-\todraft{Next drafts.}
+
+\subsection{Validation and fragment size}
+\label{sec:validation}
+Held out one at a time, \Q{E1.both.acc} of the \Q{E1.both.n} reference manuscripts return to
+their tradition, against \Q{E1.both.majority} for the majority baseline and
+\Q{E1.both.null_mean} for shuffled labels ($p=\Q{E1.both.p}$). Words and signs alone do almost as
+well (\Q{E1.words.acc} and \Q{E1.signs.acc}). Recall ranges from \Q{trad.minrecall} to
+\Q{trad.maxrecall} (Table~\ref{tab:summary}) and is lowest for the two smallest traditions. The
+festivals that HFR separates are kept apart by the texts themselves: the Ḫuwaššanna festivals
+reach \Q{trad.huwassannafestivals.recall} and those of Ištanuwa and Lallupiya
+\Q{trad.luwianfestivalsistanuwalallupiya.recall}.
+
+Accuracy rises steeply with fragment size and then flattens. Windows of 3, 10 and 40 words cut
+from held-out manuscripts are placed correctly in \Q{E2.both.k3}, \Q{E2.both.k10} and
+\Q{E2.both.k40} of cases, against a chance level of \Q{chance}. Above the margin
+$\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision.
+
+Inside \CTH{701}, the procedure recovers \Q{E3.both.acc} of the \Q{E3.both.n} manuscripts that
+\citet{salvini1986chs} sorted into \Q{E3.both.classes} subgroups (majority \Q{E3.both.majority},
+$p=\Q{E3.both.p}$). The same features do not predict script date (\Q{E3date.both.acc} against a
+majority of \Q{E3date.both.majority}), so the subgroups are not clusters of date.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{2.5pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{24mm} rrrr >{\raggedright\arraybackslash}p{15mm}@{}}
+    \toprule
+    Tradition & $n$ & recall & comp. & orph. & decided by \\
+    \midrule
+    \gentab{summary}
+    \bottomrule
+  \end{tabular}
+  \caption{Per tradition: reference manuscripts ($n$), leave-one-manuscript-out recall,
+    compositions that return to the tradition when held out whole (comp.,
+    Section~\ref{sec:recovery}), orphans placed (orph., Section~\ref{sec:orphans}), and the word
+    category that carries the largest share of the decision (Section~\ref{sec:decision}; not
+    shown below ten correctly placed manuscripts).}
+  \label{tab:summary}
+\end{table}
 
 \subsection{Testing scholarly groupings}
 \label{sec:recovery}
-\todraft{Composition recovery and the Ambazzi rituals.}
+Leave-one-manuscript-out accuracy is flattered by duplicates: when one copy of a composition is
+held out, its other copies stay in the reference. A stricter test removes a whole composition
+(all manuscripts of one CTH number), rebuilds the centroids, and asks whether the composition
+returns to the group that scholarship assigned it to. \Q{E10a.compositions_correct} of
+\Q{E10a.compositions} compositions do, and \Q{E10a.texts_correct} of \Q{E10a.texts} manuscripts
+(\Q{E10a.texts_share}) are placed correctly when their composition is unseen
+(Table~\ref{tab:summary}). The Hattian cult layer, the Ḫuwaššanna festivals and the Kizzuwatna
+rituals are recovered as groups. The Hurrian festival groups (\Q{E10a.hurrian} together), the
+Palaic festivals and the two small ritual groups are not: their manuscripts resemble each other
+because they share compositions, not because their compositions share a profile that sets them
+apart. Held out whole, the \CTH{701} manuscripts go to the \Q{E10a.cth701.pred}
+(\Q{E10a.cth701.texts} to their own group): in content, the rituals of the AZU priest are
+Kizzuwatna rituals. We read the groups that are not recovered as claims that these features do
+not support, not as claims that the evidence refutes.
+
+\paragraph{A contested attribution.}
+The Ambazzi rituals (\CTH{\Q{E10b.cths}}) have been read as western because of their Luwian
+elements \citep{christiansen2006ambazzi}. We pool their \Q{E10b.texts} manuscripts and score them
+against every tradition, comparing each tradition's lead over the best other with the same
+statistic for random sets of the same size drawn from the \Q{E10b.pool} unclaimed ritual
+manuscripts (\CTH{390}--469). The western tradition ranks \Q{E10b.claim.rank} of
+\Q{trad.count} ($p=\Q{E10b.claim.p}$). The nearest tradition is the \Q{E10b.best}, for
+\Q{E10b.nearest.n} of the \Q{E10b.texts} manuscripts, but no nearer than random unclaimed rituals
+($p=\Q{E10b.best.p}$). Of the \Q{E10c.claim.signatures} words most distinctive of the western
+rituals \citep{monroe2008fightin}, \Q{E10c.claim.attested} occurs in the Ambazzi texts
+(\textit{\Q{E10c.claim.attested.words}}). On this evidence the Ambazzi rituals sit in the
+generic ritual residue, and we keep them out of the western reference.
 
 \subsection{Spellings only, with every manuscript}
 \label{sec:spellings}
@@ -306,10 +375,9 @@ to \Q{R1.B.arzawawesternrituals.acc}). The other traditions change little. Of th
 \Q{R1.B.orph.mainplaced} orphans the main model places, \Q{R1.B.orph.placedinboth} are also placed
 with the full reference and \Q{R1.B.orph.sametradition} of these keep their tradition;
 \Q{R1.B.orph.topuriyannikuwattalla} move to the Luwian rituals and \Q{R1.B.orph.toarzawa} to the
-western rituals. The worked example is affected: with the full reference KBo 41.22 still points
-first to the Luwian rituals, but its lead (\Q{R1.B.kbo4122.gap}) falls below the margin, and it
-is no longer placed. Placements in the two small ritual traditions should be read with this in
-mind.
+western rituals. The worked example is among the orphans that drop below the margin
+(Section~\ref{sec:method}). Placements in the two small ritual traditions should be read with
+this in mind.
 
 \begin{table}[t]
   \centering
@@ -332,7 +400,80 @@ mind.
 
 \subsection{What a placement rests on}
 \label{sec:decision}
-\todraft{Decision split by word category and layer.}
+\paragraph{What is written, or how.}
+Each layer alone identifies a tradition (Table~\ref{tab:layers}). Logograms reach
+\Q{E7.logograms.acc}, Hittite vocabulary \Q{E7.lexicon.acc}, and foreign-language words
+\Q{E7.foreign.acc} in the \Q{E7.foreign.n} manuscripts that have them. The variable words reach
+\Q{E7.spelling.acc} with their spelling kept and \Q{E7.collapsed.acc} with it collapsed: the
+choice of spelling adds nothing beyond the word. The seven orthographic rates are a weak but real
+signal (\Q{E7.orthographic_indices.acc} against \Q{E7.orthographic_indices.null_mean} for
+shuffled labels). By word category, removing the function words leaves accuracy unchanged
+(\Q{E8.without_function.words}, against \Q{E8.all.words} with all words), and on their own they
+reach \Q{E8.only_function.words}, below agents (\Q{E8.only_agent.words}) and foreign words
+(\Q{E8.only_foreign.words}). Removing the foreign words costs most
+(\Q{E8.without_foreign.words}). The formulaic layer is common ground; the traditions differ in
+whom and what they name.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{32mm} rrrr@{}}
+    \toprule
+    Layer & $n$ & maj. & shuf. & acc. \\
+    \midrule
+    \gentab{layers}
+    \bottomrule
+  \end{tabular}
+  \caption{Each layer alone: leave-one-manuscript-out accuracy, with the majority (maj.) and
+    shuffled-label (shuf.) baselines. $n$: manuscripts with at least one feature of the layer.}
+  \label{tab:layers}
+\end{table}
+
+\paragraph{Similarity is not decision.}
+Splitting each decision over its features (Section~\ref{sec:method}) answers an obvious worry:
+the particle \textit{nu} and other frequent words weigh heavily in a fragment's similarity to its
+tradition. Over the \Q{E11a.texts} correctly placed reference manuscripts, features found in at
+least a quarter of the reference make up \Q{E11b.common.similarity} of the similarity but only
+\Q{E11b.common.ref} of the decision, because every centroid shares them and they largely cancel.
+Deleting the 100 most frequent words, \Q{E11c.k100.removed} of all word tokens, leaves accuracy at
+\Q{E11c.k100.acc}. The decision rests on agents and deities (\Q{E11a.decision.agentsanddeities}),
+realia (\Q{E11a.decision.realia}), foreign words (\Q{E11a.decision.foreignwords}) and verbs
+(\Q{E11a.decision.verbs}); function words carry \Q{E11a.decision.functionwords}. Each tradition
+has its own decisive category (Table~\ref{tab:summary}): realia for the Kizzuwatna rituals,
+agents and deities for the festivals and the Hattian cult layer.
+
+For short fragments the worry is justified. The share of the decision carried by common features
+falls from \Q{E11b.len510.common} for orphans of 5--10 words to \Q{E11b.len50.common} above 50
+words, and \Q{E11b.assigned_orphans_mostly_common} of the \Q{E11b.assigned_orphans} placed
+orphans rest mostly on them. In 10-word windows from reference manuscripts, such placements are
+right \Q{E11d.w10.common.prec} of the time, against \Q{E11d.w10.rest.prec} for the rest. Without
+function words, \Q{E11e.nofunc.sametradition} of the placed orphans keep their tradition,
+\Q{E11e.nofunc.othertradition} move and \Q{E11e.nofunc.nowunassigned} fall below the margin.
+Common words thus rarely send a fragment to the wrong tradition, but they often supply the margin
+that lets it be placed at all. We therefore release the decomposition with every placement and
+treat one that rests mostly on common features as weak.
+
+\subsection{Orphans and the open set}
+\label{sec:orphans}
+With the calibrated margin, \Q{E5.assigned} of the \Q{corpus.orphans_used} orphans with five or
+more legible words are placed (\Q{E5.assigned.lo}--\Q{E5.assigned.hi} across the margin's 90\%
+interval), \Q{E5.top.share} of them with the \Q{E5.top}. The test sets show why this needs care.
+The named-practitioner rituals of \CTH{390}--469, which no study assigns to Kizzuwatna, are
+placed mostly with the Kizzuwatna rituals (\Q{E5b.res.kizz} of \Q{E5b.res.assigned}), the only
+large ritual class: genre before origin. \CTH{500} behaves differently: \Q{E5b.c500.hurrian} of
+its \Q{E5b.c500.assigned} placed fragments go to the Hurrian festival groups, in line with HFR's
+treatment of \CTH{500} as festival material \citep{hfr}.
+
+A closed reference always names a tradition \citep{koppel2011wild}. When windows of \Q{E9.k}
+words from \Q{E9.genres.count} other genres are scored, the margin rule still places
+\Q{E9.genres.placed.lo}--\Q{E9.genres.placed.hi} of them, and \Q{E9.fest.placed} of windows from
+festivals of other traditions. Adding the outside genres as classes of their own (a genre gate)
+recognises \Q{E9.genres.gate.lo}--\Q{E9.genres.gate.hi} of their windows and \Q{E9.fest.gate} of
+the other festivals, at the cost of sending \Q{E9.ref.gate} of reference windows away. Applied to
+the orphans, the gate finds \Q{E9.orph.outside} that are closer to an outside genre than to any
+tradition by more than the margin, \Q{E9.orph.assigned_outside} of them among the placed. We
+release them as candidates for re-filing.
 
 \subsection{Duplicates, not joins: a negative result}
 \label{sec:joins}
@@ -387,10 +528,61 @@ them; that needs physical evidence.
 \end{table}
 
 \section{Discussion and conclusion}
-\todraft{Genre before origin; QTM in one paragraph.}
+\label{sec:discussion}
+
+\paragraph{Genre before origin.}
+A fragment is placed by what it shares with the reference, and the largest shared layer is
+genre. A ritual from outside every reference tradition will look most like the largest ritual
+class, as the residue of \CTH{390}--469 shows, and the open-set test shows the same risk across
+genres. A placement is therefore ``nearest of these'', and is only as good as the alternatives in
+the reference. Each tradition added narrows the gap: with the Luwian rituals in the reference,
+\Q{E5b.res.luwianritualspuriyannikuwattalla} residue texts go to them rather than to the
+Kizzuwatna rituals, and the spellings-only run shows that the small traditions gain most when
+their unanalysed manuscripts are counted.
+
+\paragraph{Archetypes and witnesses.}
+The results suggest a division of labour between two levels of a text, which we call
+Quantitative Scribal Tradition Mapping (QTM). Borrowing the terms of textual criticism
+\citep{maas1958textual,trovato2014lachmann}, a tradition is an \term{archetype}: not a
+reconstructed text, but the vocabulary, formulae and foreign-language recitation that its
+manuscripts share. Each manuscript, and each orphan, is a \term{witness} that attests part of
+it. The archetype is identified by content, above all by whom and what a text names. Spelling
+marks the witness: kept or collapsed, the variant spellings change nothing at the level of the
+tradition, in line with the view that Hittite writing habits belong to scribal circles and their
+schooling \citep{gordin2015scribal}. An orphan is a low-coverage witness, and how much of each
+archetype survives only in orphans is a historical question that unseen-species estimates, as
+used for lost medieval literature \citep{kestemont2022forgotten}, could address.
+
+\paragraph{Conclusion.}
+Content-based assignment places Hittite ritual and festival fragments in literature-defined
+traditions well above chance from about ten legible words, recovers most compositions held out
+whole, and gives a quantitative answer to a contested attribution. The exact decomposition makes
+each placement checkable: it shows that a decision rests on agents, deities, realia and foreign
+words rather than on spelling or particles, and flags the short fragments where it does not. The
+same features find duplicates but not joins (Section~\ref{sec:joins}). Code, outputs and the
+placements with their decompositions are released (anonymised for review); every number in this
+paper is generated from them.
 
 \section*{Limitations}
-\todraft{Uneven editions, small traditions, the unchecked gloss list.}
+The study depends on one digital edition. TLHdig 0.3 has no word analyses for the Luwian
+corpus and for many rituals, and its normalised forms are uneven across editors; broken words
+are dropped, so short fragments over-represent formulaic lines. Several traditions are small
+(the smallest has \Q{trad.smallest.n} test manuscripts), their recall is uncertain, and held out
+by composition several are not recovered at all. The traditions themselves are taken from the
+literature: the method tests them, but cannot find a tradition that no study has proposed. The
+idf weights are fitted on the whole reference set. Festival manuscripts also differ by function
+(outline tablets, day tablets, inventories close to festival text \citep{cammarosano2021inventories}),
+which word profiles may track alongside tradition. The word categories enter only the analysis of
+what a decision rests on, not the placements; their rules were checked on a sample, but the
+meaning classes of nouns rest on a gloss list drafted with a language model that is still to be
+checked by hand. Finally, every placement is a hypothesis for verification on the tablet; a
+fragment placed near a known manuscript is a candidate, not a join.
+
+\section*{Ethics statement}
+The corpus is openly licensed. A language model (Claude, Anthropic) was used to write and run
+the analysis code, to draft the gloss list described in Section~\ref{sec:method}, to draft the
+text and to check the references; the authors reviewed all of it and take responsibility for the
+content. \todraft{Authors to confirm this statement.}
 
 \bibliography{../references}
 

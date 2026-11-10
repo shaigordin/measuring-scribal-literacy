@@ -396,6 +396,18 @@ def main():
                 + " & ".join(pct(r["by_category"][c]) for c in TABCATS) + " & "
                 + " & ".join(pct(r["by_layer"][l]) for l in layers) + f" & {pct(b11['common_features_share']['all_correct'])} \\\\")
     table("decision", rows)
+    # one compact per-tradition summary for the SIGHUM paper: recall, recovery, orphans, decisive category
+    rows = []
+    for t in trad:
+        n = int(float(stats[t]["count"])) if t in stats else 0
+        lo = a10["by_tradition"].get(t)
+        r = a11["by_tradition"].get(t)
+        r = r if r and r["texts"] >= 10 else None    # fewer than ten placed manuscripts: unstable, not shown
+        top = max(TABCATS, key=r["by_category"].get) if r else None
+        rows.append(f"{tex_escape(SHORT.get(t, t))} & {num(n)} & {pct(rec['both']['recall_by_class'].get(t))} & "
+                    f"{(str(lo['correct']) + '/' + str(lo['compositions'])) if lo else '--'} & {num(int(e5.get(t, 0)))} & "
+                    f"{(tex_escape(top.lower().replace(' and ', ', ')) + ' ' + pct(r['by_category'][top])) if r else '--'} \\\\")
+    table("summary", rows)
     for k, key in (("all_correct", "ref"), ("orphans", "orph")):
         put(f"E11b.common.{key}", pct(b11["common_features_share"][k]), f"{s11} E11b.common_features_share.{k}")
         put(f"E11b.frequent.{key}", pct(b11["frequent_words_share"][k]), f"{s11} E11b.frequent_words_share.{k}")
