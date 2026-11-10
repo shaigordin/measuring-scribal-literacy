@@ -59,5 +59,10 @@ python3 stats_corpus.py "$TOK" --out "${OUT}_literature" --groups literature
 python3 review_wordclass.py examples --tokens "$TOK"                                           # annotation examples
 python3 review_wordclass.py rescore --tokens "$TOK"                                            # audit after the rule revisions
 
-# 4. slides
+# 4. Zenodo release: closest traditions, compositions, manuscripts and join candidates for every
+#    fragment in Laroche's residual bins (release/README.md documents every column)
+python3 make_release.py "$TOK" --run "${OUT}_literature" --out release > release.log
+python3 release_docs.py release --version "${RELEASE_VERSION:-1.0.0}" --zip
+
+# 5. slides
 (cd .. && quarto render orphans_archetypes.qmd)
