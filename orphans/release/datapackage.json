@@ -1,7 +1,7 @@
 {
  "profile": "tabular-data-package",
- "name": "orphans-and-archetypes-join-candidates",
- "title": "Orphans and Archetypes: closest traditions, compositions and join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)",
+ "name": "orphans-and-archetypes-nearest-manuscripts",
+ "title": "Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)",
  "version": "1.0.0",
  "licenses": [
   {
@@ -180,12 +180,12 @@
      {
       "name": "manuscripts_top20",
       "type": "string",
-      "description": "The 20 nearest manuscripts; details for each in join_candidates.csv."
+      "description": "The 20 nearest manuscripts; details for each in nearest_manuscripts.csv."
      },
      {
-      "name": "join_candidates",
+      "name": "match_candidates",
       "type": "string",
-      "description": "Those of the 20 nearest manuscripts that pass all three join checks."
+      "description": "Those of the 20 nearest manuscripts that pass all three match checks: duplicates, parallels or joins to check (see README)."
      },
      {
       "name": "words_function_words",
@@ -241,12 +241,12 @@
    }
   },
   {
-   "name": "join_candidates",
-   "path": "join_candidates.csv",
+   "name": "nearest_manuscripts",
+   "path": "nearest_manuscripts.csv",
    "profile": "tabular-data-resource",
    "format": "csv",
    "encoding": "utf-8",
-   "description": "One row per fragment and each of its 20 nearest manuscripts, with the join barcode.",
+   "description": "One row per fragment and each of its 20 nearest manuscripts, with the word barcode and the match checks.",
    "schema": {
     "fields": [
      {
@@ -285,7 +285,7 @@
       "description": "Cosine similarity of fragment and candidate."
      },
      {
-      "name": "barcode",
+      "name": "match_barcode",
       "type": "string",
       "description": "One character per distinct content word of the fragment, in line order: S = the candidate has the word spelled the same way, W = spelled differently, . = absent."
      },
@@ -317,22 +317,22 @@
      {
       "name": "check_half_the_words",
       "type": "boolean",
-      "description": "Check 1: the candidate has at least half of the fragment's content words."
+      "description": "Match check 1: the candidate has at least half of the fragment's content words."
      },
      {
       "name": "check_same_spellings",
       "type": "boolean",
-      "description": "Check 2: every shared word is spelled exactly as in the fragment (one scribal habit)."
+      "description": "Match check 2: every shared word is spelled exactly as in the fragment (one scribal habit)."
      },
      {
       "name": "check_shared_phrase",
       "type": "boolean",
-      "description": "Check 3: at least one shared two-word phrase."
+      "description": "Match check 3: at least one shared two-word phrase."
      },
      {
-      "name": "passes_join_checks",
+      "name": "passes_match_checks",
       "type": "boolean",
-      "description": "All three checks pass: a join candidate (or a duplicate copy) to check on the tablets."
+      "description": "All three checks pass: a duplicate, parallel or join candidate to check on the tablets (most known cases that pass are duplicates)."
      },
      {
       "name": "candidate_tlhdig_url",

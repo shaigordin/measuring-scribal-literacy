@@ -12,45 +12,45 @@
    "too_small": 242,
    "below_margin": 977,
    "placed": 706,
-   "with_join_candidates": 223
+   "with_match_candidates": 223
   },
   "CTH 500 fragments of Kizzuwatna rituals": {
    "texts": 479,
    "too_small": 42,
    "below_margin": 206,
    "placed": 231,
-   "with_join_candidates": 86
+   "with_match_candidates": 86
   },
   "CTH 670 fragments of festivals": {
    "texts": 3513,
    "too_small": 544,
    "below_margin": 1225,
    "placed": 1744,
-   "with_join_candidates": 1012
+   "with_match_candidates": 1012
   },
   "CTH 832 fragments of various content": {
    "texts": 4260,
    "too_small": 2455,
    "below_margin": 1358,
    "placed": 447,
-   "with_join_candidates": 198
+   "with_match_candidates": 198
   },
   "CTH 390-469 rituals no study groups": {
    "texts": 1038,
    "too_small": 502,
    "below_margin": 289,
    "placed": 247,
-   "with_join_candidates": 94
+   "with_match_candidates": 94
   },
   "EBo filed under other CTH numbers": {
    "texts": 153,
    "too_small": 54,
    "below_margin": 74,
    "placed": 25,
-   "with_join_candidates": 21
+   "with_match_candidates": 21
   }
  },
- "fragments_with_join_candidates_by_size": {
+ "fragments_with_match_candidates_by_size": {
   "5-9": {
    "size": 3285,
    "sum": 772
@@ -80,8 +80,8 @@
   "Luwian festivals (Ištanuwa, Lallupiya)": 43,
   "Palaic festivals": 8
  },
- "fragments_with_join_candidates": 1634,
- "join_candidate_pairs": 5016,
+ "fragments_with_match_candidates": 1634,
+ "match_candidate_pairs": 5016,
  "margin": 0.018000000000000002,
  "precision_above_margin": 0.8005658734764944,
  "loo_accuracy": 0.844,

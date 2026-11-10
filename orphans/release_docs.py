@@ -16,7 +16,7 @@ from string import Template
 import numpy as np
 import pandas as pd
 
-TITLE = ("Orphans and Archetypes: closest traditions, compositions and join candidates "
+TITLE = ("Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates "
          "for the unplaced fragments of the Hittite corpus (TLHdig 0.3)")
 AUTHOR = {"family-names": "Gordin", "given-names": "Shai", "affiliation": "Ariel University"}
 TLHDIG_DOI = "10.5281/zenodo.20328284"
@@ -54,8 +54,8 @@ FRAGMENTS = [
     ("compositions_top5_similarity", "string", "Cosine similarity to each of compositions_top5."),
     ("manuscripts_top5", "string", "The five nearest manuscripts in the whole release, '; '-separated, nearest first."),
     ("manuscripts_top5_similarity", "string", "Cosine similarity to each of manuscripts_top5."),
-    ("manuscripts_top20", "string", "The 20 nearest manuscripts; details for each in join_candidates.csv."),
-    ("join_candidates", "string", "Those of the 20 nearest manuscripts that pass all three join checks."),
+    ("manuscripts_top20", "string", "The 20 nearest manuscripts; details for each in nearest_manuscripts.csv."),
+    ("match_candidates", "string", "Those of the 20 nearest manuscripts that pass all three match checks: duplicates, parallels or joins to check (see README)."),
 ] + [(f"words_{c}", "number", f"Share of the analysed words in the word category '{c.replace('_', ' ')}'.") for c in CATS]
 
 JOINS = [
@@ -66,16 +66,16 @@ JOINS = [
     ("candidate_group", "string", "The candidate's reference tradition, residual pool ('CTH 390–469 residue', 'CTH 500 Kizzuwatna fragments'), 'orphan' (CTH 470 or EBo), the Laroche bin, or empty for other CTH numbers."),
     ("candidate_n_words", "integer", "Analysed words of the candidate."),
     ("similarity", "number", "Cosine similarity of fragment and candidate."),
-    ("barcode", "string", "One character per distinct content word of the fragment, in line order: S = the candidate has the word spelled the same way, W = spelled differently, . = absent."),
+    ("match_barcode", "string", "One character per distinct content word of the fragment, in line order: S = the candidate has the word spelled the same way, W = spelled differently, . = absent."),
     ("fragment_content_words", "integer", "Distinct content words of the fragment (numbers and broken words left out)."),
     ("shared_words", "integer", "Content words of the fragment found in the candidate (S + W)."),
     ("same_spelling", "integer", "Shared words spelled identically (S)."),
     ("different_spelling", "integer", "Shared words spelled differently (W)."),
     ("shared_phrases", "string", "Two-word phrases of the fragment (adjacent words) that also occur in the candidate, '; '-separated."),
-    ("check_half_the_words", "boolean", "Check 1: the candidate has at least half of the fragment's content words."),
-    ("check_same_spellings", "boolean", "Check 2: every shared word is spelled exactly as in the fragment (one scribal habit)."),
-    ("check_shared_phrase", "boolean", "Check 3: at least one shared two-word phrase."),
-    ("passes_join_checks", "boolean", "All three checks pass: a join candidate (or a duplicate copy) to check on the tablets."),
+    ("check_half_the_words", "boolean", "Match check 1: the candidate has at least half of the fragment's content words."),
+    ("check_same_spellings", "boolean", "Match check 2: every shared word is spelled exactly as in the fragment (one scribal habit)."),
+    ("check_shared_phrase", "boolean", "Match check 3: at least one shared two-word phrase."),
+    ("passes_match_checks", "boolean", "All three checks pass: a duplicate, parallel or join candidate to check on the tablets (most known cases that pass are duplicates)."),
     ("candidate_tlhdig_url", "string", "The candidate in TLHdig."),
 ]
 TRADITIONS = [
@@ -90,7 +90,7 @@ COMPOSITIONS = [
     ("tradition", "string", "Reference tradition or residual pool of the CTH number, if any."),
 ]
 FILES = {"fragments.csv": ("One row per text in Laroche's residual bins and per EBo piece.", FRAGMENTS),
-         "join_candidates.csv": ("One row per fragment and each of its 20 nearest manuscripts, with the join barcode.", JOINS),
+         "nearest_manuscripts.csv": ("One row per fragment and each of its 20 nearest manuscripts, with the word barcode and the match checks.", JOINS),
          "traditions.csv": ("The ten reference traditions.", TRADITIONS),
          "compositions.csv": ("The compositions (CTH numbers) used for compositions_top5.", COMPOSITIONS)}
 
@@ -123,12 +123,12 @@ def mdtable(df):
 def example(F, J, txtid):
     f = F.loc[txtid]
     j = J[J.txtid == txtid]
-    j = j[(j["rank"].astype(int) <= 5) | (j.passes_join_checks == "True")][["rank", "candidate_txtid", "candidate_cth", "similarity", "barcode", "passes_join_checks"]]
+    j = j[(j["rank"].astype(int) <= 5) | (j.passes_match_checks == "True")][["rank", "candidate_txtid", "candidate_cth", "similarity", "match_barcode", "passes_match_checks"]]
     lines = [f"**{txtid}** (filed under CTH {f.filed_under_cth}, {f.n_words_analysed} analysed words): "
              f"nearest tradition {f.tradition_1} ({f.similarity_1}), then {f.tradition_2} ({f.similarity_2}); "
              f"margin {f.margin}, status `{f.status}`. Nearest compositions: {f.compositions_top5}. "
-             f"Join candidates: {f.join_candidates or 'none'}. Its five nearest manuscripts"
-             f"{' and the candidates that pass the join checks' if f.join_candidates else ''}:", "", mdtable(j)]
+             f"Duplicate or join candidates: {f.match_candidates or 'none'}. Its five nearest manuscripts"
+             f"{' and the candidates that pass the match checks' if f.match_candidates else ''}:", "", mdtable(j)]
     return "\n".join(lines)
 
 
@@ -139,13 +139,13 @@ def main():
     ap.add_argument("--zip", action="store_true")
     a = ap.parse_args()
     d = a.folder
-    if not os.path.exists(f"{d}/join_candidates.csv"):          # git keeps only the compressed copy
+    if not os.path.exists(f"{d}/nearest_manuscripts.csv"):          # git keeps only the compressed copy
         import gzip, shutil
-        with gzip.open(f"{d}/join_candidates.csv.gz") as src, open(f"{d}/join_candidates.csv", "wb") as dst:
+        with gzip.open(f"{d}/nearest_manuscripts.csv.gz") as src, open(f"{d}/nearest_manuscripts.csv", "wb") as dst:
             shutil.copyfileobj(src, dst)
     S = json.load(open(f"{d}/summary.json"))
     F = pd.read_csv(f"{d}/fragments.csv", keep_default_na=False, dtype=str).set_index("txtid")
-    J = pd.read_csv(f"{d}/join_candidates.csv", keep_default_na=False, dtype=str)
+    J = pd.read_csv(f"{d}/nearest_manuscripts.csv", keep_default_na=False, dtype=str)
     T = pd.read_csv(f"{d}/traditions.csv", keep_default_na=False)
     for fn, (_, cols) in FILES.items():                     # documentation and data must agree
         have = list(pd.read_csv(f"{d}/{fn}", nrows=0).columns)
@@ -153,10 +153,10 @@ def main():
 
     bins = pd.DataFrame([{"Bin": b, **v} for b, v in S["by_bin"].items()]).rename(columns={
         "texts": "Texts", "too_small": "Under 5 words", "below_margin": "Scored, not placed",
-        "placed": "Placed", "with_join_candidates": "With join candidates"})
+        "placed": "Placed", "with_match_candidates": "With duplicate or join candidates"})
     placed = pd.DataFrame([{"Tradition": t, "Fragments placed": n} for t, n in S["placed_by_tradition"].items()])
-    size = pd.DataFrame([{"Analysed words": k, "Fragments scored": v["size"], "With join candidates": v["sum"],
-                          "Share": f"{v['sum'] / v['size']:.0%}"} for k, v in S["fragments_with_join_candidates_by_size"].items()])
+    size = pd.DataFrame([{"Analysed words": k, "Fragments scored": v["size"], "With duplicate or join candidates": v["sum"],
+                          "Share": f"{v['sum'] / v['size']:.0%}"} for k, v in S["fragments_with_match_candidates_by_size"].items()])
     T2 = T.assign(cth=T.cth.map(ranges)).rename(columns={"tradition": "Tradition", "cth": "CTH", "reference_manuscripts": "Reference manuscripts",
                            "defining_study": "Defining study"})
     # check of the composition ranking on texts whose composition is known: the scored CTH 390-469
@@ -187,15 +187,15 @@ def main():
          "precision": f"{S['precision_above_margin']:.0%}", "loo": f"{S['loo_accuracy']:.0%}",
          "majority": f"{S['loo_majority']:.0%}", "reference": f"{S['reference_manuscripts']:,}",
          "pool": f"{S['manuscript_pool']:,}", "compositions": f"{S['compositions']:,}",
-         "with_joins": f"{S['fragments_with_join_candidates']:,}", "join_pairs": f"{S['join_candidate_pairs']:,}",
+         "with_matches": f"{S['fragments_with_match_candidates']:,}", "match_pairs": f"{S['match_candidate_pairs']:,}",
          "bins_table": mdtable(bins), "placed_table": mdtable(placed), "size_table": mdtable(size),
-         "traditions_table": mdtable(T2), "fragments_columns": coltable(FRAGMENTS), "joins_columns": coltable(JOINS),
+         "traditions_table": mdtable(T2), "fragments_columns": coltable(FRAGMENTS), "nearest_columns": coltable(JOINS),
          "traditions_columns": coltable(TRADITIONS), "compositions_columns": coltable(COMPOSITIONS),
          "example_ebo": example(F, J, "EBo 133"), "example_kbo": example(F, J, "KBo 41.22")}
     tpl = Template(open(os.path.join(os.path.dirname(__file__) or ".", "release_template", "README.md")).read())
     open(f"{d}/README.md", "w").write(tpl.substitute(v))
 
-    pkg = {"profile": "tabular-data-package", "name": "orphans-and-archetypes-join-candidates",
+    pkg = {"profile": "tabular-data-package", "name": "orphans-and-archetypes-nearest-manuscripts",
            "title": TITLE, "version": a.version, "licenses": [{"name": "CC-BY-4.0",
            "path": "https://creativecommons.org/licenses/by/4.0/", "title": "Creative Commons Attribution 4.0"}],
            "sources": [{"title": "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3",
@@ -248,10 +248,10 @@ references:
     keep = ["txtid", "filed_under_cth", "laroche_bin", "n_words_analysed", "status", "tradition_1", "similarity_1",
             "tradition_2", "similarity_2", "margin", "placed_tradition", "below_fit_floor", "nearest_is_outside_genre",
             "spellings_only_agrees", "rests_on_common_features", "compositions_top5", "manuscripts_top5",
-            "join_candidates", "tlhdig_url"]
+            "match_candidates", "tlhdig_url"]
     pick[keep].to_csv(f"{d}/review_sample.csv", index=False)
     if a.zip:
-        name = f"orphans_archetypes_join_candidates_v{a.version}"
+        name = f"orphans_archetypes_nearest_manuscripts_v{a.version}"
         with zipfile.ZipFile(f"{d}/../{name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
             for fn in ["README.md", "LICENSE.txt", "CITATION.cff", "datapackage.json", "summary.json", *FILES]:
                 z.write(f"{d}/{fn}", f"{name}/{fn}")

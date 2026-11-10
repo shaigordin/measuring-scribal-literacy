@@ -7,15 +7,15 @@ Thousands of Hittite tablet fragments are filed in Laroche's *Catalogue des text
 residual numbers, such as "fragments of rituals" (CTH 470) or "fragments of festivals" (CTH 670), because
 nobody could yet say which composition they belong to. This dataset gives, for each of them, the textual
 traditions, compositions and manuscripts it is closest to, and the manuscripts that could be pieces of the
-same tablet (join candidates). The results come from one reproducible model, described in the paper
+same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described in the paper
 [PAPER REFERENCE]. They are leads for philologists to check, not attributions.
 
 ## What is in the dataset
 
 | File | Content |
 |---|---|
-| `fragments.csv` | One row per text: $texts texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its join candidates and its word-category profile. |
-| `join_candidates.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word join barcode and the three join checks. |
+| `fragments.csv` | One row per text: $texts texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its duplicate or join candidates and its word-category profile. |
+| `nearest_manuscripts.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word barcode and the three match checks. |
 | `traditions.csv` | The ten reference traditions, their CTH numbers and the studies that define them. |
 | `compositions.csv` | The $compositions compositions (CTH numbers) that fragments are compared with. |
 | `datapackage.json` | Machine-readable description of every file and column (Frictionless Data). |
@@ -66,18 +66,18 @@ $traditions_table
    whose CTH number has at least one other manuscript, the own composition ranks first among all
    $compositions for $known_top1 ($known_top1_share) and among the closest five for $known_top5
    ($known_top5_share).
-7. **Closest manuscripts and join candidates.** The 20 most similar manuscripts among all $pool TLHdig texts
+7. **Closest manuscripts, duplicate and join candidates.** The 20 most similar manuscripts among all $pool TLHdig texts
    with 5 or more analysed words. For each pair a *barcode* compares the fragment's content words one by
    one: the same spelling in the candidate (`S`), a different spelling (`W`), or absent (`.`). A candidate
-   passes the **join checks**, which were fixed before looking at any result, if it has (1) at least half
+   passes the **match checks**, which were fixed before looking at any result, if it has (1) at least half
    of the fragment's content words, (2) every shared word spelled exactly as in the fragment, and (3) at
-   least one shared two-word phrase. $with_joins fragments have at least one candidate that passes
-   ($join_pairs pairs in all).
+   least one shared two-word phrase. $with_matches fragments have at least one candidate that passes
+   ($match_pairs pairs in all). Such a candidate is a *duplicate or join candidate* (column `match_candidates`).
    **Checked against the Konkordanz.** The Konkordanz notes duplicates ("Dupl.") and suspected joins
    for many fragments of these bins. Where both pieces are separate TLHdig texts of 5 or more words,
    the method was asked where it ranks the known partner (`run_known_joins.py`). For the $kd_n
    duplicates, the partner ranks first $kd_top1 times, in the top 5 $kd_top5 times and in the top 20
-   $kd_top20 times (median rank $kd_median); $kd_pass pairs pass the join checks. For the $kj_n suspected
+   $kd_top20 times (median rank $kd_median); $kd_pass pairs pass the match checks. For the $kj_n suspected
    joins, the partner is in the top 20 only $kj_top20 times (median rank $kj_median), and $kj_pass pass the
    checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
    **The ranking and the checks therefore find duplicates and parallel copies well, and joins poorly.**
@@ -99,9 +99,9 @@ $placed_table
 
 $fragments_columns
 
-### `join_candidates.csv`
+### `nearest_manuscripts.csv`
 
-$joins_columns
+$nearest_columns
 
 ### `traditions.csv`
 
@@ -125,7 +125,7 @@ $example_kbo
 
 - **In a spreadsheet:** open `fragments.csv` and filter by `laroche_bin`, `status` or `placed_tradition`.
   Each row links to the text in TLHdig (`tlhdig_url`) and to the Konkordanz (`konkordanz_url`).
-- **To look for joins:** filter `join_candidates.csv` on `passes_join_checks = True`. Start with high
+- **To look for duplicates and joins:** filter `nearest_manuscripts.csv` on `passes_match_checks = True`. Start with high
   `fragment_content_words` and `shared_words`, and with candidates that are themselves fragments. Then check
   the photographs (Fotoarchiv), find spot, script and clay in the Konkordanz, and the tablets.
 - **In Python:**
@@ -133,10 +133,10 @@ $example_kbo
   ```python
   import pandas as pd
   f = pd.read_csv("fragments.csv", keep_default_na=False)
-  j = pd.read_csv("join_candidates.csv", keep_default_na=False)
+  n = pd.read_csv("nearest_manuscripts.csv", keep_default_na=False)
   placed = f[f.status == "placed"]
   strong = placed[(placed.rests_on_common_features == "False") & (placed.below_fit_floor == "False")]
-  joins = j[j.passes_join_checks == "True"].sort_values("shared_words", ascending=False)
+  matches = n[n.passes_match_checks == "True"].sort_values("shared_words", ascending=False)
   ```
 
 - **In R:** `f <- read.csv("fragments.csv", encoding = "UTF-8", na.strings = "")`.

@@ -1,4 +1,4 @@
-"""Zenodo release: closest traditions, compositions, manuscripts and join candidates for every fragment
+"""Zenodo release: closest traditions, compositions, manuscripts and duplicate or join candidates for every fragment
 in Laroche's residual bins.
 
 Scope: every TLHdig text filed under CTH 470 (fragments of rituals), 500 (fragments of Kizzuwatna
@@ -22,7 +22,7 @@ reference manuscripts of 17+ words), cosine similarity.
                 non-orphan manuscripts of 5+ words; the fragment itself left out of its own CTH).
   manuscripts   the 20 nearest manuscripts in the whole release (5+ analysed words, the fragment
                 itself excluded), with the join barcode of run_join_candidates.py: shared content
-                words, identical spellings, shared two-word phrases, and the three join checks fixed
+                words, identical spellings, shared two-word phrases, and the three match checks fixed
                 in advance (half the words, every shared word spelled the same, a shared phrase).
   categories    share of the fragment's analysed words in each of the 10 word categories
                 (qtm.wordclass.CATEGORIES; rules over TLHdig's analyses, audited).
@@ -108,9 +108,9 @@ def barcode(frag, cand):
     checks = {"check_half_the_words": bool(cols) and n_shared >= len(cols) / 2,
               "check_same_spellings": n_shared > 0 and "W" not in cells,
               "check_shared_phrase": bool(shared_ph)}
-    return {"barcode": cells, "fragment_content_words": len(cols), "shared_words": n_shared,
+    return {"match_barcode": cells, "fragment_content_words": len(cols), "shared_words": n_shared,
             "same_spelling": cells.count("S"), "different_spelling": cells.count("W"),
-            "shared_phrases": SEP.join(shared_ph), **checks, "passes_join_checks": all(checks.values())}
+            "shared_phrases": SEP.join(shared_ph), **checks, "passes_match_checks": all(checks.values())}
 
 
 def main():
@@ -241,7 +241,7 @@ def main():
     rows = {}
     for i, f in frags.iterrows():
         cats = pd.Series([category(c) for c in f.wclasses]).value_counts(normalize=True)
-        jf = J[(J.txtid == f.txtid) & J.passes_join_checks]
+        jf = J[(J.txtid == f.txtid) & J.passes_match_checks]
         rows[f.txtid] = {
             "status": "placed" if placed[i] is not None else "below_margin",
             **{k: v for t in range(TOP_TRAD) for k, v in
@@ -259,7 +259,7 @@ def main():
             "manuscripts_top5": SEP.join(t for t, _ in mss_top[i][:5]),
             "manuscripts_top5_similarity": SEP.join(f"{s:.4f}" for _, s in mss_top[i][:5]),
             "manuscripts_top20": SEP.join(t for t, _ in mss_top[i]),
-            "join_candidates": SEP.join(jf.candidate_txtid),
+            "match_candidates": SEP.join(jf.candidate_txtid),
             **{"words_" + re.sub(r"\W+", "_", c.lower()).strip("_"): round(float(cats.get(c, 0.0)), 3) for c in CATEGORIES}}
     F = []
     for t, s in scope.iterrows():
@@ -272,8 +272,8 @@ def main():
     bin_order = {b: i for i, b in enumerate(list(dict.fromkeys(BINS.values())) + ["EBo filed under other CTH numbers"])}
     F = F.iloc[sorted(range(len(F)), key=lambda i: (bin_order[F.laroche_bin[i]], natural(F.txtid[i])))]
     F.to_csv(f"{a.out}/fragments.csv", index=False)
-    J.to_csv(f"{a.out}/join_candidates.csv", index=False)
-    J.to_csv(f"{a.out}/join_candidates.csv.gz", index=False)        # the copy kept in git
+    J.to_csv(f"{a.out}/nearest_manuscripts.csv", index=False)
+    J.to_csv(f"{a.out}/nearest_manuscripts.csv.gz", index=False)        # the copy kept in git
 
     # traditions and compositions used
     T = pd.DataFrame([{"tradition": l, "cth": " ".join(str(c) for c in GROUPSETS[rep["groups"]][l]),
@@ -285,19 +285,19 @@ def main():
 
     summary = {"texts_in_scope": int(len(F)), "with_results": int(len(frags)),
                "status": F.status.value_counts().to_dict(),
-               "by_bin": F.assign(join=F.join_candidates.fillna("") != "").groupby("laroche_bin", sort=False).agg(
+               "by_bin": F.assign(match=F.match_candidates.fillna("") != "").groupby("laroche_bin", sort=False).agg(
                    texts=("txtid", "size"), too_small=("status", lambda s: int((s == "too_small").sum())),
                    below_margin=("status", lambda s: int((s == "below_margin").sum())),
                    placed=("status", lambda s: int((s == "placed").sum())),
-                   with_join_candidates=("join", "sum")).astype(int).to_dict(orient="index"),
-               "fragments_with_join_candidates_by_size": F[F.status != "too_small"].assign(
-                   join=lambda d: d.join_candidates.fillna("") != "",
+                   with_match_candidates=("match", "sum")).astype(int).to_dict(orient="index"),
+               "fragments_with_match_candidates_by_size": F[F.status != "too_small"].assign(
+                   match=lambda d: d.match_candidates.fillna("") != "",
                    size=lambda d: pd.cut(d.n_words_analysed, [4, 9, 16, 39, 10**6],
                                          labels=["5-9", "10-16", "17-39", "40+"])).groupby(
-                   "size", observed=True).join.agg(["size", "sum"]).astype(int).to_dict(orient="index"),
+                   "size", observed=True).match.agg(["size", "sum"]).astype(int).to_dict(orient="index"),
                "placed_by_tradition": F.placed_tradition.replace("", np.nan).dropna().value_counts().to_dict(),
-               "fragments_with_join_candidates": int((F.join_candidates.fillna("") != "").sum()),
-               "join_candidate_pairs": int(J.passes_join_checks.sum()),
+               "fragments_with_match_candidates": int((F.match_candidates.fillna("") != "").sum()),
+               "match_candidate_pairs": int(J.passes_match_checks.sum()),
                "margin": margin, "precision_above_margin": rep["E2_abstention"]["precision_above_margin"],
                "loo_accuracy": rep["E1_historical"]["both"]["acc"], "loo_majority": rep["E1_historical"]["both"]["majority"], "reference_manuscripts": int(len(ref)), "manuscript_pool": int(len(pool)),
                "compositions": int(len(clabs))}

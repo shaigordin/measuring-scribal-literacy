@@ -1,4 +1,4 @@
-# Orphans and Archetypes: closest traditions, compositions and join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)
+# Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)
 
 Version 1.0.0 (2026-11-10). Licence: CC BY 4.0. Data source: TLHdig Beta Version 0.3,
 [doi:10.5281/zenodo.20328284](https://doi.org/10.5281/zenodo.20328284). Code: [https://github.com/shaigordin/measuring-scribal-literacy](https://github.com/shaigordin/measuring-scribal-literacy), folder `orphans/`.
@@ -7,15 +7,15 @@ Thousands of Hittite tablet fragments are filed in Laroche's *Catalogue des text
 residual numbers, such as "fragments of rituals" (CTH 470) or "fragments of festivals" (CTH 670), because
 nobody could yet say which composition they belong to. This dataset gives, for each of them, the textual
 traditions, compositions and manuscripts it is closest to, and the manuscripts that could be pieces of the
-same tablet (join candidates). The results come from one reproducible model, described in the paper
+same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described in the paper
 [PAPER REFERENCE]. They are leads for philologists to check, not attributions.
 
 ## What is in the dataset
 
 | File | Content |
 |---|---|
-| `fragments.csv` | One row per text: 11,368 texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its join candidates and its word-category profile. |
-| `join_candidates.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word join barcode and the three join checks. |
+| `fragments.csv` | One row per text: 11,368 texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its duplicate or join candidates and its word-category profile. |
+| `nearest_manuscripts.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word barcode and the three match checks. |
 | `traditions.csv` | The ten reference traditions, their CTH numbers and the studies that define them. |
 | `compositions.csv` | The 607 compositions (CTH numbers) that fragments are compared with. |
 | `datapackage.json` | Machine-readable description of every file and column (Frictionless Data). |
@@ -33,7 +33,7 @@ reads analysed words, so texts with fewer than 5 analysed words are listed with 
 results. Of the 11,368 texts, 7,529 have results: 3,400 are placed in a tradition and 4,129
 are scored but not placed. 3,839 are too small.
 
-| Bin | Texts | Under 5 words | Scored, not placed | Placed | With join candidates |
+| Bin | Texts | Under 5 words | Scored, not placed | Placed | With duplicate or join candidates |
 |---|---|---|---|---|---|
 | CTH 470 fragments of rituals | 1,925 | 242 | 977 | 706 | 223 |
 | CTH 500 fragments of Kizzuwatna rituals | 479 | 42 | 206 | 231 | 86 |
@@ -84,18 +84,18 @@ are scored but not placed. 3,839 are too small.
    whose CTH number has at least one other manuscript, the own composition ranks first among all
    607 for 223 (43%) and among the closest five for 339
    (65%).
-7. **Closest manuscripts and join candidates.** The 20 most similar manuscripts among all 18,491 TLHdig texts
+7. **Closest manuscripts, duplicate and join candidates.** The 20 most similar manuscripts among all 18,491 TLHdig texts
    with 5 or more analysed words. For each pair a *barcode* compares the fragment's content words one by
    one: the same spelling in the candidate (`S`), a different spelling (`W`), or absent (`.`). A candidate
-   passes the **join checks**, which were fixed before looking at any result, if it has (1) at least half
+   passes the **match checks**, which were fixed before looking at any result, if it has (1) at least half
    of the fragment's content words, (2) every shared word spelled exactly as in the fragment, and (3) at
    least one shared two-word phrase. 1,634 fragments have at least one candidate that passes
-   (5,016 pairs in all).
+   (5,016 pairs in all). Such a candidate is a *duplicate or join candidate* (column `match_candidates`).
    **Checked against the Konkordanz.** The Konkordanz notes duplicates ("Dupl.") and suspected joins
    for many fragments of these bins. Where both pieces are separate TLHdig texts of 5 or more words,
    the method was asked where it ranks the known partner (`run_known_joins.py`). For the 212
    duplicates, the partner ranks first 91 times, in the top 5 141 times and in the top 20
-   165 times (median rank 2); 56 pairs pass the join checks. For the 11 suspected
+   165 times (median rank 2); 56 pairs pass the match checks. For the 11 suspected
    joins, the partner is in the top 20 only 3 times (median rank 134), and 0 pass the
    checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
    **The ranking and the checks therefore find duplicates and parallel copies well, and joins poorly.**
@@ -157,8 +157,8 @@ are scored but not placed. 3,839 are too small.
 | `compositions_top5_similarity` | Cosine similarity to each of compositions_top5. |
 | `manuscripts_top5` | The five nearest manuscripts in the whole release, '; '-separated, nearest first. |
 | `manuscripts_top5_similarity` | Cosine similarity to each of manuscripts_top5. |
-| `manuscripts_top20` | The 20 nearest manuscripts; details for each in join_candidates.csv. |
-| `join_candidates` | Those of the 20 nearest manuscripts that pass all three join checks. |
+| `manuscripts_top20` | The 20 nearest manuscripts; details for each in nearest_manuscripts.csv. |
+| `match_candidates` | Those of the 20 nearest manuscripts that pass all three match checks: duplicates, parallels or joins to check (see README). |
 | `words_function_words` | Share of the analysed words in the word category 'function words'. |
 | `words_verbs` | Share of the analysed words in the word category 'verbs'. |
 | `words_realia` | Share of the analysed words in the word category 'realia'. |
@@ -170,7 +170,7 @@ are scored but not placed. 3,839 are too small.
 | `words_foreign_words` | Share of the analysed words in the word category 'foreign words'. |
 | `words_other_words` | Share of the analysed words in the word category 'other words'. |
 
-### `join_candidates.csv`
+### `nearest_manuscripts.csv`
 
 | Column | Meaning |
 |---|---|
@@ -181,16 +181,16 @@ are scored but not placed. 3,839 are too small.
 | `candidate_group` | The candidate's reference tradition, residual pool ('CTH 390–469 residue', 'CTH 500 Kizzuwatna fragments'), 'orphan' (CTH 470 or EBo), the Laroche bin, or empty for other CTH numbers. |
 | `candidate_n_words` | Analysed words of the candidate. |
 | `similarity` | Cosine similarity of fragment and candidate. |
-| `barcode` | One character per distinct content word of the fragment, in line order: S = the candidate has the word spelled the same way, W = spelled differently, . = absent. |
+| `match_barcode` | One character per distinct content word of the fragment, in line order: S = the candidate has the word spelled the same way, W = spelled differently, . = absent. |
 | `fragment_content_words` | Distinct content words of the fragment (numbers and broken words left out). |
 | `shared_words` | Content words of the fragment found in the candidate (S + W). |
 | `same_spelling` | Shared words spelled identically (S). |
 | `different_spelling` | Shared words spelled differently (W). |
 | `shared_phrases` | Two-word phrases of the fragment (adjacent words) that also occur in the candidate, '; '-separated. |
-| `check_half_the_words` | Check 1: the candidate has at least half of the fragment's content words. |
-| `check_same_spellings` | Check 2: every shared word is spelled exactly as in the fragment (one scribal habit). |
-| `check_shared_phrase` | Check 3: at least one shared two-word phrase. |
-| `passes_join_checks` | All three checks pass: a join candidate (or a duplicate copy) to check on the tablets. |
+| `check_half_the_words` | Match check 1: the candidate has at least half of the fragment's content words. |
+| `check_same_spellings` | Match check 2: every shared word is spelled exactly as in the fragment (one scribal habit). |
+| `check_shared_phrase` | Match check 3: at least one shared two-word phrase. |
+| `passes_match_checks` | All three checks pass: a duplicate, parallel or join candidate to check on the tablets (most known cases that pass are duplicates). |
 | `candidate_tlhdig_url` | The candidate in TLHdig. |
 
 ### `traditions.csv`
@@ -212,9 +212,9 @@ are scored but not placed. 3,839 are too small.
 
 ### Two examples
 
-**EBo 133** (filed under CTH 670, 19 analysed words): nearest tradition Ḫuwaššanna festivals (0.2751), then Palaic festivals (0.2321); margin 0.0431, status `placed`. Nearest compositions: CTH 656; CTH 694; CTH 692; CTH 750; CTH 705. Join candidates: KBo 44.140. Its five nearest manuscripts and the candidates that pass the join checks:
+**EBo 133** (filed under CTH 670, 19 analysed words): nearest tradition Ḫuwaššanna festivals (0.2751), then Palaic festivals (0.2321); margin 0.0431, status `placed`. Nearest compositions: CTH 656; CTH 694; CTH 692; CTH 750; CTH 705. Duplicate or join candidates: KBo 44.140. Its five nearest manuscripts and the candidates that pass the match checks:
 
-| rank | candidate_txtid | candidate_cth | similarity | barcode | passes_join_checks |
+| rank | candidate_txtid | candidate_cth | similarity | match_barcode | passes_match_checks |
 |---|---|---|---|---|---|
 | 1 | KBo 21.51 | 705 | 0.6125 | SS.S...... | False |
 | 2 | KBo 43.137 | 670 | 0.5519 | SS.S...... | False |
@@ -227,9 +227,9 @@ EBo 133 has no photograph and no catalogue entry yet. KBo 44.140 is the only one
 manuscripts that passes the three checks. Both repeat the formula "1-ŠU e-ku-zi / 1 NINDA ta-kar-mu-un
 pár-ši-ia" in the same spellings. Whether the two pieces join can only be decided on the tablets.
 
-**KBo 41.22** (filed under CTH 470, 33 analysed words): nearest tradition Luwian rituals (Puriyanni, Kuwattalla) (0.3889), then Kizzuwatna rituals (0.2455); margin 0.1435, status `placed`. Nearest compositions: CTH 409; CTH 760; CTH 458; CTH 335; CTH 767. Join candidates: none. Its five nearest manuscripts:
+**KBo 41.22** (filed under CTH 470, 33 analysed words): nearest tradition Luwian rituals (Puriyanni, Kuwattalla) (0.3889), then Kizzuwatna rituals (0.2455); margin 0.1435, status `placed`. Nearest compositions: CTH 409; CTH 760; CTH 458; CTH 335; CTH 767. Duplicate or join candidates: none. Its five nearest manuscripts:
 
-| rank | candidate_txtid | candidate_cth | similarity | barcode | passes_join_checks |
+| rank | candidate_txtid | candidate_cth | similarity | match_barcode | passes_match_checks |
 |---|---|---|---|---|---|
 | 1 | KBo 9.125+ | 409 | 0.3486 | .S..SSSS.S..SSS..S..SS..S... | False |
 | 2 | KBo 45.267 | 760 | 0.3475 | ......SS.S...........S...... | False |
@@ -241,7 +241,7 @@ pár-ši-ia" in the same spellings. Whether the two pieces join can only be deci
 
 - **In a spreadsheet:** open `fragments.csv` and filter by `laroche_bin`, `status` or `placed_tradition`.
   Each row links to the text in TLHdig (`tlhdig_url`) and to the Konkordanz (`konkordanz_url`).
-- **To look for joins:** filter `join_candidates.csv` on `passes_join_checks = True`. Start with high
+- **To look for duplicates and joins:** filter `nearest_manuscripts.csv` on `passes_match_checks = True`. Start with high
   `fragment_content_words` and `shared_words`, and with candidates that are themselves fragments. Then check
   the photographs (Fotoarchiv), find spot, script and clay in the Konkordanz, and the tablets.
 - **In Python:**
@@ -249,10 +249,10 @@ pár-ši-ia" in the same spellings. Whether the two pieces join can only be deci
   ```python
   import pandas as pd
   f = pd.read_csv("fragments.csv", keep_default_na=False)
-  j = pd.read_csv("join_candidates.csv", keep_default_na=False)
+  n = pd.read_csv("nearest_manuscripts.csv", keep_default_na=False)
   placed = f[f.status == "placed"]
   strong = placed[(placed.rests_on_common_features == "False") & (placed.below_fit_floor == "False")]
-  joins = j[j.passes_join_checks == "True"].sort_values("shared_words", ascending=False)
+  matches = n[n.passes_match_checks == "True"].sort_values("shared_words", ascending=False)
   ```
 
 - **In R:** `f <- read.csv("fragments.csv", encoding = "UTF-8", na.strings = "")`.
@@ -267,7 +267,7 @@ pár-ši-ia" in the same spellings. Whether the two pieces join can only be deci
   joins rarely pass. Small fragments pass the checks more easily
   (table below), so a candidate for a fragment with few words is weak evidence.
 
-| Analysed words | Fragments scored | With join candidates | Share |
+| Analysed words | Fragments scored | With duplicate or join candidates | Share |
 |---|---|---|---|
 | 5-9 | 3,285 | 772 | 24% |
 | 10-16 | 1,909 | 428 | 22% |
@@ -305,7 +305,7 @@ robustness results of the paper (files `E5_orphan_placement.csv`, `E5b_residue_p
 
 Please cite this dataset, the paper and TLHdig:
 
-- Gordin, Shai. Orphans and Archetypes: closest traditions, compositions and join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3), version 1.0.0. Zenodo. [DOI].
+- Gordin, Shai. Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3), version 1.0.0. Zenodo. [DOI].
 - [PAPER REFERENCE]
 - Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. *Thesaurus Linguarum Hethaeorum
   digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:10.5281/zenodo.20328284.

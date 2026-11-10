@@ -1,5 +1,5 @@
 __pycache__/
 data/
-release/join_candidates.csv
+release/nearest_manuscripts.csv
 *.zip
 release.log

@@ -141,15 +141,15 @@ tradition.
   closed form, with 200 label permutations. The tf-idf weights are fitted on the whole
   reference set (transductive idf).
 
-## Zenodo release: closest traditions, compositions and join candidates
+## Zenodo release: closest traditions, compositions, duplicate and join candidates
 
 `make_release.py` writes `release/`: for every text in Laroche's residual bins (CTH 470, 500, 670, 832,
 the CTH 390–469 rituals no study groups) and every EBo piece, its closest traditions with the open-set and
-robustness checks, its closest compositions, its 20 closest manuscripts with the join barcode and join
-checks, and its word-category profile. It reproduces E5, E5b, E9, E11 and R1 exactly. The README also reports the check against the Konkordanz duplicates and suspected joins (`run_known_joins.py`, `results/tlhdig03_literature/known_joins/`). `release_docs.py`
+robustness checks, its closest compositions, its 20 closest manuscripts with the word barcode and the match
+checks (duplicate or join), and its word-category profile. It reproduces E5, E5b, E9, E11 and R1 exactly. The README also reports the check against the Konkordanz duplicates and suspected joins (`run_known_joins.py`, `results/tlhdig03_literature/known_joins/`). `release_docs.py`
 writes the release's README (every number read from the data; template in `release_template/`),
-`datapackage.json`, `CITATION.cff` and the licence, and zips it for Zenodo. `release/join_candidates.csv`
-is kept in git as `join_candidates.csv.gz` only.
+`datapackage.json`, `CITATION.cff` and the licence, and zips it for Zenodo. `release/nearest_manuscripts.csv`
+is kept in git as `nearest_manuscripts.csv.gz` only.
 
 `results/zenodo_pilot/` is the first run on the glossed-only Zenodo CSV (10.5281/zenodo.14266302),
 and it is superseded by `results/tlhdig03/`.
