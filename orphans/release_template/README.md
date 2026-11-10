@@ -62,6 +62,10 @@ $traditions_table
    or more of all reference texts (such as *nu* or the sign *a*). These are weaker.
 6. **Closest compositions.** Cosine similarity to the centroid of each CTH number outside the residual bins
    (all its manuscripts with 5 or more analysed words). A fragment is left out of its own CTH number.
+   As a check, the CTH 390-469 texts in the dataset have a known composition. Of the $known_n of them
+   whose CTH number has at least one other manuscript, the own composition ranks first among all
+   $compositions for $known_top1 ($known_top1_share) and among the closest five for $known_top5
+   ($known_top5_share).
 7. **Closest manuscripts and join candidates.** The 20 most similar manuscripts among all $pool TLHdig texts
    with 5 or more analysed words. For each pair a *barcode* compares the fragment's content words one by
    one: the same spelling in the candidate (`S`), a different spelling (`W`), or absent (`.`). A candidate

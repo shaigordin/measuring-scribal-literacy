@@ -159,8 +159,19 @@ def main():
                           "Share": f"{v['sum'] / v['size']:.0%}"} for k, v in S["fragments_with_join_candidates_by_size"].items()])
     T2 = T.assign(cth=T.cth.map(ranges)).rename(columns={"tradition": "Tradition", "cth": "CTH", "reference_manuscripts": "Reference manuscripts",
                            "defining_study": "Defining study"})
+    # check of the composition ranking on texts whose composition is known: the scored CTH 390-469
+    # texts whose CTH number has at least one other manuscript (the text is left out of its own CTH)
+    comp = pd.read_csv(f"{d}/compositions.csv", dtype=str).set_index("cth").manuscripts.astype(int)
+    r = F[(F.laroche_bin == "CTH 390-469 rituals no study groups") & (F.status != "too_small")]
+    r = r[r.filed_under_cth.map(comp).fillna(0) >= 2]
+    ranks = [l.split("; ") for l in r.compositions_top5]
+    own = ["CTH " + c for c in r.filed_under_cth]
     audit = json.load(open(os.path.join(os.path.dirname(__file__) or ".", "results", "wordclass_audit_scores.json")))
-    v = {"audit_n": audit["sample_size"], "audit_acc": f"{audit['before_fixes']['corpus_weighted_accuracy']:.0%}",
+    v = {"known_n": f"{len(r):,}", "known_top1": f"{sum(o == l[0] for o, l in zip(own, ranks)):,}",
+         "known_top1_share": f"{sum(o == l[0] for o, l in zip(own, ranks)) / len(r):.0%}",
+         "known_top5": f"{sum(o in l for o, l in zip(own, ranks)):,}",
+         "known_top5_share": f"{sum(o in l for o, l in zip(own, ranks)) / len(r):.0%}",
+         "audit_n": audit["sample_size"], "audit_acc": f"{audit['before_fixes']['corpus_weighted_accuracy']:.0%}",
          "title": TITLE, "version": a.version, "date": date.today().isoformat(), "tlhdig_doi": TLHDIG_DOI,
          "code_url": CODE_URL, "texts": f"{S['texts_in_scope']:,}", "with_results": f"{S['with_results']:,}",
          "too_small": f"{S['status']['too_small']:,}", "placed": f"{S['status']['placed']:,}",
@@ -221,6 +232,16 @@ references:
         "https://creativecommons.org/licenses/by/4.0/legalcode\n\n"
         "It is derived from TLHdig Beta Version 0.3 (Müller, Prechel, Rieken, Schwemer; doi:10.5281/zenodo.20328284),\n"
         "itself licensed CC BY 4.0. Cite both when you use it.\n")
+    # review sample (Google Sheet): the two worked examples + 8 scored texts per bin, seeded
+    Fr = F.reset_index()
+    pick = Fr[Fr.txtid.isin(["EBo 133", "KBo 41.22"])]
+    rest = Fr[(Fr.status != "too_small") & ~Fr.txtid.isin(pick.txtid)]
+    pick = pd.concat([pick] + [g.sample(min(8, len(g)), random_state=0) for _, g in rest.groupby("laroche_bin", sort=False)])
+    keep = ["txtid", "filed_under_cth", "laroche_bin", "n_words_analysed", "status", "tradition_1", "similarity_1",
+            "tradition_2", "similarity_2", "margin", "placed_tradition", "below_fit_floor", "nearest_is_outside_genre",
+            "spellings_only_agrees", "rests_on_common_features", "compositions_top5", "manuscripts_top5",
+            "join_candidates", "tlhdig_url"]
+    pick[keep].to_csv(f"{d}/review_sample.csv", index=False)
     if a.zip:
         name = f"orphans_archetypes_join_candidates_v{a.version}"
         with zipfile.ZipFile(f"{d}/../{name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
