@@ -147,6 +147,26 @@
      ],
      "gap": 0.0941,
      "placed": true
+    },
+    "EBo 133": {
+     "n_legible": 20,
+     "n_analysed": 19,
+     "top3": [
+      [
+       "Ḫuwaššanna festivals",
+       0.2876
+      ],
+      [
+       "Palaic festivals",
+       0.2435
+      ],
+      [
+       "Mixed (Hurrian, Syrian, Luwian)",
+       0.232
+      ]
+     ],
+     "gap": 0.0442,
+     "placed": true
     }
    },
    "orphans_vs_main": {
@@ -303,6 +323,26 @@
      ],
      "gap": 0.0156,
      "placed": false
+    },
+    "EBo 133": {
+     "n_legible": 20,
+     "n_analysed": 19,
+     "top3": [
+      [
+       "Ḫuwaššanna festivals",
+       0.2886
+      ],
+      [
+       "Palaic festivals",
+       0.244
+      ],
+      [
+       "Mixed (Hurrian, Syrian, Luwian)",
+       0.2327
+      ]
+     ],
+     "gap": 0.0446,
+     "placed": true
     }
    },
    "orphans_vs_main": {

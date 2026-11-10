@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below, together with TLHdig 0.3."
+type: dataset
+title: "Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)"
+version: "1.0.0"
+date-released: "2026-11-10"
+license: CC-BY-4.0
+authors:
+  - family-names: "Gordin"
+    given-names: "Shai"
+    affiliation: "Ariel University"
+repository-code: "https://github.com/shaigordin/measuring-scribal-literacy"
+keywords: [Hittite, cuneiform, Boğazköy, fragments, joins, CTH, TLHdig, scribal traditions, stylometry]
+references:
+  - type: dataset
+    title: "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3"
+    authors:
+      - family-names: Müller
+        given-names: Gerfrid
+      - family-names: Prechel
+        given-names: Doris
+      - family-names: Rieken
+        given-names: Elisabeth
+      - family-names: Schwemer
+        given-names: Daniel
+    doi: "10.5281/zenodo.20328284"

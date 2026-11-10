@@ -1,0 +1,405 @@
+{
+ "profile": "tabular-data-package",
+ "name": "orphans-and-archetypes-nearest-manuscripts",
+ "title": "Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)",
+ "version": "1.0.0",
+ "licenses": [
+  {
+   "name": "CC-BY-4.0",
+   "path": "https://creativecommons.org/licenses/by/4.0/",
+   "title": "Creative Commons Attribution 4.0"
+  }
+ ],
+ "sources": [
+  {
+   "title": "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3",
+   "path": "https://doi.org/10.5281/zenodo.20328284"
+  }
+ ],
+ "contributors": [
+  {
+   "title": "Shai Gordin",
+   "role": "author"
+  }
+ ],
+ "resources": [
+  {
+   "name": "fragments",
+   "path": "fragments.csv",
+   "profile": "tabular-data-resource",
+   "format": "csv",
+   "encoding": "utf-8",
+   "description": "One row per text in Laroche's residual bins and per EBo piece.",
+   "schema": {
+    "fields": [
+     {
+      "name": "txtid",
+      "type": "string",
+      "description": "TLHdig text id (publication number; a trailing + marks a text TLHdig already stores as a join)."
+     },
+     {
+      "name": "filed_under_cth",
+      "type": "string",
+      "description": "CTH number under which TLHdig files the text (Laroche's catalogue, as on the Portal)."
+     },
+     {
+      "name": "laroche_bin",
+      "type": "string",
+      "description": "The residual bin the text comes from: CTH 470, 500, 670, 832, the CTH 390-469 rituals no study groups, or an EBo piece filed under another CTH."
+     },
+     {
+      "name": "is_ebo",
+      "type": "boolean",
+      "description": "True for the EBo pieces (fragments rediscovered at Boğazköy in 2025, transliterations only)."
+     },
+     {
+      "name": "n_words_analysed",
+      "type": "integer",
+      "description": "Words with a TLHdig word analysis: what the model reads."
+     },
+     {
+      "name": "n_words_legible",
+      "type": "integer",
+      "description": "Legible words, analysed or not (used by the spellings-only check)."
+     },
+     {
+      "name": "tlhdig_url",
+      "type": "string",
+      "description": "The text in TLHdig on the Mainz Portal."
+     },
+     {
+      "name": "konkordanz_url",
+      "type": "string",
+      "description": "The text in the Konkordanz der hethitischen Keilschrifttafeln (first piece of a join)."
+     },
+     {
+      "name": "status",
+      "type": "string",
+      "description": "placed: the nearest tradition leads the runner-up by at least the margin; below_margin: scored but not placed; too_small: fewer than 5 analysed words, no results."
+     },
+     {
+      "name": "tradition_1",
+      "type": "string",
+      "description": "Nearest reference tradition (highest cosine similarity to its centroid)."
+     },
+     {
+      "name": "similarity_1",
+      "type": "number",
+      "description": "Cosine similarity to tradition_1 (0-1)."
+     },
+     {
+      "name": "tradition_2",
+      "type": "string",
+      "description": "Second-nearest tradition."
+     },
+     {
+      "name": "similarity_2",
+      "type": "number",
+      "description": "Cosine similarity to tradition_2."
+     },
+     {
+      "name": "tradition_3",
+      "type": "string",
+      "description": "Third-nearest tradition."
+     },
+     {
+      "name": "similarity_3",
+      "type": "number",
+      "description": "Cosine similarity to tradition_3."
+     },
+     {
+      "name": "margin",
+      "type": "number",
+      "description": "similarity_1 minus similarity_2: how clearly the nearest tradition wins."
+     },
+     {
+      "name": "placed_tradition",
+      "type": "string",
+      "description": "tradition_1 if margin >= the calibrated margin (see README), else empty."
+     },
+     {
+      "name": "fit_floor",
+      "type": "number",
+      "description": "Open-set fit floor for a fragment of this size: 5th percentile of the similarity of reference windows of the same size to their own tradition."
+     },
+     {
+      "name": "below_fit_floor",
+      "type": "boolean",
+      "description": "similarity_1 is below fit_floor: the fragment fits no tradition as well as 95% of genuine members do."
+     },
+     {
+      "name": "nearest_with_outside_genres",
+      "type": "string",
+      "description": "Nearest class when eight outside genres (myths, prayers, oracles, historical texts, instructions, cult inventories, other festivals, Taurisa rituals) are added as classes."
+     },
+     {
+      "name": "nearest_is_outside_genre",
+      "type": "boolean",
+      "description": "nearest_with_outside_genres is an outside genre, by at least the margin: the fragment may not be a ritual or festival of the reference traditions."
+     },
+     {
+      "name": "spellings_only_placed",
+      "type": "string",
+      "description": "Tradition placed by the spellings-only check (sign n-grams of every legible word, reference including manuscripts without word analyses), else empty."
+     },
+     {
+      "name": "spellings_only_agrees",
+      "type": "boolean",
+      "description": "Both models place the fragment and agree. Empty if either does not place it."
+     },
+     {
+      "name": "common_features_share",
+      "type": "number",
+      "description": "Share of the margin carried by features attested in at least 25% of reference texts (e.g. nu, the sign a). Negative: common features pull against the decision."
+     },
+     {
+      "name": "rests_on_common_features",
+      "type": "boolean",
+      "description": "More than half of the margin comes from common features: the placement rests on common material and is weaker."
+     },
+     {
+      "name": "compositions_top5",
+      "type": "string",
+      "description": "The five nearest compositions (CTH numbers outside the residual bins), '; '-separated, nearest first."
+     },
+     {
+      "name": "compositions_top5_similarity",
+      "type": "string",
+      "description": "Cosine similarity to each of compositions_top5."
+     },
+     {
+      "name": "manuscripts_top5",
+      "type": "string",
+      "description": "The five nearest manuscripts in the whole release, '; '-separated, nearest first."
+     },
+     {
+      "name": "manuscripts_top5_similarity",
+      "type": "string",
+      "description": "Cosine similarity to each of manuscripts_top5."
+     },
+     {
+      "name": "manuscripts_top20",
+      "type": "string",
+      "description": "The 20 nearest manuscripts; details for each in nearest_manuscripts.csv."
+     },
+     {
+      "name": "match_candidates",
+      "type": "string",
+      "description": "Those of the 20 nearest manuscripts that pass all three match checks: duplicates, parallels or joins to check (see README)."
+     },
+     {
+      "name": "words_function_words",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'function words'."
+     },
+     {
+      "name": "words_verbs",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'verbs'."
+     },
+     {
+      "name": "words_realia",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'realia'."
+     },
+     {
+      "name": "words_agents_and_deities",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'agents and deities'."
+     },
+     {
+      "name": "words_places",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'places'."
+     },
+     {
+      "name": "words_animals_body_nature",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'animals body nature'."
+     },
+     {
+      "name": "words_abstract_nouns",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'abstract nouns'."
+     },
+     {
+      "name": "words_adjectives",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'adjectives'."
+     },
+     {
+      "name": "words_foreign_words",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'foreign words'."
+     },
+     {
+      "name": "words_other_words",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'other words'."
+     }
+    ]
+   }
+  },
+  {
+   "name": "nearest_manuscripts",
+   "path": "nearest_manuscripts.csv",
+   "profile": "tabular-data-resource",
+   "format": "csv",
+   "encoding": "utf-8",
+   "description": "One row per fragment and each of its 20 nearest manuscripts, with the word barcode and the match checks.",
+   "schema": {
+    "fields": [
+     {
+      "name": "txtid",
+      "type": "string",
+      "description": "The fragment (as in fragments.csv)."
+     },
+     {
+      "name": "rank",
+      "type": "integer",
+      "description": "1 = nearest manuscript."
+     },
+     {
+      "name": "candidate_txtid",
+      "type": "string",
+      "description": "A manuscript of the whole release with 5+ analysed words."
+     },
+     {
+      "name": "candidate_cth",
+      "type": "string",
+      "description": "CTH number under which TLHdig files the candidate."
+     },
+     {
+      "name": "candidate_group",
+      "type": "string",
+      "description": "The candidate's reference tradition, residual pool ('CTH 390–469 residue', 'CTH 500 Kizzuwatna fragments'), 'orphan' (CTH 470 or EBo), the Laroche bin, or empty for other CTH numbers."
+     },
+     {
+      "name": "candidate_n_words",
+      "type": "integer",
+      "description": "Analysed words of the candidate."
+     },
+     {
+      "name": "similarity",
+      "type": "number",
+      "description": "Cosine similarity of fragment and candidate."
+     },
+     {
+      "name": "match_barcode",
+      "type": "string",
+      "description": "One character per distinct content word of the fragment, in line order: S = the candidate has the word spelled the same way, W = spelled differently, . = absent."
+     },
+     {
+      "name": "fragment_content_words",
+      "type": "integer",
+      "description": "Distinct content words of the fragment (numbers and broken words left out)."
+     },
+     {
+      "name": "shared_words",
+      "type": "integer",
+      "description": "Content words of the fragment found in the candidate (S + W)."
+     },
+     {
+      "name": "same_spelling",
+      "type": "integer",
+      "description": "Shared words spelled identically (S)."
+     },
+     {
+      "name": "different_spelling",
+      "type": "integer",
+      "description": "Shared words spelled differently (W)."
+     },
+     {
+      "name": "shared_phrases",
+      "type": "string",
+      "description": "Two-word phrases of the fragment (adjacent words) that also occur in the candidate, '; '-separated."
+     },
+     {
+      "name": "check_half_the_words",
+      "type": "boolean",
+      "description": "Match check 1: the candidate has at least half of the fragment's content words."
+     },
+     {
+      "name": "check_same_spellings",
+      "type": "boolean",
+      "description": "Match check 2: every shared word is spelled exactly as in the fragment (one scribal habit)."
+     },
+     {
+      "name": "check_shared_phrase",
+      "type": "boolean",
+      "description": "Match check 3: at least one shared two-word phrase."
+     },
+     {
+      "name": "passes_match_checks",
+      "type": "boolean",
+      "description": "All three checks pass: a duplicate, parallel or join candidate to check on the tablets (most known cases that pass are duplicates)."
+     },
+     {
+      "name": "candidate_tlhdig_url",
+      "type": "string",
+      "description": "The candidate in TLHdig."
+     }
+    ]
+   }
+  },
+  {
+   "name": "traditions",
+   "path": "traditions.csv",
+   "profile": "tabular-data-resource",
+   "format": "csv",
+   "encoding": "utf-8",
+   "description": "The ten reference traditions.",
+   "schema": {
+    "fields": [
+     {
+      "name": "tradition",
+      "type": "string",
+      "description": "Reference tradition."
+     },
+     {
+      "name": "cth",
+      "type": "string",
+      "description": "Its CTH numbers (Laroche), space-separated."
+     },
+     {
+      "name": "reference_manuscripts",
+      "type": "integer",
+      "description": "Reference manuscripts (17+ analysed words)."
+     },
+     {
+      "name": "defining_study",
+      "type": "string",
+      "description": "The study that argued for the tradition."
+     }
+    ]
+   }
+  },
+  {
+   "name": "compositions",
+   "path": "compositions.csv",
+   "profile": "tabular-data-resource",
+   "format": "csv",
+   "encoding": "utf-8",
+   "description": "The compositions (CTH numbers) used for compositions_top5.",
+   "schema": {
+    "fields": [
+     {
+      "name": "cth",
+      "type": "string",
+      "description": "CTH number."
+     },
+     {
+      "name": "manuscripts",
+      "type": "integer",
+      "description": "Manuscripts with 5+ analysed words that make up the composition's centroid."
+     },
+     {
+      "name": "tradition",
+      "type": "string",
+      "description": "Reference tradition or residual pool of the CTH number, if any."
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -25,7 +25,7 @@ from qtm.features import tokens
 from qtm.groups import GROUPSETS, is_orphan, label_map
 from run_experiments import MIN_WORDS, featurise
 
-PIECES = ["KBo 41.22", "KBo 17.54+", "KUB 35.146", "KBo 61.39", "KBo 47.130+"]
+PIECES = ["KBo 41.22", "KBo 17.54+", "KUB 35.146", "KBo 61.39", "KBo 47.130+", "EBo 133"]
 
 
 def legible(t):
