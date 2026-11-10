@@ -146,7 +146,11 @@ We use the TLHdig Beta 0.3 release \citep{tlhdig03}, converted to one row per wo
 signs, its language and, where the editors provide one, a morphological analysis. The release is
 downloaded by script and checked by its checksum, so the word table can be rebuilt from the public
 data alone. As in \citet{gordin2025matters}, reference manuscripts must have at least 17 legible
-words.
+words. The editors' analyses do not cover the whole release: the Luwian rituals (\CTH{758}--763)
+have none, and many other rituals lack them. The main model reads analysed words, so in its
+reference the Luwian rituals have \Q{R1.A.luwianritualspuriyannikuwattalla.n} manuscripts and the
+western rituals \Q{R1.A.arzawawesternrituals.n}; Section~\ref{sec:spellings} repeats the
+evaluation on spellings alone with every manuscript.
 
 \paragraph{Orphans.}
 Orphans are all \CTH{470} manuscripts and all EBo manuscripts, wherever TLHdig files them,
@@ -207,6 +211,45 @@ audit; Figure 1, the worked example.}
 \subsection{Testing scholarly groupings}
 \label{sec:recovery}
 \todraft{Composition recovery and the Ambazzi rituals.}
+
+\subsection{Spellings only, with every manuscript}
+\label{sec:spellings}
+The gap in the annotation falls on the smallest traditions. We therefore repeat the
+leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
+analysed manuscripts only and once with all manuscripts of 17 or more legible words
+(Table~\ref{tab:spellings}). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
+overall accuracy stays at \Q{R1.B.acc}. The Luwian rituals grow from
+\Q{R1.A.luwianritualspuriyannikuwattalla.n} to \Q{R1.B.luwianritualspuriyannikuwattalla.n}
+manuscripts and their accuracy from \Q{R1.A.luwianritualspuriyannikuwattalla.acc} to
+\Q{R1.B.luwianritualspuriyannikuwattalla.acc}; the western rituals from
+\Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n} (\Q{R1.A.arzawawesternrituals.acc}
+to \Q{R1.B.arzawawesternrituals.acc}). The other traditions change little. Of the
+\Q{R1.B.orph.mainplaced} orphans the main model places, \Q{R1.B.orph.placedinboth} are also placed
+with the full reference and \Q{R1.B.orph.sametradition} of these keep their tradition;
+\Q{R1.B.orph.topuriyannikuwattalla} move to the Luwian rituals and \Q{R1.B.orph.toarzawa} to the
+western rituals. The worked example is affected: with the full reference KBo 41.22 still points
+first to the Luwian rituals, but its lead (\Q{R1.B.kbo4122.gap}) falls below the margin, and it
+is no longer placed. Placements in the two small ritual traditions should be read with this in
+mind.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{30mm} rr rr@{}}
+    \toprule
+    & \multicolumn{2}{c}{analysed only} & \multicolumn{2}{c}{all manuscripts} \\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+    Tradition & $n$ & acc. & $n$ & acc. \\
+    \midrule
+    \gentab{spellings_only}
+    \bottomrule
+  \end{tabular}
+  \caption{Spellings only: leave-one-out accuracy per tradition in the sign space, with the
+    reference limited to manuscripts that have word analyses, and with all manuscripts of 17 or
+    more legible words.}
+  \label{tab:spellings}
+\end{table}
 
 \subsection{What a placement rests on}
 \label{sec:decision}

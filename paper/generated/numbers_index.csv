@@ -947,6 +947,112 @@ E11e.nofreq.sametradition,688,tlhdig03_literature/E11_report.json E11e.without_f
 E11e.nofreq.othertradition,7,tlhdig03_literature/E11_report.json E11e.without_frequent_words.other_tradition
 E11e.nofreq.nowunassigned,152,tlhdig03_literature/E11_report.json E11e.without_frequent_words.now_unassigned
 E11e.nofreq.newlyassigned,136,tlhdig03_literature/E11_report.json E11e.without_frequent_words.newly_assigned
+R1.A.n,"1{,}625",tlhdig03_literature/R1_spellings_only.json runs.A.n
+R1.A.acc,84\%,tlhdig03_literature/R1_spellings_only.json runs.A.loo_acc
+R1.A.arzawawesternrituals.n,11,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.arzawawesternrituals.acc,55\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.hattiancultlayer.n,479,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.hattiancultlayer.acc,95\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.kizzuwatnarituals.n,165,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.kizzuwatnarituals.acc,92\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.kizzuwatnalowerlandhurrian.n,318,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.kizzuwatnalowerlandhurrian.acc,82\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.luwianfestivalsistanuwalallupiya.n,52,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.luwianfestivalsistanuwalallupiya.acc,83\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.luwianritualspuriyannikuwattalla.n,10,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.luwianritualspuriyannikuwattalla.acc,40\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.mixedhurriansyrianluwian.n,200,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.mixedhurriansyrianluwian.acc,67\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.palaicfestivals.n,34,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.palaicfestivals.acc,82\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.syromesopotamiahurrian.n,167,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.syromesopotamiahurrian.acc,67\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.huwassannafestivals.n,189,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.huwassannafestivals.acc,90\%,tlhdig03_literature/R1_spellings_only.json runs.A.per_tradition
+R1.A.orph.mainplaced,847,tlhdig03_literature/R1_spellings_only.json runs.A.orphans_vs_main.main_placed
+R1.A.orph.placedhere,889,tlhdig03_literature/R1_spellings_only.json runs.A.orphans_vs_main.placed_here
+R1.A.orph.placedinboth,729,tlhdig03_literature/R1_spellings_only.json runs.A.orphans_vs_main.placed_in_both
+R1.A.orph.sametradition,728,tlhdig03_literature/R1_spellings_only.json runs.A.orphans_vs_main.same_tradition
+R1.A.orph.topuriyannikuwattalla,23,tlhdig03_literature/R1_spellings_only.json runs.A.orphans_vs_main.to_puriyanni_kuwattalla
+R1.A.orph.toarzawa,13,tlhdig03_literature/R1_spellings_only.json runs.A.orphans_vs_main.to_arzawa
+R1.A.kbo4122.top,"Luwian rituals (Puriyanni, Kuwattalla)",tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo4122.gap,0.131,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo4122.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo4122.analysed,33,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo4122.legible,36,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo1754.top,"Luwian rituals (Puriyanni, Kuwattalla)",tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo1754.gap,0.019,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo1754.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo1754.analysed,0,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo1754.legible,281,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kub35146.top,"Luwian rituals (Puriyanni, Kuwattalla)",tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kub35146.gap,0.002,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kub35146.placed,not placed,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kub35146.analysed,101,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kub35146.legible,106,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo6139.top,Kizzuwatna rituals,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo6139.gap,0.020,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo6139.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo6139.analysed,8,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo6139.legible,8,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo47130.top,"Luwian rituals (Puriyanni, Kuwattalla)",tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo47130.gap,0.094,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo47130.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo47130.analysed,105,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.A.kbo47130.legible,107,tlhdig03_literature/R1_spellings_only.json runs.A.pieces
+R1.B.n,"1{,}897",tlhdig03_literature/R1_spellings_only.json runs.B.n
+R1.B.acc,84\%,tlhdig03_literature/R1_spellings_only.json runs.B.loo_acc
+R1.B.arzawawesternrituals.n,35,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.arzawawesternrituals.acc,83\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.hattiancultlayer.n,527,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.hattiancultlayer.acc,93\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.kizzuwatnarituals.n,234,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.kizzuwatnarituals.acc,92\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.kizzuwatnalowerlandhurrian.n,323,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.kizzuwatnalowerlandhurrian.acc,79\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.luwianfestivalsistanuwalallupiya.n,55,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.luwianfestivalsistanuwalallupiya.acc,78\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.luwianritualspuriyannikuwattalla.n,106,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.luwianritualspuriyannikuwattalla.acc,86\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.mixedhurriansyrianluwian.n,206,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.mixedhurriansyrianluwian.acc,68\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.palaicfestivals.n,36,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.palaicfestivals.acc,81\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.syromesopotamiahurrian.n,175,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.syromesopotamiahurrian.acc,67\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.huwassannafestivals.n,200,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.huwassannafestivals.acc,88\%,tlhdig03_literature/R1_spellings_only.json runs.B.per_tradition
+R1.B.orph.mainplaced,847,tlhdig03_literature/R1_spellings_only.json runs.B.orphans_vs_main.main_placed
+R1.B.orph.placedhere,839,tlhdig03_literature/R1_spellings_only.json runs.B.orphans_vs_main.placed_here
+R1.B.orph.placedinboth,635,tlhdig03_literature/R1_spellings_only.json runs.B.orphans_vs_main.placed_in_both
+R1.B.orph.sametradition,608,tlhdig03_literature/R1_spellings_only.json runs.B.orphans_vs_main.same_tradition
+R1.B.orph.topuriyannikuwattalla,37,tlhdig03_literature/R1_spellings_only.json runs.B.orphans_vs_main.to_puriyanni_kuwattalla
+R1.B.orph.toarzawa,16,tlhdig03_literature/R1_spellings_only.json runs.B.orphans_vs_main.to_arzawa
+R1.B.kbo4122.top,"Luwian rituals (Puriyanni, Kuwattalla)",tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo4122.gap,0.010,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo4122.placed,not placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo4122.analysed,33,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo4122.legible,36,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo1754.top,Kizzuwatna rituals,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo1754.gap,0.017,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo1754.placed,not placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo1754.analysed,0,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo1754.legible,281,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kub35146.top,Arzawa / western rituals,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kub35146.gap,0.003,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kub35146.placed,not placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kub35146.analysed,101,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kub35146.legible,106,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo6139.top,Kizzuwatna rituals,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo6139.gap,0.022,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo6139.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo6139.analysed,8,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo6139.legible,8,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo47130.top,"Luwian rituals (Puriyanni, Kuwattalla)",tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo47130.gap,0.016,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo47130.placed,not placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo47130.analysed,105,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
+R1.B.kbo47130.legible,107,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
 wc.tokens,"320{,}638",wordclass_confidence.json legible_tokens
 wc.conf.high,63\%,wordclass_confidence.json confidence_share.high
 wc.conf.medium,25\%,wordclass_confidence.json confidence_share.medium

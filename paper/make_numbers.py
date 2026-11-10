@@ -420,6 +420,35 @@ def main():
         for f in ("same_tradition", "other_tradition", "now_unassigned", "newly_assigned"):
             put(f"E11e.{key}.{f.replace('_', '')}", num(e[k][f]), f"{s11} E11e.{k}.{f}")
 
+    # ---- R1 robustness: spellings only, with the manuscripts that have no word analyses
+    r1p = os.path.join(RES, MAIN, "R1_spellings_only.json")
+    if os.path.exists(r1p):
+        r1 = load(MAIN, "R1_spellings_only.json")
+        s1 = f"{MAIN}/R1_spellings_only.json"
+        rows = []
+        A, B = r1["runs"]["A_analysed_only"], r1["runs"]["B_all_legible"]
+        for key, run in (("A", A), ("B", B)):
+            put(f"R1.{key}.n", num(run["n"]), f"{s1} runs.{key}.n")
+            put(f"R1.{key}.acc", pct(run["loo_acc"]), f"{s1} runs.{key}.loo_acc")
+            for t, d in run["per_tradition"].items():
+                put(f"R1.{key}.{slugify(t)}.n", num(d["n"]), f"{s1} runs.{key}.per_tradition")
+                put(f"R1.{key}.{slugify(t)}.acc", pct(d["loo_acc"]), f"{s1} runs.{key}.per_tradition")
+            o = run["orphans_vs_main"]
+            for f in ("main_placed", "placed_here", "placed_in_both", "same_tradition", "to_puriyanni_kuwattalla", "to_arzawa"):
+                put(f"R1.{key}.orph.{f.replace('_', '')}", num(o[f]), f"{s1} runs.{key}.orphans_vs_main.{f}")
+            for piece, d in run["pieces"].items():
+                k = slugify(piece)
+                put(f"R1.{key}.{k}.top", tex_escape(d["top3"][0][0]), f"{s1} runs.{key}.pieces")
+                put(f"R1.{key}.{k}.gap", f"{d['gap']:.3f}", f"{s1} runs.{key}.pieces")
+                put(f"R1.{key}.{k}.placed", "placed" if d["placed"] else "not placed", f"{s1} runs.{key}.pieces")
+                put(f"R1.{key}.{k}.analysed", num(d["n_analysed"]), f"{s1} runs.{key}.pieces")
+                put(f"R1.{key}.{k}.legible", num(d["n_legible"]), f"{s1} runs.{key}.pieces")
+        for t in A["per_tradition"]:
+            a, b = A["per_tradition"][t], B["per_tradition"][t]
+            rows.append(f"{tex_escape(SHORT.get(t, t))} & {num(a['n'])} & {pct(a['loo_acc'])} & {num(b['n'])} & {pct(b['loo_acc'])} \\\\")
+        rows.append(f"\\midrule All & {num(A['n'])} & {pct(A['loo_acc'])} & {num(B['n'])} & {pct(B['loo_acc'])} \\\\")
+        table("spellings_only", rows)
+
     # ---- word classes: how each label is reached (qtm/wordclass.py on TLHdig's analyses)
     conf = load("", "wordclass_confidence.json")
     put("wc.tokens", num(conf["legible_tokens"]), "wordclass_confidence.json legible_tokens")
