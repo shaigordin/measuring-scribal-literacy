@@ -1,4 +1,6 @@
-"""Feature spaces: word tf-idf and orthographic sign n-grams (within word, n=1..3)."""
+"""Feature spaces: word tf-idf and orthographic sign n-grams (within word, n=1..3).
+
+A sign written ∅ (not on the tablet, see qtm.variants) is never part of an n-gram."""
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 LOGOGRAM = lambda t: t.isupper()  # Sumero-/Akkadograms are upper-case in TLHdig transliteration
@@ -14,7 +16,7 @@ def sign_ngrams(sign_lists, n=(1, 3), drop_logograms=False):
         if drop_logograms:
             sg = [s for s in sg if not LOGOGRAM(s)]
         for k in range(n[0], n[1] + 1):
-            out += ["·".join(sg[i:i + k]) for i in range(len(sg) - k + 1)]
+            out += ["·".join(sg[i:i + k]) for i in range(len(sg) - k + 1) if "∅" not in sg[i:i + k]]
     return out
 
 
