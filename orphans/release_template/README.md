@@ -25,6 +25,20 @@ same tablet, or other copies of the same text (duplicate or join candidates). Th
 All files are UTF-8 CSV with a header row. Lists inside a cell are separated by `; ` and ordered from the
 closest down. Booleans are `True`/`False`; an empty cell means "not applicable".
 
+### Damaged and restored signs: versions A and C
+
+Editions restore broken signs in square brackets, often from duplicates or parallels. Read as written, a
+restored word would count as evidence for the very texts it was restored from. The model therefore reads
+**version C** (the main version): a sign counts if it is preserved or damaged (half brackets, or partly in
+brackets), also when its reading is uncertain; restored, omitted and lost signs do not count. A word counts
+if at least half its signs count, or if the same word form is at least half preserved elsewhere in the same
+text (`n_words_same_text`). Restorations supported only by other texts are never used. Restored signs never
+count as spellings: they are left out of the sign sequences, and in the barcode a sign missing from either
+piece matches anything. **Version A** reads the edition as printed, restorations included. It is given for
+comparison (`status_A`, `placed_tradition_A`). Of the $a_placed texts version A places, $a_both are also
+placed in version C, $a_same of them in the same tradition. Version C places fewer fragments, because
+fragments have fewer words left once restorations are set aside (margin $margin in C).
+
 ### Which texts
 
 Every TLHdig 0.3 text filed under one of Laroche's residual bins, and every EBo piece (the fragments
@@ -78,8 +92,8 @@ $traditions_table
    the method was asked where it ranks the known partner (`run_known_joins.py`). For the $kd_n
    duplicates, the partner ranks first $kd_top1 times, in the top 5 $kd_top5 times and in the top 20
    $kd_top20 times (median rank $kd_median); $kd_pass pairs pass the match checks. For the $kj_n suspected
-   joins, the partner is in the top 20 only $kj_top20 times (median rank $kj_median), and $kj_pass pass the
-   checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
+   joins, the partner is in the top 20 in only $kj_top20 of the $kj_n cases (median rank $kj_median), and $kj_pass of
+   them pass the checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
    **The ranking and the checks therefore find duplicates and parallel copies well, and joins poorly.**
    A candidate that passes is first of all a text with the same wording and spelling: a duplicate, a
    parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).
@@ -115,9 +129,10 @@ $compositions_columns
 
 $example_ebo
 
-EBo 133 has no photograph and no catalogue entry yet. KBo 44.140 is the only one of its 20 nearest
-manuscripts that passes the three checks. Both repeat the formula "1-ŠU e-ku-zi / 1 NINDA ta-kar-mu-un
-pár-ši-ia" in the same spellings. Whether the two pieces join can only be decided on the tablets.
+EBo 133 has no photograph and no catalogue entry yet. Its candidates repeat the formula "1-ŠU e-ku-zi /
+1 NINDA ta-kar-mu-un pár-ši-ia"; in EBo 133 itself the first *takarmun* is largely restored, so in version C
+it counts only because the word is preserved elsewhere in the same fragment. Whether the pieces join can
+only be decided on the tablets.
 
 $example_kbo
 
@@ -171,14 +186,17 @@ Everything is produced by committed code from the public TLHdig release. Nothing
 git clone $code_url
 cd measuring-scribal-literacy/orphans
 python3 -m pip install -r requirements.txt      # Python 3.13
-bash reproduce.sh                                # downloads TLHdig 0.3 from Zenodo, runs all experiments
-python3 make_release.py data/tokens.csv --run results/tlhdig03_literature --out release
+bash reproduce.sh                                # downloads TLHdig 0.3 from Zenodo, parses it (version A), runs all experiments
+bash run_variant.sh C                            # builds data/tokens_C.csv, runs the experiments on version C
+python3 make_release.py data/tokens_C.csv --run results/tlhdig03_literature_C \
+    --tokens-a data/tokens.csv --run-a results/tlhdig03_literature --out release
 python3 release_docs.py release --version $version --zip
 ```
 
 `make_release.py` takes about 10 minutes on a laptop. It reproduces exactly the placements, open-set and
 robustness results of the paper (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
-`E9_orphan_fit.csv`, `E11_report.json`, `R1_spellings_only.json` in `results/tlhdig03_literature/`).
+`E9_orphan_fit.csv`, `E11_report.json`, `R1_spellings_only.json` in `results/tlhdig03_literature_C/`;
+version A in `results/tlhdig03_literature/`).
 
 ## How to cite
 

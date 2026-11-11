@@ -55,12 +55,27 @@
      {
       "name": "n_words_analysed",
       "type": "integer",
-      "description": "Words with a TLHdig word analysis: what the model reads."
+      "description": "Analysed words that count in version C (on the tablet, or supported by the same text): what the model reads."
      },
      {
       "name": "n_words_legible",
       "type": "integer",
-      "description": "Legible words, analysed or not (used by the spellings-only check)."
+      "description": "Legible words on the tablet, analysed or not (used by the spellings-only check)."
+     },
+     {
+      "name": "n_words_as_edited",
+      "type": "integer",
+      "description": "Analysed words as the edition prints them, restorations included (version A)."
+     },
+     {
+      "name": "n_words_same_text",
+      "type": "integer",
+      "description": "Words that count only because the same word form is at least half preserved elsewhere in the same text."
+     },
+     {
+      "name": "present_share",
+      "type": "number",
+      "description": "Share of the text's signs that are preserved or damaged (not restored, omitted or lost)."
      },
      {
       "name": "tlhdig_url",
@@ -236,6 +251,16 @@
       "name": "words_other_words",
       "type": "number",
       "description": "Share of the analysed words in the word category 'other words'."
+     },
+     {
+      "name": "status_A",
+      "type": "string",
+      "description": "status in version A (restored signs read as written), for comparison."
+     },
+     {
+      "name": "placed_tradition_A",
+      "type": "string",
+      "description": "placed_tradition in version A, for comparison."
      }
     ]
    }

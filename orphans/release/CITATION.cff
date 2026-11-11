@@ -3,7 +3,7 @@ message: "If you use this dataset, please cite it as below, together with TLHdig
 type: dataset
 title: "Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)"
 version: "1.0.0"
-date-released: "2026-11-10"
+date-released: "2026-11-11"
 license: CC-BY-4.0
 authors:
   - family-names: "Gordin"

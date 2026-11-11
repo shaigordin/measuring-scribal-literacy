@@ -29,8 +29,11 @@ FRAGMENTS = [
     ("filed_under_cth", "string", "CTH number under which TLHdig files the text (Laroche's catalogue, as on the Portal)."),
     ("laroche_bin", "string", "The residual bin the text comes from: CTH 470, 500, 670, 832, the CTH 390-469 rituals no study groups, or an EBo piece filed under another CTH."),
     ("is_ebo", "boolean", "True for the EBo pieces (fragments rediscovered at Boğazköy in 2025, transliterations only)."),
-    ("n_words_analysed", "integer", "Words with a TLHdig word analysis: what the model reads."),
-    ("n_words_legible", "integer", "Legible words, analysed or not (used by the spellings-only check)."),
+    ("n_words_analysed", "integer", "Analysed words that count in version C (on the tablet, or supported by the same text): what the model reads."),
+    ("n_words_legible", "integer", "Legible words on the tablet, analysed or not (used by the spellings-only check)."),
+    ("n_words_as_edited", "integer", "Analysed words as the edition prints them, restorations included (version A)."),
+    ("n_words_same_text", "integer", "Words that count only because the same word form is at least half preserved elsewhere in the same text."),
+    ("present_share", "number", "Share of the text's signs that are preserved or damaged (not restored, omitted or lost)."),
     ("tlhdig_url", "string", "The text in TLHdig on the Mainz Portal."),
     ("konkordanz_url", "string", "The text in the Konkordanz der hethitischen Keilschrifttafeln (first piece of a join)."),
     ("status", "string", "placed: the nearest tradition leads the runner-up by at least the margin; below_margin: scored but not placed; too_small: fewer than 5 analysed words, no results."),
@@ -56,7 +59,10 @@ FRAGMENTS = [
     ("manuscripts_top5_similarity", "string", "Cosine similarity to each of manuscripts_top5."),
     ("manuscripts_top20", "string", "The 20 nearest manuscripts; details for each in nearest_manuscripts.csv."),
     ("match_candidates", "string", "Those of the 20 nearest manuscripts that pass all three match checks: duplicates, parallels or joins to check (see README)."),
-] + [(f"words_{c}", "number", f"Share of the analysed words in the word category '{c.replace('_', ' ')}'.") for c in CATS]
+] + [(f"words_{c}", "number", f"Share of the analysed words in the word category '{c.replace('_', ' ')}'.") for c in CATS] + [
+    ("status_A", "string", "status in version A (restored signs read as written), for comparison."),
+    ("placed_tradition_A", "string", "placed_tradition in version A, for comparison."),
+]
 
 JOINS = [
     ("txtid", "string", "The fragment (as in fragments.csv)."),
@@ -167,7 +173,7 @@ def main():
     ranks = [l.split("; ") for l in r.compositions_top5]
     own = ["CTH " + c for c in r.filed_under_cth]
     # check of the manuscript ranking and the join checks against the Konkordanz (run_known_joins.py)
-    kj = pd.read_csv(os.path.join(os.path.dirname(__file__) or ".", "results", "tlhdig03_literature",
+    kj = pd.read_csv(os.path.join(os.path.dirname(__file__) or ".", "results", "tlhdig03_literature_C",
                                   "known_joins", "known_joins.csv"))
     kd, kjn = kj[kj.relation == "duplicate"], kj[kj.relation == "join"]
     known = {"kd_n": len(kd), "kd_median": f"{kd['rank'].median():g}", "kd_top1": int((kd['rank'] == 1).sum()),
@@ -175,7 +181,9 @@ def main():
              "kd_pass": int(kd.passes_join_checks.sum()), "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
              "kj_median": f"{kjn['rank'].median():g}", "kj_pass": int(kjn.passes_join_checks.sum())}
     audit = json.load(open(os.path.join(os.path.dirname(__file__) or ".", "results", "wordclass_audit_scores.json")))
-    v = {**known, "known_n": f"{len(r):,}", "known_top1": f"{sum(o == l[0] for o, l in zip(own, ranks)):,}",
+    va = S.get("version_A", {})
+    v = {"a_placed": f"{va.get('placed_A', 0):,}", "a_both": f"{va.get('placed_both', 0):,}",
+         "a_same": f"{va.get('same_tradition', 0):,}", **known, "known_n": f"{len(r):,}", "known_top1": f"{sum(o == l[0] for o, l in zip(own, ranks)):,}",
          "known_top1_share": f"{sum(o == l[0] for o, l in zip(own, ranks)) / len(r):.0%}",
          "known_top5": f"{sum(o in l for o, l in zip(own, ranks)):,}",
          "known_top5_share": f"{sum(o in l for o, l in zip(own, ranks)) / len(r):.0%}",

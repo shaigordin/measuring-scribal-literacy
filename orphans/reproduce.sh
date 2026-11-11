@@ -26,7 +26,7 @@ echo "$MD5  $ZIP" | md5sum -c -
 # 2. token table (one row per word, with word classes)
 #    tokens_marks.csv adds sign status (preserved/damaged/restored), Akkadogram/Sumerogram layer and
 #    editorial flags; tokens.csv (version A) is the table as published so far, without them.
-#    Version C (main, damage-aware): bash run_variant.sh C, after this script.
+#    Version C (main, damage-aware) is built and run by run_variant.sh in step 4.
 python3 -m qtm.tlhdig "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" "$DATA/tokens_marks.csv" > "$DATA/parse.log" 2> "$DATA/parse.err"
 python3 -m qtm.variants "$DATA/tokens_marks.csv" "$DATA/tokens.csv" --variant A
 TOK=$DATA/tokens.csv
@@ -65,7 +65,16 @@ python3 review_wordclass.py rescore --tokens "$TOK"                             
 
 # 4. Zenodo release: closest traditions, compositions, manuscripts and duplicate or join candidates for every
 #    fragment in Laroche's residual bins (release/README.md documents every column)
-python3 make_release.py "$TOK" --run "${OUT}_literature" --out release > release.log
+bash run_variant.sh C "$DATA"                                                    # version C (main)
+# Konkordanz duplicates and suspected joins (same pages as the version A check), and the J1 join model
+for V in "" _C; do T=$TOK; [ "$V" = _C ] && T=$DATA/tokens_C.csv; O=${OUT}_literature$V; mkdir -p "$O/known_joins" "$O/joins"
+  python3 run_known_joins.py "$T" --run "$O" --cache "$DATA/konkordanz" --out "$O/known_joins" --labels "$O/known_joins/labels.csv" \
+    --pages-from results/tlhdig03_literature/known_joins/known_joins.json > "$O/known_joins/run.log"
+  python3 run_join_model.py "$T" --run "$O" --xml "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" --cache "$DATA/konkordanz" --fetch \
+    --k 200 --out "$O/joins" > "$O/joins/run.log"
+done
+python3 make_release.py "$DATA/tokens_C.csv" --run "${OUT}_literature_C" \
+  --tokens-a "$TOK" --run-a "${OUT}_literature" --out release > release.log
 python3 release_docs.py release --version "${RELEASE_VERSION:-1.0.0}" --zip
 
 # 5. slides

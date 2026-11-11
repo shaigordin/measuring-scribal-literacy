@@ -46,7 +46,7 @@ from qtm.features import tokens
 from qtm.groups import ABSTRACT, GROUPSETS, HISTORICAL, RESIDUE, is_orphan, label_map
 from qtm.wordclass import CATEGORIES, category
 from run_experiments import MIN_WORDS, featurise
-from run_join_candidates import SKIP, norm_sp
+from run_join_candidates import SKIP, norm_sp, same_spelling
 from run_openset import KS, outside_genres
 from run_spellings_only import legible
 
@@ -93,15 +93,18 @@ def barcode(frag, cand):
     """The join barcode of run_join_candidates.py for one fragment-candidate pair."""
     fw = [(w, norm_sp(t)) for w, t in zip(frag.words, frag.translits) if not SKIP.match(w)]
     cols, seen = [], set()
-    for w, t in fw:
+    for w, t in sorted(fw, key=lambda p: p[1].count("∅")):  # each word's most complete spelling
         if w not in seen:
             seen.add(w)
             cols.append((w, t))
+    order = [w for w, _ in fw]
+    cols.sort(key=lambda c: order.index(c[0]))
     pairs = sorted({(w1, w2) for (w1, _), (w2, _) in zip(fw, fw[1:]) if w1 != w2})
     spell = {}
     for w, t in zip(cand.words, cand.translits):
         spell.setdefault(w, set()).add(norm_sp(t))
-    cells = "".join("S" if w in spell and t in spell[w] else ("W" if w in spell else ".") for w, t in cols)
+    cells = "".join("S" if w in spell and any(same_spelling(t, u) for u in spell[w]) else ("W" if w in spell else ".")
+                    for w, t in cols)
     bigr = set(zip(cand.words, cand.words[1:]))
     shared_ph = [" ".join(p) for p in pairs if p in bigr]
     n_shared = sum(c != "." for c in cells)
@@ -113,10 +116,32 @@ def barcode(frag, cand):
             "shared_phrases": SEP.join(shared_ph), **checks, "passes_match_checks": all(checks.values())}
 
 
+def placement_a(tokens_a, run_a, ids, allcths):
+    """Placement of the same texts by the version A model (restored signs read as written)."""
+    rep = json.load(open(f"{run_a}/report.json"))
+    trad_of = label_map(GROUPSETS[rep["groups"]])
+    exp = load(tokens_a, cths=allcths)
+    docs = load(tokens_a)
+    for d in (exp, docs):
+        d["orphan"] = [is_orphan(t, c) for t, c in zip(d.txtid, d.cth_number)]
+    fr = pd.concat([exp[exp.txtid.isin(ids)], docs[docs.txtid.isin(ids) & ~docs.txtid.isin(exp.txtid)]])
+    fr = fr[fr.n_words >= MIN_PLACE].reset_index(drop=True)
+    ref = exp[~exp.orphan & exp.cth_number.isin(trad_of) & (exp.n_words >= MIN_WORDS)].reset_index(drop=True)
+    vec, X = featurise(ref, "both")
+    C, labs = centroids(X, ref.cth_number.map(trad_of).to_numpy())
+    p, _, _ = assign(scores(normalize(vec.transform([tokens(r, "both") for _, r in fr.iterrows()])), C), labs,
+                     margin=rep["E2_abstention"]["margin"])
+    n_words = docs.set_index("txtid").n_words
+    out = {t: (q or "", "placed" if q else "below_margin") for t, q in zip(fr.txtid, p)}
+    return {t: out.get(t, ("", "too_small")) for t in ids}, n_words
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tokens")
     ap.add_argument("--run", required=True, help="results folder of the main model (report.json, E9_report.json)")
+    ap.add_argument("--tokens-a", help="version A token table (as edited), for the placed_tradition_A column")
+    ap.add_argument("--run-a", help="results folder of the version A model")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
@@ -134,6 +159,13 @@ def main():
     allt = raw.groupby("txtid", sort=False).agg(cth=("cth_number", "first"),
                                                 n_analysed=("word", lambda s: int(s.notna().sum())),
                                                 n_legible=("translit", lambda s: int(s.map(legible).sum())))
+    if "support" in raw.columns:      # damage-aware table (qtm.variants C): signs and words on the tablet
+        num = lambda c: pd.to_numeric(raw[c], errors="coerce").fillna(0)
+        dmg = pd.DataFrame({"txtid": raw.txtid, "signs": num("n_signs"), "kept": num("n_preserved") + num("n_damaged"),
+                            "same_text": (raw.support == "same_text").astype(int)}).groupby("txtid").sum()
+        allt["present_share"] = (dmg.kept / dmg.signs.where(dmg.signs > 0)).round(3)
+        allt["n_same_text"] = dmg.same_text
+
     scope = allt[allt.index.isin(in_bins.index) | allt.index.str.startswith("EBo")].copy()
     scope["cth"] = [in_bins.get(t, c) for t, c in zip(scope.index, scope.cth)]
     scope["bin"] = [BINS.get(c, "EBo filed under other CTH numbers") for c in scope.cth]
@@ -161,6 +193,12 @@ def main():
     common = np.asarray((X > 0).mean(0)).ravel() >= COMMON
     D = C[o[:, 0]] - C[o[:, 1]]                                       # margin direction per fragment
     comm = np.asarray(Xf.multiply(sparse.csr_matrix(D * common)).sum(1)).ravel()
+
+    # --- the same texts in version A (as edited, restorations read as written), for comparison
+    if a.tokens_a and a.run_a:
+        pa, n_words_a = placement_a(a.tokens_a, a.run_a, set(scope.index), allcths)
+    else:
+        pa, n_words_a = {}, pd.Series(dtype=int)
 
     # --- open set (E9): fit floor by size, nearest class with outside genres added
     out_map = label_map(outside_genres(trad_of))
@@ -265,9 +303,13 @@ def main():
     for t, s in scope.iterrows():
         F.append({"txtid": t, "filed_under_cth": s.cth, "laroche_bin": s.bin, "is_ebo": t.startswith("EBo"),
                   "n_words_analysed": int(s.n_analysed), "n_words_legible": int(s.n_legible),
+                  **({"n_words_as_edited": int(n_words_a.get(t, 0)), "n_words_same_text": int(s.n_same_text),
+                      "present_share": s.present_share} if "present_share" in scope else {}),
                   "tlhdig_url": tlhdig_url(t, s.cth), "konkordanz_url": konkordanz_url(t),
-                  **rows.get(t, {"status": "too_small"})})
-    F = pd.DataFrame(F)
+                  **rows.get(t, {"status": "too_small"}),
+                  **({"status_A": pa[t][1], "placed_tradition_A": pa[t][0]} if pa else {})})
+    full = max(F, key=len)                                   # a scored row has every column
+    F = pd.DataFrame(F)[list(full)]
     natural = lambda t: [int(p) if p.isdigit() else p.lower() for p in re.split(r"(\d+)", t)]
     bin_order = {b: i for i, b in enumerate(list(dict.fromkeys(BINS.values())) + ["EBo filed under other CTH numbers"])}
     F = F.iloc[sorted(range(len(F)), key=lambda i: (bin_order[F.laroche_bin[i]], natural(F.txtid[i])))]
@@ -283,7 +325,13 @@ def main():
                   "tradition": [trad_of.get(c, res_of.get(c, "")) for c in clabs]}).to_csv(
         f"{a.out}/compositions.csv", index=False)
 
-    summary = {"texts_in_scope": int(len(F)), "with_results": int(len(frags)),
+    vs_a = {}
+    if "status_A" in F:
+        both = F[(F.status == "placed") & (F.status_A == "placed")]
+        vs_a = {"placed_A": int((F.status_A == "placed").sum()), "placed_both": int(len(both)),
+                "same_tradition": int((both.placed_tradition == both.placed_tradition_A).sum()),
+                "status_C_by_A": pd.crosstab(F.status_A, F.status).to_dict(orient="index")}
+    summary = {"version_A": vs_a, "texts_in_scope": int(len(F)), "with_results": int(len(frags)),
                "status": F.status.value_counts().to_dict(),
                "by_bin": F.assign(match=F.match_candidates.fillna("") != "").groupby("laroche_bin", sort=False).agg(
                    texts=("txtid", "size"), too_small=("status", lambda s: int((s == "too_small").sum())),

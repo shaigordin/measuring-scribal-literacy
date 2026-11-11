@@ -1,6 +1,6 @@
 # Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)
 
-Version 1.0.0 (2026-11-10). Licence: CC BY 4.0. Data source: TLHdig Beta Version 0.3,
+Version 1.0.0 (2026-11-11). Licence: CC BY 4.0. Data source: TLHdig Beta Version 0.3,
 [doi:10.5281/zenodo.20328284](https://doi.org/10.5281/zenodo.20328284). Code: [https://github.com/shaigordin/measuring-scribal-literacy](https://github.com/shaigordin/measuring-scribal-literacy), folder `orphans/`.
 
 Thousands of Hittite tablet fragments are filed in Laroche's *Catalogue des textes hittites* (CTH) under
@@ -17,7 +17,7 @@ same tablet, or other copies of the same text (duplicate or join candidates). Th
 | `fragments.csv` | One row per text: 11,368 texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its duplicate or join candidates and its word-category profile. |
 | `nearest_manuscripts.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word barcode and the three match checks. |
 | `traditions.csv` | The ten reference traditions, their CTH numbers and the studies that define them. |
-| `compositions.csv` | The 607 compositions (CTH numbers) that fragments are compared with. |
+| `compositions.csv` | The 603 compositions (CTH numbers) that fragments are compared with. |
 | `datapackage.json` | Machine-readable description of every file and column (Frictionless Data). |
 | `summary.json` | The counts quoted in this README. |
 | `CITATION.cff`, `LICENSE.txt` | How to cite; the licence. |
@@ -25,50 +25,64 @@ same tablet, or other copies of the same text (duplicate or join candidates). Th
 All files are UTF-8 CSV with a header row. Lists inside a cell are separated by `; ` and ordered from the
 closest down. Booleans are `True`/`False`; an empty cell means "not applicable".
 
+### Damaged and restored signs: versions A and C
+
+Editions restore broken signs in square brackets, often from duplicates or parallels. Read as written, a
+restored word would count as evidence for the very texts it was restored from. The model therefore reads
+**version C** (the main version): a sign counts if it is preserved or damaged (half brackets, or partly in
+brackets), also when its reading is uncertain; restored, omitted and lost signs do not count. A word counts
+if at least half its signs count, or if the same word form is at least half preserved elsewhere in the same
+text (`n_words_same_text`). Restorations supported only by other texts are never used. Restored signs never
+count as spellings: they are left out of the sign sequences, and in the barcode a sign missing from either
+piece matches anything. **Version A** reads the edition as printed, restorations included. It is given for
+comparison (`status_A`, `placed_tradition_A`). Of the 3,400 texts version A places, 1,651 are also
+placed in version C, 1,636 of them in the same tradition. Version C places fewer fragments, because
+fragments have fewer words left once restorations are set aside (margin 0.028 in C).
+
 ### Which texts
 
 Every TLHdig 0.3 text filed under one of Laroche's residual bins, and every EBo piece (the fragments
 rediscovered in the Boğazköy museum in 2025, transliterations only), wherever TLHdig files it. The model
 reads analysed words, so texts with fewer than 5 analysed words are listed with status `too_small` and no
-results. Of the 11,368 texts, 7,529 have results: 3,400 are placed in a tradition and 4,129
-are scored but not placed. 3,839 are too small.
+results. Of the 11,368 texts, 6,416 have results: 1,756 are placed in a tradition and 4,660
+are scored but not placed. 4,952 are too small.
 
 | Bin | Texts | Under 5 words | Scored, not placed | Placed | With duplicate or join candidates |
 |---|---|---|---|---|---|
-| CTH 470 fragments of rituals | 1,925 | 242 | 977 | 706 | 223 |
-| CTH 500 fragments of Kizzuwatna rituals | 479 | 42 | 206 | 231 | 86 |
-| CTH 670 fragments of festivals | 3,513 | 544 | 1,225 | 1,744 | 1,012 |
-| CTH 832 fragments of various content | 4,260 | 2,455 | 1,358 | 447 | 198 |
-| CTH 390-469 rituals no study groups | 1,038 | 502 | 289 | 247 | 94 |
-| EBo filed under other CTH numbers | 153 | 54 | 74 | 25 | 21 |
+| CTH 470 fragments of rituals | 1,925 | 448 | 1,155 | 322 | 219 |
+| CTH 500 fragments of Kizzuwatna rituals | 479 | 76 | 259 | 144 | 84 |
+| CTH 670 fragments of festivals | 3,513 | 1,031 | 1,469 | 1,013 | 869 |
+| CTH 832 fragments of various content | 4,260 | 2,784 | 1,319 | 157 | 147 |
+| CTH 390-469 rituals no study groups | 1,038 | 541 | 383 | 114 | 94 |
+| EBo filed under other CTH numbers | 153 | 72 | 75 | 6 | 20 |
 
 ## The method in brief
 
 1. **Reference traditions.** Ten traditions of rituals and festivals, each defined by the study that argued
    for it. Laroche's CTH numbers are only the address of each text. Every text of these CTH numbers with
-   17 or more analysed words is a reference manuscript (1,626 in all).
+   17 or more analysed words is a reference manuscript (1,350 in all).
 
 | Tradition | CTH | Reference manuscripts | Defining study |
 |---|---|---|---|
-| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 11 | Bawanypeck 2005 (THeth 25); Mouton 2010; Archi 2015 (BiOr 72) |
-| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 480 | Klinger 1996 (StBoT 37) |
-| Kizzuwatna rituals | 404, 471–499 | 165 | Miller 2004 (StBoT 46); Strauß 2006; Görke 2010 |
-| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 318 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Wegner and Salvini 1991 (ChS I/4) |
-| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 52 | HFR edition module 'Luwian festivals' (hethport.net/HFR) |
-| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 10 | Mouton and Yakubovich 2021 (JLR 19/1); Yakubovich and Mouton 2023 (StBoT 72) |
-| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 200 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3 |
-| Palaic festivals | 750–754 | 34 | HFR edition module 'Palaic festivals' (hethport.net/HFR) |
-| Syro-Mesopotamia (Hurrian) | 698, 701, 714–715, 721 | 167 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2) |
-| Ḫuwaššanna festivals | 690–694 | 189 | HFR edition module 'Ḫuwaššanna'; Laroche, CTH titles |
+| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 8 | Bawanypeck 2005 (THeth 25); Mouton 2010; Archi 2015 (BiOr 72) |
+| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 386 | Klinger 1996 (StBoT 37) |
+| Kizzuwatna rituals | 404, 471–499 | 140 | Miller 2004 (StBoT 46); Strauß 2006; Görke 2010 |
+| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 276 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Wegner and Salvini 1991 (ChS I/4) |
+| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 47 | HFR edition module 'Luwian festivals' (hethport.net/HFR) |
+| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 7 | Mouton and Yakubovich 2021 (JLR 19/1); Yakubovich and Mouton 2023 (StBoT 72) |
+| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 170 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3 |
+| Palaic festivals | 750–754 | 30 | HFR edition module 'Palaic festivals' (hethport.net/HFR) |
+| Syro-Mesopotamia (Hurrian) | 698, 701, 714–715, 721 | 134 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2) |
+| Ḫuwaššanna festivals | 690–694 | 152 | HFR edition module 'Ḫuwaššanna'; Laroche, CTH titles |
 
 2. **Features.** Each text is read as its word forms (TLHdig's normalised forms) and the sign sequences of
    its spellings (sign 1- to 3-grams within a word), so both vocabulary and scribal habit count. They are
    weighted by tf-idf, fitted on the reference manuscripts.
 3. **Closest traditions.** Cosine similarity between a fragment and the centroid (average) of each
    tradition. The *margin* is the lead of the closest tradition over the runner-up. A fragment is *placed*
-   when its margin is at least 0.018. That threshold was calibrated on reference texts cut to fragment
+   when its margin is at least 0.028. That threshold was calibrated on reference texts cut to fragment
    size, so that 80% of the fragments placed this way are placed correctly. On complete reference
-   manuscripts, leave-one-out accuracy is 84% (the largest tradition alone would give 30%).
+   manuscripts, leave-one-out accuracy is 82% (the largest tradition alone would give 29%).
 4. **Open-set checks.** A fragment can be closer to one tradition than to the others and still belong to
    none of them. `below_fit_floor` flags fragments whose best similarity is lower than that of 95% of
    reference fragments of the same size. `nearest_is_outside_genre` flags fragments that are closer to
@@ -80,24 +94,24 @@ are scored but not placed. 3,839 are too small.
    or more of all reference texts (such as *nu* or the sign *a*). These are weaker.
 6. **Closest compositions.** Cosine similarity to the centroid of each CTH number outside the residual bins
    (all its manuscripts with 5 or more analysed words). A fragment is left out of its own CTH number.
-   As a check, the CTH 390-469 texts in the dataset have a known composition. Of the 519 of them
+   As a check, the CTH 390-469 texts in the dataset have a known composition. Of the 480 of them
    whose CTH number has at least one other manuscript, the own composition ranks first among all
-   607 for 223 (43%) and among the closest five for 339
-   (65%).
-7. **Closest manuscripts, duplicate and join candidates.** The 20 most similar manuscripts among all 18,491 TLHdig texts
+   603 for 177 (37%) and among the closest five for 284
+   (59%).
+7. **Closest manuscripts, duplicate and join candidates.** The 20 most similar manuscripts among all 16,605 TLHdig texts
    with 5 or more analysed words. For each pair a *barcode* compares the fragment's content words one by
    one: the same spelling in the candidate (`S`), a different spelling (`W`), or absent (`.`). A candidate
    passes the **match checks**, which were fixed before looking at any result, if it has (1) at least half
    of the fragment's content words, (2) every shared word spelled exactly as in the fragment, and (3) at
-   least one shared two-word phrase. 1,634 fragments have at least one candidate that passes
-   (5,016 pairs in all). Such a candidate is a *duplicate or join candidate* (column `match_candidates`).
+   least one shared two-word phrase. 1,433 fragments have at least one candidate that passes
+   (4,281 pairs in all). Such a candidate is a *duplicate or join candidate* (column `match_candidates`).
    **Checked against the Konkordanz.** The Konkordanz notes duplicates ("Dupl.") and suspected joins
    for many fragments of these bins. Where both pieces are separate TLHdig texts of 5 or more words,
-   the method was asked where it ranks the known partner (`run_known_joins.py`). For the 212
-   duplicates, the partner ranks first 91 times, in the top 5 141 times and in the top 20
-   165 times (median rank 2); 56 pairs pass the match checks. For the 11 suspected
-   joins, the partner is in the top 20 only 3 times (median rank 134), and 0 pass the
-   checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
+   the method was asked where it ranks the known partner (`run_known_joins.py`). For the 180
+   duplicates, the partner ranks first 60 times, in the top 5 86 times and in the top 20
+   109 times (median rank 8); 44 pairs pass the match checks. For the 11 suspected
+   joins, the partner is in the top 20 in only 1 of the 11 cases (median rank 278), and 1 of
+   them pass the checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
    **The ranking and the checks therefore find duplicates and parallel copies well, and joins poorly.**
    A candidate that passes is first of all a text with the same wording and spelling: a duplicate, a
    parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).
@@ -111,16 +125,16 @@ are scored but not placed. 3,839 are too small.
 
 | Tradition | Fragments placed |
 |---|---|
-| Hattian cult layer | 1,493 |
-| Kizzuwatna rituals | 990 |
-| Kizzuwatna–Lower Land (Hurrian) | 381 |
-| Syro-Mesopotamia (Hurrian) | 167 |
-| Mixed (Hurrian, Syrian, Luwian) | 121 |
-| Arzawa / western rituals | 75 |
-| Ḫuwaššanna festivals | 63 |
-| Luwian rituals (Puriyanni, Kuwattalla) | 59 |
-| Luwian festivals (Ištanuwa, Lallupiya) | 43 |
-| Palaic festivals | 8 |
+| Hattian cult layer | 838 |
+| Kizzuwatna rituals | 362 |
+| Kizzuwatna–Lower Land (Hurrian) | 248 |
+| Syro-Mesopotamia (Hurrian) | 110 |
+| Mixed (Hurrian, Syrian, Luwian) | 71 |
+| Arzawa / western rituals | 46 |
+| Ḫuwaššanna festivals | 32 |
+| Luwian rituals (Puriyanni, Kuwattalla) | 26 |
+| Luwian festivals (Ištanuwa, Lallupiya) | 21 |
+| Palaic festivals | 2 |
 
 ## How to read the files
 
@@ -132,8 +146,11 @@ are scored but not placed. 3,839 are too small.
 | `filed_under_cth` | CTH number under which TLHdig files the text (Laroche's catalogue, as on the Portal). |
 | `laroche_bin` | The residual bin the text comes from: CTH 470, 500, 670, 832, the CTH 390-469 rituals no study groups, or an EBo piece filed under another CTH. |
 | `is_ebo` | True for the EBo pieces (fragments rediscovered at Boğazköy in 2025, transliterations only). |
-| `n_words_analysed` | Words with a TLHdig word analysis: what the model reads. |
-| `n_words_legible` | Legible words, analysed or not (used by the spellings-only check). |
+| `n_words_analysed` | Analysed words that count in version C (on the tablet, or supported by the same text): what the model reads. |
+| `n_words_legible` | Legible words on the tablet, analysed or not (used by the spellings-only check). |
+| `n_words_as_edited` | Analysed words as the edition prints them, restorations included (version A). |
+| `n_words_same_text` | Words that count only because the same word form is at least half preserved elsewhere in the same text. |
+| `present_share` | Share of the text's signs that are preserved or damaged (not restored, omitted or lost). |
 | `tlhdig_url` | The text in TLHdig on the Mainz Portal. |
 | `konkordanz_url` | The text in the Konkordanz der hethitischen Keilschrifttafeln (first piece of a join). |
 | `status` | placed: the nearest tradition leads the runner-up by at least the margin; below_margin: scored but not placed; too_small: fewer than 5 analysed words, no results. |
@@ -169,6 +186,8 @@ are scored but not placed. 3,839 are too small.
 | `words_adjectives` | Share of the analysed words in the word category 'adjectives'. |
 | `words_foreign_words` | Share of the analysed words in the word category 'foreign words'. |
 | `words_other_words` | Share of the analysed words in the word category 'other words'. |
+| `status_A` | status in version A (restored signs read as written), for comparison. |
+| `placed_tradition_A` | placed_tradition in version A, for comparison. |
 
 ### `nearest_manuscripts.csv`
 
@@ -212,30 +231,32 @@ are scored but not placed. 3,839 are too small.
 
 ### Two examples
 
-**EBo 133** (filed under CTH 670, 19 analysed words): nearest tradition Ḫuwaššanna festivals (0.2751), then Palaic festivals (0.2321); margin 0.0431, status `placed`. Nearest compositions: CTH 656; CTH 694; CTH 692; CTH 750; CTH 705. Duplicate or join candidates: KBo 44.140. Its five nearest manuscripts and the candidates that pass the match checks:
+**EBo 133** (filed under CTH 670, 19 analysed words): nearest tradition Palaic festivals (0.2523), then Ḫuwaššanna festivals (0.2492); margin 0.003, status `below_margin`. Nearest compositions: CTH 656; CTH 722; CTH 750; CTH 694; CTH 705. Duplicate or join candidates: KBo 44.140; DBH 46_2.139. Its five nearest manuscripts and the candidates that pass the match checks:
 
 | rank | candidate_txtid | candidate_cth | similarity | match_barcode | passes_match_checks |
 |---|---|---|---|---|---|
-| 1 | KBo 21.51 | 705 | 0.6125 | SS.S...... | False |
-| 2 | KBo 43.137 | 670 | 0.5519 | SS.S...... | False |
-| 3 | KBo 42.97 | 635 | 0.5394 | S......... | False |
-| 4 | KBo 22.226 | 670 | 0.5312 | SS.S...... | False |
-| 5 | KBo 51.173 | 670 | 0.5225 | SS.S...... | False |
-| 11 | KBo 44.140 | 669 | 0.4544 | SSSS....S. | True |
+| 1 | KBo 51.173 | 670 | 0.3793 | SS.S...... | False |
+| 2 | KBo 21.51 | 705 | 0.3712 | SS.S...... | False |
+| 3 | DBH 43_2.60 | 470 | 0.3516 | .........S | False |
+| 4 | KBo 43.137 | 670 | 0.3274 | SS.S...... | False |
+| 5 | KBo 49.126 | 656 | 0.3204 | SS..S..... | False |
+| 6 | KBo 44.140 | 669 | 0.3182 | SSSS....S. | True |
+| 18 | DBH 46_2.139 | 750 | 0.2849 | SSSS...S.. | True |
 
-EBo 133 has no photograph and no catalogue entry yet. KBo 44.140 is the only one of its 20 nearest
-manuscripts that passes the three checks. Both repeat the formula "1-ŠU e-ku-zi / 1 NINDA ta-kar-mu-un
-pár-ši-ia" in the same spellings. Whether the two pieces join can only be decided on the tablets.
+EBo 133 has no photograph and no catalogue entry yet. Its candidates repeat the formula "1-ŠU e-ku-zi /
+1 NINDA ta-kar-mu-un pár-ši-ia"; in EBo 133 itself the first *takarmun* is largely restored, so in version C
+it counts only because the word is preserved elsewhere in the same fragment. Whether the pieces join can
+only be decided on the tablets.
 
-**KBo 41.22** (filed under CTH 470, 33 analysed words): nearest tradition Luwian rituals (Puriyanni, Kuwattalla) (0.3889), then Kizzuwatna rituals (0.2455); margin 0.1435, status `placed`. Nearest compositions: CTH 409; CTH 760; CTH 458; CTH 335; CTH 767. Duplicate or join candidates: none. Its five nearest manuscripts:
+**KBo 41.22** (filed under CTH 470, 13 analysed words): nearest tradition Kizzuwatna rituals (0.1803), then Syro-Mesopotamia (Hurrian) (0.1668); margin 0.0135, status `below_margin`. Nearest compositions: CTH 458; CTH 370; CTH 335; CTH 275; CTH 450. Duplicate or join candidates: none. Its five nearest manuscripts:
 
 | rank | candidate_txtid | candidate_cth | similarity | match_barcode | passes_match_checks |
 |---|---|---|---|---|---|
-| 1 | KBo 9.125+ | 409 | 0.3486 | .S..SSSS.S..SSS..S..SS..S... | False |
-| 2 | KBo 45.267 | 760 | 0.3475 | ......SS.S...........S...... | False |
-| 3 | KBo 21.6 | 409 | 0.3409 | ....SSS......SS....SS....... | False |
-| 4 | CHDS 7.140+ | 409 | 0.3269 | ....SSSS.S.................. | False |
-| 5 | KBo 44.89 | 409 | 0.3056 | ......S..................... | False |
+| 1 | KBo 34.75 | 470 | 0.3086 | ..........S | False |
+| 2 | KBo 22.90 | 61 | 0.307 | ..........S | False |
+| 3 | KBo 56.27 | 470 | 0.2939 | ..........S | False |
+| 4 | VBoT 15 | 470 | 0.2758 | ..........S | False |
+| 5 | KBo 48.101 | 470 | 0.2735 | .....S..... | False |
 
 ## How to use it
 
@@ -269,10 +290,10 @@ pár-ši-ia" in the same spellings. Whether the two pieces join can only be deci
 
 | Analysed words | Fragments scored | With duplicate or join candidates | Share |
 |---|---|---|---|
-| 5-9 | 3,285 | 772 | 24% |
-| 10-16 | 1,909 | 428 | 22% |
-| 17-39 | 1,714 | 367 | 21% |
-| 40+ | 621 | 67 | 11% |
+| 5-9 | 3,065 | 753 | 25% |
+| 10-16 | 1,605 | 372 | 23% |
+| 17-39 | 1,302 | 244 | 19% |
+| 40+ | 444 | 64 | 14% |
 
 - **Unanalysed texts.** TLHdig 0.3 has no word analyses for some texts (all of the Luwian rituals, CTH
   758-763, and many others). The main model cannot read them, so traditions that depend on them have few
@@ -292,14 +313,17 @@ Everything is produced by committed code from the public TLHdig release. Nothing
 git clone https://github.com/shaigordin/measuring-scribal-literacy
 cd measuring-scribal-literacy/orphans
 python3 -m pip install -r requirements.txt      # Python 3.13
-bash reproduce.sh                                # downloads TLHdig 0.3 from Zenodo, runs all experiments
-python3 make_release.py data/tokens.csv --run results/tlhdig03_literature --out release
+bash reproduce.sh                                # downloads TLHdig 0.3 from Zenodo, parses it (version A), runs all experiments
+bash run_variant.sh C                            # builds data/tokens_C.csv, runs the experiments on version C
+python3 make_release.py data/tokens_C.csv --run results/tlhdig03_literature_C \
+    --tokens-a data/tokens.csv --run-a results/tlhdig03_literature --out release
 python3 release_docs.py release --version 1.0.0 --zip
 ```
 
 `make_release.py` takes about 10 minutes on a laptop. It reproduces exactly the placements, open-set and
 robustness results of the paper (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
-`E9_orphan_fit.csv`, `E11_report.json`, `R1_spellings_only.json` in `results/tlhdig03_literature/`).
+`E9_orphan_fit.csv`, `E11_report.json`, `R1_spellings_only.json` in `results/tlhdig03_literature_C/`;
+version A in `results/tlhdig03_literature/`).
 
 ## How to cite
 
