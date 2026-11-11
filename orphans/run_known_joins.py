@@ -33,7 +33,7 @@ from qtm.corpus import load
 from qtm.features import tokens
 from qtm.groups import GROUPSETS, is_orphan, label_map
 from run_experiments import MIN_WORDS, featurise
-from run_join_candidates import SKIP, norm_sp
+from run_join_candidates import SKIP, norm_sp, same_spelling
 
 SIGLUM = re.compile(r"\b(KBo|KUB|IBoT|ABoT|VBoT|HT|FHG|FHL|KpT|CHDS|HFAC|AT|BoTU|KuSa|DBH|Bo)\s?(\d+(?:/[a-z\d]+)?(?:\.\d+[a-z]?)?)")
 RELATIONS = [
@@ -124,15 +124,16 @@ def main():
         A, B = pool.iloc[i], pool.iloc[j]
         fw = [(w, norm_sp(t)) for w, t in zip(A.words, A.translits) if not SKIP.match(w)]
         cols, seen = [], set()
-        for w, t in fw:
+        for w, t in sorted(fw, key=lambda q: q[1].count("∅")):  # each word's most complete spelling
             if w not in seen:
                 seen.add(w)
                 cols.append((w, t))
+        cols.sort(key=lambda c: [w for w, _ in fw].index(c[0]))
         pairs_ = {(w1, w2) for (w1, _), (w2, _) in zip(fw, fw[1:]) if w1 != w2}
         spell = {}
         for w, t in zip(B.words, B.translits):
             spell.setdefault(w, set()).add(norm_sp(t))
-        cells = "".join("S" if w in spell and t in spell[w] else ("W" if w in spell else ".") for w, t in cols)
+        cells = "".join("S" if w in spell and any(same_spelling(t, u) for u in spell[w]) else ("W" if w in spell else ".") for w, t in cols)
         shared = sum(c != "." for c in cells)
         phrase = bool(pairs_ & set(zip(B.words, B.words[1:])))
         res.append({**p.to_dict(), "fragment_cth": A.cth_number, "partner_cth": B.cth_number,
