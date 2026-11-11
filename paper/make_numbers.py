@@ -466,7 +466,9 @@ def main():
 
     # ---- J1 join model (run_join_model.py) and the Konkordanz duplicates and joins (run_known_joins.py)
     JR = MAIN if os.path.exists(os.path.join(RES, MAIN, "joins")) else COMPARE   # join checks exist for A only so far
-    put("J1.run", "C" if JR == MAIN else "A", "which run the join checks were read from")
+    put("J1.run", "C" if JR.endswith("_C") else "A", "which run the join checks were read from")
+    KR = MAIN if os.path.exists(os.path.join(RES, MAIN, "known_joins")) else COMPARE
+    put("KJ.run", "C" if KR.endswith("_C") else "A", "which run the known-joins check was read from")
     j1p = os.path.join(RES, JR, "joins", "J1_report.json")
     if os.path.exists(j1p):
         j1 = load(JR, "joins/J1_report.json")
@@ -493,8 +495,8 @@ def main():
             k = f.replace("_", "")
             put(f"J1.w.{k}", f"{w['weight']:+.2f}".replace("-", "−"), f"{sj} weights.{f}")
             put(f"J1.w.{k}.ci", f"{w['ci_low']:.2f} to {w['ci_high']:.2f}".replace("-", "−"), f"{sj} weights.{f}")
-        kj = load(JR, "known_joins/known_joins.json")
-        sk = f"{JR}/known_joins/known_joins.json"
+        kj = load(KR, "known_joins/known_joins.json")
+        sk = f"{KR}/known_joins/known_joins.json"
         for kind in ("duplicate", "join"):
             for f in ("pairs", "top1", "top5", "top20", "top100"):
                 put(f"KJ.{kind}.{f}", num(kj[kind][f]), f"{sk} {kind}.{f}")

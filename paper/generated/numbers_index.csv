@@ -1063,7 +1063,8 @@ A.R1.B.ebo133.gap,0.045,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
 A.R1.B.ebo133.placed,placed,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
 A.R1.B.ebo133.analysed,19,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
 A.R1.B.ebo133.legible,20,tlhdig03_literature/R1_spellings_only.json runs.B.pieces
-A.J1.run,C,which run the join checks were read from
+A.J1.run,A,which run the join checks were read from
+A.KJ.run,A,which run the known-joins check was read from
 A.J1.units,"19{,}821",tlhdig03_literature/joins/J1_report.json units
 A.J1.pieces,"2{,}738",tlhdig03_literature/joins/J1_report.json pieces
 A.J1.query_pieces,"2{,}335",tlhdig03_literature/joins/J1_report.json query_pieces
@@ -2250,6 +2251,7 @@ R1.B.ebo133.placed,not placed,tlhdig03_literature_C/R1_spellings_only.json runs.
 R1.B.ebo133.analysed,19,tlhdig03_literature_C/R1_spellings_only.json runs.B.pieces
 R1.B.ebo133.legible,20,tlhdig03_literature_C/R1_spellings_only.json runs.B.pieces
 J1.run,A,which run the join checks were read from
+KJ.run,C,which run the known-joins check was read from
 J1.units,"19{,}821",tlhdig03_literature/joins/J1_report.json units
 J1.pieces,"2{,}738",tlhdig03_literature/joins/J1_report.json pieces
 J1.query_pieces,"2{,}335",tlhdig03_literature/joins/J1_report.json query_pieces
@@ -2305,19 +2307,19 @@ J1.w.logwordsa,−0.36,tlhdig03_literature/joins/J1_report.json weights.log_word
 J1.w.logwordsa.ci,−0.44 to −0.30,tlhdig03_literature/joins/J1_report.json weights.log_words_a
 J1.w.logwordsb,−0.12,tlhdig03_literature/joins/J1_report.json weights.log_words_b
 J1.w.logwordsb.ci,−0.17 to −0.04,tlhdig03_literature/joins/J1_report.json weights.log_words_b
-KJ.duplicate.pairs,212,tlhdig03_literature/known_joins/known_joins.json duplicate.pairs
-KJ.duplicate.top1,91,tlhdig03_literature/known_joins/known_joins.json duplicate.top1
-KJ.duplicate.top5,141,tlhdig03_literature/known_joins/known_joins.json duplicate.top5
-KJ.duplicate.top20,165,tlhdig03_literature/known_joins/known_joins.json duplicate.top20
-KJ.duplicate.top100,186,tlhdig03_literature/known_joins/known_joins.json duplicate.top100
-KJ.duplicate.median,2,tlhdig03_literature/known_joins/known_joins.json duplicate.median_rank
-KJ.join.pairs,11,tlhdig03_literature/known_joins/known_joins.json join.pairs
-KJ.join.top1,0,tlhdig03_literature/known_joins/known_joins.json join.top1
-KJ.join.top5,1,tlhdig03_literature/known_joins/known_joins.json join.top5
-KJ.join.top20,3,tlhdig03_literature/known_joins/known_joins.json join.top20
-KJ.join.top100,4,tlhdig03_literature/known_joins/known_joins.json join.top100
-KJ.join.median,134,tlhdig03_literature/known_joins/known_joins.json join.median_rank
-KJ.pool,"18{,}490",tlhdig03_literature/known_joins/known_joins.json pool
+KJ.duplicate.pairs,180,tlhdig03_literature_C/known_joins/known_joins.json duplicate.pairs
+KJ.duplicate.top1,60,tlhdig03_literature_C/known_joins/known_joins.json duplicate.top1
+KJ.duplicate.top5,86,tlhdig03_literature_C/known_joins/known_joins.json duplicate.top5
+KJ.duplicate.top20,109,tlhdig03_literature_C/known_joins/known_joins.json duplicate.top20
+KJ.duplicate.top100,136,tlhdig03_literature_C/known_joins/known_joins.json duplicate.top100
+KJ.duplicate.median,8,tlhdig03_literature_C/known_joins/known_joins.json duplicate.median_rank
+KJ.join.pairs,11,tlhdig03_literature_C/known_joins/known_joins.json join.pairs
+KJ.join.top1,0,tlhdig03_literature_C/known_joins/known_joins.json join.top1
+KJ.join.top5,0,tlhdig03_literature_C/known_joins/known_joins.json join.top5
+KJ.join.top20,1,tlhdig03_literature_C/known_joins/known_joins.json join.top20
+KJ.join.top100,5,tlhdig03_literature_C/known_joins/known_joins.json join.top100
+KJ.join.median,278,tlhdig03_literature_C/known_joins/known_joins.json join.median_rank
+KJ.pool,"16{,}604",tlhdig03_literature_C/known_joins/known_joins.json pool
 wc.tokens,"320{,}638",wordclass_confidence.json legible_tokens
 wc.conf.high,63\%,wordclass_confidence.json confidence_share.high
 wc.conf.medium,25\%,wordclass_confidence.json confidence_share.medium

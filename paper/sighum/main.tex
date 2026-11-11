@@ -507,12 +507,15 @@ keep the same nearest tradition. The loss is in confidence, not in direction.
 \subsection{Duplicates, not joins: a negative result}
 \label{sec:joins}
 A fragment's nearest manuscripts are leads for the philologist, and the question is what kind of
-lead they are. These checks were run on version A. Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
+lead they are. Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
 recorded duplicate pairs, the partner ranks first in \Q{KJ.duplicate.top1} and among the 20
 nearest of \Q{KJ.pool} manuscripts in \Q{KJ.duplicate.top20} (median rank
-\Q{KJ.duplicate.median}). Of the \Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reach
-the top 20 (median rank \Q{KJ.join.median}). Two pieces of one tablet share their context but, as
-a rule, not their text, so we tried to learn a ranking for joins.
+\Q{KJ.duplicate.median}). On the editor's full text the figures look better (median rank
+\Q{A.KJ.duplicate.median}, \Q{A.KJ.duplicate.top20} of \Q{A.KJ.duplicate.pairs} in the top 20),
+but partly by circularity: editors restore duplicates from each other. Of the
+\Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reaches the top 20 (median rank
+\Q{KJ.join.median}). Two pieces of one tablet share their context but, as
+a rule, not their text, so we tried to learn a ranking for joins (run so far on version A).
 
 TLHdig marks on every line of a joined text the piece it is preserved on. Splitting its joined
 texts back into their pieces gives \Q{J1.query_pieces} query pieces from \Q{J1.joined_texts}
