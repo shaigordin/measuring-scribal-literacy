@@ -66,6 +66,13 @@ python3 review_wordclass.py rescore --tokens "$TOK"                             
 # 4. Zenodo release: closest traditions, compositions, manuscripts and duplicate or join candidates for every
 #    fragment in Laroche's residual bins (release/README.md documents every column)
 bash run_variant.sh C "$DATA"                                                    # version C (main)
+# Konkordanz duplicates and suspected joins (same pages as the version A check), and the J1 join model
+for V in "" _C; do T=$TOK; [ "$V" = _C ] && T=$DATA/tokens_C.csv; O=${OUT}_literature$V; mkdir -p "$O/known_joins" "$O/joins"
+  python3 run_known_joins.py "$T" --run "$O" --cache "$DATA/konkordanz" --out "$O/known_joins" --labels "$O/known_joins/labels.csv" \
+    --pages-from results/tlhdig03_literature/known_joins/known_joins.json > "$O/known_joins/run.log"
+  python3 run_join_model.py "$T" --run "$O" --xml "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" --cache "$DATA/konkordanz" --fetch \
+    --k 200 --out "$O/joins" > "$O/joins/run.log"
+done
 python3 make_release.py "$DATA/tokens_C.csv" --run "${OUT}_literature_C" \
   --tokens-a "$TOK" --run-a "${OUT}_literature" --out release > release.log
 python3 release_docs.py release --version "${RELEASE_VERSION:-1.0.0}" --zip

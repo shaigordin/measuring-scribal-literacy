@@ -88,12 +88,12 @@ $traditions_table
    least one shared two-word phrase. $with_matches fragments have at least one candidate that passes
    ($match_pairs pairs in all). Such a candidate is a *duplicate or join candidate* (column `match_candidates`).
    **Checked against the Konkordanz.** The Konkordanz notes duplicates ("Dupl.") and suspected joins
-   for many fragments of these bins (this check was run on version A). Where both pieces are separate TLHdig texts of 5 or more words,
+   for many fragments of these bins. Where both pieces are separate TLHdig texts of 5 or more words,
    the method was asked where it ranks the known partner (`run_known_joins.py`). For the $kd_n
    duplicates, the partner ranks first $kd_top1 times, in the top 5 $kd_top5 times and in the top 20
    $kd_top20 times (median rank $kd_median); $kd_pass pairs pass the match checks. For the $kj_n suspected
-   joins, the partner is in the top 20 only $kj_top20 times (median rank $kj_median), and $kj_pass pass the
-   checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
+   joins, the partner is in the top 20 in only $kj_top20 of the $kj_n cases (median rank $kj_median), and $kj_pass of
+   them pass the checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
    **The ranking and the checks therefore find duplicates and parallel copies well, and joins poorly.**
    A candidate that passes is first of all a text with the same wording and spelling: a duplicate, a
    parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).

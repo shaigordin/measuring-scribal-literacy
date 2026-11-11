@@ -1,0 +1,13 @@
+feature,weight,ci_low,ci_high,mean_joins,mean_other
+cosine,0.382,0.295,0.481,0.271,0.156
+tradition_cos,0.183,0.001,0.365,0.988,0.984
+composition_cos,0.023,-0.104,0.129,0.949,0.936
+word_overlap,0.459,0.326,0.585,0.158,0.063
+phrase_overlap,-0.043,-0.107,-0.002,0.05,0.007
+same_spelling,0.169,0.021,0.289,0.902,0.781
+scribal_distance,-0.087,-0.16,0.0,0.121,0.145
+column_overlap,0.236,0.16,0.323,0.192,0.104
+same_series,0.123,0.05,0.171,0.055,0.009
+same_find_series,0.04,-0.036,0.099,0.066,0.046
+log_words_a,-0.258,-0.339,-0.183,3.664,3.481
+log_words_b,0.103,0.016,0.16,3.886,3.769

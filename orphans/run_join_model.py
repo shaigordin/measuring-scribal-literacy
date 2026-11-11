@@ -64,7 +64,7 @@ from qtm.konkordanz import fetch
 from qtm.layers import INDICES, indices
 from qtm.pieces import headers, piece_of
 from run_experiments import MIN_WORDS, SEED, featurise
-from run_join_candidates import SKIP, norm_sp
+from run_join_candidates import SKIP, norm_sp, same_spelling
 
 FEATURES = ["cosine", "tradition_cos", "composition_cos", "word_overlap", "phrase_overlap", "same_spelling",
             "scribal_distance", "column_overlap", "same_series", "same_find_series", "log_words_a", "log_words_b"]
@@ -168,7 +168,7 @@ def dates(s):
 # ---------- pair features
 def prep(U):
     U["content"] = [{w for w in ws if not SKIP.match(w)} for ws in U.words]
-    U["spell"] = [{w: norm_sp(t) for w, t in zip(ws, ts) if not SKIP.match(w)} for ws, ts in zip(U.words, U.translits)]
+    U["spell"] = [fullest(ws, ts) for ws, ts in zip(U.words, U.translits)]
     U["bigrams"] = [{(a, b) for a, b in zip(ws, ws[1:]) if a != b and not SKIP.match(a) and not SKIP.match(b)} for ws in U.words]
     U["cols"] = U.lnrs.map(columns)
     idx = pd.DataFrame([indices(d) for _, d in U.iterrows()])[INDICES]
@@ -177,13 +177,24 @@ def prep(U):
     U["find_series"] = U.inventory.map(find_series)
 
 
+def fullest(ws, ts):
+    """Each content word's spelling; of several, the one with fewest signs missing (∅, version C)."""
+    sp = {}
+    for w, t in zip(ws, ts):
+        if not SKIP.match(w):
+            t = norm_sp(t)
+            if w not in sp or t.count("∅") < sp[w].count("∅"):
+                sp[w] = t
+    return sp
+
+
 def jacc(a, b):
     return len(a & b) / len(a | b) if a or b else 0.0
 
 
 def pair(a, b, cos, tcos, ccos, meta):
     shared = a.content & b.content
-    same = sum(a.spell[w] == b.spell[w] for w in shared)
+    same = sum(same_spelling(a.spell[w], b.spell[w]) for w in shared)
     d = np.abs(a.idx - b.idx)
     ma, mb = meta.get(a.publication), meta.get(b.publication)
     fa, fb = (ma or {}).get("findspot", ""), (mb or {}).get("findspot", "")

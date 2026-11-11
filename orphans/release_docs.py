@@ -173,7 +173,7 @@ def main():
     ranks = [l.split("; ") for l in r.compositions_top5]
     own = ["CTH " + c for c in r.filed_under_cth]
     # check of the manuscript ranking and the join checks against the Konkordanz (run_known_joins.py)
-    kj = pd.read_csv(os.path.join(os.path.dirname(__file__) or ".", "results", "tlhdig03_literature",
+    kj = pd.read_csv(os.path.join(os.path.dirname(__file__) or ".", "results", "tlhdig03_literature_C",
                                   "known_joins", "known_joins.csv"))
     kd, kjn = kj[kj.relation == "duplicate"], kj[kj.relation == "join"]
     known = {"kd_n": len(kd), "kd_median": f"{kd['rank'].median():g}", "kd_top1": int((kd['rank'] == 1).sum()),

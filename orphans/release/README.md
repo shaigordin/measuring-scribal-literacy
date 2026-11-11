@@ -106,12 +106,12 @@ are scored but not placed. 4,952 are too small.
    least one shared two-word phrase. 1,433 fragments have at least one candidate that passes
    (4,281 pairs in all). Such a candidate is a *duplicate or join candidate* (column `match_candidates`).
    **Checked against the Konkordanz.** The Konkordanz notes duplicates ("Dupl.") and suspected joins
-   for many fragments of these bins (this check was run on version A). Where both pieces are separate TLHdig texts of 5 or more words,
-   the method was asked where it ranks the known partner (`run_known_joins.py`). For the 212
-   duplicates, the partner ranks first 91 times, in the top 5 141 times and in the top 20
-   165 times (median rank 2); 56 pairs pass the match checks. For the 11 suspected
-   joins, the partner is in the top 20 only 3 times (median rank 134), and 0 pass the
-   checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
+   for many fragments of these bins. Where both pieces are separate TLHdig texts of 5 or more words,
+   the method was asked where it ranks the known partner (`run_known_joins.py`). For the 180
+   duplicates, the partner ranks first 60 times, in the top 5 86 times and in the top 20
+   109 times (median rank 8); 44 pairs pass the match checks. For the 11 suspected
+   joins, the partner is in the top 20 in only 1 of the 11 cases (median rank 278), and 1 of
+   them pass the checks. Two pieces of one tablet usually hold different parts of the text, so they share few words.
    **The ranking and the checks therefore find duplicates and parallel copies well, and joins poorly.**
    A candidate that passes is first of all a text with the same wording and spelling: a duplicate, a
    parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).
