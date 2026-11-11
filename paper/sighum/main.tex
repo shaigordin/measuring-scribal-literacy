@@ -522,7 +522,7 @@ nearest of \Q{KJ.pool} manuscripts in \Q{KJ.duplicate.top20} (median rank
 but partly by circularity: editors restore duplicates from each other. Of the
 \Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reaches the top 20 (median rank
 \Q{KJ.join.median}). Two pieces of one tablet share their context but, as
-a rule, not their text, so we tried to learn a ranking for joins (run so far on version A).
+a rule, not their text, so we tried to learn a ranking for joins.
 
 TLHdig marks on every line of a joined text the piece it is preserved on. Splitting its joined
 texts back into their pieces gives \Q{J1.query_pieces} query pieces from \Q{J1.joined_texts}
@@ -532,22 +532,22 @@ units' profiles over traditions and over compositions, word and phrase overlap, 
 shared words spelled alike, the distance of their orthographic rates, the overlap of their
 preserved sides and columns, the same publication volume, the same excavation series, and size.
 It is tested on compositions it was not fitted on (five folds grouped by CTH number). The gain is
-small (Table~\ref{tab:joins}): the partner reaches the top 20 for \Q{J1.model.r20} of pieces,
-against \Q{J1.sim.r20} for similarity alone, although the median rank falls from
+real but modest (Table~\ref{tab:joins}): the partner reaches the top 20 for \Q{J1.model.r20} of
+pieces, against \Q{J1.sim.r20} for similarity alone, and the median rank falls from
 \Q{J1.sim.median} to \Q{J1.model.median}. On the Konkordanz's suspected joins the model places
 \Q{J1.konk.join.model.hits20} of \Q{J1.konk.join.queries} in the top 20, against
-\Q{J1.konk.join.sim.hits20}.
+\Q{J1.konk.join.sim.hits20} for similarity.
 
-The weights show why. Similarity (\Q{J1.w.cosine}) and the shared tradition and composition
-profiles (\Q{J1.w.traditioncos}, \Q{J1.w.compositioncos}) favour a join, as do identical spellings
-(\Q{J1.w.samespelling}) and preserved columns (\Q{J1.w.columnoverlap}); word overlap counts
-against it (\Q{J1.w.wordoverlap}), a weak sign of the expected complementarity. The scribal rates
-have no measurable effect (\Q{J1.w.scribaldistance}, 95\% interval \Q{J1.w.scribaldistance.ci}).
-The joins already made are those scholars could see, mostly pieces that share text, so they
-teach a model what duplicates look like. Find spot and date, the evidence one would want, cannot
-be fitted honestly, because for known joins the Konkordanz often derives them from the join
-itself. Text alone, we conclude, finds parallels and duplicates but does not tell a join from
-them; that needs physical evidence.
+The weights show what it learns. Word overlap (\Q{J1.w.wordoverlap}) and similarity
+(\Q{J1.w.cosine}) favour a join, as do preserved columns that match (\Q{J1.w.columnoverlap}),
+identical spellings (\Q{J1.w.samespelling}) and the same excavation series
+(\Q{J1.w.sameseries}); the scribal rates have no measurable effect (\Q{J1.w.scribaldistance},
+95\% interval \Q{J1.w.scribaldistance.ci}). Shared text is the strongest cue, so the model still
+rewards what duplicates have in common. The joins already made are those scholars could see,
+mostly pieces that share text, and they teach a model what duplicates look like. Find spot and
+date, the evidence one would want, cannot be fitted honestly, because for known joins the
+Konkordanz often derives them from the join itself. Text alone, we conclude, narrows the search
+for a join but does not tell a join from a duplicate; that needs physical evidence.
 
 \begin{table}[t]
   \centering
