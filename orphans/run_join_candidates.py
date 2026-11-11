@@ -36,6 +36,14 @@ def norm_sp(t):
     return re.sub(r"[\[\]⸢⸣()?!<>«»#*]", "", str(t)).strip()
 
 
+def same_spelling(a, b):
+    """Spellings agree on every sign both pieces preserve (∅ = not on the tablet, see qtm.variants)."""
+    if "∅" not in a + b:
+        return a == b
+    sa, sb = re.split(r"[-.\s{}]+", a), re.split(r"[-.\s{}]+", b)
+    return len(sa) == len(sb) and all(x == y or "∅" in (x, y) for x, y in zip(sa, sb))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tokens")
@@ -61,10 +69,11 @@ def main():
 
     fw = [(w, norm_sp(t)) for w, t in zip(frag.words, frag.translits) if not SKIP.match(w)]
     cols, seen = [], set()
-    for w, t in fw:
+    for w, t in sorted(fw, key=lambda p: p[1].count("∅")):  # each word's most complete spelling
         if w not in seen:
             seen.add(w)
             cols.append((w, t))
+    cols.sort(key=lambda c: [w for w, _ in fw].index(c[0]))
     pairs = sorted({(w1, w2) for (w1, _), (w2, _) in zip(fw, fw[1:]) if w1 != w2})
 
     out = {"txtid": a.txtid, "pool_size": int(len(pool)), "min_words": a.min_words,
@@ -75,7 +84,8 @@ def main():
         spell = {}
         for w, t in zip(d.words, d.translits):
             spell.setdefault(w, set()).add(norm_sp(t))
-        cells = "".join("S" if w in spell and t in spell[w] else ("W" if w in spell else ".") for w, t in cols)
+        cells = "".join("S" if w in spell and any(same_spelling(t, u) for u in spell[w]) else ("W" if w in spell else ".")
+                        for w, t in cols)
         seq = list(d.words)
         bigr = set(zip(seq, seq[1:]))
         shared_ph = [list(p) for p in pairs if p in bigr]

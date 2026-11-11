@@ -37,7 +37,7 @@ def is_logogram(word: str) -> bool:
 
 def phonetic(sg):
     """Lower-case (phonetic) signs of a word; drops determinatives and logographic parts."""
-    return [s for s in sg if s and not s[0].isupper()]
+    return [s for s in sg if s and s != "∅" and not s[0].isupper()]
 
 
 def spelling(sg) -> str:
@@ -63,8 +63,12 @@ def indices(doc) -> dict:
     n = len(words)
     logo = [i for i, w in enumerate(words) if is_logogram(w)]
     phon = [i for i, w in enumerate(words) if not is_logogram(w) and phonetic(sgs[i])]
-    akk = [i for i in logo if any(s.isupper() and s in AKKADIAN_SINGLE for s in sgs[i])
-           or re.search(r"[A-ZŠḪṢṬ]+-[A-ZŠḪṢṬ]", str(tr[i]))]
+    if "layers" in doc and isinstance(doc["layers"], list):
+        # tagged in TLHdig: a logogram word with an <aGr> sign is an Akkadogram (qtm.tlhdig `layer`)
+        akk = [i for i in logo if "A" in str(doc["layers"][i])]
+    else:  # token tables without the layer column: guess from the spelling
+        akk = [i for i in logo if any(s.isupper() and s in AKKADIAN_SINGLE for s in sgs[i])
+               or re.search(r"[A-ZŠḪṢṬ]+-[A-ZŠḪṢṬ]", str(tr[i]))]
     comp = [i for i in logo if re.search(r"[A-ZŠḪṢṬ₀-₉]-[a-zšḫṣṭ]", str(tr[i]))]
     det = [i for i in range(n) if "{" in str(tr[i])]
     ph_signs = [s for i in phon for s in phonetic(sgs[i])]
@@ -83,7 +87,7 @@ def variable_words(docs, min_texts=3):
     seen = defaultdict(Counter)
     for _, d in docs.iterrows():
         pairs = {(w, spelling(sg)) for w, sg, l in zip(d.words, d.signs, d.langs)
-                 if l == "Hit" and not is_logogram(w) and phonetic(sg)}
+                 if l == "Hit" and not is_logogram(w) and phonetic(sg) and "∅" not in sg}
         for w, sp in pairs:
             seen[w][sp] += 1
     return {w for w, c in seen.items() if sum(v >= min_texts for v in c.values()) >= 2}
@@ -98,7 +102,8 @@ def layer_tokens(doc, layer, variable=None):
     if layer == "lexicon":
         return [w for w, l in zip(W, L) if l == "Hit" and not is_logogram(w)]
     if layer == "spelling":
-        return [f"{w}={spelling(s)}" for w, s in zip(W, S) if w in variable]
+        # a spelling counts only when every sign of the word is on the tablet
+        return [f"{w}={spelling(s)}" for w, s in zip(W, S) if w in variable and "∅" not in s]
     if layer == "collapsed":
         return [w for w in W if w in variable]
     raise ValueError(layer)
