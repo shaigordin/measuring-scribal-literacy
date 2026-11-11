@@ -188,6 +188,8 @@ def main(cfg_path):
             break
     meas["placement"] = {"dx_px": round(dx, 1), "dy_px": best, "rule": "right boundaries aligned; moved up until the cut-outs touch"}
     figure(cfg, base, frags, meas, dx, best)
+    if cfg.get("out_slide_png"):
+        slide_figure(cfg, base, frags, meas, dx, best)
     json.dump(meas, open(os.path.join(base, cfg["out_json"]), "w"), indent=1, ensure_ascii=False)
     print(json.dumps(meas, indent=1, ensure_ascii=False))
 
@@ -257,6 +259,46 @@ def figure(cfg, base, frags, meas, dx, dy):
     y += 20
     d.multiline_text((tx, y), "\n".join(cfg["caveats"]), fill=MUTE, font=F(21), spacing=6)
     out.save(os.path.join(base, cfg["out_png"]))
+
+
+def slide_figure(cfg, base, frags, meas, dx, dy):
+    """Slide version: the placed pieces and the measurement marks only, on a transparent
+    ground, with a few large labels; the transliteration and the key go on the slide itself."""
+    F = lambda n: ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", n)
+    U, Lo = frags["upper"], frags["lower"]
+    RED, BLUE = (138, 44, 18, 255), (31, 78, 140, 255)
+    fs = cfg.get("slide_font_px", 80)
+    ox, oy = cfg.get("slide_left_margin_px", 560), 30
+    lx, ly = ox + int(round(dx)), oy + dy
+    W = max(ox + U["img"].width, lx + Lo["img"].width) + 60
+    H = ly + Lo["img"].height + 30
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(out)
+    out.alpha_composite(U["img"], (ox, oy)); out.alpha_composite(Lo["img"], (lx, ly))
+    ex = ox + int(np.median([np.flatnonzero(r).max() for r in U["mask"][int(U["edge_rows"][0]):int(U["edge_rows"][1])] if r.any()])) + 18
+    for y in range(0, H, 36):
+        d.line([(ex, y), (ex, y + 20)], fill=RED, width=7)
+    m = meas["upper"]
+    if U["rulings"]:
+        for r in U["rulings"]:
+            d.line([(ox + U["band"][0], oy + r), (ox + U["band"][2], oy + r)], fill=BLUE, width=6)
+        y0, y1 = oy + U["rulings"][0], oy + U["rulings"][1]
+        bx = ox + U["band"][0] - 40
+        d.line([(bx, y0), (bx, y1)], fill=BLUE, width=7)
+        for yy in (y0, y1):
+            d.line([(bx, yy), (ox + U["band"][0], yy)], fill=BLUE, width=7)
+        v = sorted(m["pitch_from_rulings_cm"].values())
+        left = ox + min(np.flatnonzero(r).min() for r in U["mask"][int(U["rulings"][0]):int(U["rulings"][1])] if r.any())
+        d.multiline_text((left - 30, (y0 + y1) / 2), "%.2f–%.2f\ncm/line" % (v[0], v[-1]), fill=BLUE, font=F(fs), anchor="rm", align="right")
+    if Lo["grid"]:
+        gs = [g for g in Lo["grid"] if Lo["band"][1] <= g <= Lo["band"][3]]
+        tx = lx + Lo["band"][0] - 20
+        for g in gs:
+            d.line([(tx - 40, ly + g), (tx, ly + g)], fill=BLUE, width=7)
+        d.multiline_text((tx - 64, ly + (gs[0] + gs[-1]) / 2), "%.2f\ncm/line" % meas["lower"]["spectrum_pitch_cm"], fill=BLUE, font=F(fs), anchor="rm", align="right")
+    S = cfg["out_px_per_cm"]
+    d.rectangle([ox - 480, H - 50, ox - 480 + 2 * S, H - 36], fill=(43, 26, 16, 255))
+    d.text((ox - 480, H - 74), "2 cm", fill=(43, 26, 16, 255), font=F(fs), anchor="lb")
+    out.save(os.path.join(base, cfg["out_slide_png"]))
 
 
 if __name__ == "__main__":

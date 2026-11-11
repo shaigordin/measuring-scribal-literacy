@@ -106,5 +106,6 @@
   "4. The gap between the two pieces is unknown; they are shown",
   "   touching. The order rests on the formula sequence only.",
   "5. Cut-outs are automatic; dark edges may be clipped."
- ]
+ ],
+ "out_slide_png": "results/joinfit/EBo133_KBo44140_fit_slide.png"
 }
