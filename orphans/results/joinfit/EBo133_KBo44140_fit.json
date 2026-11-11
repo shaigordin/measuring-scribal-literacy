@@ -1,0 +1,55 @@
+{
+ "upper": {
+  "px_per_cm": 69.0,
+  "ruler_blocks_px": [
+   72,
+   67,
+   70,
+   69,
+   68,
+   69,
+   69
+  ],
+  "deskew_deg": 0.0,
+  "spectrum_pitch_cm": 0.899,
+  "spectrum_sharpness": 0.0035,
+  "rulings_px": [
+   249,
+   446
+  ],
+  "ruling_distance_cm": 2.855,
+  "pitch_from_rulings_cm": {
+   "5": 0.571,
+   "6": 0.476
+  },
+  "size_cm": [
+   8.39,
+   8.39
+  ]
+ },
+ "lower": {
+  "px_per_cm": 133.0,
+  "ruler_blocks_px": [
+   133,
+   133,
+   135,
+   132,
+   136,
+   131,
+   135,
+   130
+  ],
+  "deskew_deg": 0.0,
+  "spectrum_pitch_cm": 0.536,
+  "spectrum_sharpness": 0.0041,
+  "size_cm": [
+   4.1,
+   6.69
+  ]
+ },
+ "placement": {
+  "dx_px": 348.0,
+  "dy_px": 659,
+  "rule": "right boundaries aligned; moved up until the cut-outs touch"
+ }
+}
