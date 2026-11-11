@@ -34,5 +34,6 @@ python3 run_size_example.py "$TOK" --run "$O" --txtid "KUB 29.4+" --starts 0 200
 for T in "KBo 61.39" "KUB 35.146" "EBo 133"; do
   python3 run_unplaced_example.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"
 done
+for T in "KBo 44.52" "DAAM 3.64" "KBo 52.43"; do python3 run_case.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"; done   # candidate new examples
 python3 run_test_examples.py "$TOK" --run "$O" --out "$C" >> "$C/run.log"
 echo done
