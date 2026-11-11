@@ -22,7 +22,7 @@ def macros(path, cmd):
 
 Q = macros(os.path.join(GEN, "numbers.tex"), "qtmdef")
 C = {}
-for line in open(os.path.join(GEN, "case_data.tex"), encoding="utf-8"):
+for line in open(os.path.join(GEN, "case_data_c.tex"), encoding="utf-8"):
     m = re.match(r"\\expandafter\\def\\csname case@([^\\]*)\\endcsname\{(.*)\}\s*$", line)
     if m:
         C[m.group(1)] = m.group(2)

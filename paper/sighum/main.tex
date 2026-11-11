@@ -23,7 +23,7 @@
   \textbf{\textcolor{red}{[#1?]}}\PackageWarning{qtm}{Undefined number #1}\fi}
 \makeatother
 \input{../generated/numbers.tex}
-\input{../generated/case_data.tex}
+\input{../generated/case_data_c.tex}
 \makeatletter\newcommand{\C}[1]{\@ifundefined{case@#1}{\textcolor{red}{[#1?]}\PackageWarning{qtm}{Undefined number #1}}{\csname case@#1\endcsname}}\makeatother
 \makeatletter\newcommand{\gentab}[1]{\@@input ../generated/tab_#1.tex }\makeatother
 
@@ -106,11 +106,11 @@ to assign. Our contributions are:
 %% ==========================================================================================
 \begin{figure*}[!t]
   \centering
-  \includegraphics[width=\linewidth]{case_a.pdf}
-  \caption{The worked example in version A (the editor's full text): the orphan \C{txtid} (filed
-    under \CTH{\C{filed}} in TLHdig 0.3) from its text to its placement. In the damage-aware
-    version C it is not placed (Section~\ref{sec:method}). (1) The legible words, tinted by word category (dashed: a
-    low-confidence or unclear class). (2) Each word becomes a word-form feature and sign-sequence
+  \includegraphics[width=\linewidth]{case_sighum.pdf}
+  \caption{The worked example: the orphan \C{txtid} (filed under \CTH{\C{filed}} in TLHdig 0.3)
+    from its text to its placement, on the damage-aware text. (1) The words that count, tinted by
+    word category (dashed: a low-confidence or unclear class; grey: not counted; $\emptyset$: a
+    sign not on the tablet). (2) Each word becomes a word-form feature and sign-sequence
     features, weighted by tf-idf. (3) Cosine similarity to the centroid of each tradition. (4) The
     lead of the nearest tradition over the runner-up, against the calibrated margin. (5) The lead
     split over the features that make it. (6) The same split on the text, and the closest single
@@ -242,8 +242,8 @@ Every manuscript is represented twice \citep{salton1988weighting}. The word spac
 weights of normalised word forms and stands for \term{what} is written; the sign space holds
 tf-idf weights of sign n-grams ($n=1$--3) within words and stands for \term{how} it is written.
 The main model concatenates both. Weights are sublinear, rows are L2-normalised, and features
-found in fewer than two manuscripts are dropped. In version A, \C{txtid} has \C{words} legible
-words, which yield \C{nfeat} non-zero features out of \C{dim}.
+found in fewer than two manuscripts are dropped. \C{txtid} has \C{words} words that count,
+which yield \C{nfeat} non-zero features out of \C{dim}.
 
 \paragraph{Assignment and abstention.}
 Each tradition is represented by the normalised centroid of its manuscripts, and a fragment is
@@ -253,16 +253,20 @@ unplaced otherwise. We choose $\tau$ on held-out data rather than by hand: manus
 least 40 words (at most 40 per tradition) are held out in turn and cut into ten random windows of
 $k \in \{3,5,8,10,17,25,40\}$ words, and $\tau$ is the smallest margin at which these windows
 reach \Q{E2.precision} precision. This gives $\tau=\Q{E2.margin}$ (90\% bootstrap interval
-\Q{E2.margin.lo}--\Q{E2.margin.hi}). In version A, where $\tau=\Q{A.E2.margin}$,
-\C{txtid} is closest to the \C{topshort} (\C{s1}) and next to the \C{secondshort} (\C{s2}); its
-margin of \C{margin} is well above $\tau$, and so it is placed. That placement does not survive the
-damage-aware text. Its decisive words, a formula with DINGIR.MEŠ and \textit{karpin}, are the
-editor's restorations; only \Q{case.kbo4122.words} words remain on the tablet, its similarity to
-the Luwian rituals falls to \Q{case.kbo4122.luwian}, and its lead of \Q{case.kbo4122.margin}
-(\Q{case.kbo4122.top} over \Q{case.kbo4122.second}) is below $\tau=\Q{case.kbo4122.tau}$: it is
-\Q{case.kbo4122.placed}. We keep it as a cautionary example, because it shows each step clearly
-and how much a placement can owe to restorations. \todraft{A second worked example that version C
-places is being chosen.}
+\Q{E2.margin.lo}--\Q{E2.margin.hi}). \C{txtid} is closest to the \C{topshort} (\C{s1}) and
+next to the \C{secondshort} (\C{s2}); its margin of \C{margin} is well above $\tau$, and so it is
+placed. The words that decide are the logograms of the AZU priest, the offering and the table, and
+\C{nn.mode} of the five nearest single manuscripts belong to his rituals (\CTH{\C{nn.modecth}};
+Figure~\ref{fig:case}, panel 6).
+
+The orphan KBo 41.22 shows the other side. On the editor's full text (version A) it is placed
+with the \Q{A.case.kbo4122.top}, by a lead of \Q{A.case.kbo4122.margin} on
+\Q{A.case.kbo4122.words} words. Its decisive words, a formula with DINGIR.MEŠ and
+\textit{karpin}, are the editor's restorations: on the tablet only \Q{case.kbo4122.words} words
+remain, its similarity to the Luwian rituals falls to \Q{case.kbo4122.luwian}, and its lead of
+\Q{case.kbo4122.margin} (\Q{case.kbo4122.top} over \Q{case.kbo4122.second}) is below
+$\tau$: it is \Q{case.kbo4122.placed}. A placement can owe much to restorations, which is why the
+main results count only what is on the tablet.
 
 \paragraph{Decomposing a decision.}
 Because the score is a dot product, the margin splits exactly into one term per feature,

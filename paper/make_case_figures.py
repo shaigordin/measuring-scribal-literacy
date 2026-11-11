@@ -5,7 +5,7 @@ tradition, margin, the decision split per word, the tf-idf weight of each featur
 and in the two nearest centroids, word classes per token), and writes generated/case_data.tex: macros and ready-made LaTeX snippets that figures/case_*.tex
 typeset. Standard library only.
 
-Usage: python3 make_case_figures.py [CASE.json]
+Usage: python3 make_case_figures.py [CASE.json [OUT.tex]]
 """
 import json
 import os
@@ -19,7 +19,7 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated", "cas
 CATCOLOR = {"function": "catF", "verb": "catV", "realia": "catN", "agent": "catA", "deity": "catA",
             "place": "catP", "animal": "catB", "body": "catB", "nature": "catB", "abstract": "catT",
             "adjective": "catJ", "foreign": "catX"}
-FIRST, LAST = 3, 15          # lines shown (r. Kol. 3'-15'; 1'-2' and 16'-17' are broken)
+LINES = {"KBo 41.22": (3, 15)}   # lines shown, where the edges are broken (r. Kol. 3'-15'); all lines otherwise
 
 
 def esc(s):
@@ -56,6 +56,7 @@ def short(t):
 
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else CASE
+    out = sys.argv[2] if len(sys.argv) > 2 else OUT
     case = json.load(open(path, encoding="utf-8"))
     extra = {"n_features": case["n_features"], "dim": case["dim"], "ref_counts": case["ref_counts"],
              "rows": [[f["name"], f["x"], f["c_top"], f["c_second"], f["contribution"]] for f in case["features"]],
@@ -82,6 +83,10 @@ def main():
     nn = case["nearest_manuscripts"]
     d("nn1", esc(nn[0][0])); d("nn1cth", esc(nn[0][1]))
     d("nn.409", sum(1 for r in nn[:5] if r[1] == "409"))
+    # generic: the CTH number most frequent among the five nearest manuscripts
+    cths = [r[1] for r in nn[:5]]
+    mode = max(cths, key=cths.count)
+    d("nn.modecth", esc(mode)); d("nn.mode", cths.count(mode))
 
     # 1. the text, each word tinted by its word class (dashed frame: low-confidence class)
     cls = {}
@@ -94,7 +99,8 @@ def main():
     cur, a, b = None, [], []
     for lnr, tl, word, wc, rule, conf in extra["tokens"]:
         n = line_no(lnr)
-        if n is None or not FIRST <= n <= LAST:
+        first, last = LINES.get(case["txtid"], (0, 10 ** 6))
+        if n is None or not first <= n <= last:
             continue
         if lnr != cur and a:
             rows.append((cur, a)); shaded.append((cur, b)); a, b = [], []
@@ -113,8 +119,35 @@ def main():
     L.append("\\def\\CaseShaded{" + fmt(shaded) + "}")
 
     # the word followed from text to features in step 2, tinted by its class
-    key = next(t for t in extra["tokens"] if t[1] == "pa-an-ga-u-wa-aš")
-    L.append(f"\\def\\CaseKeyWord{{\\wc{{{CATCOLOR.get(key[3], 'catO')}}}{{{'low' if key[5] == 'low' or key[3] not in CATCOLOR else 'ok'}}}{{pa-an-ga-u-wa-aš}}}}")
+    key = next((t for t in extra["tokens"] if t[1] == "pa-an-ga-u-wa-aš"), None)
+    if key:
+        L.append(f"\\def\\CaseKeyWord{{\\wc{{{CATCOLOR.get(key[3], 'catO')}}}{{{'low' if key[5] == 'low' or key[3] not in CATCOLOR else 'ok'}}}{{pa-an-ga-u-wa-aš}}}}")
+    # generic: the syllabically written word of three or more signs with the largest share of the
+    # lead, its word-form feature and its two-to-three-sign features
+    contrib = {r[0]: r for r in extra["rows"]}
+    best = None
+    for lnr, tl, word, wc, rule, conf in extra["tokens"]:
+        if not word or word not in contrib or "∅" in tl or len(tl.split("-")) < 3 or not tl.islower():
+            continue
+        if best is None or contrib[word][4] > contrib[best[2]][4]:
+            best = (lnr, tl, word, wc, rule, conf)
+    if best:
+        lnr, tl, word, wc, rule, conf = best
+        L.append(f"\\def\\GenKeyWord{{\\wc{{{CATCOLOR.get(wc, 'catO')}}}{{{'low' if conf == 'low' or wc not in CATCOLOR else 'ok'}}}{{{translit(tl)}}}}}")
+        d("gen.word", esc(word)); d("gen.x.w", f"{contrib[word][1]:.2f}")
+        d("gen.idf.word", f"{extra['idf'].get(word, 0):.1f}")
+        sg = tl.split("-")
+        grams = ["§" + "·".join(sg[i:i + n]) for n in (3, 2) for i in range(len(sg) - n + 1)]
+        grams = [g for g in grams if g in contrib][:3]
+        L.append("\\def\\GenGrams{" + "".join(
+            f"\\hspace*{{1mm}}$\\to$ signs {feature(g)} \\hfill {contrib[g][1]:.2f}\\\\" for g in grams) + "}")
+    singles = [(v, f) for f, v in extra["idf"].items() if f.startswith("§") and "·" not in f]
+    if singles:
+        v, f = min(singles)
+        d("gen.idf.common", f"{v:.1f}"); L.append(f"\\def\\GenCommonSign{{{feature(f)}}}")
+    # the features with the largest shares of the lead, as words for the last panel
+    top3 = [r[0] for r in extra["rows"] if r[4] > 0 and not r[0].startswith("§")][:3]
+    L.append("\\def\\GenTopWords{" + ", ".join(feature(f) for f in top3) + "}")
 
     # 2. similarity to each tradition (bar chart rows: name, value, is-top)
     bars = [f"\\simbar{{{i}}}{{{esc(short(t))}}}{{{v:.3f}}}{{{'top' if t == top else ('second' if t == second else 'other')}}}"
@@ -133,12 +166,13 @@ def main():
     L.append("\\def\\CaseTug{" + "".join(tug) + "}")
     # one word's features, for the 'from word to features' step
     for k, f in (("w", "pankauaš"), ("n1", "§pa·an·ga"), ("n2", "§an·ga·u"), ("n3", "§ga·u·wa")):
-        r = next(r for r in feats if r[0] == f)
-        d(f"x.{k}", f"{r[1]:.2f}")
-    os.makedirs(os.path.dirname(OUT), exist_ok=True)
-    with open(OUT, "w", encoding="utf-8") as fh:
+        r = next((r for r in feats if r[0] == f), None)
+        if r:
+            d(f"x.{k}", f"{r[1]:.2f}")
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    with open(out, "w", encoding="utf-8") as fh:
         fh.write("\n".join(L) + "\n")
-    print("wrote", OUT)
+    print("wrote", out)
 
 
 if __name__ == "__main__":
