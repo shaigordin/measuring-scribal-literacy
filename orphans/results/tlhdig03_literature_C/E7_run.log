@@ -1,0 +1,247 @@
+logograms 0.671 0.263 1295
+foreign 0.806 0.333 546
+lexicon 0.665 0.263 1292
+spelling 0.447 0.274 1155
+collapsed 0.498 0.273 1215
+indices {'acc': 0.378, 'majority': 0.286, 'null_mean': 0.279, 'p': 0.0099, 'n': 1351, 'classes': 10}
+{
+ "corpus": {
+  "texts": 1351,
+  "variable_words": 203
+ },
+ "E7a_layers": {
+  "logograms": {
+   "acc": 0.671,
+   "majority": 0.263,
+   "null_mean": 0.128,
+   "p": 0.0099,
+   "n": 1295,
+   "classes": 10,
+   "recall_by_class": {
+    "Arzawa / western rituals": 0.5,
+    "Hattian cult layer": 0.656,
+    "Kizzuwatna rituals": 0.712,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.713,
+    "Luwian festivals (Ištanuwa, Lallupiya)": 0.674,
+    "Luwian rituals (Puriyanni, Kuwattalla)": 0.429,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.533,
+    "Palaic festivals": 0.731,
+    "Syro-Mesopotamia (Hurrian)": 0.632,
+    "Ḫuwaššanna festivals": 0.789
+   },
+   "texts_with_layer": 1295
+  },
+  "foreign": {
+   "acc": 0.806,
+   "majority": 0.333,
+   "null_mean": 0.182,
+   "p": 0.0099,
+   "n": 546,
+   "classes": 8,
+   "recall_by_class": {
+    "Hattian cult layer": 0.846,
+    "Kizzuwatna rituals": 0.864,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.798,
+    "Luwian festivals (Ištanuwa, Lallupiya)": 0.944,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.775,
+    "Palaic festivals": 0.692,
+    "Syro-Mesopotamia (Hurrian)": 0.747,
+    "Ḫuwaššanna festivals": 0.0
+   },
+   "texts_with_layer": 546
+  },
+  "lexicon": {
+   "acc": 0.665,
+   "majority": 0.263,
+   "null_mean": 0.147,
+   "p": 0.0099,
+   "n": 1292,
+   "classes": 10,
+   "recall_by_class": {
+    "Arzawa / western rituals": 0.375,
+    "Hattian cult layer": 0.721,
+    "Kizzuwatna rituals": 0.626,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.601,
+    "Luwian festivals (Ištanuwa, Lallupiya)": 0.733,
+    "Luwian rituals (Puriyanni, Kuwattalla)": 0.167,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.641,
+    "Palaic festivals": 0.63,
+    "Syro-Mesopotamia (Hurrian)": 0.614,
+    "Ḫuwaššanna festivals": 0.783
+   },
+   "texts_with_layer": 1292
+  },
+  "spelling": {
+   "acc": 0.447,
+   "majority": 0.274,
+   "null_mean": 0.117,
+   "p": 0.0099,
+   "n": 1155,
+   "classes": 10,
+   "recall_by_class": {
+    "Arzawa / western rituals": 0.125,
+    "Hattian cult layer": 0.392,
+    "Kizzuwatna rituals": 0.365,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.375,
+    "Luwian festivals (Ištanuwa, Lallupiya)": 0.474,
+    "Luwian rituals (Puriyanni, Kuwattalla)": 0.25,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.606,
+    "Palaic festivals": 0.429,
+    "Syro-Mesopotamia (Hurrian)": 0.558,
+    "Ḫuwaššanna festivals": 0.531
+   },
+   "texts_with_layer": 1155
+  },
+  "collapsed": {
+   "acc": 0.498,
+   "majority": 0.273,
+   "null_mean": 0.11,
+   "p": 0.0099,
+   "n": 1215,
+   "classes": 10,
+   "recall_by_class": {
+    "Arzawa / western rituals": 0.125,
+    "Hattian cult layer": 0.47,
+    "Kizzuwatna rituals": 0.46,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.379,
+    "Luwian festivals (Ištanuwa, Lallupiya)": 0.575,
+    "Luwian rituals (Puriyanni, Kuwattalla)": 0.25,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.623,
+    "Palaic festivals": 0.375,
+    "Syro-Mesopotamia (Hurrian)": 0.549,
+    "Ḫuwaššanna festivals": 0.658
+   },
+   "texts_with_layer": 1215
+  },
+  "orthographic_indices": {
+   "acc": 0.378,
+   "majority": 0.286,
+   "null_mean": 0.279,
+   "p": 0.0099,
+   "n": 1351,
+   "classes": 10
+  }
+ },
+ "E7b_index_profile_z": {
+  "Arzawa / western rituals": {
+   "logogram_share": 0.119,
+   "akkadogram_share": 0.038,
+   "complement_rate": 0.125,
+   "determinative_rate": -0.005,
+   "plene_rate": -0.13,
+   "cvc_share": 0.125,
+   "u_acute_share": -0.368
+  },
+  "Hattian cult layer": {
+   "logogram_share": -0.467,
+   "akkadogram_share": -0.392,
+   "complement_rate": 0.296,
+   "determinative_rate": -0.068,
+   "plene_rate": 0.456,
+   "cvc_share": -0.211,
+   "u_acute_share": 0.35
+  },
+  "Kizzuwatna rituals": {
+   "logogram_share": 0.094,
+   "akkadogram_share": -0.164,
+   "complement_rate": -0.082,
+   "determinative_rate": -0.413,
+   "plene_rate": -0.244,
+   "cvc_share": 0.147,
+   "u_acute_share": 0.102
+  },
+  "Kizzuwatna–Lower Land (Hurrian)": {
+   "logogram_share": 0.232,
+   "akkadogram_share": 0.361,
+   "complement_rate": -0.199,
+   "determinative_rate": -0.043,
+   "plene_rate": -0.3,
+   "cvc_share": 0.035,
+   "u_acute_share": -0.329
+  },
+  "Luwian festivals (Ištanuwa, Lallupiya)": {
+   "logogram_share": -0.111,
+   "akkadogram_share": 0.286,
+   "complement_rate": -0.21,
+   "determinative_rate": 0.124,
+   "plene_rate": -0.159,
+   "cvc_share": 0.063,
+   "u_acute_share": 0.299
+  },
+  "Luwian rituals (Puriyanni, Kuwattalla)": {
+   "logogram_share": 0.068,
+   "akkadogram_share": -0.927,
+   "complement_rate": 1.332,
+   "determinative_rate": -0.595,
+   "plene_rate": -0.301,
+   "cvc_share": 0.152,
+   "u_acute_share": 0.176
+  },
+  "Mixed (Hurrian, Syrian, Luwian)": {
+   "logogram_share": 0.288,
+   "akkadogram_share": -0.071,
+   "complement_rate": -0.062,
+   "determinative_rate": 0.32,
+   "plene_rate": -0.177,
+   "cvc_share": 0.33,
+   "u_acute_share": -0.139
+  },
+  "Palaic festivals": {
+   "logogram_share": -0.698,
+   "akkadogram_share": -0.411,
+   "complement_rate": 0.865,
+   "determinative_rate": 0.049,
+   "plene_rate": 0.003,
+   "cvc_share": 0.106,
+   "u_acute_share": -0.034
+  },
+  "Syro-Mesopotamia (Hurrian)": {
+   "logogram_share": 0.217,
+   "akkadogram_share": 0.177,
+   "complement_rate": -0.319,
+   "determinative_rate": -0.034,
+   "plene_rate": 0.177,
+   "cvc_share": -0.19,
+   "u_acute_share": -0.262
+  },
+  "Ḫuwaššanna festivals": {
+   "logogram_share": 0.325,
+   "akkadogram_share": 0.449,
+   "complement_rate": -0.137,
+   "determinative_rate": 0.28,
+   "plene_rate": -0.277,
+   "cvc_share": 0.079,
+   "u_acute_share": -0.073
+  }
+ },
+ "E7c_701_script_date": {
+  "lda": {
+   "acc": 0.759,
+   "majority": 0.807,
+   "null_mean": 0.784,
+   "p": 0.9604,
+   "n": 83,
+   "classes": 2
+  },
+  "means": {
+   "jh.": {
+    "logogram_share": 0.404,
+    "akkadogram_share": 0.344,
+    "complement_rate": 0.106,
+    "determinative_rate": 0.172,
+    "plene_rate": 0.247,
+    "cvc_share": 0.048,
+    "u_acute_share": 0.273
+   },
+   "mh.": {
+    "logogram_share": 0.308,
+    "akkadogram_share": 0.357,
+    "complement_rate": 0.132,
+    "determinative_rate": 0.178,
+    "plene_rate": 0.283,
+    "cvc_share": 0.031,
+    "u_acute_share": 0.169
+   }
+  }
+ }
+}
