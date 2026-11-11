@@ -107,8 +107,9 @@ to assign. Our contributions are:
 \begin{figure*}[!t]
   \centering
   \includegraphics[width=\linewidth]{case_a.pdf}
-  \caption{The worked example: the orphan \C{txtid} (filed under \CTH{\C{filed}} in TLHdig 0.3)
-    from its text to its placement. (1) The legible words, tinted by word category (dashed: a
+  \caption{The worked example in version A (the editor's full text): the orphan \C{txtid} (filed
+    under \CTH{\C{filed}} in TLHdig 0.3) from its text to its placement. In the damage-aware
+    version C it is not placed (Section~\ref{sec:method}). (1) The legible words, tinted by word category (dashed: a
     low-confidence or unclear class). (2) Each word becomes a word-form feature and sign-sequence
     features, weighted by tf-idf. (3) Cosine similarity to the centroid of each tradition. (4) The
     lead of the nearest tradition over the runner-up, against the calibrated margin. (5) The lead
@@ -160,14 +161,27 @@ assign Hittite fragments to religious traditions, or that asks when a fragment f
 \paragraph{Corpus.}
 We use the TLHdig Beta 0.3 release \citep{tlhdig03}, converted to one row per word following
 \citet{yavasan2025clay}. Each word carries its normalised form, its transliteration split into
-signs, its language and, where the editors provide one, a morphological analysis. The release is
+signs, its language, whether a sign is an Akkadogram, a Sumerogram or a determinative (TLHdig
+tags these separately), and the lexical and morphological analyses that TLHdig produces
+automatically with the HFR tool, which are not validated by hand \citep{tlhdig03}. The release is
 downloaded by script and checked by its checksum, so the word table can be rebuilt from the public
 data alone. As in \citet{gordin2025matters}, reference manuscripts must have at least 17 legible
-words. The editors' analyses do not cover the whole release: the Luwian rituals (\CTH{758}--763)
-have none, and many other rituals lack them. The main model reads analysed words, so in its
+words. The analyses do not cover the whole release: the Luwian rituals (\CTH{758}--763) have
+none, and many other rituals lack them. The main model reads analysed words, so in its
 reference the Luwian rituals have \Q{R1.A.luwianritualspuriyannikuwattalla.n} manuscripts and the
 western rituals \Q{R1.A.arzawawesternrituals.n}; Section~\ref{sec:spellings} repeats the
 evaluation on spellings alone with every manuscript.
+
+\paragraph{Damage and restoration.}
+TLHdig prints the editors' restorations alongside what survives, and marks each sign as preserved,
+damaged, restored, omitted or lost. Counting restorations as text would let an editor's
+reconstruction, often made from a duplicate, decide where a fragment belongs. We therefore count
+only what is on the tablet. A sign counts if it is preserved or damaged, also when its reading is
+uncertain; a word counts if at least half its signs survive, or if the same word form survives at
+least half-preserved elsewhere in the same text. Restorations supported only by duplicates are
+not used. Sign n-grams never span a missing sign, and a spelling counts only when every sign of
+the word survives. We report the editors' full text, restorations included, as a comparison
+(\term{version A}); the main results use the damage-aware text (\term{version C}).
 
 \paragraph{Orphans.}
 Orphans are all \CTH{470} manuscripts and all EBo manuscripts, wherever TLHdig files them,
@@ -228,8 +242,8 @@ Every manuscript is represented twice \citep{salton1988weighting}. The word spac
 weights of normalised word forms and stands for \term{what} is written; the sign space holds
 tf-idf weights of sign n-grams ($n=1$--3) within words and stands for \term{how} it is written.
 The main model concatenates both. Weights are sublinear, rows are L2-normalised, and features
-found in fewer than two manuscripts are dropped. \C{txtid} has \C{words} legible words, which
-yield \C{nfeat} non-zero features out of \C{dim}.
+found in fewer than two manuscripts are dropped. In version A, \C{txtid} has \C{words} legible
+words, which yield \C{nfeat} non-zero features out of \C{dim}.
 
 \paragraph{Assignment and abstention.}
 Each tradition is represented by the normalised centroid of its manuscripts, and a fragment is
@@ -239,12 +253,16 @@ unplaced otherwise. We choose $\tau$ on held-out data rather than by hand: manus
 least 40 words (at most 40 per tradition) are held out in turn and cut into ten random windows of
 $k \in \{3,5,8,10,17,25,40\}$ words, and $\tau$ is the smallest margin at which these windows
 reach \Q{E2.precision} precision. This gives $\tau=\Q{E2.margin}$ (90\% bootstrap interval
-\Q{E2.margin.lo}--\Q{E2.margin.hi}). \C{txtid} is closest to the \C{topshort} (\C{s1}) and next
-to the \C{secondshort} (\C{s2}); its margin of \C{margin} is well above $\tau$, and so it is
-placed. The placement depends on the reference set, however: once every legible manuscript is
-used, including those without word analyses (Section~\ref{sec:spellings}), its margin falls to
-\Q{R1.B.kbo4122.gap} and it is \Q{R1.B.kbo4122.placed}. We keep it as the example because it
-shows each step clearly, and because it shows how thin the evidence of a small fragment can be.
+\Q{E2.margin.lo}--\Q{E2.margin.hi}). In version A, where $\tau=\Q{A.E2.margin}$,
+\C{txtid} is closest to the \C{topshort} (\C{s1}) and next to the \C{secondshort} (\C{s2}); its
+margin of \C{margin} is well above $\tau$, and so it is placed. That placement does not survive the
+damage-aware text. Its decisive words, a formula with DINGIR.MEŠ and \textit{karpin}, are the
+editor's restorations; only \Q{case.kbo4122.words} words remain on the tablet, its similarity to
+the Luwian rituals falls to \Q{case.kbo4122.luwian}, and its lead of \Q{case.kbo4122.margin}
+(\Q{case.kbo4122.top} over \Q{case.kbo4122.second}) is below $\tau=\Q{case.kbo4122.tau}$: it is
+\Q{case.kbo4122.placed}. We keep it as a cautionary example, because it shows each step clearly
+and how much a placement can owe to restorations. \todraft{A second worked example that version C
+places is being chosen.}
 
 \paragraph{Decomposing a decision.}
 Because the score is a dot product, the margin splits exactly into one term per feature,
@@ -271,16 +289,17 @@ the word itself, the first would beat the second. We also use the word categorie
 verbs, with realia narrowed to physical things and the remaining nouns grouped by meaning
 (places; animals, body parts and nature; abstract nouns; adjectives; measures).
 
-No word was classed by hand. Fixed rules derive each category from what TLHdig's editors
-recorded for the word, applied in order: its determinative (DINGIR makes a deity,
-\textsuperscript{LÚ} an agent), its language tag, and its selected morphological analysis (a
-person-marked form is a verb, a particle or pronoun a function word); unanalysed words fall back
-on the editors' choices for the same form elsewhere. Nouns and adjectives are then classed by
-their German gloss, through a list of \Q{wc.glosses} glosses that was drafted with a language
-model and has not been checked by hand; it is the one step not derived from the editors'
-records. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
+No word was classed by hand. Fixed rules derive each category from TLHdig's markup, applied in
+order: the word's determinative (DINGIR makes a deity, \textsuperscript{LÚ} an agent), its
+language tag, and its automatic morphological analysis, using the analysis marked as selected
+where there is one (a person-marked form is a verb, a particle or pronoun a function word);
+unanalysed words fall back on the analyses selected for the same form elsewhere. Nouns and
+adjectives are then classed by their German gloss, through a list of \Q{wc.glosses} glosses that
+was drafted with a language model and has not been checked by hand; it is the one step not
+derived from TLHdig. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
 \Q{wc.tokens} legible words are classed with high confidence, \Q{wc.conf.medium} with medium and
-\Q{wc.conf.low} with low. A domain expert checked a stratified sample of \Q{wc.audit.n} words:
+\Q{wc.conf.low} with low. Since neither the automatic analyses nor our rules are validated in
+TLHdig, our audit is the only manual check: a domain expert checked a stratified sample of \Q{wc.audit.n} words:
 \Q{wc.audit.before.high}, \Q{wc.audit.before.medium} and \Q{wc.audit.before.low} were correct at
 the three levels, \Q{wc.audit.before.corpus} overall when weighted by corpus shares. Fixing the
 \Q{wc.audit.fixes} rules that the errors pointed to raises the overall figure to
@@ -295,7 +314,9 @@ scored all nominal words as one class, so it does not cover the split by meaning
 Held out one at a time, \Q{E1.both.acc} of the \Q{E1.both.n} reference manuscripts return to
 their tradition, against \Q{E1.both.majority} for the majority baseline and
 \Q{E1.both.null_mean} for shuffled labels ($p=\Q{E1.both.p}$). Words and signs alone do almost as
-well (\Q{E1.words.acc} and \Q{E1.signs.acc}). Recall ranges from \Q{trad.minrecall} to
+well (\Q{E1.words.acc} and \Q{E1.signs.acc}). On the editor's full text (version A) the same
+test gives \Q{A.E1.both.acc} on \Q{A.E1.both.n} manuscripts: restorations add manuscripts and
+words but change little. Recall ranges from \Q{trad.minrecall} to
 \Q{trad.maxrecall} (Table~\ref{tab:summary}) and is lowest for the two smallest traditions. The
 festivals that HFR separates are kept apart by the texts themselves: the Ḫuwaššanna festivals
 reach \Q{trad.huwassannafestivals.recall} and those of Ištanuwa and Lallupiya
@@ -304,7 +325,9 @@ reach \Q{trad.huwassannafestivals.recall} and those of Ištanuwa and Lallupiya
 Accuracy rises steeply with fragment size and then flattens. Windows of 3, 10 and 40 words cut
 from held-out manuscripts are placed correctly in \Q{E2.both.k3}, \Q{E2.both.k10} and
 \Q{E2.both.k40} of cases, against a chance level of \Q{chance}. Above the margin
-$\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision.
+$\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision. In
+version A, where every restored word counts, the same precision is reached at $\tau=\Q{A.E2.margin}$
+and \Q{A.E2.share} of windows pass.
 
 Inside \CTH{701}, the procedure recovers \Q{E3.both.acc} of the \Q{E3.both.n} manuscripts that
 \citet{salvini1986chs} sorted into \Q{E3.both.classes} subgroups (majority \Q{E3.both.majority},
@@ -366,18 +389,18 @@ The gap in the annotation falls on the smallest traditions. We therefore repeat 
 leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
 analysed manuscripts only and once with all manuscripts of 17 or more legible words
 (Table~\ref{tab:spellings}). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
-overall accuracy stays at \Q{R1.B.acc}. The Luwian rituals grow from
-\Q{R1.A.luwianritualspuriyannikuwattalla.n} to \Q{R1.B.luwianritualspuriyannikuwattalla.n}
-manuscripts and their accuracy from \Q{R1.A.luwianritualspuriyannikuwattalla.acc} to
-\Q{R1.B.luwianritualspuriyannikuwattalla.acc}; the western rituals from
-\Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n} (\Q{R1.A.arzawawesternrituals.acc}
-to \Q{R1.B.arzawawesternrituals.acc}). The other traditions change little. Of the
+overall accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc}, because most traditions gain
+manuscripts that are harder to place. The two small ritual traditions gain most: the Luwian
+rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
+\Q{R1.B.luwianritualspuriyannikuwattalla.n} manuscripts and their accuracy from
+\Q{R1.A.luwianritualspuriyannikuwattalla.acc} to \Q{R1.B.luwianritualspuriyannikuwattalla.acc};
+the western rituals from \Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n}
+(\Q{R1.A.arzawawesternrituals.acc} to \Q{R1.B.arzawawesternrituals.acc}). Of the
 \Q{R1.B.orph.mainplaced} orphans the main model places, \Q{R1.B.orph.placedinboth} are also placed
 with the full reference and \Q{R1.B.orph.sametradition} of these keep their tradition;
 \Q{R1.B.orph.topuriyannikuwattalla} move to the Luwian rituals and \Q{R1.B.orph.toarzawa} to the
-western rituals. The worked example is among the orphans that drop below the margin
-(Section~\ref{sec:method}). Placements in the two small ritual traditions should be read with
-this in mind.
+western rituals. Placements in the two small ritual traditions should be read with this in
+mind.
 
 \begin{table}[t]
   \centering
@@ -407,8 +430,8 @@ Each layer alone identifies a tradition (Table~\ref{tab:layers}). Logograms reac
 \Q{E7.spelling.acc} with their spelling kept and \Q{E7.collapsed.acc} with it collapsed: the
 choice of spelling adds nothing beyond the word. The seven orthographic rates are a weak but real
 signal (\Q{E7.orthographic_indices.acc} against \Q{E7.orthographic_indices.null_mean} for
-shuffled labels). By word category, removing the function words leaves accuracy unchanged
-(\Q{E8.without_function.words}, against \Q{E8.all.words} with all words), and on their own they
+shuffled labels). By word category, removing the function words leaves accuracy
+almost unchanged (\Q{E8.without_function.words}, against \Q{E8.all.words} with all words), and on their own they
 reach \Q{E8.only_function.words}, below agents (\Q{E8.only_agent.words}) and foreign words
 (\Q{E8.only_foreign.words}). Removing the foreign words costs most
 (\Q{E8.without_foreign.words}). The formulaic layer is common ground; the traditions differ in
@@ -475,10 +498,16 @@ the orphans, the gate finds \Q{E9.orph.outside} that are closer to an outside ge
 tradition by more than the margin, \Q{E9.orph.assigned_outside} of them among the placed. We
 release them as candidates for re-filing.
 
+The damage-aware text places far fewer orphans than the editor's full text (\Q{A.E5.assigned} of
+\Q{A.corpus.orphans_used} in version A), because many orphans lose most of their words with the
+restorations. The placements that remain are stable: of the \Q{AC.placedA.scoredC} orphans placed in
+version A that are still scored in C, \Q{AC.placedA.samenearest} (\Q{AC.placedA.samenearest.share})
+keep the same nearest tradition. The loss is in confidence, not in direction.
+
 \subsection{Duplicates, not joins: a negative result}
 \label{sec:joins}
 A fragment's nearest manuscripts are leads for the philologist, and the question is what kind of
-lead they are. Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
+lead they are. These checks were run on version A. Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
 recorded duplicate pairs, the partner ranks first in \Q{KJ.duplicate.top1} and among the 20
 nearest of \Q{KJ.pool} manuscripts in \Q{KJ.duplicate.top20} (median rank
 \Q{KJ.duplicate.median}). Of the \Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reach
@@ -565,8 +594,10 @@ paper is generated from them.
 
 \section*{Limitations}
 The study depends on one digital edition. TLHdig 0.3 has no word analyses for the Luwian
-corpus and for many rituals, and its normalised forms are uneven across editors; broken words
-are dropped, so short fragments over-represent formulaic lines. Several traditions are small
+corpus and for many rituals, its morphological analyses are automatic and unvalidated, and its
+normalised forms are uneven across editors. Words with less than half their signs on the tablet
+are dropped unless the same text supports them, so short fragments over-represent the formulaic
+lines that survive, and the half-preserved threshold is a choice we have not varied. Several traditions are small
 (the smallest has \Q{trad.smallest.n} test manuscripts), their recall is uncertain, and held out
 by composition several are not recovered at all. The traditions themselves are taken from the
 literature: the method tests them, but cannot find a tradition that no study has proposed. The
