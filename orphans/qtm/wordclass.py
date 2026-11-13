@@ -102,7 +102,7 @@ def candidate_pos(mrp: str, letters: str = "") -> str:
 RULES = {"determinative_deity": "high", "determinative_agent": "high", "language": "high",
          "akkadian_function": "high",
          "analysis_selected": "high", "preposition_split": "high", "manual": "manual",
-         "agent_logogram": "medium", "analysis_unanimous": "medium", "selected_elsewhere": "medium",
+         "agent_logogram": "medium", "en_title": "high", "analysis_unanimous": "medium", "selected_elsewhere": "medium",
          "determinative_noun": "medium",
          "analysis_ambiguous": "low", "no_analysis": "low",
          "broken_clitic": "low", "broken_ending": "low"}

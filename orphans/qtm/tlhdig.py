@@ -284,8 +284,25 @@ def backoff(df):
     return df
 
 
+# EN + noun forms one title naming a person (EN SÍSKUR "ritual patron", EN ÉRIN.MEŠ, EN É-TIM, EN MAD-GAL₉-TI,
+# EN KUR-TI, EN KARAŠ, EN ma-mi-ti, EN DINGIR-LIM); classed word by word, the noun would count as realia etc.
+EN_TITLE = re.compile(r"^(S[IÍ]SKUR|ÉRIN ?\{MEŠ\}|ÉRIN\.MEŠ|É|MAD-GAL₉-TI|KUR-TI|KARAŠ|ma-mi-ti|MA-MI-TI|DINGIR-LIM)(-|\s|$)")
+_UNBRACKET = re.compile(r"[\[\]⸢⸣<>()?!]")
+
+
+def title_after_en(df):
+    """The noun after EN in a title (same text and line) takes EN's class, agent."""
+    tl = df.translit.fillna("").map(lambda t: _UNBRACKET.sub("", t))
+    prev = tl.shift(fill_value="")
+    same = (df.txtid == df.txtid.shift()) & (df.lnr.fillna("") == df.lnr.fillna("").shift())
+    hit = same & (prev == "EN") & tl.str.match(EN_TITLE) & (df.wclass != "agent") & (df.wclass.fillna("") != "")
+    df.loc[hit, ["wclass", "wc_rule"]] = ["agent", "en_title"]
+    return df
+
+
 def finish(df, corrections=None):
     df = backoff(df)
+    df = title_after_en(df)
     df = apply_corrections(df, corrections)
     df["wc_conf"] = df.wc_rule.map(RULES).fillna("")
     return df
