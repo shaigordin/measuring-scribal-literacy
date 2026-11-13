@@ -284,8 +284,43 @@ def backoff(df):
     return df
 
 
-def finish(df, corrections=None):
+# EN + noun forms one title naming a person (EN SÍSKUR "ritual patron", EN ÉRIN.MEŠ, EN É-TIM, EN MAD-GAL₉-TI,
+# EN KUR-TI, EN KARAŠ, EN ma-mi-ti, EN DINGIR-LIM); classed word by word, the noun would count as realia etc.
+EN_TITLE = re.compile(r"^(S[IÍ]SKUR|ÉRIN ?\{MEŠ\}|ÉRIN\.MEŠ|É|MAD-GAL₉-TI|KUR-TI|KARAŠ|ma-mi-ti|MA-MI-TI|DINGIR-LIM)(-|\s|$)")
+_UNBRACKET = re.compile(r"[\[\]⸢⸣<>()?!]")
+
+
+def title_after_en(df):
+    """The noun after EN in a title (same text and line) takes EN's class, agent."""
+    tl = df.translit.fillna("").map(lambda t: _UNBRACKET.sub("", t))
+    prev = tl.shift(fill_value="")
+    same = (df.txtid == df.txtid.shift()) & (df.lnr.fillna("") == df.lnr.fillna("").shift())
+    hit = same & (prev == "EN") & tl.str.match(EN_TITLE) & (df.wclass != "agent") & (df.wclass.fillna("") != "")
+    df.loc[hit, ["wclass", "wc_rule"]] = ["agent", "en_title"]
+    return df
+
+
+TITLE_PAIRS = Path(__file__).parent.parent / "labels" / "title_pairs.csv"
+
+
+def title_pairs(df, path=TITLE_PAIRS):
+    """Wider titles (switched on with --wide-titles): a word after an agent or deity word becomes part of
+    one agent or deity when the pair matches labels/title_pairs.csv (BE-EL SÍSKUR, LUGAL GAL, {D}UTU {URU}PÚ-na ...)."""
+    tl = df.translit.fillna("").map(lambda t: _UNBRACKET.sub("", t))
+    prev, pcls = tl.shift(fill_value=""), df.wclass.shift(fill_value="")
+    same = (df.txtid == df.txtid.shift()) & (df.lnr.fillna("") == df.lnr.fillna("").shift())
+    for _, r in pd.read_csv(path, dtype=str).iterrows():
+        hit = (same & (pcls == r.wclass) & prev.str.contains(r["first"]) & tl.str.contains(r.second)
+               & (df.wclass != r.wclass) & (df.wclass.fillna("") != ""))
+        df.loc[hit, ["wclass", "wc_rule"]] = [r.wclass, "title_pair"]
+    return df
+
+
+def finish(df, corrections=None, wide_titles=False):
     df = backoff(df)
+    df = title_after_en(df)
+    if wide_titles:
+        df = title_pairs(df)
     df = apply_corrections(df, corrections)
     df["wc_conf"] = df.wc_rule.map(RULES).fillna("")
     return df
@@ -298,7 +333,8 @@ if __name__ == "__main__":
     ap.add_argument("out")
     ap.add_argument("cths", nargs="?")
     ap.add_argument("--corrections", default=str(Path(__file__).parent.parent / "labels" / "wordclass_corrections.csv"))
+    ap.add_argument("--wide-titles", action="store_true", help="also apply labels/title_pairs.csv")
     a = ap.parse_args()
-    df = finish(parse_release(a.root, a.cths.split(",") if a.cths else None), a.corrections)
+    df = finish(parse_release(a.root, a.cths.split(",") if a.cths else None), a.corrections, a.wide_titles)
     df.to_csv(a.out, index=False)
     print(df.groupby("cth_number").txtid.nunique().to_string())

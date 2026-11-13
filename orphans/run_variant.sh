@@ -36,4 +36,5 @@ for T in "KBo 61.39" "KUB 35.146" "EBo 133"; do
 done
 for T in "KBo 44.52" "DAAM 3.64" "KBo 52.43"; do python3 run_case.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"; done   # candidate new examples
 python3 run_test_examples.py "$TOK" --run "$O" --out "$C" >> "$C/run.log"
+python3 run_barcode.py "$TOK" --run "$O" --txtid "KBo 44.52" --out "$C" >> "$C/run.log"   # archetype barcode (deck slide)
 echo done

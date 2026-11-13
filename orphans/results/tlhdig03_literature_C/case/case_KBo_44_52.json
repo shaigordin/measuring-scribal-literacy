@@ -38,16 +38,16 @@
   "rule_margin": 0.028,
   "assigned": "Syro-Mesopotamia (Hurrian)",
   "decision_by_layer_category": {
-    "Logographic writing | Realia": 0.19,
-    "Logographic writing | Agents and deities": 0.185,
-    "Word form | Realia": 0.123,
-    "Word form | Agents and deities": 0.093,
+    "Logographic writing | Agents and deities": 0.261,
+    "Word form | Agents and deities": 0.14,
+    "Logographic writing | Realia": 0.114,
+    "Word form | Realia": 0.076,
     "Word form | Function words": 0.076,
     "Word form | Verbs": 0.065,
     "Logographic writing | Adjectives": 0.06,
     "Syllabic spelling | Verbs": 0.052,
+    "Syllabic spelling | Realia": 0.044,
     "Logographic writing | Function words": 0.042,
-    "Syllabic spelling | Realia": 0.041,
     "Syllabic spelling | Function words": 0.04,
     "Word form | Adjectives": 0.025
   },
@@ -2080,9 +2080,9 @@
       "lnr": "Vs.? 3′",
       "translit": "SÍSKUR-ma",
       "word": "SÍSKURma",
-      "wclass": "realia",
-      "wc_rule": "analysis_unanimous",
-      "wc_conf": "medium"
+      "wclass": "agent",
+      "wc_rule": "en_title",
+      "wc_conf": "high"
     },
     {
       "lnr": "Vs.? 3′",
@@ -2240,9 +2240,9 @@
       "lnr": "Vs.? 8′",
       "translit": "SÍSKUR-ma",
       "word": "SÍSKURma",
-      "wclass": "realia",
-      "wc_rule": "analysis_unanimous",
-      "wc_conf": "medium"
+      "wclass": "agent",
+      "wc_rule": "en_title",
+      "wc_conf": "high"
     },
     {
       "lnr": "Vs.? 9′",
@@ -2264,9 +2264,9 @@
       "lnr": "Vs.? 9′",
       "translit": "SÍSKUR",
       "word": "SÍSKUR",
-      "wclass": "realia",
-      "wc_rule": "analysis_unanimous",
-      "wc_conf": "medium"
+      "wclass": "agent",
+      "wc_rule": "en_title",
+      "wc_conf": "high"
     },
     {
       "lnr": "Vs.? 9′",

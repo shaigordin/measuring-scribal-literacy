@@ -942,9 +942,9 @@
       "lnr": "r. Kol. 6′",
       "translit": "∅",
       "word": "",
-      "wclass": "realia",
-      "wc_rule": "analysis_unanimous",
-      "wc_conf": "medium"
+      "wclass": "agent",
+      "wc_rule": "en_title",
+      "wc_conf": "high"
     },
     {
       "lnr": "r. Kol. 6′",
