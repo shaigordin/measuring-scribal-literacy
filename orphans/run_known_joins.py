@@ -74,6 +74,7 @@ def main():
     ap.add_argument("--min-words", type=int, default=5)
     ap.add_argument("--out", required=True)
     ap.add_argument("--labels", default="labels/konkordanz_joins_duplicates.csv")
+    ap.add_argument("--pages-from", help="known_joins.json of an earlier run: read only its Konkordanz pages")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -92,6 +93,9 @@ def main():
                 piece.setdefault(" ".join(p.split()), t)
 
     pairs, pages = [], sorted(Path(a.cache).glob("hetkonk_c*.html"))
+    if a.pages_from:                                   # same pages as an earlier run (the cache may have grown)
+        keep = set(json.loads(Path(a.pages_from).read_text())["pages"])
+        pages = [f for f in pages if f.stem.replace("hetkonk_c", "") in keep]
     for f in pages:
         for pub, cth_full, note in rows(f.read_text(encoding="utf-8", errors="replace")):
             A = piece.get(pub.rstrip("+").strip())
@@ -123,12 +127,11 @@ def main():
         rank = int((sim > sim[j]).sum()) + 1
         A, B = pool.iloc[i], pool.iloc[j]
         fw = [(w, norm_sp(t)) for w, t in zip(A.words, A.translits) if not SKIP.match(w)]
-        cols, seen = [], set()
-        for w, t in sorted(fw, key=lambda q: q[1].count("∅")):  # each word's most complete spelling
-            if w not in seen:
-                seen.add(w)
-                cols.append((w, t))
-        cols.sort(key=lambda c: [w for w, _ in fw].index(c[0]))
+        best = {}                                      # each word's most complete spelling (fewest ∅)
+        for w, t in fw:
+            if w not in best or t.count("∅") < best[w].count("∅"):
+                best[w] = t
+        cols = list(best.items())
         pairs_ = {(w1, w2) for (w1, _), (w2, _) in zip(fw, fw[1:]) if w1 != w2}
         spell = {}
         for w, t in zip(B.words, B.translits):

@@ -1,0 +1,114 @@
+{
+ "version_A": {
+  "placed_A": 3400,
+  "placed_both": 1651,
+  "same_tradition": 1636,
+  "status_C_by_A": {
+   "below_margin": {
+    "below_margin": 3403,
+    "placed": 105,
+    "too_small": 621
+   },
+   "placed": {
+    "below_margin": 1257,
+    "placed": 1651,
+    "too_small": 492
+   },
+   "too_small": {
+    "below_margin": 0,
+    "placed": 0,
+    "too_small": 3839
+   }
+  }
+ },
+ "texts_in_scope": 11368,
+ "with_results": 6416,
+ "status": {
+  "too_small": 4952,
+  "below_margin": 4660,
+  "placed": 1756
+ },
+ "by_bin": {
+  "CTH 470 fragments of rituals": {
+   "texts": 1925,
+   "too_small": 448,
+   "below_margin": 1155,
+   "placed": 322,
+   "with_match_candidates": 219
+  },
+  "CTH 500 fragments of Kizzuwatna rituals": {
+   "texts": 479,
+   "too_small": 76,
+   "below_margin": 259,
+   "placed": 144,
+   "with_match_candidates": 84
+  },
+  "CTH 670 fragments of festivals": {
+   "texts": 3513,
+   "too_small": 1031,
+   "below_margin": 1469,
+   "placed": 1013,
+   "with_match_candidates": 869
+  },
+  "CTH 832 fragments of various content": {
+   "texts": 4260,
+   "too_small": 2784,
+   "below_margin": 1319,
+   "placed": 157,
+   "with_match_candidates": 147
+  },
+  "CTH 390-469 rituals no study groups": {
+   "texts": 1038,
+   "too_small": 541,
+   "below_margin": 383,
+   "placed": 114,
+   "with_match_candidates": 94
+  },
+  "EBo filed under other CTH numbers": {
+   "texts": 153,
+   "too_small": 72,
+   "below_margin": 75,
+   "placed": 6,
+   "with_match_candidates": 20
+  }
+ },
+ "fragments_with_match_candidates_by_size": {
+  "5-9": {
+   "size": 3065,
+   "sum": 753
+  },
+  "10-16": {
+   "size": 1605,
+   "sum": 372
+  },
+  "17-39": {
+   "size": 1302,
+   "sum": 244
+  },
+  "40+": {
+   "size": 444,
+   "sum": 64
+  }
+ },
+ "placed_by_tradition": {
+  "Hattian cult layer": 838,
+  "Kizzuwatna rituals": 362,
+  "Kizzuwatna–Lower Land (Hurrian)": 248,
+  "Syro-Mesopotamia (Hurrian)": 110,
+  "Mixed (Hurrian, Syrian, Luwian)": 71,
+  "Arzawa / western rituals": 46,
+  "Ḫuwaššanna festivals": 32,
+  "Luwian rituals (Puriyanni, Kuwattalla)": 26,
+  "Luwian festivals (Ištanuwa, Lallupiya)": 21,
+  "Palaic festivals": 2
+ },
+ "fragments_with_match_candidates": 1433,
+ "match_candidate_pairs": 4281,
+ "margin": 0.028,
+ "precision_above_margin": 0.8015801580158016,
+ "loo_accuracy": 0.819,
+ "loo_majority": 0.286,
+ "reference_manuscripts": 1350,
+ "manuscript_pool": 16605,
+ "compositions": 603
+}
