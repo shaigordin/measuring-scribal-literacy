@@ -1,0 +1,7 @@
+first,second,wclass,note
+^BE-EL(-TI)?$,^(S[IÍ]SKUR|É|É-TI|É-TIM)(-|$),agent,"lord/lady of the ritual, of the house"
+^LÚ( ?\{MEŠ\})?$,^(É|URU-LIM)$,agent,"men of the house, of the city"
+^LUGAL$,^(GAL|KUR)$,agent,"great king, king of the land"
+^ÉRIN ?\{MEŠ\}$,^ANŠE\.KUR\.RA,agent,"troops (and) chariotry"
+^\{D\},^\{URU\},deity,"deity of a city (Sun goddess of Arinna, Storm god of Nerik ...)"
+^\{D\},^(AN-E|ŠA-ME-E|AN|LÍL|NIR\.GÁL)$,deity,"deity + epithet (of heaven, of the steppe, mighty)"
