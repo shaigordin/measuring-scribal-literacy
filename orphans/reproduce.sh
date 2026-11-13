@@ -27,7 +27,7 @@ echo "$MD5  $ZIP" | md5sum -c -
 #    tokens_marks.csv adds sign status (preserved/damaged/restored), Akkadogram/Sumerogram layer and
 #    editorial flags; tokens.csv (version A) is the table as published so far, without them.
 #    Version C (main, damage-aware): bash run_variant.sh C, after this script.
-python3 -m qtm.tlhdig "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" "$DATA/tokens_marks.csv" > "$DATA/parse.log" 2> "$DATA/parse.err"
+python3 -m qtm.tlhdig "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" "$DATA/tokens_marks.csv" --wide-titles > "$DATA/parse.log" 2> "$DATA/parse.err"
 python3 -m qtm.variants "$DATA/tokens_marks.csv" "$DATA/tokens.csv" --variant A
 TOK=$DATA/tokens.csv
 
