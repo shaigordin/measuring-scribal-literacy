@@ -29,15 +29,51 @@ def esc(s):
     return s
 
 
-def translit(t):
-    """TLHdig transliteration to LaTeX: determinatives {X} as superscripts."""
-    t = esc(t)
-    return re.sub(r"\s*\{([^}]*)\}\s*", r"\\textsuperscript{\1}", t)
+AKK = set()        # sign values written as Akkadograms in the case text (from figures/data/marks_*.csv)
+_SEP = re.compile(r"([-.\s{}+˽]+)")
+
+
+def _italic(sign, layer=None):
+    """Hittite (phonetic) signs and Akkadograms in italics, Sumerograms and determinatives upright."""
+    if layer is not None:
+        return layer in ("H", "A")
+    return sign in AKK or (sign == sign.lower() and any(c.isalpha() for c in sign))
+
+
+def translit(t, layer=None):
+    """TLHdig transliteration to LaTeX: determinatives {X} as upright superscripts, phonetic signs
+    and Akkadograms in italics, Sumerograms upright. `layer` (one letter per sign, H/A/S/d) comes
+    from the text's marks file; without it, lower-case signs are set in italics."""
+    out, i, det = [], 0, False
+    for part in _SEP.split(t):
+        if not part:
+            continue
+        if _SEP.fullmatch(part):
+            for ch in part:
+                if ch == "{":
+                    out.append("\\textsuperscript{"); det = True
+                elif ch == "}":
+                    out.append("}"); det = False
+                elif not ch.isspace():
+                    out.append(esc(ch))
+            continue
+        n = 0 if part == "x" or part.isdigit() else 1      # ∅ keeps the place of the sign it replaces
+        lay = layer[i] if layer and n and i < len(layer) else None
+        i += n
+        e = esc(part)
+        if n and not det and _italic(part, lay):
+            e = "\\textit{" + e + "}"
+        out.append(e)
+    return "".join(out)
 
 
 def feature(f):
-    """A feature name as typeset: §kar·pí·in -> kar-pí-in (signs), EMEan -> EMEan (word form)."""
-    return ("\\sg{" + esc(f[1:].replace("·", "-")) + "}") if f.startswith("§") else ("\\wf{" + esc(f) + "}")
+    """A feature name as typeset: §kar·pí·in -> kar-pí-in (signs, in a box of their own), EMEan -> EMEan
+    (word form, bold); italics as in translit()."""
+    if f.startswith("§"):
+        return "\\sgx{" + "-".join(("\\textit{" + esc(x) + "}") if _italic(x) else esc(x) for x in f[1:].split("·")) + "}"
+    parts = f.split("-")
+    return "\\wf{" + "-".join(("\\textit{" + esc(x) + "}") if _italic(x) else esc(x) for x in parts) + "}"
 
 
 def line_no(lnr):
@@ -58,6 +94,25 @@ def main():
     path = sys.argv[1] if len(sys.argv) > 1 else CASE
     out = sys.argv[2] if len(sys.argv) > 2 else OUT
     case = json.load(open(path, encoding="utf-8"))
+    mpath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "figures", "data",
+                         "marks_" + case["txtid"].replace(" ", "_").replace(".", "_") + ".csv")
+    layers = {}
+    if os.path.exists(mpath):
+        import csv
+        for r in csv.DictReader(open(mpath, encoding="utf-8")):
+            layers[(r["lnr"], int(r["pos"]))] = r["layer"]
+            for sign, lay in zip([x for x in _SEP.split(r["translit_ed"]) if x and not _SEP.fullmatch(x) and x != "x"], r["layer"]):
+                if lay == "A":
+                    AKK.add(sign)
+        for r in csv.DictReader(open(mpath, encoding="utf-8")):
+            for sign, lay in zip([x for x in _SEP.split(r["translit_ed"]) if x and not _SEP.fullmatch(x) and x != "x"], r["layer"]):
+                if lay == "S":
+                    AKK.discard(sign)
+    pos, cur, tok_layer = 0, None, []
+    for t in case["tokens"]:
+        pos = pos + 1 if t["lnr"] == cur else 0
+        cur = t["lnr"]
+        tok_layer.append(layers.get((t["lnr"], pos)))
     extra = {"n_features": case["n_features"], "dim": case["dim"], "ref_counts": case["ref_counts"],
              "rows": [[f["name"], f["x"], f["c_top"], f["c_second"], f["contribution"]] for f in case["features"]],
              "idf": {f["name"]: f["idf"] for f in case["features"]},
@@ -97,7 +152,7 @@ def main():
     for lnr, tl, word, share in case["word_shares"]:
         shares.setdefault((lnr, tl), share)
     cur, a, b = None, [], []
-    for lnr, tl, word, wc, rule, conf in extra["tokens"]:
+    for k, (lnr, tl, word, wc, rule, conf) in enumerate(extra["tokens"]):
         n = line_no(lnr)
         first, last = LINES.get(case["txtid"], (0, 10 ** 6))
         if n is None or not first <= n <= last:
@@ -105,7 +160,7 @@ def main():
         if lnr != cur and a:
             rows.append((cur, a)); shaded.append((cur, b)); a, b = [], []
         cur = lnr
-        t = translit(tl)
+        t = translit(tl, tok_layer[k])
         if not word:
             a.append(f"\\broken{{{t}}}"); b.append(f"\\broken{{{t}}}")
             continue
@@ -133,7 +188,7 @@ def main():
             best = (lnr, tl, word, wc, rule, conf)
     if best:
         lnr, tl, word, wc, rule, conf = best
-        L.append(f"\\def\\GenKeyWord{{\\wc{{{CATCOLOR.get(wc, 'catO')}}}{{{'low' if conf == 'low' or wc not in CATCOLOR else 'ok'}}}{{{translit(tl)}}}}}")
+        L.append(f"\\def\\GenKeyWord{{\\wc{{{CATCOLOR.get(wc, 'catO')}}}{{{'low' if conf == 'low' or wc not in CATCOLOR else 'ok'}}}{{{translit(tl, dict(zip([(x[0], x[1]) for x in extra["tokens"]], tok_layer)).get((lnr, tl)))}}}}}")
         d("gen.word", esc(word)); d("gen.x.w", f"{contrib[word][1]:.2f}")
         d("gen.idf.word", f"{extra['idf'].get(word, 0):.1f}")
         sg = tl.split("-")
