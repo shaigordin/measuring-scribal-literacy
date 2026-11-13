@@ -254,6 +254,8 @@ def main(cfg_path):
         figure(cfg, base, frags, meas, dx, best, caveats=False, out_png=cfg["out_slide_full_png"], tl_size=30)
     if cfg.get("out_slide_png"):
         slide_figure(cfg, base, frags, meas, dx, best)
+    if cfg.get("out_slide_wide_png"):
+        slide_wide(cfg, base, frags, meas, dx, best)
     json.dump(meas, open(os.path.join(base, cfg["out_json"]), "w"), indent=1, ensure_ascii=False)
     print(json.dumps(meas, indent=1, ensure_ascii=False))
 
@@ -378,6 +380,95 @@ def slide_figure(cfg, base, frags, meas, dx, dy):
     d.rectangle([ox - 480, H - 50, ox - 480 + 2 * S, H - 36], fill=(43, 26, 16, 255))
     d.text((ox - 480, H - 74), "2 cm", fill=(43, 26, 16, 255), font=F(fs), anchor="lb")
     out.save(os.path.join(base, cfg["out_slide_png"]))
+
+
+def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
+    """Slide-shaped version (16:9 slide at 1.5x, minus a footer strip): the placed pieces fill the
+    left, the transliteration fills the right below an empty band for the slide's own title.
+    No title, subtitle or caveats; the scale bar sits bottom left, clear of the pieces."""
+    F = lambda n, b=False: ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans%s.ttf" % ("-Bold" if b else ""), n)
+    U, Lo = frags["upper"], frags["lower"]
+    BG, INK, RED, BLUE, GREEN, MUTE = (236, 226, 206), (43, 26, 16), (138, 44, 18), (31, 78, 140), (60, 110, 50), (111, 88, 66)
+    S = cfg["out_px_per_cm"]
+    # left panel at photo scale
+    ox, oy = 600, 20
+    lx, ly = ox + int(round(dx)), oy + dy
+    ex = ox + int(np.median([np.flatnonzero(r).max() for r in U["mask"][int(U["edge_rows"][0]):int(U["edge_rows"][1])] if r.any()]))
+    pw = max(ox + U["img"].width, lx + Lo["img"].width, ex + 60) + 20
+    ph = ly + Lo["img"].height + 90
+    L = Image.new("RGB", (pw, ph), BG); d = ImageDraw.Draw(L)
+    L.paste(U["img"], (ox, oy), U["img"]); L.paste(Lo["img"], (lx, ly), Lo["img"])
+    for y in range(oy, ly + Lo["img"].height + 20, 24):
+        d.line([(ex + 14, y), (ex + 14, y + 12)], fill=RED, width=4)
+    d.multiline_text((ex + 6, ly + Lo["img"].height + 24), "common right edge?", fill=RED, font=F(26), anchor="ra")
+    m = meas["upper"]
+    if U["rulings"]:
+        for r in U["rulings"]:
+            d.line([(ox + U["band"][0], oy + r), (ox + U["band"][2], oy + r)], fill=BLUE, width=3)
+        y0, y1 = oy + U["rulings"][0], oy + U["rulings"][1]
+        bx = ox + U["band"][0] - 260
+        d.line([(bx, y0), (bx, y1)], fill=BLUE, width=4); d.line([(bx, y0), (bx + 20, y0)], fill=BLUE, width=4); d.line([(bx, y1), (bx + 20, y1)], fill=BLUE, width=4)
+        pr = m["pitch_from_rulings_cm"]
+        txt = "rulings %.2f cm apart\n%s" % (m["ruling_distance_cm"], "\n".join("%s lines: %.2f cm/line" % (k, v) for k, v in pr.items()))
+        d.multiline_text((bx - 16, (y0 + y1) / 2), txt, fill=BLUE, font=F(28), anchor="rm", align="right")
+    if Lo["grid"]:
+        gs = [g for g in Lo["grid"] if Lo["band"][1] <= g <= Lo["band"][3]]
+        for g in gs:
+            d.line([(lx + Lo["band"][0] - 30, ly + g), (lx + Lo["band"][0] - 6, ly + g)], fill=BLUE, width=4)
+        d.multiline_text((lx + Lo["band"][0] - 44, ly + gs[0]), "%.2f cm/line\n(%d lines)" % (meas["lower"]["spectrum_pitch_cm"], len(gs)),
+                         fill=BLUE, font=F(28), anchor="ra", align="right")
+    for i in range(5):
+        d.rectangle([30 + i * S, ph - 60, 30 + (i + 1) * S, ph - 44], fill=INK if i % 2 == 0 else BG, outline=INK)
+    d.text((30, ph - 70), "5 cm, each photo scaled by its own ruler", fill=INK, font=F(26), anchor="lb")
+    k = (H - 20) / ph
+    L = L.resize((int(pw * k), int(ph * k)), Image.LANCZOS)
+    out = Image.new("RGB", (W, H), BG); out.paste(L, (10, 10)); d = ImageDraw.Draw(out)
+    # transliteration panel
+    tx = 10 + L.width + 50
+    col = {"drink": RED, "bread": BLUE, "close": GREEN}
+    def hl(t):
+        for kk, pats in cfg["highlight"].items():
+            if any(p in t for p in pats):
+                return col[kk]
+        return INK
+    tok = os.path.join(base, cfg.get("marks_csv", cfg["tokens_csv"]))
+    blocks = []
+    for key in ("upper", "lower"):
+        rows = [(lnr, segs) for lnr, segs in rich_lines_of(tok, cfg[key]["txtid"], cfg[key]["sides"])
+                if not set("".join(t for t, kk in segs if kk != "b").replace(" ", "")) <= set("x")]
+        blocks.append((cfg[key]["label"], rows))
+    nrows = sum(len(r) for _, r in blocks)
+    IN = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
+    for size in range(60, 20, -1):  # largest size whose lines fit the panel
+        lh = int(size * 1.32)
+        need = top_band + 2 * int(lh * 1.25) + nrows * lh + int(lh * 1.0) + 2 * 24 + int(lh * 1.1) * 3
+        FT = {"u": ImageFont.truetype(IN % "Regular", size), "i": ImageFont.truetype(IN % "Italic", size),
+              "b": ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", size)}
+        wid = max(sum(d.textlength(t, font=FT[kk[-1]] if kk != "b" else FT["b"]) for t, kk in segs)
+                  for _, rows in blocks for _, segs in rows) + size * 3.2
+        if need <= H and tx + wid <= W - 30:
+            break
+    def mute(c):
+        return tuple(int(v + (b - v) * 0.5) for v, b in zip(c, BG))
+    y = top_band
+    for bi, (label, rows) in enumerate(blocks):
+        d.text((tx, y), label, fill=INK, font=F(size, True)); y += int(lh * 1.25)
+        for lnr, segs in rows:
+            c = hl("".join(t for t, kk in segs if kk != "b"))
+            d.text((tx, y + size * 0.08), lnr.split()[-1], fill=MUTE, font=F(int(size * 0.85)))
+            x = tx + int(size * 3.2)
+            for t, kk in segs:
+                f = FT[kk[-1]] if kk != "b" else FT["b"]
+                d.text((x, y), t, fill=mute(c) if kk.startswith("r") else c, font=f)
+                x += d.textlength(t, font=f)
+            y += lh
+        y += 24
+        if bi == 0:
+            d.text((tx, y - 6), "[break: number of lost lines unknown]", fill=MUTE, font=F(int(size * 0.8))); y += int(lh * 1.0)
+    for kk, lab in (("drink", "he drinks"), ("bread", "he breaks a takarmu-bread"), ("close", "closing the round of the gods")):
+        d.rectangle([tx, y + size * 0.25, tx + size * 0.75, y + size], fill=col[kk]); d.text((tx + size * 1.1, y), lab, fill=INK, font=F(int(size * 0.9))); y += int(lh * 1.1)
+    out.save(os.path.join(base, cfg["out_slide_wide_png"]))
+    print("slide_wide: font %d px, text from x=%d, left panel %dx%d" % (size, tx, L.width, L.height))
 
 
 if __name__ == "__main__":
