@@ -51,5 +51,118 @@
   "dx_px": 348.0,
   "dy_px": 659,
   "rule": "right boundaries aligned; moved up until the cut-outs touch"
+ },
+ "lost_at_line_start": {
+  "column_width_cm": 5.12,
+  "upper_signs_per_line": [
+   6,
+   6,
+   7,
+   9,
+   8,
+   7,
+   11,
+   9,
+   7,
+   7,
+   8,
+   6,
+   9
+  ],
+  "cm_per_sign_range": [
+   0.47,
+   0.73,
+   0.85
+  ],
+  "lines": [
+   {
+    "line": "side A 1′",
+    "tlhdig_space_units": 32,
+    "break_from_column_start_cm": 1.24,
+    "lost_signs_low": 1.5,
+    "lost_signs_mid": 1.7,
+    "lost_signs_high": 2.7
+   },
+   {
+    "line": "side A 2′",
+    "tlhdig_space_units": 5,
+    "break_from_column_start_cm": 1.26,
+    "lost_signs_low": 1.5,
+    "lost_signs_mid": 1.7,
+    "lost_signs_high": 2.7
+   },
+   {
+    "line": "side A 3′",
+    "tlhdig_space_units": 34,
+    "break_from_column_start_cm": 1.33,
+    "lost_signs_low": 1.6,
+    "lost_signs_mid": 1.8,
+    "lost_signs_high": 2.9
+   },
+   {
+    "line": "side A 4′",
+    "tlhdig_space_units": 8,
+    "break_from_column_start_cm": 1.49,
+    "lost_signs_low": 1.7,
+    "lost_signs_mid": 2.0,
+    "lost_signs_high": 3.2
+   },
+   {
+    "line": "side A 5′",
+    "tlhdig_space_units": 36,
+    "break_from_column_start_cm": 1.67,
+    "lost_signs_low": 2.0,
+    "lost_signs_mid": 2.3,
+    "lost_signs_high": 3.6
+   },
+   {
+    "line": "side A 6′",
+    "tlhdig_space_units": 41,
+    "break_from_column_start_cm": 1.87,
+    "lost_signs_low": 2.2,
+    "lost_signs_mid": 2.6,
+    "lost_signs_high": 4.0
+   },
+   {
+    "line": "side A 7′",
+    "tlhdig_space_units": 24,
+    "break_from_column_start_cm": 2.09,
+    "lost_signs_low": 2.5,
+    "lost_signs_mid": 2.9,
+    "lost_signs_high": 4.5
+   },
+   {
+    "line": "side A 8′",
+    "tlhdig_space_units": 41,
+    "break_from_column_start_cm": 2.33,
+    "lost_signs_low": 2.7,
+    "lost_signs_mid": 3.2,
+    "lost_signs_high": 5.0
+   },
+   {
+    "line": "side A 9′",
+    "tlhdig_space_units": 44,
+    "break_from_column_start_cm": 2.58,
+    "lost_signs_low": 3.0,
+    "lost_signs_mid": 3.5,
+    "lost_signs_high": 5.5
+   },
+   {
+    "line": "side A 10′",
+    "tlhdig_space_units": 44,
+    "break_from_column_start_cm": 2.77,
+    "lost_signs_low": 3.2,
+    "lost_signs_mid": 3.8,
+    "lost_signs_high": 5.9
+   },
+   {
+    "line": "side A 11′",
+    "tlhdig_space_units": 48,
+    "break_from_column_start_cm": 3.02,
+    "lost_signs_low": 3.5,
+    "lost_signs_mid": 4.1,
+    "lost_signs_high": 6.5
+   }
+  ]
  }
 }
