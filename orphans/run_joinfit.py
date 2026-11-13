@@ -492,22 +492,32 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
                 return col[kk]
         return INK
     tok = os.path.join(base, cfg.get("marks_csv", cfg["tokens_csv"]))
+    est = {r["line"]: int(r["lost_signs_mid"] + 0.5) for r in meas.get("lost_at_line_start", {}).get("lines", [])}
     blocks = []
     for key in ("upper", "lower"):
         gaps = lead_gaps(os.path.join(base, cfg["xml_dir"]), cfg[key]["txtid"]) if cfg[key].get("show_lead_gaps") else {}
+        as_x = cfg[key].get("lost_as_x") and est
         rows = []
         for lnr, segs in rich_lines_of(tok, cfg[key]["txtid"], cfg[key]["sides"]):
             if set("".join(t for t, kk in segs if kk != "b").replace(" ", "")) <= set("x"):
                 continue
-            g = gaps.get(lnr, 0)
-            if g:  # "[" + blank as wide as TLHdig's spacing; a restored first word stays inside the same break
-                segs = ([("[", "b"), ("", "g%d" % g)] + segs[1:]) if segs and segs[0] == ("[", "b") \
-                    else ([("[", "b"), ("", "g%d" % g), ("]", "b")] + ([] if segs and segs[0][0].startswith("-") else [(" ", "u")]) + segs)
+            restored_first = bool(segs) and segs[0] == ("[", "b")
+            sep = [] if segs and segs[0][0].startswith("-") else [(" ", "u")]
+            if as_x and lnr in est:
+                # the estimated lost signs as x's inside the break (signs the edition restores there count towards it)
+                k = segs.index(("]", "b")) if restored_first and ("]", "b") in segs else 0
+                restored = len([w for w in re.split(r"[-.\s{}]+", "".join(t for t, kk in segs[1:k])) if w])
+                n = max(0, est[lnr] - restored)
+                xs = [(" ".join(["x"] * n), "ru")] if n else []
+                segs = ([("[", "b")] + xs + ([(" ", "u")] if n else []) + segs[1:]) if restored_first \
+                    else ([("[", "b")] + xs + [("]", "b")] + sep + segs)
+            elif gaps.get(lnr):  # "[" + blank as wide as TLHdig's spacing; a restored first word stays inside the same break
+                g = gaps[lnr]
+                segs = ([("[", "b"), ("", "g%d" % g)] + segs[1:]) if restored_first \
+                    else ([("[", "b"), ("", "g%d" % g), ("]", "b")] + sep + segs)
             rows.append((lnr, segs))
         blocks.append((cfg[key]["label"], rows))
-    est = {r["line"]: int(r["lost_signs_mid"] + 0.5) for r in meas.get("lost_at_line_start", {}).get("lines", [])} \
-        if cfg["lower"].get("show_lost_estimate") else {}
-    ind = 3.2 + (2.9 if est else 0)  # text indent in em: line number (+ "ca. n" column)
+    ind = 3.2  # text indent in em, after the line number
     nrows = sum(len(r) for _, r in blocks)
     IN = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
     for size in range(60, 20, -1):  # largest size whose lines fit the panel
@@ -528,8 +538,6 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
         for lnr, segs in rows:
             c = hl("".join(t for t, kk in segs if kk != "b"))
             d.text((tx, y + size * 0.08), lnr.split()[-1], fill=MUTE, font=F(int(size * 0.85)))
-            if lnr in est and bi == 1:
-                d.text((tx + int(size * 2.4), y + size * 0.08), "ca. %d" % est[lnr], fill=MUTE, font=F(int(size * 0.8)))
             x = tx + int(size * ind)
             for t, kk in segs:
                 if kk[0] == "g":

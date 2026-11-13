@@ -51,8 +51,7 @@
  },
  "lower": {
   "label": "EBo 133 side A",
-  "show_lead_gaps": true,
-  "show_lost_estimate": true,
+  "lost_as_x": true,
   "txtid": "EBo 133",
   "sides": [
    "side A"
