@@ -179,6 +179,31 @@ def rich_lines_of(tok_csv, txt, sides):
     return list(L.items())
 
 
+def lead_gaps(xml_dir, txt):
+    """Width of the break at the start of each line, as TLHdig encodes it: the <space c="n"/> blanks
+    before the first preserved word of a line that opens inside a break (the break's ] comes after them).
+    TLHdig gives a width, not a sign count; we keep its units."""
+    import glob, re
+    paths = [p for p in glob.glob(os.path.join(xml_dir, "*", txt + ".xml"))]
+    if not paths:
+        return {}
+    s = open(paths[0], encoding="utf-8").read()
+    out = {}
+    for m in re.finditer(r'<lb [^>]*lnr="([^"]+)"[^>]*/>(.*?)(?=<lb |$)', s, re.S):
+        body, n = m.group(2), 0
+        for w in re.finditer(r"<w[^>]*>(.*?)</w>", body, re.S):
+            inner = w.group(1)
+            sp = re.fullmatch(r'\s*<space c="(\d+)"/>\s*', inner)
+            if sp:
+                n += int(sp.group(1)); continue
+            if re.fullmatch(r"\s*<del_(fin|in)/>\s*", inner):
+                continue
+            break
+        if n:
+            out[m.group(1)] = n
+    return out
+
+
 def main(cfg_path):
     cfg = json.load(open(cfg_path))
     base = os.path.dirname(os.path.abspath(cfg_path))
@@ -434,8 +459,16 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
     tok = os.path.join(base, cfg.get("marks_csv", cfg["tokens_csv"]))
     blocks = []
     for key in ("upper", "lower"):
-        rows = [(lnr, segs) for lnr, segs in rich_lines_of(tok, cfg[key]["txtid"], cfg[key]["sides"])
-                if not set("".join(t for t, kk in segs if kk != "b").replace(" ", "")) <= set("x")]
+        gaps = lead_gaps(os.path.join(base, cfg["xml_dir"]), cfg[key]["txtid"]) if cfg[key].get("show_lead_gaps") else {}
+        rows = []
+        for lnr, segs in rich_lines_of(tok, cfg[key]["txtid"], cfg[key]["sides"]):
+            if set("".join(t for t, kk in segs if kk != "b").replace(" ", "")) <= set("x"):
+                continue
+            g = gaps.get(lnr, 0)
+            if g:  # "[" + blank as wide as TLHdig's spacing; a restored first word stays inside the same break
+                segs = ([("[", "b"), ("", "g%d" % g)] + segs[1:]) if segs and segs[0] == ("[", "b") \
+                    else ([("[", "b"), ("", "g%d" % g), ("]", "b")] + ([] if segs and segs[0][0].startswith("-") else [(" ", "u")]) + segs)
+            rows.append((lnr, segs))
         blocks.append((cfg[key]["label"], rows))
     nrows = sum(len(r) for _, r in blocks)
     IN = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
@@ -444,7 +477,8 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
         need = top_band + 2 * int(lh * 1.25) + nrows * lh + int(lh * 1.0) + 2 * 24 + int(lh * 1.1) * 3
         FT = {"u": ImageFont.truetype(IN % "Regular", size), "i": ImageFont.truetype(IN % "Italic", size),
               "b": ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", size)}
-        wid = max(sum(d.textlength(t, font=FT[kk[-1]] if kk != "b" else FT["b"]) for t, kk in segs)
+        GW = lambda kk: int(kk[1:]) * size * cfg.get("gap_em_per_unit", 0.25)
+        wid = max(sum(GW(kk) if kk[0] == "g" else d.textlength(t, font=FT[kk[-1]] if kk != "b" else FT["b"]) for t, kk in segs)
                   for _, rows in blocks for _, segs in rows) + size * 3.2
         if need <= H and tx + wid <= W - 30:
             break
@@ -458,6 +492,8 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
             d.text((tx, y + size * 0.08), lnr.split()[-1], fill=MUTE, font=F(int(size * 0.85)))
             x = tx + int(size * 3.2)
             for t, kk in segs:
+                if kk[0] == "g":
+                    x += GW(kk); continue
                 f = FT[kk[-1]] if kk != "b" else FT["b"]
                 d.text((x, y), t, fill=mute(c) if kk.startswith("r") else c, font=f)
                 x += d.textlength(t, font=f)

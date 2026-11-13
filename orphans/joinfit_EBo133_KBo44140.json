@@ -51,6 +51,7 @@
  },
  "lower": {
   "label": "EBo 133 side A",
+  "show_lead_gaps": true,
   "txtid": "EBo 133",
   "sides": [
    "side A"
@@ -110,5 +111,7 @@
  "out_slide_png": "results/joinfit/EBo133_KBo44140_fit_slide.png",
  "marks_csv": "data/tokens_marks.csv",
  "out_slide_full_png": "results/joinfit/EBo133_KBo44140_fit_slide_full.png",
+ "xml_dir": "data/TLHbasisONLINE25_1_ZENODO_Beta_03",
+ "gap_em_per_unit": 0.25,
  "out_slide_wide_png": "results/joinfit/EBo133_KBo44140_fit_slide_wide.png"
 }
