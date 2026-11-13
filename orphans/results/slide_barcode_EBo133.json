@@ -1,0 +1,123 @@
+{
+ "id": "EBo 133",
+ "top": "Ḫuwaššanna festivals",
+ "runnerUp": "Palaic festivals",
+ "assigned": "Ḫuwaššanna festivals",
+ "topScore": 0.27367373729340255,
+ "margin": 0.04308885592361722,
+ "coreSize": 200,
+ "rows": [
+  {
+   "tradition": "Ḫuwaššanna festivals",
+   "cells": "....c.c......................c.......c...........c..cc....cc...c..ddd.....dd........d..c.dc...d.....c....ccdd..c........d...dc..c..............ccc.......c..c...........c..c.....c...dd.dd.cd...cc...cc.",
+   "attested": 48,
+   "distinctive": 17,
+   "terms": [
+    "§ta·kar·mu",
+    "§kar·mu",
+    "§ta·kar",
+    "takarmun",
+    "§kar·mu·un",
+    "§NINDA·ta·kar",
+    "§mu·un",
+    "§NINDA·ta",
+    "§a·ez",
+    "§a·ez·zi",
+    "DINGIR",
+    "§kar",
+    "§e·ku·zi",
+    "§e·ku",
+    "ekuzi",
+    "§ku·zi",
+    "NINDA"
+   ]
+  },
+  {
+   "tradition": "Kizzuwatna–Lower Land (Hurrian)",
+   "cells": "cc...cccc......c..............c...c.c...ccc.cc.c.cc...cc.....c.............c.......c.................................cc.............cd.d....d..d......................c.....c.................c.........",
+   "attested": 33,
+   "distinctive": 4,
+   "terms": [
+    "§e·ku·zi",
+    "ekuzi",
+    "§ku·zi",
+    "§e·ku"
+   ]
+  },
+  {
+   "tradition": "Mixed (Hurrian, Syrian, Luwian)",
+   "cells": ".c............c.cc..c.....c.......c.ccc.c.cccdddd..c.c....c...c..........cc......ccc...c.......c.................................c..................c......................................c..........c.",
+   "attested": 33,
+   "distinctive": 4,
+   "terms": [
+    "ekuzi",
+    "§e·ku·zi",
+    "§ku·zi",
+    "§e·ku"
+   ]
+  },
+  {
+   "tradition": "Palaic festivals",
+   "cells": "c.....cc..c...cccccc...................c.cc.c..cc.c........c.......cc......cc.c............c.....................................d........................................d......................d......",
+   "attested": 27,
+   "distinctive": 3,
+   "terms": [
+    "§ke·ez",
+    "§ke·ez·zi",
+    "§ir"
+   ]
+  },
+  {
+   "tradition": "Kizzuwatna rituals",
+   "cells": "ccc...c.....c...ccc........cc..cc.c..c............cc........c................c..........c.......cd................c..c..........cc..................................d...................................",
+   "attested": 26,
+   "distinctive": 2,
+   "terms": [
+    "§ki·iš",
+    "DINGIR"
+   ]
+  },
+  {
+   "tradition": "Luwian festivals (Ištanuwa, Lallupiya)",
+   "cells": "c..ccc......c....c..c...c.............c....c...............c...........c....c.........c.......c....................c.......................c.............................d.....................d........",
+   "attested": 19,
+   "distinctive": 2,
+   "terms": [
+    "§ki·iš",
+    "§ku·uš"
+   ]
+  },
+  {
+   "tradition": "Hattian cult layer",
+   "cells": "cc.c.c...cc.c.cc...c........cc..c.c.................c...c.c...c.c..dc................c...........................c................c.....................ccc................c............................",
+   "attested": 28,
+   "distinctive": 1,
+   "terms": [
+    "§ḫa·a"
+   ]
+  },
+  {
+   "tradition": "Luwian rituals (Puriyanni, Kuwattalla)",
+   "cells": "....c......cc...........ccd.....c.......c...............c......c.c.....c......c.c............................c......c...c........c......c.......c..........c...........................................c",
+   "attested": 22,
+   "distinctive": 1,
+   "terms": [
+    "§kar"
+   ]
+  },
+  {
+   "tradition": "Arzawa / western rituals",
+   "cells": "............c.....cc....c.c........cc...c...................cc.....................c.....c.................................c......................................................c.....................",
+   "attested": 14,
+   "distinctive": 0,
+   "terms": []
+  },
+  {
+   "tradition": "Syro-Mesopotamia (Hurrian)",
+   "cells": "..cc........................c....c..c..ccc....................c....................c.......c.......c....c...c..c.....................c........c...c.c......c.........cc...........c.....................",
+   "attested": 23,
+   "distinctive": 0,
+   "terms": []
+  }
+ ]
+}

@@ -1,0 +1,296 @@
+{
+ "txtid": "EBo 133",
+ "cth": "670",
+ "translit": "{∅}∅-∅-∅-un pár-∅-∅ -pa-an 1-ŠU {∅}∅-∅-∅-un pár-ši-ia 1-ŠU e-ku-zi 1 NINDA pár-ši-∅ ki-iš-an {∅}∅-kar-mu-un pár-∅-∅ DINGIR {MEŠ} ir-ḫa-a-ez-zi pa-ra-a ak-ku-uš-ke-ez-zi pár-ši-ia",
+ "words": [
+  "takarmun",
+  "paršia",
+  "~pan",
+  "1-ŠU",
+  "takarmun",
+  "paršia",
+  "1-ŠU",
+  "ekuzi",
+  "1",
+  "NINDA",
+  "paršia",
+  "kišan",
+  "takarmun",
+  "paršia",
+  "DINGIR",
+  "irḫaizi",
+  "para",
+  "akkuškezi",
+  "paršia"
+ ],
+ "margin": 0.028,
+ "traditions": [
+  [
+   "Palaic festivals",
+   0.2523
+  ],
+  [
+   "Ḫuwaššanna festivals",
+   0.2492
+  ],
+  [
+   "Mixed (Hurrian, Syrian, Luwian)",
+   0.2408
+  ],
+  [
+   "Kizzuwatna–Lower Land (Hurrian)",
+   0.2286
+  ],
+  [
+   "Hattian cult layer",
+   0.2153
+  ],
+  [
+   "Kizzuwatna rituals",
+   0.1778
+  ],
+  [
+   "Syro-Mesopotamia (Hurrian)",
+   0.1553
+  ],
+  [
+   "Luwian festivals (Ištanuwa, Lallupiya)",
+   0.1463
+  ],
+  [
+   "Arzawa / western rituals",
+   0.1165
+  ],
+  [
+   "Luwian rituals (Puriyanni, Kuwattalla)",
+   0.11
+  ]
+ ],
+ "nearest": [
+  {
+   "txtid": "KBo 21.51",
+   "cth": "705",
+   "group": "Mixed (Hurrian, Syrian, Luwian)",
+   "similarity": 0.3712,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.234
+    ],
+    [
+     "paršia",
+     0.087
+    ],
+    [
+     "§mu·un",
+     0.083
+    ],
+    [
+     "§pár",
+     0.058
+    ],
+    [
+     "ekuzi",
+     0.057
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 34.228",
+   "cth": "693",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.2993,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.162
+    ],
+    [
+     "§kar·mu·un",
+     0.082
+    ],
+    [
+     "§kar·mu",
+     0.074
+    ],
+    [
+     "§mu·un",
+     0.071
+    ],
+    [
+     "paršia",
+     0.06
+    ]
+   ]
+  },
+  {
+   "txtid": "DBH 46_2.139",
+   "cth": "750",
+   "group": "Palaic festivals",
+   "similarity": 0.2849,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.144
+    ],
+    [
+     "1-ŠU",
+     0.075
+    ],
+    [
+     "paršia",
+     0.057
+    ],
+    [
+     "§pár",
+     0.042
+    ],
+    [
+     "§kar·mu",
+     0.04
+    ]
+   ]
+  },
+  {
+   "txtid": "IBoT 4.273",
+   "cth": "722",
+   "group": "Kizzuwatna–Lower Land (Hurrian)",
+   "similarity": 0.2817,
+   "top_terms_share": [
+    [
+     "1-ŠU",
+     0.16
+    ],
+    [
+     "paršia",
+     0.113
+    ],
+    [
+     "§pár·ši",
+     0.083
+    ],
+    [
+     "§pár",
+     0.075
+    ],
+    [
+     "§pár·ši·ia",
+     0.071
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 41.87",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.2684,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.148
+    ],
+    [
+     "§kar·mu·un",
+     0.075
+    ],
+    [
+     "§kar·mu",
+     0.068
+    ],
+    [
+     "§mu·un",
+     0.065
+    ],
+    [
+     "§ir·ḫa",
+     0.061
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 35.155",
+   "cth": "706",
+   "group": "Mixed (Hurrian, Syrian, Luwian)",
+   "similarity": 0.263,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.177
+    ],
+    [
+     "paršia",
+     0.089
+    ],
+    [
+     "§ḫa·a·ez",
+     0.041
+    ],
+    [
+     "irḫaizi",
+     0.038
+    ],
+    [
+     "§kar·mu·un",
+     0.038
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 29.113",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.2612,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.138
+    ],
+    [
+     "§kar·mu·un",
+     0.07
+    ],
+    [
+     "§kar·mu",
+     0.064
+    ],
+    [
+     "§mu·un",
+     0.061
+    ],
+    [
+     "paršia",
+     0.052
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 29.129",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.259,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.119
+    ],
+    [
+     "§kar·mu·un",
+     0.06
+    ],
+    [
+     "§kar·mu",
+     0.055
+    ],
+    [
+     "§mu·un",
+     0.052
+    ],
+    [
+     "paršia",
+     0.044
+    ]
+   ]
+  }
+ ],
+ "pool_size": 1824
+}

@@ -1,0 +1,43 @@
+{
+  "scope": "legible words of the texts the experiments use (reference traditions, residue, orphan pools)",
+  "legible_tokens": 320638,
+  "confidence_share": {
+    "high": 0.627,
+    "medium": 0.251,
+    "low": 0.122
+  },
+  "rule_share": {
+    "analysis_selected": 0.4295,
+    "analysis_unanimous": 0.1494,
+    "no_analysis": 0.0927,
+    "selected_elsewhere": 0.0629,
+    "language": 0.0534,
+    "preposition_split": 0.0504,
+    "determinative_deity": 0.0501,
+    "determinative_agent": 0.0432,
+    "determinative_noun": 0.0271,
+    "analysis_ambiguous": 0.0222,
+    "agent_logogram": 0.0117,
+    "broken_clitic": 0.0046,
+    "broken_ending": 0.0027,
+    "akkadian_function": 0.0001
+  },
+  "class_share": {
+    "function": 0.2368,
+    "verb": 0.1568,
+    "realia": 0.1504,
+    "unknown": 0.0927,
+    "agent": 0.0785,
+    "other": 0.0594,
+    "foreign": 0.0534,
+    "deity": 0.0517,
+    "ambiguous": 0.0254,
+    "adjective": 0.02,
+    "place": 0.0163,
+    "animal": 0.0154,
+    "measure": 0.0139,
+    "abstract": 0.0116,
+    "body": 0.0112,
+    "nature": 0.0064
+  }
+}

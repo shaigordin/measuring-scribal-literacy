@@ -1,0 +1,80 @@
+{
+  "sample_size": 178,
+  "sample_drawn": 180,
+  "before_fixes": {
+    "levels": {
+      "high": {
+        "reviewed": 59,
+        "right": 55,
+        "accuracy": 0.932,
+        "ci95": [
+          0.838,
+          0.973
+        ]
+      },
+      "low": {
+        "reviewed": 60,
+        "right": 42,
+        "accuracy": 0.7,
+        "ci95": [
+          0.575,
+          0.801
+        ]
+      },
+      "medium": {
+        "reviewed": 59,
+        "right": 52,
+        "accuracy": 0.881,
+        "ci95": [
+          0.775,
+          0.941
+        ]
+      }
+    },
+    "corpus_weighted_accuracy": 0.892
+  },
+  "after_fixes": {
+    "levels": {
+      "high": {
+        "reviewed": 59,
+        "right": 57,
+        "accuracy": 0.966,
+        "ci95": [
+          0.885,
+          0.991
+        ]
+      },
+      "low": {
+        "reviewed": 60,
+        "right": 53,
+        "accuracy": 0.883,
+        "ci95": [
+          0.778,
+          0.942
+        ]
+      },
+      "medium": {
+        "reviewed": 59,
+        "right": 52,
+        "accuracy": 0.881,
+        "ci95": [
+          0.775,
+          0.941
+        ]
+      }
+    },
+    "corpus_weighted_accuracy": 0.936,
+    "in_sample": true,
+    "rows_still_wrong": 16
+  },
+  "weights_share_of_tokens": {
+    "high": 0.637,
+    "low": 0.121,
+    "medium": 0.241
+  },
+  "rule_fixes": 5,
+  "share_of_words_changed_by_fixes": 0.022,
+  "share_of_words_changed_incl_meaning_classes": 0.1901,
+  "realia_split_included": true,
+  "note": "after-fix accuracy is in-sample (rules revised on these marks) and scored in the audit's scheme, where nouns and adjectives were one class (realia); the realia split into meaning classes (philologist's decision 2026-10-17) uses labels/gloss_lexicon.tsv, drafted by Claude from TLHdig's German glosses and not audited"
+}

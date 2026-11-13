@@ -1,0 +1,151 @@
+{
+ "word": "takarmun",
+ "excluded": "EBo 133",
+ "manuscripts": 129,
+ "by_tradition": {
+  "Ḫuwaššanna festivals": 47,
+  "other": 42,
+  "CTH 670 (festival fragments)": 32,
+  "Mixed (Hurrian, Syrian, Luwian)": 4,
+  "Palaic festivals": 2,
+  "Hattian cult layer": 1,
+  "Luwian festivals (Ištanuwa, Lallupiya)": 1
+ },
+ "by_cth": [
+  {
+   "cth": "670",
+   "manuscripts": 32,
+   "tradition": null
+  },
+  {
+   "cth": "692",
+   "manuscripts": 23,
+   "tradition": "Ḫuwaššanna festivals"
+  },
+  {
+   "cth": "694",
+   "manuscripts": 20,
+   "tradition": "Ḫuwaššanna festivals"
+  },
+  {
+   "cth": "647",
+   "manuscripts": 10,
+   "tradition": null
+  },
+  {
+   "cth": "683",
+   "manuscripts": 4,
+   "tradition": null
+  },
+  {
+   "cth": "646",
+   "manuscripts": 4,
+   "tradition": null
+  },
+  {
+   "cth": "656",
+   "manuscripts": 4,
+   "tradition": null
+  },
+  {
+   "cth": "330",
+   "manuscripts": 3,
+   "tradition": null
+  },
+  {
+   "cth": "630",
+   "manuscripts": 3,
+   "tradition": null
+  },
+  {
+   "cth": "706",
+   "manuscripts": 3,
+   "tradition": "Mixed (Hurrian, Syrian, Luwian)"
+  },
+  {
+   "cth": "638",
+   "manuscripts": 2,
+   "tradition": null
+  },
+  {
+   "cth": "693",
+   "manuscripts": 2,
+   "tradition": "Ḫuwaššanna festivals"
+  },
+  {
+   "cth": "750",
+   "manuscripts": 2,
+   "tradition": "Palaic festivals"
+  },
+  {
+   "cth": "685",
+   "manuscripts": 2,
+   "tradition": null
+  },
+  {
+   "cth": "669",
+   "manuscripts": 2,
+   "tradition": null
+  },
+  {
+   "cth": "691",
+   "manuscripts": 2,
+   "tradition": "Ḫuwaššanna festivals"
+  },
+  {
+   "cth": "470",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "635",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "626",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "650",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "642",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "663",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "674",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "705",
+   "manuscripts": 1,
+   "tradition": "Mixed (Hurrian, Syrian, Luwian)"
+  },
+  {
+   "cth": "738",
+   "manuscripts": 1,
+   "tradition": "Hattian cult layer"
+  },
+  {
+   "cth": "771",
+   "manuscripts": 1,
+   "tradition": "Luwian festivals (Ištanuwa, Lallupiya)"
+  },
+  {
+   "cth": "790",
+   "manuscripts": 1,
+   "tradition": null
+  }
+ ]
+}
