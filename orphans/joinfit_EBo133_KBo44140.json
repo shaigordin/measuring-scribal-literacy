@@ -113,5 +113,6 @@
  "out_slide_full_png": "results/joinfit/EBo133_KBo44140_fit_slide_full.png",
  "xml_dir": "data/TLHbasisONLINE25_1_ZENODO_Beta_03",
  "gap_em_per_unit": 0.25,
+ "out_lost_json": "results/joinfit/EBo133_lost_at_line_start.json",
  "out_slide_wide_png": "results/joinfit/EBo133_KBo44140_fit_slide_wide.png"
 }

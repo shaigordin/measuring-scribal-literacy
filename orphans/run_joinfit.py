@@ -204,6 +204,39 @@ def lead_gaps(xml_dir, txt):
     return out
 
 
+def lost_at_line_start(cfg, base, frags, meas, dx, dy):
+    """Estimate how much is lost at the start of each EBo 133 line if it sat in KBo 44.140's column III:
+    distance from the column's left edge (KBo 44.140 text band) to the lower piece's left break at each
+    marked line row, converted to signs with KBo 44.140's own sign widths (column width / signs per line).
+    Rough: the line rows are the spectral grid, not read line by line; the column start is the text band."""
+    U, Lo = frags["upper"], frags["lower"]
+    S = cfg["out_px_per_cm"]
+    r0, r1 = [int(v) for v in U["edge_rows"]]
+    right = float(np.median([np.flatnonzero(r).max() for r in U["mask"][r0:r1] if r.any()]))
+    col_cm = (right - U["band"][0]) / S
+    tok = os.path.join(base, cfg.get("marks_csv", cfg["tokens_csv"]))
+    nsig = lambda segs: len([x for x in re.split(r"[-.\s{}]+", "".join(t for t, k in segs if k != "b")) if x])
+    up = [nsig(sg) for _, sg in rich_lines_of(tok, cfg["upper"]["txtid"], cfg["upper"]["sides"])]
+    up = [n for n in up if n >= 4]
+    per = sorted([col_cm / max(up), col_cm / float(np.median(up)), col_cm / min(up)])
+    gaps = lead_gaps(os.path.join(base, cfg["xml_dir"]), cfg["lower"]["txtid"])
+    gs = [g for g in Lo["grid"] if Lo["band"][1] <= g <= Lo["band"][3]]
+    P = meas["lower"]["spectrum_pitch_cm"] * S
+    first = cfg["lower"].get("first_grid_line", 1)
+    rows = []
+    for i, g in enumerate(gs):
+        band = [r for r in Lo["mask"][max(0, int(g - P / 2)):int(g + P / 2)] if r.any()]
+        left = min(np.flatnonzero(r).min() for r in band) + dx
+        off = (left - U["band"][0]) / S
+        lnr = "%s %d′" % (cfg["lower"]["sides"][0], first + i)
+        rows.append({"line": lnr, "tlhdig_space_units": gaps.get(lnr), "break_from_column_start_cm": round(off, 2),
+                     "lost_signs_low": round(off / per[2], 1), "lost_signs_mid": round(off / per[1], 1), "lost_signs_high": round(off / per[0], 1)})
+    out = {"column_width_cm": round(col_cm, 2), "upper_signs_per_line": up,
+           "cm_per_sign_range": [round(v, 2) for v in per], "lines": rows}
+    json.dump(out, open(os.path.join(base, cfg["out_lost_json"]), "w"), indent=1, ensure_ascii=False)
+    return out
+
+
 def main(cfg_path):
     cfg = json.load(open(cfg_path))
     base = os.path.dirname(os.path.abspath(cfg_path))
@@ -281,6 +314,8 @@ def main(cfg_path):
         slide_figure(cfg, base, frags, meas, dx, best)
     if cfg.get("out_slide_wide_png"):
         slide_wide(cfg, base, frags, meas, dx, best)
+    if cfg.get("out_lost_json"):
+        meas["lost_at_line_start"] = lost_at_line_start(cfg, base, frags, meas, dx, best)
     json.dump(meas, open(os.path.join(base, cfg["out_json"]), "w"), indent=1, ensure_ascii=False)
     print(json.dumps(meas, indent=1, ensure_ascii=False))
 
