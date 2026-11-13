@@ -312,10 +312,10 @@ def main(cfg_path):
         figure(cfg, base, frags, meas, dx, best, caveats=False, out_png=cfg["out_slide_full_png"], tl_size=30)
     if cfg.get("out_slide_png"):
         slide_figure(cfg, base, frags, meas, dx, best)
-    if cfg.get("out_slide_wide_png"):
-        slide_wide(cfg, base, frags, meas, dx, best)
     if cfg.get("out_lost_json"):
         meas["lost_at_line_start"] = lost_at_line_start(cfg, base, frags, meas, dx, best)
+    if cfg.get("out_slide_wide_png"):
+        slide_wide(cfg, base, frags, meas, dx, best)
     json.dump(meas, open(os.path.join(base, cfg["out_json"]), "w"), indent=1, ensure_ascii=False)
     print(json.dumps(meas, indent=1, ensure_ascii=False))
 
@@ -505,6 +505,9 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
                     else ([("[", "b"), ("", "g%d" % g), ("]", "b")] + ([] if segs and segs[0][0].startswith("-") else [(" ", "u")]) + segs)
             rows.append((lnr, segs))
         blocks.append((cfg[key]["label"], rows))
+    est = {r["line"]: int(r["lost_signs_mid"] + 0.5) for r in meas.get("lost_at_line_start", {}).get("lines", [])} \
+        if cfg["lower"].get("show_lost_estimate") else {}
+    ind = 3.2 + (2.9 if est else 0)  # text indent in em: line number (+ "ca. n" column)
     nrows = sum(len(r) for _, r in blocks)
     IN = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
     for size in range(60, 20, -1):  # largest size whose lines fit the panel
@@ -514,7 +517,7 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
               "b": ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", size)}
         GW = lambda kk: int(kk[1:]) * size * cfg.get("gap_em_per_unit", 0.25)
         wid = max(sum(GW(kk) if kk[0] == "g" else d.textlength(t, font=FT[kk[-1]] if kk != "b" else FT["b"]) for t, kk in segs)
-                  for _, rows in blocks for _, segs in rows) + size * 3.2
+                  for _, rows in blocks for _, segs in rows) + size * ind
         if need <= H and tx + wid <= W - 30:
             break
     def mute(c):
@@ -525,7 +528,9 @@ def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
         for lnr, segs in rows:
             c = hl("".join(t for t, kk in segs if kk != "b"))
             d.text((tx, y + size * 0.08), lnr.split()[-1], fill=MUTE, font=F(int(size * 0.85)))
-            x = tx + int(size * 3.2)
+            if lnr in est and bi == 1:
+                d.text((tx + int(size * 2.4), y + size * 0.08), "ca. %d" % est[lnr], fill=MUTE, font=F(int(size * 0.8)))
+            x = tx + int(size * ind)
             for t, kk in segs:
                 if kk[0] == "g":
                     x += GW(kk); continue
