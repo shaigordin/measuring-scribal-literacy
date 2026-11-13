@@ -1554,13 +1554,13 @@ plene.ḫalzai.huwassannafestivals,7 of 7,tlhdig03_literature_C/corpus_stats.jso
 plene.ḫalzai.huwassannafestivals.cths,"691, 692, 694",tlhdig03_literature_C/corpus_stats.json plene_clusters.ḫalzai
 E8.all.words,79\%,tlhdig03_literature_C/E8_report.json historical.all
 E8.all.signs,82\%,tlhdig03_literature_C/E8_report.json historical.all
-E8.only_agent.words,63\%,tlhdig03_literature_C/E8_report.json historical.only_agent.words
+E8.only_agent.words,62\%,tlhdig03_literature_C/E8_report.json historical.only_agent.words
 E8.only_agent.signs,66\%,tlhdig03_literature_C/E8_report.json historical.only_agent.signs
 E8.only_agent.majority,31\%,tlhdig03_literature_C/E8_report.json historical.only_agent
 E8.without_agent.words,76\%,tlhdig03_literature_C/E8_report.json historical.without_agent.words
 E8.without_agent.signs,79\%,tlhdig03_literature_C/E8_report.json historical.without_agent.signs
 E8.without_agent.majority,29\%,tlhdig03_literature_C/E8_report.json historical.without_agent
-E8.only_deity.words,55\%,tlhdig03_literature_C/E8_report.json historical.only_deity.words
+E8.only_deity.words,56\%,tlhdig03_literature_C/E8_report.json historical.only_deity.words
 E8.only_deity.signs,56\%,tlhdig03_literature_C/E8_report.json historical.only_deity.signs
 E8.only_deity.majority,24\%,tlhdig03_literature_C/E8_report.json historical.only_deity
 E8.without_deity.words,77\%,tlhdig03_literature_C/E8_report.json historical.without_deity.words
@@ -1578,15 +1578,15 @@ E8.only_verb.majority,27\%,tlhdig03_literature_C/E8_report.json historical.only_
 E8.without_verb.words,78\%,tlhdig03_literature_C/E8_report.json historical.without_verb.words
 E8.without_verb.signs,81\%,tlhdig03_literature_C/E8_report.json historical.without_verb.signs
 E8.without_verb.majority,29\%,tlhdig03_literature_C/E8_report.json historical.without_verb
-E8.only_realia.words,59\%,tlhdig03_literature_C/E8_report.json historical.only_realia.words
-E8.only_realia.signs,59\%,tlhdig03_literature_C/E8_report.json historical.only_realia.signs
+E8.only_realia.words,58\%,tlhdig03_literature_C/E8_report.json historical.only_realia.words
+E8.only_realia.signs,57\%,tlhdig03_literature_C/E8_report.json historical.only_realia.signs
 E8.only_realia.majority,24\%,tlhdig03_literature_C/E8_report.json historical.only_realia
 E8.without_realia.words,77\%,tlhdig03_literature_C/E8_report.json historical.without_realia.words
 E8.without_realia.signs,80\%,tlhdig03_literature_C/E8_report.json historical.without_realia.signs
 E8.without_realia.majority,29\%,tlhdig03_literature_C/E8_report.json historical.without_realia
-E8.only_place.words,57\%,tlhdig03_literature_C/E8_report.json historical.only_place.words
+E8.only_place.words,58\%,tlhdig03_literature_C/E8_report.json historical.only_place.words
 E8.only_place.signs,52\%,tlhdig03_literature_C/E8_report.json historical.only_place.signs
-E8.only_place.majority,33\%,tlhdig03_literature_C/E8_report.json historical.only_place
+E8.only_place.majority,35\%,tlhdig03_literature_C/E8_report.json historical.only_place
 E8.without_place.words,78\%,tlhdig03_literature_C/E8_report.json historical.without_place.words
 E8.without_place.signs,81\%,tlhdig03_literature_C/E8_report.json historical.without_place.signs
 E8.without_place.majority,29\%,tlhdig03_literature_C/E8_report.json historical.without_place
@@ -1602,19 +1602,19 @@ E8.only_body.majority,26\%,tlhdig03_literature_C/E8_report.json historical.only_
 E8.without_body.words,79\%,tlhdig03_literature_C/E8_report.json historical.without_body.words
 E8.without_body.signs,82\%,tlhdig03_literature_C/E8_report.json historical.without_body.signs
 E8.without_body.majority,29\%,tlhdig03_literature_C/E8_report.json historical.without_body
-E8.only_nature.words,44\%,tlhdig03_literature_C/E8_report.json historical.only_nature.words
-E8.only_nature.signs,39\%,tlhdig03_literature_C/E8_report.json historical.only_nature.signs
+E8.only_nature.words,43\%,tlhdig03_literature_C/E8_report.json historical.only_nature.words
+E8.only_nature.signs,40\%,tlhdig03_literature_C/E8_report.json historical.only_nature.signs
 E8.only_nature.majority,24\%,tlhdig03_literature_C/E8_report.json historical.only_nature
 E8.without_nature.words,79\%,tlhdig03_literature_C/E8_report.json historical.without_nature.words
 E8.without_nature.signs,81\%,tlhdig03_literature_C/E8_report.json historical.without_nature.signs
 E8.without_nature.majority,29\%,tlhdig03_literature_C/E8_report.json historical.without_nature
-E8.only_abstract.words,50\%,tlhdig03_literature_C/E8_report.json historical.only_abstract.words
-E8.only_abstract.signs,44\%,tlhdig03_literature_C/E8_report.json historical.only_abstract.signs
+E8.only_abstract.words,47\%,tlhdig03_literature_C/E8_report.json historical.only_abstract.words
+E8.only_abstract.signs,46\%,tlhdig03_literature_C/E8_report.json historical.only_abstract.signs
 E8.only_abstract.majority,22\%,tlhdig03_literature_C/E8_report.json historical.only_abstract
 E8.without_abstract.words,79\%,tlhdig03_literature_C/E8_report.json historical.without_abstract.words
 E8.without_abstract.signs,81\%,tlhdig03_literature_C/E8_report.json historical.without_abstract.signs
 E8.without_abstract.majority,29\%,tlhdig03_literature_C/E8_report.json historical.without_abstract
-E8.only_adjective.words,48\%,tlhdig03_literature_C/E8_report.json historical.only_adjective.words
+E8.only_adjective.words,47\%,tlhdig03_literature_C/E8_report.json historical.only_adjective.words
 E8.only_adjective.signs,39\%,tlhdig03_literature_C/E8_report.json historical.only_adjective.signs
 E8.only_adjective.majority,26\%,tlhdig03_literature_C/E8_report.json historical.only_adjective
 E8.without_adjective.words,78\%,tlhdig03_literature_C/E8_report.json historical.without_adjective.words
@@ -1882,7 +1882,7 @@ E11a.acc,82\%,tlhdig03_literature_C/E11_report.json E11a.accuracy
 E11a.texts,"1{,}106",tlhdig03_literature_C/E11_report.json E11a.all_correct.texts
 E11a.decision.functionwords,9\%,tlhdig03_literature_C/E11_report.json E11a.all_correct.by_category
 E11a.decision.verbs,12\%,tlhdig03_literature_C/E11_report.json E11a.all_correct.by_category
-E11a.decision.realia,16\%,tlhdig03_literature_C/E11_report.json E11a.all_correct.by_category
+E11a.decision.realia,15\%,tlhdig03_literature_C/E11_report.json E11a.all_correct.by_category
 E11a.decision.agentsanddeities,44\%,tlhdig03_literature_C/E11_report.json E11a.all_correct.by_category
 E11a.decision.places,2\%,tlhdig03_literature_C/E11_report.json E11a.all_correct.by_category
 E11a.decision.animalsbodynature,1\%,tlhdig03_literature_C/E11_report.json E11a.all_correct.by_category
@@ -1945,11 +1945,11 @@ E11a.syromesopotamiahurrian.logographicwriting,25\%,tlhdig03_literature_C/E11_re
 E11b.syromesopotamiahurrian.common,13\%,tlhdig03_literature_C/E11_report.json E11b.common_features_share
 E11b.syromesopotamiahurrian.features,"AZU, LÚ-AZU, tai, SÍSKUR, ḫurlilima",tlhdig03_literature_C/E11_report.json E11b.top_features
 E11a.mixedhurriansyrianluwian.top,agents and deities,tlhdig03_literature_C/E11_report.json E11a.by_tradition
-E11a.mixedhurriansyrianluwian.top.share,45\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.top.share,44\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.mixedhurriansyrianluwian.functionwords,35\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.mixedhurriansyrianluwian.verbs,0\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
-E11a.mixedhurriansyrianluwian.realia,3\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
-E11a.mixedhurriansyrianluwian.agentsanddeities,45\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.realia,4\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
+E11a.mixedhurriansyrianluwian.agentsanddeities,44\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.mixedhurriansyrianluwian.places,0\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.mixedhurriansyrianluwian.animalsbodynature,0\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.mixedhurriansyrianluwian.abstractnouns,0\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
@@ -2034,12 +2034,12 @@ E11a.kizzuwatnarituals.syllabicspelling,44\%,tlhdig03_literature_C/E11_report.js
 E11a.kizzuwatnarituals.logographicwriting,29\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11b.kizzuwatnarituals.common,2\%,tlhdig03_literature_C/E11_report.json E11b.common_features_share
 E11b.kizzuwatnarituals.features,"EN, SÍG, nu, SISKUR, 7",tlhdig03_literature_C/E11_report.json E11b.top_features
-E11a.arzawawesternrituals.top,realia,tlhdig03_literature_C/E11_report.json E11a.by_tradition
-E11a.arzawawesternrituals.top.share,98\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.top,agents and deities,tlhdig03_literature_C/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.top.share,133\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.arzawawesternrituals.functionwords,−22\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.arzawawesternrituals.verbs,−6\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
-E11a.arzawawesternrituals.realia,98\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
-E11a.arzawawesternrituals.agentsanddeities,45\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.realia,10\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
+E11a.arzawawesternrituals.agentsanddeities,133\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.arzawawesternrituals.places,−1\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.arzawawesternrituals.animalsbodynature,5\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
 E11a.arzawawesternrituals.abstractnouns,0\%,tlhdig03_literature_C/E11_report.json E11a.by_tradition
