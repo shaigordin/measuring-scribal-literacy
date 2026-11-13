@@ -107,5 +107,7 @@
   "   touching. The order rests on the formula sequence only.",
   "5. Cut-outs are automatic; dark edges may be clipped."
  ],
- "out_slide_png": "results/joinfit/EBo133_KBo44140_fit_slide.png"
+ "out_slide_png": "results/joinfit/EBo133_KBo44140_fit_slide.png",
+ "marks_csv": "data/tokens_marks.csv",
+ "out_slide_full_png": "results/joinfit/EBo133_KBo44140_fit_slide_full.png"
 }

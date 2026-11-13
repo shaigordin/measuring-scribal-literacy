@@ -38,7 +38,10 @@ def evaluate(docs, y, keep, n_perm):
     parts = [select(d, keep) for _, d in docs.iterrows()]
     for space in ("words", "signs"):
         toks = [w if space == "words" else sign_ngrams(s) for w, s in parts]
-        X = vectorizer().fit_transform(toks)
+        try:
+            X = vectorizer().fit_transform(toks)
+        except ValueError:  # no words of this class in the subset (e.g. nature words in CTH 701)
+            continue
         has = np.asarray(X.getnnz(axis=1) > 0)
         if len(set(y[has])) < 2:
             continue

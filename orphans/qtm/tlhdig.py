@@ -303,15 +303,35 @@ def title_after_en(df):
 TITLE_PAIRS = Path(__file__).parent.parent / "labels" / "title_pairs.csv"
 
 
-def title_pairs(df, path=TITLE_PAIRS):
-    """Wider titles (switched on with --wide-titles): a word after an agent or deity word becomes part of
-    one agent or deity when the pair matches labels/title_pairs.csv (BE-EL SÍSKUR, LUGAL GAL, {D}UTU {URU}PÚ-na ...)."""
+WORD_FIXES = Path(__file__).parent.parent / "labels" / "word_fixes.csv"
+
+
+def word_fixes(df, path=WORD_FIXES):
+    """Single words the rules class wrongly ({D}UTU-ŠI 'My Sun' is the king, not a deity; palši 'time' is
+    not a place): every spelling matching labels/word_fixes.csv gets the class given there."""
     tl = df.translit.fillna("").map(lambda t: _UNBRACKET.sub("", t))
-    prev, pcls = tl.shift(fill_value=""), df.wclass.shift(fill_value="")
-    same = (df.txtid == df.txtid.shift()) & (df.lnr.fillna("") == df.lnr.fillna("").shift())
     for _, r in pd.read_csv(path, dtype=str).iterrows():
-        hit = (same & (pcls == r.wclass) & prev.str.contains(r["first"]) & tl.str.contains(r.second)
-               & (df.wclass != r.wclass) & (df.wclass.fillna("") != ""))
+        hit = tl.str.contains(r.pattern) & (df.wclass.fillna("") != "")
+        df.loc[hit, ["wclass", "wc_rule"]] = [r.wclass, "word_fix"]
+    return df
+
+
+def title_pairs(df, path=TITLE_PAIRS):
+    """Wider titles (switched on with --wide-titles): two neighbouring words in one line become one agent or
+    deity when the pair matches labels/title_pairs.csv (BE-EL SÍSKUR, LUGAL GAL, {D}UTU {URU}PÚ-na ...).
+    target 'second' (default): the first word already has the class and the second takes it;
+    target 'first': the second word already has the class and the first takes it (taknaš {D}UTU, GAL MEŠEDI)."""
+    tl = df.translit.fillna("").map(lambda t: _UNBRACKET.sub("", t))
+    line = df.txtid.astype(str) + "|" + df.lnr.fillna("").astype(str)
+    prev, pcls, psame = tl.shift(fill_value=""), df.wclass.shift(fill_value=""), line == line.shift()
+    nxt, ncls, nsame = tl.shift(-1, fill_value=""), df.wclass.shift(-1, fill_value=""), line == line.shift(-1)
+    rows = pd.read_csv(path, dtype=str).fillna("")
+    for _, r in rows.iterrows():
+        open_ = (df.wclass != r.wclass) & (df.wclass.fillna("") != "")
+        if r.get("target", "") == "first":
+            hit = nsame & (ncls == r.wclass) & tl.str.contains(r["first"]) & nxt.str.contains(r.second) & open_
+        else:
+            hit = psame & (pcls == r.wclass) & prev.str.contains(r["first"]) & tl.str.contains(r.second) & open_
         df.loc[hit, ["wclass", "wc_rule"]] = [r.wclass, "title_pair"]
     return df
 
@@ -320,6 +340,7 @@ def finish(df, corrections=None, wide_titles=False):
     df = backoff(df)
     df = title_after_en(df)
     if wide_titles:
+        df = word_fixes(df)
         df = title_pairs(df)
     df = apply_corrections(df, corrections)
     df["wc_conf"] = df.wc_rule.map(RULES).fillna("")

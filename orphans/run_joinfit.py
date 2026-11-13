@@ -17,7 +17,8 @@ A visual aid for the philologist, not evidence of a join. Pipeline:
 Usage: python run_joinfit.py joinfit_EBo133_KBo44140.json
 Photos are not in the repository (copyright); put them where the config says (data/photos/).
 """
-import json, sys, csv, os
+import json
+import re, sys, csv, os
 from collections import defaultdict
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
@@ -117,6 +118,67 @@ def lines_of(tok_csv, txt, sides):
     return [(k, " ".join(v)) for k, v in L.items()]
 
 
+_PIECES = re.compile(r"([-.\s+˽]+)")
+
+
+def rich_word(translit, status, layer):
+    """Segments (text, kind) of one word with TLHdig's break marks restored from the per-sign status
+    (P preserved, D damaged, R restored, L lost, O omitted) and layer (H Hittite, A Akkadogram,
+    S Sumerogram, d determinative). kind: 'i' italic (Hittite, Akkadogram), 'u' upright, 'b' bracket,
+    'r' restored text (upright or italic follows as 'ri'/'ru')."""
+    m0 = re.match(r"^([-.\s+˽]*)(.*?)([-.\s+˽]*)$", translit)
+    lead, translit, trail = m0.group(1), m0.group(2), m0.group(3)
+    units, seps = [], []
+    for k, piece in enumerate(_PIECES.split(translit)):
+        if k % 2:
+            seps.append(piece); continue
+        # a piece may hold determinatives: {NINDA}ta -> {NINDA}, ta
+        for m in re.finditer(r"\{[^}]*\}|[^{}]+", piece):
+            if units and len(units) > len(seps):
+                seps.append("")
+            units.append(m.group(0))
+    if len(seps) < len(units):
+        seps.append("")
+    out, i, open_ = [], 0, None
+    counted = lambda u: not (u.strip("{}") in ("x", "") or u.strip("{}").isdigit())
+    st = [None] * len(units)
+    for j, u in enumerate(units):
+        if counted(u) and i < len(status):
+            st[j] = (status[i], layer[i] if i < len(layer) else "H"); i += 1
+    for j, u in enumerate(units):
+        s, l = st[j] if st[j] else ("P", "S" if u.isupper() or u.isdigit() else "H")
+        mark = "[" if s in "RL" else ("⸢" if s == "D" else ("<" if s == "O" else None))
+        if mark != open_:
+            if open_:
+                out.append(({"[": "]", "⸢": "⸣", "<": ">"}[open_], "b"))
+            if mark:
+                out.append((mark, "b"))
+            open_ = mark
+        kind = "i" if l in "HA" and u.strip("{}") != "x" else "u"
+        out.append((u, ("r" + kind) if s in "RL" else kind))
+        if seps[j]:
+            # a separator inside a bracket run stays inside; one after the run's end goes outside
+            nxt = st[j + 1] if j + 1 < len(units) and st[j + 1] else ("P", "")
+            nmark = "[" if nxt[0] in "RL" else ("⸢" if nxt[0] == "D" else ("<" if nxt[0] == "O" else None))
+            if open_ and nmark != open_:
+                out.append(({"[": "]", "⸢": "⸣", "<": ">"}[open_], "b")); open_ = None
+            out.append((seps[j], "u"))
+    if open_:
+        out.append(({"[": "]", "⸢": "⸣", "<": ">"}[open_], "b"))
+    return ([(lead, "u")] if lead else []) + out + ([(trail, "u")] if trail else [])
+
+
+def rich_lines_of(tok_csv, txt, sides):
+    """Lines of a text as rich segments, from the token table with sign marks (tokens_marks.csv)."""
+    L = defaultdict(list)
+    for r in csv.DictReader(open(tok_csv)):
+        if r["txtid"] == txt and any(r["lnr"].startswith(s) for s in sides):
+            if L[r["lnr"]]:
+                L[r["lnr"]].append((" ", "u"))
+            L[r["lnr"]] += rich_word(r["translit"], r.get("status") or "", r.get("layer") or "")
+    return list(L.items())
+
+
 def main(cfg_path):
     cfg = json.load(open(cfg_path))
     base = os.path.dirname(os.path.abspath(cfg_path))
@@ -188,13 +250,15 @@ def main(cfg_path):
             break
     meas["placement"] = {"dx_px": round(dx, 1), "dy_px": best, "rule": "right boundaries aligned; moved up until the cut-outs touch"}
     figure(cfg, base, frags, meas, dx, best)
+    if cfg.get("out_slide_full_png"):   # the same figure for a slide: no caveats, larger transliteration
+        figure(cfg, base, frags, meas, dx, best, caveats=False, out_png=cfg["out_slide_full_png"], tl_size=30)
     if cfg.get("out_slide_png"):
         slide_figure(cfg, base, frags, meas, dx, best)
     json.dump(meas, open(os.path.join(base, cfg["out_json"]), "w"), indent=1, ensure_ascii=False)
     print(json.dumps(meas, indent=1, ensure_ascii=False))
 
 
-def figure(cfg, base, frags, meas, dx, dy):
+def figure(cfg, base, frags, meas, dx, dy, caveats=True, out_png=None, tl_size=26):
     S = cfg["out_px_per_cm"]
     F = lambda n, b=False: ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans%s.ttf" % ("-Bold" if b else ""), n)
     U, Lo = frags["upper"], frags["lower"]
@@ -243,13 +307,27 @@ def figure(cfg, base, frags, meas, dx, dy):
             if any(p in s for p in pats):
                 return col[k]
         return INK
-    tok = os.path.join(base, cfg["tokens_csv"])
+    tok = os.path.join(base, cfg.get("marks_csv", cfg["tokens_csv"]))
+    IN = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
+    FT = {"u": ImageFont.truetype(IN % "Regular", tl_size), "i": ImageFont.truetype(IN % "Italic", tl_size),
+          "b": ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", tl_size)}
+    lh = int(tl_size * 1.38)
+    def mute(c):
+        return tuple(int(v + (b - v) * 0.5) for v, b in zip(c, (236, 226, 206)))
     for key, label in (("upper", cfg["upper"]["label"]), ("lower", cfg["lower"]["label"])):
-        d.text((tx, y), label, fill=INK, font=F(28, True)); y += 44
-        for lnr, t in lines_of(tok, cfg[key]["txtid"], cfg[key]["sides"]):
-            if set(t.replace(" ", "")) <= set("x"):
+        d.text((tx, y), label, fill=INK, font=F(tl_size + 2, True)); y += int(lh * 1.25)
+        for lnr, segs in rich_lines_of(tok, cfg[key]["txtid"], cfg[key]["sides"]):
+            plain = "".join(t for t, k in segs if k != "b")
+            if set(plain.replace(" ", "")) <= set("x"):
                 continue
-            d.text((tx, y), lnr.split()[-1], fill=MUTE, font=F(24)); d.text((tx + 90, y), t, fill=hl(t), font=F(26)); y += 36
+            c = hl(plain)
+            d.text((tx, y), lnr.split()[-1], fill=MUTE, font=F(tl_size - 2))
+            x = tx + int(tl_size * 3.4)
+            for t, k in segs:
+                f = FT[k[-1]] if k != "b" else FT["b"]
+                d.text((x, y), t, fill=mute(c) if k.startswith("r") else c, font=f)
+                x += d.textlength(t, font=f)
+            y += lh
         y += 30
         if key == "upper":
             d.text((tx, y - 10), "[break: number of lost lines unknown]", fill=MUTE, font=F(22)); y += 40
@@ -257,8 +335,9 @@ def figure(cfg, base, frags, meas, dx, dy):
     for k, lab in (("drink", "he drinks (1-ŠU ekuzi …)"), ("bread", "he breaks 1 takarmu-bread"), ("close", "closing: he goes through the gods in turn")):
         d.rectangle([tx, y + 6, tx + 22, y + 28], fill=col[k]); d.text((tx + 34, y), lab, fill=INK, font=F(24)); y += 38
     y += 20
-    d.multiline_text((tx, y), "\n".join(cfg["caveats"]), fill=MUTE, font=F(21), spacing=6)
-    out.save(os.path.join(base, cfg["out_png"]))
+    if caveats:
+        d.multiline_text((tx, y), "\n".join(cfg["caveats"]), fill=MUTE, font=F(21), spacing=6)
+    out.save(os.path.join(base, out_png or cfg["out_png"]))
 
 
 def slide_figure(cfg, base, frags, meas, dx, dy):
