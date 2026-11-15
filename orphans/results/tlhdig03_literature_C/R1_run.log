@@ -48,6 +48,26 @@
     }
    },
    "pieces": {
+    "KBo 44.52": {
+     "n_legible": 53,
+     "n_analysed": 49,
+     "top3": [
+      [
+       "Syro-Mesopotamia (Hurrian)",
+       0.4344
+      ],
+      [
+       "Kizzuwatna–Lower Land (Hurrian)",
+       0.3458
+      ],
+      [
+       "Kizzuwatna rituals",
+       0.3383
+      ]
+     ],
+     "gap": 0.0886,
+     "placed": true
+    },
     "KBo 41.22": {
      "n_legible": 36,
      "n_analysed": 13,
@@ -224,6 +244,26 @@
     }
    },
    "pieces": {
+    "KBo 44.52": {
+     "n_legible": 53,
+     "n_analysed": 49,
+     "top3": [
+      [
+       "Syro-Mesopotamia (Hurrian)",
+       0.457
+      ],
+      [
+       "Kizzuwatna rituals",
+       0.3588
+      ],
+      [
+       "Kizzuwatna–Lower Land (Hurrian)",
+       0.3567
+      ]
+     ],
+     "gap": 0.0981,
+     "placed": true
+    },
     "KBo 41.22": {
      "n_legible": 36,
      "n_analysed": 13,
