@@ -58,11 +58,15 @@ are scored but not placed. 4,952 are too small.
 ## Background: why these traditions
 
 The reference traditions build on Gordin, Yavasan and Romach (2025, StBoT 73). That study mapped about
-1,000 Hurrian and Luwian festival manuscripts of TLHdig with tf-idf and t-SNE. The map grouped the
-festival texts by cult geography rather than by Laroche's CTH ranges (its Table 3: Kizzuwatna and the
-Lower Land, Syro-Mesopotamian, and a mixed Hurrian, Syrian and Luwian group). It also used word categories
-(its Table 4) to tell what is written from how it is written, and proposed, as a next step, to test which
-word groups carry the signal. This dataset turns that exploration into assignment. It keeps the study's
+1,000 Hurrian and Luwian festival manuscripts of TLHdig with tf-idf and t-SNE. Its 27 CTH groups formed
+three clusters: the Luwian festivals made up one, and the two Hurrian groups were split between the other
+two. Its Table 3 sums up earlier attributions of the festivals to cult spheres (Kizzuwatna and the Lower
+Land, Syro-Mesopotamian, and a mixed Hurrian, Syrian and Luwian group), a grouping the article itself calls
+schematic. All groups shared much vocabulary, Kizzuwatna and the Lower Land most of all, which the article
+read as a trace of copying and editing in the scriptoria of Ḫattuša. It used word categories (its Table 4)
+to tell what is written from how it is written, and proposed, as a next step, to test which word groups
+carry the signal. Here the cult spheres are therefore hypotheses to be tested (by hiding whole
+compositions, and by asking which word categories decide a placement), not settled classes. This dataset turns that exploration into assignment. It keeps the study's
 Hurrian festival groups and its minimum of 17 words for a reference manuscript, and extends its six word
 categories to ten (see the word-category profile below). It
 splits the study's single Luwian group as the edition modules of the Corpus der hethitischen Festrituale
