@@ -585,7 +585,7 @@ A.E10a.cth698.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_le
 A.E10a.cth698.texts,0 of 27,tlhdig03_literature/E10a_leave_composition_out.csv
 A.E10a.cth699.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
 A.E10a.cth699.texts,8 of 8,tlhdig03_literature/E10a_leave_composition_out.csv
-A.E10a.cth700.pred,Syro-Mesopotamia (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
+A.E10a.cth700.pred,Syro-Mesopotamian (Hurrian),tlhdig03_literature/E10a_leave_composition_out.csv
 A.E10a.cth700.texts,2 of 12,tlhdig03_literature/E10a_leave_composition_out.csv
 A.E10a.cth701.pred,Kizzuwatna rituals,tlhdig03_literature/E10a_leave_composition_out.csv
 A.E10a.cth701.texts,0 of 124,tlhdig03_literature/E10a_leave_composition_out.csv
@@ -1772,7 +1772,7 @@ E10a.cth698.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature_C/E10a_le
 E10a.cth698.texts,0 of 22,tlhdig03_literature_C/E10a_leave_composition_out.csv
 E10a.cth699.pred,Kizzuwatna–Lower Land (Hurrian),tlhdig03_literature_C/E10a_leave_composition_out.csv
 E10a.cth699.texts,8 of 8,tlhdig03_literature_C/E10a_leave_composition_out.csv
-E10a.cth700.pred,Syro-Mesopotamia (Hurrian),tlhdig03_literature_C/E10a_leave_composition_out.csv
+E10a.cth700.pred,Syro-Mesopotamian (Hurrian),tlhdig03_literature_C/E10a_leave_composition_out.csv
 E10a.cth700.texts,3 of 12,tlhdig03_literature_C/E10a_leave_composition_out.csv
 E10a.cth701.pred,Kizzuwatna rituals,tlhdig03_literature_C/E10a_leave_composition_out.csv
 E10a.cth701.texts,0 of 99,tlhdig03_literature_C/E10a_leave_composition_out.csv
@@ -2384,7 +2384,7 @@ wc.audit.changed.meaning,19\%,wordclass_audit_scores.json share_of_words_changed
 wc.glosses,"5{,}494",labels/gloss_lexicon.tsv rows
 case.kbo4122.words,13,tlhdig03_literature_C/case/case_KBo_41_22.json legible_words
 case.kbo4122.top,Kizzuwatna rituals,tlhdig03_literature_C/case/case_KBo_41_22.json nearest
-case.kbo4122.second,Syro-Mesopotamia (Hurrian),tlhdig03_literature_C/case/case_KBo_41_22.json runner_up
+case.kbo4122.second,Syro-Mesopotamian (Hurrian),tlhdig03_literature_C/case/case_KBo_41_22.json runner_up
 case.kbo4122.margin,0.013,tlhdig03_literature_C/case/case_KBo_41_22.json margin
 case.kbo4122.tau,0.028,tlhdig03_literature_C/case/case_KBo_41_22.json rule_margin
 case.kbo4122.placed,not placed,tlhdig03_literature_C/case/case_KBo_41_22.json assigned

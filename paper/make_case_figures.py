@@ -86,7 +86,7 @@ def short(t):
             "Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna–Lower Land",
             "Luwian festivals (Ištanuwa, Lallupiya)": "Luwian festivals",
             "Mixed (Hurrian, Syrian, Luwian)": "Mixed Hurrian",
-            "Syro-Mesopotamia (Hurrian)": "Syro-Mesopotamia",
+            "Syro-Mesopotamia (Hurrian)": "Syro-Mesopotamian",
             "Arzawa / western rituals": "Arzawa"}.get(t, t)
 
 
@@ -226,7 +226,7 @@ def main():
             d(f"x.{k}", f"{r[1]:.2f}")
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, "w", encoding="utf-8") as fh:
-        fh.write("\n".join(L) + "\n")
+        fh.write(re.sub(r"Syro-Mesopotamia\b(?!n)", "Syro-Mesopotamian", "\n".join(L)) + "\n")
     print("wrote", out)
 
 
