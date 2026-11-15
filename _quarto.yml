@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - mainz2026/**
 website:
   title: "Measuring Scribal Literacy"
   site-url: "https://shaigordin.github.io/measuring-scribal-literacy/"
