@@ -99,9 +99,12 @@ $traditions_table
    parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).
 8. **Word-category profile.** The `words_*` columns give the share of a fragment's analysed words in each
    of ten categories (function words, verbs, realia, agents and deities, places, animals/body/nature,
-   abstract nouns, adjectives, foreign words, other). Categories come from rules over the TLHdig editors'
-   own word analyses, checked in a blind audit of $audit_n words ($audit_acc correct, weighted by how often each confidence level occurs, before the rules were revised on the audit). Nouns are classed by the meaning of
-   their German gloss. That word lexicon remains to be verified manually.
+   abstract nouns, adjectives, foreign words, other). Categories come from rules over TLHdig's morphological
+   annotation (made automatically and not validated manually, per TLHdig's documentation), checked in a blind audit of $audit_n words ($audit_acc correct, weighted by how often each confidence level occurs, before the rules were revised on the audit). Nouns are classed by the meaning of
+   their German gloss. That word lexicon remains to be verified manually. Multi-word titles and names count
+   as one word (for example EN SÍSKUR, BE-EL SÍSKUR, GAL or TUR with a title, LÚ É, *šalli ašeššar*, and a
+   divine name with its epithet such as *taknaš* ᴰUTU; `labels/title_pairs.csv`), and a few single words are reclassed by hand (ᴰUTU-ŠI as agent, *palši* as
+   abstract; `labels/word_fixes.csv`).
 
 ### Placed fragments by tradition
 

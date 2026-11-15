@@ -1,6 +1,6 @@
 # Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)
 
-Version 1.0.0 (2026-11-11). Licence: CC BY 4.0. Data source: TLHdig Beta Version 0.3,
+Version 1.0.0 (2026-11-15). Licence: CC BY 4.0. Data source: TLHdig Beta Version 0.3,
 [doi:10.5281/zenodo.20328284](https://doi.org/10.5281/zenodo.20328284). Code: [https://github.com/shaigordin/measuring-scribal-literacy](https://github.com/shaigordin/measuring-scribal-literacy), folder `orphans/`.
 
 Thousands of Hittite tablet fragments are filed in Laroche's *Catalogue des textes hittites* (CTH) under
@@ -72,7 +72,7 @@ are scored but not placed. 4,952 are too small.
 | Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 7 | Mouton and Yakubovich 2021 (JLR 19/1); Yakubovich and Mouton 2023 (StBoT 72) |
 | Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 170 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3 |
 | Palaic festivals | 750–754 | 30 | HFR edition module 'Palaic festivals' (hethport.net/HFR) |
-| Syro-Mesopotamia (Hurrian) | 698, 701, 714–715, 721 | 134 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2) |
+| Syro-Mesopotamian (Hurrian) | 698, 701, 714–715, 721 | 134 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2) |
 | Ḫuwaššanna festivals | 690–694 | 152 | HFR edition module 'Ḫuwaššanna'; Laroche, CTH titles |
 
 2. **Features.** Each text is read as its word forms (TLHdig's normalised forms) and the sign sequences of
@@ -117,9 +117,12 @@ are scored but not placed. 4,952 are too small.
    parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).
 8. **Word-category profile.** The `words_*` columns give the share of a fragment's analysed words in each
    of ten categories (function words, verbs, realia, agents and deities, places, animals/body/nature,
-   abstract nouns, adjectives, foreign words, other). Categories come from rules over the TLHdig editors'
-   own word analyses, checked in a blind audit of 178 words (89% correct, weighted by how often each confidence level occurs, before the rules were revised on the audit). Nouns are classed by the meaning of
-   their German gloss. That word lexicon remains to be verified manually.
+   abstract nouns, adjectives, foreign words, other). Categories come from rules over TLHdig's morphological
+   annotation (made automatically and not validated manually, per TLHdig's documentation), checked in a blind audit of 178 words (89% correct, weighted by how often each confidence level occurs, before the rules were revised on the audit). Nouns are classed by the meaning of
+   their German gloss. That word lexicon remains to be verified manually. Multi-word titles and names count
+   as one word (for example EN SÍSKUR, BE-EL SÍSKUR, GAL or TUR with a title, LÚ É, *šalli ašeššar*, and a
+   divine name with its epithet such as *taknaš* ᴰUTU; `labels/title_pairs.csv`), and a few single words are reclassed by hand (ᴰUTU-ŠI as agent, *palši* as
+   abstract; `labels/word_fixes.csv`).
 
 ### Placed fragments by tradition
 
@@ -128,7 +131,7 @@ are scored but not placed. 4,952 are too small.
 | Hattian cult layer | 838 |
 | Kizzuwatna rituals | 362 |
 | Kizzuwatna–Lower Land (Hurrian) | 248 |
-| Syro-Mesopotamia (Hurrian) | 110 |
+| Syro-Mesopotamian (Hurrian) | 110 |
 | Mixed (Hurrian, Syrian, Luwian) | 71 |
 | Arzawa / western rituals | 46 |
 | Ḫuwaššanna festivals | 32 |
@@ -248,7 +251,7 @@ EBo 133 has no photograph and no catalogue entry yet. Its candidates repeat the 
 it counts only because the word is preserved elsewhere in the same fragment. Whether the pieces join can
 only be decided on the tablets.
 
-**KBo 41.22** (filed under CTH 470, 13 analysed words): nearest tradition Kizzuwatna rituals (0.1803), then Syro-Mesopotamia (Hurrian) (0.1668); margin 0.0135, status `below_margin`. Nearest compositions: CTH 458; CTH 370; CTH 335; CTH 275; CTH 450. Duplicate or join candidates: none. Its five nearest manuscripts:
+**KBo 41.22** (filed under CTH 470, 13 analysed words): nearest tradition Kizzuwatna rituals (0.1803), then Syro-Mesopotamian (Hurrian) (0.1668); margin 0.0135, status `below_margin`. Nearest compositions: CTH 458; CTH 370; CTH 335; CTH 275; CTH 450. Duplicate or join candidates: none. Its five nearest manuscripts:
 
 | rank | candidate_txtid | candidate_cth | similarity | match_barcode | passes_match_checks |
 |---|---|---|---|---|---|

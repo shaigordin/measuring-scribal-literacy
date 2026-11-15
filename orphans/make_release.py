@@ -31,6 +31,7 @@ Usage: python make_release.py data/tokens.csv --run results/tlhdig03_literature 
 """
 import argparse
 import json
+from pathlib import Path
 import os
 import re
 from urllib.parse import quote
@@ -60,6 +61,24 @@ COMMON = 0.25        # as in run_attribution.py
 PORTAL = "https://hethport.net"
 SEP = "; "
 # the study that defines each reference tradition (as in README.md, "Why each reference tradition ...")
+# labels as published (the experiments keep their internal names; the site maps them the same way)
+RENAME = {"Syro-Mesopotamia (Hurrian)": "Syro-Mesopotamian (Hurrian)"}
+
+
+def relabel(out):
+    """Write the published tradition names into every release file."""
+    for f in ["fragments.csv", "nearest_manuscripts.csv", "nearest_manuscripts.csv.gz", "traditions.csv",
+              "compositions.csv", "summary.json"]:
+        p = Path(out) / f
+        if f.endswith(".gz"):
+            continue
+        t = p.read_text(encoding="utf-8")
+        for old, new in RENAME.items():
+            t = t.replace(old, new)
+        p.write_text(t, encoding="utf-8")
+    pd.read_csv(Path(out) / "nearest_manuscripts.csv").to_csv(Path(out) / "nearest_manuscripts.csv.gz", index=False)
+
+
 STUDIES = {
     "Kizzuwatna–Lower Land (Hurrian)": "Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Wegner and Salvini 1991 (ChS I/4)",
     "Syro-Mesopotamia (Hurrian)": "Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2)",
@@ -351,6 +370,7 @@ def main():
                "compositions": int(len(clabs))}
     json.dump(summary, open(f"{a.out}/summary.json", "w"), indent=1, ensure_ascii=False)
     print(json.dumps(summary, indent=1, ensure_ascii=False))
+    relabel(a.out)
 
 
 if __name__ == "__main__":
