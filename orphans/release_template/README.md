@@ -7,8 +7,7 @@ Thousands of Hittite tablet fragments are filed in Laroche's *Catalogue des text
 residual numbers, such as "fragments of rituals" (CTH 470) or "fragments of festivals" (CTH 670), because
 nobody could yet say which composition they belong to. This dataset gives, for each of them, the textual
 traditions, compositions and manuscripts it is closest to, and the manuscripts that could be pieces of the
-same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described in the paper
-[PAPER REFERENCE]. They are leads for philologists to check, not attributions.
+same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described below. They are leads for philologists to check, not attributions.
 
 ## What is in the dataset
 
@@ -16,7 +15,7 @@ same tablet, or other copies of the same text (duplicate or join candidates). Th
 |---|---|
 | `fragments.csv` | One row per text: $texts texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its duplicate or join candidates and its word-category profile. |
 | `nearest_manuscripts.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word barcode and the three match checks. |
-| `traditions.csv` | The ten reference traditions, their CTH numbers and the studies that define them. |
+| `traditions.csv` | The ten reference traditions, their CTH numbers, and the most-cited, first and latest studies on them. |
 | `compositions.csv` | The $compositions compositions (CTH numbers) that fragments are compared with. |
 | `datapackage.json` | Machine-readable description of every file and column (Frictionless Data). |
 | `summary.json` | The counts quoted in this README. |
@@ -51,8 +50,10 @@ $bins_table
 
 ## The method in brief
 
-1. **Reference traditions.** Ten traditions of rituals and festivals, each defined by the study that argued
-   for it. Laroche's CTH numbers are only the address of each text. Every text of these CTH numbers with
+1. **Reference traditions.** Ten traditions of rituals and festivals, as the scholarly literature defines
+   them. For each, the table names the study the Konkordanz cites most often for its manuscripts (handbooks
+   and corpus volumes that cite nearly everything left out), and the first and latest studies it cites; full
+   references are at the end. Laroche's CTH numbers are only the address of each text. Every text of these CTH numbers with
    17 or more analysed words is a reference manuscript ($reference in all).
 
 $traditions_table
@@ -197,20 +198,23 @@ python3 release_docs.py release --version $version --zip
 ```
 
 `make_release.py` takes about 10 minutes on a laptop. It reproduces exactly the placements, open-set and
-robustness results of the paper (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
+robustness results of the experiments (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
 `E9_orphan_fit.csv`, `E11_report.json`, `R1_spellings_only.json` in `results/tlhdig03_literature_C/`;
 version A in `results/tlhdig03_literature/`).
 
 ## How to cite
 
-Please cite this dataset, the paper and TLHdig:
+Please cite this dataset and TLHdig:
 
 - Gordin, Shai. $title, version $version. Zenodo. [DOI].
-- [PAPER REFERENCE]
 - Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. *Thesaurus Linguarum Hethaeorum
   digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:$tlhdig_doi.
 
 `CITATION.cff` has the same information in machine-readable form.
+
+## References
+
+$references
 
 ## Licence
 

@@ -7,8 +7,7 @@ Thousands of Hittite tablet fragments are filed in Laroche's *Catalogue des text
 residual numbers, such as "fragments of rituals" (CTH 470) or "fragments of festivals" (CTH 670), because
 nobody could yet say which composition they belong to. This dataset gives, for each of them, the textual
 traditions, compositions and manuscripts it is closest to, and the manuscripts that could be pieces of the
-same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described in the paper
-[PAPER REFERENCE]. They are leads for philologists to check, not attributions.
+same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described below. They are leads for philologists to check, not attributions.
 
 ## What is in the dataset
 
@@ -16,7 +15,7 @@ same tablet, or other copies of the same text (duplicate or join candidates). Th
 |---|---|
 | `fragments.csv` | One row per text: 11,368 texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its duplicate or join candidates and its word-category profile. |
 | `nearest_manuscripts.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word barcode and the three match checks. |
-| `traditions.csv` | The ten reference traditions, their CTH numbers and the studies that define them. |
+| `traditions.csv` | The ten reference traditions, their CTH numbers, and the most-cited, first and latest studies on them. |
 | `compositions.csv` | The 603 compositions (CTH numbers) that fragments are compared with. |
 | `datapackage.json` | Machine-readable description of every file and column (Frictionless Data). |
 | `summary.json` | The counts quoted in this README. |
@@ -58,22 +57,24 @@ are scored but not placed. 4,952 are too small.
 
 ## The method in brief
 
-1. **Reference traditions.** Ten traditions of rituals and festivals, each defined by the study that argued
-   for it. Laroche's CTH numbers are only the address of each text. Every text of these CTH numbers with
+1. **Reference traditions.** Ten traditions of rituals and festivals, as the scholarly literature defines
+   them. For each, the table names the study the Konkordanz cites most often for its manuscripts (handbooks
+   and corpus volumes that cite nearly everything left out), and the first and latest studies it cites; full
+   references are at the end. Laroche's CTH numbers are only the address of each text. Every text of these CTH numbers with
    17 or more analysed words is a reference manuscript (1,350 in all).
 
-| Tradition | CTH | Reference manuscripts | Defining study |
-|---|---|---|---|
-| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 8 | Bawanypeck 2005 (THeth 25); Mouton 2010; Archi 2015 (BiOr 72) |
-| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 386 | Klinger 1996 (StBoT 37) |
-| Kizzuwatna rituals | 404, 471–499 | 140 | Miller 2004 (StBoT 46); Strauß 2006; Görke 2010 |
-| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 276 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Wegner and Salvini 1991 (ChS I/4) |
-| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 47 | HFR edition module 'Luwian festivals' (hethport.net/HFR) |
-| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 7 | Mouton and Yakubovich 2021 (JLR 19/1); Yakubovich and Mouton 2023 (StBoT 72) |
-| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 170 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3 |
-| Palaic festivals | 750–754 | 30 | HFR edition module 'Palaic festivals' (hethport.net/HFR) |
-| Syro-Mesopotamian (Hurrian) | 698, 701, 714–715, 721 | 134 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2) |
-| Ḫuwaššanna festivals | 690–694 | 152 | HFR edition module 'Ḫuwaššanna'; Laroche, CTH titles |
+| Tradition | CTH | Reference manuscripts | Most-cited study | First study | Latest study |
+|---|---|---|---|---|---|
+| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 8 | Mouton 2010 (JCS 62) | Meriggi 1960 (RHA XVIII/66-67) | Roth 2021 (BSIEL 23) |
+| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 386 | Klinger 1996 (StBoT 37) | Vieyra 1965 (RA 59) | Groddek 2026 (FsTaracha) |
+| Kizzuwatna rituals | 404, 471–499 | 140 | Miller 2004 (StBoT 46) | Ehelolf 1932 (MDOG 70) | Torri 2022 (StBoT 67) |
+| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 276 | Wegner and Salvini 1991 (ChS I/4) | Kümmel 1967 (StBoT 3) | Reyhan 2025 (ArAn 19/2) |
+| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 47 | Starke 1985 (StBoT 30) | Jakob-Rost 1972 (THeth 2) | Sasseville 2020 (BSIEL 21) |
+| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 7 | Yakubovich and Mouton 2023 (StBoT 72,1) | Otten and Souček 1969 (StBoT 8) | Sasseville 2023 (FsKosyan) |
+| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 170 | Wegner 2002 (ChS I/3-2) | Carruba 1966 (StBoT 2) | Groddek 2025 (Fs van den Hout) |
+| Palaic festivals | 750–754 | 30 | Steitler 2017 (StBoT 62) | Carruba 1970 (StBoT 10) | Sasseville and Yakubovich 2021 (KZ 131) |
+| Syro-Mesopotamian (Hurrian) | 698, 701, 714–715, 721 | 134 | Salvini and Wegner 1986 (ChS I/2) | Rost 1953 (MIO 1) | Roth 2021 (BSIEL 23) |
+| Ḫuwaššanna festivals | 690–694 | 152 | Yoshida 1996 (THeth 22) | Goetze 1964 (JCS 18) | Roth 2021 (BSIEL 23) |
 
 2. **Features.** Each text is read as its word forms (TLHdig's normalised forms) and the sign sequences of
    its spellings (sign 1- to 3-grams within a word), so both vocabulary and scribal habit count. They are
@@ -222,7 +223,10 @@ are scored but not placed. 4,952 are too small.
 | `tradition` | Reference tradition. |
 | `cth` | Its CTH numbers (Laroche), space-separated. |
 | `reference_manuscripts` | Reference manuscripts (17+ analysed words). |
-| `defining_study` | The study that argued for the tradition. |
+| `most_cited_study` | The study the Konkordanz cites most often for the tradition's manuscripts, leaving out handbooks and corpus volumes (Haas, HbOr I/15; Waal, StBoT 57; Groddek and Kloekhorst, DBH 19). |
+| `most_cited_manuscripts` | Number of the tradition's manuscripts for which the Konkordanz cites it. |
+| `first_study` | The earliest other study the Konkordanz cites for these manuscripts. |
+| `latest_study` | The most recent other study the Konkordanz cites for these manuscripts. |
 
 ### `compositions.csv`
 
@@ -324,20 +328,60 @@ python3 release_docs.py release --version 1.0.0 --zip
 ```
 
 `make_release.py` takes about 10 minutes on a laptop. It reproduces exactly the placements, open-set and
-robustness results of the paper (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
+robustness results of the experiments (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
 `E9_orphan_fit.csv`, `E11_report.json`, `R1_spellings_only.json` in `results/tlhdig03_literature_C/`;
 version A in `results/tlhdig03_literature/`).
 
 ## How to cite
 
-Please cite this dataset, the paper and TLHdig:
+Please cite this dataset and TLHdig:
 
 - Gordin, Shai. Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3), version 1.0.0. Zenodo. [DOI].
-- [PAPER REFERENCE]
 - Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. *Thesaurus Linguarum Hethaeorum
   digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:10.5281/zenodo.20328284.
 
 `CITATION.cff` has the same information in machine-readable form.
+
+## References
+
+- Haas, Volkert. 1994. *Geschichte der hethitischen Religion*. Handbuch der Orientalistik I/15. Leiden: Brill.
+- Klinger, Jörg. 1996. *Untersuchungen zur Rekonstruktion der hattischen Kultschicht*. StBoT 37. Wiesbaden: Harrassowitz.
+- Košak, Silvin. 2026. *Konkordanz der hethitischen Keilschrifttafeln*. hethiter.net/: hetkonk, https://hethport.net/hetkonk/ (pages accessed November 2026).
+- Laroche, Emmanuel. 1971. *Catalogue des textes hittites*. Paris: Klincksieck.
+- Mainzer Fotoarchiv. hethiter.net/: fotarch, https://hethport.net/fotarch/.
+- Miller, Jared L. 2004. *Studies in the Origins, Development and Interpretation of the Kizzuwatna Rituals*. StBoT 46. Wiesbaden: Harrassowitz.
+- Mouton, Alice. 2010. Sorcellerie hittite. *Journal of Cuneiform Studies* 62: 105–125.
+- Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. 2026. *Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:10.5281/zenodo.20328284.
+- Salvini, Mirjo, and Ilse Wegner. 1986. *Die Rituale des AZU-Priesters*. ChS I/2. Roma: Multigrafica.
+- Starke, Frank. 1985. *Die keilschrift-luwischen Texte in Umschrift*. StBoT 30. Wiesbaden: Harrassowitz.
+- Steitler, Charles W. 2017. *The Solar Deities of Bronze Age Anatolia: Studies in Texts of the Early Hittite Kingdom*. StBoT 62. Wiesbaden: Harrassowitz.
+- Waal, Willemijn. 2015. *Hittite Diplomatics: Studies in Ancient Document Format and Record Management*. StBoT 57. Wiesbaden: Harrassowitz.
+- Wegner, Ilse, and Mirjo Salvini. 1991. *Die hethitisch-hurritischen Ritualtafeln des (ḫ)išuwa-Festes*. ChS I/4. Roma: Multigrafica.
+- Wegner, Ilse. 2002. *Hurritische Opferlisten aus hethitischen Festbeschreibungen. Teil II: Texte für Teššub, Ḫebat und weitere Gottheiten*. ChS I/3-2. Roma.
+- Yakubovich, Ilya, and Alice Mouton. 2023. *Luwili: Hittite-Luwian Ritual Texts Attributed to Puriyanni, Kuwattalla and Šilalluḫi (CTH 758–763)*. StBoT 72. Wiesbaden: Harrassowitz.
+- Yoshida, Daisuke. 1996. *Untersuchungen zu den Sonnengottheiten bei den Hethitern: Schwurgötterliste, helfende Gottheit, Feste*. THeth 22. Heidelberg: Winter.
+
+**First and latest studies, and the excluded corpus volume, as the Konkordanz cites them** (author, year, series or journal and volume; abbreviations as in the Konkordanz):
+
+- Carruba 1966 (StBoT 2)
+- Carruba 1970 (StBoT 10)
+- Ehelolf 1932 (MDOG 70)
+- Goetze 1964 (JCS 18)
+- Groddek 2025 (Fs van den Hout)
+- Groddek 2026 (FsTaracha)
+- Groddek and Kloekhorst 2006 (DBH 19)
+- Jakob-Rost 1972 (THeth 2)
+- Kümmel 1967 (StBoT 3)
+- Meriggi 1960 (RHA XVIII/66-67)
+- Otten and Souček 1969 (StBoT 8)
+- Reyhan 2025 (ArAn 19/2)
+- Rost 1953 (MIO 1)
+- Roth 2021 (BSIEL 23)
+- Sasseville 2020 (BSIEL 21)
+- Sasseville 2023 (FsKosyan)
+- Sasseville and Yakubovich 2021 (KZ 131)
+- Torri 2022 (StBoT 67)
+- Vieyra 1965 (RA 59)
 
 ## Licence
 
