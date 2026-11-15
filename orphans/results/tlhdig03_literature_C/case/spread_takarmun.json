@@ -1,11 +1,11 @@
 {
  "word": "takarmun",
  "excluded": "EBo 133",
- "manuscripts": 129,
+ "manuscripts": 143,
  "by_tradition": {
-  "Ḫuwaššanna festivals": 47,
-  "other": 42,
-  "CTH 670 (festival fragments)": 32,
+  "Ḫuwaššanna festivals": 54,
+  "other": 44,
+  "CTH 670 (festival fragments)": 37,
   "Mixed (Hurrian, Syrian, Luwian)": 4,
   "Palaic festivals": 2,
   "Hattian cult layer": 1,
@@ -14,17 +14,17 @@
  "by_cth": [
   {
    "cth": "670",
-   "manuscripts": 32,
+   "manuscripts": 37,
    "tradition": null
   },
   {
    "cth": "692",
-   "manuscripts": 23,
+   "manuscripts": 26,
    "tradition": "Ḫuwaššanna festivals"
   },
   {
    "cth": "694",
-   "manuscripts": 20,
+   "manuscripts": 23,
    "tradition": "Ḫuwaššanna festivals"
   },
   {
@@ -48,9 +48,9 @@
    "tradition": null
   },
   {
-   "cth": "330",
+   "cth": "691",
    "manuscripts": 3,
-   "tradition": null
+   "tradition": "Ḫuwaššanna festivals"
   },
   {
    "cth": "630",
@@ -63,8 +63,13 @@
    "tradition": "Mixed (Hurrian, Syrian, Luwian)"
   },
   {
-   "cth": "638",
-   "manuscripts": 2,
+   "cth": "669",
+   "manuscripts": 3,
+   "tradition": null
+  },
+  {
+   "cth": "330",
+   "manuscripts": 3,
    "tradition": null
   },
   {
@@ -78,27 +83,17 @@
    "tradition": "Palaic festivals"
   },
   {
+   "cth": "638",
+   "manuscripts": 2,
+   "tradition": null
+  },
+  {
    "cth": "685",
    "manuscripts": 2,
    "tradition": null
   },
   {
-   "cth": "669",
-   "manuscripts": 2,
-   "tradition": null
-  },
-  {
-   "cth": "691",
-   "manuscripts": 2,
-   "tradition": "Ḫuwaššanna festivals"
-  },
-  {
    "cth": "470",
-   "manuscripts": 1,
-   "tradition": null
-  },
-  {
-   "cth": "635",
    "manuscripts": 1,
    "tradition": null
   },
@@ -108,12 +103,22 @@
    "tradition": null
   },
   {
-   "cth": "650",
+   "cth": "635",
    "manuscripts": 1,
    "tradition": null
   },
   {
    "cth": "642",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "650",
+   "manuscripts": 1,
+   "tradition": null
+  },
+  {
+   "cth": "649",
    "manuscripts": 1,
    "tradition": null
   },

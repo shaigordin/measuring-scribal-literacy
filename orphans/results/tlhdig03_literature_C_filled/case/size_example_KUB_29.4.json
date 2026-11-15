@@ -4,7 +4,7 @@
  "tradition": "Kizzuwatna rituals",
  "n_words": 1829,
  "space": "both",
- "margin": 0.03,
+ "margin": 0.026000000000000002,
  "examples": [
   {
    "start": 0,
@@ -22,7 +22,7 @@
      ],
      "nearest": "Kizzuwatna–Lower Land (Hurrian)",
      "runner_up": "Arzawa / western rituals",
-     "gap": 0.0017,
+     "gap": 0.0024,
      "placed": false,
      "right": false
     },
@@ -52,8 +52,8 @@
       "É"
      ],
      "nearest": "Kizzuwatna rituals",
-     "runner_up": "Arzawa / western rituals",
-     "gap": 0.0133,
+     "runner_up": "Hattian cult layer",
+     "gap": 0.0173,
      "placed": false,
      "right": true
     },
@@ -144,7 +144,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Hattian cult layer",
-     "gap": 0.0237,
+     "gap": 0.0223,
      "placed": false,
      "right": true
     }
@@ -166,7 +166,7 @@
      ],
      "nearest": "Arzawa / western rituals",
      "runner_up": "Syro-Mesopotamia (Hurrian)",
-     "gap": 0.0006,
+     "gap": 0.0015,
      "placed": false,
      "right": false
     },
@@ -288,7 +288,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Arzawa / western rituals",
-     "gap": 0.0341,
+     "gap": 0.0408,
      "placed": true,
      "right": true
     }
@@ -310,7 +310,7 @@
      ],
      "nearest": "Luwian festivals (Ištanuwa, Lallupiya)",
      "runner_up": "Kizzuwatna rituals",
-     "gap": 0.0248,
+     "gap": 0.0195,
      "placed": false,
      "right": false
     },
@@ -341,7 +341,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Luwian festivals (Ištanuwa, Lallupiya)",
-     "gap": 0.0025,
+     "gap": 0.0034,
      "placed": false,
      "right": true
     },
@@ -432,7 +432,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Kizzuwatna–Lower Land (Hurrian)",
-     "gap": 0.1018,
+     "gap": 0.0985,
      "placed": true,
      "right": true
     }
@@ -442,21 +442,21 @@
  "all_windows": {
   "3": {
    "windows": 1827,
-   "right": 0.425,
-   "placed": 0.219,
-   "right_when_placed": 0.362
+   "right": 0.416,
+   "placed": 0.267,
+   "right_when_placed": 0.418
   },
   "10": {
    "windows": 1820,
-   "right": 0.646,
-   "placed": 0.301,
-   "right_when_placed": 0.605
+   "right": 0.652,
+   "placed": 0.342,
+   "right_when_placed": 0.645
   },
   "40": {
    "windows": 1790,
-   "right": 0.788,
-   "placed": 0.623,
-   "right_when_placed": 0.856
+   "right": 0.791,
+   "placed": 0.678,
+   "right_when_placed": 0.869
   }
  }
 }

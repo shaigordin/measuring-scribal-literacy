@@ -1,12 +1,12 @@
 {
   "orphans": {
-    "cth470_texts": 1872,
-    "cth470_median_words": 9.0,
-    "ebo_texts": 1110,
-    "ebo_median_words": 3.0,
+    "cth470_texts": 1920,
+    "cth470_median_words": 10.0,
+    "ebo_texts": 1151,
+    "ebo_median_words": 4.0,
     "ebo_filed_under": {
-      "832": 538,
-      "670": 369,
+      "832": 562,
+      "670": 382,
       "470": 37,
       "214": 21,
       "582": 12,
@@ -16,28 +16,28 @@
       "500": 7,
       "791": 7
     },
-    "orphans_total": 2945
+    "orphans_total": 3034
   },
   "laroche_bins": {
     "CTH 470 fragments of rituals": {
-      "texts": 1872,
-      "median_words": 9.0
+      "texts": 1920,
+      "median_words": 10.0
     },
     "CTH 500 fragments of Kizzuwatna rituals": {
-      "texts": 476,
-      "median_words": 14.0
+      "texts": 479,
+      "median_words": 16.0
     },
     "CTH 670 fragments of festivals": {
-      "texts": 3415,
-      "median_words": 8.0
+      "texts": 3506,
+      "median_words": 9.0
     },
     "CTH 832 fragments of various content": {
-      "texts": 3928,
+      "texts": 4090,
       "median_words": 4.0
     },
     "CTH 390-469 rituals no study groups": {
-      "texts": 1032,
-      "median_words": 19.0
+      "texts": 1038,
+      "median_words": 21.0
     }
   },
   "plene_clusters": {
@@ -48,7 +48,7 @@
         "plene_cths": []
       },
       "Hattian cult layer": {
-        "texts": 38,
+        "texts": 45,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -58,7 +58,7 @@
         "plene_cths": []
       },
       "Kizzuwatna–Lower Land (Hurrian)": {
-        "texts": 5,
+        "texts": 6,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -68,17 +68,17 @@
         "plene_cths": []
       },
       "Mixed (Hurrian, Syrian, Luwian)": {
-        "texts": 1,
+        "texts": 2,
         "texts_with_plene": 0,
         "plene_cths": []
       },
       "Syro-Mesopotamia (Hurrian)": {
-        "texts": 1,
+        "texts": 2,
         "texts_with_plene": 0,
         "plene_cths": []
       },
       "Ḫuwaššanna festivals": {
-        "texts": 44,
+        "texts": 49,
         "texts_with_plene": 1,
         "plene_cths": [
           "694"
@@ -94,7 +94,7 @@
         ]
       },
       "Hattian cult layer": {
-        "texts": 62,
+        "texts": 68,
         "texts_with_plene": 8,
         "plene_cths": [
           "627",
@@ -103,7 +103,7 @@
         ]
       },
       "Kizzuwatna rituals": {
-        "texts": 64,
+        "texts": 68,
         "texts_with_plene": 2,
         "plene_cths": [
           "474",
@@ -111,10 +111,11 @@
         ]
       },
       "Kizzuwatna–Lower Land (Hurrian)": {
-        "texts": 36,
+        "texts": 37,
         "texts_with_plene": 11,
         "plene_cths": [
-          "628"
+          "628",
+          "712"
         ]
       },
       "Luwian festivals (Ištanuwa, Lallupiya)": {
@@ -130,7 +131,7 @@
         ]
       },
       "Mixed (Hurrian, Syrian, Luwian)": {
-        "texts": 4,
+        "texts": 6,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -140,14 +141,14 @@
         "plene_cths": []
       },
       "Syro-Mesopotamia (Hurrian)": {
-        "texts": 48,
+        "texts": 51,
         "texts_with_plene": 1,
         "plene_cths": [
           "701"
         ]
       },
       "Ḫuwaššanna festivals": {
-        "texts": 6,
+        "texts": 7,
         "texts_with_plene": 0,
         "plene_cths": []
       }
@@ -159,8 +160,8 @@
         "plene_cths": []
       },
       "Hattian cult layer": {
-        "texts": 79,
-        "texts_with_plene": 8,
+        "texts": 100,
+        "texts_with_plene": 9,
         "plene_cths": [
           "627",
           "731",
@@ -169,12 +170,12 @@
         ]
       },
       "Kizzuwatna rituals": {
-        "texts": 41,
+        "texts": 51,
         "texts_with_plene": 0,
         "plene_cths": []
       },
       "Kizzuwatna–Lower Land (Hurrian)": {
-        "texts": 41,
+        "texts": 46,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -191,7 +192,7 @@
         "plene_cths": []
       },
       "Mixed (Hurrian, Syrian, Luwian)": {
-        "texts": 21,
+        "texts": 27,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -201,12 +202,12 @@
         "plene_cths": []
       },
       "Syro-Mesopotamia (Hurrian)": {
-        "texts": 27,
+        "texts": 28,
         "texts_with_plene": 0,
         "plene_cths": []
       },
       "Ḫuwaššanna festivals": {
-        "texts": 18,
+        "texts": 23,
         "texts_with_plene": 0,
         "plene_cths": []
       }
@@ -218,7 +219,7 @@
         "plene_cths": []
       },
       "Hattian cult layer": {
-        "texts": 43,
+        "texts": 51,
         "texts_with_plene": 5,
         "plene_cths": [
           "627",
@@ -228,12 +229,12 @@
         ]
       },
       "Kizzuwatna rituals": {
-        "texts": 45,
+        "texts": 47,
         "texts_with_plene": 0,
         "plene_cths": []
       },
       "Kizzuwatna–Lower Land (Hurrian)": {
-        "texts": 40,
+        "texts": 44,
         "texts_with_plene": 1,
         "plene_cths": [
           "713"
@@ -252,7 +253,7 @@
         ]
       },
       "Mixed (Hurrian, Syrian, Luwian)": {
-        "texts": 18,
+        "texts": 21,
         "texts_with_plene": 0,
         "plene_cths": []
       },
@@ -269,15 +270,15 @@
         "plene_cths": []
       },
       "Ḫuwaššanna festivals": {
-        "texts": 13,
+        "texts": 18,
         "texts_with_plene": 0,
         "plene_cths": []
       }
     },
     "ḫalzai": {
       "Hattian cult layer": {
-        "texts": 53,
-        "texts_with_plene": 47,
+        "texts": 62,
+        "texts_with_plene": 55,
         "plene_cths": [
           "591",
           "627",
@@ -290,7 +291,7 @@
         ]
       },
       "Kizzuwatna rituals": {
-        "texts": 15,
+        "texts": 16,
         "texts_with_plene": 14,
         "plene_cths": [
           "404",
@@ -305,7 +306,7 @@
         ]
       },
       "Kizzuwatna–Lower Land (Hurrian)": {
-        "texts": 4,
+        "texts": 5,
         "texts_with_plene": 4,
         "plene_cths": [
           "699",

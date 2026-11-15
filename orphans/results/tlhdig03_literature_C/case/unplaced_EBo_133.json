@@ -23,47 +23,47 @@
   "akkuškezi",
   "paršia"
  ],
- "margin": 0.028,
+ "margin": 0.029,
  "traditions": [
   [
    "Palaic festivals",
-   0.2523
+   0.2501
   ],
   [
    "Ḫuwaššanna festivals",
-   0.2492
+   0.2435
   ],
   [
    "Mixed (Hurrian, Syrian, Luwian)",
-   0.2408
+   0.2404
   ],
   [
    "Kizzuwatna–Lower Land (Hurrian)",
-   0.2286
+   0.2254
   ],
   [
    "Hattian cult layer",
-   0.2153
+   0.2119
   ],
   [
    "Kizzuwatna rituals",
-   0.1778
+   0.1763
   ],
   [
    "Syro-Mesopotamia (Hurrian)",
-   0.1553
+   0.1554
   ],
   [
    "Luwian festivals (Ištanuwa, Lallupiya)",
-   0.1463
-  ],
-  [
-   "Arzawa / western rituals",
-   0.1165
+   0.1466
   ],
   [
    "Luwian rituals (Puriyanni, Kuwattalla)",
-   0.11
+   0.1178
+  ],
+  [
+   "Arzawa / western rituals",
+   0.1072
   ]
  ],
  "nearest": [
@@ -75,7 +75,7 @@
    "top_terms_share": [
     [
      "takarmun",
-     0.234
+     0.231
     ],
     [
      "paršia",
@@ -83,15 +83,15 @@
     ],
     [
      "§mu·un",
-     0.083
+     0.084
+    ],
+    [
+     "ekuzi",
+     0.058
     ],
     [
      "§pár",
      0.058
-    ],
-    [
-     "ekuzi",
-     0.057
     ]
    ]
   },
@@ -99,27 +99,27 @@
    "txtid": "KBo 34.228",
    "cth": "693",
    "group": "Ḫuwaššanna festivals",
-   "similarity": 0.2993,
+   "similarity": 0.3172,
    "top_terms_share": [
     [
      "takarmun",
-     0.162
+     0.168
     ],
     [
      "§kar·mu·un",
-     0.082
+     0.089
     ],
     [
      "§kar·mu",
-     0.074
+     0.08
     ],
     [
      "§mu·un",
-     0.071
+     0.076
     ],
     [
      "paršia",
-     0.06
+     0.063
     ]
    ]
   },
@@ -127,15 +127,15 @@
    "txtid": "DBH 46_2.139",
    "cth": "750",
    "group": "Palaic festivals",
-   "similarity": 0.2849,
+   "similarity": 0.2854,
    "top_terms_share": [
     [
      "takarmun",
-     0.144
+     0.142
     ],
     [
      "1-ŠU",
-     0.075
+     0.076
     ],
     [
      "paršia",
@@ -147,7 +147,7 @@
     ],
     [
      "§kar·mu",
-     0.04
+     0.041
     ]
    ]
   },
@@ -155,15 +155,15 @@
    "txtid": "IBoT 4.273",
    "cth": "722",
    "group": "Kizzuwatna–Lower Land (Hurrian)",
-   "similarity": 0.2817,
+   "similarity": 0.2834,
    "top_terms_share": [
     [
      "1-ŠU",
-     0.16
+     0.162
     ],
     [
      "paršia",
-     0.113
+     0.112
     ],
     [
      "§pár·ši",
@@ -171,7 +171,7 @@
     ],
     [
      "§pár",
-     0.075
+     0.074
     ],
     [
      "§pár·ši·ia",
@@ -180,18 +180,74 @@
    ]
   },
   {
-   "txtid": "KBo 41.87",
+   "txtid": "KBo 34.221",
    "cth": "694",
    "group": "Ḫuwaššanna festivals",
-   "similarity": 0.2684,
+   "similarity": 0.2734,
    "top_terms_share": [
     [
      "takarmun",
-     0.148
+     0.146
     ],
     [
      "§kar·mu·un",
-     0.075
+     0.078
+    ],
+    [
+     "§kar·mu",
+     0.07
+    ],
+    [
+     "§mu·un",
+     0.066
+    ],
+    [
+     "paršia",
+     0.055
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 29.129",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.2615,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.118
+    ],
+    [
+     "§kar·mu·un",
+     0.062
+    ],
+    [
+     "§kar·mu",
+     0.056
+    ],
+    [
+     "§mu·un",
+     0.053
+    ],
+    [
+     "paršia",
+     0.044
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 29.113",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.2586,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.143
+    ],
+    [
+     "§kar·mu·un",
+     0.076
     ],
     [
      "§kar·mu",
@@ -202,95 +258,39 @@
      0.065
     ],
     [
-     "§ir·ḫa",
-     0.061
+     "paršia",
+     0.054
     ]
    ]
   },
   {
-   "txtid": "KBo 35.155",
-   "cth": "706",
-   "group": "Mixed (Hurrian, Syrian, Luwian)",
-   "similarity": 0.263,
+   "txtid": "KBo 19.157",
+   "cth": "750",
+   "group": "Palaic festivals",
+   "similarity": 0.2557,
    "top_terms_share": [
     [
      "takarmun",
-     0.177
+     0.225
     ],
     [
      "paršia",
-     0.089
-    ],
-    [
-     "§ḫa·a·ez",
-     0.041
-    ],
-    [
-     "irḫaizi",
-     0.038
+     0.085
     ],
     [
      "§kar·mu·un",
-     0.038
-    ]
-   ]
-  },
-  {
-   "txtid": "KBo 29.113",
-   "cth": "694",
-   "group": "Ḫuwaššanna festivals",
-   "similarity": 0.2612,
-   "top_terms_share": [
-    [
-     "takarmun",
-     0.138
-    ],
-    [
-     "§kar·mu·un",
-     0.07
+     0.057
     ],
     [
      "§kar·mu",
-     0.064
+     0.051
     ],
     [
-     "§mu·un",
-     0.061
-    ],
-    [
-     "paršia",
-     0.052
-    ]
-   ]
-  },
-  {
-   "txtid": "KBo 29.129",
-   "cth": "694",
-   "group": "Ḫuwaššanna festivals",
-   "similarity": 0.259,
-   "top_terms_share": [
-    [
-     "takarmun",
-     0.119
-    ],
-    [
-     "§kar·mu·un",
-     0.06
-    ],
-    [
-     "§kar·mu",
-     0.055
-    ],
-    [
-     "§mu·un",
-     0.052
-    ],
-    [
-     "paršia",
-     0.044
+     "§ku·zi",
+     0.049
     ]
    ]
   }
  ],
- "pool_size": 1824
+ "pool_size": 2040
 }

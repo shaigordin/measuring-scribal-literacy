@@ -4,7 +4,7 @@
  "tradition": "Kizzuwatna rituals",
  "n_words": 1829,
  "space": "both",
- "margin": 0.028,
+ "margin": 0.029,
  "examples": [
   {
    "start": 0,
@@ -22,7 +22,7 @@
      ],
      "nearest": "Kizzuwatna–Lower Land (Hurrian)",
      "runner_up": "Hattian cult layer",
-     "gap": 0.0112,
+     "gap": 0.0119,
      "placed": false,
      "right": false
     },
@@ -53,7 +53,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Hattian cult layer",
-     "gap": 0.002,
+     "gap": 0.0064,
      "placed": false,
      "right": true
     },
@@ -144,7 +144,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Hattian cult layer",
-     "gap": 0.0094,
+     "gap": 0.01,
      "placed": false,
      "right": true
     }
@@ -166,7 +166,7 @@
      ],
      "nearest": "Syro-Mesopotamia (Hurrian)",
      "runner_up": "Kizzuwatna rituals",
-     "gap": 0.0145,
+     "gap": 0.0092,
      "placed": false,
      "right": false
     },
@@ -197,7 +197,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Hattian cult layer",
-     "gap": 0.0047,
+     "gap": 0.0056,
      "placed": false,
      "right": true
     },
@@ -288,7 +288,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Luwian festivals (Ištanuwa, Lallupiya)",
-     "gap": 0.0493,
+     "gap": 0.0557,
      "placed": true,
      "right": true
     }
@@ -310,7 +310,7 @@
      ],
      "nearest": "Luwian festivals (Ištanuwa, Lallupiya)",
      "runner_up": "Kizzuwatna rituals",
-     "gap": 0.0263,
+     "gap": 0.0183,
      "placed": false,
      "right": false
     },
@@ -341,7 +341,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Luwian festivals (Ištanuwa, Lallupiya)",
-     "gap": 0.0017,
+     "gap": 0.0025,
      "placed": false,
      "right": true
     },
@@ -432,7 +432,7 @@
      ],
      "nearest": "Kizzuwatna rituals",
      "runner_up": "Kizzuwatna–Lower Land (Hurrian)",
-     "gap": 0.119,
+     "gap": 0.1122,
      "placed": true,
      "right": true
     }
@@ -442,21 +442,21 @@
  "all_windows": {
   "3": {
    "windows": 1827,
-   "right": 0.426,
-   "placed": 0.276,
-   "right_when_placed": 0.515
+   "right": 0.444,
+   "placed": 0.247,
+   "right_when_placed": 0.508
   },
   "10": {
    "windows": 1820,
-   "right": 0.649,
-   "placed": 0.34,
-   "right_when_placed": 0.659
+   "right": 0.654,
+   "placed": 0.319,
+   "right_when_placed": 0.671
   },
   "40": {
    "windows": 1790,
-   "right": 0.784,
-   "placed": 0.592,
-   "right_when_placed": 0.892
+   "right": 0.791,
+   "placed": 0.587,
+   "right_when_placed": 0.91
   }
  }
 }

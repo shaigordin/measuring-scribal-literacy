@@ -75,6 +75,10 @@ def token_counts(old, new):
     return out
 
 
+def r4(x):
+    return round(x, 4) if isinstance(x, float) else x
+
+
 def md(res):
     L = ["# Bracket fix: before and after", ""]
     if "tokens" in res:
@@ -91,7 +95,7 @@ def md(res):
         b, a = res[v]["before"], res[v]["after"]
         L += [f"## Version {v}", "", "| | before | after |", "|---|---|---|"]
         for k in ["accuracy", "margin", "orphans_scored", "orphans_placed", "compositions_recovered", "cth409_best_fit"]:
-            L.append(f"| {k.replace('_', ' ')} | {b[k]} | {a[k]} |")
+            L.append(f"| {k.replace('_', ' ')} | {r4(b[k])} | {r4(a[k])} |")
         for k in ["best_fit", "lead", "p_vs_random", "arzawa_rank", "arzawa_signature_coverage"]:
             L.append(f"| Ambazzi {k.replace('_', ' ')} | {b['ambazzi'][k]} | {a['ambazzi'][k]} |")
         L.append(f"| Ambazzi per-text nearest | {b['ambazzi']['per_text_nearest']} | {a['ambazzi']['per_text_nearest']} |")
@@ -107,6 +111,8 @@ def md(res):
         m = res[v]["placements"]
         L += ["", f"Orphans placed before and after: {m['placed_both']}, same tradition in {m['same_tradition']}; "
               f"placed only before: {m['only_before']}; only after: {m['only_after']}.", ""]
+    L += ["## Not rerun", "", "The Konkordanz join checks (known_joins/, joins/ in both folders) and the Zenodo release need the "
+          "Konkordanz page cache and were not rebuilt with the fixed parser: their files are still the old ones.", ""]
     return "\n".join(L) + "\n"
 
 
