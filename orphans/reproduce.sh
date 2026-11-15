@@ -75,6 +75,7 @@ for V in "" _C; do T=$TOK; [ "$V" = _C ] && T=$DATA/tokens_C.csv; O=${OUT}_liter
 done
 python3 make_release.py "$DATA/tokens_C.csv" --run "${OUT}_literature_C" \
   --tokens-a "$TOK" --run-a "${OUT}_literature" --out release > release.log
+python3 konkordanz_abbreviations.py --release release                            # full titles for the Konkordanz short forms
 python3 release_docs.py release --version "${RELEASE_VERSION:-1.0.0}" --zip
 
 # 5. slides

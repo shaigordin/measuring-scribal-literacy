@@ -55,6 +55,22 @@ are scored but not placed. 4,952 are too small.
 | CTH 390-469 rituals no study groups | 1,038 | 541 | 383 | 114 | 94 |
 | EBo filed under other CTH numbers | 153 | 72 | 75 | 6 | 20 |
 
+## Background: why these traditions
+
+The reference traditions build on Gordin, Yavasan and Romach (2025, StBoT 73). That study mapped about
+1,000 Hurrian and Luwian festival manuscripts of TLHdig with tf-idf and t-SNE. The map grouped the
+festival texts by cult geography rather than by Laroche's CTH ranges (its Table 3: Kizzuwatna and the
+Lower Land, Syro-Mesopotamian, and a mixed Hurrian, Syrian and Luwian group). It also used word categories
+(its Table 4) to tell what is written from how it is written, and proposed, as a next step, to test which
+word groups carry the signal. This dataset turns that exploration into assignment. It keeps the study's
+Hurrian festival groups and its minimum of 17 words for a reference manuscript, and extends its six word
+categories to ten (see the word-category profile below). It
+splits the study's single Luwian group as the edition modules of the Corpus der hethitischen Festrituale
+(HFR) do, into the festivals of Ištanuwa and Lallupiya and those of Ḫuwaššanna, and adds HFR's Palaic
+festivals. It adds four ritual traditions from the philological literature: the Kizzuwatna rituals, the
+western (Arzawa) rituals, the Luwian rituals of Puriyanni and Kuwattalla, and the Hattian cult layer. The
+table below names, for each tradition, the studies the Konkordanz cites for its manuscripts.
+
 ## The method in brief
 
 1. **Reference traditions.** Ten traditions of rituals and festivals, as the scholarly literature defines
@@ -344,44 +360,45 @@ Please cite this dataset and TLHdig:
 
 ## References
 
+Monographs are given in full from the Konkordanz's list of abbreviations (labels/konkordanz_abbreviations.csv); journal articles and Festschrift contributions are given as the Konkordanz cites them (journal and volume), since that list names series and journals, not article titles.
+
+- Carruba, O. 1966. *Das Beschwörungsritual für die Göttin Wišurijanza*. StBoT 2.
+- Carruba, Onofrio. 1970. *Das Palaische: Texte, Grammatik, Lexikon*. StBoT 10.
+- Ehelolf, H. 1932. *Mitteilungen der Deutschen Orient-Gesellschaft zu Berlin* 70.
+- Goetze, A. 1964. *Journal of Cuneiform Studies* 18.
+- Gordin, Shai, Emma Yavasan and Avital Romach. 2025. Matters of Genre, Style and Orthography: Hittite Scribal Habits through the Stylometric Lens. In Susanne Görke, Adam Kryszeń, Gerfrid G. W. Müller and Charles W. Steitler (eds), *The Tablets and Their Scribes: The Palaeography of Hittite Cuneiform and Writing Practices in Hittite Anatolia*. StBoT 73. Wiesbaden: Harrassowitz, 107–123.
+- Groddek, D. 2025. Fs van den Hout (not in the Konkordanz's list of abbreviations).
+- Groddek, D. 2026. FsTaracha (not in the Konkordanz's list of abbreviations).
+- Groddek, Detlev, and Alwin Kloekhorst. 2006. *Hethitische Texte in Transkription: KBo 35*. DBH 19.
 - Haas, Volkert. 1994. *Geschichte der hethitischen Religion*. Handbuch der Orientalistik I/15. Leiden: Brill.
+- Jakob-Rost, Liane. 1972. *Das Ritual der Malli aus Arzawa gegen Behexung (KUB XXIV 9+)*. THeth 2. Heidelberg: Winter.
 - Klinger, Jörg. 1996. *Untersuchungen zur Rekonstruktion der hattischen Kultschicht*. StBoT 37. Wiesbaden: Harrassowitz.
 - Košak, Silvin. 2026. *Konkordanz der hethitischen Keilschrifttafeln*. hethiter.net/: hetkonk, https://hethport.net/hetkonk/ (pages accessed November 2026).
+- Kümmel, Hans Martin. 1967. *Ersatzrituale für den hethitischen König*. StBoT 3.
 - Laroche, Emmanuel. 1971. *Catalogue des textes hittites*. Paris: Klincksieck.
 - Mainzer Fotoarchiv. hethiter.net/: fotarch, https://hethport.net/fotarch/.
+- Meriggi, P. 1960. *Revue hittite et asianique* XVIII/66-67.
 - Miller, Jared L. 2004. *Studies in the Origins, Development and Interpretation of the Kizzuwatna Rituals*. StBoT 46. Wiesbaden: Harrassowitz.
 - Mouton, Alice. 2010. Sorcellerie hittite. *Journal of Cuneiform Studies* 62: 105–125.
 - Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. 2026. *Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:10.5281/zenodo.20328284.
+- Otten, Heinrich, and Vladimir Souček. 1969. *Ein althethitisches Ritual für das Königspaar*. StBoT 8.
+- Reyhan, E. 2025. *Archivum Anatolicum* 19/2.
+- Rieken, Elisabeth, and Daniel Schwemer. 2026. *Corpus der hethitischen Festrituale (HFR)*. Akademie der Wissenschaften und der Literatur Mainz, hethiter.net/: HFR, https://hethport.net/HFR/.
+- Rost, L. 1953. *Mitteilungen des Instituts für Orientforschung* 1.
+- Roth, Theresa. 2021. *Religiöse Kommunikation im Umbrischen und Hethitischen: Fachsprachlichkeit in Ritualtexten und Gebeten*. BSIEL 23.
 - Salvini, Mirjo, and Ilse Wegner. 1986. *Die Rituale des AZU-Priesters*. ChS I/2. Roma: Multigrafica.
+- Sasseville, D. 2023. FsKosyan (not in the Konkordanz's list of abbreviations).
+- Sasseville, D., and I. Yakubovich. 2021. *Zeitschrift für vergleichende Sprachforschung* 131.
+- Sasseville, David. 2020. *Anatolian Verbal Stem Formation: Luwian, Lycian and Lydian*. BSIEL 21.
 - Starke, Frank. 1985. *Die keilschrift-luwischen Texte in Umschrift*. StBoT 30. Wiesbaden: Harrassowitz.
 - Steitler, Charles W. 2017. *The Solar Deities of Bronze Age Anatolia: Studies in Texts of the Early Hittite Kingdom*. StBoT 62. Wiesbaden: Harrassowitz.
+- Torri, Giulia. 2022. *The Haus am Hang at Ḫattuša. A Late Hittite State Scriptorium and Its Tablet Collections*. StBoT 67.
+- Vieyra, M. 1965. *Revue d'Assyriologie et d'Archéologie orientale* 59.
 - Waal, Willemijn. 2015. *Hittite Diplomatics: Studies in Ancient Document Format and Record Management*. StBoT 57. Wiesbaden: Harrassowitz.
 - Wegner, Ilse, and Mirjo Salvini. 1991. *Die hethitisch-hurritischen Ritualtafeln des (ḫ)išuwa-Festes*. ChS I/4. Roma: Multigrafica.
 - Wegner, Ilse. 2002. *Hurritische Opferlisten aus hethitischen Festbeschreibungen. Teil II: Texte für Teššub, Ḫebat und weitere Gottheiten*. ChS I/3-2. Roma.
 - Yakubovich, Ilya, and Alice Mouton. 2023. *Luwili: Hittite-Luwian Ritual Texts Attributed to Puriyanni, Kuwattalla and Šilalluḫi (CTH 758–763)*. StBoT 72. Wiesbaden: Harrassowitz.
 - Yoshida, Daisuke. 1996. *Untersuchungen zu den Sonnengottheiten bei den Hethitern: Schwurgötterliste, helfende Gottheit, Feste*. THeth 22. Heidelberg: Winter.
-
-**First and latest studies, and the excluded corpus volume, as the Konkordanz cites them** (author, year, series or journal and volume; abbreviations as in the Konkordanz):
-
-- Carruba 1966 (StBoT 2)
-- Carruba 1970 (StBoT 10)
-- Ehelolf 1932 (MDOG 70)
-- Goetze 1964 (JCS 18)
-- Groddek 2025 (Fs van den Hout)
-- Groddek 2026 (FsTaracha)
-- Groddek and Kloekhorst 2006 (DBH 19)
-- Jakob-Rost 1972 (THeth 2)
-- Kümmel 1967 (StBoT 3)
-- Meriggi 1960 (RHA XVIII/66-67)
-- Otten and Souček 1969 (StBoT 8)
-- Reyhan 2025 (ArAn 19/2)
-- Rost 1953 (MIO 1)
-- Roth 2021 (BSIEL 23)
-- Sasseville 2020 (BSIEL 21)
-- Sasseville 2023 (FsKosyan)
-- Sasseville and Yakubovich 2021 (KZ 131)
-- Torri 2022 (StBoT 67)
-- Vieyra 1965 (RA 59)
 
 ## Licence
 

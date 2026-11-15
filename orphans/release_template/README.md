@@ -48,6 +48,22 @@ are scored but not placed. $too_small are too small.
 
 $bins_table
 
+## Background: why these traditions
+
+The reference traditions build on Gordin, Yavasan and Romach (2025, StBoT 73). That study mapped about
+1,000 Hurrian and Luwian festival manuscripts of TLHdig with tf-idf and t-SNE. The map grouped the
+festival texts by cult geography rather than by Laroche's CTH ranges (its Table 3: Kizzuwatna and the
+Lower Land, Syro-Mesopotamian, and a mixed Hurrian, Syrian and Luwian group). It also used word categories
+(its Table 4) to tell what is written from how it is written, and proposed, as a next step, to test which
+word groups carry the signal. This dataset turns that exploration into assignment. It keeps the study's
+Hurrian festival groups and its minimum of 17 words for a reference manuscript, and extends its six word
+categories to ten (see the word-category profile below). It
+splits the study's single Luwian group as the edition modules of the Corpus der hethitischen Festrituale
+(HFR) do, into the festivals of Ištanuwa and Lallupiya and those of Ḫuwaššanna, and adds HFR's Palaic
+festivals. It adds four ritual traditions from the philological literature: the Kizzuwatna rituals, the
+western (Arzawa) rituals, the Luwian rituals of Puriyanni and Kuwattalla, and the Hattian cult layer. The
+table below names, for each tradition, the studies the Konkordanz cites for its manuscripts.
+
 ## The method in brief
 
 1. **Reference traditions.** Ten traditions of rituals and festivals, as the scholarly literature defines

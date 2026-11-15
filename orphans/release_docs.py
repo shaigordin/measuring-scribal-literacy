@@ -9,12 +9,15 @@ Usage: python release_docs.py release --version 1.0.0 [--zip]
 import argparse
 import json
 import os
+import re
 import zipfile
 from datetime import date
 from string import Template
 
 import numpy as np
 import pandas as pd
+
+from make_release import AUTHOR_FIX, LITERATURE, cite
 
 TITLE = ("Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates "
          "for the unplaced fragments of the Hittite corpus (TLHdig 0.3)")
@@ -87,6 +90,7 @@ JOINS = [
 # Full entries for the works this README cites. The most-cited study of every tradition (computed by
 # make_release.py from the Konkordanz) must have one here; the first and latest studies are listed as the
 # Konkordanz cites them.
+HERE = os.path.dirname(os.path.abspath(__file__))
 FULL = {
     "Klinger 1996 (StBoT 37)": "Klinger, Jörg. 1996. *Untersuchungen zur Rekonstruktion der hattischen Kultschicht*. StBoT 37. Wiesbaden: Harrassowitz.",
     "Miller 2004 (StBoT 46)": "Miller, Jared L. 2004. *Studies in the Origins, Development and Interpretation of the Kizzuwatna Rituals*. StBoT 46. Wiesbaden: Harrassowitz.",
@@ -97,9 +101,12 @@ FULL = {
     "Wegner 2002 (ChS I/3-2)": "Wegner, Ilse. 2002. *Hurritische Opferlisten aus hethitischen Festbeschreibungen. Teil II: Texte für Teššub, Ḫebat und weitere Gottheiten*. ChS I/3-2. Roma.",
     "Wegner and Salvini 1991 (ChS I/4)": "Wegner, Ilse, and Mirjo Salvini. 1991. *Die hethitisch-hurritischen Ritualtafeln des (ḫ)išuwa-Festes*. ChS I/4. Roma: Multigrafica.",
     "Yakubovich and Mouton 2023 (StBoT 72,1)": "Yakubovich, Ilya, and Alice Mouton. 2023. *Luwili: Hittite-Luwian Ritual Texts Attributed to Puriyanni, Kuwattalla and Šilalluḫi (CTH 758–763)*. StBoT 72. Wiesbaden: Harrassowitz.",
+    "Jakob-Rost 1972 (THeth 2)": "Jakob-Rost, Liane. 1972. *Das Ritual der Malli aus Arzawa gegen Behexung (KUB XXIV 9+)*. THeth 2. Heidelberg: Winter.",
     "Yoshida 1996 (THeth 22)": "Yoshida, Daisuke. 1996. *Untersuchungen zu den Sonnengottheiten bei den Hethitern: Schwurgötterliste, helfende Gottheit, Feste*. THeth 22. Heidelberg: Winter.",
 }
 SOURCES = [
+    "Gordin, Shai, Emma Yavasan and Avital Romach. 2025. Matters of Genre, Style and Orthography: Hittite Scribal Habits through the Stylometric Lens. In Susanne Görke, Adam Kryszeń, Gerfrid G. W. Müller and Charles W. Steitler (eds), *The Tablets and Their Scribes: The Palaeography of Hittite Cuneiform and Writing Practices in Hittite Anatolia*. StBoT 73. Wiesbaden: Harrassowitz, 107–123.",
+    "Rieken, Elisabeth, and Daniel Schwemer. 2026. *Corpus der hethitischen Festrituale (HFR)*. Akademie der Wissenschaften und der Literatur Mainz, hethiter.net/: HFR, https://hethport.net/HFR/.",
     "Haas, Volkert. 1994. *Geschichte der hethitischen Religion*. Handbuch der Orientalistik I/15. Leiden: Brill.",
     "Košak, Silvin. 2026. *Konkordanz der hethitischen Keilschrifttafeln*. hethiter.net/: hetkonk, https://hethport.net/hetkonk/ (pages accessed November 2026).",
     "Laroche, Emmanuel. 1971. *Catalogue des textes hittites*. Paris: Klincksieck.",
@@ -109,14 +116,53 @@ SOURCES = [
 ]
 
 
+def _names(s):
+    """'Heinrich Otten und Vladimir Souček' -> 'Otten, Heinrich, and Vladimir Souček'."""
+    people = [p.strip() for p in re.split(r"\s(?:und|and|–|-)\s", s) if p.strip()]
+    first = people[0].rsplit(" ", 1)
+    head = f"{first[1]}, {first[0]}" if len(first) == 2 else people[0]
+    return head if len(people) == 1 else head + ", and " + ", ".join(people[1:])
+
+
+def expand(c, lit, abbr):
+    """A study in the short form of traditions.csv ('Kümmel 1967 (StBoT 3)') as a full reference, from the
+    Konkordanz's list of abbreviations (labels/konkordanz_abbreviations.csv)."""
+    if c in FULL:
+        return FULL[c]
+    r = lit[c]                                          # the Konkordanz citation: initials, venue, year
+    venue = re.search(r"\((.*)\)$", c).group(1)
+    people = [" ".join(AUTHOR_FIX.get(w, w) for w in n.split()) for n in re.split(r"\s[-/–]\s", r.author)]
+    first = people[0].rsplit(" ", 1)
+    who = (f"{first[1]}, {first[0]}" if len(first) == 2 else people[0]) + "".join(
+        f", and {p}" for p in people[1:])
+    who = who.rstrip(".")
+    a = abbr.get(venue)
+    if a is None or not a.full:
+        return f"{who}. {r.year}. {venue} (not in the Konkordanz's list of abbreviations)."
+    if a.abbreviation == venue or a.abbreviation == re.sub(r",\s?\d+$", "", venue):   # a volume of a series
+        m = re.match(r"(?:(.+?),\s)?(.+?)\s[-–]\s*(\d{4})?$", a.full)
+        if m and m.group(1):
+            who = _names(m.group(1)).rstrip(".")
+        title = m.group(2).strip() if m else a.full
+        return f"{who}. {r.year}. *{title}*. {venue}."
+    journal = re.split(r"\s[-–]\s|\s\(|;|\.\s", a.full)[0].strip()   # a journal: name and volume only
+    return f"{who}. {r.year}. *{journal}* {venue[len(venue.split(' ')[0]):].strip()}."
+
+
 def references(T):
     missing = set(T.most_cited_study) - set(FULL)
     assert not missing, f"add full entries for {missing}"
-    full = sorted([FULL[c] for c in T.most_cited_study] + [x.format(doi=TLHDIG_DOI) for x in SOURCES])
-    short = sorted(set(T.first_study) | set(T.latest_study) | {"Groddek and Kloekhorst 2006 (DBH 19)"})
-    return ("\n".join(f"- {x}" for x in full) + "\n\n**First and latest studies, and the excluded corpus volume, as the "
-            "Konkordanz cites them** (author, year, series or journal and volume; abbreviations as in the Konkordanz):\n\n"
-            + "\n".join(f"- {x}" for x in short))
+    L = pd.read_csv(os.path.join(HERE, LITERATURE))
+    lit = {cite(r): r for r in L.itertuples()}
+    lit["Groddek and Kloekhorst 2006 (DBH 19)"] = L[L.venue == "DBH 19"].iloc[0]
+    abbr = {r.venue: r for r in pd.read_csv(os.path.join(HERE, "labels", "konkordanz_abbreviations.csv"),
+                                            keep_default_na=False).itertuples()}
+    works = set(T.most_cited_study) | set(T.first_study) | set(T.latest_study) | {"Groddek and Kloekhorst 2006 (DBH 19)"}
+    entries = [expand(c, lit, abbr) for c in works] + [x.format(doi=TLHDIG_DOI) for x in SOURCES]
+    return ("Monographs are given in full from the Konkordanz's list of abbreviations "
+            "(labels/konkordanz_abbreviations.csv); journal articles and Festschrift contributions are given as "
+            "the Konkordanz cites them (journal and volume), since that list names series and journals, not "
+            "article titles.\n\n" + "\n".join(f"- {x}" for x in sorted(set(entries), key=lambda e: e.lower())))
 
 
 TRADITIONS = [
