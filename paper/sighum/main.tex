@@ -10,6 +10,7 @@
 \usepackage[english]{babel}
 \babelfont{rm}{TeX Gyre Termes}
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage{array}
 \usepackage{graphicx}
 \renewcommand{\dbltopfraction}{0.9}
@@ -84,13 +85,11 @@ always names one of them, even when the true source is not among them \citep{kop
 A placement is also only useful to a philologist who can check it, which requires knowing what
 it rests on.
 
-\citet{gordin2025matters} mapped about 1,000 Hurrian and Luwian festival manuscripts with tf-idf
-and t-SNE and proposed, as a next step, to test which word groups carry the signal. We turn that
-exploration into assignment, with explicit baselines, held-out evaluation and a rule for when not
+We turn the exploratory mapping of \citet{gordin2025matters} into assignment, with explicit baselines, held-out evaluation and a rule for when not
 to assign. Our contributions are:
 \begin{enumerate}
-  \item a reference of \Q{trad.countword} ritual and festival traditions, each defined by the
-    study that argued for it and mapped to Laroche's CTH numbers, with the ranges that no study
+  \item a reference of \Q{trad.countword} ritual and festival traditions, each grounded in
+    its scholarly literature and mapped to Laroche's CTH numbers, with the ranges that no study
     claims set aside as test sets (Section~\ref{sec:data});
   \item an evaluation that holds out manuscripts and whole compositions, so that the scholarly
     groupings themselves, and one contested attribution, are tested; that follows accuracy
@@ -153,9 +152,7 @@ categories decide.
 \paragraph{Scribal habit and attribution.}
 Hittite scribes copied, excerpted and re-edited ritual texts over two centuries, and their
 habits of logographic writing, plene spelling and sign choice vary with date, school and
-individual \citep{gordin2015scribal,weeden2011logograms,vandenhout2009dating,waal2015diplomatics}.
-Whether a habit marks a tradition, a circle of scribes or a date is therefore a question to test,
-not an assumption. Stylometry supplies frequency-based representations, distance measures and
+individual \citep{gordin2015scribal,weeden2011logograms,vandenhout2009dating,waal2015diplomatics}. Stylometry supplies frequency-based representations, distance measures and
 protocols with held-out evaluation \citep{burrows2002delta,juola2008authorship,
 stamatatos2009survey}, and open-set recognition the means to reject a sample that fits no
 candidate \citep{scheirer2013openset}.
@@ -165,8 +162,7 @@ Machine learning on cuneiform has addressed transliteration and translation
 \citep{gordin2020reading,yavasan2025clay}, language and dialect identification
 \citep{jauhiainen2019cuneiform}, the matching of fragments to known compositions by sign
 sequences \citep{simonjetz2024reconstruction}, and palaeographic style \citep{yugay2024stylistic}.
-Fragment matching finds a known text; it does not place a fragment whose parallels are lost, and
-all of these studies are closed-set. We know of no published study that uses content features to
+Fragment matching finds only a known text, and all these studies are closed-set. We know of no published study that uses content features to
 assign Hittite fragments to religious traditions, or that asks when a fragment fits none of them.
 
 %% ==========================================================================================
@@ -227,24 +223,23 @@ Kizzuwatna'', which is a running list of fragments rather than a composition. Fo
 the subgroups a--f of \citet{salvini1986chs} and the script dates come from the Konkordanz and
 serve as partial ground truth.
 
-\begin{table}[t]
+\begin{table*}[t]
   \centering
-  \footnotesize
+  \scriptsize
   \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{23mm} >{\raggedright\arraybackslash}p{13mm}
-      >{\raggedright\arraybackslash}p{26mm} r@{}}
+  \begin{tabular}{@{}l >{\raggedright\arraybackslash}p{30mm} l l r@{}}
     \toprule
-    Tradition & CTH & Studies & $n$ \\
+    Tradition & CTH & Most-cited study & First $\rightarrow$ latest study & $n$ \\
     \midrule
-    \gentab{traditions_short}
+    \gentab{traditions_wide}
     \bottomrule
   \end{tabular}
   \caption{Reference traditions, their studies, and the number of reference manuscripts with 17
-    or more legible words. Bold: the study most cited on the tradition's manuscripts in the
-    Konkordanz, general reference works set aside; then the first and the latest study cited there. CTH numbers follow the Portal CTH
-    \citep{cthportal}.}
+    or more legible words. Most-cited study: the study most cited on the tradition's manuscripts
+    in the Konkordanz, general reference works set aside; then the first and the latest study
+    cited there. CTH numbers follow the Portal CTH \citep{cthportal}.}
   \label{tab:traditions}
-\end{table}
+\end{table*}
 
 %% ==========================================================================================
 \section{Method}
@@ -546,10 +541,8 @@ a rule, not their text, so we tried to learn a ranking for joins.
 TLHdig marks on every line of a joined text the piece it is preserved on. Splitting its joined
 texts back into their pieces gives \Q{J1.query_pieces} query pieces from \Q{J1.joined_texts}
 joins, each to be found among \Q{J1.units} units. A logistic regression re-ranks the nearest
-candidates of each piece over twelve pair features: similarity, the similarity of the two
-units' profiles over traditions and over compositions, word and phrase overlap, the share of
-shared words spelled alike, the distance of their orthographic rates, the overlap of their
-preserved sides and columns, the same publication volume, the same excavation series, and size.
+candidates of each piece over twelve pair features of text, spelling, preserved sides and
+columns, publication and excavation series, and size.
 It is tested on compositions it was not fitted on (five folds grouped by CTH number). The gain is
 real but modest (Table~\ref{tab:joins}): the partner reaches the top 20 for \Q{J1.model.r20} of
 pieces, against \Q{J1.sim.r20} for similarity alone, and the median rank falls from
@@ -562,8 +555,7 @@ The weights show what it learns. Word overlap (\Q{J1.w.wordoverlap}) and similar
 identical spellings (\Q{J1.w.samespelling}) and the same excavation series
 (\Q{J1.w.sameseries}); the scribal rates have no measurable effect (\Q{J1.w.scribaldistance},
 95\% interval \Q{J1.w.scribaldistance.ci}). Shared text is the strongest cue, so the model still
-rewards what duplicates have in common. The joins already made are those scholars could see,
-mostly pieces that share text, and they teach a model what duplicates look like. Find spot and
+rewards what duplicates have in common. Find spot and
 date, the evidence one would want, cannot be fitted honestly, because for known joins the
 Konkordanz often derives them from the join itself. Text alone, we conclude, narrows the search
 for a join but does not tell a join from a duplicate; that needs physical evidence.
@@ -591,12 +583,10 @@ for a join but does not tell a join from a duplicate; that needs physical eviden
 \paragraph{Genre before origin.}
 A fragment is placed by what it shares with the reference, and the largest shared layer is
 genre. A ritual from outside every reference tradition will look most like the largest ritual
-class, as the residue of \CTH{390}--469 shows, and the open-set test shows the same risk across
-genres. A placement is therefore ``nearest of these'', and is only as good as the alternatives in
+class, as the residue of \CTH{390}--469 shows. A placement is therefore ``nearest of these'', and is only as good as the alternatives in
 the reference. Each tradition added narrows the gap: with the Luwian rituals in the reference,
 \Q{E5b.res.luwianritualspuriyannikuwattalla} residue texts go to them rather than to the
-Kizzuwatna rituals, and the spellings-only run shows that the small traditions gain most when
-their unanalysed manuscripts are counted.
+Kizzuwatna rituals.
 
 \paragraph{Archetypes and witnesses.}
 The results suggest a division of labour between two levels of a text, which we call
@@ -607,19 +597,14 @@ manuscripts share. Each manuscript, and each orphan, is a \term{witness} that at
 it. The archetype is identified by content, above all by whom and what a text names. Spelling
 marks the witness: kept or collapsed, the variant spellings change nothing at the level of the
 tradition, in line with the view that Hittite writing habits belong to scribal circles and their
-schooling \citep{gordin2015scribal}. An orphan is a low-coverage witness, and how much of each
-archetype survives only in orphans is a historical question that unseen-species estimates, as
-used for lost medieval literature \citep{kestemont2022forgotten}, could address.
+schooling \citep{gordin2015scribal}.
 
 \paragraph{Conclusion.}
 Content-based assignment places Hittite ritual and festival fragments in literature-defined
-traditions well above chance from about ten legible words, recovers most compositions held out
-whole, and gives a quantitative answer to a contested attribution. The exact decomposition makes
-each placement checkable: it shows that a decision rests on agents, deities, realia and foreign
-words rather than on spelling or particles, and flags the short fragments where it does not. The
-same features find duplicates but not joins (Section~\ref{sec:joins}). Code, outputs and the
-placements with their decompositions are released (anonymised for review); every number in this
-paper is generated from them.
+traditions well above chance from about ten legible words and recovers most compositions held out
+whole. The exact decomposition makes each placement checkable: a decision rests on agents,
+deities, realia and foreign words rather than on spelling or particles. Code, outputs and placements are released (anonymised for review), and every number here is
+generated from them.
 
 \section*{Limitations}
 The study depends on one digital edition. TLHdig 0.3 has no word analyses for the Luwian
