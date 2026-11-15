@@ -178,8 +178,10 @@ automatically with the HFR tool, which are not validated by hand \citep{tlhdig03
 downloaded by script and checked by its checksum, so the word table can be rebuilt from the public
 data alone. As in \citet{gordin2025matters}, reference manuscripts must have at least 17 legible
 words. The analyses do not cover the whole release: the Luwian rituals (\CTH{758}--763) have
-none, and many other rituals lack them. The main model reads analysed words, so in its
-reference the Luwian rituals have \Q{R1.A.luwianritualspuriyannikuwattalla.n} manuscripts and the
+none, and many other rituals lack them. Where a word has no analysis, we take the lemma of the
+same spelling elsewhere in TLHdig (\Q{fill.tlhdig} words) or, for Cuneiform Luwian words, from
+eDiAna \citep{ediana} (\Q{fill.ediana} words); every filled word keeps its source. With the fills,
+the Luwian rituals have \Q{R1.A.luwianritualspuriyannikuwattalla.n} reference manuscripts and the
 western rituals \Q{R1.A.arzawawesternrituals.n}; Section~\ref{sec:spellings} repeats the
 evaluation on spellings alone with every manuscript.
 
@@ -338,7 +340,7 @@ their tradition, against \Q{E1.both.majority} for the majority baseline and
 well (\Q{E1.words.acc} and \Q{E1.signs.acc}). On the editor's full text (version A) the same
 test gives \Q{A.E1.both.acc} on \Q{A.E1.both.n} manuscripts: restorations add manuscripts and
 words but change little. Recall ranges from \Q{trad.minrecall} to
-\Q{trad.maxrecall} (Table~\ref{tab:summary}) and is lowest for the two smallest traditions. The
+\Q{trad.maxrecall} (Table~\ref{tab:summary}) and is lowest for the Syro-Mesopotamian and the mixed Hurrian groups. The
 festivals that HFR separates are kept apart by the texts themselves: the Ḫuwaššanna festivals
 reach \Q{trad.huwassannafestivals.recall} and those of Ištanuwa and Lallupiya
 \Q{trad.luwianfestivalsistanuwalallupiya.recall}.
@@ -401,17 +403,17 @@ manuscripts (\CTH{390}--469). The western tradition ranks \Q{E10b.claim.rank} of
 \Q{E10b.nearest.n} of the \Q{E10b.texts} manuscripts, but no nearer than random unclaimed rituals
 ($p=\Q{E10b.best.p}$). Of the \Q{E10c.claim.signatures} words most distinctive of the western
 rituals \citep{monroe2008fightin}, \Q{E10c.claim.attested} occurs in the Ambazzi texts
-(\textit{\Q{E10c.claim.attested.words}}). On this evidence the Ambazzi rituals sit in the
-generic ritual residue, and we keep them out of the western reference.
+(\textit{\Q{E10c.claim.attested.words}}). \todraft{With the filled lemmas the western rituals fit the Ambazzi texts better than random rituals
+do; the conclusion of this paragraph has to be rewritten.}
 
 \subsection{Spellings only, with every manuscript}
 \label{sec:spellings}
-The gap in the annotation falls on the smallest traditions. We therefore repeat the
+Even with the fills, not every word has an analysis. We therefore repeat the
 leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
 analysed manuscripts only and once with all manuscripts of 17 or more legible words
 (Table~\ref{tab:spellings}). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
 overall accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc}, because most traditions gain
-manuscripts that are harder to place. The two small ritual traditions gain most: the Luwian
+manuscripts that are harder to place. The Luwian
 rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
 \Q{R1.B.luwianritualspuriyannikuwattalla.n} manuscripts and their accuracy from
 \Q{R1.A.luwianritualspuriyannikuwattalla.acc} to \Q{R1.B.luwianritualspuriyannikuwattalla.acc};
@@ -420,8 +422,7 @@ the western rituals from \Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawester
 \Q{R1.B.orph.mainplaced} orphans the main model places, \Q{R1.B.orph.placedinboth} are also placed
 with the full reference and \Q{R1.B.orph.sametradition} of these keep their tradition;
 \Q{R1.B.orph.topuriyannikuwattalla} move to the Luwian rituals and \Q{R1.B.orph.toarzawa} to the
-western rituals. Placements in the two small ritual traditions should be read with this in
-mind.
+western rituals. 
 
 \begin{table}[t]
   \centering
@@ -487,9 +488,8 @@ realia (\Q{E11a.decision.realia}), foreign words (\Q{E11a.decision.foreignwords}
 has its own decisive category (Table~\ref{tab:summary}): realia for the Kizzuwatna rituals,
 agents and deities for the festivals and the Hattian cult layer.
 
-For short fragments the worry is justified. The share of the decision carried by common features
-falls from \Q{E11b.len510.common} for orphans of 5--10 words to \Q{E11b.len50.common} above 50
-words, and \Q{E11b.assigned_orphans_mostly_common} of the \Q{E11b.assigned_orphans} placed
+The share of the decision carried by common features is \Q{E11b.len510.common} for orphans of
+5--10 words and \Q{E11b.len50.common} above 50 words, and \Q{E11b.assigned_orphans_mostly_common} of the \Q{E11b.assigned_orphans} placed
 orphans rest mostly on them. In 10-word windows from reference manuscripts, such placements are
 right \Q{E11d.w10.common.prec} of the time, against \Q{E11d.w10.rest.prec} for the rest. Without
 function words, \Q{E11e.nofunc.sametradition} of the placed orphans keep their tradition,

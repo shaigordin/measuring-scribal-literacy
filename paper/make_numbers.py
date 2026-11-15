@@ -27,7 +27,7 @@ SHORT = {"Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna and Lower Land (Hurr.)
          "Luwian festivals (Ištanuwa, Lallupiya)": "Ištanuwa and Lallupiya festivals",
          "Luwian rituals (Puriyanni, Kuwattalla)": "Luwian rituals (Lower Land)",
          "Arzawa / western rituals": "Arzawa (western) rituals"}
-MAIN = "tlhdig03_literature_C"   # main run: literature-defined traditions, damage-aware tokens (version C)
+MAIN = "tlhdig03_literature_C_filled"   # main run: literature-defined traditions, damage-aware tokens (version C), missing lemmas filled (TLHdig same spelling, eDiAna)
 COMPARE = "tlhdig03_literature"  # version A (editor's full text, restorations counted): keys prefixed "A."
 PREFIX = ""                      # set to "A." while the comparison run is read
 BASE = "tlhdig03"              # StBoT 73 Table 3 + CTH-range controls (published baseline)
@@ -113,6 +113,13 @@ def main():
     words = {0: "zero", 1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight",
              9: "nine", 10: "ten", 11: "eleven", 12: "twelve"}
     put("trad.countword", words.get(len(trad), len(trad)), "qtm/groups.py LITERATURE")
+
+    # ---- lemma filling (filled version of C only)
+    fp = os.path.join(RES, MAIN, "comparison.json")
+    if os.path.exists(fp):
+        fw = load(MAIN, "comparison.json")["filled_words"]
+        put("fill.tlhdig", num(fw["tlhdig_same_spelling"]), f"{MAIN}/comparison.json filled_words")
+        put("fill.ediana", num(fw["ediana"]), f"{MAIN}/comparison.json filled_words")
 
     # ---- corpus and orphans
     o = cs["orphans"]
@@ -475,9 +482,9 @@ def main():
 
     # ---- J1 join model (run_join_model.py) and the Konkordanz duplicates and joins (run_known_joins.py)
     JR = MAIN if os.path.exists(os.path.join(RES, MAIN, "joins")) else COMPARE   # join checks exist for A only so far
-    put("J1.run", "C" if JR.endswith("_C") else "A", "which run the join checks were read from")
+    put("J1.run", "C" if "_C" in JR else "A", "which run the join checks were read from")
     KR = MAIN if os.path.exists(os.path.join(RES, MAIN, "known_joins")) else COMPARE
-    put("KJ.run", "C" if KR.endswith("_C") else "A", "which run the known-joins check was read from")
+    put("KJ.run", "C" if "_C" in KR else "A", "which run the known-joins check was read from")
     j1p = os.path.join(RES, JR, "joins", "J1_report.json")
     if os.path.exists(j1p):
         j1 = load(JR, "joins/J1_report.json")
