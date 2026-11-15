@@ -62,6 +62,11 @@ def label(s):
     return re.sub(r"Syro-Mesopotamia\b(?!n)", "Syro-Mesopotamian", str(s))
 
 
+def pfmt(p):
+    """p-values: two decimals, or an upper bound below 0.01."""
+    return "<0.01" if p < 0.01 else f"={p:.2f}"   # used in math mode after p: $p\\Q{...}$
+
+
 def put(key, value, source):
     key = PREFIX + key
     value = label(value)
@@ -357,9 +362,10 @@ def main():
     put("E10b.cths", ", ".join(e10["contested"]["cths"]), f"{s10} contested.cths")
     rank = [r["tradition"] for r in b10].index(claim) + 1
     put("E10b.claim.rank", rank, f"{s10} E10b.table (order by similarity)")
-    put("E10b.claim.p", f"{next(r for r in b10 if r['tradition'] == claim)['p_fits_better_than_random_rituals']:.2f}", f"{s10} E10b.table")
+    put("E10b.claim.p", pfmt(next(r for r in b10 if r['tradition'] == claim)['p_fits_better_than_random_rituals']), f"{s10} E10b.table")
     put("E10b.best", tex_escape(b10[0]["tradition"]), f"{s10} E10b.table")
-    put("E10b.best.p", f"{b10[0]['p_fits_better_than_random_rituals']:.2f}", f"{s10} E10b.table")
+    put("E10b.best.p", pfmt(b10[0]['p_fits_better_than_random_rituals']), f"{s10} E10b.table")
+    put("E10b.best.lead", f"{b10[0]['lead_over_best_other']:.3f}", f"{s10} E10b.table")
     nearest = e10["E10b"]["per_text_nearest"]
     top = max(nearest, key=nearest.get)
     put("E10b.nearest", tex_escape(top), f"{s10} E10b.per_text_nearest")
@@ -369,6 +375,18 @@ def main():
     put("E10c.claim.signatures", len(sig), f"{MAIN}/E10c_signatures_in_contested.csv")
     put("E10c.claim.attested", len(hit), f"{MAIN}/E10c_signatures_in_contested.csv")
     put("E10c.claim.attested.words", tex_escape(", ".join(hit)) or "--", f"{MAIN}/E10c_signatures_in_contested.csv")
+    # the same test on version C without lemma filling, for the paper's comparison
+    CV = "tlhdig03_literature_C"
+    if MAIN != CV and not PREFIX and os.path.exists(os.path.join(RES, CV, "E10_report.json")):
+        c10 = load(CV, "E10_report.json")
+        cb = c10["E10b"]["table"]
+        put("Cv.E10b.texts", c10["contested"]["texts"], f"{CV}/E10_report.json contested.texts")
+        put("Cv.E10b.claim.rank", [r["tradition"] for r in cb].index(claim) + 1, f"{CV}/E10_report.json E10b.table")
+        put("Cv.E10b.claim.p", pfmt(next(r for r in cb if r["tradition"] == claim)["p_fits_better_than_random_rituals"]), f"{CV}/E10_report.json E10b.table")
+        csig = [r for r in load(CV, "E10c_signatures_in_contested.csv") if r["tradition"] == claim]
+        put("Cv.E10c.claim.attested", sum(r["in_contested_texts"] != "0" for r in csig), f"{CV}/E10c_signatures_in_contested.csv")
+        cst = {r["label"]: r for r in load(CV, "stats_historical.csv")}
+        put("Cv.trad.arzawa.n", int(float(cst[claim]["count"])), f"{CV}/stats_historical.csv")
 
     # ---- E11 what a decision rests on (margin decomposition)
     e11 = load(MAIN, "E11_report.json")

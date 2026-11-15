@@ -683,9 +683,10 @@ A.E10b.texts,6,tlhdig03_literature/E10_report.json contested.texts
 A.E10b.pool,308,tlhdig03_literature/E10_report.json contested.pool_texts
 A.E10b.cths,"391, 429, 463",tlhdig03_literature/E10_report.json contested.cths
 A.E10b.claim.rank,8,tlhdig03_literature/E10_report.json E10b.table (order by similarity)
-A.E10b.claim.p,0.18,tlhdig03_literature/E10_report.json E10b.table
+A.E10b.claim.p,=0.18,tlhdig03_literature/E10_report.json E10b.table
 A.E10b.best,Kizzuwatna rituals,tlhdig03_literature/E10_report.json E10b.table
-A.E10b.best.p,0.66,tlhdig03_literature/E10_report.json E10b.table
+A.E10b.best.p,=0.66,tlhdig03_literature/E10_report.json E10b.table
+A.E10b.best.lead,0.042,tlhdig03_literature/E10_report.json E10b.table
 A.E10b.nearest,Kizzuwatna rituals,tlhdig03_literature/E10_report.json E10b.per_text_nearest
 A.E10b.nearest.n,5,tlhdig03_literature/E10_report.json E10b.per_text_nearest
 A.E10c.claim.signatures,20,tlhdig03_literature/E10c_signatures_in_contested.csv
@@ -1905,14 +1906,20 @@ E10b.texts,16,tlhdig03_literature_C_filled/E10_report.json contested.texts
 E10b.pool,545,tlhdig03_literature_C_filled/E10_report.json contested.pool_texts
 E10b.cths,"391, 429, 463",tlhdig03_literature_C_filled/E10_report.json contested.cths
 E10b.claim.rank,2,tlhdig03_literature_C_filled/E10_report.json E10b.table (order by similarity)
-E10b.claim.p,0.00,tlhdig03_literature_C_filled/E10_report.json E10b.table
+E10b.claim.p,<0.01,tlhdig03_literature_C_filled/E10_report.json E10b.table
 E10b.best,Kizzuwatna rituals,tlhdig03_literature_C_filled/E10_report.json E10b.table
-E10b.best.p,1.00,tlhdig03_literature_C_filled/E10_report.json E10b.table
+E10b.best.p,=1.00,tlhdig03_literature_C_filled/E10_report.json E10b.table
+E10b.best.lead,0.014,tlhdig03_literature_C_filled/E10_report.json E10b.table
 E10b.nearest,Kizzuwatna rituals,tlhdig03_literature_C_filled/E10_report.json E10b.per_text_nearest
 E10b.nearest.n,10,tlhdig03_literature_C_filled/E10_report.json E10b.per_text_nearest
 E10c.claim.signatures,20,tlhdig03_literature_C_filled/E10c_signatures_in_contested.csv
 E10c.claim.attested,9,tlhdig03_literature_C_filled/E10c_signatures_in_contested.csv
 E10c.claim.attested.words,"kaša, laḫḫurnuzi, UM-MA, kun, zik, ḫutak, ZAG.UDU, EME, kaš",tlhdig03_literature_C_filled/E10c_signatures_in_contested.csv
+Cv.E10b.texts,6,tlhdig03_literature_C/E10_report.json contested.texts
+Cv.E10b.claim.rank,6,tlhdig03_literature_C/E10_report.json E10b.table
+Cv.E10b.claim.p,=0.13,tlhdig03_literature_C/E10_report.json E10b.table
+Cv.E10c.claim.attested,1,tlhdig03_literature_C/E10c_signatures_in_contested.csv
+Cv.trad.arzawa.n,8,tlhdig03_literature_C/stats_historical.csv
 E11a.acc,82\%,tlhdig03_literature_C_filled/E11_report.json E11a.accuracy
 E11a.texts,"1{,}214",tlhdig03_literature_C_filled/E11_report.json E11a.all_correct.texts
 E11a.decision.functionwords,9\%,tlhdig03_literature_C_filled/E11_report.json E11a.all_correct.by_category
