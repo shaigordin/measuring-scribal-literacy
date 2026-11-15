@@ -9,12 +9,15 @@ Usage: python release_docs.py release --version 1.0.0 [--zip]
 import argparse
 import json
 import os
+import re
 import zipfile
 from datetime import date
 from string import Template
 
 import numpy as np
 import pandas as pd
+
+from make_release import AUTHOR_FIX, LITERATURE, cite
 
 TITLE = ("Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates "
          "for the unplaced fragments of the Hittite corpus (TLHdig 0.3)")
@@ -84,11 +87,93 @@ JOINS = [
     ("passes_match_checks", "boolean", "All three checks pass: a duplicate, parallel or join candidate to check on the tablets (most known cases that pass are duplicates)."),
     ("candidate_tlhdig_url", "string", "The candidate in TLHdig."),
 ]
+# Full entries for the works this README cites. The most-cited study of every tradition (computed by
+# make_release.py from the Konkordanz) must have one here; the first and latest studies are listed as the
+# Konkordanz cites them.
+HERE = os.path.dirname(os.path.abspath(__file__))
+FULL = {
+    "Klinger 1996 (StBoT 37)": "Klinger, Jörg. 1996. *Untersuchungen zur Rekonstruktion der hattischen Kultschicht*. StBoT 37. Wiesbaden: Harrassowitz.",
+    "Miller 2004 (StBoT 46)": "Miller, Jared L. 2004. *Studies in the Origins, Development and Interpretation of the Kizzuwatna Rituals*. StBoT 46. Wiesbaden: Harrassowitz.",
+    "Mouton 2010 (JCS 62)": "Mouton, Alice. 2010. Sorcellerie hittite. *Journal of Cuneiform Studies* 62: 105–125.",
+    "Salvini and Wegner 1986 (ChS I/2)": "Salvini, Mirjo, and Ilse Wegner. 1986. *Die Rituale des AZU-Priesters*. ChS I/2. Roma: Multigrafica.",
+    "Starke 1985 (StBoT 30)": "Starke, Frank. 1985. *Die keilschrift-luwischen Texte in Umschrift*. StBoT 30. Wiesbaden: Harrassowitz.",
+    "Steitler 2017 (StBoT 62)": "Steitler, Charles W. 2017. *The Solar Deities of Bronze Age Anatolia: Studies in Texts of the Early Hittite Kingdom*. StBoT 62. Wiesbaden: Harrassowitz.",
+    "Wegner 2002 (ChS I/3-2)": "Wegner, Ilse. 2002. *Hurritische Opferlisten aus hethitischen Festbeschreibungen. Teil II: Texte für Teššub, Ḫebat und weitere Gottheiten*. ChS I/3-2. Roma.",
+    "Wegner and Salvini 1991 (ChS I/4)": "Wegner, Ilse, and Mirjo Salvini. 1991. *Die hethitisch-hurritischen Ritualtafeln des (ḫ)išuwa-Festes*. ChS I/4. Roma: Multigrafica.",
+    "Yakubovich and Mouton 2023 (StBoT 72,1)": "Yakubovich, Ilya, and Alice Mouton. 2023. *Luwili: Hittite-Luwian Ritual Texts Attributed to Puriyanni, Kuwattalla and Šilalluḫi (CTH 758–763)*. StBoT 72. Wiesbaden: Harrassowitz.",
+    "Jakob-Rost 1972 (THeth 2)": "Jakob-Rost, Liane. 1972. *Das Ritual der Malli aus Arzawa gegen Behexung (KUB XXIV 9+)*. THeth 2. Heidelberg: Winter.",
+    "Yoshida 1996 (THeth 22)": "Yoshida, Daisuke. 1996. *Untersuchungen zu den Sonnengottheiten bei den Hethitern: Schwurgötterliste, helfende Gottheit, Feste*. THeth 22. Heidelberg: Winter.",
+}
+SOURCES = [
+    "Gordin, Shai, Emma Yavasan and Avital Romach. 2025. Matters of Genre, Style and Orthography: Hittite Scribal Habits through the Stylometric Lens. In Susanne Görke, Adam Kryszeń, Gerfrid G. W. Müller and Charles W. Steitler (eds), *The Tablets and Their Scribes: The Palaeography of Hittite Cuneiform and Writing Practices in Hittite Anatolia*. StBoT 73. Wiesbaden: Harrassowitz, 107–123.",
+    "Rieken, Elisabeth, and Daniel Schwemer. 2026. *Corpus der hethitischen Festrituale (HFR)*. Akademie der Wissenschaften und der Literatur Mainz, hethiter.net/: HFR, https://hethport.net/HFR/.",
+    "Haas, Volkert. 1994. *Geschichte der hethitischen Religion*. Handbuch der Orientalistik I/15. Leiden: Brill.",
+    "Košak, Silvin. 2026. *Konkordanz der hethitischen Keilschrifttafeln*. hethiter.net/: hetkonk, https://hethport.net/hetkonk/ (pages accessed November 2026).",
+    "Laroche, Emmanuel. 1971. *Catalogue des textes hittites*. Paris: Klincksieck.",
+    "Mainzer Fotoarchiv. hethiter.net/: fotarch, https://hethport.net/fotarch/.",
+    "Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. 2026. *Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:{doi}.",
+    "Waal, Willemijn. 2015. *Hittite Diplomatics: Studies in Ancient Document Format and Record Management*. StBoT 57. Wiesbaden: Harrassowitz.",
+]
+
+
+def _names(s):
+    """'Heinrich Otten und Vladimir Souček' -> 'Otten, Heinrich, and Vladimir Souček'."""
+    people = [p.strip() for p in re.split(r"\s(?:und|and|–|-)\s", s) if p.strip()]
+    first = people[0].rsplit(" ", 1)
+    head = f"{first[1]}, {first[0]}" if len(first) == 2 else people[0]
+    return head if len(people) == 1 else head + ", and " + ", ".join(people[1:])
+
+
+def expand(c, lit, abbr):
+    """A study in the short form of traditions.csv ('Kümmel 1967 (StBoT 3)') as a full reference, from the
+    Konkordanz's list of abbreviations (labels/konkordanz_abbreviations.csv)."""
+    if c in FULL:
+        return FULL[c]
+    r = lit[c]                                          # the Konkordanz citation: initials, venue, year
+    venue = re.search(r"\((.*)\)$", c).group(1)
+    people = [" ".join(AUTHOR_FIX.get(w, w) for w in n.split()) for n in re.split(r"\s[-/–]\s", r.author)]
+    first = people[0].rsplit(" ", 1)
+    who = (f"{first[1]}, {first[0]}" if len(first) == 2 else people[0]) + "".join(
+        f", and {p}" for p in people[1:])
+    who = who.rstrip(".")
+    a = abbr.get(venue)
+    if a is None or not a.full:
+        return f"{who}. {r.year}. {venue} (not in the Konkordanz's list of abbreviations)."
+    if a.abbreviation == venue or a.abbreviation == re.sub(r",\s?\d+$", "", venue):   # a volume of a series
+        m = re.match(r"(?:(.+?),\s)?(.+?)\s[-–]\s*(\d{4})?$", a.full)
+        if m and m.group(1):
+            who = _names(m.group(1)).rstrip(".")
+        title = m.group(2).strip() if m else a.full
+        return f"{who}. {r.year}. *{title}*. {venue}."
+    journal = re.split(r"\s[-–]\s|\s\(|;|\.\s", a.full)[0].strip()   # a journal: name and volume only
+    return f"{who}. {r.year}. *{journal}* {venue[len(venue.split(' ')[0]):].strip()}."
+
+
+def references(T):
+    missing = set(T.most_cited_study) - set(FULL)
+    assert not missing, f"add full entries for {missing}"
+    L = pd.read_csv(os.path.join(HERE, LITERATURE))
+    lit = {cite(r): r for r in L.itertuples()}
+    lit["Groddek and Kloekhorst 2006 (DBH 19)"] = L[L.venue == "DBH 19"].iloc[0]
+    abbr = {r.venue: r for r in pd.read_csv(os.path.join(HERE, "labels", "konkordanz_abbreviations.csv"),
+                                            keep_default_na=False).itertuples()}
+    works = set(T.most_cited_study) | set(T.first_study) | set(T.latest_study) | {"Groddek and Kloekhorst 2006 (DBH 19)"}
+    entries = [expand(c, lit, abbr) for c in works] + [x.format(doi=TLHDIG_DOI) for x in SOURCES]
+    return ("Monographs are given in full from the Konkordanz's list of abbreviations "
+            "(labels/konkordanz_abbreviations.csv); journal articles and Festschrift contributions are given as "
+            "the Konkordanz cites them (journal and volume), since that list names series and journals, not "
+            "article titles.\n\n" + "\n".join(f"- {x}" for x in sorted(set(entries), key=lambda e: e.lower())))
+
+
 TRADITIONS = [
     ("tradition", "string", "Reference tradition."),
     ("cth", "string", "Its CTH numbers (Laroche), space-separated."),
     ("reference_manuscripts", "integer", "Reference manuscripts (17+ analysed words)."),
-    ("defining_study", "string", "The study that argued for the tradition."),
+    ("most_cited_study", "string", "The study the Konkordanz cites most often for the tradition's manuscripts, "
+     "leaving out handbooks and corpus volumes (Haas, HbOr I/15; Waal, StBoT 57; Groddek and Kloekhorst, DBH 19)."),
+    ("most_cited_manuscripts", "integer", "Number of the tradition's manuscripts for which the Konkordanz cites it."),
+    ("first_study", "string", "The earliest other study the Konkordanz cites for these manuscripts."),
+    ("latest_study", "string", "The most recent other study the Konkordanz cites for these manuscripts."),
 ]
 COMPOSITIONS = [
     ("cth", "string", "CTH number."),
@@ -164,7 +249,8 @@ def main():
     size = pd.DataFrame([{"Analysed words": k, "Fragments scored": v["size"], "With duplicate or join candidates": v["sum"],
                           "Share": f"{v['sum'] / v['size']:.0%}"} for k, v in S["fragments_with_match_candidates_by_size"].items()])
     T2 = T.assign(cth=T.cth.map(ranges)).rename(columns={"tradition": "Tradition", "cth": "CTH", "reference_manuscripts": "Reference manuscripts",
-                           "defining_study": "Defining study"})
+                           "most_cited_study": "Most-cited study", "first_study": "First study",
+                           "latest_study": "Latest study"}).drop(columns="most_cited_manuscripts")
     # check of the composition ranking on texts whose composition is known: the scored CTH 390-469
     # texts whose CTH number has at least one other manuscript (the text is left out of its own CTH)
     comp = pd.read_csv(f"{d}/compositions.csv", dtype=str).set_index("cth").manuscripts.astype(int)
@@ -197,7 +283,7 @@ def main():
          "pool": f"{S['manuscript_pool']:,}", "compositions": f"{S['compositions']:,}",
          "with_matches": f"{S['fragments_with_match_candidates']:,}", "match_pairs": f"{S['match_candidate_pairs']:,}",
          "bins_table": mdtable(bins), "placed_table": mdtable(placed), "size_table": mdtable(size),
-         "traditions_table": mdtable(T2), "fragments_columns": coltable(FRAGMENTS), "nearest_columns": coltable(JOINS),
+         "traditions_table": mdtable(T2), "references": references(T), "fragments_columns": coltable(FRAGMENTS), "nearest_columns": coltable(JOINS),
          "traditions_columns": coltable(TRADITIONS), "compositions_columns": coltable(COMPOSITIONS),
          "example_ebo": example(F, J, "EBo 133"), "example_kbo": example(F, J, "KBo 41.22")}
     tpl = Template(open(os.path.join(os.path.dirname(__file__) or ".", "release_template", "README.md")).read())

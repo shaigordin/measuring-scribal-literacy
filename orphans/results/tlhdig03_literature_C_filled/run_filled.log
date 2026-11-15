@@ -1,0 +1,43 @@
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:102: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  assert np.allclose(df[cols].sum(1), df.margin, atol=1e-9), "decomposition does not sum to the margin"
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:102: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  assert np.allclose(df[cols].sum(1), df.margin, atol=1e-9), "decomposition does not sum to the margin"
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:102: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  assert np.allclose(df[cols].sum(1), df.margin, atol=1e-9), "decomposition does not sum to the margin"
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
+/home/user/measuring-scribal-literacy/orphans/run_attribution.py:326: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  "word_form": ratio(g.assign(w=g.filter(like="Word form|").sum(1)), "w")}
+/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  tot = cnt.sum(1)
+/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  tot = cnt.sum(1)
+/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  tot = cnt.sum(1)
+/home/user/measuring-scribal-literacy/orphans/run_profiles.py:64: Pandas4Warning: Starting with pandas version 4.0 all arguments of sum will be keyword-only.
+  tot = cnt.sum(1)
+{
+ "cth470_texts": 1872,
+ "cth470_median_words": 9.0,
+ "ebo_texts": 1110,
+ "ebo_median_words": 3.0,
+ "ebo_filed_under": {
+  "832": 538,
+  "670": 369,
+  "470": 37,
+  "214": 21,
+  "582": 12,
+  "825": 10,
+  "250": 8,
+  "530": 8,
+  "500": 7,
+  "791": 7
+ },
+ "orphans_total": 2945
+}
+done
+EXIT 0

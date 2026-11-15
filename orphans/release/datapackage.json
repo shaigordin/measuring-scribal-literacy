@@ -392,9 +392,24 @@
       "description": "Reference manuscripts (17+ analysed words)."
      },
      {
-      "name": "defining_study",
+      "name": "most_cited_study",
       "type": "string",
-      "description": "The study that argued for the tradition."
+      "description": "The study the Konkordanz cites most often for the tradition's manuscripts, leaving out handbooks and corpus volumes (Haas, HbOr I/15; Waal, StBoT 57; Groddek and Kloekhorst, DBH 19)."
+     },
+     {
+      "name": "most_cited_manuscripts",
+      "type": "integer",
+      "description": "Number of the tradition's manuscripts for which the Konkordanz cites it."
+     },
+     {
+      "name": "first_study",
+      "type": "string",
+      "description": "The earliest other study the Konkordanz cites for these manuscripts."
+     },
+     {
+      "name": "latest_study",
+      "type": "string",
+      "description": "The most recent other study the Konkordanz cites for these manuscripts."
      }
     ]
    }

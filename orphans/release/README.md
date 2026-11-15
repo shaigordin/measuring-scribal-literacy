@@ -1,14 +1,13 @@
 # Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)
 
-Version 1.0.0 (2026-11-11). Licence: CC BY 4.0. Data source: TLHdig Beta Version 0.3,
+Version 1.0.0 (2026-11-15). Licence: CC BY 4.0. Data source: TLHdig Beta Version 0.3,
 [doi:10.5281/zenodo.20328284](https://doi.org/10.5281/zenodo.20328284). Code: [https://github.com/shaigordin/measuring-scribal-literacy](https://github.com/shaigordin/measuring-scribal-literacy), folder `orphans/`.
 
 Thousands of Hittite tablet fragments are filed in Laroche's *Catalogue des textes hittites* (CTH) under
 residual numbers, such as "fragments of rituals" (CTH 470) or "fragments of festivals" (CTH 670), because
 nobody could yet say which composition they belong to. This dataset gives, for each of them, the textual
 traditions, compositions and manuscripts it is closest to, and the manuscripts that could be pieces of the
-same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described in the paper
-[PAPER REFERENCE]. They are leads for philologists to check, not attributions.
+same tablet, or other copies of the same text (duplicate or join candidates). The results come from one reproducible model, described below. They are leads for philologists to check, not attributions.
 
 ## What is in the dataset
 
@@ -16,7 +15,7 @@ same tablet, or other copies of the same text (duplicate or join candidates). Th
 |---|---|
 | `fragments.csv` | One row per text: 11,368 texts in Laroche's residual bins and EBo pieces. For each one, its 3 closest traditions, whether it is placed, open-set and robustness checks, its 5 closest compositions, its 5 and 20 closest manuscripts, its duplicate or join candidates and its word-category profile. |
 | `nearest_manuscripts.csv` | One row per fragment and each of its 20 closest manuscripts (rank 1 to 20), with the word-by-word barcode and the three match checks. |
-| `traditions.csv` | The ten reference traditions, their CTH numbers and the studies that define them. |
+| `traditions.csv` | The ten reference traditions, their CTH numbers, and the most-cited, first and latest studies on them. |
 | `compositions.csv` | The 603 compositions (CTH numbers) that fragments are compared with. |
 | `datapackage.json` | Machine-readable description of every file and column (Frictionless Data). |
 | `summary.json` | The counts quoted in this README. |
@@ -56,24 +55,46 @@ are scored but not placed. 4,952 are too small.
 | CTH 390-469 rituals no study groups | 1,038 | 541 | 383 | 114 | 94 |
 | EBo filed under other CTH numbers | 153 | 72 | 75 | 6 | 20 |
 
+## Background: why these traditions
+
+The reference traditions build on Gordin, Yavasan and Romach (2025, StBoT 73). That study mapped about
+1,000 Hurrian and Luwian festival manuscripts of TLHdig with tf-idf and t-SNE. Its 27 CTH groups formed
+three clusters: the Luwian festivals made up one, and the two Hurrian groups were split between the other
+two. Its Table 3 sums up earlier attributions of the festivals to cult spheres (Kizzuwatna and the Lower
+Land, Syro-Mesopotamian, and a mixed Hurrian, Syrian and Luwian group), a grouping the article itself calls
+schematic. All groups shared much vocabulary, Kizzuwatna and the Lower Land most of all, which the article
+read as a trace of copying and editing in the scriptoria of Ḫattuša. It used word categories (its Table 4)
+to tell what is written from how it is written, and proposed, as a next step, to test which word groups
+carry the signal. Here the cult spheres are therefore hypotheses to be tested (by hiding whole
+compositions, and by asking which word categories decide a placement), not settled classes. This dataset turns that exploration into assignment. It keeps the study's
+Hurrian festival groups and its minimum of 17 words for a reference manuscript, and extends its six word
+categories to ten (see the word-category profile below). It
+splits the study's single Luwian group as the edition modules of the Corpus der hethitischen Festrituale
+(HFR) do, into the festivals of Ištanuwa and Lallupiya and those of Ḫuwaššanna, and adds HFR's Palaic
+festivals. It adds four ritual traditions from the philological literature: the Kizzuwatna rituals, the
+western (Arzawa) rituals, the Luwian rituals of Puriyanni and Kuwattalla, and the Hattian cult layer. The
+table below names, for each tradition, the studies the Konkordanz cites for its manuscripts.
+
 ## The method in brief
 
-1. **Reference traditions.** Ten traditions of rituals and festivals, each defined by the study that argued
-   for it. Laroche's CTH numbers are only the address of each text. Every text of these CTH numbers with
+1. **Reference traditions.** Ten traditions of rituals and festivals, as the scholarly literature defines
+   them. For each, the table names the study the Konkordanz cites most often for its manuscripts (handbooks
+   and corpus volumes that cite nearly everything left out), and the first and latest studies it cites; full
+   references are at the end. Laroche's CTH numbers are only the address of each text. Every text of these CTH numbers with
    17 or more analysed words is a reference manuscript (1,350 in all).
 
-| Tradition | CTH | Reference manuscripts | Defining study |
-|---|---|---|---|
-| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 8 | Bawanypeck 2005 (THeth 25); Mouton 2010; Archi 2015 (BiOr 72) |
-| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 386 | Klinger 1996 (StBoT 37) |
-| Kizzuwatna rituals | 404, 471–499 | 140 | Miller 2004 (StBoT 46); Strauß 2006; Görke 2010 |
-| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 276 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Wegner and Salvini 1991 (ChS I/4) |
-| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 47 | HFR edition module 'Luwian festivals' (hethport.net/HFR) |
-| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 7 | Mouton and Yakubovich 2021 (JLR 19/1); Yakubovich and Mouton 2023 (StBoT 72) |
-| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 170 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3 |
-| Palaic festivals | 750–754 | 30 | HFR edition module 'Palaic festivals' (hethport.net/HFR) |
-| Syro-Mesopotamia (Hurrian) | 698, 701, 714–715, 721 | 134 | Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2) |
-| Ḫuwaššanna festivals | 690–694 | 152 | HFR edition module 'Ḫuwaššanna'; Laroche, CTH titles |
+| Tradition | CTH | Reference manuscripts | Most-cited study | First study | Latest study |
+|---|---|---|---|---|---|
+| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 8 | Mouton 2010 (JCS 62) | Meriggi 1960 (RHA XVIII/66-67) | Roth 2021 (BSIEL 23) |
+| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 386 | Klinger 1996 (StBoT 37) | Vieyra 1965 (RA 59) | Groddek 2026 (FsTaracha) |
+| Kizzuwatna rituals | 404, 471–499 | 140 | Miller 2004 (StBoT 46) | Ehelolf 1932 (MDOG 70) | Torri 2022 (StBoT 67) |
+| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 276 | Wegner and Salvini 1991 (ChS I/4) | Kümmel 1967 (StBoT 3) | Reyhan 2025 (ArAn 19/2) |
+| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 47 | Starke 1985 (StBoT 30) | Jakob-Rost 1972 (THeth 2) | Sasseville 2020 (BSIEL 21) |
+| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 7 | Yakubovich and Mouton 2023 (StBoT 72,1) | Otten and Souček 1969 (StBoT 8) | Sasseville 2023 (FsKosyan) |
+| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 170 | Wegner 2002 (ChS I/3-2) | Carruba 1966 (StBoT 2) | Groddek 2025 (Fs van den Hout) |
+| Palaic festivals | 750–754 | 30 | Steitler 2017 (StBoT 62) | Carruba 1970 (StBoT 10) | Sasseville and Yakubovich 2021 (KZ 131) |
+| Syro-Mesopotamian (Hurrian) | 698, 701, 714–715, 721 | 134 | Salvini and Wegner 1986 (ChS I/2) | Rost 1953 (MIO 1) | Roth 2021 (BSIEL 23) |
+| Ḫuwaššanna festivals | 690–694 | 152 | Yoshida 1996 (THeth 22) | Goetze 1964 (JCS 18) | Roth 2021 (BSIEL 23) |
 
 2. **Features.** Each text is read as its word forms (TLHdig's normalised forms) and the sign sequences of
    its spellings (sign 1- to 3-grams within a word), so both vocabulary and scribal habit count. They are
@@ -117,9 +138,12 @@ are scored but not placed. 4,952 are too small.
    parallel, or a piece of the same tablet where the text repeats a formula (as for EBo 133 below).
 8. **Word-category profile.** The `words_*` columns give the share of a fragment's analysed words in each
    of ten categories (function words, verbs, realia, agents and deities, places, animals/body/nature,
-   abstract nouns, adjectives, foreign words, other). Categories come from rules over the TLHdig editors'
-   own word analyses, checked in a blind audit of 178 words (89% correct, weighted by how often each confidence level occurs, before the rules were revised on the audit). Nouns are classed by the meaning of
-   their German gloss. That word lexicon remains to be verified manually.
+   abstract nouns, adjectives, foreign words, other). Categories come from rules over TLHdig's morphological
+   annotation (made automatically and not validated manually, per TLHdig's documentation), checked in a blind audit of 178 words (89% correct, weighted by how often each confidence level occurs, before the rules were revised on the audit). Nouns are classed by the meaning of
+   their German gloss. That word lexicon remains to be verified manually. Multi-word titles and names count
+   as one word (for example EN SÍSKUR, BE-EL SÍSKUR, GAL or TUR with a title, LÚ É, *šalli ašeššar*, and a
+   divine name with its epithet such as *taknaš* ᴰUTU; `labels/title_pairs.csv`), and a few single words are reclassed by hand (ᴰUTU-ŠI as agent, *palši* as
+   abstract; `labels/word_fixes.csv`).
 
 ### Placed fragments by tradition
 
@@ -128,7 +152,7 @@ are scored but not placed. 4,952 are too small.
 | Hattian cult layer | 838 |
 | Kizzuwatna rituals | 362 |
 | Kizzuwatna–Lower Land (Hurrian) | 248 |
-| Syro-Mesopotamia (Hurrian) | 110 |
+| Syro-Mesopotamian (Hurrian) | 110 |
 | Mixed (Hurrian, Syrian, Luwian) | 71 |
 | Arzawa / western rituals | 46 |
 | Ḫuwaššanna festivals | 32 |
@@ -219,7 +243,10 @@ are scored but not placed. 4,952 are too small.
 | `tradition` | Reference tradition. |
 | `cth` | Its CTH numbers (Laroche), space-separated. |
 | `reference_manuscripts` | Reference manuscripts (17+ analysed words). |
-| `defining_study` | The study that argued for the tradition. |
+| `most_cited_study` | The study the Konkordanz cites most often for the tradition's manuscripts, leaving out handbooks and corpus volumes (Haas, HbOr I/15; Waal, StBoT 57; Groddek and Kloekhorst, DBH 19). |
+| `most_cited_manuscripts` | Number of the tradition's manuscripts for which the Konkordanz cites it. |
+| `first_study` | The earliest other study the Konkordanz cites for these manuscripts. |
+| `latest_study` | The most recent other study the Konkordanz cites for these manuscripts. |
 
 ### `compositions.csv`
 
@@ -248,7 +275,7 @@ EBo 133 has no photograph and no catalogue entry yet. Its candidates repeat the 
 it counts only because the word is preserved elsewhere in the same fragment. Whether the pieces join can
 only be decided on the tablets.
 
-**KBo 41.22** (filed under CTH 470, 13 analysed words): nearest tradition Kizzuwatna rituals (0.1803), then Syro-Mesopotamia (Hurrian) (0.1668); margin 0.0135, status `below_margin`. Nearest compositions: CTH 458; CTH 370; CTH 335; CTH 275; CTH 450. Duplicate or join candidates: none. Its five nearest manuscripts:
+**KBo 41.22** (filed under CTH 470, 13 analysed words): nearest tradition Kizzuwatna rituals (0.1803), then Syro-Mesopotamian (Hurrian) (0.1668); margin 0.0135, status `below_margin`. Nearest compositions: CTH 458; CTH 370; CTH 335; CTH 275; CTH 450. Duplicate or join candidates: none. Its five nearest manuscripts:
 
 | rank | candidate_txtid | candidate_cth | similarity | match_barcode | passes_match_checks |
 |---|---|---|---|---|---|
@@ -321,20 +348,61 @@ python3 release_docs.py release --version 1.0.0 --zip
 ```
 
 `make_release.py` takes about 10 minutes on a laptop. It reproduces exactly the placements, open-set and
-robustness results of the paper (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
+robustness results of the experiments (files `E5_orphan_placement.csv`, `E5b_residue_placement.csv`,
 `E9_orphan_fit.csv`, `E11_report.json`, `R1_spellings_only.json` in `results/tlhdig03_literature_C/`;
 version A in `results/tlhdig03_literature/`).
 
 ## How to cite
 
-Please cite this dataset, the paper and TLHdig:
+Please cite this dataset and TLHdig:
 
 - Gordin, Shai. Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3), version 1.0.0. Zenodo. [DOI].
-- [PAPER REFERENCE]
 - Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. *Thesaurus Linguarum Hethaeorum
   digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:10.5281/zenodo.20328284.
 
 `CITATION.cff` has the same information in machine-readable form.
+
+## References
+
+Monographs are given in full from the Konkordanz's list of abbreviations (labels/konkordanz_abbreviations.csv); journal articles and Festschrift contributions are given as the Konkordanz cites them (journal and volume), since that list names series and journals, not article titles.
+
+- Carruba, O. 1966. *Das Beschwörungsritual für die Göttin Wišurijanza*. StBoT 2.
+- Carruba, Onofrio. 1970. *Das Palaische: Texte, Grammatik, Lexikon*. StBoT 10.
+- Ehelolf, H. 1932. *Mitteilungen der Deutschen Orient-Gesellschaft zu Berlin* 70.
+- Goetze, A. 1964. *Journal of Cuneiform Studies* 18.
+- Gordin, Shai, Emma Yavasan and Avital Romach. 2025. Matters of Genre, Style and Orthography: Hittite Scribal Habits through the Stylometric Lens. In Susanne Görke, Adam Kryszeń, Gerfrid G. W. Müller and Charles W. Steitler (eds), *The Tablets and Their Scribes: The Palaeography of Hittite Cuneiform and Writing Practices in Hittite Anatolia*. StBoT 73. Wiesbaden: Harrassowitz, 107–123.
+- Groddek, D. 2025. Fs van den Hout (not in the Konkordanz's list of abbreviations).
+- Groddek, D. 2026. FsTaracha (not in the Konkordanz's list of abbreviations).
+- Groddek, Detlev, and Alwin Kloekhorst. 2006. *Hethitische Texte in Transkription: KBo 35*. DBH 19.
+- Haas, Volkert. 1994. *Geschichte der hethitischen Religion*. Handbuch der Orientalistik I/15. Leiden: Brill.
+- Jakob-Rost, Liane. 1972. *Das Ritual der Malli aus Arzawa gegen Behexung (KUB XXIV 9+)*. THeth 2. Heidelberg: Winter.
+- Klinger, Jörg. 1996. *Untersuchungen zur Rekonstruktion der hattischen Kultschicht*. StBoT 37. Wiesbaden: Harrassowitz.
+- Košak, Silvin. 2026. *Konkordanz der hethitischen Keilschrifttafeln*. hethiter.net/: hetkonk, https://hethport.net/hetkonk/ (pages accessed November 2026).
+- Kümmel, Hans Martin. 1967. *Ersatzrituale für den hethitischen König*. StBoT 3.
+- Laroche, Emmanuel. 1971. *Catalogue des textes hittites*. Paris: Klincksieck.
+- Mainzer Fotoarchiv. hethiter.net/: fotarch, https://hethport.net/fotarch/.
+- Meriggi, P. 1960. *Revue hittite et asianique* XVIII/66-67.
+- Miller, Jared L. 2004. *Studies in the Origins, Development and Interpretation of the Kizzuwatna Rituals*. StBoT 46. Wiesbaden: Harrassowitz.
+- Mouton, Alice. 2010. Sorcellerie hittite. *Journal of Cuneiform Studies* 62: 105–125.
+- Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. 2026. *Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:10.5281/zenodo.20328284.
+- Otten, Heinrich, and Vladimir Souček. 1969. *Ein althethitisches Ritual für das Königspaar*. StBoT 8.
+- Reyhan, E. 2025. *Archivum Anatolicum* 19/2.
+- Rieken, Elisabeth, and Daniel Schwemer. 2026. *Corpus der hethitischen Festrituale (HFR)*. Akademie der Wissenschaften und der Literatur Mainz, hethiter.net/: HFR, https://hethport.net/HFR/.
+- Rost, L. 1953. *Mitteilungen des Instituts für Orientforschung* 1.
+- Roth, Theresa. 2021. *Religiöse Kommunikation im Umbrischen und Hethitischen: Fachsprachlichkeit in Ritualtexten und Gebeten*. BSIEL 23.
+- Salvini, Mirjo, and Ilse Wegner. 1986. *Die Rituale des AZU-Priesters*. ChS I/2. Roma: Multigrafica.
+- Sasseville, D. 2023. FsKosyan (not in the Konkordanz's list of abbreviations).
+- Sasseville, D., and I. Yakubovich. 2021. *Zeitschrift für vergleichende Sprachforschung* 131.
+- Sasseville, David. 2020. *Anatolian Verbal Stem Formation: Luwian, Lycian and Lydian*. BSIEL 21.
+- Starke, Frank. 1985. *Die keilschrift-luwischen Texte in Umschrift*. StBoT 30. Wiesbaden: Harrassowitz.
+- Steitler, Charles W. 2017. *The Solar Deities of Bronze Age Anatolia: Studies in Texts of the Early Hittite Kingdom*. StBoT 62. Wiesbaden: Harrassowitz.
+- Torri, Giulia. 2022. *The Haus am Hang at Ḫattuša. A Late Hittite State Scriptorium and Its Tablet Collections*. StBoT 67.
+- Vieyra, M. 1965. *Revue d'Assyriologie et d'Archéologie orientale* 59.
+- Waal, Willemijn. 2015. *Hittite Diplomatics: Studies in Ancient Document Format and Record Management*. StBoT 57. Wiesbaden: Harrassowitz.
+- Wegner, Ilse, and Mirjo Salvini. 1991. *Die hethitisch-hurritischen Ritualtafeln des (ḫ)išuwa-Festes*. ChS I/4. Roma: Multigrafica.
+- Wegner, Ilse. 2002. *Hurritische Opferlisten aus hethitischen Festbeschreibungen. Teil II: Texte für Teššub, Ḫebat und weitere Gottheiten*. ChS I/3-2. Roma.
+- Yakubovich, Ilya, and Alice Mouton. 2023. *Luwili: Hittite-Luwian Ritual Texts Attributed to Puriyanni, Kuwattalla and Šilalluḫi (CTH 758–763)*. StBoT 72. Wiesbaden: Harrassowitz.
+- Yoshida, Daisuke. 1996. *Untersuchungen zu den Sonnengottheiten bei den Hethitern: Schwurgötterliste, helfende Gottheit, Feste*. THeth 22. Heidelberg: Winter.
 
 ## Licence
 

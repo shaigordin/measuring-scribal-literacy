@@ -31,6 +31,7 @@ Usage: python make_release.py data/tokens.csv --run results/tlhdig03_literature 
 """
 import argparse
 import json
+from pathlib import Path
 import os
 import re
 from urllib.parse import quote
@@ -60,18 +61,55 @@ COMMON = 0.25        # as in run_attribution.py
 PORTAL = "https://hethport.net"
 SEP = "; "
 # the study that defines each reference tradition (as in README.md, "Why each reference tradition ...")
-STUDIES = {
-    "Kizzuwatna–Lower Land (Hurrian)": "Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Wegner and Salvini 1991 (ChS I/4)",
-    "Syro-Mesopotamia (Hurrian)": "Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3; Salvini and Wegner 1986 (ChS I/2)",
-    "Mixed (Hurrian, Syrian, Luwian)": "Gordin, Yavasan and Romach 2025 (StBoT 73), Table 3",
-    "Luwian festivals (Ištanuwa, Lallupiya)": "HFR edition module 'Luwian festivals' (hethport.net/HFR)",
-    "Ḫuwaššanna festivals": "HFR edition module 'Ḫuwaššanna'; Laroche, CTH titles",
-    "Palaic festivals": "HFR edition module 'Palaic festivals' (hethport.net/HFR)",
-    "Kizzuwatna rituals": "Miller 2004 (StBoT 46); Strauß 2006; Görke 2010",
-    "Arzawa / western rituals": "Bawanypeck 2005 (THeth 25); Mouton 2010; Archi 2015 (BiOr 72)",
-    "Luwian rituals (Puriyanni, Kuwattalla)": "Mouton and Yakubovich 2021 (JLR 19/1); Yakubovich and Mouton 2023 (StBoT 72)",
-    "Hattian cult layer": "Klinger 1996 (StBoT 37)",
-}
+# labels as published (the experiments keep their internal names; the site maps them the same way)
+RENAME = {"Syro-Mesopotamia (Hurrian)": "Syro-Mesopotamian (Hurrian)"}
+
+
+def relabel(out):
+    """Write the published tradition names into every release file."""
+    for f in ["fragments.csv", "nearest_manuscripts.csv", "nearest_manuscripts.csv.gz", "traditions.csv",
+              "compositions.csv", "summary.json"]:
+        p = Path(out) / f
+        if f.endswith(".gz"):
+            continue
+        t = p.read_text(encoding="utf-8")
+        for old, new in RENAME.items():
+            t = t.replace(old, new)
+        p.write_text(t, encoding="utf-8")
+    pd.read_csv(Path(out) / "nearest_manuscripts.csv").to_csv(Path(out) / "nearest_manuscripts.csv.gz", index=False)
+
+
+# Studies per tradition, from the Konkordanz's citations (konkordanz_literature.py): the most-cited study
+# on the tradition's manuscripts, leaving out handbooks and corpus volumes that cite nearly everything
+# (Haas, HbOr I/15: religion handbook; Waal, StBoT 57: diplomatics; Groddek and Kloekhorst, DBH 19:
+# transliterations), and the earliest and latest other studies cited.
+LITERATURE = "results/konkordanz_literature.csv"
+GENERAL = {"HbOr I/15", "StBoT 57", "DBH 19"}
+AUTHOR_FIX = {"Sassevlle": "Sasseville"}                     # typo in the Konkordanz
+VENUE_FIX = {"Fsvan den Hout": "Fs van den Hout"}
+
+
+def cite(r):
+    names = [n.strip().split(" ")[-1] for n in re.split(r"\s[-/–]\s", r.author)]
+    names = [AUTHOR_FIX.get(n, n) for n in names]
+    who = names[0] if len(names) == 1 else ", ".join(names[:-1]) + " and " + names[-1]
+    return f"{who} {r.year} ({VENUE_FIX.get(r.venue, r.venue)})"
+
+
+def studies(path=LITERATURE):
+    L = pd.read_csv(path)
+    out = {}
+    for t, g in L.groupby("tradition", sort=False):
+        top = g[~g.venue.isin(GENERAL)].sort_values(["manuscripts_citing", "year"], ascending=[False, True],
+                                                     kind="stable").iloc[0]
+        rest = g.drop(top.name)
+        first = rest.sort_values(["year", "manuscripts_citing"], ascending=[True, False], kind="stable").iloc[0]
+        last = rest.sort_values(["year", "manuscripts_citing"], ascending=[False, False], kind="stable").iloc[0]
+        out[t] = {"most_cited_study": cite(top), "most_cited_manuscripts": int(top.manuscripts_citing),
+                  "first_study": cite(first), "latest_study": cite(last)}
+    return out
+
+
 
 
 def tlhdig_url(txtid, cth):
@@ -318,8 +356,9 @@ def main():
     J.to_csv(f"{a.out}/nearest_manuscripts.csv.gz", index=False)        # the copy kept in git
 
     # traditions and compositions used
+    lit = studies()
     T = pd.DataFrame([{"tradition": l, "cth": " ".join(str(c) for c in GROUPSETS[rep["groups"]][l]),
-                       "reference_manuscripts": int((y == l).sum()), "defining_study": STUDIES[l]} for l in labs])
+                       "reference_manuscripts": int((y == l).sum()), **lit[l]} for l in labs])
     T.to_csv(f"{a.out}/traditions.csv", index=False)
     pd.DataFrame({"cth": clabs, "manuscripts": n_mss,
                   "tradition": [trad_of.get(c, res_of.get(c, "")) for c in clabs]}).to_csv(
@@ -351,6 +390,7 @@ def main():
                "compositions": int(len(clabs))}
     json.dump(summary, open(f"{a.out}/summary.json", "w"), indent=1, ensure_ascii=False)
     print(json.dumps(summary, indent=1, ensure_ascii=False))
+    relabel(a.out)
 
 
 if __name__ == "__main__":

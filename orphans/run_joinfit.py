@@ -179,6 +179,64 @@ def rich_lines_of(tok_csv, txt, sides):
     return list(L.items())
 
 
+def lead_gaps(xml_dir, txt):
+    """Width of the break at the start of each line, as TLHdig encodes it: the <space c="n"/> blanks
+    before the first preserved word of a line that opens inside a break (the break's ] comes after them).
+    TLHdig gives a width, not a sign count; we keep its units."""
+    import glob, re
+    paths = [p for p in glob.glob(os.path.join(xml_dir, "*", txt + ".xml"))]
+    if not paths:
+        return {}
+    s = open(paths[0], encoding="utf-8").read()
+    out = {}
+    for m in re.finditer(r'<lb [^>]*lnr="([^"]+)"[^>]*/>(.*?)(?=<lb |$)', s, re.S):
+        body, n = m.group(2), 0
+        for w in re.finditer(r"<w[^>]*>(.*?)</w>", body, re.S):
+            inner = w.group(1)
+            sp = re.fullmatch(r'\s*<space c="(\d+)"/>\s*', inner)
+            if sp:
+                n += int(sp.group(1)); continue
+            if re.fullmatch(r"\s*<del_(fin|in)/>\s*", inner):
+                continue
+            break
+        if n:
+            out[m.group(1)] = n
+    return out
+
+
+def lost_at_line_start(cfg, base, frags, meas, dx, dy):
+    """Estimate how much is lost at the start of each EBo 133 line if it sat in KBo 44.140's column III:
+    distance from the column's left edge (KBo 44.140 text band) to the lower piece's left break at each
+    marked line row, converted to signs with KBo 44.140's own sign widths (column width / signs per line).
+    Rough: the line rows are the spectral grid, not read line by line; the column start is the text band."""
+    U, Lo = frags["upper"], frags["lower"]
+    S = cfg["out_px_per_cm"]
+    r0, r1 = [int(v) for v in U["edge_rows"]]
+    right = float(np.median([np.flatnonzero(r).max() for r in U["mask"][r0:r1] if r.any()]))
+    col_cm = (right - U["band"][0]) / S
+    tok = os.path.join(base, cfg.get("marks_csv", cfg["tokens_csv"]))
+    nsig = lambda segs: len([x for x in re.split(r"[-.\s{}]+", "".join(t for t, k in segs if k != "b")) if x])
+    up = [nsig(sg) for _, sg in rich_lines_of(tok, cfg["upper"]["txtid"], cfg["upper"]["sides"])]
+    up = [n for n in up if n >= 4]
+    per = sorted([col_cm / max(up), col_cm / float(np.median(up)), col_cm / min(up)])
+    gaps = lead_gaps(os.path.join(base, cfg["xml_dir"]), cfg["lower"]["txtid"])
+    gs = [g for g in Lo["grid"] if Lo["band"][1] <= g <= Lo["band"][3]]
+    P = meas["lower"]["spectrum_pitch_cm"] * S
+    first = cfg["lower"].get("first_grid_line", 1)
+    rows = []
+    for i, g in enumerate(gs):
+        band = [r for r in Lo["mask"][max(0, int(g - P / 2)):int(g + P / 2)] if r.any()]
+        left = min(np.flatnonzero(r).min() for r in band) + dx
+        off = (left - U["band"][0]) / S
+        lnr = "%s %d′" % (cfg["lower"]["sides"][0], first + i)
+        rows.append({"line": lnr, "tlhdig_space_units": gaps.get(lnr), "break_from_column_start_cm": round(off, 2),
+                     "lost_signs_low": round(off / per[2], 1), "lost_signs_mid": round(off / per[1], 1), "lost_signs_high": round(off / per[0], 1)})
+    out = {"column_width_cm": round(col_cm, 2), "upper_signs_per_line": up,
+           "cm_per_sign_range": [round(v, 2) for v in per], "lines": rows}
+    json.dump(out, open(os.path.join(base, cfg["out_lost_json"]), "w"), indent=1, ensure_ascii=False)
+    return out
+
+
 def main(cfg_path):
     cfg = json.load(open(cfg_path))
     base = os.path.dirname(os.path.abspath(cfg_path))
@@ -254,6 +312,10 @@ def main(cfg_path):
         figure(cfg, base, frags, meas, dx, best, caveats=False, out_png=cfg["out_slide_full_png"], tl_size=30)
     if cfg.get("out_slide_png"):
         slide_figure(cfg, base, frags, meas, dx, best)
+    if cfg.get("out_lost_json"):
+        meas["lost_at_line_start"] = lost_at_line_start(cfg, base, frags, meas, dx, best)
+    if cfg.get("out_slide_wide_png"):
+        slide_wide(cfg, base, frags, meas, dx, best)
     json.dump(meas, open(os.path.join(base, cfg["out_json"]), "w"), indent=1, ensure_ascii=False)
     print(json.dumps(meas, indent=1, ensure_ascii=False))
 
@@ -378,6 +440,119 @@ def slide_figure(cfg, base, frags, meas, dx, dy):
     d.rectangle([ox - 480, H - 50, ox - 480 + 2 * S, H - 36], fill=(43, 26, 16, 255))
     d.text((ox - 480, H - 74), "2 cm", fill=(43, 26, 16, 255), font=F(fs), anchor="lb")
     out.save(os.path.join(base, cfg["out_slide_png"]))
+
+
+def slide_wide(cfg, base, frags, meas, dx, dy, W=2880, H=1530, top_band=230):
+    """Slide-shaped version (16:9 slide at 1.5x, minus a footer strip): the placed pieces fill the
+    left, the transliteration fills the right below an empty band for the slide's own title.
+    No title, subtitle or caveats; the scale bar sits bottom left, clear of the pieces."""
+    F = lambda n, b=False: ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans%s.ttf" % ("-Bold" if b else ""), n)
+    U, Lo = frags["upper"], frags["lower"]
+    BG, INK, RED, BLUE, GREEN, MUTE = (236, 226, 206), (43, 26, 16), (138, 44, 18), (31, 78, 140), (60, 110, 50), (111, 88, 66)
+    S = cfg["out_px_per_cm"]
+    # left panel at photo scale
+    ox, oy = 600, 20
+    lx, ly = ox + int(round(dx)), oy + dy
+    ex = ox + int(np.median([np.flatnonzero(r).max() for r in U["mask"][int(U["edge_rows"][0]):int(U["edge_rows"][1])] if r.any()]))
+    pw = max(ox + U["img"].width, lx + Lo["img"].width, ex + 60) + 20
+    ph = ly + Lo["img"].height + 90
+    L = Image.new("RGB", (pw, ph), BG); d = ImageDraw.Draw(L)
+    L.paste(U["img"], (ox, oy), U["img"]); L.paste(Lo["img"], (lx, ly), Lo["img"])
+    for y in range(oy, ly + Lo["img"].height + 20, 24):
+        d.line([(ex + 14, y), (ex + 14, y + 12)], fill=RED, width=4)
+    d.multiline_text((ex + 6, ly + Lo["img"].height + 24), "common right edge?", fill=RED, font=F(26), anchor="ra")
+    m = meas["upper"]
+    if U["rulings"]:
+        for r in U["rulings"]:
+            d.line([(ox + U["band"][0], oy + r), (ox + U["band"][2], oy + r)], fill=BLUE, width=3)
+        y0, y1 = oy + U["rulings"][0], oy + U["rulings"][1]
+        bx = ox + U["band"][0] - 260
+        d.line([(bx, y0), (bx, y1)], fill=BLUE, width=4); d.line([(bx, y0), (bx + 20, y0)], fill=BLUE, width=4); d.line([(bx, y1), (bx + 20, y1)], fill=BLUE, width=4)
+        pr = m["pitch_from_rulings_cm"]
+        txt = "rulings %.2f cm apart\n%s" % (m["ruling_distance_cm"], "\n".join("%s lines: %.2f cm/line" % (k, v) for k, v in pr.items()))
+        d.multiline_text((bx - 16, (y0 + y1) / 2), txt, fill=BLUE, font=F(28), anchor="rm", align="right")
+    if Lo["grid"]:
+        gs = [g for g in Lo["grid"] if Lo["band"][1] <= g <= Lo["band"][3]]
+        for g in gs:
+            d.line([(lx + Lo["band"][0] - 30, ly + g), (lx + Lo["band"][0] - 6, ly + g)], fill=BLUE, width=4)
+        d.multiline_text((lx + Lo["band"][0] - 44, ly + gs[0]), "%.2f cm/line\n(%d lines)" % (meas["lower"]["spectrum_pitch_cm"], len(gs)),
+                         fill=BLUE, font=F(28), anchor="ra", align="right")
+    for i in range(5):
+        d.rectangle([30 + i * S, ph - 60, 30 + (i + 1) * S, ph - 44], fill=INK if i % 2 == 0 else BG, outline=INK)
+    d.text((30, ph - 70), "5 cm, each photo scaled by its own ruler", fill=INK, font=F(26), anchor="lb")
+    k = (H - 20) / ph
+    L = L.resize((int(pw * k), int(ph * k)), Image.LANCZOS)
+    out = Image.new("RGB", (W, H), BG); out.paste(L, (10, 10)); d = ImageDraw.Draw(out)
+    # transliteration panel
+    tx = 10 + L.width + 50
+    col = {"drink": RED, "bread": BLUE, "close": GREEN}
+    def hl(t):
+        for kk, pats in cfg["highlight"].items():
+            if any(p in t for p in pats):
+                return col[kk]
+        return INK
+    tok = os.path.join(base, cfg.get("marks_csv", cfg["tokens_csv"]))
+    est = {r["line"]: int(r["lost_signs_mid"] + 0.5) for r in meas.get("lost_at_line_start", {}).get("lines", [])}
+    blocks = []
+    for key in ("upper", "lower"):
+        gaps = lead_gaps(os.path.join(base, cfg["xml_dir"]), cfg[key]["txtid"]) if cfg[key].get("show_lead_gaps") else {}
+        as_x = cfg[key].get("lost_as_x") and est
+        rows = []
+        for lnr, segs in rich_lines_of(tok, cfg[key]["txtid"], cfg[key]["sides"]):
+            if set("".join(t for t, kk in segs if kk != "b").replace(" ", "")) <= set("x"):
+                continue
+            restored_first = bool(segs) and segs[0] == ("[", "b")
+            sep = [] if segs and segs[0][0].startswith("-") else [(" ", "u")]
+            if as_x and lnr in est:
+                # the estimated lost signs as x's inside the break (signs the edition restores there count towards it)
+                k = segs.index(("]", "b")) if restored_first and ("]", "b") in segs else 0
+                restored = len([w for w in re.split(r"[-.\s{}]+", "".join(t for t, kk in segs[1:k])) if w])
+                n = max(0, est[lnr] - restored)
+                xs = [(" ".join(["x"] * n), "ru")] if n else []
+                segs = ([("[", "b")] + xs + ([(" ", "u")] if n else []) + segs[1:]) if restored_first \
+                    else ([("[", "b")] + xs + [("]", "b")] + sep + segs)
+            elif gaps.get(lnr):  # "[" + blank as wide as TLHdig's spacing; a restored first word stays inside the same break
+                g = gaps[lnr]
+                segs = ([("[", "b"), ("", "g%d" % g)] + segs[1:]) if restored_first \
+                    else ([("[", "b"), ("", "g%d" % g), ("]", "b")] + sep + segs)
+            rows.append((lnr, segs))
+        blocks.append((cfg[key]["label"], rows))
+    ind = 3.2  # text indent in em, after the line number
+    nrows = sum(len(r) for _, r in blocks)
+    IN = "/usr/share/fonts/opentype/inter/Inter-%s.otf"
+    for size in range(60, 20, -1):  # largest size whose lines fit the panel
+        lh = int(size * 1.32)
+        need = top_band + 2 * int(lh * 1.25) + nrows * lh + int(lh * 1.0) + 2 * 24 + int(lh * 1.1) * 3
+        FT = {"u": ImageFont.truetype(IN % "Regular", size), "i": ImageFont.truetype(IN % "Italic", size),
+              "b": ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", size)}
+        GW = lambda kk: int(kk[1:]) * size * cfg.get("gap_em_per_unit", 0.25)
+        wid = max(sum(GW(kk) if kk[0] == "g" else d.textlength(t, font=FT[kk[-1]] if kk != "b" else FT["b"]) for t, kk in segs)
+                  for _, rows in blocks for _, segs in rows) + size * ind
+        if need <= H and tx + wid <= W - 30:
+            break
+    def mute(c):
+        return tuple(int(v + (b - v) * 0.5) for v, b in zip(c, BG))
+    y = top_band
+    for bi, (label, rows) in enumerate(blocks):
+        d.text((tx, y), label, fill=INK, font=F(size, True)); y += int(lh * 1.25)
+        for lnr, segs in rows:
+            c = hl("".join(t for t, kk in segs if kk != "b"))
+            d.text((tx, y + size * 0.08), lnr.split()[-1], fill=MUTE, font=F(int(size * 0.85)))
+            x = tx + int(size * ind)
+            for t, kk in segs:
+                if kk[0] == "g":
+                    x += GW(kk); continue
+                f = FT[kk[-1]] if kk != "b" else FT["b"]
+                d.text((x, y), t, fill=mute(c) if kk.startswith("r") else c, font=f)
+                x += d.textlength(t, font=f)
+            y += lh
+        y += 24
+        if bi == 0:
+            d.text((tx, y - 6), "[break: number of lost lines unknown]", fill=MUTE, font=F(int(size * 0.8))); y += int(lh * 1.0)
+    for kk, lab in (("drink", "he drinks"), ("bread", "he breaks a takarmu-bread"), ("close", "closing the round of the gods")):
+        d.rectangle([tx, y + size * 0.25, tx + size * 0.75, y + size], fill=col[kk]); d.text((tx + size * 1.1, y), lab, fill=INK, font=F(int(size * 0.9))); y += int(lh * 1.1)
+    out.save(os.path.join(base, cfg["out_slide_wide_png"]))
+    print("slide_wide: font %d px, text from x=%d, left panel %dx%d" % (size, tx, L.width, L.height))
 
 
 if __name__ == "__main__":
