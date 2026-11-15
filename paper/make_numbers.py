@@ -28,7 +28,7 @@ SHORT = {"Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna and Lower Land (Hurr.)
          "Luwian rituals (Puriyanni, Kuwattalla)": "Luwian rituals (Lower Land)",
          "Arzawa / western rituals": "Arzawa (western) rituals"}
 MAIN = "tlhdig03_literature_C_filled"   # main run: literature-defined traditions, damage-aware tokens (version C), missing lemmas filled (TLHdig same spelling, eDiAna)
-COMPARE = "tlhdig03_literature"  # version A (editor's full text, restorations counted): keys prefixed "A."
+COMPARE = "tlhdig03_literature_A_filled"  # with restorations (editor's full text, restorations counted), same fills: keys prefixed "A."
 PREFIX = ""                      # set to "A." while the comparison run is read
 BASE = "tlhdig03"              # StBoT 73 Table 3 + CTH-range controls (published baseline)
 
@@ -534,7 +534,8 @@ def main():
         for kind in ("duplicate", "join"):
             for f in ("pairs", "top1", "top5", "top20", "top100"):
                 put(f"KJ.{kind}.{f}", num(kj[kind][f]), f"{sk} {kind}.{f}")
-            put(f"KJ.{kind}.median", num(int(kj[kind]["median_rank"])), f"{sk} {kind}.median_rank")
+            med = float(kj[kind]["median_rank"])
+            put(f"KJ.{kind}.median", num(int(med)) if med.is_integer() else f"{med:g}", f"{sk} {kind}.median_rank")
         put("KJ.pool", num(kj["pool"]), f"{sk} pool")
 
     # ---- word classes: how each label is reached (qtm/wordclass.py on TLHdig's analyses)
@@ -606,18 +607,18 @@ def main():
         rows.append(f"{tex_escape(t)} & " + " & ".join(cells) + " \\\\")
     table("distinctive", rows)
 
-    # ---- the worked example KBo 41.22 in this run (run_case.py)
-    cp = os.path.join(RES, MAIN, "case", "case_KBo_41_22.json")
+    # ---- the cautionary example KBo 57.54 in this run (run_case.py): placed only when restorations count
+    cp = os.path.join(RES, MAIN, "case", "case_KBo_57_54.json")
     if os.path.exists(cp):
-        c = load(MAIN, "case/case_KBo_41_22.json")
-        sc = f"{MAIN}/case/case_KBo_41_22.json"
-        put("case.kbo4122.words", c["legible_words"], f"{sc} legible_words")
-        put("case.kbo4122.top", tex_escape(c["nearest"]), f"{sc} nearest")
-        put("case.kbo4122.second", tex_escape(c["runner_up"]), f"{sc} runner_up")
-        put("case.kbo4122.margin", f"{c['margin']:.3f}", f"{sc} margin")
-        put("case.kbo4122.tau", f"{c['rule_margin']:.3f}", f"{sc} rule_margin")
-        put("case.kbo4122.placed", "placed" if c["assigned"] else "not placed", f"{sc} assigned")
-        put("case.kbo4122.luwian", f"{c['similarity']['Luwian rituals (Puriyanni, Kuwattalla)']:.2f}", f"{sc} similarity")
+        c = load(MAIN, "case/case_KBo_57_54.json")
+        sc = f"{MAIN}/case/case_KBo_57_54.json"
+        sims = sorted(c["similarity"].items(), key=lambda x: -x[1])
+        put("case.kbo5754.words", c["legible_words"], f"{sc} legible_words")
+        put("case.kbo5754.top", tex_escape(globals()["label"](sims[0][0])), f"{sc} similarity")
+        put("case.kbo5754.second", tex_escape(globals()["label"](sims[1][0])), f"{sc} similarity")
+        put("case.kbo5754.margin", f"{c['margin']:.3f}", f"{sc} margin")
+        put("case.kbo5754.placed", "placed" if c["assigned"] else "not placed", f"{sc} assigned")
+        put("case.kbo5754.luwian", f"{c['similarity']['Luwian rituals (Puriyanni, Kuwattalla)']:.2f}", f"{sc} similarity")
     return len(trad)
 
 
@@ -694,6 +695,19 @@ def compare_versions():
     put("AC.placedA.scoredC", num(len(scored)), src)
     put("AC.placedA.samenearest", num(len(same)), src)
     put("AC.placedA.samenearest.share", pct(len(same) / len(scored)), src)
+    only_a = [t for t in placed_a if not (t in c and c[t]["assigned"])]
+    lw = [t for t in only_a if a[t]["assigned"].startswith("Luwian rituals")]
+    put("AC.onlyA", num(len(only_a)), src)
+    put("AC.onlyA.luwian", num(len(lw)), src)
+    # restored signs in MUNUS ŠU.GI (the Old Woman) among these, from the sign-status token table
+    tok = os.path.join(RES, "..", "data", "tokens_marks_filled.csv")
+    if os.path.exists(tok):
+        hit, want = set(), set(lw)
+        with open(tok, encoding="utf-8", newline="") as f:
+            for r in csv.DictReader(f):
+                if r["txtid"] in want and re.search(r"ŠU ?\.GI", r["translit"]) and "R" in r["status"]:
+                    hit.add(r["txtid"])
+        put("AC.onlyA.luwian.sugi", num(len(hit)), "data/tokens_marks_filled.csv (status R in a ŠU.GI word)")
 
 
 if __name__ == "__main__":

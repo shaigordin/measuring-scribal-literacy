@@ -54,7 +54,7 @@ word forms and sign sequences returns \Q{E1.both.acc} of held-out manuscripts to
 \Q{E10a.compositions} compositions held out whole return to their scholarly group. A margin
 calibrated on held-out fragments of matching size lets the method abstain; it places
 \Q{E5.assigned} of \Q{corpus.orphans_used} orphans at an expected precision of
-\Q{E2.precision}. Splitting each decision exactly over its features shows that traditions are
+\Q{E2.precision} from the signs preserved on the tablet (\Q{AC.onlyA} more if restorations count). Splitting each decision exactly over its features shows that traditions are
 identified by what is written, above all agents, deities, realia and foreign-language words, and
 hardly by how it is spelled; common particles make up \Q{E11b.common.similarity} of the
 similarity but \Q{E11b.common.ref} of the decision. Code and outputs are released, and every
@@ -193,8 +193,9 @@ only what is on the tablet. A sign counts if it is preserved or damaged, also wh
 uncertain; a word counts if at least half its signs survive, or if the same word form survives at
 least half-preserved elsewhere in the same text. Restorations supported only by duplicates are
 not used. Sign n-grams never span a missing sign, and a spelling counts only when every sign of
-the word survives. We report the editors' full text, restorations included, as a comparison
-(\term{version A}); the main results use the damage-aware text (\term{version C}).
+the word survives. The main results use this text (\term{without restorations}); the editors'
+full text, every restoration included (\term{with restorations}), serves as a comparison. Both
+datasets are released.
 
 \paragraph{Orphans.}
 Orphans are all \CTH{470} manuscripts and all EBo manuscripts, wherever TLHdig files them,
@@ -276,14 +277,15 @@ Figure~\ref{fig:case}, panel 6). The fragment is published in transliteration on
 \citep[281]{vandenhout2006kbo44}; to our knowledge no study has assigned it to a composition, so
 the link to the AZU rituals is a new proposal for the philologist to test.
 
-The orphan KBo 41.22 shows the other side. On the editor's full text (version A) it is placed
-with the \Q{A.case.kbo4122.top}, by a lead of \Q{A.case.kbo4122.margin} on
-\Q{A.case.kbo4122.words} words. Its decisive words, a formula with DINGIR.MEŠ and
-\textit{karpin}, are the editor's restorations: on the tablet only \Q{case.kbo4122.words} words
-remain, its similarity to the Luwian rituals falls to \Q{case.kbo4122.luwian}, and its lead of
-\Q{case.kbo4122.margin} (\Q{case.kbo4122.top} over \Q{case.kbo4122.second}) is below
-$\tau$: it is \Q{case.kbo4122.placed}. A placement can owe much to restorations, which is why the
-main results count only what is on the tablet.
+The orphan KBo 57.54 (\CTH{470}) shows the other side. With restorations it is placed with the
+\Q{A.case.kbo5754.top}, by a lead of \Q{A.case.kbo5754.margin} on \Q{A.case.kbo5754.words} words.
+The words that decide are the Old Woman, \textsuperscript{MUNUS}ŠU.GI, the title of Kuwattalla
+in the Luwian rituals, restored both times it appears. Without
+restorations \Q{case.kbo5754.words} words remain, its similarity to the Luwian rituals falls to
+\Q{case.kbo5754.luwian}, and its lead of \Q{case.kbo5754.margin} (\Q{case.kbo5754.top} over
+\Q{case.kbo5754.second}) is below $\tau$: it is \Q{case.kbo5754.placed}. Of the \Q{AC.onlyA} orphans placed only with restorations, \Q{AC.onlyA.luwian} go to the Luwian
+rituals, and all \Q{AC.onlyA.luwian.sugi} of these have a restored sign in
+\textsuperscript{MUNUS}ŠU.GI. Hence the main results count only what is on the tablet.
 
 \paragraph{Decomposing a decision.}
 Because the score is a dot product, the margin splits exactly into one term per feature,
@@ -336,8 +338,7 @@ scored all nominal words as one class, so it does not cover the split by meaning
 \label{sec:validation}
 Held out one at a time, \Q{E1.both.acc} of the \Q{E1.both.n} reference manuscripts return to
 their tradition, against \Q{E1.both.majority} for the majority baseline and
-\Q{E1.both.null_mean} for shuffled labels ($p=\Q{E1.both.p}$). Words and signs alone do almost as
-well (\Q{E1.words.acc} and \Q{E1.signs.acc}). On the editor's full text (version A) the same
+\Q{E1.both.null_mean} for shuffled labels ($p=\Q{E1.both.p}$). With restorations the same
 test gives \Q{A.E1.both.acc} on \Q{A.E1.both.n} manuscripts: restorations add manuscripts and
 words but change little. Recall ranges from \Q{trad.minrecall} to
 \Q{trad.maxrecall} (Table~\ref{tab:summary}) and is lowest for the Syro-Mesopotamian and the mixed Hurrian groups. The
@@ -348,8 +349,8 @@ reach \Q{trad.huwassannafestivals.recall} and those of Ištanuwa and Lallupiya
 Accuracy rises steeply with fragment size and then flattens. Windows of 3, 10 and 40 words cut
 from held-out manuscripts are placed correctly in \Q{E2.both.k3}, \Q{E2.both.k10} and
 \Q{E2.both.k40} of cases, against a chance level of \Q{chance}. Above the margin
-$\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision. In
-version A, where every restored word counts, the same precision is reached at $\tau=\Q{A.E2.margin}$
+$\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision. With
+restorations, where every restored word counts, the same precision is reached at $\tau=\Q{A.E2.margin}$
 and \Q{A.E2.share} of windows pass.
 
 Inside \CTH{701}, the procedure recovers \Q{E3.both.acc} of the \Q{E3.both.n} manuscripts that
@@ -397,15 +398,12 @@ not support, not as claims that the evidence refutes.
 The Ambazzi rituals (\CTH{\Q{E10b.cths}}) have been read as western because of their Luwian
 elements \citep{christiansen2006ambazzi}. We pool their \Q{E10b.texts} manuscripts and score them
 against every tradition, against random sets of the same size from the \Q{E10b.pool} unclaimed
-ritual manuscripts (\CTH{390}--469). Without the filled lemmas it has \Q{Cv.trad.arzawa.n} reference manuscripts and only
-\Q{Cv.E10b.texts} Ambazzi manuscripts are analysed; the western tradition ranks
-\Q{Cv.E10b.claim.rank} of \Q{trad.count} ($p\Q{Cv.E10b.claim.p}$), and the Ambazzi texts contain only
-\Q{Cv.E10c.claim.attested} of its \Q{E10c.claim.signatures} most distinctive words
-\citep{monroe2008fightin}: they look like generic ritual residue. With
-the fills it has \Q{R1.A.arzawawesternrituals.n} manuscripts and ranks \Q{E10b.claim.rank}
-($p\Q{E10b.claim.p}$), behind only the \Q{E10b.best} (lead \Q{E10b.best.lead}); \Q{E10c.claim.attested} of the
-distinctive western words occur (\textit{\Q{E10c.claim.attested.words}}). The Ambazzi rituals
-thus lean western once the western tradition is large enough to be recognised. We keep them out
+ritual manuscripts (\CTH{390}--469). Without the filled lemmas only \Q{Cv.E10b.texts} Ambazzi manuscripts are analysed and the western
+tradition ranks \Q{Cv.E10b.claim.rank} of \Q{trad.count} ($p\Q{Cv.E10b.claim.p}$). With the fills it
+ranks \Q{E10b.claim.rank} ($p\Q{E10b.claim.p}$), behind only the \Q{E10b.best} (lead
+\Q{E10b.best.lead}), and \Q{E10c.claim.attested} of its \Q{E10c.claim.signatures} most distinctive
+words \citep{monroe2008fightin} occur (\textit{\Q{E10c.claim.attested.words}}). Once the western tradition is large enough to be recognised, the Ambazzi rituals come close to it,
+but the Kizzuwatna rituals remain nearer: the western reading is plausible, not proven. We keep them out
 of the reference, so that the test stays independent of the claim.
 
 \subsection{Spellings only, with every manuscript}
@@ -517,10 +515,10 @@ the orphans, the gate finds \Q{E9.orph.outside} that are closer to an outside ge
 tradition by more than the margin, \Q{E9.orph.assigned_outside} of them among the placed. We
 release them as candidates for re-filing.
 
-The damage-aware text places far fewer orphans than the editor's full text (\Q{A.E5.assigned} of
-\Q{A.corpus.orphans_used} in version A), because many orphans lose most of their words with the
-restorations. The placements that remain are stable: of the \Q{AC.placedA.scoredC} orphans placed in
-version A that are still scored in C, \Q{AC.placedA.samenearest} (\Q{AC.placedA.samenearest.share})
+Without restorations far fewer orphans are placed than with them (\Q{A.E5.assigned} of
+\Q{A.corpus.orphans_used}), because many orphans lose most of their words with the
+restorations. The placements that remain are stable: of the \Q{AC.placedA.scoredC} orphans placed
+with restorations that are still scored without them, \Q{AC.placedA.samenearest} (\Q{AC.placedA.samenearest.share})
 keep the same nearest tradition. The loss is in confidence, not in direction.
 
 \subsection{Duplicates, not joins: a negative result}
@@ -529,7 +527,7 @@ A fragment's nearest manuscripts are leads for the philologist, and the question
 lead they are. Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
 recorded duplicate pairs, the partner ranks first in \Q{KJ.duplicate.top1} and among the 20
 nearest of \Q{KJ.pool} manuscripts in \Q{KJ.duplicate.top20} (median rank
-\Q{KJ.duplicate.median}). On the editor's full text the figures look better (median rank
+\Q{KJ.duplicate.median}). With restorations the figures look better (median rank
 \Q{A.KJ.duplicate.median}, \Q{A.KJ.duplicate.top20} of \Q{A.KJ.duplicate.pairs} in the top 20),
 but partly by circularity: editors restore duplicates from each other. Of the
 \Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reaches the top 20 (median rank
@@ -580,9 +578,9 @@ for a join but does not tell a join from a duplicate; that needs physical eviden
 
 \paragraph{Genre before origin.}
 A fragment is placed by what it shares with the reference, and the largest shared layer is
-genre. A ritual from outside every reference tradition will look most like the largest ritual
-class, as the residue of \CTH{390}--469 shows. A placement is therefore ``nearest of these'', and is only as good as the alternatives in
-the reference.
+genre, as the residue of \CTH{390}--469 shows. A placement is therefore ``nearest of these'', and
+is only as good as the alternatives in the reference. Likewise, an edition is an interpretation
+that the method inherits; the two datasets show which placements rest on a restoration.
 
 \paragraph{Archetypes and witnesses.}
 The results suggest a division of labour between two levels of a text, which we call
@@ -597,13 +595,14 @@ schooling \citep{gordin2015scribal}.
 
 \paragraph{Conclusion.}
 Content-based assignment places Hittite ritual and festival fragments in literature-defined
-traditions well above chance from about ten legible words and recovers most compositions held out
-whole. The exact decomposition makes each placement checkable: a decision rests on agents,
-deities, realia and foreign words rather than on spelling or particles. Code, outputs and placements are released (anonymised for review).
+traditions well above chance from about ten legible words. The exact decomposition makes each
+placement checkable: a decision rests on agents, deities, realia and foreign words rather than on
+spelling or particles. Code, outputs and placements are released.
 
 \section*{Limitations}
 The study depends on one digital edition. TLHdig 0.3 has no word analyses for the Luwian
-corpus and for many rituals, its morphological analyses are automatic and unvalidated, and its
+corpus and for many rituals; we fill them from the same spelling elsewhere or from eDiAna, which
+assumes that one spelling has one lemma; its morphological analyses are automatic and unvalidated, and its
 normalised forms are uneven across editors. Words with less than half their signs on the tablet
 are dropped unless the same text supports them, so short fragments over-represent the formulaic
 lines that survive, and the half-preserved threshold is a choice we have not varied. Several traditions are small

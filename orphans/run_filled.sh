@@ -1,17 +1,22 @@
 #!/usr/bin/env bash
-# Side check: version C with TLHdig's missing analyses filled (fill_lemmas.py: same spelling elsewhere in
-# TLHdig, and eDiAna for Luwian words). Main results stay in results/tlhdig03_literature_C.
+# Main results: TLHdig's missing word analyses filled (fill_lemmas.py: same spelling elsewhere in
+# TLHdig, and eDiAna for Cuneiform Luwian words), then every experiment, case study and join check.
 #
-#   bash run_filled.sh [DATA_DIR]      # needs DATA_DIR/tokens_marks.csv (python3 -m qtm.tlhdig)
+#   bash run_filled.sh [DATA_DIR] [VARIANT]   # needs DATA_DIR/tokens_marks.csv (python3 -m qtm.tlhdig)
+#
+# VARIANT C (default): without restorations (results/tlhdig03_literature_C_filled);
+# VARIANT A: with the editors' restorations (results/tlhdig03_literature_A_filled).
 set -euo pipefail
 cd "$(dirname "$0")"
 DATA=${1:-data}
-O=results/tlhdig03_literature_C_filled
+V=${2:-C}
+O=results/tlhdig03_literature_${V}_filled
 mkdir -p "$O/case"
 python3 ediana_cluwian.py --cache "$DATA/ediana" --out "$DATA/ediana_cluwian_forms.csv" > "$O/ediana.log"
 python3 fill_lemmas.py "$DATA/tokens_marks.csv" "$DATA/tokens_marks_filled.csv" --ediana "$DATA/ediana_cluwian_forms.csv" > "$O/fill.log"
 TOK=$DATA/tokens_F.csv
-python3 -m qtm.variants "$DATA/tokens_marks_filled.csv" "$TOK" --variant C > "$O/variant.log"
+[ "$V" = C ] || TOK=$DATA/tokens_F$V.csv
+python3 -m qtm.variants "$DATA/tokens_marks_filled.csv" "$TOK" --variant "$V" > "$O/variant.log"
 L=()
 [ -f labels/cth701_labels.csv ] && L=(--labels701 labels/cth701_labels.csv)
 python3 run_experiments.py "$TOK" "${L[@]}" --groups literature --out "$O" --perm 200 > "$O/run.log"   # E1-E6
@@ -34,13 +39,13 @@ python3 run_size_example.py "$TOK" --run "$O" --txtid "KUB 29.4+" --starts 0 200
 for T in "KBo 61.39" "KUB 35.146" "EBo 133"; do
   python3 run_unplaced_example.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"
 done
-for T in "KBo 44.52" "DAAM 3.64" "KBo 52.43"; do python3 run_case.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"; done
+for T in "KBo 44.52" "DAAM 3.64" "KBo 52.43" "KBo 57.54"; do python3 run_case.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"; done
 python3 run_test_examples.py "$TOK" --run "$O" --out "$C" >> "$C/run.log"
 python3 run_barcode.py "$TOK" --run "$O" --txtid "KBo 44.52" --out "$C" >> "$C/run.log"
 mkdir -p "$O/known_joins" "$O/joins"
 python3 run_known_joins.py "$TOK" --run "$O" --cache "$DATA/konkordanz" --out "$O/known_joins" --labels "$O/known_joins/labels.csv" \
   --pages-from results/tlhdig03_literature/known_joins/known_joins.json > "$O/known_joins/run.log"
 python3 run_join_model.py "$TOK" --run "$O" --xml "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" --cache "$DATA/konkordanz" \
-  --k 200 --out "$O/joins" > "$O/joins/run.log"
-python3 compare_filled.py --main results/tlhdig03_literature_C --filled "$O" --fill "$DATA/tokens_marks_filled.csv" > "$O/comparison.txt"
+  --fetch --k 200 --out "$O/joins" > "$O/joins/run.log"
+[ "$V" = C ] && python3 compare_filled.py --main results/tlhdig03_literature_C --filled "$O" --fill "$DATA/tokens_marks_filled.csv" > "$O/comparison.txt"
 echo done

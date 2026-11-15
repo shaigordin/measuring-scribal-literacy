@@ -4,3 +4,4 @@ release/nearest_manuscripts.csv
 *.zip
 release.log
 results/joinfit/*.png
+release/*/nearest_manuscripts.csv

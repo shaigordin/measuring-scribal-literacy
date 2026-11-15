@@ -85,22 +85,22 @@
   "670",
   "832"
  ],
- "statements_matched": 380,
- "pool": 17506,
+ "statements_matched": 384,
+ "pool": 19197,
  "duplicate": {
-  "pairs": 305,
-  "median_rank": 8.0,
-  "top1": 88,
-  "top5": 143,
-  "top20": 187,
-  "top100": 239
+  "pairs": 330,
+  "median_rank": 4.5,
+  "top1": 99,
+  "top5": 174,
+  "top20": 221,
+  "top100": 272
  },
  "join": {
   "pairs": 19,
-  "median_rank": 156.0,
-  "top1": 1,
-  "top5": 1,
-  "top20": 4,
+  "median_rank": 155.0,
+  "top1": 0,
+  "top5": 2,
+  "top20": 6,
   "top100": 9
  }
 }

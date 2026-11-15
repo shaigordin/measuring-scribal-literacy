@@ -32,11 +32,10 @@ FRAGMENTS = [
     ("filed_under_cth", "string", "CTH number under which TLHdig files the text (Laroche's catalogue, as on the Portal)."),
     ("laroche_bin", "string", "The residual bin the text comes from: CTH 470, 500, 670, 832, the CTH 390-469 rituals no study groups, or an EBo piece filed under another CTH."),
     ("is_ebo", "boolean", "True for the EBo pieces (fragments rediscovered at Boğazköy in 2025, transliterations only)."),
-    ("n_words_analysed", "integer", "Analysed words that count in version C (on the tablet, or supported by the same text): what the model reads."),
+    ("n_words_analysed", "integer", "Analysed words that count in this dataset (without restorations: on the tablet, or supported by the same text; with restorations: as printed): what the model reads."),
     ("n_words_legible", "integer", "Legible words on the tablet, analysed or not (used by the spellings-only check)."),
-    ("n_words_as_edited", "integer", "Analysed words as the edition prints them, restorations included (version A)."),
-    ("n_words_same_text", "integer", "Words that count only because the same word form is at least half preserved elsewhere in the same text."),
-    ("present_share", "number", "Share of the text's signs that are preserved or damaged (not restored, omitted or lost)."),
+    ("n_words_same_text", "integer", "Without restorations only. Words that count only because the same word form is at least half preserved elsewhere in the same text."),
+    ("present_share", "number", "Without restorations only. Share of the text's signs that are preserved or damaged (not restored, omitted or lost)."),
     ("tlhdig_url", "string", "The text in TLHdig on the Mainz Portal."),
     ("konkordanz_url", "string", "The text in the Konkordanz der hethitischen Keilschrifttafeln (first piece of a join)."),
     ("status", "string", "placed: the nearest tradition leads the runner-up by at least the margin; below_margin: scored but not placed; too_small: fewer than 5 analysed words, no results."),
@@ -62,10 +61,7 @@ FRAGMENTS = [
     ("manuscripts_top5_similarity", "string", "Cosine similarity to each of manuscripts_top5."),
     ("manuscripts_top20", "string", "The 20 nearest manuscripts; details for each in nearest_manuscripts.csv."),
     ("match_candidates", "string", "Those of the 20 nearest manuscripts that pass all three match checks: duplicates, parallels or joins to check (see README)."),
-] + [(f"words_{c}", "number", f"Share of the analysed words in the word category '{c.replace('_', ' ')}'.") for c in CATS] + [
-    ("status_A", "string", "status in version A (restored signs read as written), for comparison."),
-    ("placed_tradition_A", "string", "placed_tradition in version A, for comparison."),
-]
+] + [(f"words_{c}", "number", f"Share of the analysed words in the word category '{c.replace('_', ' ')}'.") for c in CATS]
 
 JOINS = [
     ("txtid", "string", "The fragment (as in fragments.csv)."),
@@ -159,10 +155,7 @@ def references(T):
                                             keep_default_na=False).itertuples()}
     works = set(T.most_cited_study) | set(T.first_study) | set(T.latest_study) | {"Groddek and Kloekhorst 2006 (DBH 19)"}
     entries = [expand(c, lit, abbr) for c in works] + [x.format(doi=TLHDIG_DOI) for x in SOURCES]
-    return ("Monographs are given in full from the Konkordanz's list of abbreviations "
-            "(labels/konkordanz_abbreviations.csv); journal articles and Festschrift contributions are given as "
-            "the Konkordanz cites them (journal and volume), since that list names series and journals, not "
-            "article titles.\n\n" + "\n".join(f"- {x}" for x in sorted(set(entries), key=lambda e: e.lower())))
+    return ("Articles are cited as in the Konkordanz (journal and volume).\n\n" + "\n".join(f"- {x}" for x in sorted(set(entries), key=lambda e: e.lower())))
 
 
 TRADITIONS = [
@@ -223,82 +216,82 @@ def example(F, J, txtid):
     return "\n".join(lines)
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("folder")
-    ap.add_argument("--version", default="1.0.0")
-    ap.add_argument("--zip", action="store_true")
-    a = ap.parse_args()
-    d = a.folder
+FOLDERS = {"without_restorations": "Without restorations",
+           "with_restorations": "With restorations"}
+
+
+def folder_values(d, F_cols):
+    """Numbers of one dataset folder; checks that its files and their documentation agree."""
     if not os.path.exists(f"{d}/nearest_manuscripts.csv"):          # git keeps only the compressed copy
         import gzip, shutil
         with gzip.open(f"{d}/nearest_manuscripts.csv.gz") as src, open(f"{d}/nearest_manuscripts.csv", "wb") as dst:
             shutil.copyfileobj(src, dst)
     S = json.load(open(f"{d}/summary.json"))
-    F = pd.read_csv(f"{d}/fragments.csv", keep_default_na=False, dtype=str).set_index("txtid")
-    J = pd.read_csv(f"{d}/nearest_manuscripts.csv", keep_default_na=False, dtype=str)
-    T = pd.read_csv(f"{d}/traditions.csv", keep_default_na=False)
     for fn, (_, cols) in FILES.items():                     # documentation and data must agree
         have = list(pd.read_csv(f"{d}/{fn}", nrows=0).columns)
-        assert have == [c[0] for c in cols], f"{fn}: columns differ from the documentation: {have}"
+        doc = [c[0] for c in cols]
+        assert set(have) <= set(doc) and have == [c for c in doc if c in have], f"{d}/{fn}: undocumented columns {have}"
+        F_cols.setdefault(fn, []).extend(c for c in have if c not in F_cols.get(fn, []))
+    return S
 
-    bins = pd.DataFrame([{"Bin": b, **v} for b, v in S["by_bin"].items()]).rename(columns={
-        "texts": "Texts", "too_small": "Under 5 words", "below_margin": "Scored, not placed",
-        "placed": "Placed", "with_match_candidates": "With duplicate or join candidates"})
-    placed = pd.DataFrame([{"Tradition": t, "Fragments placed": n} for t, n in S["placed_by_tradition"].items()])
-    size = pd.DataFrame([{"Analysed words": k, "Fragments scored": v["size"], "With duplicate or join candidates": v["sum"],
-                          "Share": f"{v['sum'] / v['size']:.0%}"} for k, v in S["fragments_with_match_candidates_by_size"].items()])
-    T2 = T.assign(cth=T.cth.map(ranges)).rename(columns={"tradition": "Tradition", "cth": "CTH", "reference_manuscripts": "Reference manuscripts",
-                           "most_cited_study": "Most-cited study", "first_study": "First study",
-                           "latest_study": "Latest study"}).drop(columns="most_cited_manuscripts")
-    # check of the composition ranking on texts whose composition is known: the scored CTH 390-469
-    # texts whose CTH number has at least one other manuscript (the text is left out of its own CTH)
-    comp = pd.read_csv(f"{d}/compositions.csv", dtype=str).set_index("cth").manuscripts.astype(int)
-    r = F[(F.laroche_bin == "CTH 390-469 rituals no study groups") & (F.status != "too_small")]
-    r = r[r.filed_under_cth.map(comp).fillna(0) >= 2]
-    ranks = [l.split("; ") for l in r.compositions_top5]
-    own = ["CTH " + c for c in r.filed_under_cth]
-    # check of the manuscript ranking and the join checks against the Konkordanz (run_known_joins.py)
-    kj = pd.read_csv(os.path.join(os.path.dirname(__file__) or ".", "results", "tlhdig03_literature_C",
-                                  "known_joins", "known_joins.csv"))
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("folder", help="release folder holding without_restorations/ and with_restorations/")
+    ap.add_argument("--version", default="2.0.0")
+    ap.add_argument("--known-joins", default="results/tlhdig03_literature_C_filled/known_joins/known_joins.csv")
+    ap.add_argument("--zip", action="store_true")
+    a = ap.parse_args()
+    d, cols_seen = a.folder, {}
+    S = {k: folder_values(f"{d}/{k}", cols_seen) for k in FOLDERS}
+    T = pd.read_csv(f"{d}/without_restorations/traditions.csv", keep_default_na=False)
+    Ta = pd.read_csv(f"{d}/with_restorations/traditions.csv", keep_default_na=False).set_index("tradition")
+    Fw = pd.read_csv(f"{d}/without_restorations/fragments.csv", keep_default_na=False, dtype=str).set_index("txtid")
+    Fa = pd.read_csv(f"{d}/with_restorations/fragments.csv", keep_default_na=False, dtype=str).set_index("txtid")
+
+    versions = pd.DataFrame([{"Folder": f"`{k}/`", "What counts": what, "Texts scored (5+ words)": S[k]["with_results"],
+                              "Placed": S[k]["status"].get("placed", 0), "Margin": f"{S[k]['margin']:.3f}",
+                              "Held-out accuracy": f"{S[k]['loo_accuracy']:.0%}"}
+                             for k, what in (("without_restorations", "Signs visible on the tablet, damaged ones included; a restored word only where the same word survives at least half-preserved elsewhere in the same text"),
+                                             ("with_restorations", "The edition as printed: restored signs count as written"))])
+    both = Fw.index[(Fw.status == "placed") & Fa.reindex(Fw.index).status.eq("placed")]
+    same = int((Fw.loc[both, "placed_tradition"] == Fa.loc[both, "placed_tradition"]).sum())
+    trad = T.assign(cth=T.cth.map(ranges), ref_a=T.tradition.map(Ta.reference_manuscripts)).rename(columns={
+        "tradition": "Tradition", "cth": "CTH", "reference_manuscripts": "Reference manuscripts (without / with restorations)",
+        "most_cited_study": "Most-cited study"})
+    trad["Reference manuscripts (without / with restorations)"] = [f"{x} / {y}" for x, y in zip(
+        trad["Reference manuscripts (without / with restorations)"], trad.ref_a)]
+    trad = trad[["Tradition", "CTH", "Reference manuscripts (without / with restorations)", "Most-cited study"]]
+    kj = pd.read_csv(a.known_joins)
     kd, kjn = kj[kj.relation == "duplicate"], kj[kj.relation == "join"]
-    known = {"kd_n": len(kd), "kd_median": f"{kd['rank'].median():g}", "kd_top1": int((kd['rank'] == 1).sum()),
-             "kd_top5": int((kd['rank'] <= 5).sum()), "kd_top20": int((kd['rank'] <= 20).sum()),
-             "kd_pass": int(kd.passes_join_checks.sum()), "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
-             "kj_median": f"{kjn['rank'].median():g}", "kj_pass": int(kjn.passes_join_checks.sum())}
-    audit = json.load(open(os.path.join(os.path.dirname(__file__) or ".", "results", "wordclass_audit_scores.json")))
-    va = S.get("version_A", {})
-    v = {"a_placed": f"{va.get('placed_A', 0):,}", "a_both": f"{va.get('placed_both', 0):,}",
-         "a_same": f"{va.get('same_tradition', 0):,}", **known, "known_n": f"{len(r):,}", "known_top1": f"{sum(o == l[0] for o, l in zip(own, ranks)):,}",
-         "known_top1_share": f"{sum(o == l[0] for o, l in zip(own, ranks)) / len(r):.0%}",
-         "known_top5": f"{sum(o in l for o, l in zip(own, ranks)):,}",
-         "known_top5_share": f"{sum(o in l for o, l in zip(own, ranks)) / len(r):.0%}",
-         "audit_n": audit["sample_size"], "audit_acc": f"{audit['before_fixes']['corpus_weighted_accuracy']:.0%}",
-         "title": TITLE, "version": a.version, "date": date.today().isoformat(), "tlhdig_doi": TLHDIG_DOI,
-         "code_url": CODE_URL, "texts": f"{S['texts_in_scope']:,}", "with_results": f"{S['with_results']:,}",
-         "too_small": f"{S['status']['too_small']:,}", "placed": f"{S['status']['placed']:,}",
-         "below_margin": f"{S['status']['below_margin']:,}", "margin": f"{S['margin']:.3f}",
-         "precision": f"{S['precision_above_margin']:.0%}", "loo": f"{S['loo_accuracy']:.0%}",
-         "majority": f"{S['loo_majority']:.0%}", "reference": f"{S['reference_manuscripts']:,}",
-         "pool": f"{S['manuscript_pool']:,}", "compositions": f"{S['compositions']:,}",
-         "with_matches": f"{S['fragments_with_match_candidates']:,}", "match_pairs": f"{S['match_candidate_pairs']:,}",
-         "bins_table": mdtable(bins), "placed_table": mdtable(placed), "size_table": mdtable(size),
-         "traditions_table": mdtable(T2), "references": references(T), "fragments_columns": coltable(FRAGMENTS), "nearest_columns": coltable(JOINS),
-         "traditions_columns": coltable(TRADITIONS), "compositions_columns": coltable(COMPOSITIONS),
-         "example_ebo": example(F, J, "EBo 133"), "example_kbo": example(F, J, "KBo 41.22")}
+    sw, sa = S["without_restorations"], S["with_restorations"]
+    v = {"title": TITLE, "version": a.version, "date": date.today().isoformat(), "tlhdig_doi": TLHDIG_DOI,
+         "code_url": CODE_URL, "texts": f"{sw['texts_in_scope']:,}", "pool": f"{sw['manuscript_pool']:,}",
+         "versions_table": mdtable(versions), "traditions_table": mdtable(trad),
+         "placed_both": f"{len(both):,}", "placed_same": f"{same:,}",
+         "precision": f"{sw['precision_above_margin']:.0%}",
+         "kd_n": len(kd), "kd_top20": int((kd['rank'] <= 20).sum()), "kd_median": f"{kd['rank'].median():g}",
+         "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
+         "references": references(T)}
     tpl = Template(open(os.path.join(os.path.dirname(__file__) or ".", "release_template", "README.md")).read())
     open(f"{d}/README.md", "w").write(tpl.substitute(v))
 
+    def resources(k):
+        out = []
+        for fn, (desc, cols) in FILES.items():
+            have = list(pd.read_csv(f"{d}/{k}/{fn}", nrows=0).columns)
+            out.append({"name": f"{k}-{fn.removesuffix('.csv')}".replace("_", "-"), "path": f"{k}/{fn}",
+                        "profile": "tabular-data-resource", "format": "csv", "encoding": "utf-8",
+                        "description": f"{FOLDERS[k]}. {desc}",
+                        "schema": {"fields": [{"name": n, "type": t, "description": dsc} for n, t, dsc in cols if n in have]}})
+        return out
     pkg = {"profile": "tabular-data-package", "name": "orphans-and-archetypes-nearest-manuscripts",
            "title": TITLE, "version": a.version, "licenses": [{"name": "CC-BY-4.0",
            "path": "https://creativecommons.org/licenses/by/4.0/", "title": "Creative Commons Attribution 4.0"}],
            "sources": [{"title": "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3",
                         "path": f"https://doi.org/{TLHDIG_DOI}"}],
            "contributors": [{"title": "Shai Gordin", "role": "author"}],
-           "resources": [{"name": fn.removesuffix(".csv"), "path": fn, "profile": "tabular-data-resource",
-                          "format": "csv", "encoding": "utf-8", "description": desc,
-                          "schema": {"fields": [{"name": n, "type": t, "description": dsc} for n, t, dsc in cols]}}
-                         for fn, (desc, cols) in FILES.items()]}
+           "resources": resources("without_restorations") + resources("with_restorations")}
     json.dump(pkg, open(f"{d}/datapackage.json", "w"), indent=1, ensure_ascii=False)
 
     cff = f"""cff-version: 1.2.0
@@ -334,21 +327,14 @@ references:
         "https://creativecommons.org/licenses/by/4.0/legalcode\n\n"
         "It is derived from TLHdig Beta Version 0.3 (Müller, Prechel, Rieken, Schwemer; doi:10.5281/zenodo.20328284),\n"
         "itself licensed CC BY 4.0. Cite both when you use it.\n")
-    # review sample (Google Sheet): the two worked examples + 8 scored texts per bin, seeded
-    Fr = F.reset_index()
-    pick = Fr[Fr.txtid.isin(["EBo 133", "KBo 41.22"])]
-    rest = Fr[(Fr.status != "too_small") & ~Fr.txtid.isin(pick.txtid)]
-    pick = pd.concat([pick] + [g.sample(min(8, len(g)), random_state=0) for _, g in rest.groupby("laroche_bin", sort=False)])
-    keep = ["txtid", "filed_under_cth", "laroche_bin", "n_words_analysed", "status", "tradition_1", "similarity_1",
-            "tradition_2", "similarity_2", "margin", "placed_tradition", "below_fit_floor", "nearest_is_outside_genre",
-            "spellings_only_agrees", "rests_on_common_features", "compositions_top5", "manuscripts_top5",
-            "match_candidates", "tlhdig_url"]
-    pick[keep].to_csv(f"{d}/review_sample.csv", index=False)
     if a.zip:
         name = f"orphans_archetypes_nearest_manuscripts_v{a.version}"
         with zipfile.ZipFile(f"{d}/../{name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
-            for fn in ["README.md", "LICENSE.txt", "CITATION.cff", "datapackage.json", "summary.json", *FILES]:
+            for fn in ["README.md", "LICENSE.txt", "CITATION.cff", "datapackage.json"]:
                 z.write(f"{d}/{fn}", f"{name}/{fn}")
+            for k in FOLDERS:
+                for fn in ["summary.json", *FILES]:
+                    z.write(f"{d}/{k}/{fn}", f"{name}/{k}/{fn}")
         print("wrote", os.path.abspath(f"{d}/../{name}.zip"))
 
 

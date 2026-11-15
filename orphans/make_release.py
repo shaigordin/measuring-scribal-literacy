@@ -341,8 +341,9 @@ def main():
     for t, s in scope.iterrows():
         F.append({"txtid": t, "filed_under_cth": s.cth, "laroche_bin": s.bin, "is_ebo": t.startswith("EBo"),
                   "n_words_analysed": int(s.n_analysed), "n_words_legible": int(s.n_legible),
-                  **({"n_words_as_edited": int(n_words_a.get(t, 0)), "n_words_same_text": int(s.n_same_text),
-                      "present_share": s.present_share} if "present_share" in scope else {}),
+                  **({"n_words_as_edited": int(n_words_a.get(t, 0))} if pa else {}),
+                  **({"n_words_same_text": int(s.n_same_text), "present_share": s.present_share}
+                     if "present_share" in scope else {}),
                   "tlhdig_url": tlhdig_url(t, s.cth), "konkordanz_url": konkordanz_url(t),
                   **rows.get(t, {"status": "too_small"}),
                   **({"status_A": pa[t][1], "placed_tradition_A": pa[t][0]} if pa else {})})
