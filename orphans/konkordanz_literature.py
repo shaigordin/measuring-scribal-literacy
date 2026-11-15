@@ -2,7 +2,8 @@
 
 Reads the cached Konkordanz pages (data/konkordanz/hetkonk_c<CTH>.html, see qtm/konkordanz.py),
 takes the notes column of every manuscript row, and extracts citations of the form
-"J. Klinger, StBoT 37, 1996, 302-352". Counts each work once per manuscript row. Personal
+"J. Klinger, StBoT 37, 1996, 302-352" (a part number,
+as in "StBoT 72,1, 2023", stays with the venue). Counts each work once per manuscript row. Personal
 communications ("Hinweis ...") have no series and are not counted.
 
 Usage: python konkordanz_literature.py --groups literature --out results/konkordanz_literature.csv
@@ -20,7 +21,7 @@ from qtm.groups import GROUPSETS
 CIT = re.compile(r"((?:[A-ZÄÖÜŠ][a-zäöü]{0,3}\.(?:-[A-Z]\.)?\s?){1,3}(?:(?:de|van|von|del|di)\s)?"
                  r"[A-ZÄÖÜŠÇ][\w’'\-]+(?:[-–][A-ZÄÖÜ][\w’'\-]+)?"
                  r"(?:\s?[–/-]\s?(?:[A-Z][a-z]?\.\s?){1,3}[A-ZÄÖÜ][\w’'\-]+)?)"
-                 r",\s([A-Za-zÄÖÜäöü][^,;()]{1,40}?),\s((?:18|19|20)\d\d)\b")
+                 r",\s([A-Za-zÄÖÜäöü][^,;()]{1,40}?(?:,\s?\d{1,2})?),\s((?:18|19|20)\d\d)\b")
 
 
 def notes(page):

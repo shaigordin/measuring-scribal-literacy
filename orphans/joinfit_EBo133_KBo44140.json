@@ -1,0 +1,118 @@
+{
+ "title": "Does EBo 133 continue KBo 44.140? A true-scale fit from the photographs",
+ "subtitle": "Best fit found: EBo 133 side A below KBo 44.140 obverse col. III, right sides aligned. A visual aid, not a confirmed join.",
+ "out_px_per_cm": 80,
+ "out_png": "results/joinfit/EBo133_KBo44140_fit.png",
+ "out_json": "results/joinfit/EBo133_KBo44140_fit.json",
+ "tokens_csv": "data/tokens_A.csv",
+ "touch_overlap_px": 40,
+ "upper": {
+  "label": "KBo 44.140 Vs. (III)",
+  "txtid": "KBo 44.140",
+  "sides": [
+   "Vs. (III)"
+  ],
+  "photo": "data/photos/KBo_44_140_Phb00079a_Phb00080a.jpg",
+  "ruler_strip_x": [
+   1325,
+   1345
+  ],
+  "ruler_strip_y": [
+   15,
+   600
+  ],
+  "crop": [
+   705,
+   15,
+   1300,
+   615
+  ],
+  "dark_background": false,
+  "bg_threshold": 205,
+  "text_band_in_crop": [
+   225,
+   125,
+   525,
+   575
+  ],
+  "deskew": false,
+  "ruling_lines_between": [
+   5,
+   6
+  ],
+  "edge_rows_in_crop": [
+   150,
+   450
+  ],
+  "ruling_rows_approx_in_crop": [
+   251,
+   446
+  ]
+ },
+ "lower": {
+  "label": "EBo 133 side A",
+  "lost_as_x": true,
+  "txtid": "EBo 133",
+  "sides": [
+   "side A"
+  ],
+  "photo": "data/photos/EBo-133-02-SBO.jpg",
+  "ruler_strip_x": [
+   575,
+   600
+  ],
+  "crop": [
+   730,
+   230,
+   1360,
+   1150
+  ],
+  "dark_background": true,
+  "bg_threshold": 18,
+  "gain": 1.25,
+  "text_band_in_crop": [
+   130,
+   50,
+   450,
+   870
+  ],
+  "deskew": false,
+  "edge_rows_in_crop": [
+   200,
+   550
+  ]
+ },
+ "highlight": {
+  "close": [
+   "ir-ḫa-a-ez-zi",
+   "ak-ku-uš-ke-ez-zi"
+  ],
+  "drink": [
+   "e-ku-zi",
+   "1-ŠU"
+  ],
+  "bread": [
+   "ta-kar-mu-un",
+   "pár-ši-ia"
+  ]
+ },
+ "caveats": [
+  "Caveats",
+  "1. The right edge is a hypothesis: I assume the right side of both",
+  "   pieces is the tablet's right edge. Check on the tablets.",
+  "2. Photos are 2D: the break surfaces, which decide a join,",
+  "   are not visible. A duplicate is equally possible.",
+  "3. KBo 44.140 is a 1960s print; its line count between the",
+  "   rulings is read by eye (5 or 6), so its spacing is a range.",
+  "4. The gap between the two pieces is unknown; they are shown",
+  "   touching. The order rests on the formula sequence only.",
+  "5. Cut-outs are automatic; dark edges may be clipped."
+ ],
+ "out_slide_png": "results/joinfit/EBo133_KBo44140_fit_slide.png",
+ "marks_csv": "data/tokens_marks.csv",
+ "out_slide_full_png": "results/joinfit/EBo133_KBo44140_fit_slide_full.png",
+ "xml_dir": "data/TLHbasisONLINE25_1_ZENODO_Beta_03",
+ "gap_em_per_unit": 0.25,
+ "out_lost_json": "results/joinfit/EBo133_lost_at_line_start.json",
+ "out_slide_wide_png": "results/joinfit/EBo133_KBo44140_fit_slide_wide.png"
+}

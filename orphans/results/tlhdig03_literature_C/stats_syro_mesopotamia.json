@@ -1,0 +1,57 @@
+{
+ "by_cth": {
+  "698": {
+   "manuscripts": 22,
+   "with_AZU": 0,
+   "words": 4832
+  },
+  "701": {
+   "manuscripts": 99,
+   "with_AZU": 61,
+   "words": 14175
+  },
+  "714": {
+   "manuscripts": 9,
+   "with_AZU": 4,
+   "words": 1106
+  },
+  "715": {
+   "manuscripts": 2,
+   "with_AZU": 1,
+   "words": 527
+  },
+  "721": {
+   "manuscripts": 2,
+   "with_AZU": 0,
+   "words": 361
+  }
+ },
+ "total_manuscripts": 134,
+ "total_words": 21001,
+ "AZU_manuscripts_by_tradition": {
+  "not in reference": 217,
+  "Syro-Mesopotamia (Hurrian)": 66,
+  "Kizzuwatna rituals": 17,
+  "Kizzuwatna–Lower Land (Hurrian)": 15,
+  "Mixed (Hurrian, Syrian, Luwian)": 13,
+  "Hattian cult layer": 2,
+  "Ḫuwaššanna festivals": 1
+ },
+ "AZU_outside_reference_by_cth": {
+  "500": 45,
+  "470": 34,
+  "670": 10,
+  "615": 9,
+  "790": 7,
+  "446": 6,
+  "458": 6,
+  "616": 6,
+  "701": 6,
+  "777": 5,
+  "330": 4,
+  "705": 4,
+  "376": 3,
+  "471": 3,
+  "641": 3
+ }
+}
