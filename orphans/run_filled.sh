@@ -15,8 +15,32 @@ python3 -m qtm.variants "$DATA/tokens_marks_filled.csv" "$TOK" --variant C > "$O
 L=()
 [ -f labels/cth701_labels.csv ] && L=(--labels701 labels/cth701_labels.csv)
 python3 run_experiments.py "$TOK" "${L[@]}" --groups literature --out "$O" --perm 200 > "$O/run.log"   # E1-E6
+python3 run_openset.py "$TOK" --report "$O/report.json" --out "$O" > "$O/E9_run.log"                    # E9
 python3 run_hypotheses.py "$TOK" --out "$O" > "$O/E10_run.log"                                          # E10
+mkdir -p "$O/tunnawiya"
+python3 run_hypotheses.py "$TOK" --cths 409 --claim "Luwian rituals (Puriyanni, Kuwattalla)" --out "$O/tunnawiya" > "$O/tunnawiya/E10_run.log"
+python3 run_attribution.py "$TOK" --report "$O/report.json" --out "$O" > "$O/E11_run.log"              # E11
+python3 run_profiles.py "$TOK" "${L[@]}" --groups literature --out "$O" --perm 100 > "$O/E7_run.log"   # E7
+python3 run_wordclass.py "$TOK" "${L[@]}" --groups literature --out "$O" --perm 100 > "$O/E8_run.log"  # E8
 python3 run_spellings_only.py "$TOK" --run "$O" > "$O/R1_run.log"                                      # R1
-for T in "KBo 44.52" "EBo 133" "KBo 41.22"; do python3 run_case.py "$TOK" --run "$O" --txtid "$T" --out "$O/case" >> "$O/case/run.log"; done
+python3 stats_corpus.py "$TOK" --out "$O" --groups literature
+C=$O/case
+python3 run_case.py "$TOK" --run "$O" --txtid "KBo 41.22" --out "$C" > "$C/run.log"
+python3 run_case.py "$TOK" --run "$O" --txtid "EBo 133" --out "$C" >> "$C/run.log"
+python3 run_trail.py "$TOK" --run "$O" --out "$C" >> "$C/run.log"
+python3 run_word_spread.py "$TOK" --word takarmun --exclude "EBo 133" --out "$C/spread_takarmun.json" >> "$C/run.log"
+python3 run_join_candidates.py "$TOK" --run "$O" --txtid "EBo 133" --out "$C" >> "$C/run.log"
+python3 run_size_example.py "$TOK" --run "$O" --txtid "KUB 29.4+" --starts 0 200 400 --out "$C" >> "$C/run.log"
+for T in "KBo 61.39" "KUB 35.146" "EBo 133"; do
+  python3 run_unplaced_example.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"
+done
+for T in "KBo 44.52" "DAAM 3.64" "KBo 52.43"; do python3 run_case.py "$TOK" --run "$O" --txtid "$T" --out "$C" >> "$C/run.log"; done
+python3 run_test_examples.py "$TOK" --run "$O" --out "$C" >> "$C/run.log"
+python3 run_barcode.py "$TOK" --run "$O" --txtid "KBo 44.52" --out "$C" >> "$C/run.log"
+mkdir -p "$O/known_joins" "$O/joins"
+python3 run_known_joins.py "$TOK" --run "$O" --cache "$DATA/konkordanz" --out "$O/known_joins" --labels "$O/known_joins/labels.csv" \
+  --pages-from results/tlhdig03_literature/known_joins/known_joins.json > "$O/known_joins/run.log"
+python3 run_join_model.py "$TOK" --run "$O" --xml "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" --cache "$DATA/konkordanz" \
+  --k 200 --out "$O/joins" > "$O/joins/run.log"
 python3 compare_filled.py --main results/tlhdig03_literature_C --filled "$O" --fill "$DATA/tokens_marks_filled.csv" > "$O/comparison.txt"
 echo done
