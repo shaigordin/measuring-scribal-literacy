@@ -4,14 +4,14 @@
  "core": 200,
  "top": "Syro-Mesopotamia (Hurrian)",
  "runner_up": "Kizzuwatna rituals",
- "margin": 0.1137,
+ "margin": 0.1133,
  "assigned": "Syro-Mesopotamia (Hurrian)",
  "rows": [
   {
    "tradition": "Syro-Mesopotamia (Hurrian)",
-   "cells": "cdcdcccccdcccc.cccdccccc.cd..c..c.c..c.c..c........c..c.dcc..cc..cc...dc.cdcd.cd.c.d.c.....c....c.....d...d...d............cd.cd.d..d..d..dcd..c......cdd...c....d...d..c.....d..d...........c....d...d.",
-   "attested": 79,
-   "distinctive": 29,
+   "cells": "cdcdccccdccccc.ccccdc.cccccc.ccd........cc.c....d..c...c.cc...ccc..cddcd.cdc..dc.c.c...c..........d....d...........c.d....c..d..dd.dc..ddcd.dcd.d.d....c..dc..c...........cd.d........c.................",
+   "attested": 80,
+   "distinctive": 28,
    "terms": [
     "AZU",
     "§AZU",
@@ -19,74 +19,73 @@
     "SÍSKUR",
     "§SÍSKUR",
     "EN",
-    "BANŠUR",
-    "NINDA.SIG",
     "§SIG",
-    "§EN",
+    "NINDA.SIG",
+    "BANŠUR",
     "§NINDA·SIG",
-    "§UZU",
+    "§EN",
     "§BANŠUR",
     "AD.KID",
     "§AD",
+    "§UZU",
     "§AD·KID",
-    "natkan",
+    "§GIŠ·BANŠUR",
     "šipanti",
     "§KID",
-    "§GIŠ·BANŠUR",
-    "§nu·uš",
-    "§aš·ši",
-    "arḫa",
-    "šara",
     "ḪAL",
+    "§aš·ši",
+    "natkan",
+    "arḫa",
+    "§LÚ·ḪAL",
     "§ši·i",
-    "§ši·pa",
-    "§na·at·kán",
-    "§LÚ·ḪAL"
+    "§ḪAL",
+    "šara",
+    "§ši·pa"
    ]
   },
   {
-   "tradition": "Kizzuwatna rituals",
-   "cells": "cc.ccccccccc...ccc.cccc..c.cc...cdc...ccc......cd...cccc.c.cd.....c...c.cc..c.c.c.....d........................c.c....d.d.c.c....d....d....c......dc.......c.....cc.c..c.c....c......d.........cdd..d..c",
-   "attested": 68,
-   "distinctive": 13,
+   "tradition": "Mixed (Hurrian, Syrian, Luwian)",
+   "cells": "c..dcdcdc....cc.c.c.c.c.cc.c.c.cc.cccc..c.....ccc........cc...ccc..c....ccccc...c...c....c...c.d....c.d...d..d..c........d....d.......c..........cc.....cd..d..................c.......c...c..d..c..c...",
+   "attested": 62,
+   "distinctive": 12,
    "terms": [
-    "EN",
-    "arḫa",
-    "§EN",
-    "§ma·aš",
-    "SÍSKUR",
-    "§e·eš",
-    "§er",
-    "§SÍSKUR",
-    "§nu·uš",
-    "§ši·pa",
+    "NINDA.SIG",
+    "§SIG",
+    "§NINDA·SIG",
+    "§IŠTAR",
+    "§UZU",
     "šipanti",
-    "§aš·ši",
-    "§še·er"
+    "§ši·pa",
+    "§D·IŠTAR",
+    "IŠTAR",
+    "~zi",
+    "§ik",
+    "§šu·up"
    ]
   },
   {
    "tradition": "Kizzuwatna–Lower Land (Hurrian)",
-   "cells": ".ccccccccc..c.cccccccc.c.........c.c.cc...d..c..d..c.ccc.c.d..cc...d.c...d....c...c.cc.c..c.....c......c.d....................c.c..........c............c..d..c............d....cd.....cd....c..c...c...",
-   "attested": 60,
-   "distinctive": 10,
+   "cells": ".cccccccccc.cc.cccccc.c......cd....c..c..c.cd..cc....c..cc....cdd.......d...c.c..c.c.c..cc..c..c......c..d.....c..c................c.......d...d...d..........d.c..c.c.c.c..........d..........c.......c",
+   "attested": 61,
+   "distinctive": 11,
    "terms": [
     "§ši·pa",
     "šipanti",
-    "NINDA.SIG",
     "§SIG",
+    "NINDA.SIG",
     "§NINDA·SIG",
     "§da·an·zi",
-    "§aš·ši",
-    "IŠTAR",
     "§IŠTAR",
-    "§D·IŠTAR"
+    "IŠTAR",
+    "§D·IŠTAR",
+    "§aš·ši",
+    "tanzi"
    ]
   },
   {
    "tradition": "Luwian rituals (Puriyanni, Kuwattalla)",
-   "cells": ".c.d...dcc...d..dcccc...cc....c.cc..cc..d.c...cc.c.....c..c.ccd....c............c............d.......cc........d...c............c...........................d....c.d.........c.............c.....c......",
-   "attested": 42,
+   "cells": "..c..d.ccd...d..cc.cdc...cc..ccc..c..cc.c.dc...c..........cc.c.dc...c..................c.c.........d......c...cc.........d..................d....c..................d...........c....................c..",
+   "attested": 41,
    "distinctive": 10,
    "terms": [
     "SÍSKUR",
@@ -102,85 +101,83 @@
    ]
   },
   {
-   "tradition": "Mixed (Hurrian, Syrian, Luwian)",
-   "cells": "c..dcc.d..c....c.ccc...c.cccd.ccc.ccccc....c..c........ccc.c..cc....c.ccc...c.c..d..c..c.dc....c..d.....c...dc....d..d....c............c....cc......c.c.d.....c.............c.c...............c...c.....",
-   "attested": 61,
-   "distinctive": 10,
+   "tradition": "Kizzuwatna rituals",
+   "cells": "cccccccc.ccc..cccc.cc...cc.c...ccc.c..c....dc.c.c.c.c.ccd..dc..c...cc..c......cc.c.................c.........c...........ccdcc....cc...cdd........cc.c....c.c.d.c.c..c...............d...d..............",
+   "attested": 66,
+   "distinctive": 9,
    "terms": [
-    "NINDA.SIG",
-    "§SIG",
-    "§NINDA·SIG",
-    "§IŠTAR",
-    "§D·IŠTAR",
-    "IŠTAR",
-    "šipanti",
-    "§ši·pa",
-    "§UZU",
-    "§ik"
-   ]
-  },
-  {
-   "tradition": "Arzawa / western rituals",
-   "cells": ".ccccdc.cccc.ccc.c.cdccc...cc.ccc.c..c.c..c......d.c.....c.....c.c...c..........c.......d.c..........................d..c..c........c...........c....c.d......c.................c.....c............c....",
-   "attested": 48,
-   "distinctive": 6,
-   "terms": [
+    "EN",
+    "§EN",
     "arḫa",
-    "§UZU",
-    "§nu·uš",
-    "§da·an·zi",
     "§e·eš",
-    "§an·kán"
+    "SÍSKUR",
+    "§SÍSKUR",
+    "§er",
+    "§ši·pa",
+    "§aš·ši"
    ]
   },
   {
    "tradition": "Ḫuwaššanna festivals",
-   "cells": ".c..c.cc..cc...c.....ccc..cc.cc.....cc.........cc...c.cc.....c..c..cc....d.c.c...cc...cd.............d....c....d.c.......c...dd....c...c....cc......c....c......cc....................c...c.........c...",
-   "attested": 50,
-   "distinctive": 6,
+   "cells": "c..c.ccc.c....c.cc.c..c...cc......c.c.....c.c.c..c..c....dc.cc....dc.c.............cc.c...ccd..d.....d.c....c...c..............c...dc..........cc.......c.......c.d......c....c....c..cc................",
+   "attested": 51,
+   "distinctive": 7,
    "terms": [
     "§SÍSKUR",
-    "§BANŠUR",
     "EN",
-    "§GIŠ·BANŠUR",
+    "§EN",
+    "§BANŠUR",
     "SÍSKUR",
-    "§EN"
+    "§GIŠ·BANŠUR",
+    "~zi"
    ]
   },
   {
-   "tradition": "Palaic festivals",
-   "cells": ".c..c.cc.cc.c...cc.cc...c.cc.c.....ccc.c.c.c.............ccc..c.c...c.c....c.....c..c.............c............c.c.......c.ccc.....c..d.c.c..........c...c......dc.d................d....c......d.......",
-   "attested": 50,
+   "tradition": "Arzawa / western rituals",
+   "cells": "c.ccdcc.cc.c.c.c.c.cc.cc.cc..cdccccc.c.c......c.c....c......c.....c...c....c...c..............d..dc.........c......................c.....c....c..............cc...c.............d........c..............",
+   "attested": 47,
    "distinctive": 5,
    "terms": [
-    "šer",
-    "§še·er",
-    "§er",
-    "§da·aš",
-    "§UZU"
+    "arḫa",
+    "§UZU",
+    "§e·eš",
+    "§da·an·zi",
+    "§an·kán"
    ]
   },
   {
    "tradition": "Hattian cult layer",
-   "cells": "ccccc..cc.ccccccc....cc.cccc.c...cc.cc..c..ccc..c..cc.....ccc....c...c.c..c...c.......c........c....c.c..................c.....cc.....c...c..............c...c......d................dd..c....d.........",
-   "attested": 56,
-   "distinctive": 4,
+   "cells": "cccc.c..cccccccc.c.cc.c..cc.cccc.c...cc..c....cc.c.c.ccc.......c.c..c..c....c...c........c.c......c..............c...c.....c....c..c......cd.....................c........c.d...d..c.........d..d.......",
+   "attested": 57,
+   "distinctive": 5,
    "terms": [
+    "~zi",
     "§BANŠUR",
+    "§ḫa·aš",
     "§e·eš",
-    "§GIŠ·BANŠUR",
-    "§ḫa·aš"
+    "§GIŠ·BANŠUR"
+   ]
+  },
+  {
+   "tradition": "Palaic festivals",
+   "cells": "c...c..ccc..c.c.cc.ccc.....cc..c.c.c......c...cc.c......c..cc.c...c..c.cc.......c...c............d..c........c..cd.....c....c....cccc...c.d.......c..........c...d.c..c......................d..........",
+   "attested": 50,
+   "distinctive": 5,
+   "terms": [
+    "§er",
+    "§še·er",
+    "šer",
+    "~zi",
+    "§da·aš"
    ]
   },
   {
    "tradition": "Luwian festivals (Ištanuwa, Lallupiya)",
-   "cells": "cc...cccccc.....c..c.c..c...c.ccc.cc.........cc...c..cccc.c.......c..c...c.c..........cd...ccc.......................cc.........c..........................cc..c....c.c................d.....dc........d",
+   "cells": "cc...cccccc.....c....c..cc...cc..cccc........ccc...c...cc..c...c..cc.....c....c......cc.....ccc........................c..c...c...........................cc......c...cc..............d.......d..cc.....",
    "attested": 47,
-   "distinctive": 4,
+   "distinctive": 2,
    "terms": [
-    "§ma·aš",
     "§ku·i",
-    "§nu·uš",
     "§ši·pa"
    ]
   }

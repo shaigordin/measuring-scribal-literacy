@@ -1,128 +1,128 @@
 {
- "units": 18865,
- "pieces": 2979,
- "query_pieces": 2478,
- "joined_texts": 946,
+ "units": 20648,
+ "pieces": 3078,
+ "query_pieces": 2603,
+ "joined_texts": 998,
  "k": 200,
- "pairs": 827275,
- "partner_in_top_k": 0.749,
+ "pairs": 870478,
+ "partner_in_top_k": 0.739,
  "similarity_ranking": {
-  "recall@1": 0.108,
-  "recall@5": 0.266,
-  "recall@20": 0.43,
-  "queries": 2478,
-  "median_rank": 37.0
+  "recall@1": 0.11,
+  "recall@5": 0.271,
+  "recall@20": 0.436,
+  "queries": 2603,
+  "median_rank": 35.0
  },
  "model_reranking": {
-  "recall@1": 0.153,
-  "recall@5": 0.342,
-  "recall@20": 0.493,
-  "queries": 2478,
-  "median_rank": 7.0
+  "recall@1": 0.134,
+  "recall@5": 0.312,
+  "recall@20": 0.477,
+  "queries": 2603,
+  "median_rank": 9.0
  },
  "flags": {
   "same_findspot": {
    "joins": 0.0,
-   "other": 0.0232
+   "other": 0.024
   },
   "date_conflict": {
    "joins": 0.0,
-   "other": 0.032
+   "other": 0.0332
   }
  },
  "weights": {
   "cosine": {
-   "weight": 0.349,
-   "ci_low": 0.266,
-   "ci_high": 0.449
+   "weight": 0.52,
+   "ci_low": 0.405,
+   "ci_high": 0.641
   },
   "tradition_cos": {
-   "weight": 0.267,
-   "ci_low": 0.064,
-   "ci_high": 0.411
+   "weight": 0.443,
+   "ci_low": 0.284,
+   "ci_high": 0.572
   },
   "composition_cos": {
-   "weight": 0.035,
-   "ci_low": -0.08,
-   "ci_high": 0.162
+   "weight": 0.276,
+   "ci_low": 0.128,
+   "ci_high": 0.451
   },
   "word_overlap": {
-   "weight": 0.512,
-   "ci_low": 0.387,
-   "ci_high": 0.629
+   "weight": 0.295,
+   "ci_low": 0.12,
+   "ci_high": 0.444
   },
   "phrase_overlap": {
-   "weight": -0.108,
-   "ci_low": -0.173,
-   "ci_high": -0.054
+   "weight": -0.092,
+   "ci_low": -0.143,
+   "ci_high": -0.036
   },
   "same_spelling": {
-   "weight": 0.217,
-   "ci_low": 0.069,
-   "ci_high": 0.358
+   "weight": 0.124,
+   "ci_low": 0.016,
+   "ci_high": 0.264
   },
   "scribal_distance": {
-   "weight": -0.056,
-   "ci_low": -0.13,
-   "ci_high": 0.005
+   "weight": -0.045,
+   "ci_low": -0.132,
+   "ci_high": 0.053
   },
   "column_overlap": {
-   "weight": 0.187,
-   "ci_low": 0.116,
-   "ci_high": 0.259
+   "weight": 0.189,
+   "ci_low": 0.127,
+   "ci_high": 0.263
   },
   "same_series": {
-   "weight": 0.105,
-   "ci_low": 0.049,
-   "ci_high": 0.156
+   "weight": 0.083,
+   "ci_low": 0.005,
+   "ci_high": 0.146
   },
   "same_find_series": {
-   "weight": 0.01,
-   "ci_low": -0.067,
-   "ci_high": 0.073
+   "weight": -0.011,
+   "ci_low": -0.107,
+   "ci_high": 0.05
   },
   "log_words_a": {
-   "weight": -0.212,
-   "ci_low": -0.295,
-   "ci_high": -0.147
+   "weight": -0.313,
+   "ci_low": -0.4,
+   "ci_high": -0.221
   },
   "log_words_b": {
-   "weight": 0.089,
-   "ci_low": 0.015,
-   "ci_high": 0.164
+   "weight": -0.033,
+   "ci_low": -0.115,
+   "ci_high": 0.055
   }
  },
  "konkordanz": {
   "duplicate": {
    "similarity_ranking": {
-    "recall@1": 0.361,
-    "recall@5": 0.49,
-    "recall@20": 0.592,
-    "queries": 147,
-    "median_rank": 6.0
+    "recall@1": 0.347,
+    "recall@5": 0.571,
+    "recall@20": 0.7,
+    "queries": 170,
+    "median_rank": 3.0
    },
    "model_reranking": {
-    "recall@1": 0.286,
-    "recall@5": 0.476,
-    "recall@20": 0.571,
-    "queries": 147,
+    "recall@1": 0.371,
+    "recall@5": 0.553,
+    "recall@20": 0.682,
+    "queries": 170,
     "median_rank": 3.0
    }
   },
   "join": {
    "similarity_ranking": {
     "recall@1": 0.0,
-    "recall@5": 0.0,
-    "recall@20": 0.0,
+    "recall@5": 0.1,
+    "recall@20": 0.2,
     "queries": 10,
-    "median_rank": 219.5
+    "median_rank": 121.0
    },
    "model_reranking": {
     "recall@1": 0.1,
-    "recall@5": 0.3,
-    "recall@20": 0.4,
+    "recall@5": 0.2,
+    "recall@20": 0.5,
     "queries": 10,
-    "median_rank": 12.0
+    "median_rank": 11.0
    }
   }
  }

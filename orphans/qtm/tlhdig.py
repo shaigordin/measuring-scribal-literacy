@@ -9,7 +9,8 @@ rule that set it and `wc_conf` its confidence; manual corrections from a CSV (wo
 wclass, note, reviewer; translit empty = every occurrence of the word) override them. Words that are wholly or partly illegible
 (`%` in trans, only `x` signs, or only `…`) keep their translit but get an empty `word`.
 
-Sign status and editorial marks (added 2026-11-11; they do not change `word` or `translit`):
+Sign status and editorial marks (added 2026-11-11; they do not change `word` or `translit`; brackets are
+read line by line as TLHdig encodes them, see line_start_states, fixed 2026-11-15):
 `lang_word` is the word's own language tag where TLHdig gives one (lg on <w>), else its line's.
 `status` has one letter per sign of qtm.corpus.signs(translit), in order: P preserved, D damaged
 (half brackets, or partly inside square brackets), R restored by the editor (wholly inside [ ]),
@@ -65,7 +66,8 @@ def _local(node):
 
 def _chars(node, st, out, layer="H", top=True):
     """(char, status, layer, flags) for every character of a word's sign text, in order; updates
-    the bracket state `st`, which runs across words and lines as the milestones do."""
+    the bracket state `st`, which runs across the words of a line as the milestones do (mark_words
+    sets it afresh at every <lb>)."""
     tag = "" if top else _local(node)
     if tag in ("del_in", "del_fin"):
         st.restored = tag == "del_in"
@@ -143,21 +145,51 @@ def sign_marks(chars, translit):
     return "".join(status), "".join(layer), ".".join(flags)
 
 
+PAIRS = {"restored": ("del_in", "del_fin"), "damaged": ("laes_in", "laes_fin"),
+         "erased": ("ras_in", "ras_fin"), "added": ("add_in", "add_fin")}
+_MILESTONE = {t: (k, t.endswith("_in")) for k, ts in PAIRS.items() for t in ts}
+
+
+def line_start_states(root):
+    """Bracket state at the start of each line (<lb>), as TLHdig encodes it: brackets are line-bound.
+    A bracket left open at the end of a line ("... [") only says the rest of that line is broken, and
+    a line whose first milestone of a kind is a closing one ("x]-aš ...", <del_fin/> with no
+    <del_in/> before it in the line) begins inside that bracket. So each kind starts a line open
+    exactly when its first milestone in the line closes it, whatever the line before did.
+    (Before 2026-11-15 the state ran on from the previous line, which misread both cases.)"""
+    states, cur = {}, None
+    for el in root.iter():
+        tag = _local(el)
+        if tag == "lb":
+            cur = states[el] = {}
+        elif cur is not None and tag in _MILESTONE:
+            kind, opens = _MILESTONE[tag]
+            cur.setdefault(kind, not opens)
+    return states
+
+
 def mark_words(tree):
-    """Sign marks for every <w>, walking the document in order so brackets carry across words."""
+    """Sign marks for every <w>, walking the document in order so brackets carry across the words of
+    a line; at every <lb> the state is reset from line_start_states."""
     st, marks = _State(), {}
+    root = tree.getroot()
+    starts = line_start_states(root) if root is not None else {}
 
     def visit(node):
         tag = _local(node)
+        if tag == "lb":
+            s0 = starts.get(node, {})
+            for kind in PAIRS:
+                setattr(st, kind, s0.get(kind, False))
         if tag == "w":
             marks[node] = _chars(node, st, [])
             return
-        if tag in ("del_in", "del_fin", "laes_in", "laes_fin", "ras_in", "ras_fin", "add_in", "add_fin"):
+        if tag in _MILESTONE:
             _chars(node, st, [], top=False)
         for c in node:
             visit(c)
-    if tree.getroot() is not None:
-        visit(tree.getroot())
+    if root is not None:
+        visit(root)
     return marks
 
 
