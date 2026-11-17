@@ -708,6 +708,12 @@ def compare_versions():
                 if r["txtid"] in want and re.search(r"ŠU ?\.GI", r["translit"]) and "R" in r["status"]:
                     hit.add(r["txtid"])
         put("AC.onlyA.luwian.sugi", num(len(hit)), "data/tokens_marks_filled.csv (status R in a ŠU.GI word)")
+    else:   # the token table is not in git: keep the value from the last build that had it
+        idx = os.path.join(OUT, "numbers_index.csv")
+        old = {r["key"]: r for r in csv.DictReader(open(idx, encoding="utf-8"))} if os.path.exists(idx) else {}
+        if "AC.onlyA.luwian.sugi" in old:
+            put("AC.onlyA.luwian.sugi", old["AC.onlyA.luwian.sugi"]["value"],
+                old["AC.onlyA.luwian.sugi"]["source"].replace(" [kept from last build]", "") + " [kept from last build]")
 
 
 if __name__ == "__main__":

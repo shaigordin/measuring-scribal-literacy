@@ -2472,4 +2472,4 @@ AC.placedA.samenearest,815,tlhdig03_literature_A_filled/E5_orphan_placement.csv 
 AC.placedA.samenearest.share,98\%,tlhdig03_literature_A_filled/E5_orphan_placement.csv vs tlhdig03_literature_C_filled/E5_orphan_placement.csv
 AC.onlyA,404,tlhdig03_literature_A_filled/E5_orphan_placement.csv vs tlhdig03_literature_C_filled/E5_orphan_placement.csv
 AC.onlyA.luwian,14,tlhdig03_literature_A_filled/E5_orphan_placement.csv vs tlhdig03_literature_C_filled/E5_orphan_placement.csv
-AC.onlyA.luwian.sugi,14,data/tokens_marks_filled.csv (status R in a ŠU.GI word)
+AC.onlyA.luwian.sugi,14,data/tokens_marks_filled.csv (status R in a ŠU.GI word) [kept from last build]
