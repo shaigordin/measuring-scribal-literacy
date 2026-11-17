@@ -49,6 +49,13 @@ _CASE = re.compile(r"\b(NOM|ACC|GEN|D/L|ABL|INS|ALL|VOC|STF)\b")
 _FUNC = re.compile(r"\b(CONN\w*|ADV|POSP|PREV|CNJ|PPRO|DEM\w*|REL|INT\w*|NEG|PTCL|OBP\w*|REFL|POSS\w*|INDF\w*)\b")
 _ROMAN = re.compile(r"^(I|II|III|IV|V)\.")
 FOREIGN = {"Hur", "Hat", "Luw", "Pal"}
+# the language a word's selection names when TLHdig gives no language tag (mrp0sel="HAT", "LUW 0a" ...)
+FOREIGN_SEL = {"HURR", "HUR", "HAT", "LUW", "PAL"}
+# persons: {m}, {f}, and HFR's combined determinative of theophoric names, {m.D}30.SUM-ia (HFR Basiscorpus
+# guide p. 12); fixed compounds that HFR writes as one word with ˽, LÚ˽{D}10 "man of the Storm god",
+# MUNUS˽{D}10, LÚ˽{GIŠ}BANŠUR (guide p. 13 and its list p. 15 ff.), name a person, not the god
+_PERSON = re.compile(r"\{(m|f|M|F)(\.[^}]*)?\}")
+_COMPOUND_PERSON = re.compile(r"^(LÚ|MUNUS)\s*(\{[^}]*\})?\s*˽")
 
 
 _ALT = re.compile(r"\{\s*([a-z])\s*→\s*([^}]*)\}")
@@ -81,6 +88,23 @@ def reading_pos(m: str) -> str:
     return "unknown"
 
 
+_NAME = re.compile(r"\b(DN|GN|PN|TN|RN|MN|HN|ON|WN)\b")
+
+
+def hurrian_only(mrp: str, letters: str = "") -> bool:
+    """True when every chosen reading of one analysis is Hurrian (HURR, no HITT) and the word is not a
+    name (DN, GN ... or a name stem class 35-39): katkiša HURR, itkalzi 'purity' HURR.ABS.SG."""
+    f = [x.strip() for x in mrp.replace("①", "").split("@")]
+    if len(f) < 3:
+        return False
+    morph, cls = f[2], f[3] if len(f) > 3 else ""
+    if cls[:2] in ("35", "36", "37", "38", "39"):
+        return False
+    readings = alternatives(morph, letters) if morph else [cls]
+    return bool(readings) and all(re.search(r"\bHURR\b", r) and not re.search(r"\bHITT\b", r)
+                                  and not _NAME.search(r) for r in readings)
+
+
 def candidate_pos(mrp: str, letters: str = "") -> str:
     """Part of speech of one TLHdig analysis (lemma@gloss@morphology@stem class@determinative):
     a verbal stem class (I., II. ...) makes a verb; otherwise the readings decide, and readings
@@ -100,6 +124,7 @@ def candidate_pos(mrp: str, letters: str = "") -> str:
 
 
 RULES = {"determinative_deity": "high", "determinative_agent": "high", "language": "high",
+         "compound_title": "high", "analysis_hurrian": "high",
          "akkadian_function": "high",
          "analysis_selected": "high", "preposition_split": "high", "manual": "manual",
          "agent_logogram": "medium", "en_title": "high", "title_pair": "high", "word_fix": "high", "analysis_unanimous": "medium", "selected_elsewhere": "medium",
@@ -137,13 +162,15 @@ def word_class_rule(attrs: dict, translit: str, lang: str) -> tuple[str, str]:
     """(word class, rule); the rule's confidence level is RULES[rule]."""
     tl = translit or ""
     word = attrs.get("trans") or ""
-    if re.match(r"\{(m|f|M|F)\}", tl):                      # personal names, theophoric ones included
-        return "agent", "determinative_agent"           # ({m}SUM-{D}KAL is a man, not a god)
+    if _PERSON.match(tl):                               # personal names, theophoric ones included
+        return "agent", "determinative_agent"           # ({m}SUM-{D}KAL and {m.D}30-SUM are men, not gods)
+    if _COMPOUND_PERSON.match(tl):                      # LÚ˽{D}10: a cult functionary, not the god
+        return "agent", "compound_title"
     if _REALIA_HEAD.match(tl):                          # GIŠ.{D}INANNA "harp", É.DINGIR "temple"
         return "realia", "determinative_noun"
     if "{D}" in tl or word.startswith("DINGIR"):
         return "deity", "determinative_deity"
-    if re.search(r"\{(LÚ|MUNUS)(\.〈?MEŠ〉?)?\}|\{(m|f)\}", tl) or re.match(r"(LÚ|MUNUS)\b", word):
+    if re.search(r"\{(LÚ|MUNUS)(\.〈?MEŠ〉?)?\}", tl) or _PERSON.search(tl) or re.match(r"(LÚ|MUNUS)\b", word):
         return "agent", "determinative_agent"
     if re.split(r"[-\s]", word)[0] in AGENT_LOGOGRAMS:
         return "agent", "agent_logogram"
@@ -160,13 +187,18 @@ def word_class_rule(attrs: dict, translit: str, lang: str) -> tuple[str, str]:
     # a logogram (no lower-case sign: KI.MIN, DINGIR) in a foreign-language line is not a word of
     # that language, unless the word itself is tagged
     logogram = bool(word) and not re.search(r"[a-zšḫṣṭṯâêîûàèìùáéíú]", word) and not own_lang
-    if (lang in FOREIGN or sel == "HURR") and not logogram:
+    sel_lang = sel.split()[0] if sel else ""
+    if (lang in FOREIGN or sel_lang in FOREIGN_SEL) and not logogram:
         # a Hittite word inside a foreign-language line (nu=za, tai in a Hurrian line) keeps its
         # Hittite analysis when the editor selected one with no language marker
         if not (picked and all(not re.search(r"\b(LUW|PAL|HAT|HURR)\b", m) for m in picked.values())):
             return "foreign", "language"
     if not mrps:
         return no_analysis_rule(tl)
+    if picked and all(hurrian_only(m, chosen[n]) for n, m in picked.items()):
+        # a Hurrian word in a Hittite line, recognised by its selected analysis only: HFR tags single
+        # Hurrian words "can, but need not" (HFR Annotation guide p. 11); names keep their class below
+        return "foreign", "analysis_hurrian"
     pool = [(m, chosen[n]) for n, m in picked.items()] or [(m, "") for m in mrps.values()]
     pos = {candidate_pos(m, l) for m, l in pool} - {"unknown"}
     if len(pos) == 1:

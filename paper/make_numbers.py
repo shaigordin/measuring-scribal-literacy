@@ -538,6 +538,18 @@ def main():
             put(f"KJ.{kind}.median", num(int(med)) if med.is_integer() else f"{med:g}", f"{sk} {kind}.median_rank")
         put("KJ.pool", num(kj["pool"]), f"{sk} pool")
 
+    # ---- TLHdig 0.3 against the HFR guides (orphans/check_hfr_conventions.py)
+    hfr = load("", "hfr_conventions.json")
+    sh = "hfr_conventions.json"
+    put("hfr.annot.hfr", pct(hfr["HFR"]["share_files_human_annotator"]), f"{sh} HFR.share_files_human_annotator")
+    put("hfr.annot.other", pct(hfr["other"]["share_files_human_annotator"]), f"{sh} other.share_files_human_annotator")
+    put("hfr.selected.hfr", pct(hfr["HFR"]["share_analysed_words_selected"]), f"{sh} HFR.share_analysed_words_selected")
+    put("hfr.selected.other", pct(hfr["other"]["share_analysed_words_selected"]), f"{sh} other.share_analysed_words_selected")
+    put("hfr.det.plural", pct(hfr["all"]["share_determinative_words_only_plural_or_date"]),
+        f"{sh} all.share_determinative_words_only_plural_or_date")
+    hc = load("", "wordclass_rule_changes_hfr.csv")
+    put("wc.hfr.changed", num(sum(int(r["tokens"]) for r in hc)), "wordclass_rule_changes_hfr.csv tokens (sum)")
+
     # ---- word classes: how each label is reached (qtm/wordclass.py on TLHdig's analyses)
     conf = load("", "wordclass_confidence.json")
     put("wc.tokens", num(conf["legible_tokens"]), "wordclass_confidence.json legible_tokens")

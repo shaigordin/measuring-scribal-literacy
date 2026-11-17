@@ -17,8 +17,8 @@
  },
  "model_reranking": {
   "recall@1": 0.134,
-  "recall@5": 0.312,
-  "recall@20": 0.477,
+  "recall@5": 0.311,
+  "recall@20": 0.474,
   "queries": 2603,
   "median_rank": 9.0
  },
@@ -34,64 +34,64 @@
  },
  "weights": {
   "cosine": {
-   "weight": 0.52,
-   "ci_low": 0.405,
-   "ci_high": 0.641
+   "weight": 0.517,
+   "ci_low": 0.404,
+   "ci_high": 0.644
   },
   "tradition_cos": {
-   "weight": 0.443,
-   "ci_low": 0.284,
-   "ci_high": 0.572
+   "weight": 0.444,
+   "ci_low": 0.277,
+   "ci_high": 0.569
   },
   "composition_cos": {
-   "weight": 0.276,
-   "ci_low": 0.128,
-   "ci_high": 0.451
+   "weight": 0.275,
+   "ci_low": 0.13,
+   "ci_high": 0.465
   },
   "word_overlap": {
-   "weight": 0.295,
-   "ci_low": 0.12,
-   "ci_high": 0.444
+   "weight": 0.292,
+   "ci_low": 0.11,
+   "ci_high": 0.447
   },
   "phrase_overlap": {
-   "weight": -0.092,
+   "weight": -0.09,
    "ci_low": -0.143,
-   "ci_high": -0.036
+   "ci_high": -0.033
   },
   "same_spelling": {
-   "weight": 0.124,
-   "ci_low": 0.016,
-   "ci_high": 0.264
+   "weight": 0.128,
+   "ci_low": 0.02,
+   "ci_high": 0.271
   },
   "scribal_distance": {
-   "weight": -0.045,
-   "ci_low": -0.132,
-   "ci_high": 0.053
-  },
-  "column_overlap": {
-   "weight": 0.189,
-   "ci_low": 0.127,
-   "ci_high": 0.263
-  },
-  "same_series": {
-   "weight": 0.083,
-   "ci_low": 0.005,
-   "ci_high": 0.146
-  },
-  "same_find_series": {
-   "weight": -0.011,
-   "ci_low": -0.107,
+   "weight": -0.044,
+   "ci_low": -0.131,
    "ci_high": 0.05
   },
+  "column_overlap": {
+   "weight": 0.188,
+   "ci_low": 0.128,
+   "ci_high": 0.265
+  },
+  "same_series": {
+   "weight": 0.086,
+   "ci_low": 0.007,
+   "ci_high": 0.15
+  },
+  "same_find_series": {
+   "weight": -0.01,
+   "ci_low": -0.103,
+   "ci_high": 0.049
+  },
   "log_words_a": {
-   "weight": -0.313,
-   "ci_low": -0.4,
-   "ci_high": -0.221
+   "weight": -0.307,
+   "ci_low": -0.397,
+   "ci_high": -0.217
   },
   "log_words_b": {
-   "weight": -0.033,
-   "ci_low": -0.115,
-   "ci_high": 0.055
+   "weight": -0.034,
+   "ci_low": -0.124,
+   "ci_high": 0.051
   }
  },
  "konkordanz": {
@@ -105,7 +105,7 @@
    },
    "model_reranking": {
     "recall@1": 0.371,
-    "recall@5": 0.553,
+    "recall@5": 0.559,
     "recall@20": 0.682,
     "queries": 170,
     "median_rank": 3.0
@@ -124,7 +124,7 @@
     "recall@5": 0.2,
     "recall@20": 0.5,
     "queries": 10,
-    "median_rank": 11.0
+    "median_rank": 9.0
    }
   }
  }

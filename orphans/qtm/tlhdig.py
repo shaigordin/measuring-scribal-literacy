@@ -17,7 +17,7 @@ read line by line as TLHdig encodes them, see line_start_states, fixed 2026-11-1
 L lost and not restored (…), O omitted by the scribe and supplied by the editor (〈x〉).
 `layer` is aligned the same way: H phonetic (Hittite or other language), A Akkadogram (<aGr>),
 S Sumerogram (<sGr>), d determinative. `flags` holds the marks a sign carries, one group per
-sign joined by '.': u uncertain reading (?), e emended (!, sic), r written over an erasure,
+sign joined by '.': u uncertain reading (?), e emended (!), v reading verified against the hand copy (sic), r written over an erasure,
 a added by the scribe, s superfluous: written in error (〈〈x〉〉) or followed by a <surpl> sign. Both strings are empty when the XML signs could not be
 aligned with translit (counted in parse.log). n_* columns count the signs of each kind.
 """
@@ -48,7 +48,8 @@ def _text(node):
     return inner
 
 
-MARKS = {"?": "u", "(?)": "u", "??": "u", "!": "e", "sic": "e", "!?": "eu", "?!": "eu",
+# sic: the reading was checked against the hand copy (HFR Basiscorpus guide p. 8), not an emendation
+MARKS = {"?": "u", "(?)": "u", "??": "u", "!": "e", "sic": "v", "!?": "eu", "?!": "eu",
          "(over erasure)": "r"}
 OPEN, CLOSE = "〈⟨", "〉⟩"
 _SEP = re.compile(r"[-.\s{}+˽]+")
@@ -196,7 +197,7 @@ def mark_words(tree):
 EMPTY = ("", "", "")
 MARK_COLS = ["lang_word", "status", "layer", "flags", "n_signs", "n_preserved", "n_damaged", "n_restored", "n_lost", "n_omitted",
              "n_akkadogram", "n_sumerogram", "n_uncertain", "n_emended", "n_erasure", "n_added",
-             "n_superfluous"]
+             "n_superfluous", "n_verified"]
 
 
 def mark_cols(m, lang_word=""):
@@ -204,7 +205,7 @@ def mark_cols(m, lang_word=""):
     f = flags.split(".") if flags else []
     return (lang_word, status, layer, flags, len(status), status.count("P"), status.count("D"), status.count("R"), status.count("L"), status.count("O"),
             layer.count("A"), layer.count("S"), sum("u" in x for x in f), sum("e" in x for x in f),
-            sum("r" in x for x in f), sum("a" in x for x in f), sum("s" in x for x in f))
+            sum("r" in x for x in f), sum("a" in x for x in f), sum("s" in x for x in f), sum("v" in x for x in f))
 
 
 def _split_marks(m, k):

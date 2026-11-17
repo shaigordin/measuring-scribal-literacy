@@ -26,6 +26,7 @@
 \input{../generated/numbers.tex}
 \input{../generated/case_data_c.tex}
 \makeatletter\newcommand{\C}[1]{\@ifundefined{case@#1}{\textcolor{red}{[#1?]}\PackageWarning{qtm}{Undefined number #1}}{\csname case@#1\endcsname}}\makeatother
+\newcommand{\ut}{{\fontspec{Noto Sans Display}˽}}  % HFR's undertie (U+02FD), missing in Termes
 \makeatletter\newcommand{\gentab}[1]{\@@input ../generated/tab_#1.tex }\makeatother
 
 \graphicspath{{../../img/orphans/literature/}{../figures/}}
@@ -99,7 +100,7 @@ to assign. Our contributions are:
     separates what is written from how it is written and shows how much rests on common
     particles such as \textit{nu} (Section~\ref{sec:decision});
   \item a placement of \Q{E5.assigned} orphans, each with the features it rests on, as leads
-    for verification on the tablet.
+    to verify on the tablet.
 \end{enumerate}
 
 %% ==========================================================================================
@@ -171,10 +172,11 @@ assign Hittite fragments to religious traditions, or that asks when a fragment f
 
 \paragraph{Corpus.}
 We use the TLHdig Beta 0.3 release \citep{tlhdig03}, converted to one row per word following
-\citet{yavasan2025clay}. Each word carries its normalised form, its transliteration split into
+\citet{yavasan2025clay}. Each word carries its normalised form (HFR's search form, without voicing, length or
+plene; \citealp[8]{hfrannotation}), its transliteration split into
 signs, its language, whether a sign is an Akkadogram, a Sumerogram or a determinative (TLHdig
-tags these separately), and the lexical and morphological analyses that TLHdig produces
-automatically with the HFR tool, which are not validated by hand \citep{tlhdig03}. The release is
+tags these separately), and TLHdig's lexical and morphological analyses, made automatically and
+checked by hand in stages, fully only in HFR's critical editions \citep[14]{hfrbasiscorpus}. The release is
 downloaded by script and checked by its checksum, so the word table can be rebuilt from the public
 data alone. As in \citet{gordin2025matters}, reference manuscripts must have at least 17 legible
 words. The analyses do not cover the whole release: the Luwian rituals (\CTH{758}--763) have
@@ -188,7 +190,8 @@ evaluation on spellings alone with every manuscript.
 \paragraph{Damage and restoration.}
 TLHdig prints the editors' restorations alongside what survives, and marks each sign as preserved,
 damaged, restored, omitted or lost. Counting restorations as text would let an editor's
-reconstruction, often made from a duplicate, decide where a fragment belongs. We therefore count
+reconstruction, often made from a duplicate, decide where a fragment belongs. HFR's critical editions, too, build
+the composite text from the duplicates apart from each tablet's transliteration \citep[6, 12]{hfrkritisch}. We therefore count
 only what is on the tablet. A sign counts if it is preserved or damaged, also when its reading is
 uncertain; a word counts if at least half its signs survive, or if the same word form survives at
 least half-preserved elsewhere in the same text. Restorations supported only by duplicates are
@@ -312,19 +315,20 @@ the word itself, the first would beat the second. We also use the word categorie
 verbs, with realia narrowed to physical things and the remaining nouns grouped by meaning
 (places; animals, body parts and nature; abstract nouns; adjectives; measures).
 
-The two kinds of analysis are kept apart. Placement uses only the word forms and sign sequences of a text; word categories play no part in it. They are an annotation added afterwards, used to ask which kinds of words a result rests on (Section~\ref{sec:decision}; Figure~\ref{fig:case}).
+Placement uses only the word forms and sign sequences of a text; word categories play no part in it. They are an annotation added afterwards, used to ask which kinds of words a result rests on (Section~\ref{sec:decision}; Figure~\ref{fig:case}).
 
 No word was classed by hand. Fixed rules derive each category from TLHdig's markup, applied in
-order: the word's determinative (DINGIR makes a deity, \textsuperscript{LÚ} an agent), its
-language tag, and its automatic morphological analysis, using the analysis marked as selected
+order: the word's determinative (DINGIR makes a deity, \textsuperscript{LÚ} an agent, also in
+HFR's compounds such as LÚ\ut{}\textsuperscript{D}10 ``man of the Storm god'',
+\citealp[13]{hfrbasiscorpus}), its language tag or that of its selected analysis, and its automatic morphological analysis, using the analysis marked as selected
 where there is one (a person-marked form is a verb, a particle or pronoun a function word);
 unanalysed words fall back on the analyses selected for the same form elsewhere. Nouns and
 adjectives are then classed by their German gloss, through a list of \Q{wc.glosses} glosses that
 was drafted with a language model and has not been checked by hand; it is the one step not
 derived from TLHdig. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
 \Q{wc.tokens} legible words are classed with high confidence, \Q{wc.conf.medium} with medium and
-\Q{wc.conf.low} with low. Since neither the automatic analyses nor our rules are validated in
-TLHdig, our audit is the only manual check: a domain expert checked a stratified sample of \Q{wc.audit.n} words:
+\Q{wc.conf.low} with low. Our rules are not validated in TLHdig, so our audit is their only
+manual check: a domain expert checked a stratified sample of \Q{wc.audit.n} words:
 \Q{wc.audit.before.high}, \Q{wc.audit.before.medium} and \Q{wc.audit.before.low} were correct at
 the three levels, \Q{wc.audit.before.corpus} overall when weighted by corpus shares. Fixing the
 \Q{wc.audit.fixes} rules that the errors pointed to raises the overall figure to
@@ -342,16 +346,15 @@ their tradition, against \Q{E1.both.majority} for the majority baseline and
 test gives \Q{A.E1.both.acc} on \Q{A.E1.both.n} manuscripts: restorations add manuscripts and
 words but change little. Recall ranges from \Q{trad.minrecall} to
 \Q{trad.maxrecall} (Table~\ref{tab:summary}) and is lowest for the Syro-Mesopotamian and the mixed Hurrian groups. The
-festivals that HFR separates are kept apart by the texts themselves: the Ḫuwaššanna festivals
-reach \Q{trad.huwassannafestivals.recall} and those of Ištanuwa and Lallupiya
+festivals that HFR separates are kept apart by the texts: the Ḫuwaššanna festivals
+reach \Q{trad.huwassannafestivals.recall}, those of Ištanuwa and Lallupiya
 \Q{trad.luwianfestivalsistanuwalallupiya.recall}.
 
-Accuracy rises steeply with fragment size and then flattens. Windows of 3, 10 and 40 words cut
+Accuracy rises steeply with fragment size, then flattens. Windows of 3, 10 and 40 words cut
 from held-out manuscripts are placed correctly in \Q{E2.both.k3}, \Q{E2.both.k10} and
 \Q{E2.both.k40} of cases, against a chance level of \Q{chance}. Above the margin
 $\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision. With
-restorations, where every restored word counts, the same precision is reached at $\tau=\Q{A.E2.margin}$
-and \Q{A.E2.share} of windows pass.
+restorations, $\tau=\Q{A.E2.margin}$ gives the same precision and passes \Q{A.E2.share}.
 
 Inside \CTH{701}, the procedure recovers \Q{E3.both.acc} of the \Q{E3.both.n} manuscripts that
 \citet{salvini1986chs} sorted into \Q{E3.both.classes} subgroups (majority \Q{E3.both.majority},
@@ -446,7 +449,8 @@ Each layer alone identifies a tradition (Table~\ref{tab:layers}). Logograms reac
 \Q{E7.logograms.acc}, Hittite vocabulary \Q{E7.lexicon.acc}, and foreign-language words
 \Q{E7.foreign.acc} in the \Q{E7.foreign.n} manuscripts that have them. The variable words reach
 \Q{E7.spelling.acc} with their spelling kept and \Q{E7.collapsed.acc} with it collapsed: the
-choice of spelling adds nothing beyond the word. The seven orthographic rates are a weak but real
+choice of spelling adds nothing beyond the word, the line HFR's editions also draw between
+variants and spellings \citep[10f.]{hfrkritisch}. The seven orthographic rates are a weak but real
 signal (\Q{E7.orthographic_indices.acc} against \Q{E7.orthographic_indices.null_mean} for
 shuffled labels). By word category, removing the function words leaves accuracy
 almost unchanged (\Q{E8.without_function.words}, against \Q{E8.all.words} with all words), and on their own they
@@ -472,7 +476,7 @@ whom and what they name.
 \end{table}
 
 \paragraph{Similarity is not decision.}
-Splitting each decision over its features (Section~\ref{sec:method}) answers an obvious worry:
+Splitting each decision over its features answers an obvious worry:
 the particle \textit{nu} and other frequent words weigh heavily in a fragment's similarity to its
 tradition. Over the \Q{E11a.texts} correctly placed reference manuscripts, features found in at
 least a quarter of the reference make up \Q{E11b.common.similarity} of the similarity but only
@@ -516,23 +520,21 @@ tradition by more than the margin, \Q{E9.orph.assigned_outside} of them among th
 release them as candidates for re-filing.
 
 Without restorations far fewer orphans are placed than with them (\Q{A.E5.assigned} of
-\Q{A.corpus.orphans_used}), because many orphans lose most of their words with the
-restorations. The placements that remain are stable: of the \Q{AC.placedA.scoredC} orphans placed
+\Q{A.corpus.orphans_used}), but the placements that remain are stable: of the \Q{AC.placedA.scoredC} orphans placed
 with restorations that are still scored without them, \Q{AC.placedA.samenearest} (\Q{AC.placedA.samenearest.share})
 keep the same nearest tradition. The loss is in confidence, not in direction.
 
 \subsection{Duplicates, not joins: a negative result}
 \label{sec:joins}
-A fragment's nearest manuscripts are leads for the philologist, and the question is what kind of
-lead they are. Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
+Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
 recorded duplicate pairs, the partner ranks first in \Q{KJ.duplicate.top1} and among the 20
 nearest of \Q{KJ.pool} manuscripts in \Q{KJ.duplicate.top20} (median rank
 \Q{KJ.duplicate.median}). With restorations the figures look better (median rank
 \Q{A.KJ.duplicate.median}, \Q{A.KJ.duplicate.top20} of \Q{A.KJ.duplicate.pairs} in the top 20),
 but partly by circularity: editors restore duplicates from each other. Of the
 \Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reaches the top 20 (median rank
-\Q{KJ.join.median}). Two pieces of one tablet share their context but, as
-a rule, not their text, so we tried to learn a ranking for joins.
+\Q{KJ.join.median}). Two pieces of one tablet share context but rarely
+text, so we tried to learn a ranking for joins.
 
 TLHdig marks on every line of a joined text the piece it is preserved on. Splitting its joined
 texts back into their pieces gives \Q{J1.query_pieces} query pieces from \Q{J1.joined_texts}
@@ -546,14 +548,14 @@ pieces, against \Q{J1.sim.r20} for similarity alone, and the median rank falls f
 \Q{J1.konk.join.model.hits20} of \Q{J1.konk.join.queries} in the top 20, against
 \Q{J1.konk.join.sim.hits20} for similarity.
 
-The weights show what it learns. Word overlap (\Q{J1.w.wordoverlap}) and similarity
+In its weights, word overlap (\Q{J1.w.wordoverlap}) and similarity
 (\Q{J1.w.cosine}) favour a join, as do preserved columns that match (\Q{J1.w.columnoverlap}),
 identical spellings (\Q{J1.w.samespelling}) and the same excavation series
 (\Q{J1.w.sameseries}); the scribal rates have no measurable effect (\Q{J1.w.scribaldistance},
 95\% interval \Q{J1.w.scribaldistance.ci}). Shared text is the strongest cue, so the model still
 rewards what duplicates have in common. Find spot and
 date, the evidence one would want, cannot be fitted honestly, because for known joins the
-Konkordanz often derives them from the join itself. Text alone, we conclude, narrows the search
+Konkordanz often derives them from the join itself. Text alone narrows the search
 for a join but does not tell a join from a duplicate; that needs physical evidence.
 
 \begin{table}[t]
@@ -578,18 +580,15 @@ for a join but does not tell a join from a duplicate; that needs physical eviden
 
 \paragraph{Genre before origin.}
 A fragment is placed by what it shares with the reference, and the largest shared layer is
-genre, as the residue of \CTH{390}--469 shows. A placement is therefore ``nearest of these'', and
-is only as good as the alternatives in the reference.
+genre, as the residue of \CTH{390}--469 shows. A placement means ``nearest of these''.
 
 \paragraph{Archetypes and witnesses.}
 The results suggest a division of labour between two levels of a text, which we call
 Quantitative Scribal Tradition Mapping (QTM). Borrowing the terms of textual criticism
 \citep{maas1958textual,trovato2014lachmann}, a tradition is an \term{archetype}: not a
 reconstructed text, but the vocabulary, formulae and foreign-language recitation that its
-manuscripts share. Each manuscript, and each orphan, is a \term{witness} that attests part of
-it. Hittitology has rarely aimed at an \textit{Urtext}: editions
-combine the best-preserved manuscripts because the transmission is fragmentary
-\citep[39f.]{christiansen2011methoden}. Studies of single traditions trace instead how a
+manuscripts share. Each manuscript or orphan is a \term{witness} to part of it. Hittitology has rarely aimed at an \textit{Urtext}: editions
+combine the best-preserved manuscripts \citep[39f.]{christiansen2011methoden}. Single-tradition studies trace how a
 composition grew through redactions \citep{christiansen2006ambazzi}, or how variants arose from
 memorisation rather than copying \citep{marcuson2016memorization}; on autograph and archetype in Akkadian, see
 \citet{worthington2012principles}. Our archetype is identified by content, above all by whom and what a text names. Spelling
@@ -605,8 +604,8 @@ spelling or particles.
 \section*{Limitations}
 The study depends on one digital edition. TLHdig 0.3 has no word analyses for the Luwian
 corpus and for many rituals; we fill them from the same spelling elsewhere or from eDiAna, which
-assumes that one spelling has one lemma; its morphological analyses are automatic and unvalidated, and its
-normalised forms are uneven across editors. Words with less than half their signs on the tablet
+assumes that one spelling has one lemma; its analyses are automatic, checked by hand more fully for the festivals
+than for other genres, and fully validated only in HFR's critical editions. Words with less than half their signs on the tablet
 are dropped unless the same text supports them, so short fragments over-represent the formulaic
 lines that survive, and the half-preserved threshold is a choice we have not varied. Several traditions are small
 (the smallest has \Q{trad.smallest.n} test manuscripts), their recall is uncertain, and held out

@@ -3,7 +3,7 @@ foreign 0.873 0.432 465
 lexicon 0.724 0.247 1715
 spelling 0.615 0.255 1704
 collapsed 0.635 0.255 1707
-indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 1788, 'classes': 10}
+indices {'acc': 0.385, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 1788, 'classes': 10}
 {
  "corpus": {
   "texts": 1788,
@@ -116,7 +116,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "texts_with_layer": 1707
   },
   "orthographic_indices": {
-   "acc": 0.376,
+   "acc": 0.385,
    "majority": 0.271,
    "null_mean": 0.268,
    "p": 0.0099,
@@ -129,7 +129,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": -0.036,
    "akkadogram_share": -0.423,
    "complement_rate": -0.157,
-   "determinative_rate": -0.332,
+   "determinative_rate": -0.524,
    "plene_rate": -0.48,
    "cvc_share": 0.281,
    "u_acute_share": -0.151
@@ -138,7 +138,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": -0.399,
    "akkadogram_share": -0.354,
    "complement_rate": 0.244,
-   "determinative_rate": -0.035,
+   "determinative_rate": 0.019,
    "plene_rate": 0.517,
    "cvc_share": -0.15,
    "u_acute_share": 0.317
@@ -147,7 +147,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": 0.15,
    "akkadogram_share": -0.03,
    "complement_rate": -0.192,
-   "determinative_rate": -0.37,
+   "determinative_rate": -0.534,
    "plene_rate": -0.351,
    "cvc_share": 0.141,
    "u_acute_share": 0.074
@@ -156,7 +156,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": 0.258,
    "akkadogram_share": 0.447,
    "complement_rate": -0.217,
-   "determinative_rate": 0.09,
+   "determinative_rate": 0.076,
    "plene_rate": -0.302,
    "cvc_share": 0.02,
    "u_acute_share": -0.316
@@ -165,7 +165,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": -0.179,
    "akkadogram_share": 0.367,
    "complement_rate": -0.123,
-   "determinative_rate": 0.159,
+   "determinative_rate": 0.053,
    "plene_rate": -0.251,
    "cvc_share": 0.034,
    "u_acute_share": 0.195
@@ -174,7 +174,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": -0.42,
    "akkadogram_share": -0.21,
    "complement_rate": 0.668,
-   "determinative_rate": -0.757,
+   "determinative_rate": -0.665,
    "plene_rate": 0.058,
    "cvc_share": -0.312,
    "u_acute_share": 0.432
@@ -183,7 +183,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": 0.281,
    "akkadogram_share": -0.219,
    "complement_rate": 0.203,
-   "determinative_rate": 0.342,
+   "determinative_rate": 0.31,
    "plene_rate": -0.228,
    "cvc_share": 0.348,
    "u_acute_share": -0.118
@@ -192,7 +192,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": -0.82,
    "akkadogram_share": -0.163,
    "complement_rate": 0.682,
-   "determinative_rate": 0.004,
+   "determinative_rate": 0.081,
    "plene_rate": 0.175,
    "cvc_share": -0.016,
    "u_acute_share": 0.079
@@ -201,7 +201,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": 0.096,
    "akkadogram_share": 0.051,
    "complement_rate": -0.314,
-   "determinative_rate": -0.057,
+   "determinative_rate": 0.064,
    "plene_rate": 0.312,
    "cvc_share": -0.183,
    "u_acute_share": -0.339
@@ -210,7 +210,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
    "logogram_share": 0.41,
    "akkadogram_share": 0.473,
    "complement_rate": -0.314,
-   "determinative_rate": 0.403,
+   "determinative_rate": 0.424,
    "plene_rate": -0.332,
    "cvc_share": 0.049,
    "u_acute_share": -0.169
@@ -218,10 +218,10 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
  },
  "E7c_701_script_date": {
   "lda": {
-   "acc": 0.792,
+   "acc": 0.802,
    "majority": 0.832,
-   "null_mean": 0.814,
-   "p": 0.9703,
+   "null_mean": 0.815,
+   "p": 0.901,
    "n": 101,
    "classes": 2
   },
@@ -230,7 +230,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
     "logogram_share": 0.366,
     "akkadogram_share": 0.305,
     "complement_rate": 0.145,
-    "determinative_rate": 0.16,
+    "determinative_rate": 0.15,
     "plene_rate": 0.297,
     "cvc_share": 0.043,
     "u_acute_share": 0.238
@@ -239,7 +239,7 @@ indices {'acc': 0.376, 'majority': 0.271, 'null_mean': 0.268, 'p': 0.0099, 'n': 
     "logogram_share": 0.293,
     "akkadogram_share": 0.338,
     "complement_rate": 0.18,
-    "determinative_rate": 0.163,
+    "determinative_rate": 0.147,
     "plene_rate": 0.301,
     "cvc_share": 0.042,
     "u_acute_share": 0.171

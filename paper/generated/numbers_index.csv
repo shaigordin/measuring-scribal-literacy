@@ -259,7 +259,7 @@ A.E7.orthographic_indices.n,"1{,}788",tlhdig03_literature_A_filled/E7_report.jso
 A.E7.orthographic_indices.classes,10,tlhdig03_literature_A_filled/E7_report.json E7a_layers.orthographic_indices.classes
 A.E7.variable_words,458,tlhdig03_literature_A_filled/E7_report.json corpus
 A.E7.texts,"1{,}788",tlhdig03_literature_A_filled/E7_report.json corpus
-A.E7date.acc,79\%,tlhdig03_literature_A_filled/E7_report.json E7c_701_script_date.lda
+A.E7date.acc,80\%,tlhdig03_literature_A_filled/E7_report.json E7c_701_script_date.lda
 A.E7date.majority,83\%,tlhdig03_literature_A_filled/E7_report.json E7c_701_script_date.lda
 A.plene.akuanzi.arzawawesternrituals,0 of 4,tlhdig03_literature_A_filled/corpus_stats.json plene_clusters.akuanzi
 A.plene.akuanzi.arzawawesternrituals.cths,--,tlhdig03_literature_A_filled/corpus_stats.json plene_clusters.akuanzi
@@ -355,15 +355,15 @@ A.plene.ḫalzai.huwassannafestivals,7 of 7,tlhdig03_literature_A_filled/corpus_
 A.plene.ḫalzai.huwassannafestivals.cths,"691, 692, 694",tlhdig03_literature_A_filled/corpus_stats.json plene_clusters.ḫalzai
 A.E8.all.words,82\%,tlhdig03_literature_A_filled/E8_report.json historical.all
 A.E8.all.signs,84\%,tlhdig03_literature_A_filled/E8_report.json historical.all
-A.E8.only_agent.words,65\%,tlhdig03_literature_A_filled/E8_report.json historical.only_agent.words
-A.E8.only_agent.signs,68\%,tlhdig03_literature_A_filled/E8_report.json historical.only_agent.signs
+A.E8.only_agent.words,66\%,tlhdig03_literature_A_filled/E8_report.json historical.only_agent.words
+A.E8.only_agent.signs,69\%,tlhdig03_literature_A_filled/E8_report.json historical.only_agent.signs
 A.E8.only_agent.majority,28\%,tlhdig03_literature_A_filled/E8_report.json historical.only_agent
 A.E8.without_agent.words,80\%,tlhdig03_literature_A_filled/E8_report.json historical.without_agent.words
 A.E8.without_agent.signs,83\%,tlhdig03_literature_A_filled/E8_report.json historical.without_agent.signs
 A.E8.without_agent.majority,27\%,tlhdig03_literature_A_filled/E8_report.json historical.without_agent
-A.E8.only_deity.words,61\%,tlhdig03_literature_A_filled/E8_report.json historical.only_deity.words
+A.E8.only_deity.words,60\%,tlhdig03_literature_A_filled/E8_report.json historical.only_deity.words
 A.E8.only_deity.signs,62\%,tlhdig03_literature_A_filled/E8_report.json historical.only_deity.signs
-A.E8.only_deity.majority,22\%,tlhdig03_literature_A_filled/E8_report.json historical.only_deity
+A.E8.only_deity.majority,21\%,tlhdig03_literature_A_filled/E8_report.json historical.only_deity
 A.E8.without_deity.words,80\%,tlhdig03_literature_A_filled/E8_report.json historical.without_deity.words
 A.E8.without_deity.signs,82\%,tlhdig03_literature_A_filled/E8_report.json historical.without_deity.signs
 A.E8.without_deity.majority,27\%,tlhdig03_literature_A_filled/E8_report.json historical.without_deity
@@ -421,9 +421,9 @@ A.E8.only_adjective.majority,24\%,tlhdig03_literature_A_filled/E8_report.json hi
 A.E8.without_adjective.words,82\%,tlhdig03_literature_A_filled/E8_report.json historical.without_adjective.words
 A.E8.without_adjective.signs,84\%,tlhdig03_literature_A_filled/E8_report.json historical.without_adjective.signs
 A.E8.without_adjective.majority,27\%,tlhdig03_literature_A_filled/E8_report.json historical.without_adjective
-A.E8.only_foreign.words,84\%,tlhdig03_literature_A_filled/E8_report.json historical.only_foreign.words
+A.E8.only_foreign.words,85\%,tlhdig03_literature_A_filled/E8_report.json historical.only_foreign.words
 A.E8.only_foreign.signs,82\%,tlhdig03_literature_A_filled/E8_report.json historical.only_foreign.signs
-A.E8.only_foreign.majority,29\%,tlhdig03_literature_A_filled/E8_report.json historical.only_foreign
+A.E8.only_foreign.majority,28\%,tlhdig03_literature_A_filled/E8_report.json historical.only_foreign
 A.E8.without_foreign.words,79\%,tlhdig03_literature_A_filled/E8_report.json historical.without_foreign.words
 A.E8.without_foreign.signs,79\%,tlhdig03_literature_A_filled/E8_report.json historical.without_foreign.signs
 A.E8.without_foreign.majority,25\%,tlhdig03_literature_A_filled/E8_report.json historical.without_foreign
@@ -431,8 +431,8 @@ A.E8.701.all.words,51\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgr
 A.E8.701.all.majority,21\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgroups.all
 A.E8.701.without_foreign.words,48\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgroups.without_foreign
 A.E8.701.without_foreign.majority,20\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgroups.without_foreign
-A.E8.701.only_foreign.words,51\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgroups.only_foreign
-A.E8.701.only_foreign.majority,19\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgroups.only_foreign
+A.E8.701.only_foreign.words,54\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgroups.only_foreign
+A.E8.701.only_foreign.majority,18\%,tlhdig03_literature_A_filled/E8_report.json cth701_subgroups.only_foreign
 A.E9.k,10,tlhdig03_literature_A_filled/E9_report.json by_k
 A.E9.ref.placed,67\%,tlhdig03_literature_A_filled/E9_report.json by_k.10.reference
 A.E9.ref.correct,82\%,tlhdig03_literature_A_filled/E9_report.json by_k.10.reference
@@ -764,8 +764,8 @@ A.E11a.kizzuwatnalowerlandhurrian.places,3\%,tlhdig03_literature_A_filled/E11_re
 A.E11a.kizzuwatnalowerlandhurrian.animalsbodynature,2\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnalowerlandhurrian.abstractnouns,1\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnalowerlandhurrian.adjectives,0\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
-A.E11a.kizzuwatnalowerlandhurrian.foreignwords,8\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
-A.E11a.kizzuwatnalowerlandhurrian.otherwords,8\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
+A.E11a.kizzuwatnalowerlandhurrian.foreignwords,9\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
+A.E11a.kizzuwatnalowerlandhurrian.otherwords,7\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnalowerlandhurrian.othernouns,6\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnalowerlandhurrian.wordform,20\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnalowerlandhurrian.syllabicspelling,30\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
@@ -872,7 +872,7 @@ A.E11a.kizzuwatnarituals.places,3\%,tlhdig03_literature_A_filled/E11_report.json
 A.E11a.kizzuwatnarituals.animalsbodynature,9\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnarituals.abstractnouns,7\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnarituals.adjectives,5\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
-A.E11a.kizzuwatnarituals.foreignwords,4\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
+A.E11a.kizzuwatnarituals.foreignwords,5\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnarituals.otherwords,12\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnarituals.othernouns,24\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
 A.E11a.kizzuwatnarituals.wordform,18\%,tlhdig03_literature_A_filled/E11_report.json E11a.by_tradition
@@ -1119,7 +1119,7 @@ A.J1.konk.join.sim.median,174,tlhdig03_literature_A_filled/joins/J1_report.json 
 A.J1.konk.join.queries,10,tlhdig03_literature_A_filled/joins/J1_report.json konkordanz.join
 A.J1.model.r1,12\%,tlhdig03_literature_A_filled/joins/J1_report.json model_reranking.recall@1
 A.J1.model.r5,31\%,tlhdig03_literature_A_filled/joins/J1_report.json model_reranking.recall@5
-A.J1.model.r20,49\%,tlhdig03_literature_A_filled/joins/J1_report.json model_reranking.recall@20
+A.J1.model.r20,50\%,tlhdig03_literature_A_filled/joins/J1_report.json model_reranking.recall@20
 A.J1.model.median,9,tlhdig03_literature_A_filled/joins/J1_report.json model_reranking.median_rank
 A.J1.konk.duplicate.model.r20,76\%,tlhdig03_literature_A_filled/joins/J1_report.json konkordanz.duplicate.model_reranking
 A.J1.konk.duplicate.model.hits20,132,tlhdig03_literature_A_filled/joins/J1_report.json konkordanz.duplicate.model_reranking
@@ -1140,9 +1140,9 @@ A.J1.w.wordoverlap.ci,−0.32 to −0.06,tlhdig03_literature_A_filled/joins/J1_r
 A.J1.w.phraseoverlap,−0.03,tlhdig03_literature_A_filled/joins/J1_report.json weights.phrase_overlap
 A.J1.w.phraseoverlap.ci,−0.08 to 0.01,tlhdig03_literature_A_filled/joins/J1_report.json weights.phrase_overlap
 A.J1.w.samespelling,+0.21,tlhdig03_literature_A_filled/joins/J1_report.json weights.same_spelling
-A.J1.w.samespelling.ci,0.11 to 0.32,tlhdig03_literature_A_filled/joins/J1_report.json weights.same_spelling
+A.J1.w.samespelling.ci,0.10 to 0.33,tlhdig03_literature_A_filled/joins/J1_report.json weights.same_spelling
 A.J1.w.scribaldistance,−0.04,tlhdig03_literature_A_filled/joins/J1_report.json weights.scribal_distance
-A.J1.w.scribaldistance.ci,−0.13 to 0.04,tlhdig03_literature_A_filled/joins/J1_report.json weights.scribal_distance
+A.J1.w.scribaldistance.ci,−0.13 to 0.05,tlhdig03_literature_A_filled/joins/J1_report.json weights.scribal_distance
 A.J1.w.columnoverlap,+0.21,tlhdig03_literature_A_filled/joins/J1_report.json weights.column_overlap
 A.J1.w.columnoverlap.ci,0.13 to 0.28,tlhdig03_literature_A_filled/joins/J1_report.json weights.column_overlap
 A.J1.w.sameseries,+0.07,tlhdig03_literature_A_filled/joins/J1_report.json weights.same_series
@@ -1152,7 +1152,7 @@ A.J1.w.samefindseries.ci,−0.10 to 0.04,tlhdig03_literature_A_filled/joins/J1_r
 A.J1.w.logwordsa,−0.34,tlhdig03_literature_A_filled/joins/J1_report.json weights.log_words_a
 A.J1.w.logwordsa.ci,−0.42 to −0.27,tlhdig03_literature_A_filled/joins/J1_report.json weights.log_words_a
 A.J1.w.logwordsb,−0.12,tlhdig03_literature_A_filled/joins/J1_report.json weights.log_words_b
-A.J1.w.logwordsb.ci,−0.18 to −0.06,tlhdig03_literature_A_filled/joins/J1_report.json weights.log_words_b
+A.J1.w.logwordsb.ci,−0.19 to −0.06,tlhdig03_literature_A_filled/joins/J1_report.json weights.log_words_b
 A.KJ.duplicate.pairs,341,tlhdig03_literature_A_filled/known_joins/known_joins.json duplicate.pairs
 A.KJ.duplicate.top1,123,tlhdig03_literature_A_filled/known_joins/known_joins.json duplicate.top1
 A.KJ.duplicate.top5,215,tlhdig03_literature_A_filled/known_joins/known_joins.json duplicate.top5
@@ -1166,6 +1166,12 @@ A.KJ.join.top20,6,tlhdig03_literature_A_filled/known_joins/known_joins.json join
 A.KJ.join.top100,10,tlhdig03_literature_A_filled/known_joins/known_joins.json join.top100
 A.KJ.join.median,63,tlhdig03_literature_A_filled/known_joins/known_joins.json join.median_rank
 A.KJ.pool,"19{,}408",tlhdig03_literature_A_filled/known_joins/known_joins.json pool
+A.hfr.annot.hfr,59\%,hfr_conventions.json HFR.share_files_human_annotator
+A.hfr.annot.other,3\%,hfr_conventions.json other.share_files_human_annotator
+A.hfr.selected.hfr,86\%,hfr_conventions.json HFR.share_analysed_words_selected
+A.hfr.selected.other,40\%,hfr_conventions.json other.share_analysed_words_selected
+A.hfr.det.plural,21\%,hfr_conventions.json all.share_determinative_words_only_plural_or_date
+A.wc.hfr.changed,909,wordclass_rule_changes_hfr.csv tokens (sum)
 A.wc.tokens,"320{,}638",wordclass_confidence.json legible_tokens
 A.wc.conf.high,63\%,wordclass_confidence.json confidence_share.high
 A.wc.conf.medium,25\%,wordclass_confidence.json confidence_share.medium
@@ -1178,15 +1184,15 @@ A.wc.class.agent,8\%,wordclass_confidence.json class_share.agent
 A.wc.class.other,6\%,wordclass_confidence.json class_share.other
 A.wc.class.foreign,5\%,wordclass_confidence.json class_share.foreign
 A.wc.class.deity,5\%,wordclass_confidence.json class_share.deity
-A.wc.class.ambiguous,3\%,wordclass_confidence.json class_share.ambiguous
+A.wc.class.ambiguous,2\%,wordclass_confidence.json class_share.ambiguous
 A.wc.class.adjective,2\%,wordclass_confidence.json class_share.adjective
-A.wc.class.place,2\%,wordclass_confidence.json class_share.place
 A.wc.class.animal,2\%,wordclass_confidence.json class_share.animal
 A.wc.class.measure,1\%,wordclass_confidence.json class_share.measure
+A.wc.class.place,1\%,wordclass_confidence.json class_share.place
 A.wc.class.abstract,1\%,wordclass_confidence.json class_share.abstract
 A.wc.class.body,1\%,wordclass_confidence.json class_share.body
 A.wc.class.nature,1\%,wordclass_confidence.json class_share.nature
-A.wc.rule.analysisselected,43\%,wordclass_confidence.json rule_share.analysis_selected
+A.wc.rule.analysisselected,42\%,wordclass_confidence.json rule_share.analysis_selected
 A.wc.rule.analysisunanimous,15\%,wordclass_confidence.json rule_share.analysis_unanimous
 A.wc.rule.noanalysis,9\%,wordclass_confidence.json rule_share.no_analysis
 A.wc.rule.selectedelsewhere,6\%,wordclass_confidence.json rule_share.selected_elsewhere
@@ -1197,8 +1203,13 @@ A.wc.rule.determinativeagent,4\%,wordclass_confidence.json rule_share.determinat
 A.wc.rule.determinativenoun,3\%,wordclass_confidence.json rule_share.determinative_noun
 A.wc.rule.analysisambiguous,2\%,wordclass_confidence.json rule_share.analysis_ambiguous
 A.wc.rule.agentlogogram,1\%,wordclass_confidence.json rule_share.agent_logogram
+A.wc.rule.titlepair,1\%,wordclass_confidence.json rule_share.title_pair
 A.wc.rule.brokenclitic,0\%,wordclass_confidence.json rule_share.broken_clitic
+A.wc.rule.compoundtitle,0\%,wordclass_confidence.json rule_share.compound_title
+A.wc.rule.entitle,0\%,wordclass_confidence.json rule_share.en_title
 A.wc.rule.brokenending,0\%,wordclass_confidence.json rule_share.broken_ending
+A.wc.rule.wordfix,0\%,wordclass_confidence.json rule_share.word_fix
+A.wc.rule.analysishurrian,0\%,wordclass_confidence.json rule_share.analysis_hurrian
 A.wc.rule.akkadianfunction,0\%,wordclass_confidence.json rule_share.akkadian_function
 A.wc.changed,"83{,}814",wordclass_rule_changes.csv tokens (sum)
 A.wc.changed2,"4{,}310",wordclass_rule_changes_akk_logograms.csv tokens (sum)
@@ -1496,7 +1507,7 @@ E7.orthographic_indices.n,"1{,}635",tlhdig03_literature_C_filled/E7_report.json 
 E7.orthographic_indices.classes,10,tlhdig03_literature_C_filled/E7_report.json E7a_layers.orthographic_indices.classes
 E7.variable_words,273,tlhdig03_literature_C_filled/E7_report.json corpus
 E7.texts,"1{,}635",tlhdig03_literature_C_filled/E7_report.json corpus
-E7date.acc,78\%,tlhdig03_literature_C_filled/E7_report.json E7c_701_script_date.lda
+E7date.acc,79\%,tlhdig03_literature_C_filled/E7_report.json E7c_701_script_date.lda
 E7date.majority,82\%,tlhdig03_literature_C_filled/E7_report.json E7c_701_script_date.lda
 plene.akuanzi.arzawawesternrituals,0 of 4,tlhdig03_literature_C_filled/corpus_stats.json plene_clusters.akuanzi
 plene.akuanzi.arzawawesternrituals.cths,--,tlhdig03_literature_C_filled/corpus_stats.json plene_clusters.akuanzi
@@ -1595,7 +1606,7 @@ E8.all.signs,82\%,tlhdig03_literature_C_filled/E8_report.json historical.all
 E8.only_agent.words,62\%,tlhdig03_literature_C_filled/E8_report.json historical.only_agent.words
 E8.only_agent.signs,66\%,tlhdig03_literature_C_filled/E8_report.json historical.only_agent.signs
 E8.only_agent.majority,28\%,tlhdig03_literature_C_filled/E8_report.json historical.only_agent
-E8.without_agent.words,78\%,tlhdig03_literature_C_filled/E8_report.json historical.without_agent.words
+E8.without_agent.words,77\%,tlhdig03_literature_C_filled/E8_report.json historical.without_agent.words
 E8.without_agent.signs,79\%,tlhdig03_literature_C_filled/E8_report.json historical.without_agent.signs
 E8.without_agent.majority,27\%,tlhdig03_literature_C_filled/E8_report.json historical.without_agent
 E8.only_deity.words,56\%,tlhdig03_literature_C_filled/E8_report.json historical.only_deity.words
@@ -1658,9 +1669,9 @@ E8.only_adjective.majority,24\%,tlhdig03_literature_C_filled/E8_report.json hist
 E8.without_adjective.words,80\%,tlhdig03_literature_C_filled/E8_report.json historical.without_adjective.words
 E8.without_adjective.signs,82\%,tlhdig03_literature_C_filled/E8_report.json historical.without_adjective.signs
 E8.without_adjective.majority,27\%,tlhdig03_literature_C_filled/E8_report.json historical.without_adjective
-E8.only_foreign.words,81\%,tlhdig03_literature_C_filled/E8_report.json historical.only_foreign.words
-E8.only_foreign.signs,77\%,tlhdig03_literature_C_filled/E8_report.json historical.only_foreign.signs
-E8.only_foreign.majority,31\%,tlhdig03_literature_C_filled/E8_report.json historical.only_foreign
+E8.only_foreign.words,82\%,tlhdig03_literature_C_filled/E8_report.json historical.only_foreign.words
+E8.only_foreign.signs,76\%,tlhdig03_literature_C_filled/E8_report.json historical.only_foreign.signs
+E8.only_foreign.majority,30\%,tlhdig03_literature_C_filled/E8_report.json historical.only_foreign
 E8.without_foreign.words,77\%,tlhdig03_literature_C_filled/E8_report.json historical.without_foreign.words
 E8.without_foreign.signs,78\%,tlhdig03_literature_C_filled/E8_report.json historical.without_foreign.signs
 E8.without_foreign.majority,25\%,tlhdig03_literature_C_filled/E8_report.json historical.without_foreign
@@ -1997,8 +2008,8 @@ E11a.kizzuwatnalowerlandhurrian.places,2\%,tlhdig03_literature_C_filled/E11_repo
 E11a.kizzuwatnalowerlandhurrian.animalsbodynature,2\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.kizzuwatnalowerlandhurrian.abstractnouns,0\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.kizzuwatnalowerlandhurrian.adjectives,0\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
-E11a.kizzuwatnalowerlandhurrian.foreignwords,5\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
-E11a.kizzuwatnalowerlandhurrian.otherwords,12\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.foreignwords,6\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
+E11a.kizzuwatnalowerlandhurrian.otherwords,11\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.kizzuwatnalowerlandhurrian.othernouns,5\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.kizzuwatnalowerlandhurrian.wordform,30\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.kizzuwatnalowerlandhurrian.syllabicspelling,21\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
@@ -2142,7 +2153,7 @@ E11a.luwianritualspuriyannikuwattalla.animalsbodynature,2\%,tlhdig03_literature_
 E11a.luwianritualspuriyannikuwattalla.abstractnouns,2\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.luwianritualspuriyannikuwattalla.adjectives,0\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.luwianritualspuriyannikuwattalla.foreignwords,69\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
-E11a.luwianritualspuriyannikuwattalla.otherwords,4\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
+E11a.luwianritualspuriyannikuwattalla.otherwords,3\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.luwianritualspuriyannikuwattalla.othernouns,3\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.luwianritualspuriyannikuwattalla.wordform,39\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.luwianritualspuriyannikuwattalla.syllabicspelling,41\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
@@ -2160,7 +2171,7 @@ E11a.hattiancultlayer.animalsbodynature,0\%,tlhdig03_literature_C_filled/E11_rep
 E11a.hattiancultlayer.abstractnouns,0\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.hattiancultlayer.adjectives,1\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.hattiancultlayer.foreignwords,29\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
-E11a.hattiancultlayer.otherwords,1\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
+E11a.hattiancultlayer.otherwords,0\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.hattiancultlayer.othernouns,3\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.hattiancultlayer.wordform,12\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
 E11a.hattiancultlayer.syllabicspelling,67\%,tlhdig03_literature_C_filled/E11_report.json E11a.by_tradition
@@ -2352,7 +2363,7 @@ J1.konk.join.sim.median,121,tlhdig03_literature_C_filled/joins/J1_report.json ko
 J1.konk.join.queries,10,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.join
 J1.model.r1,13\%,tlhdig03_literature_C_filled/joins/J1_report.json model_reranking.recall@1
 J1.model.r5,31\%,tlhdig03_literature_C_filled/joins/J1_report.json model_reranking.recall@5
-J1.model.r20,48\%,tlhdig03_literature_C_filled/joins/J1_report.json model_reranking.recall@20
+J1.model.r20,47\%,tlhdig03_literature_C_filled/joins/J1_report.json model_reranking.recall@20
 J1.model.median,9,tlhdig03_literature_C_filled/joins/J1_report.json model_reranking.median_rank
 J1.konk.duplicate.model.r20,68\%,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.duplicate.model_reranking
 J1.konk.duplicate.model.hits20,116,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.duplicate.model_reranking
@@ -2360,32 +2371,32 @@ J1.konk.duplicate.model.median,3,tlhdig03_literature_C_filled/joins/J1_report.js
 J1.konk.duplicate.queries,170,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.duplicate
 J1.konk.join.model.r20,50\%,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.join.model_reranking
 J1.konk.join.model.hits20,5,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.join.model_reranking
-J1.konk.join.model.median,11,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.join.model_reranking
+J1.konk.join.model.median,9,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.join.model_reranking
 J1.konk.join.queries,10,tlhdig03_literature_C_filled/joins/J1_report.json konkordanz.join
 J1.w.cosine,+0.52,tlhdig03_literature_C_filled/joins/J1_report.json weights.cosine
-J1.w.cosine.ci,0.41 to 0.64,tlhdig03_literature_C_filled/joins/J1_report.json weights.cosine
+J1.w.cosine.ci,0.40 to 0.64,tlhdig03_literature_C_filled/joins/J1_report.json weights.cosine
 J1.w.traditioncos,+0.44,tlhdig03_literature_C_filled/joins/J1_report.json weights.tradition_cos
 J1.w.traditioncos.ci,0.28 to 0.57,tlhdig03_literature_C_filled/joins/J1_report.json weights.tradition_cos
 J1.w.compositioncos,+0.28,tlhdig03_literature_C_filled/joins/J1_report.json weights.composition_cos
-J1.w.compositioncos.ci,0.13 to 0.45,tlhdig03_literature_C_filled/joins/J1_report.json weights.composition_cos
+J1.w.compositioncos.ci,0.13 to 0.47,tlhdig03_literature_C_filled/joins/J1_report.json weights.composition_cos
 J1.w.wordoverlap,+0.29,tlhdig03_literature_C_filled/joins/J1_report.json weights.word_overlap
-J1.w.wordoverlap.ci,0.12 to 0.44,tlhdig03_literature_C_filled/joins/J1_report.json weights.word_overlap
+J1.w.wordoverlap.ci,0.11 to 0.45,tlhdig03_literature_C_filled/joins/J1_report.json weights.word_overlap
 J1.w.phraseoverlap,−0.09,tlhdig03_literature_C_filled/joins/J1_report.json weights.phrase_overlap
-J1.w.phraseoverlap.ci,−0.14 to −0.04,tlhdig03_literature_C_filled/joins/J1_report.json weights.phrase_overlap
-J1.w.samespelling,+0.12,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_spelling
-J1.w.samespelling.ci,0.02 to 0.26,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_spelling
+J1.w.phraseoverlap.ci,−0.14 to −0.03,tlhdig03_literature_C_filled/joins/J1_report.json weights.phrase_overlap
+J1.w.samespelling,+0.13,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_spelling
+J1.w.samespelling.ci,0.02 to 0.27,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_spelling
 J1.w.scribaldistance,−0.04,tlhdig03_literature_C_filled/joins/J1_report.json weights.scribal_distance
 J1.w.scribaldistance.ci,−0.13 to 0.05,tlhdig03_literature_C_filled/joins/J1_report.json weights.scribal_distance
 J1.w.columnoverlap,+0.19,tlhdig03_literature_C_filled/joins/J1_report.json weights.column_overlap
-J1.w.columnoverlap.ci,0.13 to 0.26,tlhdig03_literature_C_filled/joins/J1_report.json weights.column_overlap
-J1.w.sameseries,+0.08,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_series
+J1.w.columnoverlap.ci,0.13 to 0.27,tlhdig03_literature_C_filled/joins/J1_report.json weights.column_overlap
+J1.w.sameseries,+0.09,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_series
 J1.w.sameseries.ci,0.01 to 0.15,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_series
 J1.w.samefindseries,−0.01,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_find_series
-J1.w.samefindseries.ci,−0.11 to 0.05,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_find_series
+J1.w.samefindseries.ci,−0.10 to 0.05,tlhdig03_literature_C_filled/joins/J1_report.json weights.same_find_series
 J1.w.logwordsa,−0.31,tlhdig03_literature_C_filled/joins/J1_report.json weights.log_words_a
 J1.w.logwordsa.ci,−0.40 to −0.22,tlhdig03_literature_C_filled/joins/J1_report.json weights.log_words_a
 J1.w.logwordsb,−0.03,tlhdig03_literature_C_filled/joins/J1_report.json weights.log_words_b
-J1.w.logwordsb.ci,−0.12 to 0.06,tlhdig03_literature_C_filled/joins/J1_report.json weights.log_words_b
+J1.w.logwordsb.ci,−0.12 to 0.05,tlhdig03_literature_C_filled/joins/J1_report.json weights.log_words_b
 KJ.duplicate.pairs,330,tlhdig03_literature_C_filled/known_joins/known_joins.json duplicate.pairs
 KJ.duplicate.top1,99,tlhdig03_literature_C_filled/known_joins/known_joins.json duplicate.top1
 KJ.duplicate.top5,174,tlhdig03_literature_C_filled/known_joins/known_joins.json duplicate.top5
@@ -2399,6 +2410,12 @@ KJ.join.top20,6,tlhdig03_literature_C_filled/known_joins/known_joins.json join.t
 KJ.join.top100,9,tlhdig03_literature_C_filled/known_joins/known_joins.json join.top100
 KJ.join.median,155,tlhdig03_literature_C_filled/known_joins/known_joins.json join.median_rank
 KJ.pool,"19{,}197",tlhdig03_literature_C_filled/known_joins/known_joins.json pool
+hfr.annot.hfr,59\%,hfr_conventions.json HFR.share_files_human_annotator
+hfr.annot.other,3\%,hfr_conventions.json other.share_files_human_annotator
+hfr.selected.hfr,86\%,hfr_conventions.json HFR.share_analysed_words_selected
+hfr.selected.other,40\%,hfr_conventions.json other.share_analysed_words_selected
+hfr.det.plural,21\%,hfr_conventions.json all.share_determinative_words_only_plural_or_date
+wc.hfr.changed,909,wordclass_rule_changes_hfr.csv tokens (sum)
 wc.tokens,"320{,}638",wordclass_confidence.json legible_tokens
 wc.conf.high,63\%,wordclass_confidence.json confidence_share.high
 wc.conf.medium,25\%,wordclass_confidence.json confidence_share.medium
@@ -2411,15 +2428,15 @@ wc.class.agent,8\%,wordclass_confidence.json class_share.agent
 wc.class.other,6\%,wordclass_confidence.json class_share.other
 wc.class.foreign,5\%,wordclass_confidence.json class_share.foreign
 wc.class.deity,5\%,wordclass_confidence.json class_share.deity
-wc.class.ambiguous,3\%,wordclass_confidence.json class_share.ambiguous
+wc.class.ambiguous,2\%,wordclass_confidence.json class_share.ambiguous
 wc.class.adjective,2\%,wordclass_confidence.json class_share.adjective
-wc.class.place,2\%,wordclass_confidence.json class_share.place
 wc.class.animal,2\%,wordclass_confidence.json class_share.animal
 wc.class.measure,1\%,wordclass_confidence.json class_share.measure
+wc.class.place,1\%,wordclass_confidence.json class_share.place
 wc.class.abstract,1\%,wordclass_confidence.json class_share.abstract
 wc.class.body,1\%,wordclass_confidence.json class_share.body
 wc.class.nature,1\%,wordclass_confidence.json class_share.nature
-wc.rule.analysisselected,43\%,wordclass_confidence.json rule_share.analysis_selected
+wc.rule.analysisselected,42\%,wordclass_confidence.json rule_share.analysis_selected
 wc.rule.analysisunanimous,15\%,wordclass_confidence.json rule_share.analysis_unanimous
 wc.rule.noanalysis,9\%,wordclass_confidence.json rule_share.no_analysis
 wc.rule.selectedelsewhere,6\%,wordclass_confidence.json rule_share.selected_elsewhere
@@ -2430,8 +2447,13 @@ wc.rule.determinativeagent,4\%,wordclass_confidence.json rule_share.determinativ
 wc.rule.determinativenoun,3\%,wordclass_confidence.json rule_share.determinative_noun
 wc.rule.analysisambiguous,2\%,wordclass_confidence.json rule_share.analysis_ambiguous
 wc.rule.agentlogogram,1\%,wordclass_confidence.json rule_share.agent_logogram
+wc.rule.titlepair,1\%,wordclass_confidence.json rule_share.title_pair
 wc.rule.brokenclitic,0\%,wordclass_confidence.json rule_share.broken_clitic
+wc.rule.compoundtitle,0\%,wordclass_confidence.json rule_share.compound_title
+wc.rule.entitle,0\%,wordclass_confidence.json rule_share.en_title
 wc.rule.brokenending,0\%,wordclass_confidence.json rule_share.broken_ending
+wc.rule.wordfix,0\%,wordclass_confidence.json rule_share.word_fix
+wc.rule.analysishurrian,0\%,wordclass_confidence.json rule_share.analysis_hurrian
 wc.rule.akkadianfunction,0\%,wordclass_confidence.json rule_share.akkadian_function
 wc.changed,"83{,}814",wordclass_rule_changes.csv tokens (sum)
 wc.changed2,"4{,}310",wordclass_rule_changes_akk_logograms.csv tokens (sum)
@@ -2472,4 +2494,4 @@ AC.placedA.samenearest,815,tlhdig03_literature_A_filled/E5_orphan_placement.csv 
 AC.placedA.samenearest.share,98\%,tlhdig03_literature_A_filled/E5_orphan_placement.csv vs tlhdig03_literature_C_filled/E5_orphan_placement.csv
 AC.onlyA,404,tlhdig03_literature_A_filled/E5_orphan_placement.csv vs tlhdig03_literature_C_filled/E5_orphan_placement.csv
 AC.onlyA.luwian,14,tlhdig03_literature_A_filled/E5_orphan_placement.csv vs tlhdig03_literature_C_filled/E5_orphan_placement.csv
-AC.onlyA.luwian.sugi,14,data/tokens_marks_filled.csv (status R in a ŠU.GI word) [kept from last build]
+AC.onlyA.luwian.sugi,14,data/tokens_marks_filled.csv (status R in a ŠU.GI word)
