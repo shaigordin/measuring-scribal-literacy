@@ -7,112 +7,164 @@
    "tlhdig_lead_space": 36,
    "est_lost_signs": 13,
    "signs_written": 3,
-   "text": "x-a-ḫi-"
+   "text": "x-a-ḫi-",
+   "photo_x_px": 540.0,
+   "photo_offset_signs": 7.7,
+   "est_lost_signs_photo": 13
   },
   {
    "line": "Vs.? 2′",
    "tlhdig_lead_space": 56,
    "est_lost_signs": 20,
    "signs_written": 5,
-   "text": "NINDA.SIG x x"
+   "text": "NINDA.SIG x x",
+   "photo_x_px": 495.0,
+   "photo_offset_signs": 6.8,
+   "est_lost_signs_photo": 12
   },
   {
    "line": "Vs.? 3′",
    "tlhdig_lead_space": 30,
    "est_lost_signs": 11,
    "signs_written": 6,
-   "text": "EN SÍSKUR-ma AN"
+   "text": "EN SÍSKUR-ma AN",
+   "photo_x_px": 440.0,
+   "photo_offset_signs": 5.7,
+   "est_lost_signs_photo": 11
   },
   {
    "line": "Vs.? 4′",
    "tlhdig_lead_space": 27,
    "est_lost_signs": 10,
    "signs_written": 7,
-   "text": "LÚSIMUG-ia ku-e x"
+   "text": "LÚSIMUG-ia ku-e x",
+   "photo_x_px": 345.0,
+   "photo_offset_signs": 3.8,
+   "est_lost_signs_photo": 9
   },
   {
    "line": "Vs.? 5′",
    "tlhdig_lead_space": 24,
    "est_lost_signs": 9,
    "signs_written": 9,
-   "text": "LÚḪAL ša-ra-a da-a-i"
+   "text": "LÚḪAL ša-ra-a da-a-i",
+   "photo_x_px": 310.0,
+   "photo_offset_signs": 3.1,
+   "est_lost_signs_photo": 8
   },
   {
    "line": "Vs.? 6′",
    "tlhdig_lead_space": 22,
    "est_lost_signs": 8,
    "signs_written": 16,
-   "text": "xḪI.A-ma-aš-ša-an ku-i-e-eš A-NA GIŠBANŠUR"
+   "text": "xḪI.A-ma-aš-ša-an ku-i-e-eš A-NA GIŠBANŠUR",
+   "photo_x_px": 155.0,
+   "photo_offset_signs": 0.0,
+   "est_lost_signs_photo": 5
   },
   {
    "line": "Vs.? 7′",
    "tlhdig_lead_space": 21,
    "est_lost_signs": 8,
    "signs_written": 18,
-   "text": "x da-aš-ke-ez-zi na-at-kán ḫa-aš-ši-i zi-ik-ke-ez-zi"
+   "text": "x da-aš-ke-ez-zi na-at-kán ḫa-aš-ši-i zi-ik-ke-ez-zi",
+   "photo_x_px": 195.0,
+   "photo_offset_signs": 0.8,
+   "est_lost_signs_photo": 6
   },
   {
    "line": "Vs.? 8′",
    "tlhdig_lead_space": 19,
    "est_lost_signs": 7,
    "signs_written": 11,
-   "text": "-in-ni zi-ik-ke-ez-zi EN SÍSKUR-ma"
+   "text": "-in-ni zi-ik-ke-ez-zi EN SÍSKUR-ma",
+   "photo_x_px": 205.0,
+   "photo_offset_signs": 1.0,
+   "est_lost_signs_photo": 6
   },
   {
    "line": "Vs.? 9′",
    "tlhdig_lead_space": 20,
    "est_lost_signs": 7,
    "signs_written": 15,
-   "text": "na-an-kán EN SÍSKUR A-NA DIŠTAR ši-pa-an-ti"
+   "text": "na-an-kán EN SÍSKUR A-NA DIŠTAR ši-pa-an-ti",
+   "photo_x_px": 240.0,
+   "photo_offset_signs": 1.7,
+   "est_lost_signs_photo": 7
   },
   {
    "line": "Vs.? 10′",
    "tlhdig_lead_space": 20,
    "est_lost_signs": 7,
    "signs_written": 13,
-   "text": "šu-up-pa ḫu-u-i-šu da-an-zi UZUGABA"
+   "text": "šu-up-pa ḫu-u-i-šu da-an-zi UZUGABA",
+   "photo_x_px": 330.0,
+   "photo_offset_signs": 3.5,
+   "est_lost_signs_photo": 9
   },
   {
    "line": "Vs.? 11′",
    "tlhdig_lead_space": 14,
    "est_lost_signs": 5,
    "signs_written": 17,
-   "text": "GIŠBANŠUR AD.KID da-ga-a-an da-a-i še-ra-aš-ša-an"
+   "text": "GIŠBANŠUR AD.KID da-ga-a-an da-a-i še-ra-aš-ša-an",
+   "photo_x_px": 305.0,
+   "photo_offset_signs": 3.0,
+   "est_lost_signs_photo": 8
   },
   {
    "line": "Vs.? 12′",
    "tlhdig_lead_space": 21,
    "est_lost_signs": 8,
    "signs_written": 14,
-   "text": "A-NA GIŠBANŠUR še-er da-a-i še-er ar-ḫa"
+   "text": "A-NA GIŠBANŠUR še-er da-a-i še-er ar-ḫa",
+   "photo_x_px": 315.0,
+   "photo_offset_signs": 3.2,
+   "est_lost_signs_photo": 9
   },
   {
    "line": "Vs.? 13′",
    "tlhdig_lead_space": 23,
    "est_lost_signs": 8,
    "signs_written": 7,
-   "text": "-zi na-at-kán an-da ú-"
+   "text": "-zi na-at-kán an-da ú-",
+   "photo_x_px": 305.0,
+   "photo_offset_signs": 3.0,
+   "est_lost_signs_photo": 8
   },
   {
    "line": "Vs.? 14′",
    "tlhdig_lead_space": 27,
    "est_lost_signs": 10,
    "signs_written": 8,
-   "text": "nu-uš-ši-kán LÚAZU x"
+   "text": "nu-uš-ši-kán LÚAZU x",
+   "photo_x_px": 305.0,
+   "photo_offset_signs": 3.0,
+   "est_lost_signs_photo": 8
   },
   {
    "line": "Vs.? 15′",
    "tlhdig_lead_space": 21,
    "est_lost_signs": 8,
    "signs_written": 10,
-   "text": "GIŠBANŠUR da-a-i na-an-ša-an"
+   "text": "GIŠBANŠUR da-a-i na-an-ša-an",
+   "photo_x_px": 360.0,
+   "photo_offset_signs": 4.1,
+   "est_lost_signs_photo": 9
   },
   {
    "line": "Vs.? 16′",
    "tlhdig_lead_space": 31,
    "est_lost_signs": 11,
    "signs_written": 4,
-   "text": "-ma-aš-ša-an"
+   "text": "-ma-aš-ša-an",
+   "photo_x_px": 460.0,
+   "photo_offset_signs": 6.1,
+   "est_lost_signs_photo": 11
   }
- ]
+ ],
+ "photo": {
+  "px_per_sign": 50.0,
+  "lost_before_leftmost_line": 5.3
+ }
 }
