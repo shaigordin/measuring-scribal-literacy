@@ -1,0 +1,131 @@
+20900 units, 3137 pieces; Konkordanz rows 25850; units with Konkordanz metadata 17286
+2653 query pieces, 887262 pairs, 3153 partner pairs in the top 200
+{
+ "units": 20900,
+ "pieces": 3137,
+ "query_pieces": 2653,
+ "joined_texts": 1021,
+ "k": 200,
+ "pairs": 887262,
+ "partner_in_top_k": 0.737,
+ "similarity_ranking": {
+  "recall@1": 0.107,
+  "recall@5": 0.266,
+  "recall@20": 0.432,
+  "queries": 2653,
+  "median_rank": 36.0
+ },
+ "model_reranking": {
+  "recall@1": 0.13,
+  "recall@5": 0.314,
+  "recall@20": 0.468,
+  "queries": 2653,
+  "median_rank": 9.0
+ },
+ "flags": {
+  "same_findspot": {
+   "joins": 0.0,
+   "other": 0.0207
+  },
+  "date_conflict": {
+   "joins": 0.0,
+   "other": 0.0309
+  }
+ },
+ "weights": {
+  "cosine": {
+   "weight": 0.51,
+   "ci_low": 0.398,
+   "ci_high": 0.646
+  },
+  "tradition_cos": {
+   "weight": 0.428,
+   "ci_low": 0.289,
+   "ci_high": 0.593
+  },
+  "composition_cos": {
+   "weight": 0.254,
+   "ci_low": 0.12,
+   "ci_high": 0.393
+  },
+  "word_overlap": {
+   "weight": 0.296,
+   "ci_low": 0.122,
+   "ci_high": 0.443
+  },
+  "phrase_overlap": {
+   "weight": -0.087,
+   "ci_low": -0.141,
+   "ci_high": -0.029
+  },
+  "same_spelling": {
+   "weight": 0.118,
+   "ci_low": 0.026,
+   "ci_high": 0.254
+  },
+  "scribal_distance": {
+   "weight": -0.041,
+   "ci_low": -0.128,
+   "ci_high": 0.05
+  },
+  "column_overlap": {
+   "weight": 0.211,
+   "ci_low": 0.157,
+   "ci_high": 0.293
+  },
+  "same_series": {
+   "weight": 0.094,
+   "ci_low": 0.033,
+   "ci_high": 0.149
+  },
+  "same_find_series": {
+   "weight": 0.005,
+   "ci_low": -0.066,
+   "ci_high": 0.065
+  },
+  "log_words_a": {
+   "weight": -0.312,
+   "ci_low": -0.394,
+   "ci_high": -0.224
+  },
+  "log_words_b": {
+   "weight": -0.029,
+   "ci_low": -0.124,
+   "ci_high": 0.049
+  }
+ },
+ "konkordanz": {
+  "duplicate": {
+   "similarity_ranking": {
+    "recall@1": 0.357,
+    "recall@5": 0.573,
+    "recall@20": 0.696,
+    "queries": 171,
+    "median_rank": 3.0
+   },
+   "model_reranking": {
+    "recall@1": 0.351,
+    "recall@5": 0.544,
+    "recall@20": 0.673,
+    "queries": 171,
+    "median_rank": 3.0
+   }
+  },
+  "join": {
+   "similarity_ranking": {
+    "recall@1": 0.0,
+    "recall@5": 0.1,
+    "recall@20": 0.3,
+    "queries": 10,
+    "median_rank": 122.0
+   },
+   "model_reranking": {
+    "recall@1": 0.1,
+    "recall@5": 0.4,
+    "recall@20": 0.5,
+    "queries": 10,
+    "median_rank": 4.0
+   }
+  }
+ }
+}

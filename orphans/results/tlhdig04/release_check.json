@@ -1,0 +1,22 @@
+{
+ "files": 24130,
+ "lines": 419196,
+ "restored_line_starts_inside": 140797,
+ "restored_previous_line_closed": 64423,
+ "restored_previous_line_left_open": 76374,
+ "damaged_line_starts_inside": 113,
+ "damaged_previous_line_closed": 110,
+ "erased_line_starts_inside": 6,
+ "erased_previous_line_closed": 6,
+ "damaged_previous_line_left_open": 3,
+ "added_line_starts_inside": 4,
+ "added_previous_line_closed": 4,
+ "files_unreadable": 1,
+ "manuscripts_in_HFR_and_TLH_folders": 95,
+ "words_unaligned": 891,
+ "words": 1265079,
+ "parser_skipped": [
+  "data/TLHbasisONLINE25_1_ZENODO_Beta_04/CTH 538_XML_HDivT/KBo 36.44.xml",
+  "data/TLHbasisONLINE25_1_ZENODO_Beta_04/CTH 813_XML_TLH/KUB 37.25.xml"
+ ]
+}

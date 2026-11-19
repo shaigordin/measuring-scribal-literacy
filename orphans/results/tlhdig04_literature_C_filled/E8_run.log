@@ -1,0 +1,24 @@
+hist agent {'words': 0.615, 'signs': 0.65} {'words': 0.774, 'signs': 0.787}
+hist deity {'words': 0.554, 'signs': 0.552} {'words': 0.779, 'signs': 0.787}
+hist function {'words': 0.519, 'signs': 0.485} {'words': 0.797, 'signs': 0.821}
+hist foreign {'words': 0.816, 'signs': 0.76} {'words': 0.771, 'signs': 0.774}
+hist realia {'words': 0.586, 'signs': 0.59} {'words': 0.785, 'signs': 0.808}
+hist verb {'words': 0.519, 'signs': 0.49} {'words': 0.795, 'signs': 0.818}
+hist place {'words': 0.591, 'signs': 0.523} {'words': 0.798, 'signs': 0.813}
+hist animal {'words': 0.301, 'signs': 0.272} {'words': 0.798, 'signs': 0.822}
+hist body {'words': 0.404, 'signs': 0.363} {'words': 0.804, 'signs': 0.822}
+hist nature {'words': 0.373, 'signs': 0.361} {'words': 0.804, 'signs': 0.819}
+hist abstract {'words': 0.507, 'signs': 0.471} {'words': 0.803, 'signs': 0.817}
+hist adjective {'words': 0.447, 'signs': 0.382} {'words': 0.802, 'signs': 0.819}
+701 agent {'words': 0.242, 'signs': 0.284} {'words': 0.461, 'signs': 0.5}
+701 deity {'words': 0.302, 'signs': 0.242} {'words': 0.434, 'signs': 0.539}
+701 function {'words': 0.378, 'signs': 0.338} {'words': 0.461, 'signs': 0.566}
+701 foreign {'words': 0.484, 'signs': 0.557} {'words': 0.427, 'signs': 0.461}
+701 realia {'words': 0.352, 'signs': 0.403} {'words': 0.526, 'signs': 0.526}
+701 verb {'words': 0.261, 'signs': 0.257} {'words': 0.421, 'signs': 0.513}
+701 place {} {'words': 0.447, 'signs': 0.526}
+701 animal {'words': 0.296, 'signs': 0.2} {'words': 0.447, 'signs': 0.526}
+701 body {'words': 0.29, 'signs': 0.242} {'words': 0.461, 'signs': 0.526}
+701 nature {'words': 0.2, 'signs': 0.125} {'words': 0.447, 'signs': 0.526}
+701 abstract {'words': 0.3, 'signs': 0.308} {'words': 0.447, 'signs': 0.539}
+701 adjective {'words': 0.333, 'signs': 0.265} {'words': 0.474, 'signs': 0.539}

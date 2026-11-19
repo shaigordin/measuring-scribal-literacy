@@ -3,20 +3,20 @@
   "levels": {
     "high": {
       "reviewed": 59,
-      "right": 57,
-      "accuracy": 0.966,
+      "right": 56,
+      "accuracy": 0.949,
       "ci95": [
-        0.885,
-        0.991
+        0.861,
+        0.983
       ]
     },
     "low": {
       "reviewed": 60,
-      "right": 53,
-      "accuracy": 0.883,
+      "right": 52,
+      "accuracy": 0.867,
       "ci95": [
-        0.778,
-        0.942
+        0.758,
+        0.931
       ]
     },
     "medium": {
@@ -30,7 +30,7 @@
     }
   },
   "note": "in-sample: the rules were revised on these marks",
-  "corpus_accuracy_estimate": 0.936,
+  "corpus_accuracy_estimate": 0.923,
   "still_wrong": [
     {
       "word": "tia",
@@ -40,6 +40,15 @@
       "now": "foreign",
       "rule_now": "language",
       "note": "Should be checked if this is the initial ti that is also an old hittite clitic like nu"
+    },
+    {
+      "word": "Ú-UL",
+      "translit": "Ú-UL",
+      "wclass": "function",
+      "accepted": "function",
+      "now": NaN,
+      "rule_now": NaN,
+      "note": ""
     },
     {
       "word": "ḫurlili",
@@ -83,7 +92,7 @@
       "wclass": "realia",
       "accepted": "other",
       "now": "deity",
-      "rule_now": "analysis_unanimous",
+      "rule_now": "analysis_selected",
       "note": ""
     },
     {
@@ -91,8 +100,8 @@
       "translit": "da-ga-an-zi-pí-uš",
       "wclass": "realia",
       "accepted": "foreign",
-      "now": "ambiguous",
-      "rule_now": "analysis_unanimous",
+      "now": "nature",
+      "rule_now": "analysis_selected",
       "note": "It is realia, but foreign realia"
     },
     {
@@ -101,7 +110,7 @@
       "wclass": "verb",
       "accepted": "realia",
       "now": "verb",
-      "rule_now": "analysis_unanimous",
+      "rule_now": "analysis_selected",
       "note": ""
     },
     {
@@ -127,8 +136,8 @@
       "translit": "iš-ga-ra-an-ta",
       "wclass": "ambiguous",
       "accepted": "realia",
-      "now": "ambiguous",
-      "rule_now": "analysis_ambiguous",
+      "now": "verb",
+      "rule_now": "selected_elsewhere",
       "note": "Could this be a foreign word? Needs to check literature and/or heth. Portal databases"
     },
     {
@@ -139,6 +148,15 @@
       "now": "unknown",
       "rule_now": "no_analysis",
       "note": "Needs to check, looks like a verb"
+    },
+    {
+      "word": "~anzi",
+      "translit": "-a-an-zi",
+      "wclass": "unknown",
+      "accepted": "verb",
+      "now": NaN,
+      "rule_now": NaN,
+      "note": "Broken verb"
     },
     {
       "word": "apate",
@@ -159,6 +177,15 @@
       "note": "Broken"
     },
     {
+      "word": "pa~",
+      "translit": "pa-",
+      "wclass": "unknown",
+      "accepted": "unknown",
+      "now": NaN,
+      "rule_now": NaN,
+      "note": ""
+    },
+    {
       "word": "šipan~",
       "translit": "ši-pa-an-",
       "wclass": "unknown",
@@ -166,15 +193,6 @@
       "now": "unknown",
       "rule_now": "no_analysis",
       "note": "End broken?"
-    },
-    {
-      "word": "EGIR",
-      "translit": "EGIR",
-      "wclass": "ambiguous",
-      "accepted": "ambiguous",
-      "now": "function",
-      "rule_now": "selected_elsewhere",
-      "note": ""
     }
   ]
 }

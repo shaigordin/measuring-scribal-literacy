@@ -1,0 +1,1219 @@
+{
+  "class_shares": {
+    "Arzawa / western rituals": {
+      "abstract": 0.003,
+      "adjective": 0.017,
+      "agent": 0.065,
+      "ambiguous": 0.078,
+      "animal": 0.021,
+      "body": 0.008,
+      "deity": 0.068,
+      "foreign": 0.001,
+      "function": 0.296,
+      "measure": 0.003,
+      "nature": 0.01,
+      "other": 0.03,
+      "place": 0.021,
+      "realia": 0.122,
+      "unknown": 0.077,
+      "verb": 0.179
+    },
+    "Hattian cult layer": {
+      "abstract": 0.008,
+      "adjective": 0.022,
+      "agent": 0.152,
+      "ambiguous": 0.007,
+      "animal": 0.011,
+      "body": 0.009,
+      "deity": 0.042,
+      "foreign": 0.149,
+      "function": 0.172,
+      "measure": 0.007,
+      "nature": 0.005,
+      "other": 0.048,
+      "place": 0.017,
+      "realia": 0.127,
+      "unknown": 0.037,
+      "verb": 0.187
+    },
+    "Kizzuwatna rituals": {
+      "abstract": 0.027,
+      "adjective": 0.037,
+      "agent": 0.063,
+      "ambiguous": 0.017,
+      "animal": 0.025,
+      "body": 0.014,
+      "deity": 0.045,
+      "foreign": 0.035,
+      "function": 0.275,
+      "measure": 0.024,
+      "nature": 0.012,
+      "other": 0.066,
+      "place": 0.02,
+      "realia": 0.171,
+      "unknown": 0.029,
+      "verb": 0.143
+    },
+    "Kizzuwatna–Lower Land (Hurrian)": {
+      "abstract": 0.009,
+      "adjective": 0.02,
+      "agent": 0.054,
+      "ambiguous": 0.001,
+      "animal": 0.013,
+      "body": 0.013,
+      "deity": 0.084,
+      "foreign": 0.068,
+      "function": 0.245,
+      "measure": 0.015,
+      "nature": 0.004,
+      "other": 0.083,
+      "place": 0.013,
+      "realia": 0.179,
+      "unknown": 0.024,
+      "verb": 0.173
+    },
+    "Luwian festivals (Ištanuwa, Lallupiya)": {
+      "abstract": 0.015,
+      "adjective": 0.036,
+      "agent": 0.062,
+      "ambiguous": 0.0,
+      "animal": 0.019,
+      "body": 0.01,
+      "deity": 0.037,
+      "foreign": 0.081,
+      "function": 0.276,
+      "measure": 0.03,
+      "nature": 0.003,
+      "other": 0.078,
+      "place": 0.018,
+      "realia": 0.153,
+      "unknown": 0.022,
+      "verb": 0.16
+    },
+    "Luwian rituals (Puriyanni, Kuwattalla)": {
+      "abstract": 0.033,
+      "adjective": 0.015,
+      "agent": 0.06,
+      "ambiguous": 0.068,
+      "animal": 0.008,
+      "body": 0.04,
+      "deity": 0.015,
+      "foreign": 0.0,
+      "function": 0.277,
+      "measure": 0.013,
+      "nature": 0.0,
+      "other": 0.02,
+      "place": 0.005,
+      "realia": 0.096,
+      "unknown": 0.191,
+      "verb": 0.159
+    },
+    "Mixed (Hurrian, Syrian, Luwian)": {
+      "abstract": 0.007,
+      "adjective": 0.009,
+      "agent": 0.035,
+      "ambiguous": 0.001,
+      "animal": 0.019,
+      "body": 0.007,
+      "deity": 0.13,
+      "foreign": 0.091,
+      "function": 0.282,
+      "measure": 0.007,
+      "nature": 0.004,
+      "other": 0.082,
+      "place": 0.009,
+      "realia": 0.139,
+      "unknown": 0.034,
+      "verb": 0.143
+    },
+    "Palaic festivals": {
+      "abstract": 0.004,
+      "adjective": 0.027,
+      "agent": 0.041,
+      "ambiguous": 0.001,
+      "animal": 0.005,
+      "body": 0.005,
+      "deity": 0.062,
+      "foreign": 0.354,
+      "function": 0.171,
+      "measure": 0.005,
+      "nature": 0.004,
+      "other": 0.043,
+      "place": 0.004,
+      "realia": 0.121,
+      "unknown": 0.024,
+      "verb": 0.129
+    },
+    "Syro-Mesopotamia (Hurrian)": {
+      "abstract": 0.01,
+      "adjective": 0.027,
+      "agent": 0.065,
+      "ambiguous": 0.0,
+      "animal": 0.017,
+      "body": 0.017,
+      "deity": 0.054,
+      "foreign": 0.077,
+      "function": 0.282,
+      "measure": 0.024,
+      "nature": 0.003,
+      "other": 0.065,
+      "place": 0.004,
+      "realia": 0.188,
+      "unknown": 0.02,
+      "verb": 0.146
+    },
+    "Ḫuwaššanna festivals": {
+      "abstract": 0.01,
+      "adjective": 0.02,
+      "agent": 0.15,
+      "ambiguous": 0.006,
+      "animal": 0.005,
+      "body": 0.007,
+      "deity": 0.071,
+      "foreign": 0.001,
+      "function": 0.275,
+      "measure": 0.008,
+      "nature": 0.002,
+      "other": 0.038,
+      "place": 0.006,
+      "realia": 0.14,
+      "unknown": 0.049,
+      "verb": 0.213
+    }
+  },
+  "historical": {
+    "all": {
+      "words": {
+        "acc": 0.816,
+        "majority": 0.29,
+        "null_mean": 0.157,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.94,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.838,
+        "majority": 0.29,
+        "null_mean": 0.16,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.942,
+        "texts_with_class": 1627
+      }
+    },
+    "only_agent": {
+      "words": {
+        "acc": 0.673,
+        "majority": 0.308,
+        "null_mean": 0.104,
+        "p": 0.0099,
+        "n": 1215,
+        "classes": 10,
+        "genre_acc": 0.916,
+        "texts_with_class": 1215
+      },
+      "signs": {
+        "acc": 0.694,
+        "majority": 0.307,
+        "null_mean": 0.11,
+        "p": 0.0099,
+        "n": 1233,
+        "classes": 10,
+        "genre_acc": 0.919,
+        "texts_with_class": 1233
+      }
+    },
+    "without_agent": {
+      "words": {
+        "acc": 0.795,
+        "majority": 0.29,
+        "null_mean": 0.158,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.931,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.819,
+        "majority": 0.29,
+        "null_mean": 0.163,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.939,
+        "texts_with_class": 1627
+      }
+    },
+    "only_deity": {
+      "words": {
+        "acc": 0.59,
+        "majority": 0.231,
+        "null_mean": 0.109,
+        "p": 0.0099,
+        "n": 1197,
+        "classes": 10,
+        "genre_acc": 0.85,
+        "texts_with_class": 1197
+      },
+      "signs": {
+        "acc": 0.601,
+        "majority": 0.226,
+        "null_mean": 0.113,
+        "p": 0.0099,
+        "n": 1232,
+        "classes": 10,
+        "genre_acc": 0.816,
+        "texts_with_class": 1232
+      }
+    },
+    "without_deity": {
+      "words": {
+        "acc": 0.792,
+        "majority": 0.29,
+        "null_mean": 0.155,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.934,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.813,
+        "majority": 0.29,
+        "null_mean": 0.158,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.934,
+        "texts_with_class": 1627
+      }
+    },
+    "only_function": {
+      "words": {
+        "acc": 0.539,
+        "majority": 0.262,
+        "null_mean": 0.11,
+        "p": 0.0099,
+        "n": 1541,
+        "classes": 10,
+        "genre_acc": 0.811,
+        "texts_with_class": 1541
+      },
+      "signs": {
+        "acc": 0.528,
+        "majority": 0.262,
+        "null_mean": 0.107,
+        "p": 0.0099,
+        "n": 1541,
+        "classes": 10,
+        "genre_acc": 0.797,
+        "texts_with_class": 1541
+      }
+    },
+    "without_function": {
+      "words": {
+        "acc": 0.814,
+        "majority": 0.29,
+        "null_mean": 0.155,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.94,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.837,
+        "majority": 0.29,
+        "null_mean": 0.158,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.951,
+        "texts_with_class": 1627
+      }
+    },
+    "only_foreign": {
+      "words": {
+        "acc": 0.852,
+        "majority": 0.309,
+        "null_mean": 0.175,
+        "p": 0.0099,
+        "n": 650,
+        "classes": 8,
+        "genre_acc": 0.974,
+        "texts_with_class": 650
+      },
+      "signs": {
+        "acc": 0.802,
+        "majority": 0.307,
+        "null_mean": 0.193,
+        "p": 0.0099,
+        "n": 703,
+        "classes": 9,
+        "genre_acc": 0.946,
+        "texts_with_class": 703
+      }
+    },
+    "without_foreign": {
+      "words": {
+        "acc": 0.782,
+        "majority": 0.271,
+        "null_mean": 0.151,
+        "p": 0.0099,
+        "n": 1581,
+        "classes": 10,
+        "genre_acc": 0.93,
+        "texts_with_class": 1581
+      },
+      "signs": {
+        "acc": 0.795,
+        "majority": 0.271,
+        "null_mean": 0.15,
+        "p": 0.0099,
+        "n": 1584,
+        "classes": 10,
+        "genre_acc": 0.927,
+        "texts_with_class": 1584
+      }
+    },
+    "only_realia": {
+      "words": {
+        "acc": 0.594,
+        "majority": 0.253,
+        "null_mean": 0.12,
+        "p": 0.0099,
+        "n": 1459,
+        "classes": 10,
+        "genre_acc": 0.842,
+        "texts_with_class": 1459
+      },
+      "signs": {
+        "acc": 0.619,
+        "majority": 0.256,
+        "null_mean": 0.125,
+        "p": 0.0099,
+        "n": 1471,
+        "classes": 10,
+        "genre_acc": 0.865,
+        "texts_with_class": 1471
+      }
+    },
+    "without_realia": {
+      "words": {
+        "acc": 0.805,
+        "majority": 0.29,
+        "null_mean": 0.153,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.938,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.833,
+        "majority": 0.29,
+        "null_mean": 0.157,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.94,
+        "texts_with_class": 1627
+      }
+    },
+    "only_verb": {
+      "words": {
+        "acc": 0.557,
+        "majority": 0.264,
+        "null_mean": 0.113,
+        "p": 0.0099,
+        "n": 1480,
+        "classes": 10,
+        "genre_acc": 0.886,
+        "texts_with_class": 1480
+      },
+      "signs": {
+        "acc": 0.531,
+        "majority": 0.263,
+        "null_mean": 0.117,
+        "p": 0.0099,
+        "n": 1485,
+        "classes": 10,
+        "genre_acc": 0.861,
+        "texts_with_class": 1485
+      }
+    },
+    "without_verb": {
+      "words": {
+        "acc": 0.811,
+        "majority": 0.29,
+        "null_mean": 0.153,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.937,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.834,
+        "majority": 0.29,
+        "null_mean": 0.157,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.939,
+        "texts_with_class": 1627
+      }
+    },
+    "only_place": {
+      "words": {
+        "acc": 0.589,
+        "majority": 0.345,
+        "null_mean": 0.128,
+        "p": 0.0099,
+        "n": 548,
+        "classes": 10,
+        "genre_acc": 0.836,
+        "texts_with_class": 548
+      },
+      "signs": {
+        "acc": 0.532,
+        "majority": 0.349,
+        "null_mean": 0.129,
+        "p": 0.0099,
+        "n": 588,
+        "classes": 10,
+        "genre_acc": 0.784,
+        "texts_with_class": 588
+      }
+    },
+    "without_place": {
+      "words": {
+        "acc": 0.808,
+        "majority": 0.29,
+        "null_mean": 0.156,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.936,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.83,
+        "majority": 0.29,
+        "null_mean": 0.16,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.938,
+        "texts_with_class": 1627
+      }
+    },
+    "only_animal": {
+      "words": {
+        "acc": 0.321,
+        "majority": 0.24,
+        "null_mean": 0.098,
+        "p": 0.0099,
+        "n": 542,
+        "classes": 10,
+        "genre_acc": 0.725,
+        "texts_with_class": 542
+      },
+      "signs": {
+        "acc": 0.339,
+        "majority": 0.233,
+        "null_mean": 0.095,
+        "p": 0.0099,
+        "n": 557,
+        "classes": 10,
+        "genre_acc": 0.716,
+        "texts_with_class": 557
+      }
+    },
+    "without_animal": {
+      "words": {
+        "acc": 0.814,
+        "majority": 0.29,
+        "null_mean": 0.156,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.935,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.838,
+        "majority": 0.29,
+        "null_mean": 0.16,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.944,
+        "texts_with_class": 1627
+      }
+    },
+    "only_body": {
+      "words": {
+        "acc": 0.441,
+        "majority": 0.26,
+        "null_mean": 0.106,
+        "p": 0.0099,
+        "n": 558,
+        "classes": 10,
+        "genre_acc": 0.819,
+        "texts_with_class": 558
+      },
+      "signs": {
+        "acc": 0.423,
+        "majority": 0.258,
+        "null_mean": 0.096,
+        "p": 0.0099,
+        "n": 596,
+        "classes": 10,
+        "genre_acc": 0.846,
+        "texts_with_class": 596
+      }
+    },
+    "without_body": {
+      "words": {
+        "acc": 0.814,
+        "majority": 0.29,
+        "null_mean": 0.156,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.939,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.834,
+        "majority": 0.29,
+        "null_mean": 0.16,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.937,
+        "texts_with_class": 1627
+      }
+    },
+    "only_nature": {
+      "words": {
+        "acc": 0.451,
+        "majority": 0.279,
+        "null_mean": 0.122,
+        "p": 0.0099,
+        "n": 297,
+        "classes": 9,
+        "genre_acc": 0.886,
+        "texts_with_class": 297
+      },
+      "signs": {
+        "acc": 0.427,
+        "majority": 0.269,
+        "null_mean": 0.122,
+        "p": 0.0099,
+        "n": 316,
+        "classes": 9,
+        "genre_acc": 0.82,
+        "texts_with_class": 316
+      }
+    },
+    "without_nature": {
+      "words": {
+        "acc": 0.816,
+        "majority": 0.29,
+        "null_mean": 0.156,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.939,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.838,
+        "majority": 0.29,
+        "null_mean": 0.16,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.942,
+        "texts_with_class": 1627
+      }
+    },
+    "only_abstract": {
+      "words": {
+        "acc": 0.486,
+        "majority": 0.235,
+        "null_mean": 0.117,
+        "p": 0.0099,
+        "n": 459,
+        "classes": 10,
+        "genre_acc": 0.878,
+        "texts_with_class": 459
+      },
+      "signs": {
+        "acc": 0.496,
+        "majority": 0.241,
+        "null_mean": 0.112,
+        "p": 0.0099,
+        "n": 510,
+        "classes": 10,
+        "genre_acc": 0.824,
+        "texts_with_class": 510
+      }
+    },
+    "without_abstract": {
+      "words": {
+        "acc": 0.813,
+        "majority": 0.29,
+        "null_mean": 0.157,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.936,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.837,
+        "majority": 0.29,
+        "null_mean": 0.16,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.941,
+        "texts_with_class": 1627
+      }
+    },
+    "only_adjective": {
+      "words": {
+        "acc": 0.488,
+        "majority": 0.268,
+        "null_mean": 0.114,
+        "p": 0.0099,
+        "n": 832,
+        "classes": 10,
+        "genre_acc": 0.833,
+        "texts_with_class": 832
+      },
+      "signs": {
+        "acc": 0.43,
+        "majority": 0.273,
+        "null_mean": 0.113,
+        "p": 0.0099,
+        "n": 866,
+        "classes": 10,
+        "genre_acc": 0.822,
+        "texts_with_class": 866
+      }
+    },
+    "without_adjective": {
+      "words": {
+        "acc": 0.814,
+        "majority": 0.29,
+        "null_mean": 0.156,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.939,
+        "texts_with_class": 1627
+      },
+      "signs": {
+        "acc": 0.841,
+        "majority": 0.29,
+        "null_mean": 0.16,
+        "p": 0.0099,
+        "n": 1627,
+        "classes": 10,
+        "genre_acc": 0.944,
+        "texts_with_class": 1627
+      }
+    }
+  },
+  "cth701_subgroups": {
+    "all": {
+      "words": {
+        "acc": 0.512,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.585,
+        "majority": 0.207,
+        "null_mean": 0.131,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_agent": {
+      "words": {
+        "acc": 0.222,
+        "majority": 0.194,
+        "null_mean": 0.125,
+        "p": 0.0495,
+        "n": 72,
+        "classes": 8,
+        "texts_with_class": 72
+      },
+      "signs": {
+        "acc": 0.288,
+        "majority": 0.205,
+        "null_mean": 0.125,
+        "p": 0.0099,
+        "n": 73,
+        "classes": 8,
+        "texts_with_class": 73
+      }
+    },
+    "without_agent": {
+      "words": {
+        "acc": 0.537,
+        "majority": 0.207,
+        "null_mean": 0.132,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.598,
+        "majority": 0.207,
+        "null_mean": 0.133,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_deity": {
+      "words": {
+        "acc": 0.383,
+        "majority": 0.2,
+        "null_mean": 0.13,
+        "p": 0.0099,
+        "n": 60,
+        "classes": 8,
+        "texts_with_class": 60
+      },
+      "signs": {
+        "acc": 0.464,
+        "majority": 0.232,
+        "null_mean": 0.131,
+        "p": 0.0099,
+        "n": 69,
+        "classes": 8,
+        "texts_with_class": 69
+      }
+    },
+    "without_deity": {
+      "words": {
+        "acc": 0.5,
+        "majority": 0.207,
+        "null_mean": 0.133,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.561,
+        "majority": 0.207,
+        "null_mean": 0.131,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_function": {
+      "words": {
+        "acc": 0.438,
+        "majority": 0.188,
+        "null_mean": 0.128,
+        "p": 0.0099,
+        "n": 80,
+        "classes": 8,
+        "texts_with_class": 80
+      },
+      "signs": {
+        "acc": 0.362,
+        "majority": 0.188,
+        "null_mean": 0.127,
+        "p": 0.0099,
+        "n": 80,
+        "classes": 8,
+        "texts_with_class": 80
+      }
+    },
+    "without_function": {
+      "words": {
+        "acc": 0.5,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.61,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_foreign": {
+      "words": {
+        "acc": 0.535,
+        "majority": 0.183,
+        "null_mean": 0.12,
+        "p": 0.0099,
+        "n": 71,
+        "classes": 8,
+        "texts_with_class": 71
+      },
+      "signs": {
+        "acc": 0.597,
+        "majority": 0.182,
+        "null_mean": 0.126,
+        "p": 0.0099,
+        "n": 77,
+        "classes": 8,
+        "texts_with_class": 77
+      }
+    },
+    "without_foreign": {
+      "words": {
+        "acc": 0.469,
+        "majority": 0.198,
+        "null_mean": 0.127,
+        "p": 0.0099,
+        "n": 81,
+        "classes": 8,
+        "texts_with_class": 81
+      },
+      "signs": {
+        "acc": 0.524,
+        "majority": 0.207,
+        "null_mean": 0.13,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_realia": {
+      "words": {
+        "acc": 0.429,
+        "majority": 0.169,
+        "null_mean": 0.123,
+        "p": 0.0099,
+        "n": 77,
+        "classes": 8,
+        "texts_with_class": 77
+      },
+      "signs": {
+        "acc": 0.487,
+        "majority": 0.179,
+        "null_mean": 0.136,
+        "p": 0.0099,
+        "n": 78,
+        "classes": 8,
+        "texts_with_class": 78
+      }
+    },
+    "without_realia": {
+      "words": {
+        "acc": 0.537,
+        "majority": 0.207,
+        "null_mean": 0.132,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.598,
+        "majority": 0.207,
+        "null_mean": 0.131,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_verb": {
+      "words": {
+        "acc": 0.38,
+        "majority": 0.177,
+        "null_mean": 0.131,
+        "p": 0.0099,
+        "n": 79,
+        "classes": 8,
+        "texts_with_class": 79
+      },
+      "signs": {
+        "acc": 0.392,
+        "majority": 0.177,
+        "null_mean": 0.13,
+        "p": 0.0099,
+        "n": 79,
+        "classes": 8,
+        "texts_with_class": 79
+      }
+    },
+    "without_verb": {
+      "words": {
+        "acc": 0.488,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.573,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_place": {},
+    "without_place": {
+      "words": {
+        "acc": 0.512,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.585,
+        "majority": 0.207,
+        "null_mean": 0.131,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_animal": {
+      "words": {
+        "acc": 0.294,
+        "majority": 0.206,
+        "null_mean": 0.116,
+        "p": 0.0396,
+        "n": 34,
+        "classes": 8,
+        "texts_with_class": 34
+      },
+      "signs": {
+        "acc": 0.216,
+        "majority": 0.189,
+        "null_mean": 0.132,
+        "p": 0.1881,
+        "n": 37,
+        "classes": 8,
+        "texts_with_class": 37
+      }
+    },
+    "without_animal": {
+      "words": {
+        "acc": 0.488,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.585,
+        "majority": 0.207,
+        "null_mean": 0.131,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_body": {
+      "words": {
+        "acc": 0.302,
+        "majority": 0.186,
+        "null_mean": 0.115,
+        "p": 0.0297,
+        "n": 43,
+        "classes": 8,
+        "texts_with_class": 43
+      },
+      "signs": {
+        "acc": 0.311,
+        "majority": 0.178,
+        "null_mean": 0.12,
+        "p": 0.0198,
+        "n": 45,
+        "classes": 8,
+        "texts_with_class": 45
+      }
+    },
+    "without_body": {
+      "words": {
+        "acc": 0.5,
+        "majority": 0.207,
+        "null_mean": 0.133,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.598,
+        "majority": 0.207,
+        "null_mean": 0.13,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_nature": {
+      "words": {
+        "acc": 0.0,
+        "majority": 0.429,
+        "null_mean": 0.166,
+        "p": 1.0,
+        "n": 7,
+        "classes": 4,
+        "texts_with_class": 7
+      },
+      "signs": {
+        "acc": 0.2,
+        "majority": 0.3,
+        "null_mean": 0.162,
+        "p": 0.5446,
+        "n": 10,
+        "classes": 5,
+        "texts_with_class": 10
+      }
+    },
+    "without_nature": {
+      "words": {
+        "acc": 0.512,
+        "majority": 0.207,
+        "null_mean": 0.133,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.585,
+        "majority": 0.207,
+        "null_mean": 0.13,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_abstract": {
+      "words": {
+        "acc": 0.5,
+        "majority": 0.312,
+        "null_mean": 0.151,
+        "p": 0.0297,
+        "n": 16,
+        "classes": 6,
+        "texts_with_class": 16
+      },
+      "signs": {
+        "acc": 0.55,
+        "majority": 0.3,
+        "null_mean": 0.185,
+        "p": 0.0198,
+        "n": 20,
+        "classes": 6,
+        "texts_with_class": 20
+      }
+    },
+    "without_abstract": {
+      "words": {
+        "acc": 0.512,
+        "majority": 0.207,
+        "null_mean": 0.133,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.573,
+        "majority": 0.207,
+        "null_mean": 0.13,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    },
+    "only_adjective": {
+      "words": {
+        "acc": 0.364,
+        "majority": 0.182,
+        "null_mean": 0.118,
+        "p": 0.0099,
+        "n": 55,
+        "classes": 8,
+        "texts_with_class": 55
+      },
+      "signs": {
+        "acc": 0.305,
+        "majority": 0.169,
+        "null_mean": 0.132,
+        "p": 0.0198,
+        "n": 59,
+        "classes": 8,
+        "texts_with_class": 59
+      }
+    },
+    "without_adjective": {
+      "words": {
+        "acc": 0.5,
+        "majority": 0.207,
+        "null_mean": 0.134,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      },
+      "signs": {
+        "acc": 0.585,
+        "majority": 0.207,
+        "null_mean": 0.132,
+        "p": 0.0099,
+        "n": 82,
+        "classes": 8,
+        "texts_with_class": 82
+      }
+    }
+  }
+}

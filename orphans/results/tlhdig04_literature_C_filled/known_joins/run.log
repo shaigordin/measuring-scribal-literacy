@@ -1,0 +1,147 @@
+{
+ "pages": [
+  "390",
+  "391",
+  "392",
+  "393",
+  "394",
+  "395",
+  "396",
+  "397",
+  "398",
+  "399",
+  "400",
+  "401",
+  "402",
+  "403",
+  "404",
+  "405",
+  "406",
+  "407",
+  "408",
+  "409",
+  "410",
+  "411",
+  "412",
+  "413",
+  "414",
+  "415",
+  "416",
+  "417",
+  "418",
+  "419",
+  "420",
+  "421",
+  "422",
+  "423",
+  "424",
+  "425",
+  "426",
+  "427",
+  "428",
+  "429",
+  "430",
+  "431",
+  "432",
+  "433",
+  "434",
+  "435",
+  "436",
+  "437",
+  "438",
+  "439",
+  "440",
+  "441",
+  "442",
+  "443",
+  "444",
+  "445",
+  "446",
+  "447",
+  "448",
+  "449",
+  "450",
+  "451",
+  "452",
+  "453",
+  "454",
+  "455",
+  "456",
+  "457",
+  "458",
+  "459",
+  "460",
+  "461",
+  "462",
+  "463",
+  "464",
+  "465",
+  "466",
+  "467",
+  "468",
+  "469",
+  "470",
+  "500",
+  "670",
+  "832"
+ ],
+ "statements_matched": 385,
+ "pool": 19416,
+ "duplicate": {
+  "pairs": 332,
+  "median_rank": 4.0,
+  "top1": 103,
+  "top5": 177,
+  "top20": 224,
+  "top100": 275
+ },
+ "join": {
+  "pairs": 19,
+  "median_rank": 157.0,
+  "top1": 0,
+  "top5": 2,
+  "top20": 7,
+  "top100": 9
+ }
+}
+      relation     fragment      partner  rank  similarity                                                                                                                                                                                                                                                                                                                                                                                                                                            barcode  passes_join_checks
+2    duplicate  KBo 12.104+      VBoT 24     1      0.4559                                                                                                                                                                                                                                                                                                                                                                                                   SSSSSSSSSSSSSSSSSSSSSSSSSS.SSSSSSSSSSSSSSSSWSSSS               False
+6    duplicate   CHDS 6.121   KUB 30.35+     1      0.3304                                                                                                                                                                                                                                                                                                                                                                                                                                      S..SSSS.SSSSS                True
+11   duplicate    KUB 46.52    KUB 33.70     1      0.5530                                                                                                                                                                                                                                                                                                                                                                                                              .SSSSSS..SSSSSW.S..SSSSS.SSSSSSSWSS.S               False
+17   duplicate  KBo 53.266+    KUB 58.79     1      0.4998                                                                                                                                                                                                                                                                                                                                                                                                           SSSSSSSSSS.SSSSS..SSS..S.SSS.S.SS.SSW.SS               False
+24   duplicate    KBo 55.37      KUB 7.2     1      0.3050                                                                                                                                                                                                                                                                                                                                                                                                                                   SSS.SS.S.SSSSSS.                True
+37   duplicate   KUB 59.46+     KUB 9.34     1      0.4119                                                                                                                                                                                                                                                                                                                                                                                 .SS.....S.....W..S.S.S.SSSSS....SSSSSS.S.SS.W.S.SW.SWSSS..SSSWWSSS               False
+41   duplicate    KBo 61.15    KUB 7.44+     1      0.3434                                                                                                                                                                                                                                                                                                                                                                                                                                         .SSSWSSS..               False
+43   duplicate   KBo 66.219    IBoT 4.22     1      0.5399                                                                                                                                                                                                                                                                                                                                                                                                                                              SS.SS                True
+59   duplicate   KBo 15.24+   KBo 13.114     1      0.6462                                                                                                                                                                                                                                                  ..S.SS.S.SS.S.........SSS................S..S........S...S...............S......S...S....SS......SSS.S.......SW......SS..SSSS..S..SS.S..SSSS.SSSSS.S.SSS.SSSSSSSSSSSSSSW.SSSSSSSSSSS.W.SSWSSS....               False
+62   duplicate  KBo 48.106+    KUB 58.83     1      0.4734                                                                                                                                                                                                                                                                                                                                                                                                                         SSS....WSSSWSSSSSWS.SSSSSS               False
+69   duplicate   KBo 15.14+    KUB 24.5+     1      0.5474                                                                                                                                                                                                                                                                                                                                                                                SS.SSSS.SSSS.S.SSS.S.SSSS.SS.SSSSS.SSSSS..S.W.S.SS....S...SSSW.SS..               False
+72   duplicate    KUB 48.84   KUB 48.86+     1      0.3562                                                                                                                                                                                                                                                                                                                                                                                                                                    .S..SS.SS.S....               False
+73   duplicate   KUB 48.86+    KUB 48.84     1      0.3562                                                                                                                                                                                                                                                                                                                                                                                                            ...SS.SS.........S..................S..               False
+79   duplicate  KBo 66.316+     KUB 7.60     1      0.2983                                                                                                                                                                                                                                                                                                                                                                                                             SSSSS.W.S.W.S...SS...SSSSS.S..SS.S....               False
+82   duplicate    KUB 57.20   KBo 34.38+     1      0.5456                                                                                                                                                                                                                                                                                                                                                                                                                                    S.SW.SSSS.SS..S               False
+86   duplicate     KBo 46.7    IBoT 4.17     1      0.4322                                                                                                                                                                                                                                                                                                                                                                                                                                            WS..SS.               False
+87   duplicate      KUB 9.1    KUB 58.77     1      0.3530                                                                                                                                                                                                                                                                                           ...S...........S..S...SS....S...S.....S.WS........S.S.............S.SS.SS.....................S..S....SSSS...W..S.SS.S...SW.SS.....W...S....SW....SS.W..               False
+88   duplicate    KUB 58.77      KUB 9.1     1      0.3530                                                                                                                                                                                                                                                                                                                                                           SSSWSSSSSWSSS.WSSSS....SWSSSS..S.SS.....S..........S.S.S..W....S.S.SS.S..S.......W......               False
+89   duplicate    IBoT 4.17     KBo 46.7     1      0.4322                                                                                                                                                                                                                                                                                                                                                                                                                                       ....SS..WS..               False
+92   duplicate   KBo 71.183    KBo 17.60     1      0.3297                                                                                                                                                                                                                                                                                                                                           S....S..S..............SS..W................S.S..........SS.............S.............S.S...........S..S               False
+99   duplicate   KUB 58.101    KUB 43.55     1      0.3029                                                                                                                                                                                                                                                                                                                                                                                     SWSS..SSS.SSS.WSS...W.....S...S......S..S.S...S..S...WS.......               False
+101  duplicate   KUB 58.108    KUB 59.58     1      0.4642                                                                                                                                                                                                                                                                                                                                                              ......S.....SSS.SS.S.....SSSSS.S...SS...S..........................S.................               False
+102  duplicate    KUB 59.58   KUB 58.108     1      0.4642                                                                                                                                                                                                                                                                                                                                                                                                                    S...SS.SS.SSS..SSS..S.SS..SS..S                True
+105  duplicate    KBo 61.17      Bo 4664     1      0.3462                                                                                                                                                                                                                                                                                                                                                                                                                                             S....S               False
+107  duplicate    KUB 57.61   KBo 13.101     1      0.3873                                                                                                                                                                                                                                                                                                                                                                                                                                        SSSSWSSSSS.               False
+109  duplicate    KBo 20.31    KUB 57.69     1      0.3303                                                                                                                                                                                                                                                                                                                                                                                                              ..S..SS..S.SSS.S..................S.S               False
+110  duplicate    KUB 12.21    KBo 20.31     1      0.2978                                                                                                                                                                                                                                                                                                                                                                                                                      .SS....S....SS.S..S.S.....SSS               False
+118  duplicate    KBo 54.18     KUB 7.41     1      0.2802                                                                                                                                                                                                                                                                                                                                                                                                                                        .SSSSSSSWSS               False
+122  duplicate   KBo 48.89+   KBo 10.45+     1      0.7585  SSWSSSSSSS.SS.WSSSSSSSSSSSSSWSSS.SSS.SSSWS.SSSSSSSSSS.SSSSSSS.WSSS..SSS.WSSSSWSS.S.SSSSSS.S.....S.SSSSS.SS.SSSS.SSSSS.S.W.S..SSS.W.SSSSSSSWS.W.....WSSS.SSSSSSS.SSWSSSS.S.SSSSS.SS.SSSWS.SSSWSSSSWSS..W.S.S.SSSS.SSSS..WS..WSSSSSWSSW.S..SSSSS.S.S..S.SS.S.SSSS.SSSS..SSS.WSWS.SSSSS.S..S.SS...SS.SS.SS.SSWSW.S.S..SWSSWSSSS...SS...SS.WSSSW.SS.SSSSWWS.SS...SSSSSSSSSWS......SSSWSSS..SSSSSSSWS..WSS.S.W..SW.SS..SS.SWSSSW..S..SSS..SS..SS...S..               False
+125  duplicate   KBo 11.10+   KBo 20.92+     1      0.6142                                                                                                                                                                                                                                                                                                                .SWSSSSWSWSSSSSSSSSSSS.WS.SS..SS..SSSSSSW.SS.....SSSSSSS..W..SSSSSSSS.SS...SSSS..SSSW.WSS.S...SS.S.SS.S.SSSW.SSSSSSSSSSSSW.WSSSS.WS               False
+133  duplicate   KBo 54.160    KBo 57.35     1      0.6076                                                                                                                                                                                                                                                                                                                                                                                                                                       SSSSS.SSSSW.               False
+134  duplicate    KBo 57.34    KUB 12.16     1      0.3592                                                                                                                                                                                                                                                                                                                                                                                                                                          SS.SSSWS.               False
+135  duplicate    KBo 57.35   KBo 54.160     1      0.6076                                                                                                                                                                                                                                                                                                                                                                                                                                        SSSSSSSSSW.               False
+141  duplicate    KBo 58.18    KUB 53.58     1      0.3028                                                                                                                                                                                                                                                                                                                                                                                                                                         SS..SW..S.               False
+147  duplicate   KUB 60.161   KUB 17.18+     1      0.5645                                                                                                                                                                                                                                                                                                                               .SSSSS.SSSS...S..SSSSS..SSS.SSSSSSS.SSSWSSSSS..SS..WS....S..S..SSSSSSS.SSSSWS.SSSSS.SS.SSS.S.SSSS...................               False
+149  duplicate    KUB 43.55   KUB 58.101     1      0.3029                                                                                                                                                                                                                                   .WS.S......S.SS.........SS..S..S....W..............S.WSW....S.SS.....W...W.......................................S.................S.....................S......................................................               False
+165  duplicate    CHDS 6.14  KBo 14.100+     1      0.2978                                                                                                                                                                                                                                                                                                                                                                                                                                     SS.SSS.S....S.                True
+168  duplicate   KUB 39.101     Bo 6166+     1      0.4599                                                                                                                                                                                                                                                                                                                                                                                                                         SS.SSWSS.S..S..S....S.S.S.               False
+169  duplicate   KUB 39.100   KBo 35.193     1      0.5368                                                                                                                                                                                                                                                                                                                                                                                                                                       ..SSSSSSS...                True
+177  duplicate    KUB 39.51    IBoT 4.23     1      0.2488                                                                                                                                                                                                                                                                                                                                                                                                                                S.......SS..SW.SSS.               False

@@ -37,20 +37,20 @@
     "levels": {
       "high": {
         "reviewed": 59,
-        "right": 57,
-        "accuracy": 0.966,
+        "right": 56,
+        "accuracy": 0.949,
         "ci95": [
-          0.885,
-          0.991
+          0.861,
+          0.983
         ]
       },
       "low": {
         "reviewed": 60,
-        "right": 53,
-        "accuracy": 0.883,
+        "right": 52,
+        "accuracy": 0.867,
         "ci95": [
-          0.778,
-          0.942
+          0.758,
+          0.931
         ]
       },
       "medium": {
@@ -63,9 +63,9 @@
         ]
       }
     },
-    "corpus_weighted_accuracy": 0.936,
+    "corpus_weighted_accuracy": 0.923,
     "in_sample": true,
-    "rows_still_wrong": 16
+    "rows_still_wrong": 18
   },
   "weights_share_of_tokens": {
     "high": 0.637,
@@ -73,8 +73,8 @@
     "medium": 0.241
   },
   "rule_fixes": 5,
-  "share_of_words_changed_by_fixes": 0.022,
-  "share_of_words_changed_incl_meaning_classes": 0.1901,
+  "share_of_words_changed_by_fixes": 0.0214,
+  "share_of_words_changed_incl_meaning_classes": 0.1848,
   "realia_split_included": true,
   "note": "after-fix accuracy is in-sample (rules revised on these marks) and scored in the audit's scheme, where nouns and adjectives were one class (realia); the realia split into meaning classes (philologist's decision 2026-10-17) uses labels/gloss_lexicon.tsv, drafted by Claude from TLHdig's German glosses and not audited"
 }

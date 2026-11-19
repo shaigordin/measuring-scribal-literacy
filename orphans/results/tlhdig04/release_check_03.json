@@ -1,0 +1,25 @@
+{
+ "files": 23936,
+ "lines": 414454,
+ "restored_line_starts_inside": 139434,
+ "restored_previous_line_closed": 63696,
+ "restored_previous_line_left_open": 75738,
+ "damaged_line_starts_inside": 106,
+ "damaged_previous_line_closed": 103,
+ "erased_line_starts_inside": 6,
+ "erased_previous_line_closed": 6,
+ "damaged_previous_line_left_open": 3,
+ "added_line_starts_inside": 4,
+ "added_previous_line_closed": 4,
+ "files_unreadable": 1,
+ "manuscripts_in_HFR_and_TLH_folders": 80,
+ "words_unaligned": 3197,
+ "words": 1248221,
+ "parser_skipped": [
+  "data/TLHbasisONLINE25_1_ZENODO_Beta_03/CTH 526_XML_KULTINV/KUB 25.23+.xml",
+  "data/TLHbasisONLINE25_1_ZENODO_Beta_03/CTH 528_XML_KULTINV/KBo 13.192.xml",
+  "data/TLHbasisONLINE25_1_ZENODO_Beta_03/CTH 813_XML_TLH/KUB 37.25.xml",
+  "data/TLHbasisONLINE25_1_ZENODO_Beta_03/CTH 831_XML_TLH/IBoT 4.235.xml",
+  "data/TLHbasisONLINE25_1_ZENODO_Beta_03/CTH 831_XML_TLH/IBoT 4.249.xml"
+ ]
+}
