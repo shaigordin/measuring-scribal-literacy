@@ -44,7 +44,7 @@ for T in "KBo 44.52" "DAAM 3.64" "KBo 52.43" "KBo 57.54"; do python3 run_case.py
 python3 run_test_examples.py "$TOK" --run "$O" --out "$C" >> "$C/run.log"
 python3 run_barcode.py "$TOK" --run "$O" --txtid "KBo 44.52" --out "$C" >> "$C/run.log"
 mkdir -p "$O/known_joins" "$O/joins"
-python3 run_known_joins.py "$TOK" --run "$O" --cache "$DATA/konkordanz" --out "$O/known_joins" --labels "$O/known_joins/labels.csv" \
+python3 run_known_joins.py "$TOK" --run "$O" --cache "$DATA/konkordanz" --out "$O/known_joins" --labels "$O/known_joins/labels.csv" --fetch \
   --pages-from results/tlhdig03_literature/known_joins/known_joins.json > "$O/known_joins/run.log"
 python3 run_join_model.py "$TOK" --run "$O" --xml "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_$TLH" --cache "$DATA/konkordanz" \
   --fetch --k 200 --out "$O/joins" > "$O/joins/run.log"
