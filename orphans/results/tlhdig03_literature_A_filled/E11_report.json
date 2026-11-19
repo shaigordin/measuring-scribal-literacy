@@ -46,8 +46,8 @@
         "Animals, body, nature": 0.01,
         "Abstract nouns": 0.009,
         "Adjectives": 0.012,
-        "Foreign words": 0.175,
-        "Other words": 0.024
+        "Foreign words": 0.177,
+        "Other words": 0.022
       },
       "cells": {
         "Word form|Realia": 0.0275,
@@ -56,18 +56,18 @@
         "Logographic writing|Realia": 0.0535,
         "Syllabic spelling|Verbs": 0.0718,
         "Syllabic spelling|Function words": 0.0302,
-        "Syllabic spelling|Other words": 0.0167,
+        "Syllabic spelling|Other words": 0.0147,
         "Syllabic spelling|Realia": 0.0659,
         "Logographic writing|Function words": 0.0303,
         "Word form|Agents and deities": 0.0612,
         "Logographic writing|Agents and deities": 0.1928,
         "Logographic writing|Adjectives": 0.0064,
         "Logographic writing|Verbs": 0.0059,
-        "Syllabic spelling|Foreign words": 0.1462,
+        "Syllabic spelling|Foreign words": 0.1482,
         "Syllabic spelling|Places": 0.0095,
         "Syllabic spelling|Abstract nouns": 0.0068,
         "Syllabic spelling|Agents and deities": 0.1656,
-        "Word form|Foreign words": 0.0254
+        "Word form|Foreign words": 0.0256
       }
     },
     "by_tradition": {
@@ -87,8 +87,8 @@
           "Animals, body, nature": 0.047,
           "Abstract nouns": 0.061,
           "Adjectives": 0.018,
-          "Foreign words": -0.0,
-          "Other words": 0.061
+          "Foreign words": -0.001,
+          "Other words": 0.062
         },
         "cells": {
           "Word form|Other words": 0.0196,
@@ -100,7 +100,7 @@
           "Logographic writing|Animals, body, nature": 0.0447,
           "Syllabic spelling|Verbs": 0.0787,
           "Syllabic spelling|Function words": 0.0685,
-          "Syllabic spelling|Other words": 0.0422,
+          "Syllabic spelling|Other words": 0.0424,
           "Syllabic spelling|Realia": 0.0961,
           "Word form|Agents and deities": 0.0312,
           "Logographic writing|Agents and deities": 0.1095,
@@ -129,27 +129,27 @@
           "Animals, body, nature": 0.0,
           "Abstract nouns": 0.003,
           "Adjectives": 0.009,
-          "Foreign words": 0.24,
-          "Other words": 0.01
+          "Foreign words": 0.244,
+          "Other words": 0.006
         },
         "cells": {
-          "Word form|Other words": -0.0076,
+          "Word form|Other words": -0.0077,
           "Word form|Realia": 0.0059,
           "Word form|Function words": -0.0113,
           "Word form|Verbs": 0.0261,
           "Logographic writing|Realia": -0.0055,
           "Syllabic spelling|Verbs": 0.1467,
           "Syllabic spelling|Function words": 0.0414,
-          "Syllabic spelling|Other words": 0.0216,
+          "Syllabic spelling|Other words": 0.0181,
           "Syllabic spelling|Realia": 0.0578,
           "Logographic writing|Function words": -0.039,
           "Word form|Agents and deities": 0.0764,
           "Logographic writing|Agents and deities": 0.3005,
           "Logographic writing|Places": 0.0087,
-          "Syllabic spelling|Foreign words": 0.2222,
+          "Syllabic spelling|Foreign words": 0.2257,
           "Syllabic spelling|Places": 0.015,
           "Syllabic spelling|Agents and deities": 0.1115,
-          "Word form|Foreign words": 0.0163
+          "Word form|Foreign words": 0.0164
         }
       },
       "Kizzuwatna rituals": {
@@ -168,23 +168,23 @@
           "Animals, body, nature": 0.09,
           "Abstract nouns": 0.068,
           "Adjectives": 0.048,
-          "Foreign words": 0.045,
-          "Other words": 0.12
+          "Foreign words": 0.047,
+          "Other words": 0.118
         },
         "cells": {
-          "Word form|Other words": 0.0174,
+          "Word form|Other words": 0.0172,
           "Word form|Realia": 0.0523,
-          "Word form|Animals, body, nature": 0.0255,
+          "Word form|Animals, body, nature": 0.0254,
           "Word form|Function words": 0.0272,
           "Logographic writing|Realia": 0.1423,
           "Logographic writing|Other words": 0.0332,
           "Logographic writing|Animals, body, nature": 0.0439,
           "Syllabic spelling|Verbs": 0.1238,
           "Syllabic spelling|Function words": 0.1327,
-          "Syllabic spelling|Other words": 0.0693,
+          "Syllabic spelling|Other words": 0.0678,
           "Syllabic spelling|Realia": 0.0956,
           "Logographic writing|Function words": -0.011,
-          "Word form|Agents and deities": 0.0179,
+          "Word form|Agents and deities": 0.018,
           "Logographic writing|Agents and deities": -0.0258,
           "Syllabic spelling|Animals, body, nature": 0.0204,
           "Syllabic spelling|Adjectives": 0.0184,
@@ -195,11 +195,11 @@
           "Logographic writing|Adjectives": 0.0156,
           "Logographic writing|Places": 0.0108,
           "Logographic writing|Verbs": 0.0052,
-          "Syllabic spelling|Foreign words": 0.0388,
+          "Syllabic spelling|Foreign words": 0.0404,
           "Syllabic spelling|Places": 0.0162,
           "Syllabic spelling|Abstract nouns": 0.0528,
           "Syllabic spelling|Agents and deities": 0.0312,
-          "Word form|Foreign words": 0.0058
+          "Word form|Foreign words": 0.006
         }
       },
       "Kizzuwatna–Lower Land (Hurrian)": {
@@ -218,31 +218,31 @@
           "Animals, body, nature": 0.021,
           "Abstract nouns": 0.011,
           "Adjectives": -0.001,
-          "Foreign words": 0.081,
-          "Other words": 0.085
+          "Foreign words": 0.092,
+          "Other words": 0.073
         },
         "cells": {
-          "Word form|Other words": 0.0364,
+          "Word form|Other words": 0.0349,
           "Word form|Realia": 0.0451,
           "Word form|Function words": 0.0387,
           "Word form|Verbs": 0.0257,
           "Logographic writing|Realia": 0.1823,
-          "Logographic writing|Other words": 0.0216,
+          "Logographic writing|Other words": 0.0215,
           "Logographic writing|Animals, body, nature": 0.0147,
           "Syllabic spelling|Verbs": 0.1007,
           "Syllabic spelling|Function words": -0.0343,
-          "Syllabic spelling|Other words": 0.0267,
+          "Syllabic spelling|Other words": 0.017,
           "Syllabic spelling|Realia": 0.0547,
           "Logographic writing|Function words": 0.1621,
           "Word form|Agents and deities": 0.0309,
           "Logographic writing|Agents and deities": 0.1011,
           "Word form|Places": 0.0058,
           "Logographic writing|Verbs": 0.0178,
-          "Syllabic spelling|Foreign words": 0.0676,
+          "Syllabic spelling|Foreign words": 0.0773,
           "Syllabic spelling|Places": 0.0189,
           "Syllabic spelling|Abstract nouns": 0.0068,
           "Syllabic spelling|Agents and deities": 0.0522,
-          "Word form|Foreign words": 0.0135
+          "Word form|Foreign words": 0.015
         }
       },
       "Luwian festivals (Ištanuwa, Lallupiya)": {
@@ -306,7 +306,7 @@
           "Animals, body, nature": 0.011,
           "Abstract nouns": 0.022,
           "Adjectives": 0.001,
-          "Foreign words": 0.721,
+          "Foreign words": 0.722,
           "Other words": 0.029
         },
         "cells": {
@@ -317,13 +317,13 @@
           "Logographic writing|Animals, body, nature": 0.0071,
           "Syllabic spelling|Verbs": 0.0129,
           "Syllabic spelling|Function words": -0.0181,
-          "Syllabic spelling|Other words": 0.0158,
+          "Syllabic spelling|Other words": 0.0154,
           "Syllabic spelling|Realia": 0.0146,
           "Logographic writing|Function words": -0.0114,
           "Word form|Agents and deities": 0.0435,
           "Logographic writing|Agents and deities": 0.1825,
           "Logographic writing|Foreign words": 0.0305,
-          "Syllabic spelling|Foreign words": 0.5434,
+          "Syllabic spelling|Foreign words": 0.5438,
           "Syllabic spelling|Abstract nouns": 0.018,
           "Word form|Foreign words": 0.1472
         }
@@ -433,7 +433,7 @@
           "Logographic writing|Agents and deities": 0.0953,
           "Word form|Adjectives": 0.01,
           "Logographic writing|Adjectives": 0.0252,
-          "Syllabic spelling|Foreign words": 0.1546,
+          "Syllabic spelling|Foreign words": 0.1547,
           "Syllabic spelling|Agents and deities": -0.0072,
           "Word form|Foreign words": 0.0206
         }
@@ -491,11 +491,11 @@
         "Animals, body, nature": 0.019,
         "Abstract nouns": 0.01,
         "Adjectives": 0.017,
-        "Foreign words": 0.116,
-        "Other words": 0.05
+        "Foreign words": 0.117,
+        "Other words": 0.049
       },
       "cells": {
-        "Word form|Other words": 0.012,
+        "Word form|Other words": 0.0119,
         "Word form|Realia": 0.019,
         "Word form|Function words": 0.0356,
         "Word form|Verbs": 0.0223,
@@ -504,19 +504,19 @@
         "Logographic writing|Animals, body, nature": 0.0094,
         "Syllabic spelling|Verbs": 0.1725,
         "Syllabic spelling|Function words": 0.1093,
-        "Syllabic spelling|Other words": 0.0319,
-        "Syllabic spelling|Realia": 0.0661,
+        "Syllabic spelling|Other words": 0.0305,
+        "Syllabic spelling|Realia": 0.066,
         "Logographic writing|Function words": 0.0471,
         "Word form|Agents and deities": 0.0283,
         "Logographic writing|Agents and deities": 0.1079,
         "Syllabic spelling|Animals, body, nature": 0.0063,
         "Syllabic spelling|Adjectives": 0.011,
         "Logographic writing|Verbs": 0.0056,
-        "Syllabic spelling|Foreign words": 0.1065,
+        "Syllabic spelling|Foreign words": 0.1079,
         "Syllabic spelling|Places": 0.0092,
         "Syllabic spelling|Abstract nouns": 0.0082,
         "Syllabic spelling|Agents and deities": 0.0915,
-        "Word form|Foreign words": 0.0076
+        "Word form|Foreign words": 0.0077
       }
     },
     "similarity_by_tradition": {
@@ -578,11 +578,11 @@
           "Animals, body, nature": 0.014,
           "Abstract nouns": 0.007,
           "Adjectives": 0.016,
-          "Foreign words": 0.176,
-          "Other words": 0.045
+          "Foreign words": 0.179,
+          "Other words": 0.043
         },
         "cells": {
-          "Word form|Other words": 0.0075,
+          "Word form|Other words": 0.0074,
           "Word form|Realia": 0.0097,
           "Word form|Function words": 0.0172,
           "Word form|Verbs": 0.0221,
@@ -590,7 +590,7 @@
           "Logographic writing|Animals, body, nature": 0.0061,
           "Syllabic spelling|Verbs": 0.2032,
           "Syllabic spelling|Function words": 0.098,
-          "Syllabic spelling|Other words": 0.034,
+          "Syllabic spelling|Other words": 0.0318,
           "Syllabic spelling|Realia": 0.0625,
           "Logographic writing|Function words": 0.0125,
           "Word form|Agents and deities": 0.0301,
@@ -599,7 +599,7 @@
           "Syllabic spelling|Adjectives": 0.0109,
           "Logographic writing|Places": 0.0067,
           "Logographic writing|Verbs": 0.0067,
-          "Syllabic spelling|Foreign words": 0.1703,
+          "Syllabic spelling|Foreign words": 0.1725,
           "Syllabic spelling|Places": 0.0148,
           "Syllabic spelling|Abstract nouns": 0.0059,
           "Syllabic spelling|Agents and deities": 0.0746,
@@ -622,8 +622,8 @@
           "Animals, body, nature": 0.046,
           "Abstract nouns": 0.031,
           "Adjectives": 0.028,
-          "Foreign words": 0.037,
-          "Other words": 0.105
+          "Foreign words": 0.039,
+          "Other words": 0.103
         },
         "cells": {
           "Word form|Other words": 0.0185,
@@ -636,7 +636,7 @@
           "Logographic writing|Animals, body, nature": 0.0248,
           "Syllabic spelling|Verbs": 0.1908,
           "Syllabic spelling|Function words": 0.171,
-          "Syllabic spelling|Other words": 0.0682,
+          "Syllabic spelling|Other words": 0.0657,
           "Syllabic spelling|Realia": 0.0665,
           "Logographic writing|Function words": 0.0356,
           "Word form|Agents and deities": 0.0162,
@@ -645,7 +645,7 @@
           "Syllabic spelling|Adjectives": 0.0175,
           "Logographic writing|Adjectives": 0.0063,
           "Logographic writing|Places": 0.006,
-          "Syllabic spelling|Foreign words": 0.0354,
+          "Syllabic spelling|Foreign words": 0.0379,
           "Syllabic spelling|Places": 0.0106,
           "Syllabic spelling|Abstract nouns": 0.0268,
           "Syllabic spelling|Agents and deities": 0.0275
@@ -667,11 +667,11 @@
           "Animals, body, nature": 0.024,
           "Abstract nouns": 0.01,
           "Adjectives": 0.014,
-          "Foreign words": 0.053,
-          "Other words": 0.06
+          "Foreign words": 0.057,
+          "Other words": 0.056
         },
         "cells": {
-          "Word form|Other words": 0.0225,
+          "Word form|Other words": 0.0222,
           "Word form|Realia": 0.0256,
           "Word form|Function words": 0.0428,
           "Word form|Verbs": 0.0235,
@@ -680,15 +680,15 @@
           "Logographic writing|Animals, body, nature": 0.0128,
           "Syllabic spelling|Verbs": 0.1922,
           "Syllabic spelling|Function words": 0.0902,
-          "Syllabic spelling|Other words": 0.028,
-          "Syllabic spelling|Realia": 0.0788,
+          "Syllabic spelling|Other words": 0.025,
+          "Syllabic spelling|Realia": 0.0787,
           "Logographic writing|Function words": 0.0944,
           "Word form|Agents and deities": 0.0179,
           "Logographic writing|Agents and deities": 0.0744,
           "Syllabic spelling|Animals, body, nature": 0.0068,
           "Syllabic spelling|Adjectives": 0.0102,
           "Logographic writing|Verbs": 0.0058,
-          "Syllabic spelling|Foreign words": 0.0501,
+          "Syllabic spelling|Foreign words": 0.0532,
           "Syllabic spelling|Places": 0.0134,
           "Syllabic spelling|Abstract nouns": 0.0083,
           "Syllabic spelling|Agents and deities": 0.0598
@@ -757,7 +757,7 @@
           "Abstract nouns": 0.018,
           "Adjectives": 0.008,
           "Foreign words": 0.478,
-          "Other words": 0.048
+          "Other words": 0.047
         },
         "cells": {
           "Word form|Other words": 0.007,
@@ -769,13 +769,13 @@
           "Logographic writing|Animals, body, nature": 0.0088,
           "Syllabic spelling|Verbs": 0.0833,
           "Syllabic spelling|Function words": 0.092,
-          "Syllabic spelling|Other words": 0.034,
+          "Syllabic spelling|Other words": 0.0337,
           "Syllabic spelling|Realia": 0.0247,
           "Word form|Agents and deities": 0.0327,
           "Logographic writing|Agents and deities": 0.1342,
           "Syllabic spelling|Adjectives": 0.0059,
           "Logographic writing|Foreign words": 0.0157,
-          "Syllabic spelling|Foreign words": 0.4008,
+          "Syllabic spelling|Foreign words": 0.401,
           "Syllabic spelling|Abstract nouns": 0.0152,
           "Syllabic spelling|Agents and deities": 0.007,
           "Word form|Foreign words": 0.0612
@@ -883,7 +883,7 @@
           "Logographic writing|Animals, body, nature": 0.0075,
           "Syllabic spelling|Verbs": 0.1391,
           "Syllabic spelling|Function words": 0.182,
-          "Syllabic spelling|Other words": 0.0145,
+          "Syllabic spelling|Other words": 0.0142,
           "Syllabic spelling|Realia": 0.1332,
           "Logographic writing|Function words": 0.0406,
           "Word form|Agents and deities": 0.0284,
@@ -891,9 +891,9 @@
           "Syllabic spelling|Animals, body, nature": 0.0058,
           "Syllabic spelling|Adjectives": 0.015,
           "Logographic writing|Adjectives": 0.0116,
-          "Syllabic spelling|Foreign words": 0.1271,
+          "Syllabic spelling|Foreign words": 0.1274,
           "Syllabic spelling|Agents and deities": 0.0112,
-          "Word form|Foreign words": 0.0079
+          "Word form|Foreign words": 0.008
         }
       },
       "Ḫuwaššanna festivals": {

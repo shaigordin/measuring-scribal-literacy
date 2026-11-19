@@ -11,23 +11,32 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 DATA=${1:-data}
-OUT=results/tlhdig03
+# TLH=04 (default): TLHdig Beta 0.4 (doi:10.5281/zenodo.24373727), results in results/tlhdig04*.
+# TLH=03 rebuilds the earlier results on Beta 0.3 (doi:10.5281/zenodo.20328284, deprecated by TLHdig).
+TLH=${TLH:-04}
+export TLH
+case $TLH in
+  04) REC=24373727; MD5=a31a1ac9808ac77432466a910ed85969 ;;
+  03) REC=20328284; MD5=f9acbc8db3111cc7dd88d82f7819a912 ;;
+  *) echo "unknown TLH=$TLH"; exit 1 ;;
+esac
+OUT=results/tlhdig$TLH
 LABELS701=${LABELS701:-labels/cth701_labels.csv}
-ZIP=$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03.zip
-URL=https://zenodo.org/api/records/20328284/files/TLHbasisONLINE25_1_ZENODO_Beta_03.zip/content
-MD5=f9acbc8db3111cc7dd88d82f7819a912
+XML=$DATA/TLHbasisONLINE25_1_ZENODO_Beta_$TLH
+ZIP=$XML.zip
+URL=https://zenodo.org/api/records/$REC/files/TLHbasisONLINE25_1_ZENODO_Beta_$TLH.zip/content
 mkdir -p "$DATA" "$OUT"
 
-# 1. data: TLHdig Beta 0.3 (doi:10.5281/zenodo.20328284), checksum-verified
+# 1. data: TLHdig Beta 0.$TLH from Zenodo, checksum-verified
 [ -f "$ZIP" ] || curl -L -o "$ZIP" "$URL"
 echo "$MD5  $ZIP" | md5sum -c -
-[ -d "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" ] || unzip -q "$ZIP" -d "$DATA"
+[ -d "$XML" ] || unzip -q "$ZIP" -d "$DATA"
 
 # 2. token table (one row per word, with word classes)
 #    tokens_marks.csv adds sign status (preserved/damaged/restored), Akkadogram/Sumerogram layer and
 #    editorial flags; tokens.csv (version A) is the table as published so far, without them.
 #    The main datasets (with and without restorations, analyses filled) are built in step 4.
-python3 -m qtm.tlhdig "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" "$DATA/tokens_marks.csv" --wide-titles > "$DATA/parse.log" 2> "$DATA/parse.err"
+python3 -m qtm.tlhdig "$XML" "$DATA/tokens_marks.csv" --wide-titles > "$DATA/parse.log" 2> "$DATA/parse.err"
 python3 -m qtm.variants "$DATA/tokens_marks.csv" "$DATA/tokens.csv" --variant A
 TOK=$DATA/tokens.csv
 
@@ -67,8 +76,11 @@ python3 review_wordclass.py rescore --tokens "$TOK"                             
 #    same spelling elsewhere in TLHdig, or (Cuneiform Luwian) their eDiAna lemma (fill_lemmas.py);
 #    run_filled.sh runs every experiment, case study and join check on the filled table, once without
 #    restorations (C, the main results) and once with them (A).
-bash run_filled.sh "$DATA" C                                                     # results/tlhdig03_literature_C_filled
-bash run_filled.sh "$DATA" A                                                     # results/tlhdig03_literature_A_filled
+bash run_variant.sh C "$DATA" > /dev/null                                       # results/tlhdig$TLH_literature_C (no fills; for the fill comparison)
+bash run_filled.sh "$DATA" C                                                     # results/tlhdig$TLH_literature_C_filled
+bash run_filled.sh "$DATA" A                                                     # results/tlhdig$TLH_literature_A_filled
+python3 run_unicode.py "$DATA/tokens_F.csv" --xml "$XML" --run "${OUT}_literature_C_filled" > "${OUT}_literature_C_filled/U_run.log"   # Unicode A/B
+[ "${STOP_BEFORE_RELEASE:-0}" = 1 ] && { echo "stopped before the release"; exit 0; }
 mkdir -p release
 python3 make_release.py "$DATA/tokens_F.csv" --run "${OUT}_literature_C_filled" --out release/without_restorations > release_C.log
 python3 make_release.py "$DATA/tokens_FA.csv" --run "${OUT}_literature_A_filled" --out release/with_restorations > release_A.log

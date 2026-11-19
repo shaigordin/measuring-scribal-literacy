@@ -13,7 +13,7 @@ import re
 import sys
 
 CASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "orphans", "results",
-                    "tlhdig03_literature", "case", "case_KBo_41_22.json")
+                    "tlhdig04_literature", "case", "case_KBo_41_22.json")
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "generated", "case_data.tex")
 # word class -> category colour (the palette of the playground and of decision_shares.png)
 CATCOLOR = {"function": "catF", "verb": "catV", "realia": "catN", "agent": "catA", "deity": "catA",

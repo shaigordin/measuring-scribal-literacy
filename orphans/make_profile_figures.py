@@ -90,11 +90,11 @@ for ax, (key, title) in zip(axes, [("historical", f"{h['classes']} traditions ({
     ax.text(allacc + 0.01, -0.75, f"all words {allacc:.0%}", ha="left", color=INK2, fontsize=11)
     for i, (c, name) in enumerate(CL):
         y = len(CL) - 1 - i
-        a, w = R[f"only_{c}"]["words"]["acc"], R[f"without_{c}"]["words"]["acc"]
-        n = R[f"only_{c}"]["words"]["texts_with_class"]
+        n = R.get(f"only_{c}", {}).get("words", {}).get("texts_with_class", 0)  # empty: no text carries the class
         if n < 20:  # too few texts carry the class for its own model
             ax.text(0.02, y, f"only {n} texts have it", va="center", color=MUTED, fontsize=11)
             continue
+        a, w = R[f"only_{c}"]["words"]["acc"], R[f"without_{c}"]["words"]["acc"]
         ax.plot([a, w], [y + 0.12, y - 0.12], color=GRID, lw=3, zorder=1)
         ax.plot(a, y + 0.12, "o", ms=11, color=CONTENT, mec=SURF, mew=2, zorder=3)
         ax.plot(w, y - 0.12, "o", ms=11, color=SCRIBAL, mec=SURF, mew=2, zorder=3)

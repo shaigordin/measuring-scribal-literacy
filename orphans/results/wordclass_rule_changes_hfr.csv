@@ -1,0 +1,20 @@
+from,to,rule,tokens,examples
+deity,agent,compound_title,354,"LÚ˽10, LÚ˽IŠKUR, LÚ˽IŠKURaš, LÚ˽10aš, LÚ˽10ma"
+unknown,foreign,analysis_hurrian,169,"manuzuḫi, pipitḫi, zalmatḫi, itarki, itita"
+unknown,agent,determinative_agent,162,"10manaua, GE₆wiaš, IŠTAR-LÚ, 30wia, 10-BE-LÍ"
+unknown,foreign,language,129,"mizu, utḫuru, ualu, ziešta, mišša"
+deity,agent,determinative_agent,51,"30-10, 30-10aš, LIŠ-KAL, AMAR.UTU-KAL, 30-10ia"
+body,foreign,analysis_hurrian,11,"itip, pašip, paḫip, itipuš, paḫipa"
+agent,foreign,analysis_hurrian,7,"attaniuena, attanipina, ašḫušikkunneneuena, ašḫušikkunnipa, taḫipi"
+realia,foreign,analysis_hurrian,6,"ḫuprušḫi, ampašši, aḫrušḫi"
+abstract,foreign,analysis_hurrian,4,"eḫlipi, šupripi, TIpi, kelti"
+realia,foreign,language,3,"kaltunniš, TUKULti"
+verb,foreign,language,3,"tiat, tai"
+function,foreign,language,2,"nu, taru"
+abstract,agent,determinative_agent,2,TE
+adjective,agent,determinative_agent,1,NIR.GÁL
+function,agent,determinative_agent,1,UL
+nature,agent,determinative_agent,1,PÚ
+function,foreign,analysis_hurrian,1,purullepe
+nature,foreign,analysis_hurrian,1,ÍDpi
+place,foreign,language,1,laḫzan

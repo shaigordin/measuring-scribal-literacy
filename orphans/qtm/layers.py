@@ -44,6 +44,18 @@ def spelling(sg) -> str:
     return "-".join(phonetic(sg))
 
 
+# HFR encodes the plural markers and the KAM of dates as determinatives (°MEŠ°, °ḪI.A°, UD 24°KAM°,
+# URU°DIDLI.ḪI.A°: HFR Basiscorpus guide p. 12-13); they mark number, not a semantic class, and do not
+# count for the determinative rate; nor does a determinative not on the tablet (∅, see qtm.variants)
+NUMBER_MARKERS = {"MEŠ", "ME.EŠ", "ḪI.A", "DIDLI", "DIDLI.ḪI.A", "KAM", "KAM.ḪI.A", "ḪI.A.MEŠ", "MEŠ.ḪI.A"}
+_DET = re.compile(r"\{([^}]*)\}")
+
+
+def has_determinative(translit: str) -> bool:
+    """A semantic determinative ({D}, {GIŠ}, {LÚ.MEŠ} ...) on the tablet; plural and date markers alone do not count."""
+    return any((d := x.strip()) and d not in NUMBER_MARKERS and d != "∅" for x in _DET.findall(str(translit)))
+
+
 def is_cvc(sign: str) -> bool:
     b = base(sign)
     return len(b) >= 3 and b[0] not in VOWELS and b[-1] not in VOWELS and sum(c in VOWELS for c in b) == 1
@@ -70,7 +82,7 @@ def indices(doc) -> dict:
         akk = [i for i in logo if any(s.isupper() and s in AKKADIAN_SINGLE for s in sgs[i])
                or re.search(r"[A-ZŠḪṢṬ]+-[A-ZŠḪṢṬ]", str(tr[i]))]
     comp = [i for i in logo if re.search(r"[A-ZŠḪṢṬ₀-₉]-[a-zšḫṣṭ]", str(tr[i]))]
-    det = [i for i in range(n) if "{" in str(tr[i])]
+    det = [i for i in range(n) if has_determinative(tr[i])]
     ph_signs = [s for i in phon for s in phonetic(sgs[i])]
     u = [base(s) for s in ph_signs if base(s) == "u"]
     ua = [s for s in ph_signs if base(s) == "u" and s in ("ú",)]

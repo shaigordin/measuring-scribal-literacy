@@ -27,10 +27,10 @@ SHORT = {"Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna and Lower Land (Hurr.)
          "Luwian festivals (Ištanuwa, Lallupiya)": "Ištanuwa and Lallupiya festivals",
          "Luwian rituals (Puriyanni, Kuwattalla)": "Luwian rituals (Lower Land)",
          "Arzawa / western rituals": "Arzawa (western) rituals"}
-MAIN = "tlhdig03_literature_C_filled"   # main run: literature-defined traditions, damage-aware tokens (version C), missing lemmas filled (TLHdig same spelling, eDiAna)
-COMPARE = "tlhdig03_literature_A_filled"  # with restorations (editor's full text, restorations counted), same fills: keys prefixed "A."
+MAIN = "tlhdig04_literature_C_filled"   # main run: literature-defined traditions, damage-aware tokens (version C), missing lemmas filled (TLHdig same spelling, eDiAna)
+COMPARE = "tlhdig04_literature_A_filled"  # with restorations (editor's full text, restorations counted), same fills: keys prefixed "A."
 PREFIX = ""                      # set to "A." while the comparison run is read
-BASE = "tlhdig03"              # StBoT 73 Table 3 + CTH-range controls (published baseline)
+BASE = "tlhdig04"              # StBoT 73 Table 3 + CTH-range controls (published baseline)
 
 INDEX = []
 LINES = []
@@ -125,6 +125,26 @@ def main():
         fw = load(MAIN, "comparison.json")["filled_words"]
         put("fill.tlhdig", num(fw["tlhdig_same_spelling"]), f"{MAIN}/comparison.json filled_words")
         put("fill.ediana", num(fw["ediana"]), f"{MAIN}/comparison.json filled_words")
+
+    # ---- Unicode cuneiform experiments (orphans/run_unicode.py)
+    fp = os.path.join(RES, MAIN, "U_unicode.json")
+    if os.path.exists(fp):
+        u = load(MAIN, "U_unicode.json")
+        src = f"{MAIN}/U_unicode.json"
+        put("U.align", pct(u["alignment"]["share_aligned_reference_and_orphans"]), src + " alignment")
+        put("U.align.all", pct(u["alignment"]["share_aligned_all"]), src + " alignment")
+        for e, k in (("U_A", "UA"), ("U_B", "UB")):
+            r = u["experiments"][e]["runs"]["A_analysed_only"]
+            put(f"{k}.acc", pct(r["loo_acc"]), f"{src} {e} A_analysed_only loo_acc")
+            put(f"{k}.placed", num(r["orphans"]["placed"]), f"{src} {e} orphans.placed")
+            put(f"{k}.scored", num(r["orphans"]["n"]), f"{src} {e} orphans.n")
+            vs = r["orphans"]["vs_main"]
+            put(f"{k}.both", num(vs["placed_in_both"]), f"{src} {e} vs_main")
+            put(f"{k}.same", num(vs["same_tradition"]), f"{src} {e} vs_main")
+            put(f"{k}.translit.acc", pct(r["transliteration_R1"]["loo_acc"]), f"{src} {e} transliteration_R1")
+            put(f"{k}.translit.placed", num(r["transliteration_R1"]["orphans_placed"]), f"{src} {e} transliteration_R1")
+            pc = r["pieces"]["KBo 44.52"]
+            put(f"{k}.kbo4452", pc["top3"][0][0], f"{src} {e} pieces")
 
     # ---- corpus and orphans
     o = cs["orphans"]
@@ -376,7 +396,7 @@ def main():
     put("E10c.claim.attested", len(hit), f"{MAIN}/E10c_signatures_in_contested.csv")
     put("E10c.claim.attested.words", tex_escape(", ".join(hit)) or "--", f"{MAIN}/E10c_signatures_in_contested.csv")
     # the same test on version C without lemma filling, for the paper's comparison
-    CV = "tlhdig03_literature_C"
+    CV = "tlhdig04_literature_C"
     if MAIN != CV and not PREFIX and os.path.exists(os.path.join(RES, CV, "E10_report.json")):
         c10 = load(CV, "E10_report.json")
         cb = c10["E10b"]["table"]
@@ -537,6 +557,18 @@ def main():
             med = float(kj[kind]["median_rank"])
             put(f"KJ.{kind}.median", num(int(med)) if med.is_integer() else f"{med:g}", f"{sk} {kind}.median_rank")
         put("KJ.pool", num(kj["pool"]), f"{sk} pool")
+
+    # ---- TLHdig 0.3 against the HFR guides (orphans/check_hfr_conventions.py)
+    hfr = load("", "hfr_conventions.json")
+    sh = "hfr_conventions.json"
+    put("hfr.annot.hfr", pct(hfr["HFR"]["share_files_human_annotator"]), f"{sh} HFR.share_files_human_annotator")
+    put("hfr.annot.other", pct(hfr["other"]["share_files_human_annotator"]), f"{sh} other.share_files_human_annotator")
+    put("hfr.selected.hfr", pct(hfr["HFR"]["share_analysed_words_selected"]), f"{sh} HFR.share_analysed_words_selected")
+    put("hfr.selected.other", pct(hfr["other"]["share_analysed_words_selected"]), f"{sh} other.share_analysed_words_selected")
+    put("hfr.det.plural", pct(hfr["all"]["share_determinative_words_only_plural_or_date"]),
+        f"{sh} all.share_determinative_words_only_plural_or_date")
+    hc = load("", "wordclass_rule_changes_hfr.csv")
+    put("wc.hfr.changed", num(sum(int(r["tokens"]) for r in hc)), "wordclass_rule_changes_hfr.csv tokens (sum)")
 
     # ---- word classes: how each label is reached (qtm/wordclass.py on TLHdig's analyses)
     conf = load("", "wordclass_confidence.json")
@@ -700,14 +732,17 @@ def compare_versions():
     put("AC.onlyA", num(len(only_a)), src)
     put("AC.onlyA.luwian", num(len(lw)), src)
     # restored signs in MUNUS ŠU.GI (the Old Woman) among these, from the sign-status token table
+    # (filling changes lemmas only, so the unfilled tokens_marks.csv gives the same translit and status)
     tok = os.path.join(RES, "..", "data", "tokens_marks_filled.csv")
+    if not os.path.exists(tok):
+        tok = os.path.join(RES, "..", "data", "tokens_marks.csv")
     if os.path.exists(tok):
         hit, want = set(), set(lw)
         with open(tok, encoding="utf-8", newline="") as f:
             for r in csv.DictReader(f):
                 if r["txtid"] in want and re.search(r"ŠU ?\.GI", r["translit"]) and "R" in r["status"]:
                     hit.add(r["txtid"])
-        put("AC.onlyA.luwian.sugi", num(len(hit)), "data/tokens_marks_filled.csv (status R in a ŠU.GI word)")
+        put("AC.onlyA.luwian.sugi", num(len(hit)), "data/" + os.path.basename(tok) + " (status R in a ŠU.GI word)")
     else:   # the token table is not in git: keep the value from the last build that had it
         idx = os.path.join(OUT, "numbers_index.csv")
         old = {r["key"]: r for r in csv.DictReader(open(idx, encoding="utf-8"))} if os.path.exists(idx) else {}

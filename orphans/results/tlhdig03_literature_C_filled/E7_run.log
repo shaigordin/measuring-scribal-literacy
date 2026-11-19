@@ -129,7 +129,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": -0.022,
    "akkadogram_share": -0.59,
    "complement_rate": -0.008,
-   "determinative_rate": -0.213,
+   "determinative_rate": -0.286,
    "plene_rate": -0.415,
    "cvc_share": 0.275,
    "u_acute_share": -0.19
@@ -138,7 +138,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": -0.458,
    "akkadogram_share": -0.36,
    "complement_rate": 0.321,
-   "determinative_rate": -0.046,
+   "determinative_rate": 0.016,
    "plene_rate": 0.499,
    "cvc_share": -0.207,
    "u_acute_share": 0.309
@@ -147,7 +147,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": 0.092,
    "akkadogram_share": -0.221,
    "complement_rate": -0.117,
-   "determinative_rate": -0.409,
+   "determinative_rate": -0.503,
    "plene_rate": -0.31,
    "cvc_share": 0.071,
    "u_acute_share": 0.076
@@ -156,7 +156,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": 0.261,
    "akkadogram_share": 0.477,
    "complement_rate": -0.19,
-   "determinative_rate": 0.039,
+   "determinative_rate": 0.02,
    "plene_rate": -0.278,
    "cvc_share": 0.039,
    "u_acute_share": -0.33
@@ -165,7 +165,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": -0.12,
    "akkadogram_share": 0.358,
    "complement_rate": -0.283,
-   "determinative_rate": 0.163,
+   "determinative_rate": 0.106,
    "plene_rate": -0.166,
    "cvc_share": 0.063,
    "u_acute_share": 0.258
@@ -174,7 +174,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": -0.262,
    "akkadogram_share": -0.798,
    "complement_rate": 0.155,
-   "determinative_rate": -0.706,
+   "determinative_rate": -0.599,
    "plene_rate": -0.135,
    "cvc_share": -0.198,
    "u_acute_share": 0.319
@@ -183,7 +183,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": 0.287,
    "akkadogram_share": -0.011,
    "complement_rate": 0.023,
-   "determinative_rate": 0.331,
+   "determinative_rate": 0.312,
    "plene_rate": -0.172,
    "cvc_share": 0.362,
    "u_acute_share": -0.076
@@ -192,7 +192,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": -0.742,
    "akkadogram_share": -0.35,
    "complement_rate": 0.853,
-   "determinative_rate": 0.078,
+   "determinative_rate": -0.03,
    "plene_rate": 0.04,
    "cvc_share": 0.131,
    "u_acute_share": -0.001
@@ -201,7 +201,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": 0.171,
    "akkadogram_share": 0.206,
    "complement_rate": -0.328,
-   "determinative_rate": -0.002,
+   "determinative_rate": 0.048,
    "plene_rate": 0.223,
    "cvc_share": -0.154,
    "u_acute_share": -0.295
@@ -210,7 +210,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
    "logogram_share": 0.388,
    "akkadogram_share": 0.525,
    "complement_rate": -0.21,
-   "determinative_rate": 0.388,
+   "determinative_rate": 0.369,
    "plene_rate": -0.256,
    "cvc_share": 0.083,
    "u_acute_share": -0.117
@@ -218,10 +218,10 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
  },
  "E7c_701_script_date": {
   "lda": {
-   "acc": 0.775,
+   "acc": 0.787,
    "majority": 0.82,
    "null_mean": 0.798,
-   "p": 0.9307,
+   "p": 0.8119,
    "n": 89,
    "classes": 2
   },
@@ -230,7 +230,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
     "logogram_share": 0.389,
     "akkadogram_share": 0.328,
     "complement_rate": 0.111,
-    "determinative_rate": 0.166,
+    "determinative_rate": 0.118,
     "plene_rate": 0.249,
     "cvc_share": 0.048,
     "u_acute_share": 0.252
@@ -239,7 +239,7 @@ indices {'acc': 0.382, 'majority': 0.271, 'null_mean': 0.267, 'p': 0.0099, 'n': 
     "logogram_share": 0.306,
     "akkadogram_share": 0.366,
     "complement_rate": 0.16,
-    "determinative_rate": 0.173,
+    "determinative_rate": 0.125,
     "plene_rate": 0.279,
     "cvc_share": 0.036,
     "u_acute_share": 0.107

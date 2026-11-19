@@ -1,0 +1,171 @@
+{
+ "txtid": "KBo 44.52",
+ "version": "tlhdig04_literature_A_filled",
+ "core": 200,
+ "top": "Syro-Mesopotamia (Hurrian)",
+ "runner_up": "Kizzuwatna rituals",
+ "margin": 0.0931,
+ "assigned": "Syro-Mesopotamia (Hurrian)",
+ "rows": [
+  {
+   "tradition": "Syro-Mesopotamia (Hurrian)",
+   "cells": "ddcccccccdcccc.c..cc...c..cc.ccc..cdc..cc..ccccd........cc.c.cc..c..cc.c........c.d.dd...ccc..d.ccdddddc........dddc...c...c.....cd.c......ccd.........cdd.c..........c..d........c.dc.dc.dccd....d.dd.d",
+   "attested": 89,
+   "distinctive": 30,
+   "terms": [
+    "§LÚ·AZU",
+    "§AZU",
+    "AZU",
+    "§SÍSKUR",
+    "SÍSKUR",
+    "§NINDA·SIG",
+    "§SIG",
+    "EN",
+    "BANŠUR",
+    "§AD·KID",
+    "§AD",
+    "§KID",
+    "AD.KID",
+    "NINDA.SIG",
+    "§GIŠ·BANŠUR",
+    "§BANŠUR",
+    "§ši·i",
+    "§UZU",
+    "arḫa",
+    "natkan",
+    "§na·at·kán",
+    "§at·kán",
+    "§ḫa·aš·ši",
+    "§LÚ·ḪAL",
+    "ḫašši",
+    "ḪAL",
+    "§pa·an·ti",
+    "§ḪAL",
+    "§aš·ši·i",
+    "šara"
+   ]
+  },
+  {
+   "tradition": "Mixed (Hurrian, Syrian, Luwian)",
+   "cells": "cc.cdd.d...c....ccccc.c.ccc.c.cc.......ccc..c......c..c..cccc.c...cc..c.cc..ccc.ccc.c..c....c........c.d.c..c..c.c..c..ddd...d..................d..c..c.............d..c...d...c.............d..c.......",
+   "attested": 64,
+   "distinctive": 12,
+   "terms": [
+    "§NINDA·SIG",
+    "§SIG",
+    "NINDA.SIG",
+    "§pa·an·ti",
+    "§D·IŠTAR",
+    "§IŠTAR",
+    "§UZU",
+    "šipanti",
+    "§ik",
+    "§šu·up",
+    "IŠTAR",
+    "~zi"
+   ]
+  },
+  {
+   "tradition": "Kizzuwatna–Lower Land (Hurrian)",
+   "cells": "c.cccccccccccc.cccc.cc.c......cc.ccc..c........c.c.cc...ccc......c..c.c...d..dccc.ccccc.cdd..c.dc......c...............c..................c...c.c...............c........c.....cdd........c........d....",
+   "attested": 64,
+   "distinctive": 8,
+   "terms": [
+    "§pa·an·ti",
+    "šipanti",
+    "§NINDA·SIG",
+    "§SIG",
+    "NINDA.SIG",
+    "§D·IŠTAR",
+    "§IŠTAR",
+    "IŠTAR"
+   ]
+  },
+  {
+   "tradition": "Luwian rituals (Puriyanni, Kuwattalla)",
+   "cells": "....c.c.cc..ccc.....c...ccdc.cc.......c.cc....c.c...c..ddcc..........cc.........c..c...................c...c.......c.....c....cc.........c....d....d......c..c..c........d..d...........c..........c..c.",
+   "attested": 45,
+   "distinctive": 7,
+   "terms": [
+    "EN",
+    "SÍSKUR",
+    "§SÍSKUR",
+    "arḫa",
+    "§UZU",
+    "§ke·ez·zi",
+    "§ke·ez"
+   ]
+  },
+  {
+   "tradition": "Ḫuwaššanna festivals",
+   "cells": "...c..c...cc.cc.c..c.......ccccc..c.c..c...c...c..c.ccc...c...c.c.......dc.........cc..c..............cc.cdc...d.dc....c.c......c...........d.c...c........c..............c.c.c...........c.....c.....cd",
+   "attested": 52,
+   "distinctive": 6,
+   "terms": [
+    "§SÍSKUR",
+    "§BANŠUR",
+    "§GIŠ·BANŠUR",
+    "EN",
+    "SÍSKUR",
+    "~zi"
+   ]
+  },
+  {
+   "tradition": "Kizzuwatna rituals",
+   "cells": "cccccccccc.c..cccc.cc.cccc.c......cc...cccc.cdc....cc.c.cccc.....c...cd....c.c..c.c.c..cc.......c.........d...c.c.c....c...c..c...c.....c..c............cdc.c..c.c.cc..d.c.c........c..........c.....c..",
+   "attested": 73,
+   "distinctive": 5,
+   "terms": [
+    "EN",
+    "arḫa",
+    "§e·eš",
+    "§SÍSKUR",
+    "SÍSKUR"
+   ]
+  },
+  {
+   "tradition": "Hattian cult layer",
+   "cells": "cccc.cc.c.ccccccc...c.c.c.ccccccc.c..cc....c...ccc...c.ccc.c...c..c...c.......cc....c...c.....c..............c...c....c.......cc..c.....c...c.............c..........d.d.d.............c..c........d....",
+   "attested": 59,
+   "distinctive": 4,
+   "terms": [
+    "§BANŠUR",
+    "§GIŠ·BANŠUR",
+    "§e·eš",
+    "~zi"
+   ]
+  },
+  {
+   "tradition": "Palaic festivals",
+   "cells": "c......cccc.c..cc.cc.c.c.cc...cc.....c...ccc.c.cc......c........cccc.....dccc.ccc.....c.c.d.........c.c....c....cc..........c.............d.c....c.c....c...c..........c...c.d..........................",
+   "attested": 53,
+   "distinctive": 4,
+   "terms": [
+    "§da·aš",
+    "§še·er",
+    "§ke·ez",
+    "§ke·ez·zi"
+   ]
+  },
+  {
+   "tradition": "Arzawa / western rituals",
+   "cells": "cc.dcccc.cccccc..c.cc..c.c.c.c.dcc.ccc..cc....c........c......cc.c...........c.....c.c.......d..c.......c...cc........c...........c....c...c....c....c.....................c..............c.............",
+   "attested": 49,
+   "distinctive": 3,
+   "terms": [
+    "arḫa",
+    "§UZU",
+    "§e·eš"
+   ]
+  },
+  {
+   "tradition": "Luwian festivals (Ištanuwa, Lallupiya)",
+   "cells": "cccc..c.cc..ccc...c.ccc...c..c.c........c...c.cc...cc...c..c.c......c..c.c.c.......cc........cc....c....cc.................cc.....c......c.......cc.............c..........................d...cc..c....",
+   "attested": 48,
+   "distinctive": 1,
+   "terms": [
+    "§ku·i"
+   ]
+  }
+ ]
+}

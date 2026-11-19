@@ -18,7 +18,7 @@
  "model_reranking": {
   "recall@1": 0.116,
   "recall@5": 0.309,
-  "recall@20": 0.494,
+  "recall@20": 0.496,
   "queries": 2661,
   "median_rank": 9.0
  },
@@ -34,64 +34,64 @@
  },
  "weights": {
   "cosine": {
-   "weight": 0.822,
+   "weight": 0.823,
    "ci_low": 0.747,
    "ci_high": 0.902
   },
   "tradition_cos": {
    "weight": 0.534,
    "ci_low": 0.393,
-   "ci_high": 0.684
+   "ci_high": 0.676
   },
   "composition_cos": {
-   "weight": 0.548,
-   "ci_low": 0.394,
-   "ci_high": 0.734
+   "weight": 0.549,
+   "ci_low": 0.386,
+   "ci_high": 0.731
   },
   "word_overlap": {
-   "weight": -0.2,
-   "ci_low": -0.324,
-   "ci_high": -0.059
+   "weight": -0.199,
+   "ci_low": -0.323,
+   "ci_high": -0.058
   },
   "phrase_overlap": {
-   "weight": -0.029,
+   "weight": -0.03,
    "ci_low": -0.077,
    "ci_high": 0.012
   },
   "same_spelling": {
-   "weight": 0.21,
-   "ci_low": 0.106,
-   "ci_high": 0.324
+   "weight": 0.211,
+   "ci_low": 0.105,
+   "ci_high": 0.325
   },
   "scribal_distance": {
-   "weight": -0.044,
-   "ci_low": -0.133,
-   "ci_high": 0.043
+   "weight": -0.039,
+   "ci_low": -0.132,
+   "ci_high": 0.05
   },
   "column_overlap": {
    "weight": 0.206,
    "ci_low": 0.126,
-   "ci_high": 0.277
+   "ci_high": 0.279
   },
   "same_series": {
    "weight": 0.066,
-   "ci_low": -0.0,
-   "ci_high": 0.129
+   "ci_low": -0.001,
+   "ci_high": 0.132
   },
   "same_find_series": {
    "weight": -0.025,
-   "ci_low": -0.101,
-   "ci_high": 0.04
+   "ci_low": -0.103,
+   "ci_high": 0.038
   },
   "log_words_a": {
-   "weight": -0.341,
-   "ci_low": -0.421,
-   "ci_high": -0.27
+   "weight": -0.34,
+   "ci_low": -0.419,
+   "ci_high": -0.271
   },
   "log_words_b": {
-   "weight": -0.123,
-   "ci_low": -0.185,
-   "ci_high": -0.061
+   "weight": -0.122,
+   "ci_low": -0.186,
+   "ci_high": -0.058
   }
  },
  "konkordanz": {
@@ -105,7 +105,7 @@
    },
    "model_reranking": {
     "recall@1": 0.437,
-    "recall@5": 0.649,
+    "recall@5": 0.644,
     "recall@20": 0.759,
     "queries": 174,
     "median_rank": 2.0

@@ -27,6 +27,7 @@ view:
 Usage: python review_wordclass.py {sheet,apply,audit,form,collect,score,rescore,compare,examples} [--tokens data/tokens.csv]
 """
 import argparse
+import os
 import json
 import math
 from pathlib import Path
@@ -319,7 +320,7 @@ def examples(t, per=3):
                          "txtid": r.txtid, "lnr": r.lnr, "tokens": int((g.word == w).sum())})
     ex = pd.DataFrame(rows)
     # the analysis attributes of the first <w> with that transliteration in that manuscript
-    root = HERE / "data" / "TLHbasisONLINE25_1_ZENODO_Beta_03"
+    root = HERE / "data" / ("TLHbasisONLINE25_1_ZENODO_Beta_" + os.environ.get("TLH", "04"))
     files = {p.stem: p for p in root.rglob("*.xml")}
     ana = []
     for r in ex.itertuples():

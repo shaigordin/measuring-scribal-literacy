@@ -4,12 +4,13 @@
 #   bash run_variant.sh C [DATA_DIR]      # C = main (on the tablet + same-text support); B = diagnostic
 #
 # Needs DATA_DIR/tokens_marks.csv (python3 -m qtm.tlhdig, with sign marks). Version A is the token
-# table as published so far (tokens.csv) and its results stay in results/tlhdig03_literature.
+# table as published so far (tokens.csv) and its results stay in results/tlhdig$TLH_literature.
 set -euo pipefail
 cd "$(dirname "$0")"
 V=${1:-C}
 DATA=${2:-data}
-O=results/tlhdig03_literature_$V
+TLH=${TLH:-04}
+O=results/tlhdig${TLH}_literature_$V
 L=()
 [ -f labels/cth701_labels.csv ] && L=(--labels701 labels/cth701_labels.csv)
 mkdir -p "$O/case" "$O/tunnawiya"

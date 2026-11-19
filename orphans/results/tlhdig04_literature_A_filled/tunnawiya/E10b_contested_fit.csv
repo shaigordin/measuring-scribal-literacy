@@ -1,0 +1,11 @@
+tradition,similarity,lead_over_best_other,null_mean,null_q05,null_q95,p_fits_better_than_random_rituals
+Kizzuwatna rituals,0.6042,0.062,0.0847,0.0639,0.1052,0.965
+Arzawa / western rituals,0.5422,-0.062,-0.0859,-0.1081,-0.0645,0.034
+Hattian cult layer,0.5085,-0.0956,-0.1073,-0.1333,-0.0801,0.2279
+"Luwian rituals (Puriyanni, Kuwattalla)",0.4996,-0.1046,-0.2419,-0.2655,-0.2165,0.0005
+"Luwian festivals (Ištanuwa, Lallupiya)",0.4967,-0.1075,-0.1629,-0.1825,-0.1433,0.0005
+Kizzuwatna–Lower Land (Hurrian),0.4747,-0.1295,-0.1499,-0.1705,-0.128,0.064
+Syro-Mesopotamia (Hurrian),0.4362,-0.168,-0.2002,-0.2181,-0.1815,0.004
+"Mixed (Hurrian, Syrian, Luwian)",0.4316,-0.1725,-0.2343,-0.2579,-0.2085,0.0005
+Palaic festivals,0.4167,-0.1875,-0.2518,-0.2733,-0.2294,0.0005
+Ḫuwaššanna festivals,0.3765,-0.2276,-0.2751,-0.2991,-0.2489,0.003

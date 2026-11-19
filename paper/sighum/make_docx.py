@@ -35,6 +35,7 @@ body = re.sub(r"\\gentab\{([^}]*)\}",
               lambda m: "\n".join(l for l in open(os.path.join(GEN, f"tab_{m.group(1)}.tex"), encoding="utf-8")
                                   if not l.startswith("%")), body)
 body = re.sub(r"\\CTH\{([^}]*)\}", r"CTH \1", body)
+body = body.replace("\\ut{}", "˽")
 
 
 def plain_tabular(text):

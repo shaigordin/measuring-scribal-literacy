@@ -75,6 +75,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--labels", default="labels/konkordanz_joins_duplicates.csv")
     ap.add_argument("--pages-from", help="known_joins.json of an earlier run: read only its Konkordanz pages")
+    ap.add_argument("--fetch", action="store_true", help="download the --pages-from pages missing from the cache")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
@@ -92,6 +93,12 @@ def main():
             if p.strip():
                 piece.setdefault(" ".join(p.split()), t)
 
+    if a.fetch and a.pages_from:
+        import time
+        from qtm.konkordanz import fetch
+        for c in json.loads(Path(a.pages_from).read_text())["pages"]:
+            if not (Path(a.cache) / f"hetkonk_c{c}.html").exists():
+                fetch(c, Path(a.cache)); time.sleep(1)
     pairs, pages = [], sorted(Path(a.cache).glob("hetkonk_c*.html"))
     if a.pages_from:                                   # same pages as an earlier run (the cache may have grown)
         keep = set(json.loads(Path(a.pages_from).read_text())["pages"])

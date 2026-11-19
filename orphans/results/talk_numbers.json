@@ -284,61 +284,61 @@
  {
   "slide": "scribal",
   "key": "profile z Arzawa / western rituals",
-  "value": "logogram_share -0.02, akkadogram_share -0.59, complement_rate -0.01, determinative_rate -0.21, plene_rate -0.41, cvc_share +0.28, u_acute_share -0.19",
+  "value": "logogram_share -0.02, akkadogram_share -0.59, complement_rate -0.01, determinative_rate -0.29, plene_rate -0.41, cvc_share +0.28, u_acute_share -0.19",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Hattian cult layer",
-  "value": "logogram_share -0.46, akkadogram_share -0.36, complement_rate +0.32, determinative_rate -0.05, plene_rate +0.50, cvc_share -0.21, u_acute_share +0.31",
+  "value": "logogram_share -0.46, akkadogram_share -0.36, complement_rate +0.32, determinative_rate +0.02, plene_rate +0.50, cvc_share -0.21, u_acute_share +0.31",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Kizzuwatna rituals",
-  "value": "logogram_share +0.09, akkadogram_share -0.22, complement_rate -0.12, determinative_rate -0.41, plene_rate -0.31, cvc_share +0.07, u_acute_share +0.08",
+  "value": "logogram_share +0.09, akkadogram_share -0.22, complement_rate -0.12, determinative_rate -0.50, plene_rate -0.31, cvc_share +0.07, u_acute_share +0.08",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Kizzuwatna–Lower Land (Hurrian)",
-  "value": "logogram_share +0.26, akkadogram_share +0.48, complement_rate -0.19, determinative_rate +0.04, plene_rate -0.28, cvc_share +0.04, u_acute_share -0.33",
+  "value": "logogram_share +0.26, akkadogram_share +0.48, complement_rate -0.19, determinative_rate +0.02, plene_rate -0.28, cvc_share +0.04, u_acute_share -0.33",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Luwian festivals (Ištanuwa, Lallupiya)",
-  "value": "logogram_share -0.12, akkadogram_share +0.36, complement_rate -0.28, determinative_rate +0.16, plene_rate -0.17, cvc_share +0.06, u_acute_share +0.26",
+  "value": "logogram_share -0.12, akkadogram_share +0.36, complement_rate -0.28, determinative_rate +0.11, plene_rate -0.17, cvc_share +0.06, u_acute_share +0.26",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Luwian rituals (Puriyanni, Kuwattalla)",
-  "value": "logogram_share -0.26, akkadogram_share -0.80, complement_rate +0.15, determinative_rate -0.71, plene_rate -0.14, cvc_share -0.20, u_acute_share +0.32",
+  "value": "logogram_share -0.26, akkadogram_share -0.80, complement_rate +0.15, determinative_rate -0.60, plene_rate -0.14, cvc_share -0.20, u_acute_share +0.32",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Mixed (Hurrian, Syrian, Luwian)",
-  "value": "logogram_share +0.29, akkadogram_share -0.01, complement_rate +0.02, determinative_rate +0.33, plene_rate -0.17, cvc_share +0.36, u_acute_share -0.08",
+  "value": "logogram_share +0.29, akkadogram_share -0.01, complement_rate +0.02, determinative_rate +0.31, plene_rate -0.17, cvc_share +0.36, u_acute_share -0.08",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Palaic festivals",
-  "value": "logogram_share -0.74, akkadogram_share -0.35, complement_rate +0.85, determinative_rate +0.08, plene_rate +0.04, cvc_share +0.13, u_acute_share -0.00",
+  "value": "logogram_share -0.74, akkadogram_share -0.35, complement_rate +0.85, determinative_rate -0.03, plene_rate +0.04, cvc_share +0.13, u_acute_share -0.00",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Syro-Mesopotamian (Hurrian)",
-  "value": "logogram_share +0.17, akkadogram_share +0.21, complement_rate -0.33, determinative_rate -0.00, plene_rate +0.22, cvc_share -0.15, u_acute_share -0.29",
+  "value": "logogram_share +0.17, akkadogram_share +0.21, complement_rate -0.33, determinative_rate +0.05, plene_rate +0.22, cvc_share -0.15, u_acute_share -0.29",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
   "slide": "scribal",
   "key": "profile z Ḫuwaššanna festivals",
-  "value": "logogram_share +0.39, akkadogram_share +0.53, complement_rate -0.21, determinative_rate +0.39, plene_rate -0.26, cvc_share +0.08, u_acute_share -0.12",
+  "value": "logogram_share +0.39, akkadogram_share +0.53, complement_rate -0.21, determinative_rate +0.37, plene_rate -0.26, cvc_share +0.08, u_acute_share -0.12",
   "source": "E7_report.json E7b_index_profile_z"
  },
  {
