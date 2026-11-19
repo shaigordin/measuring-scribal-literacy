@@ -1,0 +1,652 @@
+{
+ "wordnets": {
+  "german": "Open German WordNet (OdeNet) 1.4, CC BY-SA 4.0",
+  "english": "OMW English Wordnet 1.4 (Princeton WordNet 3.0)",
+  "link": "Interlingual Index (ILI)",
+  "sense": "first OdeNet sense"
+ },
+ "supersense_to_class": {
+  "noun.person": "agent",
+  "noun.group": "agent",
+  "noun.artifact": "realia",
+  "noun.food": "realia",
+  "noun.plant": "realia",
+  "noun.substance": "realia",
+  "noun.possession": "realia",
+  "noun.animal": "animal",
+  "noun.body": "body/nature",
+  "noun.object": "body/nature",
+  "noun.phenomenon": "body/nature",
+  "noun.location": "place",
+  "noun.quantity": "measure",
+  "noun.act": "abstract",
+  "noun.attribute": "abstract",
+  "noun.cognition": "abstract",
+  "noun.communication": "abstract",
+  "noun.event": "abstract",
+  "noun.feeling": "abstract",
+  "noun.motive": "abstract",
+  "noun.process": "abstract",
+  "noun.relation": "abstract",
+  "noun.shape": "abstract",
+  "noun.state": "abstract",
+  "noun.time": "abstract",
+  "noun.Tops": "abstract",
+  "adj.all": "adjective",
+  "adj.pert": "adjective",
+  "adj.ppl": "adjective"
+ },
+ "glosses": {
+  "all": 5494,
+  "compared": 5365,
+  "left_out_function_unknown": 129,
+  "status": {
+   "missing": 3767,
+   "matched": 1159,
+   "ambiguous": 439
+  },
+  "status_tokens": {
+   "ambiguous": 46424,
+   "matched": 119556,
+   "missing": 108270
+  },
+  "match_level": {
+   "exact": 1065,
+   "alternative": 293,
+   "head_last_word": 195,
+   "head_first_word": 45
+  }
+ },
+ "coverage": {
+  "types": 0.298,
+  "tokens": 0.605,
+  "by_claude_class_types": {
+   "abstract": 0.757,
+   "adjective": 0.738,
+   "agent": 0.154,
+   "animal": 0.51,
+   "body/nature": 0.662,
+   "measure": 0.547,
+   "place": 0.027,
+   "realia": 0.414
+  },
+  "without_names_types": 0.566
+ },
+ "type_weighted": {
+  "agreement": 0.684,
+  "kappa": 0.61,
+  "confusion": {
+   "rows_claude_cols_wordnet": [
+    "agent",
+    "realia",
+    "abstract",
+    "place",
+    "animal",
+    "body/nature",
+    "measure",
+    "adjective",
+    "other"
+   ],
+   "matrix": [
+    [
+     157,
+     6,
+     20,
+     0,
+     0,
+     8,
+     0,
+     3,
+     0
+    ],
+    [
+     25,
+     287,
+     77,
+     7,
+     4,
+     26,
+     20,
+     2,
+     0
+    ],
+    [
+     11,
+     20,
+     288,
+     7,
+     0,
+     4,
+     2,
+     4,
+     29
+    ],
+    [
+     8,
+     8,
+     10,
+     14,
+     1,
+     5,
+     0,
+     1,
+     0
+    ],
+    [
+     11,
+     17,
+     6,
+     0,
+     34,
+     4,
+     1,
+     0,
+     1
+    ],
+    [
+     3,
+     32,
+     45,
+     1,
+     5,
+     58,
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     5,
+     31,
+     0,
+     0,
+     2,
+     7,
+     12,
+     0
+    ],
+    [
+     5,
+     1,
+     9,
+     0,
+     0,
+     0,
+     0,
+     248,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "token_weighted": {
+  "agreement": 0.641,
+  "kappa": 0.554,
+  "confusion": {
+   "rows_claude_cols_wordnet": [
+    "agent",
+    "realia",
+    "abstract",
+    "place",
+    "animal",
+    "body/nature",
+    "measure",
+    "adjective",
+    "other"
+   ],
+   "matrix": [
+    [
+     24527,
+     2165,
+     1332,
+     0,
+     0,
+     5247,
+     0,
+     1876,
+     0
+    ],
+    [
+     7534,
+     39939,
+     6890,
+     124,
+     521,
+     2181,
+     2106,
+     112,
+     0
+    ],
+    [
+     1359,
+     752,
+     15335,
+     70,
+     0,
+     128,
+     155,
+     126,
+     129
+    ],
+    [
+     2558,
+     636,
+     2523,
+     2101,
+     7,
+     81,
+     0,
+     97,
+     0
+    ],
+    [
+     1174,
+     1728,
+     73,
+     0,
+     4271,
+     567,
+     21,
+     0,
+     2
+    ],
+    [
+     228,
+     1113,
+     8248,
+     110,
+     90,
+     5194,
+     60,
+     319,
+     0
+    ],
+    [
+     5,
+     555,
+     4647,
+     0,
+     0,
+     572,
+     577,
+     993,
+     0
+    ],
+    [
+     202,
+     24,
+     91,
+     0,
+     0,
+     0,
+     0,
+     14499,
+     6
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "matched_only": {
+  "type_weighted": {
+   "agreement": 0.759,
+   "kappa": 0.702,
+   "confusion": {
+    "rows_claude_cols_wordnet": [
+     "agent",
+     "realia",
+     "abstract",
+     "place",
+     "animal",
+     "body/nature",
+     "measure",
+     "adjective",
+     "other"
+    ],
+    "matrix": [
+     [
+      141,
+      3,
+      12,
+      0,
+      0,
+      5,
+      0,
+      3,
+      0
+     ],
+     [
+      11,
+      210,
+      35,
+      6,
+      0,
+      14,
+      12,
+      2,
+      0
+     ],
+     [
+      6,
+      7,
+      235,
+      1,
+      0,
+      3,
+      1,
+      1,
+      29
+     ],
+     [
+      2,
+      6,
+      3,
+      5,
+      1,
+      2,
+      0,
+      1,
+      0
+     ],
+     [
+      4,
+      5,
+      3,
+      0,
+      32,
+      3,
+      1,
+      0,
+      1
+     ],
+     [
+      0,
+      19,
+      23,
+      1,
+      4,
+      43,
+      0,
+      0,
+      0
+     ],
+     [
+      1,
+      2,
+      25,
+      0,
+      0,
+      1,
+      4,
+      10,
+      0
+     ],
+     [
+      5,
+      1,
+      3,
+      0,
+      0,
+      0,
+      0,
+      210,
+      1
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   }
+  },
+  "token_weighted": {
+   "agreement": 0.744,
+   "kappa": 0.675,
+   "confusion": {
+    "rows_claude_cols_wordnet": [
+     "agent",
+     "realia",
+     "abstract",
+     "place",
+     "animal",
+     "body/nature",
+     "measure",
+     "adjective",
+     "other"
+    ],
+    "matrix": [
+     [
+      21349,
+      155,
+      847,
+      0,
+      0,
+      5230,
+      0,
+      1876,
+      0
+     ],
+     [
+      5633,
+      34036,
+      2190,
+      120,
+      0,
+      824,
+      818,
+      112,
+      0
+     ],
+     [
+      1339,
+      293,
+      14045,
+      34,
+      0,
+      124,
+      153,
+      5,
+      129
+     ],
+     [
+      114,
+      508,
+      112,
+      1387,
+      7,
+      45,
+      0,
+      97,
+      0
+     ],
+     [
+      54,
+      136,
+      9,
+      0,
+      4164,
+      469,
+      21,
+      0,
+      2
+     ],
+     [
+      0,
+      518,
+      2993,
+      110,
+      82,
+      3408,
+      0,
+      0,
+      0
+     ],
+     [
+      5,
+      22,
+      4135,
+      0,
+      0,
+      17,
+      76,
+      972,
+      0
+     ],
+     [
+      202,
+      24,
+      75,
+      0,
+      0,
+      0,
+      0,
+      10476,
+      4
+     ],
+     [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   }
+  }
+ },
+ "any_sense_agrees": {
+  "types": 0.771,
+  "tokens": 0.742
+ },
+ "by_claude_class": {
+  "abstract": {
+   "n": 365,
+   "agreement_types": 0.789,
+   "agreement_tokens": 0.849
+  },
+  "adjective": {
+   "n": 265,
+   "agreement_types": 0.936,
+   "agreement_tokens": 0.978
+  },
+  "agent": {
+   "n": 194,
+   "agreement_types": 0.809,
+   "agreement_tokens": 0.698
+  },
+  "animal": {
+   "n": 74,
+   "agreement_types": 0.459,
+   "agreement_tokens": 0.545
+  },
+  "body/nature": {
+   "n": 147,
+   "agreement_types": 0.395,
+   "agreement_tokens": 0.338
+  },
+  "measure": {
+   "n": 58,
+   "agreement_types": 0.121,
+   "agreement_tokens": 0.079
+  },
+  "place": {
+   "n": 47,
+   "agreement_types": 0.298,
+   "agreement_tokens": 0.263
+  },
+  "realia": {
+   "n": 448,
+   "agreement_types": 0.641,
+   "agreement_tokens": 0.672
+  }
+ },
+ "disagreements": {
+  "n": 505,
+  "tokens": 59537,
+  "by_pair_tokens": {
+   "body/nature -> abstract": 8248,
+   "realia -> agent": 7534,
+   "realia -> abstract": 6890,
+   "agent -> body/nature": 5247,
+   "measure -> abstract": 4647,
+   "place -> agent": 2558,
+   "place -> abstract": 2523,
+   "realia -> body/nature": 2181,
+   "agent -> realia": 2165,
+   "realia -> measure": 2106,
+   "agent -> adjective": 1876,
+   "animal -> realia": 1728,
+   "abstract -> agent": 1359,
+   "agent -> abstract": 1332,
+   "animal -> agent": 1174,
+   "body/nature -> realia": 1113,
+   "measure -> adjective": 993,
+   "abstract -> realia": 752,
+   "place -> realia": 636,
+   "measure -> body/nature": 572,
+   "animal -> body/nature": 567,
+   "measure -> realia": 555,
+   "realia -> animal": 521,
+   "body/nature -> adjective": 319,
+   "body/nature -> agent": 228,
+   "adjective -> agent": 202,
+   "abstract -> measure": 155,
+   "abstract -> other": 129,
+   "abstract -> body/nature": 128,
+   "abstract -> adjective": 126,
+   "realia -> place": 124,
+   "realia -> adjective": 112,
+   "body/nature -> place": 110,
+   "place -> adjective": 97,
+   "adjective -> abstract": 91,
+   "body/nature -> animal": 90,
+   "place -> body/nature": 81,
+   "animal -> abstract": 73,
+   "abstract -> place": 70,
+   "body/nature -> measure": 60,
+   "adjective -> realia": 24,
+   "animal -> measure": 21,
+   "place -> animal": 7,
+   "adjective -> other": 6,
+   "measure -> agent": 5,
+   "animal -> other": 2
+  }
+ },
+ "audit_sample": {
+  "n": 50,
+  "seed": 0,
+  "file": "results/wordnet_check/wordnet_audit_sample.csv"
+ }
+}

@@ -1,0 +1,320 @@
+{
+ "glosses": {
+  "all": 5494,
+  "compared": 5365,
+  "left_out_function_unknown": 129,
+  "status": {
+   "missing": 3767,
+   "matched": 1159,
+   "ambiguous": 439
+  },
+  "status_tokens": {
+   "ambiguous": 46424,
+   "matched": 119556,
+   "missing": 108270
+  },
+  "match_level": {
+   "exact": 1065,
+   "alternative": 293,
+   "head_last_word": 195,
+   "head_first_word": 45
+  }
+ },
+ "coverage": {
+  "types": 0.298,
+  "tokens": 0.605,
+  "by_claude_class_types": {
+   "abstract": 0.757,
+   "adjective": 0.738,
+   "agent": 0.154,
+   "animal": 0.51,
+   "body/nature": 0.662,
+   "measure": 0.547,
+   "place": 0.027,
+   "realia": 0.414
+  },
+  "without_names_types": 0.566
+ },
+ "type_weighted": {
+  "agreement": 0.684,
+  "kappa": 0.61,
+  "confusion": {
+   "rows_claude_cols_wordnet": [
+    "agent",
+    "realia",
+    "abstract",
+    "place",
+    "animal",
+    "body/nature",
+    "measure",
+    "adjective",
+    "other"
+   ],
+   "matrix": [
+    [
+     157,
+     6,
+     20,
+     0,
+     0,
+     8,
+     0,
+     3,
+     0
+    ],
+    [
+     25,
+     287,
+     77,
+     7,
+     4,
+     26,
+     20,
+     2,
+     0
+    ],
+    [
+     11,
+     20,
+     288,
+     7,
+     0,
+     4,
+     2,
+     4,
+     29
+    ],
+    [
+     8,
+     8,
+     10,
+     14,
+     1,
+     5,
+     0,
+     1,
+     0
+    ],
+    [
+     11,
+     17,
+     6,
+     0,
+     34,
+     4,
+     1,
+     0,
+     1
+    ],
+    [
+     3,
+     32,
+     45,
+     1,
+     5,
+     58,
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     5,
+     31,
+     0,
+     0,
+     2,
+     7,
+     12,
+     0
+    ],
+    [
+     5,
+     1,
+     9,
+     0,
+     0,
+     0,
+     0,
+     248,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "token_weighted": {
+  "agreement": 0.641,
+  "kappa": 0.554,
+  "confusion": {
+   "rows_claude_cols_wordnet": [
+    "agent",
+    "realia",
+    "abstract",
+    "place",
+    "animal",
+    "body/nature",
+    "measure",
+    "adjective",
+    "other"
+   ],
+   "matrix": [
+    [
+     24527,
+     2165,
+     1332,
+     0,
+     0,
+     5247,
+     0,
+     1876,
+     0
+    ],
+    [
+     7534,
+     39939,
+     6890,
+     124,
+     521,
+     2181,
+     2106,
+     112,
+     0
+    ],
+    [
+     1359,
+     752,
+     15335,
+     70,
+     0,
+     128,
+     155,
+     126,
+     129
+    ],
+    [
+     2558,
+     636,
+     2523,
+     2101,
+     7,
+     81,
+     0,
+     97,
+     0
+    ],
+    [
+     1174,
+     1728,
+     73,
+     0,
+     4271,
+     567,
+     21,
+     0,
+     2
+    ],
+    [
+     228,
+     1113,
+     8248,
+     110,
+     90,
+     5194,
+     60,
+     319,
+     0
+    ],
+    [
+     5,
+     555,
+     4647,
+     0,
+     0,
+     572,
+     577,
+     993,
+     0
+    ],
+    [
+     202,
+     24,
+     91,
+     0,
+     0,
+     0,
+     0,
+     14499,
+     6
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  }
+ },
+ "any_sense_agrees": {
+  "types": 0.771,
+  "tokens": 0.742
+ },
+ "by_claude_class": {
+  "abstract": {
+   "n": 365,
+   "agreement_types": 0.789,
+   "agreement_tokens": 0.849
+  },
+  "adjective": {
+   "n": 265,
+   "agreement_types": 0.936,
+   "agreement_tokens": 0.978
+  },
+  "agent": {
+   "n": 194,
+   "agreement_types": 0.809,
+   "agreement_tokens": 0.698
+  },
+  "animal": {
+   "n": 74,
+   "agreement_types": 0.459,
+   "agreement_tokens": 0.545
+  },
+  "body/nature": {
+   "n": 147,
+   "agreement_types": 0.395,
+   "agreement_tokens": 0.338
+  },
+  "measure": {
+   "n": 58,
+   "agreement_types": 0.121,
+   "agreement_tokens": 0.079
+  },
+  "place": {
+   "n": 47,
+   "agreement_types": 0.298,
+   "agreement_tokens": 0.263
+  },
+  "realia": {
+   "n": 448,
+   "agreement_types": 0.641,
+   "agreement_tokens": 0.672
+  }
+ }
+}
