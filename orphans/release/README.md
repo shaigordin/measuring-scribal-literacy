@@ -16,6 +16,29 @@ fragment (11,440 texts) the dataset gives:
   texts, with three checks for a possible duplicate or join;
 - the share of the fragment's words in ten word categories.
 
+## Which texts are in it
+
+Only texts whose tradition is unknown. The 1,643 reference manuscripts (17 or more words), the texts that the
+defining studies assign to a tradition, are not in the dataset: they only build the ten tradition
+profiles. Every text in the dataset is compared with these ten profiles in the same way. Its CTH bin
+says only where the text comes from; it plays no part in the placement.
+
+| Laroche bin | Texts | Placed |
+|---|---|---|
+| CTH 470 fragments of rituals | 1,927 | 424 |
+| CTH 500 fragments of Kizzuwatna rituals | 481 | 182 |
+| CTH 670 fragments of festivals | 3,560 | 1,365 |
+| CTH 832 fragments of various content | 4,272 | 226 |
+| CTH 390-469 rituals no study groups | 1,043 | 267 |
+| EBo filed under other CTH numbers | 157 | 15 |
+
+EBo pieces filed under CTH 670 or 832 are counted in those bins.
+
+**Orphans** are a smaller group inside this dataset: all CTH 470 fragments and all EBo pieces. They are
+the test set of the paper and the Mainz talk. Of the 2,023 orphans with at least five words,
+515 are placed (without restorations). They are part of the 2,479 placed fragments
+above, with the same placement.
+
 ## Two datasets: without and with restorations
 
 | Folder | What counts | Texts scored (5+ words) | Placed | Margin | Held-out accuracy |

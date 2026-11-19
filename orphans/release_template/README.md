@@ -16,6 +16,22 @@ fragment ($texts texts) the dataset gives:
   texts, with three checks for a possible duplicate or join;
 - the share of the fragment's words in ten word categories.
 
+## Which texts are in it
+
+Only texts whose tradition is unknown. The $reference_n reference manuscripts (17 or more words), the texts that the
+defining studies assign to a tradition, are not in the dataset: they only build the ten tradition
+profiles. Every text in the dataset is compared with these ten profiles in the same way. Its CTH bin
+says only where the text comes from; it plays no part in the placement.
+
+$bins_table
+
+EBo pieces filed under CTH 670 or 832 are counted in those bins.
+
+**Orphans** are a smaller group inside this dataset: all CTH 470 fragments and all EBo pieces. They are
+the test set of the paper and the Mainz talk. Of the $orphans_scored orphans with at least five words,
+$orphans_placed are placed (without restorations). They are part of the $placed_all placed fragments
+above, with the same placement.
+
 ## Two datasets: without and with restorations
 
 $versions_table

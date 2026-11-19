@@ -243,6 +243,8 @@ def main():
     ap.add_argument("folder", help="release folder holding without_restorations/ and with_restorations/")
     ap.add_argument("--version", default="2.1.0")
     ap.add_argument("--known-joins", default=f"results/tlhdig{TLH}_literature_C_filled/known_joins/known_joins.csv")
+    ap.add_argument("--orphans", default=f"results/tlhdig{TLH}_literature_C_filled/E5_orphan_placement.csv",
+                    help="the paper's orphan placement (E5), to state how the orphans relate to this dataset")
     ap.add_argument("--zip", action="store_true")
     a = ap.parse_args()
     d, cols_seen = a.folder, {}
@@ -268,6 +270,13 @@ def main():
     kj = pd.read_csv(a.known_joins)
     kd, kjn = kj[kj.relation == "duplicate"], kj[kj.relation == "join"]
     sw, sa = S["without_restorations"], S["with_restorations"]
+    bins = pd.DataFrame([{"Laroche bin": b, "Texts": f"{x['texts']:,}", "Placed": f"{x['placed']:,}"}
+                         for b, x in json.load(open(f"{d}/without_restorations/summary.json"))["by_bin"].items()])
+    E5 = pd.read_csv(a.orphans)
+    o_placed = E5[E5.assigned.notna()]
+    o_match = int((Fw.reindex(o_placed.txtid).placed_tradition.str.replace("Syro-Mesopotamian", "Syro-Mesopotamia").values
+                   == o_placed.assigned.values).sum())
+    assert o_match == len(o_placed), "the release disagrees with the paper's orphan placement"
     v = {"title": TITLE, "version": a.version, "date": date.today().isoformat(), "tlhdig_doi": TLHDIG_DOI, "tlhdig": TLH_VERSION,
          "code_url": CODE_URL, "texts": f"{sw['texts_in_scope']:,}", "pool": f"{sw['manuscript_pool']:,}",
          "versions_table": mdtable(versions), "traditions_table": mdtable(trad),
@@ -275,7 +284,9 @@ def main():
          "precision": f"{sw['precision_above_margin']:.0%}",
          "kd_n": len(kd), "kd_top20": int((kd['rank'] <= 20).sum()), "kd_median": f"{kd['rank'].median():g}",
          "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
-         "references": references(T)}
+         "references": references(T), "bins_table": mdtable(bins),
+         "reference_n": f"{sw['reference_manuscripts']:,}", "placed_all": f"{sw['status'].get('placed', 0):,}",
+         "orphans_scored": f"{len(E5):,}", "orphans_placed": f"{len(o_placed):,}"}
     tpl = Template(open(os.path.join(os.path.dirname(__file__) or ".", "release_template", "README.md")).read())
     open(f"{d}/README.md", "w").write(tpl.substitute(v))
 
