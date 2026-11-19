@@ -211,6 +211,23 @@ def main():
     # ---- E2 coverage curve and abstention margin
     for r in load(MAIN, "E2_coverage_curve.csv"):
         put(f"E2.{r['space']}.k{r['k']}", pct(float(r["acc"])), f"{MAIN}/E2_coverage_curve.csv")
+    # fragment-size curve for the figure: accuracy, and share placed / precision above the margin, by window size
+    if not PREFIX:
+        rows = {}
+        for run, tag in ((MAIN, "C"), (COMPARE, "A")):
+            mg = load(run, "report.json")["E2_abstention"]["margin"]
+            for r in csv.DictReader(open(os.path.join(RES, run, "E2_coverage_raw.csv"), encoding="utf-8")):
+                if r["space"] != "both":
+                    continue
+                d = rows.setdefault((tag, int(r["k"])), [0, 0, 0, 0])   # n, hits, placed, placed hits
+                hit, placed = r["hit"] == "True", float(r["gap"]) >= mg
+                d[0] += 1; d[1] += hit; d[2] += placed; d[3] += hit and placed
+        with open(os.path.join(OUT, "fragment_size.dat"), "w") as f:
+            f.write("k accC placedC precC accA placedA precA\n")
+            for k in sorted({k for _, k in rows}):
+                c, a = rows[("C", k)], rows[("A", k)]
+                f.write(f"{k} {100*c[1]/c[0]:.1f} {100*c[2]/c[0]:.1f} {100*c[3]/max(c[2],1):.1f} "
+                        f"{100*a[1]/a[0]:.1f} {100*a[2]/a[0]:.1f} {100*a[3]/max(a[2],1):.1f}\n")
     ab = rep["E2_abstention"]
     put("E2.margin", f"{ab['margin']:.3f}", f"{src} E2_abstention.margin")
     put("E2.margin.lo", f"{ab['margin_90ci'][0]:.3f}", f"{src} E2_abstention.margin_90ci")

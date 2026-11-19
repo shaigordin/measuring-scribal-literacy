@@ -13,6 +13,8 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
 \renewcommand{\dbltopfraction}{0.9}
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\textfraction}{0.07}
@@ -356,7 +358,38 @@ festivals that HFR separates are kept apart by the texts: the Ḫuwaššanna fes
 reach \Q{trad.huwassannafestivals.recall}, those of Ištanuwa and Lallupiya
 \Q{trad.luwianfestivalsistanuwalallupiya.recall}.
 
-Accuracy rises steeply with fragment size, then flattens. Windows of 3, 10 and 40 words cut
+\begin{figure}[t]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[width=\columnwidth, height=50mm, xmode=log, log basis x=10,
+      xtick={3,5,10,17,25,40}, xticklabels={3,5,10,17,25,40}, xmin=3, xmax=40,
+      ymin=0, ymax=100, ytick={0,20,40,60,80,100}, yticklabel={\pgfmathprintnumber{\tick}\%},
+      xlabel={legible words in the fragment}, font=\footnotesize,
+      legend style={at={(0.5,-0.32)}, anchor=north, font=\scriptsize, draw=none, legend columns=2, column sep=6pt},
+      legend cell align=left, grid=major, grid style={gray!20}]
+      \addplot[very thick, color={rgb,255:red,176;green,74;blue,46}, mark=*, mark size=1.2pt]
+        table[x=k, y=accC] {../generated/fragment_size.dat};
+      \addlegendentry{accuracy}
+      \addplot[very thick, color={rgb,255:red,46;green,106;blue,140}, mark=square*, mark size=1.2pt]
+        table[x=k, y=precC] {../generated/fragment_size.dat};
+      \addlegendentry{precision when placed}
+      \addplot[very thick, densely dashed, color={rgb,255:red,46;green,106;blue,140}]
+        table[x=k, y=placedC] {../generated/fragment_size.dat};
+      \addlegendentry{share placed}
+      \addplot[thin, color=gray, mark=o, mark size=1pt]
+        table[x=k, y=accA] {../generated/fragment_size.dat};
+      \addlegendentry{accuracy, with restorations}
+      \addplot[thin, dotted, color=black, domain=3:40] {100/\Q{trad.count}};
+      \addlegendentry{chance}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Fragment size: windows cut from held-out reference manuscripts, without restorations
+    unless marked. Accuracy counts every window; precision and share placed count only windows
+    whose lead passes the margin $\tau=\Q{E2.margin}$.}
+  \label{fig:size}
+\end{figure}
+
+Accuracy rises steeply with fragment size, then flattens (Figure~\ref{fig:size}). Windows of 3, 10 and 40 words cut
 from held-out manuscripts are placed correctly in \Q{E2.both.k3}, \Q{E2.both.k10} and
 \Q{E2.both.k40} of cases, against a chance level of \Q{chance}. Above the margin
 $\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision. With
@@ -420,7 +453,7 @@ of the reference, so that the test stays independent of the claim.
 Even with the fills, not every word has an analysis. We therefore repeat the
 leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
 analysed manuscripts only and once with all manuscripts of 17 or more legible words
-(Table~\ref{tab:spellings}). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
+(analysed only and all manuscripts). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
 overall accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc}, because most traditions gain
 manuscripts that are harder to place. The Luwian
 rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
@@ -429,24 +462,6 @@ rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
 the western rituals from \Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n}
 (\Q{R1.A.arzawawesternrituals.acc} to \Q{R1.B.arzawawesternrituals.acc}). 
 
-\begin{table}[t]
-  \centering
-  \footnotesize
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{30mm} rr rr@{}}
-    \toprule
-    & \multicolumn{2}{c}{analysed only} & \multicolumn{2}{c}{all manuscripts} \\
-    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-    Tradition & $n$ & acc. & $n$ & acc. \\
-    \midrule
-    \gentab{spellings_only}
-    \bottomrule
-  \end{tabular}
-  \caption{Spellings only: leave-one-out accuracy per tradition in the sign space, with the
-    reference limited to manuscripts that have word analyses, and with all manuscripts of 17 or
-    more legible words.}
-  \label{tab:spellings}
-\end{table}
 
 \subsection{The cuneiform layer}
 \label{sec:unicode}
