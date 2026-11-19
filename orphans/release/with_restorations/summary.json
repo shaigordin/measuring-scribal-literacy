@@ -1,0 +1,93 @@
+{
+ "version_A": {},
+ "texts_in_scope": 11368,
+ "with_results": 8019,
+ "status": {
+  "below_margin": 4357,
+  "placed": 3662,
+  "too_small": 3349
+ },
+ "by_bin": {
+  "CTH 470 fragments of rituals": {
+   "texts": 1925,
+   "too_small": 233,
+   "below_margin": 1000,
+   "placed": 692,
+   "with_match_candidates": 246
+  },
+  "CTH 500 fragments of Kizzuwatna rituals": {
+   "texts": 479,
+   "too_small": 42,
+   "below_margin": 181,
+   "placed": 256,
+   "with_match_candidates": 86
+  },
+  "CTH 670 fragments of festivals": {
+   "texts": 3513,
+   "too_small": 536,
+   "below_margin": 1190,
+   "placed": 1787,
+   "with_match_candidates": 1002
+  },
+  "CTH 832 fragments of various content": {
+   "texts": 4260,
+   "too_small": 2434,
+   "below_margin": 1363,
+   "placed": 463,
+   "with_match_candidates": 197
+  },
+  "CTH 390-469 rituals no study groups": {
+   "texts": 1038,
+   "too_small": 50,
+   "below_margin": 547,
+   "placed": 441,
+   "with_match_candidates": 206
+  },
+  "EBo filed under other CTH numbers": {
+   "texts": 153,
+   "too_small": 54,
+   "below_margin": 76,
+   "placed": 23,
+   "with_match_candidates": 23
+  }
+ },
+ "fragments_with_match_candidates_by_size": {
+  "5-9": {
+   "size": 3356,
+   "sum": 801
+  },
+  "10-16": {
+   "size": 2024,
+   "sum": 454
+  },
+  "17-39": {
+   "size": 1846,
+   "sum": 421
+  },
+  "40+": {
+   "size": 793,
+   "sum": 84
+  }
+ },
+ "placed_by_tradition": {
+  "Hattian cult layer": 1522,
+  "Kizzuwatna rituals": 1121,
+  "Kizzuwatna–Lower Land (Hurrian)": 404,
+  "Syro-Mesopotamian (Hurrian)": 174,
+  "Mixed (Hurrian, Syrian, Luwian)": 141,
+  "Arzawa / western rituals": 109,
+  "Luwian rituals (Puriyanni, Kuwattalla)": 72,
+  "Ḫuwaššanna festivals": 68,
+  "Luwian festivals (Ištanuwa, Lallupiya)": 45,
+  "Palaic festivals": 6
+ },
+ "fragments_with_match_candidates": 1760,
+ "match_candidate_pairs": 5185,
+ "margin": 0.017,
+ "precision_above_margin": 0.8065263799939005,
+ "loo_accuracy": 0.841,
+ "loo_majority": 0.271,
+ "reference_manuscripts": 1787,
+ "manuscript_pool": 19409,
+ "compositions": 658
+}

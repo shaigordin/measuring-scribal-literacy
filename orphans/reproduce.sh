@@ -26,7 +26,7 @@ echo "$MD5  $ZIP" | md5sum -c -
 # 2. token table (one row per word, with word classes)
 #    tokens_marks.csv adds sign status (preserved/damaged/restored), Akkadogram/Sumerogram layer and
 #    editorial flags; tokens.csv (version A) is the table as published so far, without them.
-#    Version C (main, damage-aware): bash run_variant.sh C, after this script.
+#    The main datasets (with and without restorations, analyses filled) are built in step 4.
 python3 -m qtm.tlhdig "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" "$DATA/tokens_marks.csv" --wide-titles > "$DATA/parse.log" 2> "$DATA/parse.err"
 python3 -m qtm.variants "$DATA/tokens_marks.csv" "$DATA/tokens.csv" --variant A
 TOK=$DATA/tokens.csv
@@ -63,5 +63,23 @@ python3 stats_corpus.py "$TOK" --out "${OUT}_literature" --groups literature
 python3 review_wordclass.py examples --tokens "$TOK"                                           # annotation examples
 python3 review_wordclass.py rescore --tokens "$TOK"                                            # audit after the rule revisions
 
-# 4. slides
+# 4. main results and Zenodo release. Words TLHdig leaves without an analysis take the analysis of the
+#    same spelling elsewhere in TLHdig, or (Cuneiform Luwian) their eDiAna lemma (fill_lemmas.py);
+#    run_filled.sh runs every experiment, case study and join check on the filled table, once without
+#    restorations (C, the main results) and once with them (A).
+bash run_filled.sh "$DATA" C                                                     # results/tlhdig03_literature_C_filled
+bash run_filled.sh "$DATA" A                                                     # results/tlhdig03_literature_A_filled
+mkdir -p release
+python3 make_release.py "$DATA/tokens_F.csv" --run "${OUT}_literature_C_filled" --out release/without_restorations > release_C.log
+python3 make_release.py "$DATA/tokens_FA.csv" --run "${OUT}_literature_A_filled" --out release/with_restorations > release_A.log
+python3 konkordanz_abbreviations.py --release release/without_restorations       # full titles for the Konkordanz short forms
+python3 release_docs.py release --version "${RELEASE_VERSION:-2.0.0}" --zip
+python3 talk_numbers.py > talk_numbers.log                                       # every number of the deck and script
+R=${OUT}_literature_C_filled                                                     # slides drawn from the data (slides/README.md)
+python3 slides/make_test1_slide.py "$R" "${OUT}_literature_A_filled" > slides/test1.html
+python3 slides/make_barcode_slide.py "$R" > slides/barcode.html
+python3 slides/make_scribal_slide.py "$R" > slides/scribal.html
+python3 slides/decide44_colours.py "$R" > slides/decide44_colours.tsv
+
+# 5. slides
 (cd .. && quarto render orphans_archetypes.qmd)

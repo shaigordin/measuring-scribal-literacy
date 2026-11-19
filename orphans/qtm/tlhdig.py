@@ -9,14 +9,15 @@ rule that set it and `wc_conf` its confidence; manual corrections from a CSV (wo
 wclass, note, reviewer; translit empty = every occurrence of the word) override them. Words that are wholly or partly illegible
 (`%` in trans, only `x` signs, or only `…`) keep their translit but get an empty `word`.
 
-Sign status and editorial marks (added 2026-11-11; they do not change `word` or `translit`):
+Sign status and editorial marks (added 2026-11-11; they do not change `word` or `translit`; brackets are
+read line by line as TLHdig encodes them, see line_start_states, fixed 2026-11-15):
 `lang_word` is the word's own language tag where TLHdig gives one (lg on <w>), else its line's.
 `status` has one letter per sign of qtm.corpus.signs(translit), in order: P preserved, D damaged
 (half brackets, or partly inside square brackets), R restored by the editor (wholly inside [ ]),
 L lost and not restored (…), O omitted by the scribe and supplied by the editor (〈x〉).
 `layer` is aligned the same way: H phonetic (Hittite or other language), A Akkadogram (<aGr>),
 S Sumerogram (<sGr>), d determinative. `flags` holds the marks a sign carries, one group per
-sign joined by '.': u uncertain reading (?), e emended (!, sic), r written over an erasure,
+sign joined by '.': u uncertain reading (?), e emended (!), v reading verified against the hand copy (sic), r written over an erasure,
 a added by the scribe, s superfluous: written in error (〈〈x〉〉) or followed by a <surpl> sign. Both strings are empty when the XML signs could not be
 aligned with translit (counted in parse.log). n_* columns count the signs of each kind.
 """
@@ -47,7 +48,8 @@ def _text(node):
     return inner
 
 
-MARKS = {"?": "u", "(?)": "u", "??": "u", "!": "e", "sic": "e", "!?": "eu", "?!": "eu",
+# sic: the reading was checked against the hand copy (HFR Basiscorpus guide p. 8), not an emendation
+MARKS = {"?": "u", "(?)": "u", "??": "u", "!": "e", "sic": "v", "!?": "eu", "?!": "eu",
          "(over erasure)": "r"}
 OPEN, CLOSE = "〈⟨", "〉⟩"
 _SEP = re.compile(r"[-.\s{}+˽]+")
@@ -65,7 +67,8 @@ def _local(node):
 
 def _chars(node, st, out, layer="H", top=True):
     """(char, status, layer, flags) for every character of a word's sign text, in order; updates
-    the bracket state `st`, which runs across words and lines as the milestones do."""
+    the bracket state `st`, which runs across the words of a line as the milestones do (mark_words
+    sets it afresh at every <lb>)."""
     tag = "" if top else _local(node)
     if tag in ("del_in", "del_fin"):
         st.restored = tag == "del_in"
@@ -143,28 +146,58 @@ def sign_marks(chars, translit):
     return "".join(status), "".join(layer), ".".join(flags)
 
 
+PAIRS = {"restored": ("del_in", "del_fin"), "damaged": ("laes_in", "laes_fin"),
+         "erased": ("ras_in", "ras_fin"), "added": ("add_in", "add_fin")}
+_MILESTONE = {t: (k, t.endswith("_in")) for k, ts in PAIRS.items() for t in ts}
+
+
+def line_start_states(root):
+    """Bracket state at the start of each line (<lb>), as TLHdig encodes it: brackets are line-bound.
+    A bracket left open at the end of a line ("... [") only says the rest of that line is broken, and
+    a line whose first milestone of a kind is a closing one ("x]-aš ...", <del_fin/> with no
+    <del_in/> before it in the line) begins inside that bracket. So each kind starts a line open
+    exactly when its first milestone in the line closes it, whatever the line before did.
+    (Before 2026-11-15 the state ran on from the previous line, which misread both cases.)"""
+    states, cur = {}, None
+    for el in root.iter():
+        tag = _local(el)
+        if tag == "lb":
+            cur = states[el] = {}
+        elif cur is not None and tag in _MILESTONE:
+            kind, opens = _MILESTONE[tag]
+            cur.setdefault(kind, not opens)
+    return states
+
+
 def mark_words(tree):
-    """Sign marks for every <w>, walking the document in order so brackets carry across words."""
+    """Sign marks for every <w>, walking the document in order so brackets carry across the words of
+    a line; at every <lb> the state is reset from line_start_states."""
     st, marks = _State(), {}
+    root = tree.getroot()
+    starts = line_start_states(root) if root is not None else {}
 
     def visit(node):
         tag = _local(node)
+        if tag == "lb":
+            s0 = starts.get(node, {})
+            for kind in PAIRS:
+                setattr(st, kind, s0.get(kind, False))
         if tag == "w":
             marks[node] = _chars(node, st, [])
             return
-        if tag in ("del_in", "del_fin", "laes_in", "laes_fin", "ras_in", "ras_fin", "add_in", "add_fin"):
+        if tag in _MILESTONE:
             _chars(node, st, [], top=False)
         for c in node:
             visit(c)
-    if tree.getroot() is not None:
-        visit(tree.getroot())
+    if root is not None:
+        visit(root)
     return marks
 
 
 EMPTY = ("", "", "")
 MARK_COLS = ["lang_word", "status", "layer", "flags", "n_signs", "n_preserved", "n_damaged", "n_restored", "n_lost", "n_omitted",
              "n_akkadogram", "n_sumerogram", "n_uncertain", "n_emended", "n_erasure", "n_added",
-             "n_superfluous"]
+             "n_superfluous", "n_verified"]
 
 
 def mark_cols(m, lang_word=""):
@@ -172,7 +205,7 @@ def mark_cols(m, lang_word=""):
     f = flags.split(".") if flags else []
     return (lang_word, status, layer, flags, len(status), status.count("P"), status.count("D"), status.count("R"), status.count("L"), status.count("O"),
             layer.count("A"), layer.count("S"), sum("u" in x for x in f), sum("e" in x for x in f),
-            sum("r" in x for x in f), sum("a" in x for x in f), sum("s" in x for x in f))
+            sum("r" in x for x in f), sum("a" in x for x in f), sum("s" in x for x in f), sum("v" in x for x in f))
 
 
 def _split_marks(m, k):

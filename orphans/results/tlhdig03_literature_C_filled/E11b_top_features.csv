@@ -1,0 +1,151 @@
+tradition,feature,sum,size,share,layer,frequent_word
+"Mixed (Hurrian, Syrian, Luwian)",KI.MIN,0.8536992862055478,64,0.0858,Word form,False
+Palaic festivals,ziparua,0.11362135820011818,8,0.079,Word form,False
+Syro-Mesopotamia (Hurrian),AZU,0.7630151551140698,66,0.069,Word form,False
+Palaic festivals,§pár·wa,0.0955453241835047,12,0.0664,Syllabic spelling,False
+Palaic festivals,§zi·pár,0.08383970566842838,8,0.0583,Syllabic spelling,False
+Syro-Mesopotamia (Hurrian),§AZU,0.6304751786602726,65,0.057,Logographic writing,False
+"Mixed (Hurrian, Syrian, Luwian)",§KI,0.5008323067620865,65,0.0503,Logographic writing,False
+Palaic festivals,§pár·wa·a,0.07222322982245478,8,0.0502,Syllabic spelling,False
+"Mixed (Hurrian, Syrian, Luwian)",§MIN,0.4998598609562486,58,0.0502,Logographic writing,False
+"Mixed (Hurrian, Syrian, Luwian)",NINDA.SIG,0.4960078358716833,73,0.0498,Word form,False
+"Mixed (Hurrian, Syrian, Luwian)",§KI·MIN,0.49027139781620876,58,0.0493,Logographic writing,False
+Palaic festivals,§D·zi·pár,0.06791411513052081,7,0.0472,Logographic writing,False
+Syro-Mesopotamia (Hurrian),§LÚ·AZU,0.5162558328613602,59,0.0467,Logographic writing,False
+Palaic festivals,§zi·pár·wa,0.06431768702716613,7,0.0447,Syllabic spelling,False
+"Mixed (Hurrian, Syrian, Luwian)",EGIRantama,0.44044018778251115,40,0.0442,Word form,False
+Ḫuwaššanna festivals,§wa·aš·ša,1.0466629332613004,101,0.0423,Syllabic spelling,False
+Ḫuwaššanna festivals,§ša·an·na,1.0426396868740129,96,0.0422,Syllabic spelling,False
+Syro-Mesopotamia (Hurrian),tai,0.4630086915512182,75,0.0419,Word form,True
+"Luwian rituals (Puriyanni, Kuwattalla)",ŠU.GI,0.21058643002691244,27,0.0416,Word form,False
+"Luwian rituals (Puriyanni, Kuwattalla)",§MUNUS·ŠU,0.20745822369447647,29,0.0409,Logographic writing,False
+"Mixed (Hurrian, Syrian, Luwian)",§D,0.3758527304836031,115,0.0378,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§MEŠ·GAL,0.08201906278417723,8,0.0361,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",2,0.08097720904689898,27,0.0356,Word form,True
+"Luwian rituals (Puriyanni, Kuwattalla)",§ŠU·GI,0.1799398592338875,30,0.0355,Logographic writing,False
+"Mixed (Hurrian, Syrian, Luwian)",§D·ḫé,0.352396429634317,64,0.0354,Logographic writing,False
+"Luwian rituals (Puriyanni, Kuwattalla)",§GI,0.1776137562611435,31,0.0351,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§LÚ·MEŠ·GAL,0.07943224107760123,8,0.035,Logographic writing,False
+"Luwian rituals (Puriyanni, Kuwattalla)",SÍSKUR,0.17661055371418266,24,0.0349,Word form,False
+"Mixed (Hurrian, Syrian, Luwian)",§SIG,0.34657968797955824,74,0.0348,Logographic writing,False
+"Luwian rituals (Puriyanni, Kuwattalla)",§MUNUS·ŠU·GI,0.17569809122729985,29,0.0347,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",GAL-ŠU-NU,0.07658129173179141,13,0.0337,Word form,False
+"Luwian rituals (Puriyanni, Kuwattalla)",§EME,0.1702761031339697,21,0.0336,Logographic writing,False
+Hattian cult layer,§LUGAL,0.9038241624961758,224,0.0336,Logographic writing,False
+"Luwian rituals (Puriyanni, Kuwattalla)",tabaru-,0.16981858784486073,17,0.0335,Word form,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§MEŠ·GAL·ŠU,0.07587933557322649,8,0.0334,Logographic writing,False
+Syro-Mesopotamia (Hurrian),A-NA,0.36698684866899367,84,0.0332,Word form,True
+"Mixed (Hurrian, Syrian, Luwian)",§ḫé·pát,0.32827422399080125,62,0.033,Syllabic spelling,False
+Kizzuwatna–Lower Land (Hurrian),1,0.37018916980516564,193,0.0327,Word form,True
+"Mixed (Hurrian, Syrian, Luwian)",§D·ḫé·pát,0.32233607044739804,61,0.0324,Logographic writing,False
+"Luwian rituals (Puriyanni, Kuwattalla)",attuwal(i)-,0.15953694823036274,12,0.0315,Word form,False
+"Mixed (Hurrian, Syrian, Luwian)",§ḫé,0.3063568580352542,71,0.0308,Syllabic spelling,False
+Hattian cult layer,§a,0.8236735048244802,405,0.0306,Syllabic spelling,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§GAL·ŠU,0.06922053227088662,12,0.0305,Logographic writing,False
+Palaic festivals,§D·zi,0.04281331660546559,7,0.0298,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§GAL·ŠU·NU,0.06731493507309079,12,0.0296,Logographic writing,False
+Ḫuwaššanna festivals,§ḫu·wa·aš,0.7302465306399848,76,0.0295,Syllabic spelling,False
+Hattian cult layer,§i,0.7728637851600481,380,0.0288,Syllabic spelling,False
+"Luwian festivals (Ištanuwa, Lallupiya)",ištanua,0.0652089176640693,12,0.0287,Word form,False
+"Mixed (Hurrian, Syrian, Luwian)",DINGIRna,0.2819184653933075,43,0.0283,Word form,False
+"Mixed (Hurrian, Syrian, Luwian)",§NINDA·SIG,0.2802482622379099,71,0.0282,Logographic writing,False
+Kizzuwatna–Lower Land (Hurrian),§NI,0.31902007085841605,133,0.0282,Logographic writing,False
+Kizzuwatna–Lower Land (Hurrian),NINDA.GUR₄.RA,0.3113329184074008,100,0.0275,Word form,True
+Ḫuwaššanna festivals,§an·na,0.6702035809497975,120,0.0271,Syllabic spelling,False
+"Mixed (Hurrian, Syrian, Luwian)",§da·ma,0.26137103015362007,41,0.0263,Syllabic spelling,False
+Palaic festivals,§ḫa·ša,0.03775268782486846,10,0.0262,Syllabic spelling,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§URU·iš,0.05941608659921388,12,0.0261,Logographic writing,False
+Ḫuwaššanna festivals,§EL,0.6411290915952752,76,0.0259,Logographic writing,False
+Ḫuwaššanna festivals,§al·ḫu,0.6389817181072265,77,0.0258,Syllabic spelling,False
+Arzawa / western rituals,§KUŠ·kur,0.04510463054991915,8,0.0257,Logographic writing,False
+Arzawa / western rituals,§kur,0.044477814477845386,11,0.0253,Syllabic spelling,False
+Arzawa / western rituals,arḫa,0.0438745561677233,22,0.025,Word form,True
+Ḫuwaššanna festivals,BE-EL,0.6167609997191508,69,0.0249,Word form,False
+Kizzuwatna–Lower Land (Hurrian),§GUR₄,0.27972018460334963,107,0.0247,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§URU·iš·ta,0.05583252274598774,12,0.0246,Logographic writing,False
+Syro-Mesopotamia (Hurrian),§da·a·i,0.2721488654214275,75,0.0246,Syllabic spelling,False
+Ḫuwaššanna festivals,§BE,0.6041121433078738,78,0.0244,Logographic writing,False
+Ḫuwaššanna festivals,§BE·EL,0.5922389857994386,75,0.0239,Logographic writing,False
+Kizzuwatna–Lower Land (Hurrian),§GUR₄·RA,0.26834858059656086,104,0.0237,Logographic writing,False
+Syro-Mesopotamia (Hurrian),ḫurlilima,0.2619290055100724,29,0.0237,Word form,False
+Arzawa / western rituals,KAL,0.040818706836508185,10,0.0232,Word form,False
+Kizzuwatna rituals,§MUŠEN,0.19905913297040623,63,0.0232,Logographic writing,False
+"Luwian rituals (Puriyanni, Kuwattalla)",hirun/d-,0.116464679122374,13,0.023,Word form,False
+Kizzuwatna–Lower Land (Hurrian),EGIR-ŠUma,0.25506837818663025,70,0.0225,Word form,False
+Syro-Mesopotamia (Hurrian),§a·i,0.24913310869174493,81,0.0225,Syllabic spelling,False
+Kizzuwatna–Lower Land (Hurrian),§NINDA·GUR₄,0.24927490422095538,105,0.022,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§SÌR,0.04976302392212135,19,0.0219,Logographic writing,False
+Syro-Mesopotamia (Hurrian),§DUG,0.2420843981450911,74,0.0219,Logographic writing,False
+Hattian cult layer,§ta,0.5843951392927275,363,0.0217,Syllabic spelling,False
+Hattian cult layer,§ú,0.5811900280527594,288,0.0216,Syllabic spelling,False
+Hattian cult layer,§LÚ,0.5798392108224948,257,0.0216,Logographic writing,False
+Syro-Mesopotamia (Hurrian),§ḫur·li,0.23913008444352038,48,0.0216,Syllabic spelling,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§NU,0.04910595092438024,22,0.0216,Logographic writing,False
+Kizzuwatna–Lower Land (Hurrian),§RA,0.24395353980523019,114,0.0215,Logographic writing,False
+Syro-Mesopotamia (Hurrian),§li·li,0.23820217861138054,47,0.0215,Syllabic spelling,False
+Syro-Mesopotamia (Hurrian),§DUG·GAL,0.23171475560241697,40,0.021,Logographic writing,False
+Ḫuwaššanna festivals,§MUNUS·al,0.5187964622527577,70,0.021,Logographic writing,False
+Ḫuwaššanna festivals,§MUNUS·ḫu,0.5191699258473894,61,0.021,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§ŠU·NU,0.04761406152552741,15,0.021,Logographic writing,False
+Kizzuwatna–Lower Land (Hurrian),§ši·pa,0.23595796755497142,115,0.0208,Syllabic spelling,False
+Kizzuwatna–Lower Land (Hurrian),§NINDA·GUR₄·RA,0.23457568256044514,102,0.0207,Logographic writing,False
+Ḫuwaššanna festivals,§wa·aš,0.5064012182124092,107,0.0205,Syllabic spelling,False
+Arzawa / western rituals,§D·KAL,0.03582303179062421,10,0.0204,Logographic writing,False
+"Luwian festivals (Ištanuwa, Lallupiya)",SÌR-RU,0.046001532262697126,16,0.0202,Word form,True
+Kizzuwatna–Lower Land (Hurrian),EGIR-ŠÚma,0.22713951703128135,60,0.02,Word form,False
+Kizzuwatna–Lower Land (Hurrian),§ši·pa·an,0.22277119899024342,113,0.0197,Syllabic spelling,False
+Kizzuwatna rituals,SÍG,0.16802368561171727,61,0.0196,Word form,False
+Arzawa / western rituals,ŠÀ,0.03449082245027662,14,0.0196,Word form,False
+Syro-Mesopotamia (Hurrian),SÍSKUR,0.21537831542738828,49,0.0195,Word form,False
+Palaic festivals,tapišaniš,0.02772838761382929,3,0.0193,Word form,False
+Palaic festivals,ḫašauanza,0.027692411340563165,6,0.0192,Word form,False
+"Luwian festivals (Ištanuwa, Lallupiya)",§al·lu,0.04295500191037605,10,0.0189,Syllabic spelling,False
+Palaic festivals,kattakurantaš,0.027211757671437697,3,0.0189,Word form,False
+Hattian cult layer,§e,0.5045636513087818,339,0.0188,Syllabic spelling,False
+Arzawa / western rituals,§KAL,0.032644173363115814,10,0.0186,Logographic writing,False
+Kizzuwatna rituals,§SÍG,0.15907099550690357,67,0.0186,Logographic writing,False
+Ḫuwaššanna festivals,§al·ḫu·it,0.45656351057729866,67,0.0185,Syllabic spelling,False
+Ḫuwaššanna festivals,§MUNUS·al·ḫu,0.4532475931853244,68,0.0183,Logographic writing,False
+Kizzuwatna–Lower Land (Hurrian),§ti,0.20692625009381266,179,0.0183,Syllabic spelling,False
+Arzawa / western rituals,kuršaš,0.03199057841268356,7,0.0182,Word form,False
+Syro-Mesopotamia (Hurrian),§A·NA,0.19985584944904572,82,0.0181,Logographic writing,False
+Palaic festivals,išnuri,0.025879642355178485,6,0.018,Word form,False
+Arzawa / western rituals,§ar·ḫa,0.03157550541648137,22,0.018,Syllabic spelling,False
+Kizzuwatna–Lower Land (Hurrian),§pa·an,0.2037025008892254,141,0.018,Syllabic spelling,False
+"Luwian rituals (Puriyanni, Kuwattalla)",§SÍSKUR,0.0911423800639063,24,0.018,Logographic writing,False
+Arzawa / western rituals,§ŠÀ,0.03152140944415696,20,0.0179,Logographic writing,False
+Kizzuwatna–Lower Land (Hurrian),GEŠTIN,0.20252801268891732,100,0.0179,Word form,True
+Hattian cult layer,§zi,0.47966949032084777,371,0.0178,Syllabic spelling,False
+Syro-Mesopotamia (Hurrian),§uš·ḫi,0.19534247924392278,47,0.0177,Syllabic spelling,False
+Ḫuwaššanna festivals,§al,0.4359282976761613,124,0.0176,Syllabic spelling,False
+Arzawa / western rituals,IM,0.030474651670095394,6,0.0173,Word form,False
+Hattian cult layer,§tu,0.46569653739223543,216,0.0173,Syllabic spelling,False
+Hattian cult layer,LUGALi,0.4661891323716726,128,0.0173,Word form,False
+"Luwian rituals (Puriyanni, Kuwattalla)",tadariyamman-,0.08729855145514151,14,0.0172,Word form,False
+Palaic festivals,§pár,0.024328980825114605,17,0.0169,Syllabic spelling,False
+Palaic festivals,GEŠTINit,0.024239746292182122,5,0.0168,Word form,False
+"Luwian rituals (Puriyanni, Kuwattalla)",§ad·du,0.08425272804839859,17,0.0166,Syllabic spelling,False
+Arzawa / western rituals,ḫutak,0.029091694189539056,7,0.0165,Word form,False
+Palaic festivals,§D·ḫa·ša,0.023688510650464692,8,0.0165,Logographic writing,False
+Arzawa / western rituals,§na·at,0.028752193370537076,21,0.0164,Syllabic spelling,False
+Arzawa / western rituals,§la·aḫ·ḫur,0.028052941549120268,7,0.016,Syllabic spelling,False
+Arzawa / western rituals,§KARAŠ,0.027926531102030524,7,0.0159,Logographic writing,False
+"Luwian rituals (Puriyanni, Kuwattalla)",EN,0.07990329544118374,21,0.0158,Word form,False
+Kizzuwatna rituals,§ia,0.13241232512201115,170,0.0155,Syllabic spelling,False
+Hattian cult layer,§wa,0.4100289667667385,353,0.0153,Syllabic spelling,False
+"Luwian rituals (Puriyanni, Kuwattalla)",§ad·du·wa,0.07707732325329242,14,0.0152,Syllabic spelling,False
+Hattian cult layer,§ka,0.398280118738519,193,0.0148,Syllabic spelling,False
+Hattian cult layer,§te,0.3948140372717128,231,0.0147,Syllabic spelling,False
+Hattian cult layer,§LÚ·MEŠ,0.3957618275065735,174,0.0147,Logographic writing,False
+Hattian cult layer,§ḫa,0.3896736377207941,346,0.0145,Syllabic spelling,False
+Kizzuwatna rituals,§ki,0.1202854631060925,123,0.014,Syllabic spelling,False
+Kizzuwatna rituals,§nu,0.1162594161821187,165,0.0136,Syllabic spelling,False
+Kizzuwatna rituals,§ar,0.10435739466786782,127,0.0122,Syllabic spelling,False
+Kizzuwatna rituals,§an,0.10346570789046415,182,0.0121,Syllabic spelling,False
+Kizzuwatna rituals,§an·da,0.10210010747602094,123,0.0119,Syllabic spelling,False
+Kizzuwatna rituals,§it,0.10002551742708564,116,0.0117,Syllabic spelling,False
+Kizzuwatna rituals,nu,0.09958134902076457,133,0.0116,Word form,True
+Kizzuwatna rituals,§SISKUR,0.09897035867569828,55,0.0116,Logographic writing,False
+Kizzuwatna rituals,anta,0.09698439729008251,104,0.0113,Word form,True
+Kizzuwatna rituals,§wa·ar,0.09120262803210243,69,0.0106,Syllabic spelling,False
+Kizzuwatna rituals,§DINGIR,0.08680941142164236,104,0.0101,Logographic writing,False
