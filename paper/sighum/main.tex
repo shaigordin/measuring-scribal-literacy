@@ -89,18 +89,19 @@ it rests on.
 We turn the exploratory mapping of \citet{gordin2025matters} into assignment, with explicit baselines, held-out evaluation and a rule for when not
 to assign. Our contributions are:
 \begin{enumerate}
-  \item a reference of \Q{trad.countword} ritual and festival traditions, each grounded in
-    its scholarly literature and mapped to Laroche's CTH numbers, with the ranges that no study
-    claims set aside as test sets (Section~\ref{sec:data});
-  \item an evaluation that holds out manuscripts and whole compositions, so that the scholarly
-    groupings themselves, and one contested attribution, are tested; that follows accuracy
-    down to fragment size; and that calibrates a margin for abstention
-    (Section~\ref{sec:results});
-  \item an exact decomposition of each decision over word categories and writing layers, which
-    separates what is written from how it is written and shows how much rests on common
-    particles such as \textit{nu} (Section~\ref{sec:decision});
-  \item a placement of \Q{E5.assigned} orphans, each with the features it rests on, as leads
-    to verify on the tablet.
+  \item a placement of \Q{E5.assigned} of \Q{E9.orph.scored} orphans at an expected precision
+    of \Q{E2.precision}, each with the diagnostic words it rests on and its nearest manuscripts,
+    as leads to verify on the tablet (Section~\ref{sec:orphans});
+  \item evidence for a division of labour between archetype and witness: traditions are
+    identified by what is written, above all by whom and what a text names, and hardly by how
+    it is spelled (Section~\ref{sec:decision});
+  \item a test of scholarly groupings and of one contested attribution by holding out whole
+    compositions, which shows which traditions the texts support as groups
+    (Section~\ref{sec:recovery});
+  \item a measure of how far the editors' restorations change a placement, which makes a
+    possible philological bias visible (Section~\ref{sec:method});
+  \item leads for duplicates and joins, with the finding that text finds duplicates but does
+    not tell a join from a duplicate (Section~\ref{sec:joins}).
 \end{enumerate}
 
 %% ==========================================================================================
@@ -135,7 +136,7 @@ geography \citep{gordin2025matters,gorke2022hurrian,trameri2024kizzuwatna} and, 
 Hethitische Festrituale project (HFR), into edition modules such as the Luwian and the Palaic
 festivals \citep{hfr,gorke2020hatti}.
 
-\paragraph{The festival traditions in StBoT 73.}
+\paragraph{Stylometric clusters of the festival texts.}
 Our reference starts from \citet{gordin2025matters}, who measured the tf-idf similarity of about
 1,000 Hurrian and Luwian festival manuscripts in 27 CTH groups and found three clusters
 \citep[109f.]{gordin2025matters}. To compare them with scholarship, that study summarised earlier
@@ -164,7 +165,7 @@ Machine learning on cuneiform has addressed transliteration and translation
 \citep{jauhiainen2019cuneiform}, the matching of fragments to known compositions by sign
 sequences \citep{simonjetz2024reconstruction}, and palaeographic style \citep{yugay2024stylistic}.
 Fragment matching finds only a known text, and all these studies are closed-set. We know of no published study that uses content features to
-assign Hittite fragments to religious traditions, or that asks when a fragment fits none of them.
+assign Hittite fragments to ritual and festival traditions, or that asks when a fragment fits none of them.
 
 %% ==========================================================================================
 \section{Data}
@@ -543,7 +544,7 @@ Without restorations far fewer orphans are placed than with them (\Q{A.E5.assign
 with restorations that are still scored without them, \Q{AC.placedA.samenearest} (\Q{AC.placedA.samenearest.share})
 keep the same nearest tradition. The loss is in confidence, not in direction.
 
-\subsection{Duplicates, not joins: a negative result}
+\subsection{Duplicates, not Joins?}
 \label{sec:joins}
 Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
 recorded duplicate pairs, the partner ranks first in \Q{KJ.duplicate.top1} and among the 20
@@ -624,21 +625,12 @@ placement checkable: a decision rests on agents, deities, realia and foreign wor
 spelling or particles.
 
 \section*{Limitations}
-The study depends on one digital edition. TLHdig 0.4 has no word analyses for the Luwian
-corpus and for many rituals; we fill them from the same spelling elsewhere or from eDiAna, which
-assumes that one spelling has one lemma; its analyses are automatic, pre-validated mainly for the festivals, and fully validated only in HFR's critical editions. Words with less than half their signs on the tablet
-are dropped unless the same text supports them, so short fragments over-represent the formulaic
-lines that survive, and the half-preserved threshold is a choice we have not varied. Several traditions are small
-(the smallest has \Q{trad.smallest.n} test manuscripts), their recall is uncertain, and held out
-by composition several are not recovered at all. The traditions themselves are taken from the
-literature: the method tests them, but cannot find a tradition that no study has proposed. The
-idf weights are fitted on the whole reference set. Festival manuscripts also differ by function
-(outline tablets, day tablets, inventories close to festival text \citep{cammarosano2021inventories}),
-which word profiles may track alongside tradition. The word categories enter only the analysis of
-what a decision rests on, not the placements; their rules were checked on a sample, but the
-meaning classes of nouns rest on a gloss list drafted with a language model that is still to be
-checked by hand. Finally, every placement is a hypothesis for verification on the tablet; a
-fragment placed near a known manuscript is a candidate, not a join.
+The study rests on one digital edition, whose analyses are automatic and only partly
+pre-validated, and on lemmas transferred from the same spelling, which assumes one lemma per
+spelling. Several traditions are small (the smallest has \Q{trad.smallest.n} test manuscripts),
+and the traditions come from the literature: the method tests them but cannot find a new one.
+The noun meaning classes rest on a gloss mapping not yet checked by hand. Every placement is a
+hypothesis to verify on the tablet.
 
 \section*{Ethics statement}
 The corpus is openly licensed. A language model (Claude, Anthropic) was used to write and run
