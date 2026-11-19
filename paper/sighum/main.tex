@@ -169,21 +169,25 @@ assign Hittite fragments to religious traditions, or that asks when a fragment f
 \section{Data}
 \label{sec:data}
 
-\paragraph{Corpus.}
-We use the TLHdig Beta 0.3 release \citep{tlhdig03}, converted to one row per word following
-\citet{yavasan2025clay}. Each word carries its normalised form, its transliteration split into
-signs, its language, whether a sign is an Akkadogram, a Sumerogram or a determinative (TLHdig
-tags these separately), and the lexical and morphological analyses that TLHdig produces
-automatically with the HFR tool, which are not validated by hand \citep{tlhdig03}. The release is
-downloaded by script and checked by its checksum, so the word table can be rebuilt from the public
-data alone. As in \citet{gordin2025matters}, reference manuscripts must have at least 17 legible
-words. The analyses do not cover the whole release: the Luwian rituals (\CTH{758}--763) have
-none, and many other rituals lack them. Where a word has no analysis, we take the lemma of the
-same spelling elsewhere in TLHdig (\Q{fill.tlhdig} words) or, for Cuneiform Luwian words, from
-eDiAna \citep{ediana} (\Q{fill.ediana} words); every filled word keeps its source. With the fills,
-the Luwian rituals have \Q{R1.A.luwianritualspuriyannikuwattalla.n} reference manuscripts and the
-western rituals \Q{R1.A.arzawawesternrituals.n}; Section~\ref{sec:spellings} repeats the
-evaluation on spellings alone with every manuscript.
+\paragraph{Corpus and annotation layers.}
+We use TLHdig Beta 0.3 \citep{tlhdig03}, one row per word as in \citet{yavasan2025clay}. TLHdig
+gives three layers: the \term{transliteration}, the editors' reading, with each sign's state
+(preserved, damaged, restored, lost), logograms and determinatives marked, and a normalised form
+of each word; a Unicode \term{cuneiform} rendering of each line, without word division; and an
+automatic \term{lexical and morphological analysis} by the HFR tool \citep{hfr} (lemma, German
+dictionary gloss, form, stem class). HFR distinguishes automatic annotation, \textit{pre-validation}
+(an annotator inspects the automatic analyses and selects one) and \textit{validation}, done only
+in critical editions \citep[14]{hfrbasiscorpus}. Pre-validated files name their annotator: most
+festival manuscripts, almost no rituals or orphans; elsewhere the analysis is automatic. Placement reads only the transliteration; the analysis serves the word
+categories. Reference manuscripts need at least 17 legible words \citep{gordin2025matters}. The
+analysis is missing for the Luwian rituals (\CTH{758}--763) and many other rituals; we extend it
+by transfer, not by new reading. A word without one takes the lemma TLHdig gives the same spelling
+elsewhere, if all its analysed occurrences agree (\Q{fill.tlhdig} words), or, for Cuneiform
+Luwian, the single lemma eDiAna \citep{ediana} gives that spelling (\Q{fill.ediana} words); each
+keeps its source passage. The Luwian rituals then have
+\Q{R1.A.luwianritualspuriyannikuwattalla.n} reference manuscripts and the western rituals
+\Q{R1.A.arzawawesternrituals.n}; Section~\ref{sec:spellings} repeats the evaluation on spellings
+with every manuscript.
 
 \paragraph{Damage and restoration.}
 TLHdig prints the editors' restorations alongside what survives, and marks each sign as preserved,
@@ -319,12 +323,14 @@ order: the word's determinative (DINGIR makes a deity, \textsuperscript{LÚ} an 
 language tag, and its automatic morphological analysis, using the analysis marked as selected
 where there is one (a person-marked form is a verb, a particle or pronoun a function word);
 unanalysed words fall back on the analyses selected for the same form elsewhere. Nouns and
-adjectives are then classed by their German gloss, through a list of \Q{wc.glosses} glosses that
-was drafted with a language model and has not been checked by hand; it is the one step not
-derived from TLHdig. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
+adjectives are then classed by meaning from the German dictionary gloss that the analysis gives
+their lemma (a gloss, not a translation of the passage), through a list of \Q{wc.glosses} glosses
+that was drafted with a language model and has not been checked by hand; it is the one step not
+derived from TLHdig. Labels are thus projected from a lexicon, not, as for Greek and Latin, through aligned
+translations \citep{yousef2022alignment,yousef2023projection}. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
 \Q{wc.tokens} legible words are classed with high confidence, \Q{wc.conf.medium} with medium and
-\Q{wc.conf.low} with low. Since neither the automatic analyses nor our rules are validated in
-TLHdig, our audit is the only manual check: a domain expert checked a stratified sample of \Q{wc.audit.n} words:
+\Q{wc.conf.low} with low. Since the analyses are at most pre-validated and our rules not at all, our audit is the
+only manual check of the categories: a domain expert checked a stratified sample of \Q{wc.audit.n} words:
 \Q{wc.audit.before.high}, \Q{wc.audit.before.medium} and \Q{wc.audit.before.low} were correct at
 the three levels, \Q{wc.audit.before.corpus} overall when weighted by corpus shares. Fixing the
 \Q{wc.audit.fixes} rules that the errors pointed to raises the overall figure to
@@ -579,7 +585,10 @@ for a join but does not tell a join from a duplicate; that needs physical eviden
 \paragraph{Genre before origin.}
 A fragment is placed by what it shares with the reference, and the largest shared layer is
 genre, as the residue of \CTH{390}--469 shows. A placement is therefore ``nearest of these'', and
-is only as good as the alternatives in the reference.
+is only as good as the alternatives in the reference. Nor does a placement return a fragment to its CTH
+number: the CTH is a modern catalogue, and many manuscripts fit more than one of its groups.
+Hence our traditions from the literature; extending them to the whole corpus needs genre and
+composition categories from the scholarship, not CTH numbers.
 
 \paragraph{Archetypes and witnesses.}
 The results suggest a division of labour between two levels of a text, which we call
@@ -605,7 +614,7 @@ spelling or particles.
 \section*{Limitations}
 The study depends on one digital edition. TLHdig 0.3 has no word analyses for the Luwian
 corpus and for many rituals; we fill them from the same spelling elsewhere or from eDiAna, which
-assumes that one spelling has one lemma; its morphological analyses are automatic and unvalidated, and its
+assumes that one spelling has one lemma; its analyses are automatic, pre-validated mainly for festivals, and its
 normalised forms are uneven across editors. Words with less than half their signs on the tablet
 are dropped unless the same text supports them, so short fragments over-represent the formulaic
 lines that survive, and the half-preserved threshold is a choice we have not varied. Several traditions are small
