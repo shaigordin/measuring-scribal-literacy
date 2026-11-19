@@ -4,13 +4,14 @@
 #
 #   bash run_filled.sh [DATA_DIR] [VARIANT]   # needs DATA_DIR/tokens_marks.csv (python3 -m qtm.tlhdig)
 #
-# VARIANT C (default): without restorations (results/tlhdig03_literature_C_filled);
-# VARIANT A: with the editors' restorations (results/tlhdig03_literature_A_filled).
+# VARIANT C (default): without restorations (results/tlhdig$TLH_literature_C_filled);
+# VARIANT A: with the editors' restorations (results/tlhdig$TLH_literature_A_filled).
 set -euo pipefail
 cd "$(dirname "$0")"
 DATA=${1:-data}
 V=${2:-C}
-O=results/tlhdig03_literature_${V}_filled
+TLH=${TLH:-04}
+O=results/tlhdig${TLH}_literature_${V}_filled
 mkdir -p "$O/case"
 python3 ediana_cluwian.py --cache "$DATA/ediana" --out "$DATA/ediana_cluwian_forms.csv" > "$O/ediana.log"
 python3 fill_lemmas.py "$DATA/tokens_marks.csv" "$DATA/tokens_marks_filled.csv" --ediana "$DATA/ediana_cluwian_forms.csv" > "$O/fill.log"
@@ -45,7 +46,7 @@ python3 run_barcode.py "$TOK" --run "$O" --txtid "KBo 44.52" --out "$C" >> "$C/r
 mkdir -p "$O/known_joins" "$O/joins"
 python3 run_known_joins.py "$TOK" --run "$O" --cache "$DATA/konkordanz" --out "$O/known_joins" --labels "$O/known_joins/labels.csv" \
   --pages-from results/tlhdig03_literature/known_joins/known_joins.json > "$O/known_joins/run.log"
-python3 run_join_model.py "$TOK" --run "$O" --xml "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_03" --cache "$DATA/konkordanz" \
+python3 run_join_model.py "$TOK" --run "$O" --xml "$DATA/TLHbasisONLINE25_1_ZENODO_Beta_$TLH" --cache "$DATA/konkordanz" \
   --fetch --k 200 --out "$O/joins" > "$O/joins/run.log"
-[ "$V" = C ] && python3 compare_filled.py --main results/tlhdig03_literature_C --filled "$O" --fill "$DATA/tokens_marks_filled.csv" > "$O/comparison.txt"
+[ "$V" = C ] && python3 compare_filled.py --main results/tlhdig${TLH}_literature_C --filled "$O" --fill "$DATA/tokens_marks_filled.csv" > "$O/comparison.txt"
 echo done
