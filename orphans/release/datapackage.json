@@ -1,8 +1,8 @@
 {
  "profile": "tabular-data-package",
  "name": "orphans-and-archetypes-nearest-manuscripts",
- "title": "Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.3)",
- "version": "2.0.0",
+ "title": "Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.4)",
+ "version": "2.1.0",
  "licenses": [
   {
    "name": "CC-BY-4.0",
@@ -12,8 +12,8 @@
  ],
  "sources": [
   {
-   "title": "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3",
-   "path": "https://doi.org/10.5281/zenodo.20328284"
+   "title": "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.4",
+   "path": "https://doi.org/10.5281/zenodo.24373727"
   }
  ],
  "contributors": [

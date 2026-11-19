@@ -1,0 +1,94 @@
+11440 texts in scope, 8112 with 5+ analysed words
+{
+ "version_A": {},
+ "texts_in_scope": 11440,
+ "with_results": 8112,
+ "status": {
+  "below_margin": 4255,
+  "placed": 3857,
+  "too_small": 3328
+ },
+ "by_bin": {
+  "CTH 470 fragments of rituals": {
+   "texts": 1927,
+   "too_small": 232,
+   "below_margin": 966,
+   "placed": 729,
+   "with_match_candidates": 242
+  },
+  "CTH 500 fragments of Kizzuwatna rituals": {
+   "texts": 481,
+   "too_small": 42,
+   "below_margin": 177,
+   "placed": 262,
+   "with_match_candidates": 89
+  },
+  "CTH 670 fragments of festivals": {
+   "texts": 3560,
+   "too_small": 516,
+   "below_margin": 1162,
+   "placed": 1882,
+   "with_match_candidates": 1031
+  },
+  "CTH 832 fragments of various content": {
+   "texts": 4272,
+   "too_small": 2436,
+   "below_margin": 1336,
+   "placed": 500,
+   "with_match_candidates": 199
+  },
+  "CTH 390-469 rituals no study groups": {
+   "texts": 1043,
+   "too_small": 48,
+   "below_margin": 536,
+   "placed": 459,
+   "with_match_candidates": 211
+  },
+  "EBo filed under other CTH numbers": {
+   "texts": 157,
+   "too_small": 54,
+   "below_margin": 78,
+   "placed": 25,
+   "with_match_candidates": 26
+  }
+ },
+ "fragments_with_match_candidates_by_size": {
+  "5-9": {
+   "size": 3391,
+   "sum": 804
+  },
+  "10-16": {
+   "size": 2044,
+   "sum": 469
+  },
+  "17-39": {
+   "size": 1874,
+   "sum": 436
+  },
+  "40+": {
+   "size": 803,
+   "sum": 89
+  }
+ },
+ "placed_by_tradition": {
+  "Hattian cult layer": 1582,
+  "Kizzuwatna rituals": 1178,
+  "Kizzuwatna–Lower Land (Hurrian)": 437,
+  "Syro-Mesopotamia (Hurrian)": 182,
+  "Mixed (Hurrian, Syrian, Luwian)": 155,
+  "Arzawa / western rituals": 118,
+  "Luwian rituals (Puriyanni, Kuwattalla)": 73,
+  "Ḫuwaššanna festivals": 72,
+  "Luwian festivals (Ištanuwa, Lallupiya)": 54,
+  "Palaic festivals": 6
+ },
+ "fragments_with_match_candidates": 1798,
+ "match_candidate_pairs": 5297,
+ "margin": 0.016,
+ "precision_above_margin": 0.8024860235518021,
+ "loo_accuracy": 0.841,
+ "loo_majority": 0.266,
+ "reference_manuscripts": 1795,
+ "manuscript_pool": 19624,
+ "compositions": 662
+}

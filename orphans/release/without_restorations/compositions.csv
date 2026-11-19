@@ -96,11 +96,11 @@ cth,manuscripts,tradition
 21,5,
 210,22,
 211,35,
-212,152,
+212,153,
 213,5,
 214,56,
 215,278,
-216,32,
+216,33,
 22,1,
 222,77,
 224,1,
@@ -144,7 +144,7 @@ cth,manuscripts,tradition
 261,23,
 262,2,
 263,2,
-264,17,
+264,18,
 265,3,
 266,1,
 267,1,
@@ -180,7 +180,7 @@ cth,manuscripts,tradition
 299,12,
 3,13,
 300,14,
-301,22,
+301,21,
 302,12,
 303,7,
 304,16,
@@ -207,7 +207,7 @@ cth,manuscripts,tradition
 332,8,
 333,3,
 334,20,
-335,33,
+335,34,
 336,11,
 337,2,
 338,3,
@@ -231,7 +231,7 @@ cth,manuscripts,tradition
 363,1,
 364,13,
 365,2,
-370,132,
+370,131,
 371,2,
 372,6,
 373,2,
@@ -245,7 +245,7 @@ cth,manuscripts,tradition
 382,1,
 383,2,
 384,5,
-385,17,
+385,18,
 386,10,
 387,5,
 389,106,
@@ -274,7 +274,7 @@ cth,manuscripts,tradition
 41,7,
 410,2,Arzawa / western rituals
 411,5,CTH 390–469 residue
-412,23,CTH 390–469 residue
+412,25,CTH 390–469 residue
 413,17,CTH 390–469 residue
 414,12,CTH 390–469 residue
 415,6,CTH 390–469 residue
@@ -283,7 +283,7 @@ cth,manuscripts,tradition
 418,15,CTH 390–469 residue
 419,3,CTH 390–469 residue
 42,3,
-420,6,CTH 390–469 residue
+420,7,CTH 390–469 residue
 421,18,CTH 390–469 residue
 422,9,CTH 390–469 residue
 423,6,CTH 390–469 residue
@@ -310,9 +310,9 @@ cth,manuscripts,tradition
 443,2,CTH 390–469 residue
 444,6,CTH 390–469 residue
 445,3,CTH 390–469 residue
-446,19,CTH 390–469 residue
+446,20,CTH 390–469 residue
 447,4,CTH 390–469 residue
-448,110,CTH 390–469 residue
+448,113,CTH 390–469 residue
 449,25,CTH 390–469 residue
 450,76,CTH 390–469 residue
 451,1,CTH 390–469 residue
@@ -357,38 +357,41 @@ cth,manuscripts,tradition
 51,6,
 52,2,
 523,17,
-526,44,
-527,63,
-528,134,
+526,47,
+527,65,
+528,135,
 529,52,
 53,7,
-530,266,
+530,265,
 531,1,
-532,34,
-533,18,
-534,32,
-535,21,
-536,12,
+532,36,
+533,14,
+534,33,
+535,20,
+536,6,
 537,22,
-538,17,
+538,22,
 540,13,
 541,3,
 542,1,
 543,6,
-544,6,
+544,5,
 545,3,
-546,7,
+546,8,
 547,54,
 548,3,
 549,8,
 550,1,
 551,3,
+552,1,
 553,2,
+554,2,
 555,2,
-556,8,
+556,13,
 557,2,
 558,1,
-560,39,
+559,7,
+560,19,
 561,3,
 562,9,
 563,4,
@@ -397,66 +400,67 @@ cth,manuscripts,tradition
 566,1,
 567,1,
 568,31,
-569,11,
+569,10,
 57,1,
-570,79,
+570,80,
 571,4,
 572,123,
-573,117,
-574,32,
+573,118,
+574,30,
 575,14,
-576,14,
-577,96,
+576,13,
+577,98,
+578,65,
 579,34,
 58,1,
 580,52,
-581,30,
-582,361,
+581,31,
+582,380,
 583,2,
 584,17,
-585,41,
+585,42,
 586,1,
-590,137,
-591,70,Hattian cult layer
+590,138,
+591,71,Hattian cult layer
 592,44,
 593,11,
-594,17,
-595,6,
+594,18,
+595,3,
 596,3,
 597,11,
 598,12,
 599,1,
 6,1,
 600,1,
-604,14,
+604,13,
 605,3,
 606,3,
-608,20,
-609,16,
+608,31,
+609,17,
 61,57,
 610,34,
 611,12,
 612,44,
-613,45,
+613,46,
 614,1,
 615,26,
 616,28,
 617,3,
-618,15,
+618,18,
 619,2,
 62,6,
 620,4,
-625,56,
-626,176,
-627,185,Hattian cult layer
-628,303,Kizzuwatna–Lower Land (Hurrian)
+625,41,
+626,177,
+627,174,Hattian cult layer
+628,310,Kizzuwatna–Lower Land (Hurrian)
 629,2,
 63,10,
 630,10,
 631,26,
 632,3,
 633,5,
-634,57,
+634,77,
 635,106,
 636,7,
 637,3,
@@ -467,13 +471,13 @@ cth,manuscripts,tradition
 643,7,
 644,14,
 645,50,
-646,44,
-647,121,
+646,47,
+647,123,
 648,4,
-649,73,
+649,74,
 650,40,
 651,19,
-652,54,
+652,56,
 653,25,
 655,7,
 656,14,
@@ -483,13 +487,13 @@ cth,manuscripts,tradition
 660,9,
 661,24,
 662,17,
-663,25,
+663,26,
 664,23,
 665,17,"Luwian festivals (Ištanuwa, Lallupiya)"
-666,115,
+666,104,
 667,14,
 668,32,
-669,58,
+669,57,
 67,1,
 671,6,
 672,4,
@@ -497,9 +501,9 @@ cth,manuscripts,tradition
 675,10,
 676,4,
 677,23,
-678,71,
+678,72,
 679,8,
-68,27,
+68,26,
 681,4,
 682,29,
 683,31,
@@ -508,9 +512,9 @@ cth,manuscripts,tradition
 69,4,
 690,1,Ḫuwaššanna festivals
 691,12,Ḫuwaššanna festivals
-692,95,Ḫuwaššanna festivals
+692,96,Ḫuwaššanna festivals
 693,12,Ḫuwaššanna festivals
-694,134,Ḫuwaššanna festivals
+694,135,Ḫuwaššanna festivals
 698,31,Syro-Mesopotamian (Hurrian)
 699,10,Kizzuwatna–Lower Land (Hurrian)
 7,1,
@@ -521,10 +525,10 @@ cth,manuscripts,tradition
 703,6,
 704,66,"Mixed (Hurrian, Syrian, Luwian)"
 705,94,"Mixed (Hurrian, Syrian, Luwian)"
-706,85,"Mixed (Hurrian, Syrian, Luwian)"
+706,87,"Mixed (Hurrian, Syrian, Luwian)"
 709,1,
 711,2,Kizzuwatna–Lower Land (Hurrian)
-712,26,Kizzuwatna–Lower Land (Hurrian)
+712,25,Kizzuwatna–Lower Land (Hurrian)
 713,5,Kizzuwatna–Lower Land (Hurrian)
 714,15,Syro-Mesopotamian (Hurrian)
 715,3,Syro-Mesopotamian (Hurrian)
@@ -533,7 +537,7 @@ cth,manuscripts,tradition
 718,45,
 719,6,Kizzuwatna–Lower Land (Hurrian)
 72,2,
-720,27,"Mixed (Hurrian, Syrian, Luwian)"
+720,28,"Mixed (Hurrian, Syrian, Luwian)"
 721,2,Syro-Mesopotamian (Hurrian)
 722,6,Kizzuwatna–Lower Land (Hurrian)
 725,16,Hattian cult layer
@@ -555,7 +559,7 @@ cth,manuscripts,tradition
 741,10,Hattian cult layer
 742,5,Hattian cult layer
 743,25,Hattian cult layer
-744,119,Hattian cult layer
+744,120,Hattian cult layer
 745,99,Hattian cult layer
 746,36,Hattian cult layer
 75,5,
@@ -569,28 +573,28 @@ cth,manuscripts,tradition
 758,10,"Luwian rituals (Puriyanni, Kuwattalla)"
 759,15,"Luwian rituals (Puriyanni, Kuwattalla)"
 76,11,
-760,36,"Luwian rituals (Puriyanni, Kuwattalla)"
+760,37,"Luwian rituals (Puriyanni, Kuwattalla)"
 761,31,"Luwian rituals (Puriyanni, Kuwattalla)"
 762,16,"Luwian rituals (Puriyanni, Kuwattalla)"
 763,19,"Luwian rituals (Puriyanni, Kuwattalla)"
 764,6,
 765,6,
 766,5,
-767,12,
+767,14,
 768,5,
 769,1,
 770,69,
-771,27,"Luwian festivals (Ištanuwa, Lallupiya)"
+771,28,"Luwian festivals (Ištanuwa, Lallupiya)"
 772,16,"Luwian festivals (Ištanuwa, Lallupiya)"
 773,9,"Luwian festivals (Ištanuwa, Lallupiya)"
-774,50,
+774,49,
 775,5,
-776,5,
+776,6,
 777,38,
 778,50,
 779,1,
 78,6,
-780,47,
+780,48,
 781,17,
 782,7,
 783,4,
@@ -623,13 +627,13 @@ cth,manuscripts,tradition
 810,1,
 811,2,
 812,23,
-813,57,
+813,59,
 814,1,
 815,2,
 816,1,
 817,1,
 818,1,
-819,147,
+819,146,
 82,1,
 820,22,Hattian cult layer
 821,4,Hattian cult layer
@@ -641,7 +645,7 @@ cth,manuscripts,tradition
 827,1,
 828,1,
 83,12,
-831,17,
+831,25,
 834,1,
 84,2,
 85,8,
@@ -656,4 +660,4 @@ cth,manuscripts,tradition
 96,1,
 98,1,
 99,1,
-999,5,
+999,9,

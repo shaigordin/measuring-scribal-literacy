@@ -85,7 +85,7 @@ mkdir -p release
 python3 make_release.py "$DATA/tokens_F.csv" --run "${OUT}_literature_C_filled" --out release/without_restorations > release_C.log
 python3 make_release.py "$DATA/tokens_FA.csv" --run "${OUT}_literature_A_filled" --out release/with_restorations > release_A.log
 python3 konkordanz_abbreviations.py --release release/without_restorations       # full titles for the Konkordanz short forms
-python3 release_docs.py release --version "${RELEASE_VERSION:-2.0.0}" --zip
+python3 release_docs.py release --version "${RELEASE_VERSION:-2.1.0}" --zip
 python3 talk_numbers.py > talk_numbers.log                                       # every number of the deck and script
 R=${OUT}_literature_C_filled                                                     # slides drawn from the data (slides/README.md)
 python3 slides/make_test1_slide.py "$R" "${OUT}_literature_A_filled" > slides/test1.html

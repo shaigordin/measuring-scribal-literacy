@@ -1,7 +1,7 @@
 # $title
 
 Version $version, $date. Shai Gordin (Ariel University). Licence CC BY 4.0.
-Built from TLHdig Beta Version 0.3 (Müller, Prechel, Rieken and Schwemer 2026, doi:[$tlhdig_doi](https://doi.org/$tlhdig_doi)).
+Built from TLHdig Beta Version $tlhdig (Müller, Prechel, Rieken and Schwemer 2026, doi:[$tlhdig_doi](https://doi.org/$tlhdig_doi)).
 Code: <$code_url> (folder `orphans/`). Online tool: <https://shaigordin.github.io/text-orphans/>.
 
 ## What this is
@@ -28,10 +28,11 @@ tradition.
 ## How a fragment is placed
 
 Each text becomes a list of counts of its words (the lemma of TLHdig's word analysis) and of the sign
-sequences (one to three signs) inside its words, weighted by tf-idf. Words that TLHdig 0.3 leaves
+sequences (one to three signs) inside its words, weighted by tf-idf. Words that TLHdig $tlhdig leaves
 without an analysis take the analysis of the same spelling elsewhere in TLHdig, or, for Cuneiform
-Luwian, the lemma of eDiAna. Each tradition is the average of its reference manuscripts (17 or more
-words). A fragment goes to the most similar tradition (cosine similarity) only if it leads the
+Luwian, the lemma of eDiAna (2026; CC BY-SA 4.0). Every filled word names its source, the TLHdig line or
+the eDiAna entry, in the column `fill_source` of the reproducible token table. Each tradition is the
+average of its reference manuscripts (17 or more words). A fragment goes to the most similar tradition (cosine similarity) only if it leads the
 runner-up by at least the margin. The margin is calibrated on pieces cut from reference manuscripts,
 so that about $precision of placed pieces land in their own tradition; below it the fragment is left
 unplaced.
@@ -63,7 +64,7 @@ Each folder holds the same files; `datapackage.json` describes every column.
 
 ## How to cite
 
-Gordin, Shai. 2026. *$title*. Version $version. Zenodo. Please cite TLHdig 0.3 as well.
+Gordin, Shai. 2026. *$title*. Version $version. Zenodo. Please cite TLHdig $tlhdig as well.
 
 ## How to rebuild
 
@@ -71,7 +72,7 @@ Gordin, Shai. 2026. *$title*. Version $version. Zenodo. Please cite TLHdig 0.3 a
 git clone $code_url
 cd measuring-scribal-literacy/orphans
 python3 -m pip install -r requirements.txt     # Python 3.13
-bash reproduce.sh                              # downloads TLHdig 0.3 (checksum-verified) and rebuilds everything
+bash reproduce.sh                              # downloads TLHdig $tlhdig (checksum-verified) and rebuilds everything
 ```
 
 ## References

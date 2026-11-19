@@ -6,7 +6,7 @@ rituals), 670 (fragments of festivals), 832 (fragments of various content) or th
 rituals that no study groups (qtm.groups.RESIDUE), and every EBo text wherever TLHdig files it.
 Texts with fewer than MIN_PLACE analysed words get a row but no results ("too_small").
 
-All scores use the main model of the paper and talk (results/tlhdig03_literature): word forms +
+All scores use the main model of the paper and talk (results/tlhdig04_literature): word forms +
 sign 1-3-grams, tf-idf fitted on the literature-defined reference traditions (qtm.groups.LITERATURE,
 reference manuscripts of 17+ words), cosine similarity.
 
@@ -27,7 +27,7 @@ reference manuscripts of 17+ words), cosine similarity.
   categories    share of the fragment's analysed words in each of the 10 word categories
                 (qtm.wordclass.CATEGORIES; rules over TLHdig's analyses, audited).
 
-Usage: python make_release.py data/tokens.csv --run results/tlhdig03_literature --out release
+Usage: python make_release.py data/tokens.csv --run results/tlhdig04_literature --out release
 """
 import argparse
 import json

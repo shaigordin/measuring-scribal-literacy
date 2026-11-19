@@ -19,10 +19,12 @@ import pandas as pd
 
 from make_release import AUTHOR_FIX, LITERATURE, cite
 
+TLH = os.environ.get("TLH", "04")                    # TLHdig Beta release the data were built from
+TLH_VERSION = {"03": "0.3", "04": "0.4"}[TLH]
 TITLE = ("Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates "
-         "for the unplaced fragments of the Hittite corpus (TLHdig 0.3)")
+         f"for the unplaced fragments of the Hittite corpus (TLHdig {TLH_VERSION})")
 AUTHOR = {"family-names": "Gordin", "given-names": "Shai", "affiliation": "Ariel University"}
-TLHDIG_DOI = "10.5281/zenodo.20328284"
+TLHDIG_DOI = {"03": "10.5281/zenodo.20328284", "04": "10.5281/zenodo.24373727"}[TLH]
 CODE_URL = "https://github.com/shaigordin/measuring-scribal-literacy"
 CATS = ["function_words", "verbs", "realia", "agents_and_deities", "places", "animals_body_nature",
         "abstract_nouns", "adjectives", "foreign_words", "other_words"]
@@ -101,13 +103,14 @@ FULL = {
     "Yoshida 1996 (THeth 22)": "Yoshida, Daisuke. 1996. *Untersuchungen zu den Sonnengottheiten bei den Hethitern: Schwurgötterliste, helfende Gottheit, Feste*. THeth 22. Heidelberg: Winter.",
 }
 SOURCES = [
+    "eDiAna. 2026. *eDiAna: Digital Philological-Etymological Dictionary of the Minor Ancient Anatolian Corpus Languages*. Ludwig-Maximilians-Universität München, https://www.ediana.gwi.uni-muenchen.de (accessed November 2026). CC BY-SA 4.0.",
     "Gordin, Shai, Emma Yavasan and Avital Romach. 2025. Matters of Genre, Style and Orthography: Hittite Scribal Habits through the Stylometric Lens. In Susanne Görke, Adam Kryszeń, Gerfrid G. W. Müller and Charles W. Steitler (eds), *The Tablets and Their Scribes: The Palaeography of Hittite Cuneiform and Writing Practices in Hittite Anatolia*. StBoT 73. Wiesbaden: Harrassowitz, 107–123.",
     "Rieken, Elisabeth, and Daniel Schwemer. 2026. *Corpus der hethitischen Festrituale (HFR)*. Akademie der Wissenschaften und der Literatur Mainz, hethiter.net/: HFR, https://hethport.net/HFR/.",
     "Haas, Volkert. 1994. *Geschichte der hethitischen Religion*. Handbuch der Orientalistik I/15. Leiden: Brill.",
     "Košak, Silvin. 2026. *Konkordanz der hethitischen Keilschrifttafeln*. hethiter.net/: hetkonk, https://hethport.net/hetkonk/ (pages accessed November 2026).",
     "Laroche, Emmanuel. 1971. *Catalogue des textes hittites*. Paris: Klincksieck.",
     "Mainzer Fotoarchiv. hethiter.net/: fotarch, https://hethport.net/fotarch/.",
-    "Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. 2026. *Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3*. Zenodo. doi:{doi}.",
+    "Müller, Gerfrid, Doris Prechel, Elisabeth Rieken and Daniel Schwemer. 2026. *Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version " + TLH_VERSION + "*. Zenodo. doi:{doi}.",
     "Waal, Willemijn. 2015. *Hittite Diplomatics: Studies in Ancient Document Format and Record Management*. StBoT 57. Wiesbaden: Harrassowitz.",
 ]
 
@@ -238,8 +241,8 @@ def folder_values(d, F_cols):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("folder", help="release folder holding without_restorations/ and with_restorations/")
-    ap.add_argument("--version", default="2.0.0")
-    ap.add_argument("--known-joins", default="results/tlhdig03_literature_C_filled/known_joins/known_joins.csv")
+    ap.add_argument("--version", default="2.1.0")
+    ap.add_argument("--known-joins", default=f"results/tlhdig{TLH}_literature_C_filled/known_joins/known_joins.csv")
     ap.add_argument("--zip", action="store_true")
     a = ap.parse_args()
     d, cols_seen = a.folder, {}
@@ -265,7 +268,7 @@ def main():
     kj = pd.read_csv(a.known_joins)
     kd, kjn = kj[kj.relation == "duplicate"], kj[kj.relation == "join"]
     sw, sa = S["without_restorations"], S["with_restorations"]
-    v = {"title": TITLE, "version": a.version, "date": date.today().isoformat(), "tlhdig_doi": TLHDIG_DOI,
+    v = {"title": TITLE, "version": a.version, "date": date.today().isoformat(), "tlhdig_doi": TLHDIG_DOI, "tlhdig": TLH_VERSION,
          "code_url": CODE_URL, "texts": f"{sw['texts_in_scope']:,}", "pool": f"{sw['manuscript_pool']:,}",
          "versions_table": mdtable(versions), "traditions_table": mdtable(trad),
          "placed_both": f"{len(both):,}", "placed_same": f"{same:,}",
@@ -288,14 +291,14 @@ def main():
     pkg = {"profile": "tabular-data-package", "name": "orphans-and-archetypes-nearest-manuscripts",
            "title": TITLE, "version": a.version, "licenses": [{"name": "CC-BY-4.0",
            "path": "https://creativecommons.org/licenses/by/4.0/", "title": "Creative Commons Attribution 4.0"}],
-           "sources": [{"title": "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3",
+           "sources": [{"title": f"Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version {TLH_VERSION}",
                         "path": f"https://doi.org/{TLHDIG_DOI}"}],
            "contributors": [{"title": "Shai Gordin", "role": "author"}],
            "resources": resources("without_restorations") + resources("with_restorations")}
     json.dump(pkg, open(f"{d}/datapackage.json", "w"), indent=1, ensure_ascii=False)
 
     cff = f"""cff-version: 1.2.0
-message: "If you use this dataset, please cite it as below, together with TLHdig 0.3."
+message: "If you use this dataset, please cite it as below, together with TLHdig {TLH_VERSION}."
 type: dataset
 title: "{TITLE}"
 version: "{a.version}"
@@ -309,7 +312,7 @@ repository-code: "{CODE_URL}"
 keywords: [Hittite, cuneiform, Boğazköy, fragments, joins, CTH, TLHdig, scribal traditions, stylometry]
 references:
   - type: dataset
-    title: "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version 0.3"
+    title: "Thesaurus Linguarum Hethaeorum digitalis (TLHdig) Beta Version {TLH_VERSION}"
     authors:
       - family-names: Müller
         given-names: Gerfrid
@@ -325,7 +328,7 @@ references:
     open(f"{d}/LICENSE.txt", "w").write(
         "This dataset is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).\n"
         "https://creativecommons.org/licenses/by/4.0/legalcode\n\n"
-        "It is derived from TLHdig Beta Version 0.3 (Müller, Prechel, Rieken, Schwemer; doi:10.5281/zenodo.20328284),\n"
+        f"It is derived from TLHdig Beta Version {TLH_VERSION} (Müller, Prechel, Rieken, Schwemer; doi:{TLHDIG_DOI}),\n"
         "itself licensed CC BY 4.0. Cite both when you use it.\n")
     if a.zip:
         name = f"orphans_archetypes_nearest_manuscripts_v{a.version}"
