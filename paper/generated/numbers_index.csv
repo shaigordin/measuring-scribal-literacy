@@ -1301,9 +1301,9 @@ sense.tokens,"16{,}974",senses/senses.json
 sense.changed,"11{,}511",senses/senses.json
 kara.tokens,51,senses/senses.json horn_kara_candidates
 kara.selected,0,senses/senses.json horn_kara_candidates
-sense.dict,26,labels/sense_rules.csv supports_rule (checked)
-sense.dict.yes,18,labels/sense_rules.csv supports_rule (yes or partly)
-sense.dict.base,8,labels/sense_rules.csv supports_rule
+sense.dict,39,labels/sense_rules.csv supports_rule (checked)
+sense.dict.yes,28,labels/sense_rules.csv supports_rule (yes or partly)
+sense.dict.base,11,labels/sense_rules.csv supports_rule
 U.align,76\%,tlhdig04_literature_C_filled/U_unicode.json alignment
 U.align.all,74\%,tlhdig04_literature_C_filled/U_unicode.json alignment
 UA.acc,81\%,tlhdig04_literature_C_filled/U_unicode.json U_A A_analysed_only loo_acc
