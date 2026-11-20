@@ -319,29 +319,33 @@ spelling kept and once collapsed to the normalised form. If spelling carried tra
 the word itself, the first would beat the second. We also use the word categories of
 \citet[Table~4]{gordin2025matters}: agents, deities, function words, foreign words, realia and
 verbs, with realia narrowed to physical things and the remaining nouns grouped by meaning
-(places; animals, body parts and nature; abstract nouns; adjectives; measures).
+(places; animals, body parts and nature; abstract nouns; adjectives; measures; numbers), and scribal marks such as \textit{QĀTI} ``finished'' in colophons, which are left out like function words.
 
 Placement uses only the word forms and sign sequences of a text; word categories play no part in it. They are an annotation added afterwards, used to ask which kinds of words a result rests on (Section~\ref{sec:decision}; Figure~\ref{fig:case}).
 
-No word was classed by hand. Fixed rules derive each category from TLHdig's markup, applied in
-order: the word's determinative (DINGIR makes a deity, \textsuperscript{LÚ} an agent, also in
-HFR's compounds such as LÚ\ut{}\textsuperscript{D}10 ``man of the Storm god'',
-\citealp[13]{hfrbasiscorpus}), its language tag or that of its selected analysis, and its automatic morphological analysis, using the analysis marked as selected
-where there is one (a person-marked form is a verb, a particle or pronoun a function word);
-unanalysed words fall back on the analyses selected for the same form elsewhere. Nouns and
-adjectives are then classed by meaning from the German dictionary gloss that the analysis gives
-their lemma (a gloss, not a translation of the passage), through a list of \Q{wc.glosses} glosses
-that was drafted with a language model and has not been checked by hand; it is the one step not
-derived from TLHdig. Labels are thus projected from a lexicon, not, as for Greek and Latin, through aligned
-translations \citep{yousef2022alignment,yousef2023projection}. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
-\Q{wc.tokens} legible words are classed with high confidence, \Q{wc.conf.medium} with medium and
-\Q{wc.conf.low} with low. Since the analyses are at most pre-validated and our rules not at all, our audit is the
-only manual check of the categories: a domain expert checked a stratified sample of \Q{wc.audit.n} words:
-\Q{wc.audit.before.high}, \Q{wc.audit.before.medium} and \Q{wc.audit.before.low} were correct at
-the three levels, \Q{wc.audit.before.corpus} overall when weighted by corpus shares. Fixing the
-\Q{wc.audit.fixes} rules that the errors pointed to raises the overall figure to
-\Q{wc.audit.after.corpus}, an upper bound since it is measured on the same sample. The audit
-scored all nominal words as one class, so it does not cover the split by meaning.
+No word was classed by hand. Fixed rules derive each category from the edition, in order: the
+determinative (DINGIR makes a deity, \textsuperscript{LÚ} an agent, also in HFR's compounds such as
+LÚ\ut{}\textsuperscript{D}10 ``man of the Storm god'', \citealp[13]{hfrbasiscorpus}), the
+language tag, and the morphological analysis, preferring the one an annotator selected (a
+person-marked form is a verb, a particle or pronoun a function word). Nouns and adjectives are
+then classed by meaning from the German gloss that HFR's hand-compiled lexicon attaches to their
+lemma \citep[6f.]{hfrannotation}: a dictionary gloss, not a translation of the passage. The step
+that is ours is the mapping of \Q{wc.glosses} glosses to meaning classes, drafted with a language
+model; labels are thus projected from a lexicon, not through aligned translations as for Greek and
+Latin \citep{yousef2022alignment,yousef2023projection}. We checked it in three ways. An
+independent, non-generative mapping through the supersenses of the Open German WordNet
+\citep{ciaramita2003supersense,siegel2021odenet} covers \Q{wn.cov.types} of the glosses (names
+are absent) and agrees on \Q{wn.agree.types} of them ($\kappa=\Q{wn.kappa.types}$). Of
+\Q{aud.n} disagreements sampled for a domain expert, \Q{aud.decided} could be decided: the list
+was right in \Q{aud.claude}, WordNet in \Q{aud.wordnet}. Where one gloss covers several senses,
+\Q{sense.rules} context rules, each documented with passages as in a dictionary entry
+(\Q{sense.rules.shg} approved by the expert), separate them, for instance the horn of an animal,
+a horn vessel and the horn of the moon; they change the class of \Q{sense.changed} words. The
+rules also expose analyses that pre-validation does not reach: \Q{kara.tokens} forms of
+\textit{karaš} ``emmer'' and \textit{karš-} ``cut off'' carry the unselected automatic candidate
+\textit{kara-} ``horn''. A stratified audit of \Q{wc.audit.n} words found
+\Q{wc.audit.before.corpus} of all labels correct, before the fixes it led to. The gloss list and the rules are released for
+correction.
 
 \section{Results}
 \label{sec:results}
@@ -644,12 +648,12 @@ The study rests on one digital edition, whose analyses are automatic and only pa
 pre-validated, and on lemmas transferred from the same spelling, which assumes one lemma per
 spelling. Several traditions are small (the smallest has \Q{trad.smallest.n} test manuscripts),
 and the traditions come from the literature: the method tests them but cannot find a new one.
-The noun meaning classes rest on a gloss mapping not yet checked by hand. Every placement is a
+The meaning classes rest on a model-drafted gloss mapping, checked against WordNet and on a sample, not in full. Every placement is a
 hypothesis to verify on the tablet.
 
 \section*{Ethics statement}
 The corpus is openly licensed. A language model (Claude, Anthropic) was used to write and run
-the analysis code, to draft the gloss list described in Section~\ref{sec:method}, to draft the
+the analysis code, to draft the gloss list and the context rules described in Section~\ref{sec:method}, to draft the
 text and to check the references; the authors reviewed all of it and take responsibility for the
 content. \todraft{Authors to confirm this statement.}
 

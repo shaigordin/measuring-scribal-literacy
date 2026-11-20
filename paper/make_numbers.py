@@ -9,6 +9,7 @@ file and field it was read from.
 Usage: python3 make_numbers.py [--results ../orphans/results] [--out generated]
 """
 import argparse
+import collections
 import csv
 import json
 import os
@@ -125,6 +126,46 @@ def main():
         fw = load(MAIN, "comparison.json")["filled_words"]
         put("fill.tlhdig", num(fw["tlhdig_same_spelling"]), f"{MAIN}/comparison.json filled_words")
         put("fill.ediana", num(fw["ediana"]), f"{MAIN}/comparison.json filled_words")
+
+    # ---- gloss meaning classes: WordNet check, ShG's audit, context rules (not run-specific)
+    if not PREFIX:
+        wp = os.path.join(RES, "wordnet_check", "wordnet_check.json")
+        if os.path.exists(wp):
+            w = json.load(open(wp, encoding="utf-8"))
+            src = "wordnet_check/wordnet_check.json"
+            put("wn.cov.types", pct(w["coverage"]["types"]), src + " coverage")
+            put("wn.cov.tokens", pct(w["coverage"]["tokens"]), src + " coverage")
+            put("wn.agree.types", pct(w["type_weighted"]["agreement"]), src + " type_weighted")
+            put("wn.kappa.types", f"{w['type_weighted']['kappa']:.2f}", src + " type_weighted")
+            put("wn.agree.tokens", pct(w["token_weighted"]["agreement"]), src + " token_weighted")
+            put("wn.kappa.tokens", f"{w['token_weighted']['kappa']:.2f}", src + " token_weighted")
+            put("wn.anysense.types", pct(w["any_sense_agrees"]["types"]), src + " any_sense_agrees")
+        ap = os.path.join(HERE, "data", "wordnet_audit_ShG.csv")
+        if os.path.exists(ap):
+            au = list(csv.DictReader(open(ap, encoding="utf-8")))
+            j = collections.Counter(r["judgement"] for r in au)
+            dec = j["Claude"] + j["both"] + j["neither"]
+            src = "paper/data/wordnet_audit_ShG.csv"
+            put("aud.n", len(au), src)
+            put("aud.decided", dec, src)
+            put("aud.claude", j["Claude"] + j["both"], src + " (Claude or both)")
+            put("aud.wordnet", j["both"], src + " (both)")
+            put("aud.neither", j["neither"], src)
+            put("aud.uncertain", j["uncertain"], src)
+        sp = os.path.join(RES, "senses", "senses.json")
+        if os.path.exists(sp):
+            se = json.load(open(sp, encoding="utf-8"))
+            src = "senses/senses.json"
+            put("sense.flagged", num(se["flagged"]), src)
+            put("sense.flagged.share", pct(se["flagged_token_share"]), src)
+            put("sense.rules", se["rules"], src)
+            put("sense.rules.shg", se["rules_by_decider"]["ShG"], src)
+            put("sense.glosses", se["glosses_with_rules"], src)
+            put("sense.tokens", num(se["tokens_with_sense_rule"]), src)
+            put("sense.changed", num(se["tokens_class_changed"]), src)
+            hk = se["horn_kara_candidates"]
+            put("kara.tokens", hk["tokens"], src + " horn_kara_candidates")
+            put("kara.selected", hk["editor_selected"], src + " horn_kara_candidates")
 
     # ---- Unicode cuneiform experiments (orphans/run_unicode.py)
     fp = os.path.join(RES, MAIN, "U_unicode.json")
