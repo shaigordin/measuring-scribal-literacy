@@ -1255,10 +1255,10 @@ A.wc.audit.before.low.ci,57\%--80\%,wordclass_audit_scores.json before_fixes.lev
 A.wc.audit.before.medium,88\%,wordclass_audit_scores.json before_fixes.levels.medium.accuracy
 A.wc.audit.before.medium.n,59,wordclass_audit_scores.json before_fixes.levels.medium.reviewed
 A.wc.audit.before.medium.ci,78\%--94\%,wordclass_audit_scores.json before_fixes.levels.medium.ci95
-A.wc.audit.after.corpus,88\%,wordclass_audit_scores.json after_fixes.corpus_weighted_accuracy
-A.wc.audit.after.high,88\%,wordclass_audit_scores.json after_fixes.levels.high.accuracy
+A.wc.audit.after.corpus,92\%,wordclass_audit_scores.json after_fixes.corpus_weighted_accuracy
+A.wc.audit.after.high,95\%,wordclass_audit_scores.json after_fixes.levels.high.accuracy
 A.wc.audit.after.high.n,59,wordclass_audit_scores.json after_fixes.levels.high.reviewed
-A.wc.audit.after.high.ci,78\%--94\%,wordclass_audit_scores.json after_fixes.levels.high.ci95
+A.wc.audit.after.high.ci,86\%--98\%,wordclass_audit_scores.json after_fixes.levels.high.ci95
 A.wc.audit.after.low,87\%,wordclass_audit_scores.json after_fixes.levels.low.accuracy
 A.wc.audit.after.low.n,60,wordclass_audit_scores.json after_fixes.levels.low.reviewed
 A.wc.audit.after.low.ci,76\%--93\%,wordclass_audit_scores.json after_fixes.levels.low.ci95
@@ -2563,10 +2563,10 @@ wc.audit.before.low.ci,57\%--80\%,wordclass_audit_scores.json before_fixes.level
 wc.audit.before.medium,88\%,wordclass_audit_scores.json before_fixes.levels.medium.accuracy
 wc.audit.before.medium.n,59,wordclass_audit_scores.json before_fixes.levels.medium.reviewed
 wc.audit.before.medium.ci,78\%--94\%,wordclass_audit_scores.json before_fixes.levels.medium.ci95
-wc.audit.after.corpus,88\%,wordclass_audit_scores.json after_fixes.corpus_weighted_accuracy
-wc.audit.after.high,88\%,wordclass_audit_scores.json after_fixes.levels.high.accuracy
+wc.audit.after.corpus,92\%,wordclass_audit_scores.json after_fixes.corpus_weighted_accuracy
+wc.audit.after.high,95\%,wordclass_audit_scores.json after_fixes.levels.high.accuracy
 wc.audit.after.high.n,59,wordclass_audit_scores.json after_fixes.levels.high.reviewed
-wc.audit.after.high.ci,78\%--94\%,wordclass_audit_scores.json after_fixes.levels.high.ci95
+wc.audit.after.high.ci,86\%--98\%,wordclass_audit_scores.json after_fixes.levels.high.ci95
 wc.audit.after.low,87\%,wordclass_audit_scores.json after_fixes.levels.low.accuracy
 wc.audit.after.low.n,60,wordclass_audit_scores.json after_fixes.levels.low.reviewed
 wc.audit.after.low.ci,76\%--93\%,wordclass_audit_scores.json after_fixes.levels.low.ci95
