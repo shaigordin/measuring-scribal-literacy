@@ -1003,7 +1003,7 @@
       "lnr": "side A 3′",
       "translit": "1-ŠU",
       "word": "1-ŠU",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -1035,7 +1035,7 @@
       "lnr": "side A 5′",
       "translit": "1-ŠU",
       "word": "1-ŠU",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -1051,7 +1051,7 @@
       "lnr": "side A 5′",
       "translit": "1",
       "word": "1",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },

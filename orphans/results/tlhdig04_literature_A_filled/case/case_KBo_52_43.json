@@ -2308,7 +2308,7 @@
       "lnr": "Vs. 1",
       "translit": "2",
       "word": "2",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2484,7 +2484,7 @@
       "lnr": "Vs. 5",
       "translit": "2",
       "word": "2",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2508,7 +2508,7 @@
       "lnr": "Vs. 6",
       "translit": "1-EN",
       "word": "1-EN",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2524,7 +2524,7 @@
       "lnr": "Vs. 6",
       "translit": "1-EN-ma",
       "word": "1-ENma",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2580,7 +2580,7 @@
       "lnr": "Vs. 7",
       "translit": "2",
       "word": "2",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2644,7 +2644,7 @@
       "lnr": "Vs. 9",
       "translit": "1-EN",
       "word": "1-EN",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2660,7 +2660,7 @@
       "lnr": "Vs. 9",
       "translit": "1-EN",
       "word": "1-EN",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },
@@ -2764,7 +2764,7 @@
       "lnr": "Vs. 14",
       "translit": "1-EN",
       "word": "1-EN",
-      "wclass": "other",
+      "wclass": "number",
       "wc_rule": "analysis_selected",
       "wc_conf": "high"
     },

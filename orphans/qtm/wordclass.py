@@ -208,7 +208,7 @@ def word_class_rule(attrs: dict, translit: str, lang: str) -> tuple[str, str]:
         rule = "analysis_selected" if picked else "analysis_unanimous"
         if p == "realia":
             return meaning_class(pool, tl), rule
-        return ("other" if p == "number" else p), rule
+        return p, rule                       # a numeral is its own class, number (ShG 2026-11-20)
     return ("ambiguous", "analysis_ambiguous") if pos else ("unknown", "no_analysis")
 
 
@@ -220,7 +220,8 @@ def word_class_rule(attrs: dict, translit: str, lang: str) -> tuple[str, str]:
 LEXICON_FILE = Path(__file__).parent.parent / "labels" / "gloss_lexicon.tsv"
 GLOSS_CLASS = {"realia": "realia", "person": "agent", "deity": "deity", "abstract": "abstract",
                "adjective": "adjective", "animal": "animal", "body": "body", "nature": "nature",
-               "place": "place", "measure": "measure", "function": "function", "unknown": "other"}
+               "place": "place", "measure": "measure", "function": "function", "unknown": "other",
+               "number": "number", "scribal": "scribal"}
 _NAME_CLASS = (("35", "deity"), ("36", "deity"), ("37", "agent"), ("38", "agent"), ("39", "place"))
 
 
@@ -293,9 +294,12 @@ def word_class(attrs: dict, translit: str, lang: str) -> str:
 CATEGORY = {"function": "Function words", "verb": "Verbs", "realia": "Realia",
             "agent": "Agents and deities", "deity": "Agents and deities", "place": "Places",
             "animal": "Animals, body, nature", "body": "Animals, body, nature", "nature": "Animals, body, nature",
-            "abstract": "Abstract nouns", "adjective": "Adjectives", "foreign": "Foreign words"}
+            "abstract": "Abstract nouns", "adjective": "Adjectives", "foreign": "Foreign words",
+            "scribal": "Scribal marks"}
+# scribal marks (colophon formulae: QĀTI 'finished', DUB n.KAM; ShG 2026-11-20) are shown apart and left
+# out with the function words; numbers and measures stay under "Other words"
 CATEGORIES = ["Function words", "Verbs", "Realia", "Agents and deities", "Places", "Animals, body, nature",
-              "Abstract nouns", "Adjectives", "Foreign words", "Other words"]
+              "Abstract nouns", "Adjectives", "Foreign words", "Scribal marks", "Other words"]
 LAYERS = ["Word form", "Syllabic spelling", "Logographic writing"]
 
 

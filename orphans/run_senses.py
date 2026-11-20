@@ -20,6 +20,7 @@ context rules in labels/sense_rules.csv decided (see qtm.senses).
    (editor-selected analyses first, one per text), written back to the rules file.
 
 Usage: python run_senses.py data/tokens_marks_new.csv [--top 30] [--out results/senses] [--fill-evidence]
+           [--also 'gloss;gloss']  (concordances for more glosses, e.g. those ShG asked about)
 Writes OUT/flagged_glosses.csv, OUT/concordance/<gloss>.csv and <gloss>_collocates.csv, OUT/decisions.csv,
 OUT/senses.json (counts for make_numbers.py), OUT/horn_kara_candidates.csv (the tokens TLHdig's automatic
 analysis offers kara= 'Horn' for; reported in the paper as a misanalysis that pre-validation does not catch).
@@ -109,10 +110,14 @@ def main():
     ap.add_argument("--out", default="results/senses")
     ap.add_argument("--rules", default=str(RULES_FILE))
     ap.add_argument("--fill-evidence", action="store_true")
+    ap.add_argument("--also", default="", help="more glosses to write concordances for, ';'-separated")
     a = ap.parse_args()
     out = Path(a.out); (out / "concordance").mkdir(parents=True, exist_ok=True)
     df = pd.read_csv(a.tokens, dtype=str, keep_default_na=False)
     # the rules as they stand now (qtm.tlhdig.finish applies the same at parse time)
+    if "sense_rule" in df:  # undo the rules applied at parse time, then apply the current file
+        fired = df.sense_rule != ""
+        df.loc[fired, "wclass"] = df.loc[fired, "wclass_before_sense"]
     df = apply_senses(df.drop(columns=["sense", "sense_rule", "wclass_before_sense"], errors="ignore"), a.rules)
     lex = pd.read_csv(LEXICON, sep="\t", dtype=str, keep_default_na=False)
     wnet = pd.read_csv(WORDNET, dtype=str, keep_default_na=False)
@@ -132,7 +137,9 @@ def main():
            "by_number_of_signals": {int(k): int(v) for k, v in f[f.tokens > 0].signals.value_counts().sort_index().items()},
            "concordances_for_top": a.top}
 
-    for g in fl.index[:a.top]:
+    extra = [g for g in a.also.split(";") if g]
+    rep["concordances_also"] = extra
+    for g in list(fl.index[:a.top]) + [g for g in extra if g not in fl.index[:a.top]]:
         c, win = concordance(df, li, g, verbs)
         c.to_csv(out / "concordance" / f"{slug(g)}.csv", index=False)
         n = len(c)
