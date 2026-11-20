@@ -24,6 +24,7 @@ Columns of labels/sense_rules.csv:
                 otherwise), or "none checked"
   decided_by    draft (written by Claude, not yet reviewed) or ShG
   note          free text
+  supports_rule whether the dictionary entry supports the rule (yes / partly / base meaning only / not checked)
   unless        optional 'scope:pattern': the rule does not apply where this matches
 Rules for one gloss are tried in file order; the first that matches decides. Only nominal and ambiguous
 tokens are changed (a token the word-class rules made a verb, function word, foreign word, deity or agent
