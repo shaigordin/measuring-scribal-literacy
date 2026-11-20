@@ -29,6 +29,7 @@ import pandas as pd
 from lxml import etree
 
 from .corpus import signs as split_signs
+from .senses import analyses, apply_senses, named_annotator
 from .wordclass import RULES, is_preposition, word_class_rule
 
 FOLDER = re.compile(r"CTH (\d+)[^_]*_XML_(\w+)")
@@ -195,6 +196,10 @@ def mark_words(tree):
 
 
 EMPTY = ("", "", "")
+# lemma, gloss: the lemmas and German glosses of the analyses the editor selected, else of all candidate
+# analyses ('|'-joined); sel '1' when the editor selected one (mrp0sel); annotated '1' when the file's
+# header names an annotator other than 'auto' (qtm.senses)
+ANALYSIS_COLS = ["lemma", "gloss", "sel", "annotated"]
 MARK_COLS = ["lang_word", "status", "layer", "flags", "n_signs", "n_preserved", "n_damaged", "n_restored", "n_lost", "n_omitted",
              "n_akkadogram", "n_sumerogram", "n_uncertain", "n_emended", "n_erasure", "n_added",
              "n_superfluous", "n_verified"]
@@ -230,6 +235,7 @@ def parse_file(path, cth, source, stats=None):
     doc = tree.find(".//docID")
     txtid = doc.text.strip() if doc is not None and doc.text else Path(path).stem
     marks = mark_words(tree)
+    annot = named_annotator(tree)
     stats["words"] = stats.get("words", 0)
     for el in tree.iter("lb", "w"):
         if el.tag == "lb":
@@ -246,21 +252,22 @@ def parse_file(path, cth, source, stats=None):
         # illegible: '%' in trans, only x signs, or only '…' (TLHdig's mark for a lost word)
         word = "" if ("%" in trans or not re.search(r"[^x\s\-.…]", tl.replace("x", ""))
                       or not trans.strip(" …")) else trans
+        an = analyses(el.attrib) + (annot,)
         if not word:
-            rows.append((txtid, cth, source, lnr, lang, word, tl, "", "") + mark_cols(m, wl))
+            rows.append((txtid, cth, source, lnr, lang, word, tl, "", "") + mark_cols(m, wl) + ("", "", "", annot))
             continue
         head, _, rest = word.partition(" ")
         if is_preposition(head):
             # the preposition, then (if any) the noun with its own analysis
             rtl = tl[len(head):].strip() if tl.startswith(head + " ") else tl
             mh, mr = _split_marks(m, len(split_signs(head))) if rest and rtl != tl else (m, None)
-            rows.append((txtid, cth, source, lnr, lang, head, head, "function", "preposition_split") + mark_cols(mh, wl))
+            rows.append((txtid, cth, source, lnr, lang, head, head, "function", "preposition_split") + mark_cols(mh, wl) + ("", "", "", annot))
             if rest:
                 wc, rule = word_class_rule({**el.attrib, "trans": rest}, rtl, lang)
-                rows.append((txtid, cth, source, lnr, lang, rest, rtl, wc, rule) + mark_cols(mr if rtl != tl else m, wl))
+                rows.append((txtid, cth, source, lnr, lang, rest, rtl, wc, rule) + mark_cols(mr if rtl != tl else m, wl) + an)
             continue
         wc, rule = word_class_rule(el.attrib, tl, lang)
-        rows.append((txtid, cth, source, lnr, lang, word, tl, wc, rule) + mark_cols(m, wl))
+        rows.append((txtid, cth, source, lnr, lang, word, tl, wc, rule) + mark_cols(m, wl) + an)
     return rows
 
 
@@ -290,7 +297,7 @@ def parse_release(root, cths=None):
                 print(f"skip {f}: {e}", file=sys.stderr)
     print(f"sign marks: {stats.get('unaligned', 0)} of {stats.get('words', 0)} words not aligned", file=sys.stderr)
     df = pd.DataFrame(out, columns=["txtid", "cth_number", "source", "lnr", "lang", "word", "translit", "wclass",
-                                    "wc_rule"] + MARK_COLS)
+                                    "wc_rule"] + MARK_COLS + ANALYSIS_COLS)
     # the same manuscript can appear in an HFR and a TLH folder: keep the HFR copy
     rank = df.source.map({"HFR": 0}).fillna(1)
     keep = df.assign(r=rank).groupby("txtid").r.transform("min") == rank
@@ -376,6 +383,7 @@ def finish(df, corrections=None, wide_titles=False):
         df = word_fixes(df)
         df = title_pairs(df)
     df = apply_corrections(df, corrections)
+    df = apply_senses(df)                   # context rules for word senses (labels/sense_rules.csv)
     df["wc_conf"] = df.wc_rule.map(RULES).fillna("")
     return df
 
