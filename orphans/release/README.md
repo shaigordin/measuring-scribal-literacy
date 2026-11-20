@@ -40,6 +40,11 @@ where the text comes from; it plays no part in the placement.
 
 EBo pieces filed under CTH 670 or 832 are counted in those bins.
 
+A few tablets carry words that TLHdig files under two CTH numbers (23 scored texts, for example
+KBo 37.10 (CTH 458 and 730)). As in the paper, such a tablet is scored on its part filed under the CTH numbers the
+experiments read, and its word-category shares describe that part; `n_words_analysed` counts the whole
+tablet.
+
 **Orphans** are a smaller group inside this dataset: all CTH 470 fragments and all EBo pieces. They are
 the test set of the paper and the Mainz talk. Of the 2,023 orphans with at least five words,
 515 are placed (without restorations). They are part of the 2,479 placed fragments

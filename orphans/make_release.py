@@ -390,7 +390,11 @@ def main():
                "match_candidate_pairs": int(J.passes_match_checks.sum()),
                "margin": margin, "precision_above_margin": rep["E2_abstention"]["precision_above_margin"],
                "loo_accuracy": rep["E1_historical"]["both"]["acc"], "loo_majority": rep["E1_historical"]["both"]["majority"], "reference_manuscripts": int(len(ref)), "tradition_manuscripts": int(len(allref)), "manuscript_pool": int(len(pool)),
-               "compositions": int(len(clabs))}
+               "compositions": int(len(clabs)),
+               # tablets whose words TLHdig files under more than one CTH number: like the paper, the model
+               # reads only the part filed under the CTH numbers of the experiments (word shares follow it)
+               "split_cth_texts": sorted(t for t in frags.txtid[frags.txtid.isin(exp.txtid)]
+                                         if docs.set_index("txtid").n_words.get(t, 0) > exp.set_index("txtid").n_words.get(t, 0))}
     json.dump(summary, open(f"{a.out}/summary.json", "w"), indent=1, ensure_ascii=False)
     print(json.dumps(summary, indent=1, ensure_ascii=False))
     relabel(a.out)

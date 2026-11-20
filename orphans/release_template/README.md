@@ -33,6 +33,11 @@ $bins_table
 
 EBo pieces filed under CTH 670 or 832 are counted in those bins.
 
+A few tablets carry words that TLHdig files under two CTH numbers ($split_n scored texts, for example
+$split_example). As in the paper, such a tablet is scored on its part filed under the CTH numbers the
+experiments read, and its word-category shares describe that part; `n_words_analysed` counts the whole
+tablet.
+
 **Orphans** are a smaller group inside this dataset: all CTH 470 fragments and all EBo pieces. They are
 the test set of the paper and the Mainz talk. Of the $orphans_scored orphans with at least five words,
 $orphans_placed are placed (without restorations). They are part of the $placed_all placed fragments

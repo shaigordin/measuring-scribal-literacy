@@ -91,5 +91,30 @@
  "reference_manuscripts": 1643,
  "tradition_manuscripts": 2627,
  "manuscript_pool": 19417,
- "compositions": 662
+ "compositions": 662,
+ "split_cth_texts": [
+  "CHDS 3.142",
+  "KBo 12.112",
+  "KBo 15.1",
+  "KBo 15.10+",
+  "KBo 15.19",
+  "KBo 27.108+",
+  "KBo 34.194",
+  "KBo 37.10",
+  "KBo 4.2+",
+  "KBo 43.320+",
+  "KBo 46.231",
+  "KBo 47.259",
+  "KBo 58.157",
+  "KUB 17.28",
+  "KUB 17.8",
+  "KUB 2.2+",
+  "KUB 23.121",
+  "KUB 24.14",
+  "KUB 4.1",
+  "KUB 43.55",
+  "KUB 45.20",
+  "KUB 7.46+",
+  "VBoT 24"
+ ]
 }

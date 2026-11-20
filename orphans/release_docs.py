@@ -293,7 +293,8 @@ def main():
          "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
          "references": references(T), "bins_table": mdtable(bins),
          "reference_n": f"{sw['reference_manuscripts']:,}", "tradition_n": f"{sw['tradition_manuscripts']:,}", "placed_all": f"{sw['status'].get('placed', 0):,}",
-         "orphans_scored": f"{len(E5):,}", "n_categories": len(CATS),
+         "orphans_scored": f"{len(E5):,}", "n_categories": len(CATS), "split_n": len(sw["split_cth_texts"]),
+         "split_example": "KBo 37.10 (CTH 458 and 730)" if "KBo 37.10" in sw["split_cth_texts"] else sw["split_cth_texts"][0],
          "n_glosses": f"{wn['glosses']['all']:,}", "n_rules": senses["rules"],
          "wn_agree": f"{wn['type_weighted']['agreement']:.0%}", "wn_kappa": f"{wn['type_weighted']['kappa']:.2f}",
          "wn_coverage": f"{wn['coverage']['types']:.0%}", "orphans_placed": f"{len(o_placed):,}"}
