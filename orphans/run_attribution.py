@@ -254,7 +254,7 @@ def orphan_stability(ref, orph, frequent, margin):
         return assign(scores(vec.transform([tokens(x, "both") for _, x in o.iterrows()]), C), labs, margin=margin)[0]
     base = place(ref, orph)
     out = {"assigned": int(pd.notna(base).sum())}
-    for name, keep in (("without_function_words", lambda w, c: c != "function"),
+    for name, keep in (("without_function_words", lambda w, c: c not in ("function", "scribal")),
                        ("without_frequent_words", lambda w, c: w not in frequent)):
         p = place(drop_words(ref, keep), drop_words(orph, keep))
         a = pd.notna(base)

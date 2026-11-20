@@ -234,11 +234,18 @@ def rescore(t):
     # the audit was marked in the earlier scheme, where every noun and adjective was `realia`: score
     # the meaning classes of nouns (and a meaning tie among them) as that one class
     noun = {"realia", "place", "animal", "body", "nature", "abstract", "adjective", "measure"}
+    VALID.add("number")
     coarse = np.where(a.now.isin(noun) | ((a.now == "ambiguous") & (a.rule_now != "analysis_ambiguous")),
                       "realia", a.now)
-    a["right"] = (a.now == a.accepted) | (coarse == a.accepted)
+    # numerals: the audit accepted them as `other`; ShG made them a class of their own, `number`, on
+    # 2026-11-20, so `number` now scores as the accepted `other`
+    renamed = (a.accepted == "other") & (a.now == "number")
+    a["right"] = (a.now == a.accepted) | (coarse == a.accepted) | renamed
     share = {l: v["share_of_tokens"] for l, v in json.loads(SCORE.read_text())["levels"].items()}  # as drawn
-    out = {"reviewed": int(len(a)), "levels": {}, "note": "in-sample: the rules were revised on these marks"}
+    out = {"reviewed": int(len(a)), "levels": {}, "note": "in-sample: the rules were revised on these marks",
+           "class_mapping": {"note": "numerals accepted as 'other' in the audit (October 2026) count as right when "
+                                     "their class is now 'number' (ShG's decision of 2026-11-20)",
+                             "rows_scored_by_mapping": int(renamed.sum())}}
     est = 0.0
     for lev, g in a.groupby("wc_conf"):
         k, n = int(g.right.sum()), len(g)

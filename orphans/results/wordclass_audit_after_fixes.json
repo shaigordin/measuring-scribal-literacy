@@ -30,6 +30,10 @@
     }
   },
   "note": "in-sample: the rules were revised on these marks",
+  "class_mapping": {
+    "note": "numerals accepted as 'other' in the audit (October 2026) count as right when their class is now 'number' (ShG's decision of 2026-11-20)",
+    "rows_scored_by_mapping": 4
+  },
   "corpus_accuracy_estimate": 0.923,
   "still_wrong": [
     {
