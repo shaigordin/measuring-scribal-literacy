@@ -358,7 +358,9 @@ def main():
 
     # traditions and compositions used
     lit = studies()
+    allref = exp[~exp.orphan & exp.cth_number.isin(trad_of)].cth_number.map(trad_of)   # every size
     T = pd.DataFrame([{"tradition": l, "cth": " ".join(str(c) for c in GROUPSETS[rep["groups"]][l]),
+                       "manuscripts": int((allref == l).sum()),
                        "reference_manuscripts": int((y == l).sum()), **lit[l]} for l in labs])
     T.to_csv(f"{a.out}/traditions.csv", index=False)
     pd.DataFrame({"cth": clabs, "manuscripts": n_mss,
@@ -387,7 +389,7 @@ def main():
                "fragments_with_match_candidates": int((F.match_candidates.fillna("") != "").sum()),
                "match_candidate_pairs": int(J.passes_match_checks.sum()),
                "margin": margin, "precision_above_margin": rep["E2_abstention"]["precision_above_margin"],
-               "loo_accuracy": rep["E1_historical"]["both"]["acc"], "loo_majority": rep["E1_historical"]["both"]["majority"], "reference_manuscripts": int(len(ref)), "manuscript_pool": int(len(pool)),
+               "loo_accuracy": rep["E1_historical"]["both"]["acc"], "loo_majority": rep["E1_historical"]["both"]["majority"], "reference_manuscripts": int(len(ref)), "tradition_manuscripts": int(len(allref)), "manuscript_pool": int(len(pool)),
                "compositions": int(len(clabs))}
     json.dump(summary, open(f"{a.out}/summary.json", "w"), indent=1, ensure_ascii=False)
     print(json.dumps(summary, indent=1, ensure_ascii=False))

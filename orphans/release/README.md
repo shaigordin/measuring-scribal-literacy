@@ -1,6 +1,6 @@
 # Orphans and Archetypes: closest traditions, compositions and duplicate or join candidates for the unplaced fragments of the Hittite corpus (TLHdig 0.4)
 
-Version 2.1.0, 2026-11-19. Shai Gordin (Ariel University). Licence CC BY 4.0.
+Version 2.1.0, 2026-11-20. Shai Gordin (Ariel University). Licence CC BY 4.0.
 Built from TLHdig Beta Version 0.4 (Müller, Prechel, Rieken and Schwemer 2026, doi:[10.5281/zenodo.24373727](https://doi.org/10.5281/zenodo.24373727)).
 Code: <https://github.com/shaigordin/measuring-scribal-literacy> (folder `orphans/`). Online tool: <https://shaigordin.github.io/text-orphans/>.
 
@@ -18,10 +18,16 @@ fragment (11,440 texts) the dataset gives:
 
 ## Which texts are in it
 
-Only texts whose tradition is unknown. The 1,643 reference manuscripts (17 or more words), the texts that the
-defining studies assign to a tradition, are not in the dataset: they only build the ten tradition
-profiles. Every text in the dataset is compared with these ten profiles in the same way. Its CTH bin
-says only where the text comes from; it plays no part in the placement.
+Only texts whose tradition is unknown. The ten traditions have 2,627 manuscripts in TLHdig
+0.4. These are the texts that the defining studies assign to a tradition, and they are not in the
+dataset. Of them, 1,643 have at least 17 counted words, and only these build the ten tradition
+profiles. The reason is that a short piece shows too few words to stand for a tradition: a profile
+built from a handful of words mostly reflects chance. The 17-word minimum is the one used in Gordin,
+Yavasan and Romach 2025 (StBoT 73). The shorter manuscripts of the traditions still take part as
+candidates among the nearest manuscripts. `traditions.csv` gives both numbers for each tradition.
+
+Every text in the dataset is compared with the ten profiles in the same way. Its CTH bin says only
+where the text comes from; it plays no part in the placement.
 
 | Laroche bin | Texts | Placed |
 |---|---|---|
@@ -63,18 +69,18 @@ runner-up by at least the margin. The margin is calibrated on pieces cut from re
 so that about 80% of placed pieces land in their own tradition; below it the fragment is left
 unplaced.
 
-| Tradition | CTH | Reference manuscripts (without / with restorations) | Most-cited study |
-|---|---|---|---|
-| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 32 / 34 | Mouton 2010 (JCS 62) |
-| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 437 / 478 | Klinger 1996 (StBoT 37) |
-| Kizzuwatna rituals | 404, 471–499 | 211 / 226 | Miller 2004 (StBoT 46) |
-| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 303 / 325 | Wegner and Salvini 1991 (ChS I/4) |
-| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 48 / 53 | Starke 1985 (StBoT 30) |
-| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 58 / 82 | Yakubovich and Mouton 2023 (StBoT 72,1) |
-| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 193 / 202 | Wegner 2002 (ChS I/3-2) |
-| Palaic festivals | 750–754 | 30 / 34 | Steitler 2017 (StBoT 62) |
-| Syro-Mesopotamian (Hurrian) | 698, 701, 714–715, 721 | 149 / 167 | Salvini and Wegner 1986 (ChS I/2) |
-| Ḫuwaššanna festivals | 690–694 | 182 / 194 | Yoshida 1996 (THeth 22) |
+| Tradition | CTH | Manuscripts in TLHdig | Reference manuscripts (without / with restorations) | Most-cited study |
+|---|---|---|---|---|
+| Arzawa / western rituals | 394, 402, 406, 410, 425, 433 | 43 | 32 / 34 | Mouton 2010 (JCS 62) |
+| Hattian cult layer | 591, 627, 725–729, 731–746, 820–821 | 868 | 437 / 478 | Klinger 1996 (StBoT 37) |
+| Kizzuwatna rituals | 404, 471–499 | 296 | 211 / 226 | Miller 2004 (StBoT 46) |
+| Kizzuwatna–Lower Land (Hurrian) | 628, 699–700, 711–713, 719, 722 | 384 | 303 / 325 | Wegner and Salvini 1991 (ChS I/4) |
+| Luwian festivals (Ištanuwa, Lallupiya) | 665, 771–773 | 71 | 48 / 53 | Starke 1985 (StBoT 30) |
+| Luwian rituals (Puriyanni, Kuwattalla) | 758–763 | 145 | 58 / 82 | Yakubovich and Mouton 2023 (StBoT 72,1) |
+| Mixed (Hurrian, Syrian, Luwian) | 704–706, 720 | 286 | 193 / 202 | Wegner 2002 (ChS I/3-2) |
+| Palaic festivals | 750–754 | 60 | 30 / 34 | Steitler 2017 (StBoT 62) |
+| Syro-Mesopotamian (Hurrian) | 698, 701, 714–715, 721 | 217 | 149 / 167 | Salvini and Wegner 1986 (ChS I/2) |
+| Ḫuwaššanna festivals | 690–694 | 257 | 182 / 194 | Yoshida 1996 (THeth 22) |
 
 ## Files
 

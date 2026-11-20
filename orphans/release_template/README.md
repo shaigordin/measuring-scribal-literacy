@@ -18,10 +18,16 @@ fragment ($texts texts) the dataset gives:
 
 ## Which texts are in it
 
-Only texts whose tradition is unknown. The $reference_n reference manuscripts (17 or more words), the texts that the
-defining studies assign to a tradition, are not in the dataset: they only build the ten tradition
-profiles. Every text in the dataset is compared with these ten profiles in the same way. Its CTH bin
-says only where the text comes from; it plays no part in the placement.
+Only texts whose tradition is unknown. The ten traditions have $tradition_n manuscripts in TLHdig
+$tlhdig. These are the texts that the defining studies assign to a tradition, and they are not in the
+dataset. Of them, $reference_n have at least 17 counted words, and only these build the ten tradition
+profiles. The reason is that a short piece shows too few words to stand for a tradition: a profile
+built from a handful of words mostly reflects chance. The 17-word minimum is the one used in Gordin,
+Yavasan and Romach 2025 (StBoT 73). The shorter manuscripts of the traditions still take part as
+candidates among the nearest manuscripts. `traditions.csv` gives both numbers for each tradition.
+
+Every text in the dataset is compared with the ten profiles in the same way. Its CTH bin says only
+where the text comes from; it plays no part in the placement.
 
 $bins_table
 

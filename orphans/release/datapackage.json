@@ -372,9 +372,14 @@
       "description": "Its CTH numbers (Laroche), space-separated."
      },
      {
+      "name": "manuscripts",
+      "type": "integer",
+      "description": "All manuscripts of the tradition in TLHdig, whatever their size."
+     },
+     {
       "name": "reference_manuscripts",
       "type": "integer",
-      "description": "Reference manuscripts (17+ analysed words)."
+      "description": "Manuscripts with 17 or more counted words: these build the tradition's profile."
      },
      {
       "name": "most_cited_study",
@@ -765,9 +770,14 @@
       "description": "Its CTH numbers (Laroche), space-separated."
      },
      {
+      "name": "manuscripts",
+      "type": "integer",
+      "description": "All manuscripts of the tradition in TLHdig, whatever their size."
+     },
+     {
       "name": "reference_manuscripts",
       "type": "integer",
-      "description": "Reference manuscripts (17+ analysed words)."
+      "description": "Manuscripts with 17 or more counted words: these build the tradition's profile."
      },
      {
       "name": "most_cited_study",

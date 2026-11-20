@@ -89,6 +89,7 @@
  "loo_accuracy": 0.828,
  "loo_majority": 0.266,
  "reference_manuscripts": 1643,
+ "tradition_manuscripts": 2627,
  "manuscript_pool": 19417,
  "compositions": 662
 }

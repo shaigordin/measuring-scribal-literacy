@@ -164,7 +164,8 @@ def references(T):
 TRADITIONS = [
     ("tradition", "string", "Reference tradition."),
     ("cth", "string", "Its CTH numbers (Laroche), space-separated."),
-    ("reference_manuscripts", "integer", "Reference manuscripts (17+ analysed words)."),
+    ("manuscripts", "integer", "All manuscripts of the tradition in TLHdig, whatever their size."),
+    ("reference_manuscripts", "integer", "Manuscripts with 17 or more counted words: these build the tradition's profile."),
     ("most_cited_study", "string", "The study the Konkordanz cites most often for the tradition's manuscripts, "
      "leaving out handbooks and corpus volumes (Haas, HbOr I/15; Waal, StBoT 57; Groddek and Kloekhorst, DBH 19)."),
     ("most_cited_manuscripts", "integer", "Number of the tradition's manuscripts for which the Konkordanz cites it."),
@@ -262,11 +263,11 @@ def main():
     both = Fw.index[(Fw.status == "placed") & Fa.reindex(Fw.index).status.eq("placed")]
     same = int((Fw.loc[both, "placed_tradition"] == Fa.loc[both, "placed_tradition"]).sum())
     trad = T.assign(cth=T.cth.map(ranges), ref_a=T.tradition.map(Ta.reference_manuscripts)).rename(columns={
-        "tradition": "Tradition", "cth": "CTH", "reference_manuscripts": "Reference manuscripts (without / with restorations)",
+        "tradition": "Tradition", "cth": "CTH", "manuscripts": "Manuscripts in TLHdig", "reference_manuscripts": "Reference manuscripts (without / with restorations)",
         "most_cited_study": "Most-cited study"})
     trad["Reference manuscripts (without / with restorations)"] = [f"{x} / {y}" for x, y in zip(
         trad["Reference manuscripts (without / with restorations)"], trad.ref_a)]
-    trad = trad[["Tradition", "CTH", "Reference manuscripts (without / with restorations)", "Most-cited study"]]
+    trad = trad[["Tradition", "CTH", "Manuscripts in TLHdig", "Reference manuscripts (without / with restorations)", "Most-cited study"]]
     kj = pd.read_csv(a.known_joins)
     kd, kjn = kj[kj.relation == "duplicate"], kj[kj.relation == "join"]
     sw, sa = S["without_restorations"], S["with_restorations"]
@@ -285,7 +286,7 @@ def main():
          "kd_n": len(kd), "kd_top20": int((kd['rank'] <= 20).sum()), "kd_median": f"{kd['rank'].median():g}",
          "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
          "references": references(T), "bins_table": mdtable(bins),
-         "reference_n": f"{sw['reference_manuscripts']:,}", "placed_all": f"{sw['status'].get('placed', 0):,}",
+         "reference_n": f"{sw['reference_manuscripts']:,}", "tradition_n": f"{sw['tradition_manuscripts']:,}", "placed_all": f"{sw['status'].get('placed', 0):,}",
          "orphans_scored": f"{len(E5):,}", "orphans_placed": f"{len(o_placed):,}"}
     tpl = Template(open(os.path.join(os.path.dirname(__file__) or ".", "release_template", "README.md")).read())
     open(f"{d}/README.md", "w").write(tpl.substitute(v))
