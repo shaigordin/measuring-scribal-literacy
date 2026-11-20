@@ -68,28 +68,37 @@ number in the paper is generated from them.
 \section{Introduction}
 \label{sec:intro}
 
-Emmanuel Laroche's \textit{Catalogue des textes hittites} \citep{laroche1971catalogue} gave every
-Hittite composition a number, and with it a place: rituals in one block, festivals in another,
-texts in Hattian, Luwian and Hurrian in blocks of their own. What could not be placed went into
-residual categories. \CTH{470}, ``fragments of rituals'', is the largest of them, and it has grown
-with every volume of hand copies since 1971. The Mainz Hethitologie-Portal keeps Laroche's numbers
-as a shared address system while moving fragments after joins \citep{cthportal,konkordanz}. The
-digitisation of the EBo fragments in TLHdig 0.3 \citep{tlhdig03} adds \Q{orph.ebo_texts} more
-manuscripts with a median of \Q{orph.ebo_median} legible words, most of them filed under two
-further residual numbers, \CTH{832} and \CTH{670}.
+The Hittite texts come mostly from the archives of the capital Ḫattuša (modern Boğazköy in
+central Turkey) and date from the 16th to the early 12th century BCE; smaller archives were found
+at Šapinuwa, Šamuḫa, Tapikka and Šarišša \citep{bryce2005kingdom,vandenhout2020literacy}. Some
+30,000 tablets and fragments survive, most of them small pieces, and rituals and festivals make up
+a large part of them. Today the corpus can be read and searched in TLHdig, the digital edition of
+the Hethitologie-Portal Mainz \citep{tlhdig04}. Its release 0.4 holds \Q{tlh.texts} manuscripts
+with about \Q{tlh.words} million words.
 
-A philologist assigns such a fragment through a parallel: a duplicate, or a close parallel
-passage in an identified composition. For most of these orphans that route is closed by
-definition. We ask instead whether the content of a fragment, its words and their spellings, can
-point to its tradition, and how far such a pointer can be trusted. Put this way, the task is
-attribution, and two known weaknesses of attribution apply with full force: accuracy falls with
-the length of the sample \citep{eder2015size}, and a classifier with a closed set of candidates
-always names one of them, even when the true source is not among them \citep{koppel2011wild}.
-A placement is also only useful to a philologist who can check it, which requires knowing what
-it rests on.
+Laroche's \textit{Catalogue des textes hittites} \citep{laroche1971catalogue} gave every Hittite
+composition a number. The number also gave it a place: rituals in one block, festivals in another,
+and Hattian, Luwian and Hurrian texts in blocks of their own. The catalogue is kept up to date
+online \citep{cthportal}. Fragments that could not be placed went into residual groups. The largest
+is \CTH{470}, ``fragments of rituals'', with \Q{orph.cth470_texts} manuscripts. TLHdig adds
+\Q{orph.ebo_texts} small EBo fragments, most of them filed under two more residual numbers. I call
+these unassigned fragments \term{orphans}; together they number \Q{orph.orphans_total}.
 
-We turn the exploratory mapping of \citet{gordin2025matters} into assignment, with explicit baselines, held-out evaluation and a rule for when not
-to assign. Our contributions are:
+A philologist places a fragment through a parallel: a duplicate, or a close passage in a known
+composition. Most orphans have no such parallel. I therefore ask a different question. Can the
+words on a fragment point to its tradition? And how far can we trust that pointer?
+
+Simply put, this is a question of attribution, and attribution has two known weak points. It
+becomes less reliable the shorter the text is \citep{eder2015size}. And a method that must choose
+among fixed candidates will always choose one of them, even when the right answer is not among
+them \citep{koppel2011wild}. A placement is also useful only if a philologist can check it. That
+means knowing which words it rests on.
+
+\citet{gordin2025matters} mapped the festival texts without assigning them. Here I go one step
+further. I place each fragment, test the placements on manuscripts whose tradition is known, and
+let the method say ``undecided'' when the evidence is too thin. In what follows, I first describe
+the data and the method. I then show what the placements rest on and what they tell us about the
+traditions. My contributions are:
 \begin{enumerate}
   \item a placement of \Q{E5.assigned} of \Q{E9.orph.scored} orphans at an expected precision
     of \Q{E2.precision}, each with the diagnostic words it rests on and its nearest manuscripts,

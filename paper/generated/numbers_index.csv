@@ -2592,3 +2592,5 @@ AC.placedA.samenearest.share,97\%,tlhdig04_literature_A_filled/E5_orphan_placeme
 AC.onlyA,396,tlhdig04_literature_A_filled/E5_orphan_placement.csv vs tlhdig04_literature_C_filled/E5_orphan_placement.csv
 AC.onlyA.luwian,14,tlhdig04_literature_A_filled/E5_orphan_placement.csv vs tlhdig04_literature_C_filled/E5_orphan_placement.csv
 AC.onlyA.luwian.sugi,13,data/tokens_marks.csv (status R in a ŠU.GI word)
+tlh.texts,"23{,}721",data/tokens_marks.csv (distinct txtid)
+tlh.words,1.3,"data/tokens_marks.csv (rows = words, millions)"

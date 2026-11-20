@@ -815,6 +815,22 @@ def compare_versions():
             put("AC.onlyA.luwian.sugi", old["AC.onlyA.luwian.sugi"]["value"],
                 old["AC.onlyA.luwian.sugi"]["source"].replace(" [kept from last build]", "") + " [kept from last build]")
 
+    # size of the whole TLHdig release, from the token table (one row per word)
+    idx = os.path.join(OUT, "numbers_index.csv")
+    if os.path.exists(tok):
+        ids, n = set(), 0
+        with open(tok, encoding="utf-8", newline="") as f:
+            for r in csv.DictReader(f):
+                ids.add(r["txtid"]); n += 1
+        src = "data/" + os.path.basename(tok)
+        put("tlh.texts", num(len(ids)), src + " (distinct txtid)")
+        put("tlh.words", f"{n / 1e6:.1f}", src + " (rows = words, millions)")
+    else:
+        old = {r["key"]: r for r in csv.DictReader(open(idx, encoding="utf-8"))} if os.path.exists(idx) else {}
+        for k in ("tlh.texts", "tlh.words"):
+            if k in old:
+                put(k, old[k]["value"], old[k]["source"].replace(" [kept from last build]", "") + " [kept from last build]")
+
 
 if __name__ == "__main__":
     main_run = MAIN
