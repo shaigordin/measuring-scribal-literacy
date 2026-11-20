@@ -1,0 +1,97 @@
+% Pipeline and research process (Figure 1 of the paper; also exported for the workshop deck).
+% Built by ../build.sh; the numbers come from ../generated/numbers.tex like the paper's text.
+\documentclass[border=2pt]{standalone}
+\usepackage{libertinus}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.symbols,calc,fit,backgrounds}
+
+\makeatletter
+\newcommand{\qtmdef}[2]{\expandafter\def\csname qtm@#1\endcsname{#2}}
+\newcommand{\Q}[1]{\@ifundefined{qtm@#1}{\textcolor{red}{[#1?]}\PackageWarning{qtm}{Undefined number #1}}{\csname qtm@#1\endcsname}}
+\makeatother
+\input{../generated/numbers.tex}
+
+\definecolor{data}{HTML}{2F5D8A}
+\definecolor{model}{HTML}{1F7A6B}
+\definecolor{test}{HTML}{B5651D}
+\definecolor{out}{HTML}{5B4B8A}
+\definecolor{ink}{HTML}{2B2B2B}
+\definecolor{soft}{HTML}{8A8A8A}
+
+\begin{document}
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize\color{ink},
+  >={Stealth[length=2.2mm]},
+  stage/.style={draw=#1, fill=#1!7, rounded corners=2pt, line width=0.7pt,
+    inner sep=2.5pt, anchor=north west,
+    execute at begin node={\begin{minipage}[t][26mm]{22.6mm}\raggedright},
+    execute at end node={\end{minipage}}},
+  head/.style={font=\footnotesize\bfseries\color{#1}},
+  phase/.style={signal, signal to=east, signal from=west, draw=soft, fill=soft!10,
+    minimum height=9mm, text width=19mm, align=center, inner sep=2pt, font=\sffamily\scriptsize},
+  first/.style={phase, signal from=nowhere},
+  card/.style={draw=test, fill=test!6, rounded corners=2pt, line width=0.6pt,
+    inner sep=2pt, anchor=north west,
+    execute at begin node={\begin{minipage}[t][12.5mm]{15.7mm}\raggedright},
+    execute at end node={\end{minipage}}},
+  lane/.style={rotate=90, font=\footnotesize\bfseries\color{soft}, anchor=south},
+  flow/.style={->, line width=0.9pt, draw=ink!70},
+  checks/.style={-{Stealth[length=1.6mm]}, densely dashed, draw=test!80, line width=0.5pt},
+]
+\def\W{26.5mm}  % stage pitch
+
+% ---------------- research process
+\foreach \i/\t [count=\n from 0] in {
+  0/{StBoT 73: genre and style clusters},
+  1/{Question: where do the orphans belong?},
+  2/{Define traditions from the literature},
+  3/{Test on texts of known origin},
+  4/{Place orphans, or abstain},
+  5/{Read the results as QTM}} {
+  \ifnum\n=0 \node[first] (r\n) at (\n*\W+12.3mm, 0) {\t};
+  \else      \node[phase]  (r\n) at (\n*\W+12.3mm, 0) {\t}; \fi
+}
+\node[lane] at (-2mm, 0) {Research};
+
+% ---------------- pipeline
+\def\Y{-8mm}
+\node[stage=data] (s0) at (0*\W, \Y) {\textbf{\color{data}1 Corpus}\\[2pt]
+  TLHdig 0.3, normalised words and signs per manuscript.\\[2pt]
+  \Q{corpus.reference_texts} reference manuscripts; \Q{corpus.orphans_total} orphans (CTH~470, EBo).};
+\node[stage=data] (s1) at (1*\W, \Y) {\textbf{\color{data}2 Reference}\\[2pt]
+  \Q{trad.count} traditions, each defined by a published study and mapped to Laroche's CTH.\\[2pt]
+  Unclaimed CTH ranges kept as residue.};
+\node[stage=data] (s2) at (2*\W, \Y) {\textbf{\color{data}3 Features}\\[2pt]
+  tf-idf of word forms (\emph{what} is written) and of sign n-grams within words (\emph{how}).\\[2pt]
+  Each word tagged with a word class.};
+\node[stage=model] (s3) at (3*\W, \Y) {\textbf{\color{model}4 Score}\\[2pt]
+  Cosine to each tradition's centroid.\\[2pt]
+  margin $=s_1-s_2$, the lead of the nearest over the runner-up.};
+\node[stage=model] (s4) at (4*\W, \Y) {\textbf{\color{model}5 Decide}\\[2pt]
+  Assign if margin $\geq \Q{E2.margin}$ (\Q{E2.precision} precision on held-out windows), else abstain.\\[2pt]
+  Outside genres as classes.};
+\node[stage=out] (s5) at (5*\W, \Y) {\textbf{\color{out}6 Output}\\[2pt]
+  \Q{E5.assigned} of \Q{corpus.orphans_used} orphans placed.\\[2pt]
+  Each placement with its margin split by word class and layer, for checking on the tablet.};
+\foreach \a/\b in {s0/s1, s1/s2, s2/s3, s3/s4, s4/s5} \draw[flow] (\a.east) -- (\b.west);
+\node[lane] at (-2mm, \Y-12mm) {Pipeline};
+
+% ---------------- validation
+\def\Z{-43mm}
+\def\P{19.8mm}
+\foreach \i/\t/\s in {
+  0/{\textbf{Composition held out}\\ \Q{E10a.compositions_correct} of \Q{E10a.compositions} return to their group}/s1,
+  1/{\textbf{Contested claim}\\ Ambazzi: Arzawa ranks \Q{E10b.claim.rank} of \Q{trad.count}}/s1,
+  2/{\textbf{Layers, classes}\\ spelling adds \Q{E7.collapsed.acc}$\to$\Q{E7.spelling.acc}}/s2,
+  3/{\textbf{Manuscript held out}\\ \Q{E1.both.acc}; majority \Q{E1.both.majority}}/s3,
+  4/{\textbf{CTH 701 subgroups}\\ \Q{E3.both.acc}; majority \Q{E3.both.majority}}/s3,
+  5/{\textbf{Fragment size}\\ 10 words: \Q{E2.both.k10}\\ 40 words: \Q{E2.both.k40}}/s4,
+  6/{\textbf{Open set}\\ outside genres placed \Q{E9.genres.placed.lo}--\Q{E9.genres.placed.hi}}/s4,
+  7/{\textbf{Decision split}\\ common words: \Q{E11b.common.ref} of the margin}/s5} {
+  \node[card] (c\i) at (\i*\P, \Z) {\t};
+  \draw[checks] (c\i.north) -- (\s.south);
+}
+\node[lane] at (-2mm, \Z-7.5mm) {Validation};
+\end{tikzpicture}
+\end{document}

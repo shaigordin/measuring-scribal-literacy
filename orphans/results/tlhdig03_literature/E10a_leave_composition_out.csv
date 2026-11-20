@@ -1,0 +1,79 @@
+cth,tradition,texts,texts_correct,composition_pred,composition_correct,gap
+394,Arzawa / western rituals,1,1,Arzawa / western rituals,True,0.0068
+404,Kizzuwatna rituals,21,18,Kizzuwatna rituals,True,0.1003
+433,Arzawa / western rituals,10,0,Kizzuwatna rituals,False,0.0382
+472,Kizzuwatna rituals,1,1,Kizzuwatna rituals,True,0.0307
+474,Kizzuwatna rituals,1,1,Kizzuwatna rituals,True,0.0425
+475,Kizzuwatna rituals,23,16,Kizzuwatna rituals,True,0.0395
+477,Kizzuwatna rituals,7,7,Kizzuwatna rituals,True,0.0857
+479,Kizzuwatna rituals,8,7,Kizzuwatna rituals,True,0.0763
+480,Kizzuwatna rituals,5,4,Kizzuwatna rituals,True,0.0604
+481,Kizzuwatna rituals,4,3,Kizzuwatna rituals,True,0.0892
+482,Kizzuwatna rituals,2,2,Kizzuwatna rituals,True,0.0823
+483,Kizzuwatna rituals,22,15,Kizzuwatna rituals,True,0.0638
+484,Kizzuwatna rituals,1,1,Kizzuwatna rituals,True,0.0439
+485,Kizzuwatna rituals,5,3,Kizzuwatna rituals,True,0.0247
+487,Kizzuwatna rituals,1,0,Hattian cult layer,False,0.0012
+488,Kizzuwatna rituals,6,6,Kizzuwatna rituals,True,0.0674
+490,Kizzuwatna rituals,32,15,Kizzuwatna rituals,True,0.0516
+491,Kizzuwatna rituals,7,4,Kizzuwatna rituals,True,0.0305
+494,Kizzuwatna rituals,5,1,Kizzuwatna–Lower Land (Hurrian),False,0.0002
+495,Kizzuwatna rituals,14,11,Kizzuwatna rituals,True,0.0523
+591,Hattian cult layer,50,46,Hattian cult layer,True,0.1477
+627,Hattian cult layer,146,134,Hattian cult layer,True,0.1638
+628,Kizzuwatna–Lower Land (Hurrian),261,77,Kizzuwatna–Lower Land (Hurrian),True,0.0264
+665,"Luwian festivals (Ištanuwa, Lallupiya)",17,3,Kizzuwatna rituals,False,0.0113
+690,Ḫuwaššanna festivals,1,1,Ḫuwaššanna festivals,True,0.0928
+691,Ḫuwaššanna festivals,11,6,Ḫuwaššanna festivals,True,0.0444
+692,Ḫuwaššanna festivals,81,79,Ḫuwaššanna festivals,True,0.4283
+693,Ḫuwaššanna festivals,8,7,Ḫuwaššanna festivals,True,0.2989
+694,Ḫuwaššanna festivals,88,77,Ḫuwaššanna festivals,True,0.3805
+698,Syro-Mesopotamia (Hurrian),27,0,Kizzuwatna–Lower Land (Hurrian),False,0.0592
+699,Kizzuwatna–Lower Land (Hurrian),8,8,Kizzuwatna–Lower Land (Hurrian),True,0.0875
+700,Kizzuwatna–Lower Land (Hurrian),12,2,Syro-Mesopotamia (Hurrian),False,0.0036
+701,Syro-Mesopotamia (Hurrian),124,0,Kizzuwatna rituals,False,0.0181
+704,"Mixed (Hurrian, Syrian, Luwian)",49,40,"Mixed (Hurrian, Syrian, Luwian)",True,0.2141
+705,"Mixed (Hurrian, Syrian, Luwian)",63,45,"Mixed (Hurrian, Syrian, Luwian)",True,0.1746
+706,"Mixed (Hurrian, Syrian, Luwian)",72,25,"Mixed (Hurrian, Syrian, Luwian)",True,0.04
+711,Kizzuwatna–Lower Land (Hurrian),2,0,Hattian cult layer,False,0.1312
+712,Kizzuwatna–Lower Land (Hurrian),22,4,"Mixed (Hurrian, Syrian, Luwian)",False,0.0757
+713,Kizzuwatna–Lower Land (Hurrian),4,0,"Mixed (Hurrian, Syrian, Luwian)",False,0.0706
+714,Syro-Mesopotamia (Hurrian),11,1,Kizzuwatna–Lower Land (Hurrian),False,0.0004
+715,Syro-Mesopotamia (Hurrian),3,1,"Mixed (Hurrian, Syrian, Luwian)",False,0.0072
+719,Kizzuwatna–Lower Land (Hurrian),5,3,Kizzuwatna–Lower Land (Hurrian),True,0.0058
+720,"Mixed (Hurrian, Syrian, Luwian)",17,3,Kizzuwatna–Lower Land (Hurrian),False,0.043
+721,Syro-Mesopotamia (Hurrian),2,1,Kizzuwatna–Lower Land (Hurrian),False,0.0326
+722,Kizzuwatna–Lower Land (Hurrian),4,3,Kizzuwatna–Lower Land (Hurrian),True,0.0152
+725,Hattian cult layer,6,5,Hattian cult layer,True,0.0759
+726,Hattian cult layer,8,7,Hattian cult layer,True,0.0622
+727,Hattian cult layer,4,4,Hattian cult layer,True,0.0491
+728,Hattian cult layer,3,3,Hattian cult layer,True,0.0925
+729,Hattian cult layer,1,1,Hattian cult layer,True,0.0435
+731,Hattian cult layer,7,6,Hattian cult layer,True,0.0786
+732,Hattian cult layer,15,10,Hattian cult layer,True,0.0414
+733,Hattian cult layer,12,10,Hattian cult layer,True,0.0656
+734,Hattian cult layer,9,9,Hattian cult layer,True,0.1382
+735,Hattian cult layer,10,10,Hattian cult layer,True,0.1354
+736,Hattian cult layer,7,7,Hattian cult layer,True,0.0943
+737,Hattian cult layer,1,1,Hattian cult layer,True,0.0875
+738,Hattian cult layer,46,44,Hattian cult layer,True,0.1275
+739,Hattian cult layer,11,6,Hattian cult layer,True,0.1141
+740,Hattian cult layer,5,5,Hattian cult layer,True,0.0602
+741,Hattian cult layer,8,8,Hattian cult layer,True,0.1144
+742,Hattian cult layer,4,4,Hattian cult layer,True,0.0966
+743,Hattian cult layer,17,11,Hattian cult layer,True,0.0428
+744,Hattian cult layer,64,59,Hattian cult layer,True,0.2157
+745,Hattian cult layer,17,17,Hattian cult layer,True,0.1494
+746,Hattian cult layer,13,13,Hattian cult layer,True,0.1271
+750,Palaic festivals,18,0,Kizzuwatna–Lower Land (Hurrian),False,0.0243
+751,Palaic festivals,6,4,Palaic festivals,True,0.015
+752,Palaic festivals,3,0,Hattian cult layer,False,0.025
+753,Palaic festivals,4,0,Hattian cult layer,False,0.0203
+754,Palaic festivals,3,0,Hattian cult layer,False,0.0053
+760,"Luwian rituals (Puriyanni, Kuwattalla)",9,0,Kizzuwatna rituals,False,0.0016
+763,"Luwian rituals (Puriyanni, Kuwattalla)",1,0,Kizzuwatna rituals,False,0.0401
+771,"Luwian festivals (Ištanuwa, Lallupiya)",19,1,Kizzuwatna rituals,False,0.0282
+772,"Luwian festivals (Ištanuwa, Lallupiya)",12,6,"Luwian festivals (Ištanuwa, Lallupiya)",True,0.0943
+773,"Luwian festivals (Ištanuwa, Lallupiya)",4,4,"Luwian festivals (Ištanuwa, Lallupiya)",True,0.0834
+820,Hattian cult layer,12,8,Hattian cult layer,True,0.0408
+821,Hattian cult layer,4,4,Hattian cult layer,True,0.0635

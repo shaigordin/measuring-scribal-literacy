@@ -1,0 +1,506 @@
+[
+ {
+  "slide": "bins",
+  "key": "CTH 470 fragments of rituals: texts / median words",
+  "value": "1,920 / 10",
+  "source": "corpus_stats.json laroche_bins"
+ },
+ {
+  "slide": "bins",
+  "key": "CTH 500 fragments of Kizzuwatna rituals: texts / median words",
+  "value": "479 / 16",
+  "source": "corpus_stats.json laroche_bins"
+ },
+ {
+  "slide": "bins",
+  "key": "CTH 670 fragments of festivals: texts / median words",
+  "value": "3,506 / 9",
+  "source": "corpus_stats.json laroche_bins"
+ },
+ {
+  "slide": "bins",
+  "key": "CTH 832 fragments of various content: texts / median words",
+  "value": "4,090 / 4",
+  "source": "corpus_stats.json laroche_bins"
+ },
+ {
+  "slide": "bins",
+  "key": "CTH 390-469 rituals no study groups: texts / median words",
+  "value": "1,038 / 21",
+  "source": "corpus_stats.json laroche_bins"
+ },
+ {
+  "slide": "bins",
+  "key": "EBo texts / median words",
+  "value": "1,151 / 4",
+  "source": "corpus_stats.json orphans"
+ },
+ {
+  "slide": "bins",
+  "key": "EBo filed under 832 / 670 / 470",
+  "value": "562 / 382 / 37",
+  "source": "corpus_stats.json orphans.ebo_filed_under"
+ },
+ {
+  "slide": "bins",
+  "key": "CTH 470 + EBo manuscripts",
+  "value": "3,034",
+  "source": "corpus_stats.json orphans.orphans_total"
+ },
+ {
+  "slide": "theory",
+  "key": "orphans with 5+ words",
+  "value": "2,023",
+  "source": "report.json corpus.orphans_used"
+ },
+ {
+  "slide": "frag44",
+  "key": "KBo 44.52 words that count",
+  "value": 50,
+  "source": "case_KBo_44_52.json legible_words"
+ },
+ {
+  "slide": "formula",
+  "key": "idf of tai / sign an",
+  "value": "2.0 / 1.1",
+  "source": "case_KBo_44_52.json features.idf"
+ },
+ {
+  "slide": "formula",
+  "key": "similarity nearest / runner-up",
+  "value": "0.42 (Syro-Mesopotamian (Hurrian)) / 0.31 (Kizzuwatna rituals)",
+  "source": "case_KBo_44_52.json similarity"
+ },
+ {
+  "slide": "formula",
+  "key": "lead / threshold",
+  "value": "0.113 / 0.026",
+  "source": "case_KBo_44_52.json margin; report.json E2_abstention.margin"
+ },
+ {
+  "slide": "formula",
+  "key": "threshold 90% interval",
+  "value": "[0.025, 0.028]",
+  "source": "report.json E2_abstention.margin_90ci"
+ },
+ {
+  "slide": "formula",
+  "key": "features (non-zero) / dimensions",
+  "value": "162 / 24,067",
+  "source": "case_KBo_44_52.json"
+ },
+ {
+  "slide": "formula",
+  "key": "top decision features",
+  "value": "tai +0.075, AZU +0.070, §AZU +0.064, §LÚ·AZU +0.061, §da·a·i +0.057, A-NA +0.050",
+  "source": "case_KBo_44_52.json decision_features"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Hattian cult layer: reference MSS / held-out accuracy",
+  "value": "443 / 94%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Kizzuwatna–Lower Land (Hurrian): reference MSS / held-out accuracy",
+  "value": "297 / 77%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Kizzuwatna rituals: reference MSS / held-out accuracy",
+  "value": "211 / 88%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Mixed (Hurrian, Syrian, Luwian): reference MSS / held-out accuracy",
+  "value": "190 / 67%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Ḫuwaššanna festivals: reference MSS / held-out accuracy",
+  "value": "179 / 92%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Syro-Mesopotamian (Hurrian): reference MSS / held-out accuracy",
+  "value": "149 / 68%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Luwian rituals (Puriyanni, Kuwattalla): reference MSS / held-out accuracy",
+  "value": "57 / 81%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Luwian festivals (Ištanuwa, Lallupiya): reference MSS / held-out accuracy",
+  "value": "47 / 79%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Arzawa / western rituals: reference MSS / held-out accuracy",
+  "value": "32 / 88%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "traditions / test1",
+  "key": "Palaic festivals: reference MSS / held-out accuracy",
+  "value": "30 / 73%",
+  "source": "test1_loo_placements.csv; report.json E1_historical.both.recall_by_class"
+ },
+ {
+  "slide": "test1",
+  "key": "accuracy / manuscripts",
+  "value": "83.0% / 1,634",
+  "source": "report.json E1_historical.both"
+ },
+ {
+  "slide": "test1",
+  "key": "largest-tradition baseline / shuffled labels",
+  "value": "27% / 16%",
+  "source": "report.json E1_historical.both"
+ },
+ {
+  "slide": "test1",
+  "key": "with restorations: accuracy / manuscripts",
+  "value": "84.1% / 1,787",
+  "source": "tlhdig03_literature_A_filled/report.json E1_historical.both"
+ },
+ {
+  "slide": "test2",
+  "key": "compositions recovered",
+  "value": "72 / 94",
+  "source": "E10_report.json E10a"
+ },
+ {
+  "slide": "test2",
+  "key": "by tradition",
+  "value": "Arzawa / western rituals 3/6; Hattian cult layer 25/25; Kizzuwatna rituals 24/26; Kizzuwatna–Lower Land (Hurrian) 3/8; Luwian festivals (Ištanuwa, Lallupiya) 2/4; Luwian rituals (Puriyanni, Kuwattalla) 6/6; Mixed (Hurrian, Syrian, Luwian) 3/4; Palaic festivals 0/5; Syro-Mesopotamian (Hurrian) 1/5; Ḫuwaššanna festivals 5/5",
+  "source": "E10_report.json E10a.by_tradition"
+ },
+ {
+  "slide": "test2",
+  "key": "CTH 404",
+  "value": "cth=404; tradition=Kizzuwatna rituals; texts=30; texts_correct=18; composition_pred=Kizzuwatna rituals; composition_correct=True; gap=0.0662",
+  "source": "E10a_leave_composition_out.csv"
+ },
+ {
+  "slide": "test2",
+  "key": "CTH 752",
+  "value": "cth=752; tradition=Palaic festivals; texts=2; texts_correct=0; composition_pred=Hattian cult layer; composition_correct=False; gap=0.0152",
+  "source": "E10a_leave_composition_out.csv"
+ },
+ {
+  "slide": "test2",
+  "key": "CTH 701",
+  "value": "cth=701; tradition=Syro-Mesopotamia (Hurrian); texts=108; texts_correct=0; composition_pred=Kizzuwatna rituals; composition_correct=False; gap=0.0144",
+  "source": "E10a_leave_composition_out.csv"
+ },
+ {
+  "slide": "size",
+  "key": "KUB 29.4+ from word 200, 3 words",
+  "value": "Arzawa / western rituals, lead 0.0015, placed False, right False",
+  "source": "size_example_KUB_29.4.json"
+ },
+ {
+  "slide": "size",
+  "key": "KUB 29.4+ from word 200, 10 words",
+  "value": "Kizzuwatna rituals, lead 0.0057, placed False, right True",
+  "source": "size_example_KUB_29.4.json"
+ },
+ {
+  "slide": "size",
+  "key": "KUB 29.4+ from word 200, 40 words",
+  "value": "Kizzuwatna rituals, lead 0.0408, placed True, right True",
+  "source": "size_example_KUB_29.4.json"
+ },
+ {
+  "slide": "size",
+  "key": "all traditions: right at 3 / 10 / 40 words",
+  "value": "45% / 59% / 76%",
+  "source": "E2_coverage_curve.csv (both)"
+ },
+ {
+  "slide": "size",
+  "key": "share of held-out windows placed / precision",
+  "value": "50% / 80%",
+  "source": "report.json E2_abstention"
+ },
+ {
+  "slide": "scribes",
+  "key": "vocabulary alone / logograms / foreign words",
+  "value": "67% / 69% / 79% (on 684 MSS)",
+  "source": "E7_report.json E7a_layers"
+ },
+ {
+  "slide": "scribes",
+  "key": "spelling habits (seven rates) / baseline",
+  "value": "38% / 27%",
+  "source": "E7_report.json E7a_layers.orthographic_indices"
+ },
+ {
+  "slide": "scribes",
+  "key": "words with 2+ spellings: kept / collapsed",
+  "value": "273 words: 50% / 54%",
+  "source": "E7_report.json corpus, E7a_layers.spelling/collapsed"
+ },
+ {
+  "slide": "scribes",
+  "key": "memai written plene",
+  "value": "Arzawa / western rituals 2.6%; Hattian cult layer 12.5%; Kizzuwatna rituals 1.1%; Kizzuwatna–Lower Land (Hurrian) 17.9%; Luwian festivals (Ištanuwa, Lallupiya) 0.0%; Luwian rituals (Puriyanni, Kuwattalla) 3.0%; Mixed (Hurrian, Syrian, Luwian) 0.0%; Palaic festivals 0.0%; Syro-Mesopotamian (Hurrian) 0.5%; Ḫuwaššanna festivals 0.0%",
+  "source": "E7_spelling_contrasts.csv"
+ },
+ {
+  "slide": "scribes",
+  "key": "distinctive ZA.GÌN (Kizzuwatna rituals) z",
+  "value": "6.7",
+  "source": "E7_distinctive_features.csv"
+ },
+ {
+  "slide": "scribes",
+  "key": "distinctive BE-EL (Ḫuwaššanna festivals) z",
+  "value": "13.8",
+  "source": "E7_distinctive_features.csv"
+ },
+ {
+  "slide": "scribes",
+  "key": "distinctive GIŠ.INANNA (Hattian cult layer) z",
+  "value": "9.6",
+  "source": "E7_distinctive_features.csv"
+ },
+ {
+  "slide": "scribes",
+  "key": "distinctive AZU (Syro-Mesopotamian (Hurrian)) z",
+  "value": "13.8",
+  "source": "E7_distinctive_features.csv"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Arzawa / western rituals",
+  "value": "logogram_share -0.02, akkadogram_share -0.59, complement_rate -0.01, determinative_rate -0.29, plene_rate -0.41, cvc_share +0.28, u_acute_share -0.19",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Hattian cult layer",
+  "value": "logogram_share -0.46, akkadogram_share -0.36, complement_rate +0.32, determinative_rate +0.02, plene_rate +0.50, cvc_share -0.21, u_acute_share +0.31",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Kizzuwatna rituals",
+  "value": "logogram_share +0.09, akkadogram_share -0.22, complement_rate -0.12, determinative_rate -0.50, plene_rate -0.31, cvc_share +0.07, u_acute_share +0.08",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Kizzuwatna–Lower Land (Hurrian)",
+  "value": "logogram_share +0.26, akkadogram_share +0.48, complement_rate -0.19, determinative_rate +0.02, plene_rate -0.28, cvc_share +0.04, u_acute_share -0.33",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Luwian festivals (Ištanuwa, Lallupiya)",
+  "value": "logogram_share -0.12, akkadogram_share +0.36, complement_rate -0.28, determinative_rate +0.11, plene_rate -0.17, cvc_share +0.06, u_acute_share +0.26",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Luwian rituals (Puriyanni, Kuwattalla)",
+  "value": "logogram_share -0.26, akkadogram_share -0.80, complement_rate +0.15, determinative_rate -0.60, plene_rate -0.14, cvc_share -0.20, u_acute_share +0.32",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Mixed (Hurrian, Syrian, Luwian)",
+  "value": "logogram_share +0.29, akkadogram_share -0.01, complement_rate +0.02, determinative_rate +0.31, plene_rate -0.17, cvc_share +0.36, u_acute_share -0.08",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Palaic festivals",
+  "value": "logogram_share -0.74, akkadogram_share -0.35, complement_rate +0.85, determinative_rate -0.03, plene_rate +0.04, cvc_share +0.13, u_acute_share -0.00",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Syro-Mesopotamian (Hurrian)",
+  "value": "logogram_share +0.17, akkadogram_share +0.21, complement_rate -0.33, determinative_rate +0.05, plene_rate +0.22, cvc_share -0.15, u_acute_share -0.29",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "scribal",
+  "key": "profile z Ḫuwaššanna festivals",
+  "value": "logogram_share +0.39, akkadogram_share +0.53, complement_rate -0.21, determinative_rate +0.37, plene_rate -0.26, cvc_share +0.08, u_acute_share -0.12",
+  "source": "E7_report.json E7b_index_profile_z"
+ },
+ {
+  "slide": "tug44",
+  "key": "similarity / lead",
+  "value": "0.419 vs 0.306, lead 0.113, 4.4 x threshold",
+  "source": "case_KBo_44_52.json"
+ },
+ {
+  "slide": "tug44",
+  "key": "word shares of the lead",
+  "value": "tai +22%, AZU +20%, A-NA +12%, ḪAL +10%, BANŠUR +9%, natkan +8%, AD.KID +8%, SÍSKURma +6%",
+  "source": "case_KBo_44_52.json word_shares"
+ },
+ {
+  "slide": "decide44",
+  "key": "common features' share of the decision",
+  "value": "28%",
+  "source": "case_KBo_44_52.json decision_share_common_features"
+ },
+ {
+  "slide": "decide44",
+  "key": "corpus: common features share of similarity / decision",
+  "value": "47% / 12%",
+  "source": "E11_report.json E11b"
+ },
+ {
+  "slide": "barcode",
+  "key": "distinctive matches per tradition",
+  "value": "Syro-Mesopotamian (Hurrian) 28; Mixed (Hurrian, Syrian, Luwian) 12; Kizzuwatna–Lower Land (Hurrian) 11; Luwian rituals (Puriyanni, Kuwattalla) 10; Kizzuwatna rituals 9; Ḫuwaššanna festivals 7; Arzawa / western rituals 5; Hattian cult layer 5; Palaic festivals 5; Luwian festivals (Ištanuwa, Lallupiya) 2",
+  "source": "barcode_KBo_44_52.json"
+ },
+ {
+  "slide": "nearest44",
+  "key": "10 nearest manuscripts",
+  "value": "KBo 59.165 (CTH 701, Syro-Mesopotamian (Hurrian), 0.34); KBo 60.215 (CTH 701, Syro-Mesopotamian (Hurrian), 0.33); ABoT 2.230 (CTH 701, Syro-Mesopotamian (Hurrian), 0.33); KUB 44.44 (CTH 500, CTH 500 Kizzuwatna fragments, 0.31); KBo 39.167 (CTH 706, Mixed (Hurrian, Syrian, Luwian), 0.31); KBo 40.35+ (CTH 701, Syro-Mesopotamian (Hurrian), 0.30); KBo 13.167 (CTH 500, CTH 500 Kizzuwatna fragments, 0.29); KBo 40.314+ (CTH 701, Syro-Mesopotamian (Hurrian), 0.29); KBo 33.110+ (CTH 701, Syro-Mesopotamian (Hurrian), 0.28); KBo 38.284 (CTH 500, CTH 500 Kizzuwatna fragments, 0.28)",
+  "source": "case_KBo_44_52.json nearest_manuscripts"
+ },
+ {
+  "slide": "nearest44",
+  "key": "CTH 701 among the 10 nearest",
+  "value": 6,
+  "source": "case_KBo_44_52.json nearest_manuscripts"
+ },
+ {
+  "slide": "caution",
+  "key": "KBo 57.54 without restorations",
+  "value": "unplaced; nearest Syro-Mesopotamian (Hurrian) 0.220, runner-up Kizzuwatna rituals 0.203; lead 0.0169; 11 words; top features A-NA, §A·NA, našta, §NA",
+  "source": "case_KBo_57_54.json"
+ },
+ {
+  "slide": "caution",
+  "key": "KBo 57.54 with restorations",
+  "value": "Luwian rituals (Puriyanni, Kuwattalla); nearest Luwian rituals (Puriyanni, Kuwattalla) 0.298, runner-up Kizzuwatna rituals 0.239; lead 0.0586; 13 words; top features §MUNUS·ŠU, §MUNUS·ŠU·GI, §ŠU·GI, §GI",
+  "source": "case_KBo_57_54.json"
+ },
+ {
+  "slide": "caution",
+  "key": "KBo 41.22 without restorations",
+  "value": "Luwian rituals (Puriyanni, Kuwattalla); nearest Luwian rituals (Puriyanni, Kuwattalla) 0.274, runner-up Kizzuwatna rituals 0.245; lead 0.0289; 32 words; top features §GI, §MUNUS·ŠU, §MUNUS·ŠU·GI, §ŠU·GI",
+  "source": "case_KBo_41_22.json"
+ },
+ {
+  "slide": "caution",
+  "key": "KBo 41.22 with restorations",
+  "value": "Luwian rituals (Puriyanni, Kuwattalla); nearest Luwian rituals (Puriyanni, Kuwattalla) 0.263, runner-up Kizzuwatna rituals 0.241; lead 0.0216; 33 words; top features §GI, §MUNUS·ŠU, §MUNUS·ŠU·GI, §EME",
+  "source": "case_KBo_41_22.json"
+ },
+ {
+  "slide": "caution",
+  "key": "threshold with restorations",
+  "value": "0.017",
+  "source": "tlhdig03_literature_A_filled/report.json E2_abstention.margin"
+ },
+ {
+  "slide": "caution / takeaways",
+  "key": "orphans keeping their nearest tradition without restorations",
+  "value": "87% of 2,023",
+  "source": "E5_orphan_placement.csv, both runs"
+ },
+ {
+  "slide": "caution",
+  "key": "placed only with restorations / of them Luwian rituals",
+  "value": "404 / 14",
+  "source": "E5_orphan_placement.csv, both runs"
+ },
+ {
+  "slide": "caution",
+  "key": "of these, with a restored sign in MUNUS ŠU.GI (the Old Woman)",
+  "value": "14 of 14",
+  "source": "data/tokens_marks_filled.csv (status R in a ŠU.GI word)"
+ },
+ {
+  "slide": "test1 / fills",
+  "key": "Luwian rituals reference MSS before / after filling",
+  "value": "10 / 57",
+  "source": "results/tlhdig03_literature_C (no fills) vs main, test1_loo_placements.csv"
+ },
+ {
+  "slide": "ebo / tie",
+  "key": "EBo 133 words; without restorations",
+  "value": "19 words; Palaic festivals 0.2529 vs Ḫuwaššanna festivals 0.2463, lead 0.0065",
+  "source": "case_EBo_133.json"
+ },
+ {
+  "slide": "tie",
+  "key": "EBo 133 with restorations",
+  "value": "Ḫuwaššanna festivals 0.2781 vs Palaic festivals 0.2339, lead 0.0442",
+  "source": "tlhdig03_literature_A_filled/case/case_EBo_133.json"
+ },
+ {
+  "slide": "tie",
+  "key": "pulling to nearest / against",
+  "value": "1-ŠU, §pár, §ke, §ir, §ši / takarmun, NINDA, §mu·un, §kar·mu·un",
+  "source": "case_EBo_133.json"
+ },
+ {
+  "slide": "bread",
+  "key": "takarmun: other MSS / reference MSS / Ḫuwaššanna / Palaic / CTH 670",
+  "value": "143 / 62 / 54 / 2 / 37",
+  "source": "spread_takarmun.json"
+ },
+ {
+  "slide": "join",
+  "key": "pool / passing all three checks",
+  "value": "19,197 / KBo 44.140 (rank 10, CTH 669, 37 words, SSSS....S.); DBH 46_2.139 (rank 16, CTH 750, 86 words, SSSS...S..)",
+  "source": "joins_EBo_133.json"
+ },
+ {
+  "slide": "suggest",
+  "key": "EBo 133 nearest manuscripts",
+  "value": "KBo 21.51 (Mixed (Hurrian, Syrian, Luwian)); KBo 34.228 (Ḫuwaššanna festivals); DBH 46_2.139 (Palaic festivals); IBoT 4.273 (Kizzuwatna–Lower Land (Hurrian)); KBo 34.221 (Ḫuwaššanna festivals); KBo 19.157 (Palaic festivals); KBo 29.129 (Ḫuwaššanna festivals); KBo 29.113 (Ḫuwaššanna festivals)",
+  "source": "case_EBo_133.json nearest_manuscripts"
+ },
+ {
+  "slide": "takeaways",
+  "key": "orphans placed / scored",
+  "value": "457 / 2,023",
+  "source": "report.json E5_orphans, corpus"
+ },
+ {
+  "slide": "takeaways",
+  "key": "with restorations: placed / scored",
+  "value": "842 / 2,036",
+  "source": "tlhdig03_literature_A_filled/report.json"
+ },
+ {
+  "slide": "takeaways",
+  "key": "orphans placed by tradition",
+  "value": "Kizzuwatna rituals 208; Hattian cult layer 73; Kizzuwatna–Lower Land (Hurrian) 46; Syro-Mesopotamian (Hurrian) 46; Luwian rituals (Puriyanni, Kuwattalla) 39; Mixed (Hurrian, Syrian, Luwian) 20; Arzawa / western rituals 11; Ḫuwaššanna festivals 11; Luwian festivals (Ištanuwa, Lallupiya) 3",
+  "source": "report.json E5_orphans.by_tradition"
+ },
+ {
+  "slide": "clay / fills",
+  "key": "fill step",
+  "value": "words without a lemma, legible: 135398 of 1277944 | filled from TLHdig: 94021 | filled from eDiAna: 1109; still without a lemma: 40268",
+  "source": "fill.log"
+ },
+ {
+  "slide": "clay",
+  "key": "words that count",
+  "value": "variant C: 958323 of 1002347 analysed words count; same-text support 47090",
+  "source": "variant.log"
+ }
+]

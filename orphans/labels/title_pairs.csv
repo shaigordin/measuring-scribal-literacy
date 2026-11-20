@@ -1,0 +1,13 @@
+first,second,wclass,note,target
+^BE-EL(-TI)?$,^(S[IÍ]SKUR|É|É-TI|É-TIM)(-|$),agent,"lord/lady of the ritual, of the house",second
+^LÚ( ?\{MEŠ\})?$,^(É|URU-LIM)$,agent,"men of the house, of the city",second
+^LUGAL$,^(GAL|KUR)$,agent,"great king, king of the land",second
+^ÉRIN ?\{MEŠ\}$,^ANŠE\.KUR\.RA,agent,troops (and) chariotry,second
+^\{D\},^\{URU\},deity,"deity of a city (Sun goddess of Arinna, Storm god of Nerik ...)",second
+^\{D\},^(AN-E|ŠA-ME-E|AN|LÍL|NIR\.GÁL)$,deity,"deity + epithet (of heaven, of the steppe, mighty)",second
+^\{D\} ?KAL$,^(\{KUŠ\})?kur-ša,deity,Protective deity of the hunting bag (KAL kuršaš),second
+^ták-na-aš,^\{D\} ?UTU,deity,taknaš UTU 'Sun-goddess of the Earth',first
+^(at|ad)-(ta|da)-aš$,^(DINGIR ?\{?MEŠ\}?|DINGIR\.MEŠ|\{D\} ?UTU),deity,attaš DINGIR.MEŠ / UTU 'gods / Sun-god of the father',first
+^(GAL|TUR)$,ḫal-li-ia,agent,GAL/TUR LÚ.MEŠ ḫalliyareš 'chief/junior of the ḫalliyari-singers',first
+^GAL$,.,agent,"GAL + agent title: 'chief of' (GAL MEŠEDI, GAL DUMU.MEŠ É.GAL ...)",first
+^šal-li$,^a-še-eš-šar,agent,šalli ašeššar 'the great assembly',first

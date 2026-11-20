@@ -1,0 +1,362 @@
+{
+  "margin": 0.019,
+  "fit_quantile": 0.05,
+  "reps": 3,
+  "texts": {
+    "reference": 1627,
+    "Historical texts, treaties": 300,
+    "Festivals of other traditions": 300,
+    "Oracles": 300,
+    "Cult inventories": 300,
+    "Myths": 300,
+    "Prayers and hymns": 139,
+    "Instructions": 114,
+    "Luwian rituals of Taurisa": 14
+  },
+  "by_k": {
+    "5": {
+      "fit_floor": 0.0833,
+      "reference": {
+        "placed": 0.572,
+        "correct_if_placed": 0.768,
+        "below_floor": 0.05,
+        "gate_sent_outside": 0.253
+      },
+      "Cult inventories": {
+        "placed": 0.191,
+        "auroc": 0.81,
+        "below_floor": 0.304,
+        "placed_and_above_floor": 0.174,
+        "gate_sent_outside": 0.872,
+        "gate_right_genre": 0.697
+      },
+      "Festivals of other traditions": {
+        "placed": 0.511,
+        "auroc": 0.566,
+        "below_floor": 0.066,
+        "placed_and_above_floor": 0.507,
+        "gate_sent_outside": 0.559,
+        "gate_right_genre": 0.406
+      },
+      "Historical texts, treaties": {
+        "placed": 0.197,
+        "auroc": 0.801,
+        "below_floor": 0.202,
+        "placed_and_above_floor": 0.187,
+        "gate_sent_outside": 0.94,
+        "gate_right_genre": 0.611
+      },
+      "Instructions": {
+        "placed": 0.208,
+        "auroc": 0.729,
+        "below_floor": 0.091,
+        "placed_and_above_floor": 0.205,
+        "gate_sent_outside": 0.86,
+        "gate_right_genre": 0.485
+      },
+      "Luwian rituals of Taurisa": {
+        "placed": 0.143,
+        "auroc": 0.743,
+        "below_floor": 0.048,
+        "placed_and_above_floor": 0.143,
+        "gate_sent_outside": 0.857,
+        "gate_right_genre": 0.357
+      },
+      "Myths": {
+        "placed": 0.21,
+        "auroc": 0.742,
+        "below_floor": 0.094,
+        "placed_and_above_floor": 0.202,
+        "gate_sent_outside": 0.81,
+        "gate_right_genre": 0.577
+      },
+      "Oracles": {
+        "placed": 0.196,
+        "auroc": 0.822,
+        "below_floor": 0.332,
+        "placed_and_above_floor": 0.189,
+        "gate_sent_outside": 0.919,
+        "gate_right_genre": 0.656
+      },
+      "Prayers and hymns": {
+        "placed": 0.177,
+        "auroc": 0.777,
+        "below_floor": 0.115,
+        "placed_and_above_floor": 0.175,
+        "gate_sent_outside": 0.906,
+        "gate_right_genre": 0.427
+      }
+    },
+    "10": {
+      "fit_floor": 0.1183,
+      "reference": {
+        "placed": 0.663,
+        "correct_if_placed": 0.826,
+        "below_floor": 0.05,
+        "gate_sent_outside": 0.21
+      },
+      "Cult inventories": {
+        "placed": 0.222,
+        "auroc": 0.86,
+        "below_floor": 0.419,
+        "placed_and_above_floor": 0.197,
+        "gate_sent_outside": 0.927,
+        "gate_right_genre": 0.778
+      },
+      "Festivals of other traditions": {
+        "placed": 0.556,
+        "auroc": 0.594,
+        "below_floor": 0.091,
+        "placed_and_above_floor": 0.541,
+        "gate_sent_outside": 0.649,
+        "gate_right_genre": 0.512
+      },
+      "Historical texts, treaties": {
+        "placed": 0.236,
+        "auroc": 0.837,
+        "below_floor": 0.27,
+        "placed_and_above_floor": 0.212,
+        "gate_sent_outside": 0.97,
+        "gate_right_genre": 0.708
+      },
+      "Instructions": {
+        "placed": 0.284,
+        "auroc": 0.771,
+        "below_floor": 0.105,
+        "placed_and_above_floor": 0.278,
+        "gate_sent_outside": 0.918,
+        "gate_right_genre": 0.617
+      },
+      "Luwian rituals of Taurisa": {
+        "placed": 0.143,
+        "auroc": 0.813,
+        "below_floor": 0.048,
+        "placed_and_above_floor": 0.143,
+        "gate_sent_outside": 0.881,
+        "gate_right_genre": 0.452
+      },
+      "Myths": {
+        "placed": 0.228,
+        "auroc": 0.786,
+        "below_floor": 0.129,
+        "placed_and_above_floor": 0.216,
+        "gate_sent_outside": 0.869,
+        "gate_right_genre": 0.72
+      },
+      "Oracles": {
+        "placed": 0.209,
+        "auroc": 0.876,
+        "below_floor": 0.419,
+        "placed_and_above_floor": 0.173,
+        "gate_sent_outside": 0.957,
+        "gate_right_genre": 0.771
+      },
+      "Prayers and hymns": {
+        "placed": 0.247,
+        "auroc": 0.813,
+        "below_floor": 0.189,
+        "placed_and_above_floor": 0.235,
+        "gate_sent_outside": 0.94,
+        "gate_right_genre": 0.552
+      }
+    },
+    "17": {
+      "fit_floor": 0.1458,
+      "reference": {
+        "placed": 0.727,
+        "correct_if_placed": 0.857,
+        "below_floor": 0.05,
+        "gate_sent_outside": 0.188
+      },
+      "Cult inventories": {
+        "placed": 0.227,
+        "auroc": 0.887,
+        "below_floor": 0.462,
+        "placed_and_above_floor": 0.183,
+        "gate_sent_outside": 0.95,
+        "gate_right_genre": 0.837
+      },
+      "Festivals of other traditions": {
+        "placed": 0.606,
+        "auroc": 0.596,
+        "below_floor": 0.074,
+        "placed_and_above_floor": 0.587,
+        "gate_sent_outside": 0.697,
+        "gate_right_genre": 0.57
+      },
+      "Historical texts, treaties": {
+        "placed": 0.297,
+        "auroc": 0.857,
+        "below_floor": 0.259,
+        "placed_and_above_floor": 0.259,
+        "gate_sent_outside": 0.986,
+        "gate_right_genre": 0.79
+      },
+      "Instructions": {
+        "placed": 0.383,
+        "auroc": 0.8,
+        "below_floor": 0.096,
+        "placed_and_above_floor": 0.365,
+        "gate_sent_outside": 0.962,
+        "gate_right_genre": 0.734
+      },
+      "Luwian rituals of Taurisa": {
+        "placed": 0.143,
+        "auroc": 0.85,
+        "below_floor": 0.119,
+        "placed_and_above_floor": 0.143,
+        "gate_sent_outside": 1.0,
+        "gate_right_genre": 0.619
+      },
+      "Myths": {
+        "placed": 0.258,
+        "auroc": 0.807,
+        "below_floor": 0.119,
+        "placed_and_above_floor": 0.249,
+        "gate_sent_outside": 0.888,
+        "gate_right_genre": 0.78
+      },
+      "Oracles": {
+        "placed": 0.3,
+        "auroc": 0.895,
+        "below_floor": 0.427,
+        "placed_and_above_floor": 0.243,
+        "gate_sent_outside": 0.983,
+        "gate_right_genre": 0.81
+      },
+      "Prayers and hymns": {
+        "placed": 0.302,
+        "auroc": 0.829,
+        "below_floor": 0.182,
+        "placed_and_above_floor": 0.293,
+        "gate_sent_outside": 0.978,
+        "gate_right_genre": 0.633
+      }
+    },
+    "40": {
+      "fit_floor": 0.194,
+      "reference": {
+        "placed": 0.79,
+        "correct_if_placed": 0.887,
+        "below_floor": 0.05,
+        "gate_sent_outside": 0.162
+      },
+      "Cult inventories": {
+        "placed": 0.325,
+        "auroc": 0.917,
+        "below_floor": 0.503,
+        "placed_and_above_floor": 0.244,
+        "gate_sent_outside": 0.971,
+        "gate_right_genre": 0.903
+      },
+      "Festivals of other traditions": {
+        "placed": 0.686,
+        "auroc": 0.624,
+        "below_floor": 0.086,
+        "placed_and_above_floor": 0.663,
+        "gate_sent_outside": 0.741,
+        "gate_right_genre": 0.657
+      },
+      "Historical texts, treaties": {
+        "placed": 0.405,
+        "auroc": 0.888,
+        "below_floor": 0.251,
+        "placed_and_above_floor": 0.3,
+        "gate_sent_outside": 0.987,
+        "gate_right_genre": 0.884
+      },
+      "Instructions": {
+        "placed": 0.428,
+        "auroc": 0.818,
+        "below_floor": 0.081,
+        "placed_and_above_floor": 0.396,
+        "gate_sent_outside": 0.955,
+        "gate_right_genre": 0.815
+      },
+      "Luwian rituals of Taurisa": {
+        "placed": 0.154,
+        "auroc": 0.899,
+        "below_floor": 0.103,
+        "placed_and_above_floor": 0.154,
+        "gate_sent_outside": 1.0,
+        "gate_right_genre": 0.487
+      },
+      "Myths": {
+        "placed": 0.369,
+        "auroc": 0.841,
+        "below_floor": 0.135,
+        "placed_and_above_floor": 0.333,
+        "gate_sent_outside": 0.927,
+        "gate_right_genre": 0.856
+      },
+      "Oracles": {
+        "placed": 0.516,
+        "auroc": 0.916,
+        "below_floor": 0.432,
+        "placed_and_above_floor": 0.383,
+        "gate_sent_outside": 0.991,
+        "gate_right_genre": 0.899
+      },
+      "Prayers and hymns": {
+        "placed": 0.324,
+        "auroc": 0.851,
+        "below_floor": 0.095,
+        "placed_and_above_floor": 0.314,
+        "gate_sent_outside": 0.986,
+        "gate_right_genre": 0.805
+      }
+    }
+  },
+  "orphans": {
+    "scored": 2023,
+    "below_fit_floor": 163,
+    "assigned_but_below_floor": 17,
+    "below_floor_nearest_outside_genre": {
+      "Cult inventories": 13,
+      "Myths": 6,
+      "Oracles": 5,
+      "Historical texts, treaties": 3,
+      "Festivals of other traditions": 1
+    },
+    "outside_by_margin": {
+      "Myths": 57,
+      "Cult inventories": 49,
+      "Festivals of other traditions": 38,
+      "Instructions": 26,
+      "Historical texts, treaties": 10,
+      "Prayers and hymns": 9,
+      "Oracles": 7,
+      "Luwian rituals of Taurisa": 1
+    },
+    "assigned_but_outside_by_margin": 59,
+    "assigned_but_outside_by_tradition": {
+      "Hattian cult layer": {
+        "Cult inventories": 0,
+        "Festivals of other traditions": 21,
+        "Historical texts, treaties": 2,
+        "Instructions": 0,
+        "Myths": 0,
+        "Oracles": 0,
+        "Prayers and hymns": 0
+      },
+      "Kizzuwatna rituals": {
+        "Cult inventories": 3,
+        "Festivals of other traditions": 0,
+        "Historical texts, treaties": 2,
+        "Instructions": 11,
+        "Myths": 10,
+        "Oracles": 1,
+        "Prayers and hymns": 1
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "Cult inventories": 8,
+        "Festivals of other traditions": 0,
+        "Historical texts, treaties": 0,
+        "Instructions": 0,
+        "Myths": 0,
+        "Oracles": 0,
+        "Prayers and hymns": 0
+      }
+    }
+  }
+}

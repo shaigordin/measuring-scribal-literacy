@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# Rebuild every number, table and figure of the Mainz talk from the public TLHdig release.
+#
+#   bash reproduce.sh [DATA_DIR]
+#
+# DATA_DIR (default ./data) receives the TLHdig zip and the parsed token table.
+# The CTH 701 subgroup labels (Salvini-Wegner a-f, script date) are read from
+# $LABELS701 (default labels/cth701_labels.csv, a snapshot of the Mainz Konkordanz;
+# set REFRESH_KONKORDANZ=1 to download the current Konkordanz page and rebuild it).
+# Needs Python 3.13 with requirements.txt, and Quarto 1.6 for the slides.
+set -euo pipefail
+cd "$(dirname "$0")"
+DATA=${1:-data}
+# TLH=04 (default): TLHdig Beta 0.4 (doi:10.5281/zenodo.24373727), results in results/tlhdig04*.
+# TLH=03 rebuilds the earlier results on Beta 0.3 (doi:10.5281/zenodo.20328284, deprecated by TLHdig).
+TLH=${TLH:-04}
+export TLH
+case $TLH in
+  04) REC=24373727; MD5=a31a1ac9808ac77432466a910ed85969 ;;
+  03) REC=20328284; MD5=f9acbc8db3111cc7dd88d82f7819a912 ;;
+  *) echo "unknown TLH=$TLH"; exit 1 ;;
+esac
+OUT=results/tlhdig$TLH
+LABELS701=${LABELS701:-labels/cth701_labels.csv}
+XML=$DATA/TLHbasisONLINE25_1_ZENODO_Beta_$TLH
+ZIP=$XML.zip
+URL=https://zenodo.org/api/records/$REC/files/TLHbasisONLINE25_1_ZENODO_Beta_$TLH.zip/content
+mkdir -p "$DATA" "$OUT"
+
+# 1. data: TLHdig Beta 0.$TLH from Zenodo, checksum-verified
+[ -f "$ZIP" ] || curl -L -o "$ZIP" "$URL"
+echo "$MD5  $ZIP" | md5sum -c -
+[ -d "$XML" ] || unzip -q "$ZIP" -d "$DATA"
+
+# 2. token table (one row per word, with word classes)
+#    tokens_marks.csv adds sign status (preserved/damaged/restored), Akkadogram/Sumerogram layer and
+#    editorial flags; tokens.csv (version A) is the table as published so far, without them.
+#    The main datasets (with and without restorations, analyses filled) are built in step 4.
+python3 -m qtm.tlhdig "$XML" "$DATA/tokens_marks.csv" --wide-titles > "$DATA/parse.log" 2> "$DATA/parse.err"
+python3 -m qtm.variants "$DATA/tokens_marks.csv" "$DATA/tokens.csv" --variant A
+TOK=$DATA/tokens.csv
+
+if [ "${REFRESH_KONKORDANZ:-0}" = 1 ]; then
+  rm -f "$DATA/konkordanz/hetkonk_c701.html"
+  python3 -m qtm.konkordanz 701 "$DATA/konkordanz" labels/cth701_labels.csv
+fi
+L=()
+if [ -f "$LABELS701" ]; then L=(--labels701 "$LABELS701"); else echo "no CTH 701 labels: skipping the subgroup tests"; fi
+
+# 3. experiments, for both reference setups: StBoT 73 Table 3 + CTH-range controls (the published
+#    baseline), and the literature-defined traditions with the HFR festival modules (the talk's main
+#    reference; see qtm/groups.py)
+for G in historical literature; do
+  O=$OUT; IMG=../img/orphans
+  [ "$G" != historical ] && O=${OUT}_$G && IMG=../img/orphans/$G
+  mkdir -p "$O"
+  python3 run_experiments.py "$TOK" "${L[@]}" --groups $G --out "$O" --perm 200 > "$O/run.log"   # E1-E6
+  python3 run_openset.py "$TOK" --report "$O/report.json" --out "$O" > "$O/E9_run.log"           # E9
+  [ "$G" = literature ] && python3 run_hypotheses.py "$TOK" --out "$O" > "$O/E10_run.log"        # E10
+  [ "$G" = literature ] && mkdir -p "$O/tunnawiya" && python3 run_hypotheses.py "$TOK" --cths 409 \
+      --claim "Luwian rituals (Puriyanni, Kuwattalla)" --out "$O/tunnawiya" > "$O/tunnawiya/E10_run.log"  # E10, CTH 409
+  [ "$G" = literature ] && python3 run_attribution.py "$TOK" --report "$O/report.json" --out "$O" > "$O/E11_run.log"  # E11
+  python3 run_profiles.py   "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E7_run.log" # E7
+  python3 run_wordclass.py  "$TOK" "${L[@]}" --groups $G --out "$O" --perm 100 > "$O/E8_run.log" # E8
+  [ "$G" = literature ] && mkdir -p "$O/case" && python3 run_case.py "$TOK" --run "$O" --txtid "KBo 41.22" --out "$O/case" > "$O/case/run.log" \
+      && python3 make_case_slide.py "$O/case/case_KBo_41_22.json"                                  # worked example
+  python3 make_figures.py "$O" "$IMG"
+  python3 make_profile_figures.py "$O" "$IMG"
+done
+python3 stats_corpus.py "$TOK" --out "$OUT"                                                    # slide numbers
+python3 stats_corpus.py "$TOK" --out "${OUT}_literature" --groups literature
+python3 review_wordclass.py examples --tokens "$TOK"                                           # annotation examples
+python3 review_wordclass.py rescore --tokens "$TOK"                                            # audit after the rule revisions
+
+# 4. main results and Zenodo release. Words TLHdig leaves without an analysis take the analysis of the
+#    same spelling elsewhere in TLHdig, or (Cuneiform Luwian) their eDiAna lemma (fill_lemmas.py);
+#    run_filled.sh runs every experiment, case study and join check on the filled table, once without
+#    restorations (C, the main results) and once with them (A).
+bash run_variant.sh C "$DATA" > /dev/null                                       # results/tlhdig$TLH_literature_C (no fills; for the fill comparison)
+bash run_filled.sh "$DATA" C                                                     # results/tlhdig$TLH_literature_C_filled
+bash run_filled.sh "$DATA" A                                                     # results/tlhdig$TLH_literature_A_filled
+python3 run_unicode.py "$DATA/tokens_F.csv" --xml "$XML" --run "${OUT}_literature_C_filled" > "${OUT}_literature_C_filled/U_run.log"   # Unicode A/B
+[ "${STOP_BEFORE_RELEASE:-0}" = 1 ] && { echo "stopped before the release"; exit 0; }
+mkdir -p release
+python3 make_release.py "$DATA/tokens_F.csv" --run "${OUT}_literature_C_filled" --out release/without_restorations > release_C.log
+python3 make_release.py "$DATA/tokens_FA.csv" --run "${OUT}_literature_A_filled" --out release/with_restorations > release_A.log
+python3 konkordanz_abbreviations.py --release release/without_restorations       # full titles for the Konkordanz short forms
+python3 release_docs.py release --version "${RELEASE_VERSION:-2.0.0}" --zip
+python3 talk_numbers.py > talk_numbers.log                                       # every number of the deck and script
+R=${OUT}_literature_C_filled                                                     # slides drawn from the data (slides/README.md)
+python3 slides/make_test1_slide.py "$R" "${OUT}_literature_A_filled" > slides/test1.html
+python3 slides/make_barcode_slide.py "$R" > slides/barcode.html
+python3 slides/make_scribal_slide.py "$R" > slides/scribal.html
+python3 slides/decide44_colours.py "$R" > slides/decide44_colours.tsv
+
+# 5. slides
+(cd .. && quarto render orphans_archetypes.qmd)

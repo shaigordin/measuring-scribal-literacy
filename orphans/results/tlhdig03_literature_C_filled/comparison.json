@@ -1,0 +1,167 @@
+{
+ "filled_words": {
+  "tlhdig_same_spelling": 94021,
+  "ediana": 1109
+ },
+ "accuracy": {
+  "main": 0.826,
+  "filled": 0.83
+ },
+ "margin": {
+  "main": 0.029,
+  "filled": 0.026000000000000002
+ },
+ "orphans_scored": {
+  "main": 2013,
+  "filled": 2023
+ },
+ "orphans_placed": {
+  "main": 434,
+  "filled": 457
+ },
+ "by_tradition": {
+  "Arzawa / western rituals": {
+   "reference_main": 10,
+   "reference_filled": 32,
+   "loo_main": 0.4,
+   "loo_filled": 0.812,
+   "orphans_main": 4,
+   "orphans_filled": 11
+  },
+  "Hattian cult layer": {
+   "reference_main": 438,
+   "reference_filled": 442,
+   "loo_main": 0.941,
+   "loo_filled": 0.937,
+   "orphans_main": 60,
+   "orphans_filled": 73
+  },
+  "Kizzuwatna rituals": {
+   "reference_main": 153,
+   "reference_filled": 211,
+   "loo_main": 0.902,
+   "loo_filled": 0.891,
+   "orphans_main": 242,
+   "orphans_filled": 208
+  },
+  "Kizzuwatna–Lower Land (Hurrian)": {
+   "reference_main": 297,
+   "reference_filled": 297,
+   "loo_main": 0.798,
+   "loo_filled": 0.778,
+   "orphans_main": 37,
+   "orphans_filled": 46
+  },
+  "Luwian festivals (Ištanuwa, Lallupiya)": {
+   "reference_main": 47,
+   "reference_filled": 47,
+   "loo_main": 0.766,
+   "loo_filled": 0.745,
+   "orphans_main": 1,
+   "orphans_filled": 3
+  },
+  "Luwian rituals (Puriyanni, Kuwattalla)": {
+   "reference_main": 10,
+   "reference_filled": 57,
+   "loo_main": 0.3,
+   "loo_filled": 0.842,
+   "orphans_main": 15,
+   "orphans_filled": 39
+  },
+  "Mixed (Hurrian, Syrian, Luwian)": {
+   "reference_main": 189,
+   "reference_filled": 189,
+   "loo_main": 0.656,
+   "loo_filled": 0.672,
+   "orphans_main": 17,
+   "orphans_filled": 20
+  },
+  "Palaic festivals": {
+   "reference_main": 30,
+   "reference_filled": 30,
+   "loo_main": 0.733,
+   "loo_filled": 0.733,
+   "orphans_main": 0,
+   "orphans_filled": 0
+  },
+  "Syro-Mesopotamia (Hurrian)": {
+   "reference_main": 149,
+   "reference_filled": 149,
+   "loo_main": 0.671,
+   "loo_filled": 0.671,
+   "orphans_main": 46,
+   "orphans_filled": 46
+  },
+  "Ḫuwaššanna festivals": {
+   "reference_main": 178,
+   "reference_filled": 179,
+   "loo_main": 0.927,
+   "loo_filled": 0.916,
+   "orphans_main": 12,
+   "orphans_filled": 11
+  }
+ },
+ "compositions_recovered": {
+  "main": "56/78",
+  "filled": "72/94"
+ },
+ "orphans_placed_in_both": 319,
+ "same_tradition_when_both": 306,
+ "moved": [
+  [
+   "Kizzuwatna rituals",
+   "Luwian rituals (Puriyanni, Kuwattalla)",
+   "13"
+  ]
+ ],
+ "cases": {
+  "KBo 44.52": {
+   "main": {
+    "assigned": "Syro-Mesopotamia (Hurrian)",
+    "nearest": "Syro-Mesopotamia (Hurrian)",
+    "runner_up": "Kizzuwatna rituals",
+    "margin": 0.1126,
+    "words": 49
+   },
+   "filled": {
+    "assigned": "Syro-Mesopotamia (Hurrian)",
+    "nearest": "Syro-Mesopotamia (Hurrian)",
+    "runner_up": "Kizzuwatna rituals",
+    "margin": 0.1133,
+    "words": 50
+   }
+  },
+  "EBo 133": {
+   "main": {
+    "assigned": null,
+    "nearest": "Palaic festivals",
+    "runner_up": "Ḫuwaššanna festivals",
+    "margin": 0.0066,
+    "words": 19
+   },
+   "filled": {
+    "assigned": null,
+    "nearest": "Palaic festivals",
+    "runner_up": "Ḫuwaššanna festivals",
+    "margin": 0.0065,
+    "words": 19
+   }
+  },
+  "KBo 41.22": {
+   "main": {
+    "assigned": "Luwian rituals (Puriyanni, Kuwattalla)",
+    "nearest": "Luwian rituals (Puriyanni, Kuwattalla)",
+    "runner_up": "Kizzuwatna rituals",
+    "margin": 0.0296,
+    "words": 32
+   },
+   "filled": {
+    "assigned": "Luwian rituals (Puriyanni, Kuwattalla)",
+    "nearest": "Luwian rituals (Puriyanni, Kuwattalla)",
+    "runner_up": "Kizzuwatna rituals",
+    "margin": 0.0289,
+    "words": 32
+   }
+  }
+ }
+}

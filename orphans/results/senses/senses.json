@@ -1,0 +1,68 @@
+{
+ "tokens_file": "data/tokens_marks.csv",
+ "glosses_nominal": 4062,
+ "glosses_with_tokens": 3470,
+ "any_signal": 2492,
+ "any_signal_tokens": 178614,
+ "flagged": 984,
+ "flagged_tokens": 96945,
+ "flagged_token_share": 0.418,
+ "signals": {
+  "multi_lemma": 1062,
+  "wn_disagree": 449,
+  "wn_multiclass": 406,
+  "unvalidated": 1876
+ },
+ "by_number_of_signals": {
+  "0": 978,
+  "1": 1508,
+  "2": 738,
+  "3": 208,
+  "4": 38
+ },
+ "concordances_for_top": 30,
+ "concordances_also": [
+  "Spanne",
+  "Baldachin",
+  "Inneres",
+  "Zaḫ(ḫ)(a)puna",
+  "geschlagen",
+  "Lippe",
+  "Muli",
+  "so beschaffen",
+  "Termin",
+  "Großer",
+  "Tag (vergöttlicht)",
+  "Adler",
+  "Silber",
+  "vollendet",
+  "Tontafel"
+ ],
+ "rules": 39,
+ "rules_by_decider": {
+  "ShG": 33,
+  "draft": 6
+ },
+ "glosses_with_rules": 17,
+ "tokens_with_sense_rule": 16974,
+ "tokens_class_changed": 11511,
+ "horn_kara_candidates": {
+  "tokens": 51,
+  "editor_selected": 0,
+  "by_spelling": {
+   "kar-aš": 32,
+   "kar-aš-ta": 13,
+   "kar-aš-ša": 1,
+   "kar-〈aš〉-ta": 1,
+   "ka-ra-a-az-ša-an": 1,
+   "ka-ra-ez-za": 1,
+   "kar-aš-ša-an": 1,
+   "kar-aš-mu": 1
+  },
+  "by_class": {
+   "realia": 33,
+   "ambiguous": 17,
+   "verb": 1
+  }
+ }
+}

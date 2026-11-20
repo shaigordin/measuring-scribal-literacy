@@ -1,0 +1,11 @@
+category,Word form,Syllabic spelling,Logographic writing
+Function words,0.0341,0.0289,0.027
+Verbs,0.0333,0.081,0.0063
+Realia,0.0412,0.0525,0.0559
+Agents and deities,0.0898,0.1547,0.2046
+Places,0.0029,0.0085,0.004
+"Animals, body, nature",0.0034,0.002,0.0037
+Abstract nouns,0.0014,0.0034,0.0005
+Adjectives,0.004,0.0022,0.006
+Foreign words,0.0153,0.1069,0.0008
+Other words,0.0036,0.0161,0.006

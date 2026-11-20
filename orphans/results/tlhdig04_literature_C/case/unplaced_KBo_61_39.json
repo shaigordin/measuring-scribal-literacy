@@ -1,0 +1,285 @@
+{
+ "txtid": "KBo 61.39",
+ "cth": "470",
+ "translit": "TÚG TÚG-TUM ma-aš-ša-an-ni TÚG -zi še-er-ra-ša-an TÚG-TI še-er",
+ "words": [
+  "TÚG",
+  "TÚG-TUM",
+  "maššanni",
+  "TÚG",
+  "~zi",
+  "šerrašan",
+  "TÚG-TI",
+  "šer"
+ ],
+ "margin": 0.028,
+ "traditions": [
+  [
+   "Kizzuwatna rituals",
+   0.1165
+  ],
+  [
+   "Kizzuwatna–Lower Land (Hurrian)",
+   0.1047
+  ],
+  [
+   "Palaic festivals",
+   0.0996
+  ],
+  [
+   "Hattian cult layer",
+   0.0981
+  ],
+  [
+   "Ḫuwaššanna festivals",
+   0.0974
+  ],
+  [
+   "Syro-Mesopotamia (Hurrian)",
+   0.0904
+  ],
+  [
+   "Luwian festivals (Ištanuwa, Lallupiya)",
+   0.0866
+  ],
+  [
+   "Mixed (Hurrian, Syrian, Luwian)",
+   0.0826
+  ],
+  [
+   "Luwian rituals (Puriyanni, Kuwattalla)",
+   0.0758
+  ],
+  [
+   "Arzawa / western rituals",
+   0.0541
+  ]
+ ],
+ "nearest": [
+  {
+   "txtid": "KBo 24.46",
+   "cth": "500",
+   "group": "CTH 500 Kizzuwatna fragments",
+   "similarity": 0.1862,
+   "top_terms_share": [
+    [
+     "TÚG",
+     0.21
+    ],
+    [
+     "§TÚG",
+     0.186
+    ],
+    [
+     "§še·er·ra",
+     0.135
+    ],
+    [
+     "§er·ra",
+     0.12
+    ],
+    [
+     "§še·er",
+     0.083
+    ]
+   ]
+  },
+  {
+   "txtid": "CHDS 6.64",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.1679,
+   "top_terms_share": [
+    [
+     "TÚG",
+     0.421
+    ],
+    [
+     "§TÚG",
+     0.266
+    ],
+    [
+     "§še·er",
+     0.07
+    ],
+    [
+     "§še",
+     0.066
+    ],
+    [
+     "§er",
+     0.054
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 33.159",
+   "cth": "500",
+   "group": "CTH 500 Kizzuwatna fragments",
+   "similarity": 0.1665,
+   "top_terms_share": [
+    [
+     "TÚG",
+     0.224
+    ],
+    [
+     "§TÚG",
+     0.199
+    ],
+    [
+     "§še·er",
+     0.089
+    ],
+    [
+     "§ma·aš·ša",
+     0.071
+    ],
+    [
+     "§er",
+     0.069
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 38.269",
+   "cth": "628",
+   "group": "Kizzuwatna–Lower Land (Hurrian)",
+   "similarity": 0.1659,
+   "top_terms_share": [
+    [
+     "TÚG",
+     0.378
+    ],
+    [
+     "§TÚG",
+     0.336
+    ],
+    [
+     "~zi",
+     0.08
+    ],
+    [
+     "§aš·ša·an",
+     0.035
+    ],
+    [
+     "§ša·an",
+     0.031
+    ]
+   ]
+  },
+  {
+   "txtid": "KUB 7.44+",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.1655,
+   "top_terms_share": [
+    [
+     "TÚG",
+     0.332
+    ],
+    [
+     "§TÚG",
+     0.295
+    ],
+    [
+     "§še·er",
+     0.085
+    ],
+    [
+     "šer",
+     0.071
+    ],
+    [
+     "§er",
+     0.066
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 22.111",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.1646,
+   "top_terms_share": [
+    [
+     "TÚG",
+     0.35
+    ],
+    [
+     "§TÚG",
+     0.311
+    ],
+    [
+     "§še·er",
+     0.058
+    ],
+    [
+     "§er",
+     0.045
+    ],
+    [
+     "šer",
+     0.039
+    ]
+   ]
+  },
+  {
+   "txtid": "CHDS 7.116",
+   "cth": "409",
+   "group": "CTH 390–469 residue",
+   "similarity": 0.1642,
+   "top_terms_share": [
+    [
+     "TÚG",
+     0.356
+    ],
+    [
+     "§TÚG",
+     0.316
+    ],
+    [
+     "§še·er",
+     0.083
+    ],
+    [
+     "§er",
+     0.065
+    ],
+    [
+     "šer",
+     0.056
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 56.48",
+   "cth": "500",
+   "group": "CTH 500 Kizzuwatna fragments",
+   "similarity": 0.1527,
+   "top_terms_share": [
+    [
+     "§še·er·ra",
+     0.185
+    ],
+    [
+     "§er·ra",
+     0.165
+    ],
+    [
+     "§še·er",
+     0.141
+    ],
+    [
+     "§er",
+     0.125
+    ],
+    [
+     "§še",
+     0.079
+    ]
+   ]
+  }
+ ],
+ "pool_size": 2047
+}

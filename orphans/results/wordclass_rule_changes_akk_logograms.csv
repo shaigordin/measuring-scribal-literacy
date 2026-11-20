@@ -1,0 +1,15 @@
+from,to,rule,tokens,examples
+unknown,function,akkadian_function,2161,"ana, ištu, itti, aššum"
+realia,function,akkadian_function,1247,"ina, itti"
+foreign,realia,selected_elsewhere,291,"MUŠEN, KUR, NINDA.SIG, SILA₄, ḪUR.SAG"
+foreign,function,selected_elsewhere,218,"KI.MIN, QA-TAM-MA, NU, Ù, NU.GÁL"
+foreign,unknown,no_analysis,208,"DIŠ, 𒉽, KI.3, ~, KI.4"
+foreign,other,selected_elsewhere,128,"1, 2, 4, 2-ŠU, 3-ŠU"
+verb,function,akkadian_function,14,"ana, ištu"
+foreign,realia,analysis_unanimous,14,"SÍSKUR, UD, ŠUM-ŠU, MAḪ-RI-I, A-WA-AT"
+foreign,function,akkadian_function,8,"ana, ištu, itti, ina"
+foreign,function,analysis_selected,7,KI.MIN
+foreign,verb,selected_elsewhere,6,"TIL, NU.TUKU"
+foreign,verb,analysis_selected,4,SÌR-RU
+foreign,other,analysis_selected,3,"1, 3-ŠÚ"
+unknown,function,analysis_selected,1,ŠÈ

@@ -1,0 +1,550 @@
+{
+ "txtid": "EBo 133",
+ "pool_size": 18490,
+ "min_words": 5,
+ "columns": [
+  {
+   "word": "takarmun",
+   "spelling": "{NINDA}ta-kar-mu-un"
+  },
+  {
+   "word": "paršia",
+   "spelling": "pár-ši-ia"
+  },
+  {
+   "word": "1-ŠU",
+   "spelling": "1-ŠU"
+  },
+  {
+   "word": "ekuzi",
+   "spelling": "e-ku-zi"
+  },
+  {
+   "word": "NINDA",
+   "spelling": "NINDA"
+  },
+  {
+   "word": "kišan",
+   "spelling": "ki-iš-an"
+  },
+  {
+   "word": "DINGIR",
+   "spelling": "DINGIR {MEŠ}"
+  },
+  {
+   "word": "irḫaizi",
+   "spelling": "ir-ḫa-a-ez-zi"
+  },
+  {
+   "word": "para",
+   "spelling": "pa-ra-a"
+  },
+  {
+   "word": "akkuškezi",
+   "spelling": "ak-ku-uš-ke-ez-zi"
+  }
+ ],
+ "phrases": [
+  [
+   "1-ŠU",
+   "ekuzi"
+  ],
+  [
+   "1-ŠU",
+   "takarmun"
+  ],
+  [
+   "DINGIR",
+   "irḫaizi"
+  ],
+  [
+   "NINDA",
+   "paršia"
+  ],
+  [
+   "akkuškezi",
+   "paršia"
+  ],
+  [
+   "ekuzi",
+   "NINDA"
+  ],
+  [
+   "irḫaizi",
+   "para"
+  ],
+  [
+   "kišan",
+   "takarmun"
+  ],
+  [
+   "para",
+   "akkuškezi"
+  ],
+  [
+   "paršia",
+   "1-ŠU"
+  ],
+  [
+   "paršia",
+   "DINGIR"
+  ],
+  [
+   "paršia",
+   "kišan"
+  ],
+  [
+   "takarmun",
+   "paršia"
+  ]
+ ],
+ "candidates": [
+  {
+   "rank": 1,
+   "txtid": "KBo 21.51",
+   "cth": "705",
+   "group": "Mixed (Hurrian, Syrian, Luwian)",
+   "n_words": 19,
+   "similarity": 0.6126,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 2,
+   "txtid": "KBo 43.137",
+   "cth": "670",
+   "group": "",
+   "n_words": 26,
+   "similarity": 0.5519,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 3,
+   "txtid": "KBo 42.97",
+   "cth": "635",
+   "group": "",
+   "n_words": 7,
+   "similarity": 0.5394,
+   "barcode": "S.........",
+   "shared_words": 1,
+   "different_spellings": [],
+   "shared_phrases": [],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": false
+   },
+   "flagged": false
+  },
+  {
+   "rank": 4,
+   "txtid": "KBo 22.226",
+   "cth": "670",
+   "group": "",
+   "n_words": 30,
+   "similarity": 0.5312,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 5,
+   "txtid": "KBo 51.173",
+   "cth": "670",
+   "group": "",
+   "n_words": 19,
+   "similarity": 0.5225,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 6,
+   "txtid": "KBo 53.193",
+   "cth": "670",
+   "group": "",
+   "n_words": 25,
+   "similarity": 0.5076,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 7,
+   "txtid": "DBH 43_2.82",
+   "cth": "670",
+   "group": "",
+   "n_words": 15,
+   "similarity": 0.4997,
+   "barcode": "SS........",
+   "shared_words": 2,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 8,
+   "txtid": "KBo 49.126",
+   "cth": "656",
+   "group": "",
+   "n_words": 26,
+   "similarity": 0.4827,
+   "barcode": "SS.SS.....",
+   "shared_words": 4,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 9,
+   "txtid": "KBo 58.179",
+   "cth": "670",
+   "group": "",
+   "n_words": 28,
+   "similarity": 0.4657,
+   "barcode": "SS.S....S.",
+   "shared_words": 4,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 10,
+   "txtid": "CHDS 2.133",
+   "cth": "670",
+   "group": "",
+   "n_words": 9,
+   "similarity": 0.4645,
+   "barcode": "WSS.......",
+   "shared_words": 3,
+   "different_spellings": [
+    {
+     "word": "takarmun",
+     "fragment": "{NINDA}ta-kar-mu-un",
+     "candidate": [
+      "{NINDA}ta-kar-mu-ú-un"
+     ]
+    }
+   ],
+   "shared_phrases": [],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": false,
+    "shared_phrase": false
+   },
+   "flagged": false
+  },
+  {
+   "rank": 11,
+   "txtid": "KBo 44.140",
+   "cth": "669",
+   "group": "",
+   "n_words": 37,
+   "similarity": 0.4544,
+   "barcode": "SSSS....S.",
+   "shared_words": 5,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "1-ŠU",
+     "ekuzi"
+    ],
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": true,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": true
+  },
+  {
+   "rank": 12,
+   "txtid": "KBo 43.149",
+   "cth": "670",
+   "group": "",
+   "n_words": 20,
+   "similarity": 0.4469,
+   "barcode": ".S.S......",
+   "shared_words": 2,
+   "different_spellings": [],
+   "shared_phrases": [],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": false
+   },
+   "flagged": false
+  },
+  {
+   "rank": 13,
+   "txtid": "Bo 7874",
+   "cth": "670",
+   "group": "",
+   "n_words": 17,
+   "similarity": 0.4467,
+   "barcode": "S.........",
+   "shared_words": 1,
+   "different_spellings": [],
+   "shared_phrases": [],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": false
+   },
+   "flagged": false
+  },
+  {
+   "rank": 14,
+   "txtid": "KBo 34.228",
+   "cth": "693",
+   "group": "Ḫuwaššanna festivals",
+   "n_words": 41,
+   "similarity": 0.4449,
+   "barcode": "SS....S...",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 15,
+   "txtid": "KBo 39.130",
+   "cth": "670",
+   "group": "",
+   "n_words": 11,
+   "similarity": 0.4383,
+   "barcode": "S..S......",
+   "shared_words": 2,
+   "different_spellings": [],
+   "shared_phrases": [],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": false
+   },
+   "flagged": false
+  },
+  {
+   "rank": 16,
+   "txtid": "KBo 71.106",
+   "cth": "670",
+   "group": "",
+   "n_words": 13,
+   "similarity": 0.4332,
+   "barcode": "SS........",
+   "shared_words": 2,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 17,
+   "txtid": "KBo 39.124",
+   "cth": "670",
+   "group": "",
+   "n_words": 8,
+   "similarity": 0.4313,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 18,
+   "txtid": "KBo 65.38",
+   "cth": "683",
+   "group": "",
+   "n_words": 41,
+   "similarity": 0.4158,
+   "barcode": "SS........",
+   "shared_words": 2,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 19,
+   "txtid": "KBo 60.152",
+   "cth": "670",
+   "group": "",
+   "n_words": 34,
+   "similarity": 0.4103,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  },
+  {
+   "rank": 20,
+   "txtid": "KBo 49.186",
+   "cth": "656",
+   "group": "",
+   "n_words": 34,
+   "similarity": 0.3994,
+   "barcode": "SS.S......",
+   "shared_words": 3,
+   "different_spellings": [],
+   "shared_phrases": [
+    [
+     "takarmun",
+     "paršia"
+    ]
+   ],
+   "checks": {
+    "half_the_words": false,
+    "same_spellings": true,
+    "shared_phrase": true
+   },
+   "flagged": false
+  }
+ ]
+}

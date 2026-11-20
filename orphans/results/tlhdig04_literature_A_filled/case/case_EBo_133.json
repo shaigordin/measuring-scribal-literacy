@@ -1,0 +1,1231 @@
+{
+  "txtid": "EBo 133",
+  "filed_under": "670",
+  "legible_words": 19,
+  "text": [
+    "side A 1′  x",
+    "side A 2′  {NINDA}ta-kar-mu-un pár-ši-ia",
+    "side A 3′  -pa-an 1-ŠU",
+    "side A 4′  {NINDA}ta-kar-mu-un pár-ši-ia x",
+    "side A 5′  1-ŠU e-ku-zi 1 NINDA pár-ši-ia",
+    "side A 6′  x ki-iš-an x",
+    "side A 7′  {NINDA}ta-kar-mu-un pár-ši-ia",
+    "side A 8′  DINGIR {MEŠ} ir-ḫa-a-ez-zi",
+    "side A 9′  x pa-ra-a",
+    "side A 10′  x e-ša-x",
+    "side A 11′  ak-ku-uš-ke-ez-zi",
+    "side A 13′  x x",
+    "side A 14′  x",
+    "side B 1′  x",
+    "side B 2′  pár-ši-ia"
+  ],
+  "similarity": {
+    "Ḫuwaššanna festivals": 0.2779,
+    "Palaic festivals": 0.2342,
+    "Mixed (Hurrian, Syrian, Luwian)": 0.225,
+    "Kizzuwatna–Lower Land (Hurrian)": 0.1986,
+    "Hattian cult layer": 0.1799,
+    "Kizzuwatna rituals": 0.1478,
+    "Luwian festivals (Ištanuwa, Lallupiya)": 0.1465,
+    "Syro-Mesopotamia (Hurrian)": 0.1339,
+    "Luwian rituals (Puriyanni, Kuwattalla)": 0.1173,
+    "Arzawa / western rituals": 0.1158
+  },
+  "nearest": "Ḫuwaššanna festivals",
+  "runner_up": "Palaic festivals",
+  "margin": 0.0437,
+  "rule_margin": 0.016,
+  "assigned": "Ḫuwaššanna festivals",
+  "decision_by_layer_category": {
+    "Syllabic spelling | Realia": 1.027,
+    "Logographic writing | Realia": 0.387,
+    "Word form | Realia": 0.293,
+    "Logographic writing | Agents and deities": 0.107,
+    "Word form | Agents and deities": 0.037,
+    "Word form | Verbs": -0.055,
+    "Word form | Other words": -0.1,
+    "Syllabic spelling | Verbs": -0.715
+  },
+  "decision_share_common_features": -0.327,
+  "decision_share_frequent_words": -0.255,
+  "decision_features": [
+    [
+      "takarmun",
+      0.212
+    ],
+    [
+      "§kar·mu·un",
+      0.212
+    ],
+    [
+      "§NINDA·ta·kar",
+      0.192
+    ],
+    [
+      "§kar·mu",
+      0.189
+    ],
+    [
+      "§ta·kar·mu",
+      0.189
+    ],
+    [
+      "§mu·un",
+      0.188
+    ],
+    [
+      "§ta·kar",
+      0.185
+    ],
+    [
+      "§NINDA·ta",
+      0.168
+    ],
+    [
+      "§a·ez",
+      0.084
+    ],
+    [
+      "§a·ez·zi",
+      0.084
+    ],
+    [
+      "NINDA",
+      0.081
+    ],
+    [
+      "§kar",
+      0.075
+    ],
+    [
+      "§DINGIR",
+      0.055
+    ],
+    [
+      "para",
+      0.044
+    ],
+    [
+      "§pa·ra·a",
+      0.037
+    ]
+  ],
+  "against_features": [
+    [
+      "1-ŠU",
+      -0.099
+    ],
+    [
+      "§pár",
+      -0.083
+    ],
+    [
+      "§ši",
+      -0.069
+    ],
+    [
+      "§pár·ši·ia",
+      -0.068
+    ],
+    [
+      "§pár·ši",
+      -0.065
+    ]
+  ],
+  "nearest_manuscripts": [
+    [
+      "KBo 21.51",
+      "705",
+      "Mixed (Hurrian, Syrian, Luwian)",
+      20,
+      0.6178
+    ],
+    [
+      "KBo 34.228",
+      "693",
+      "Ḫuwaššanna festivals",
+      41,
+      0.4508
+    ],
+    [
+      "KBo 34.221",
+      "694",
+      "Ḫuwaššanna festivals",
+      17,
+      0.3969
+    ],
+    [
+      "DBH 46_2.139",
+      "750",
+      "Palaic festivals",
+      96,
+      0.3803
+    ],
+    [
+      "KBo 19.157",
+      "750",
+      "Palaic festivals",
+      46,
+      0.3673
+    ],
+    [
+      "KBo 34.95",
+      "500",
+      "CTH 500 Kizzuwatna fragments",
+      32,
+      0.3582
+    ],
+    [
+      "KBo 35.155",
+      "706",
+      "Mixed (Hurrian, Syrian, Luwian)",
+      127,
+      0.3545
+    ],
+    [
+      "KBo 29.81",
+      "692",
+      "Ḫuwaššanna festivals",
+      27,
+      0.3467
+    ],
+    [
+      "KBo 29.69",
+      "692",
+      "Ḫuwaššanna festivals",
+      60,
+      0.3423
+    ],
+    [
+      "KBo 29.113",
+      "694",
+      "Ḫuwaššanna festivals",
+      24,
+      0.3384
+    ]
+  ],
+  "distinctive_words_by_cth": {
+    "takarmun": {
+      "670": 46,
+      "692": 34,
+      "694": 28,
+      "647": 13,
+      "646": 4,
+      "683": 4
+    },
+    "~pan": {
+      "832": 5,
+      "470": 2,
+      "670": 2,
+      "458": 2,
+      "215": 1,
+      "187": 1
+    },
+    "1-ŠU": {
+      "670": 177,
+      "628": 47,
+      "649": 23,
+      "666": 23,
+      "627": 22,
+      "701": 19
+    },
+    "ekuzi": {
+      "670": 240,
+      "628": 54,
+      "647": 32,
+      "692": 30,
+      "705": 30,
+      "704": 28
+    },
+    "NINDA": {
+      "670": 182,
+      "470": 44,
+      "832": 39,
+      "500": 32,
+      "692": 31,
+      "627": 23
+    },
+    "kišan": {
+      "470": 51,
+      "590": 45,
+      "670": 23,
+      "832": 18,
+      "999": 15,
+      "500": 14
+    },
+    "DINGIR": {
+      "670": 139,
+      "470": 116,
+      "832": 84,
+      "582": 81,
+      "500": 53,
+      "577": 47
+    },
+    "irḫaizi": {
+      "670": 40,
+      "470": 18,
+      "626": 15,
+      "701": 13,
+      "738": 13,
+      "647": 10
+    },
+    "para": {
+      "670": 320,
+      "470": 108,
+      "832": 84,
+      "628": 77,
+      "626": 53,
+      "500": 51
+    },
+    "akkuškezi": {
+      "652": 3,
+      "670": 3,
+      "714": 3,
+      "470": 2,
+      "330": 2,
+      "712": 2
+    }
+  },
+  "word_shares": [
+    [
+      "side A 2′",
+      "{NINDA}ta-kar-mu-un",
+      "takarmun",
+      0.54
+    ],
+    [
+      "side A 2′",
+      "pár-ši-ia",
+      "paršia",
+      -0.081
+    ],
+    [
+      "side A 3′",
+      "-pa-an",
+      "~pan",
+      -0.002
+    ],
+    [
+      "side A 3′",
+      "1-ŠU",
+      "1-ŠU",
+      -0.056
+    ],
+    [
+      "side A 4′",
+      "{NINDA}ta-kar-mu-un",
+      "takarmun",
+      0.54
+    ],
+    [
+      "side A 4′",
+      "pár-ši-ia",
+      "paršia",
+      -0.081
+    ],
+    [
+      "side A 5′",
+      "1-ŠU",
+      "1-ŠU",
+      -0.056
+    ],
+    [
+      "side A 5′",
+      "e-ku-zi",
+      "ekuzi",
+      0.045
+    ],
+    [
+      "side A 5′",
+      "1",
+      "1",
+      -0.0
+    ],
+    [
+      "side A 5′",
+      "NINDA",
+      "NINDA",
+      0.088
+    ],
+    [
+      "side A 5′",
+      "pár-ši-ia",
+      "paršia",
+      -0.081
+    ],
+    [
+      "side A 6′",
+      "ki-iš-an",
+      "kišan",
+      -0.114
+    ],
+    [
+      "side A 7′",
+      "{NINDA}ta-kar-mu-un",
+      "takarmun",
+      0.54
+    ],
+    [
+      "side A 7′",
+      "pár-ši-ia",
+      "paršia",
+      -0.081
+    ],
+    [
+      "side A 8′",
+      "DINGIR {MEŠ}",
+      "DINGIR",
+      0.144
+    ],
+    [
+      "side A 8′",
+      "ir-ḫa-a-ez-zi",
+      "irḫaizi",
+      -0.039
+    ],
+    [
+      "side A 9′",
+      "pa-ra-a",
+      "para",
+      0.148
+    ],
+    [
+      "side A 11′",
+      "ak-ku-uš-ke-ez-zi",
+      "akkuškezi",
+      -0.372
+    ],
+    [
+      "side B 2′",
+      "pár-ši-ia",
+      "paršia",
+      -0.081
+    ]
+  ],
+  "dim": 27509,
+  "n_features": 72,
+  "features": [
+    {
+      "name": "takarmun",
+      "x": 0.237983,
+      "idf": 4.244822,
+      "c_top": 0.05881,
+      "c_second": 0.019907,
+      "contribution": 0.009258
+    },
+    {
+      "name": "§kar·mu·un",
+      "x": 0.237983,
+      "idf": 4.244822,
+      "c_top": 0.05881,
+      "c_second": 0.019907,
+      "contribution": 0.009258
+    },
+    {
+      "name": "§NINDA·ta·kar",
+      "x": 0.231202,
+      "idf": 4.123869,
+      "c_top": 0.059316,
+      "c_second": 0.023026,
+      "contribution": 0.00839
+    },
+    {
+      "name": "§kar·mu",
+      "x": 0.229112,
+      "idf": 4.086598,
+      "c_top": 0.060909,
+      "c_second": 0.024853,
+      "contribution": 0.008261
+    },
+    {
+      "name": "§ta·kar·mu",
+      "x": 0.229112,
+      "idf": 4.086598,
+      "c_top": 0.060909,
+      "c_second": 0.024853,
+      "contribution": 0.008261
+    },
+    {
+      "name": "§mu·un",
+      "x": 0.222661,
+      "idf": 3.971529,
+      "c_top": 0.055566,
+      "c_second": 0.018626,
+      "contribution": 0.008225
+    },
+    {
+      "name": "§ta·kar",
+      "x": 0.226442,
+      "idf": 4.03897,
+      "c_top": 0.060199,
+      "c_second": 0.024563,
+      "contribution": 0.008069
+    },
+    {
+      "name": "§NINDA·ta",
+      "x": 0.216329,
+      "idf": 3.858588,
+      "c_top": 0.0555,
+      "c_second": 0.021545,
+      "contribution": 0.007345
+    },
+    {
+      "name": "§a·ez",
+      "x": 0.08293,
+      "idf": 3.104246,
+      "c_top": 0.05018,
+      "c_second": 0.005722,
+      "contribution": 0.003687
+    },
+    {
+      "name": "§a·ez·zi",
+      "x": 0.08293,
+      "idf": 3.104246,
+      "c_top": 0.05018,
+      "c_second": 0.005722,
+      "contribution": 0.003687
+    },
+    {
+      "name": "NINDA",
+      "x": 0.088169,
+      "idf": 3.30036,
+      "c_top": 0.041507,
+      "c_second": 0.001415,
+      "contribution": 0.003535
+    },
+    {
+      "name": "§kar",
+      "x": 0.157526,
+      "idf": 2.809737,
+      "c_top": 0.045332,
+      "c_second": 0.024662,
+      "contribution": 0.003256
+    },
+    {
+      "name": "§DINGIR",
+      "x": 0.046763,
+      "idf": 1.750437,
+      "c_top": 0.078515,
+      "c_second": 0.027405,
+      "contribution": 0.00239
+    },
+    {
+      "name": "para",
+      "x": 0.06547,
+      "idf": 2.450684,
+      "c_top": 0.037627,
+      "c_second": 0.00839,
+      "contribution": 0.001914
+    },
+    {
+      "name": "§pa·ra·a",
+      "x": 0.062359,
+      "idf": 2.334222,
+      "c_top": 0.035839,
+      "c_second": 0.009854,
+      "contribution": 0.00162
+    },
+    {
+      "name": "DINGIR",
+      "x": 0.074081,
+      "idf": 2.773005,
+      "c_top": 0.047468,
+      "c_second": 0.025644,
+      "contribution": 0.001617
+    },
+    {
+      "name": "§pa·ra",
+      "x": 0.06061,
+      "idf": 2.268759,
+      "c_top": 0.036696,
+      "c_second": 0.010271,
+      "contribution": 0.001602
+    },
+    {
+      "name": "§MEŠ",
+      "x": 0.042305,
+      "idf": 1.583564,
+      "c_top": 0.064143,
+      "c_second": 0.027821,
+      "contribution": 0.001537
+    },
+    {
+      "name": "§zi",
+      "x": 0.061951,
+      "idf": 1.104989,
+      "c_top": 0.104128,
+      "c_second": 0.079447,
+      "contribution": 0.001529
+    },
+    {
+      "name": "§NINDA",
+      "x": 0.100319,
+      "idf": 1.573633,
+      "c_top": 0.070767,
+      "c_second": 0.05915,
+      "contribution": 0.001165
+    },
+    {
+      "name": "§ra·a",
+      "x": 0.051583,
+      "idf": 1.930873,
+      "c_top": 0.039669,
+      "c_second": 0.02069,
+      "contribution": 0.000979
+    },
+    {
+      "name": "§DINGIR·MEŠ",
+      "x": 0.061252,
+      "idf": 2.292808,
+      "c_top": 0.040947,
+      "c_second": 0.028822,
+      "contribution": 0.000743
+    },
+    {
+      "name": "§un",
+      "x": 0.103474,
+      "idf": 1.845629,
+      "c_top": 0.037191,
+      "c_second": 0.031326,
+      "contribution": 0.000607
+    },
+    {
+      "name": "§an",
+      "x": 0.047267,
+      "idf": 1.044983,
+      "c_top": 0.12015,
+      "c_second": 0.107642,
+      "contribution": 0.000591
+    },
+    {
+      "name": "§mu",
+      "x": 0.133661,
+      "idf": 2.38407,
+      "c_top": 0.037351,
+      "c_second": 0.033513,
+      "contribution": 0.000513
+    },
+    {
+      "name": "§ku·zi",
+      "x": 0.076175,
+      "idf": 2.85141,
+      "c_top": 0.037845,
+      "c_second": 0.031214,
+      "contribution": 0.000505
+    },
+    {
+      "name": "§e·ku·zi",
+      "x": 0.077436,
+      "idf": 2.898606,
+      "c_top": 0.037923,
+      "c_second": 0.031731,
+      "contribution": 0.000479
+    },
+    {
+      "name": "ekuzi",
+      "x": 0.077238,
+      "idf": 2.891198,
+      "c_top": 0.037826,
+      "c_second": 0.03165,
+      "contribution": 0.000477
+    },
+    {
+      "name": "§pa",
+      "x": 0.055288,
+      "idf": 1.222309,
+      "c_top": 0.066932,
+      "c_second": 0.058671,
+      "contribution": 0.000457
+    },
+    {
+      "name": "§e·ku",
+      "x": 0.074701,
+      "idf": 2.796224,
+      "c_top": 0.037776,
+      "c_second": 0.034893,
+      "contribution": 0.000215
+    },
+    {
+      "name": "§ra",
+      "x": 0.036806,
+      "idf": 1.377735,
+      "c_top": 0.061259,
+      "c_second": 0.056721,
+      "contribution": 0.000167
+    },
+    {
+      "name": "§e",
+      "x": 0.034962,
+      "idf": 1.308688,
+      "c_top": 0.056176,
+      "c_second": 0.053362,
+      "contribution": 9.8e-05
+    },
+    {
+      "name": "§ez",
+      "x": 0.082496,
+      "idf": 1.823819,
+      "c_top": 0.051027,
+      "c_second": 0.050056,
+      "contribution": 8e-05
+    },
+    {
+      "name": "§ez·zi",
+      "x": 0.085645,
+      "idf": 1.893447,
+      "c_top": 0.050341,
+      "c_second": 0.049699,
+      "contribution": 5.5e-05
+    },
+    {
+      "name": "~pan",
+      "x": 0.183903,
+      "idf": 6.883879,
+      "c_top": 0.0,
+      "c_second": 0.0,
+      "contribution": 0.0
+    },
+    {
+      "name": "1",
+      "x": 0.046017,
+      "idf": 1.722528,
+      "c_top": 0.039834,
+      "c_second": 0.040229,
+      "contribution": -1.8e-05
+    },
+    {
+      "name": "§a",
+      "x": 0.048414,
+      "idf": 1.070346,
+      "c_top": 0.089216,
+      "c_second": 0.091252,
+      "contribution": -9.9e-05
+    },
+    {
+      "name": "§ku·uš",
+      "x": 0.102824,
+      "idf": 3.848926,
+      "c_top": 0.001843,
+      "c_second": 0.006212,
+      "contribution": -0.000449
+    },
+    {
+      "name": "§uš",
+      "x": 0.039522,
+      "idf": 1.479402,
+      "c_top": 0.035424,
+      "c_second": 0.047995,
+      "contribution": -0.000497
+    },
+    {
+      "name": "§pa·an",
+      "x": 0.051209,
+      "idf": 1.916848,
+      "c_top": 0.01419,
+      "c_second": 0.025844,
+      "contribution": -0.000597
+    },
+    {
+      "name": "§ŠU",
+      "x": 0.078541,
+      "idf": 1.736385,
+      "c_top": 0.042839,
+      "c_second": 0.050504,
+      "contribution": -0.000602
+    },
+    {
+      "name": "§ku",
+      "x": 0.061698,
+      "idf": 1.36402,
+      "c_top": 0.062836,
+      "c_second": 0.073744,
+      "contribution": -0.000673
+    },
+    {
+      "name": "§ir·ḫa·a",
+      "x": 0.113021,
+      "idf": 4.230637,
+      "c_top": 0.003272,
+      "c_second": 0.009976,
+      "contribution": -0.000758
+    },
+    {
+      "name": "§ak·ku·uš",
+      "x": 0.117077,
+      "idf": 4.382443,
+      "c_top": 0.0,
+      "c_second": 0.007073,
+      "contribution": -0.000828
+    },
+    {
+      "name": "paršia",
+      "x": 0.16406,
+      "idf": 2.353433,
+      "c_top": 0.046982,
+      "c_second": 0.052185,
+      "contribution": -0.000854
+    },
+    {
+      "name": "irḫaizi",
+      "x": 0.116215,
+      "idf": 4.350183,
+      "c_top": 0.000572,
+      "c_second": 0.008019,
+      "contribution": -0.000866
+    },
+    {
+      "name": "§ku·uš·ke",
+      "x": 0.137879,
+      "idf": 5.161113,
+      "c_top": 0.0,
+      "c_second": 0.006581,
+      "contribution": -0.000907
+    },
+    {
+      "name": "§ḫa·a·ez",
+      "x": 0.12348,
+      "idf": 4.622116,
+      "c_top": 0.000607,
+      "c_second": 0.00852,
+      "contribution": -0.000977
+    },
+    {
+      "name": "kišan",
+      "x": 0.1134,
+      "idf": 4.244822,
+      "c_top": 0.002102,
+      "c_second": 0.011308,
+      "contribution": -0.001044
+    },
+    {
+      "name": "§ak",
+      "x": 0.07356,
+      "idf": 2.753524,
+      "c_top": 0.003857,
+      "c_second": 0.019388,
+      "contribution": -0.001142
+    },
+    {
+      "name": "§uš·ke",
+      "x": 0.117077,
+      "idf": 4.382443,
+      "c_top": 0.004333,
+      "c_second": 0.014096,
+      "contribution": -0.001143
+    },
+    {
+      "name": "akkuškezi",
+      "x": 0.156396,
+      "idf": 5.85426,
+      "c_top": 0.0,
+      "c_second": 0.007465,
+      "contribution": -0.001168
+    },
+    {
+      "name": "§ak·ku",
+      "x": 0.102824,
+      "idf": 3.848926,
+      "c_top": 0.0,
+      "c_second": 0.011375,
+      "contribution": -0.00117
+    },
+    {
+      "name": "§ḫa",
+      "x": 0.033561,
+      "idf": 1.256258,
+      "c_top": 0.039814,
+      "c_second": 0.075184,
+      "contribution": -0.001187
+    },
+    {
+      "name": "§iš",
+      "x": 0.036655,
+      "idf": 1.372065,
+      "c_top": 0.048517,
+      "c_second": 0.083888,
+      "contribution": -0.001297
+    },
+    {
+      "name": "§ḫa·a",
+      "x": 0.069652,
+      "idf": 2.607213,
+      "c_top": 0.007303,
+      "c_second": 0.027088,
+      "contribution": -0.001378
+    },
+    {
+      "name": "§ki·iš",
+      "x": 0.06423,
+      "idf": 2.404272,
+      "c_top": 0.009103,
+      "c_second": 0.031564,
+      "contribution": -0.001443
+    },
+    {
+      "name": "§ki",
+      "x": 0.043785,
+      "idf": 1.638963,
+      "c_top": 0.017029,
+      "c_second": 0.05085,
+      "contribution": -0.001481
+    },
+    {
+      "name": "§uš·ke·ez",
+      "x": 0.127047,
+      "idf": 4.755648,
+      "c_top": 0.003078,
+      "c_second": 0.015296,
+      "contribution": -0.001552
+    },
+    {
+      "name": "§ta",
+      "x": 0.066687,
+      "idf": 1.189474,
+      "c_top": 0.054366,
+      "c_second": 0.078347,
+      "contribution": -0.001599
+    },
+    {
+      "name": "§ia",
+      "x": 0.081068,
+      "idf": 1.162912,
+      "c_top": 0.069313,
+      "c_second": 0.091405,
+      "contribution": -0.001791
+    },
+    {
+      "name": "§ir",
+      "x": 0.08116,
+      "idf": 3.037996,
+      "c_top": 0.008719,
+      "c_second": 0.034841,
+      "contribution": -0.00212
+    },
+    {
+      "name": "§ke·ez·zi",
+      "x": 0.080373,
+      "idf": 3.00852,
+      "c_top": 0.008156,
+      "c_second": 0.036578,
+      "contribution": -0.002284
+    },
+    {
+      "name": "§ir·ḫa",
+      "x": 0.103343,
+      "idf": 3.868344,
+      "c_top": 0.00799,
+      "c_second": 0.030584,
+      "contribution": -0.002335
+    },
+    {
+      "name": "§ši·ia",
+      "x": 0.134308,
+      "idf": 1.926645,
+      "c_top": 0.042418,
+      "c_second": 0.060649,
+      "contribution": -0.002449
+    },
+    {
+      "name": "§ke·ez",
+      "x": 0.079824,
+      "idf": 2.987986,
+      "c_top": 0.0081,
+      "c_second": 0.040358,
+      "contribution": -0.002575
+    },
+    {
+      "name": "§ke",
+      "x": 0.059269,
+      "idf": 2.218555,
+      "c_top": 0.011767,
+      "c_second": 0.058834,
+      "contribution": -0.00279
+    },
+    {
+      "name": "§pár·ši",
+      "x": 0.154004,
+      "idf": 2.209183,
+      "c_top": 0.043921,
+      "c_second": 0.06248,
+      "contribution": -0.002858
+    },
+    {
+      "name": "§pár·ši·ia",
+      "x": 0.155983,
+      "idf": 2.237567,
+      "c_top": 0.044132,
+      "c_second": 0.063283,
+      "contribution": -0.002987
+    },
+    {
+      "name": "§ši",
+      "x": 0.091442,
+      "idf": 1.311725,
+      "c_top": 0.045532,
+      "c_second": 0.07837,
+      "contribution": -0.003003
+    },
+    {
+      "name": "§pár",
+      "x": 0.125479,
+      "idf": 1.799994,
+      "c_top": 0.051981,
+      "c_second": 0.081031,
+      "contribution": -0.003645
+    },
+    {
+      "name": "1-ŠU",
+      "x": 0.152404,
+      "idf": 3.369353,
+      "c_top": 0.00368,
+      "c_second": 0.032081,
+      "contribution": -0.004328
+    }
+  ],
+  "ref_counts": {
+    "Hattian cult layer": 478,
+    "Kizzuwatna–Lower Land (Hurrian)": 325,
+    "Kizzuwatna rituals": 226,
+    "Mixed (Hurrian, Syrian, Luwian)": 202,
+    "Ḫuwaššanna festivals": 194,
+    "Syro-Mesopotamia (Hurrian)": 167,
+    "Luwian rituals (Puriyanni, Kuwattalla)": 82,
+    "Luwian festivals (Ištanuwa, Lallupiya)": 53,
+    "Arzawa / western rituals": 34,
+    "Palaic festivals": 34
+  },
+  "tokens": [
+    {
+      "lnr": "side A 1′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 2′",
+      "translit": "{NINDA}ta-kar-mu-un",
+      "word": "takarmun",
+      "wclass": "realia",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 2′",
+      "translit": "pár-ši-ia",
+      "word": "paršia",
+      "wclass": "verb",
+      "wc_rule": "selected_elsewhere",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 3′",
+      "translit": "-pa-an",
+      "word": "~pan",
+      "wclass": "unknown",
+      "wc_rule": "no_analysis",
+      "wc_conf": "low"
+    },
+    {
+      "lnr": "side A 3′",
+      "translit": "1-ŠU",
+      "word": "1-ŠU",
+      "wclass": "number",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 4′",
+      "translit": "{NINDA}ta-kar-mu-un",
+      "word": "takarmun",
+      "wclass": "realia",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 4′",
+      "translit": "pár-ši-ia",
+      "word": "paršia",
+      "wclass": "verb",
+      "wc_rule": "selected_elsewhere",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 4′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 5′",
+      "translit": "1-ŠU",
+      "word": "1-ŠU",
+      "wclass": "number",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 5′",
+      "translit": "e-ku-zi",
+      "word": "ekuzi",
+      "wclass": "verb",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 5′",
+      "translit": "1",
+      "word": "1",
+      "wclass": "number",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 5′",
+      "translit": "NINDA",
+      "word": "NINDA",
+      "wclass": "realia",
+      "wc_rule": "analysis_unanimous",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 5′",
+      "translit": "pár-ši-ia",
+      "word": "paršia",
+      "wclass": "verb",
+      "wc_rule": "selected_elsewhere",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 6′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 6′",
+      "translit": "ki-iš-an",
+      "word": "kišan",
+      "wclass": "function",
+      "wc_rule": "selected_elsewhere",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 6′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 7′",
+      "translit": "{NINDA}ta-kar-mu-un",
+      "word": "takarmun",
+      "wclass": "realia",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 7′",
+      "translit": "pár-ši-ia",
+      "word": "paršia",
+      "wclass": "verb",
+      "wc_rule": "selected_elsewhere",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 8′",
+      "translit": "DINGIR {MEŠ}",
+      "word": "DINGIR",
+      "wclass": "deity",
+      "wc_rule": "determinative_deity",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 8′",
+      "translit": "ir-ḫa-a-ez-zi",
+      "word": "irḫaizi",
+      "wclass": "verb",
+      "wc_rule": "analysis_unanimous",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 9′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 9′",
+      "translit": "pa-ra-a",
+      "word": "para",
+      "wclass": "function",
+      "wc_rule": "selected_elsewhere",
+      "wc_conf": "medium"
+    },
+    {
+      "lnr": "side A 10′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 10′",
+      "translit": "e-ša-x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 11′",
+      "translit": "ak-ku-uš-ke-ez-zi",
+      "word": "akkuškezi",
+      "wclass": "verb",
+      "wc_rule": "analysis_selected",
+      "wc_conf": "high"
+    },
+    {
+      "lnr": "side A 13′",
+      "translit": "x x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side A 14′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side B 1′",
+      "translit": "x",
+      "word": "",
+      "wclass": "",
+      "wc_rule": "",
+      "wc_conf": ""
+    },
+    {
+      "lnr": "side B 2′",
+      "translit": "pár-ši-ia",
+      "word": "paršia",
+      "wclass": "verb",
+      "wc_rule": "selected_elsewhere",
+      "wc_conf": "medium"
+    }
+  ]
+}

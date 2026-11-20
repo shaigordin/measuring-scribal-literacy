@@ -1,0 +1,194 @@
+{
+  "contested": {
+    "cths": [
+      "391",
+      "429",
+      "463"
+    ],
+    "claim": "Arzawa / western rituals",
+    "texts": 6,
+    "pool_texts": 300
+  },
+  "E10a": {
+    "compositions": 78,
+    "compositions_correct": 56,
+    "texts": 1505,
+    "texts_correct": 858,
+    "by_tradition": {
+      "Arzawa / western rituals": {
+        "compositions": 2,
+        "correct": 0,
+        "texts": 10,
+        "texts_correct": 0
+      },
+      "Hattian cult layer": {
+        "compositions": 25,
+        "correct": 25,
+        "texts": 433,
+        "texts_correct": 389
+      },
+      "Kizzuwatna rituals": {
+        "compositions": 18,
+        "correct": 16,
+        "texts": 153,
+        "texts_correct": 106
+      },
+      "Kizzuwatna–Lower Land (Hurrian)": {
+        "compositions": 8,
+        "correct": 4,
+        "texts": 301,
+        "texts_correct": 81
+      },
+      "Luwian festivals (Ištanuwa, Lallupiya)": {
+        "compositions": 4,
+        "correct": 2,
+        "texts": 48,
+        "texts_correct": 15
+      },
+      "Luwian rituals (Puriyanni, Kuwattalla)": {
+        "compositions": 2,
+        "correct": 0,
+        "texts": 11,
+        "texts_correct": 0
+      },
+      "Mixed (Hurrian, Syrian, Luwian)": {
+        "compositions": 4,
+        "correct": 3,
+        "texts": 190,
+        "texts_correct": 103
+      },
+      "Palaic festivals": {
+        "compositions": 5,
+        "correct": 0,
+        "texts": 30,
+        "texts_correct": 0
+      },
+      "Syro-Mesopotamia (Hurrian)": {
+        "compositions": 5,
+        "correct": 1,
+        "texts": 149,
+        "texts_correct": 3
+      },
+      "Ḫuwaššanna festivals": {
+        "compositions": 5,
+        "correct": 5,
+        "texts": 180,
+        "texts_correct": 161
+      }
+    },
+    "untestable": []
+  },
+  "E10b": {
+    "table": [
+      {
+        "tradition": "Kizzuwatna rituals",
+        "similarity": 0.4872,
+        "lead_over_best_other": 0.0352,
+        "null_mean": 0.0451,
+        "null_q05": 0.0029,
+        "null_q95": 0.081,
+        "p_fits_better_than_random_rituals": 0.6917
+      },
+      {
+        "tradition": "Hattian cult layer",
+        "similarity": 0.452,
+        "lead_over_best_other": -0.0352,
+        "null_mean": -0.0486,
+        "null_q05": -0.0874,
+        "null_q95": -0.0057,
+        "p_fits_better_than_random_rituals": 0.2819
+      },
+      {
+        "tradition": "Kizzuwatna–Lower Land (Hurrian)",
+        "similarity": 0.4425,
+        "lead_over_best_other": -0.0447,
+        "null_mean": -0.0757,
+        "null_q05": -0.1096,
+        "null_q95": -0.0388,
+        "p_fits_better_than_random_rituals": 0.078
+      },
+      {
+        "tradition": "Syro-Mesopotamia (Hurrian)",
+        "similarity": 0.4012,
+        "lead_over_best_other": -0.086,
+        "null_mean": -0.1018,
+        "null_q05": -0.1312,
+        "null_q95": -0.0706,
+        "p_fits_better_than_random_rituals": 0.2064
+      },
+      {
+        "tradition": "Luwian festivals (Ištanuwa, Lallupiya)",
+        "similarity": 0.3958,
+        "lead_over_best_other": -0.0914,
+        "null_mean": -0.0811,
+        "null_q05": -0.1107,
+        "null_q95": -0.0506,
+        "p_fits_better_than_random_rituals": 0.7056
+      },
+      {
+        "tradition": "Mixed (Hurrian, Syrian, Luwian)",
+        "similarity": 0.3817,
+        "lead_over_best_other": -0.1055,
+        "null_mean": -0.1285,
+        "null_q05": -0.1669,
+        "null_q95": -0.0859,
+        "p_fits_better_than_random_rituals": 0.1624
+      },
+      {
+        "tradition": "Palaic festivals",
+        "similarity": 0.3627,
+        "lead_over_best_other": -0.1245,
+        "null_mean": -0.1455,
+        "null_q05": -0.1816,
+        "null_q95": -0.1091,
+        "p_fits_better_than_random_rituals": 0.1789
+      },
+      {
+        "tradition": "Arzawa / western rituals",
+        "similarity": 0.3494,
+        "lead_over_best_other": -0.1378,
+        "null_mean": -0.1609,
+        "null_q05": -0.1988,
+        "null_q95": -0.1227,
+        "p_fits_better_than_random_rituals": 0.1539
+      },
+      {
+        "tradition": "Ḫuwaššanna festivals",
+        "similarity": 0.3413,
+        "lead_over_best_other": -0.1459,
+        "null_mean": -0.1492,
+        "null_q05": -0.1907,
+        "null_q95": -0.1065,
+        "p_fits_better_than_random_rituals": 0.4433
+      },
+      {
+        "tradition": "Luwian rituals (Puriyanni, Kuwattalla)",
+        "similarity": 0.3044,
+        "lead_over_best_other": -0.1828,
+        "null_mean": -0.1864,
+        "null_q05": -0.2499,
+        "null_q95": -0.0972,
+        "p_fits_better_than_random_rituals": 0.3978
+      }
+    ],
+    "per_text_nearest": {
+      "Kizzuwatna rituals": 5,
+      "Kizzuwatna–Lower Land (Hurrian)": 1
+    }
+  },
+  "E10c": {
+    "signature_coverage": {
+      "Arzawa / western rituals": 0.05,
+      "Hattian cult layer": 0.15,
+      "Kizzuwatna rituals": 0.15,
+      "Kizzuwatna–Lower Land (Hurrian)": 0.35,
+      "Luwian festivals (Ištanuwa, Lallupiya)": 0.0,
+      "Luwian rituals (Puriyanni, Kuwattalla)": 0.0,
+      "Mixed (Hurrian, Syrian, Luwian)": 0.1,
+      "Palaic festivals": 0.05,
+      "Syro-Mesopotamia (Hurrian)": 0.1,
+      "Ḫuwaššanna festivals": 0.05
+    },
+    "contested_vocabulary": 202
+  }
+}

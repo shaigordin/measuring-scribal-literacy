@@ -1,0 +1,296 @@
+{
+ "txtid": "EBo 133",
+ "cth": "670",
+ "translit": "{∅}∅-∅-∅-un pár-∅-∅ -pa-an 1-ŠU {∅}∅-∅-∅-un pár-ši-ia 1-ŠU e-ku-zi 1 NINDA pár-ši-∅ ki-iš-an {∅}∅-kar-mu-un pár-∅-∅ DINGIR {MEŠ} ir-ḫa-a-ez-zi pa-ra-a ak-ku-uš-ke-ez-zi pár-ši-ia",
+ "words": [
+  "takarmun",
+  "paršia",
+  "~pan",
+  "1-ŠU",
+  "takarmun",
+  "paršia",
+  "1-ŠU",
+  "ekuzi",
+  "1",
+  "NINDA",
+  "paršia",
+  "kišan",
+  "takarmun",
+  "paršia",
+  "DINGIR",
+  "irḫaizi",
+  "para",
+  "akkuškezi",
+  "paršia"
+ ],
+ "margin": 0.028,
+ "traditions": [
+  [
+   "Palaic festivals",
+   0.2503
+  ],
+  [
+   "Ḫuwaššanna festivals",
+   0.2439
+  ],
+  [
+   "Mixed (Hurrian, Syrian, Luwian)",
+   0.2411
+  ],
+  [
+   "Kizzuwatna–Lower Land (Hurrian)",
+   0.2268
+  ],
+  [
+   "Hattian cult layer",
+   0.2107
+  ],
+  [
+   "Kizzuwatna rituals",
+   0.1763
+  ],
+  [
+   "Syro-Mesopotamia (Hurrian)",
+   0.1555
+  ],
+  [
+   "Luwian festivals (Ištanuwa, Lallupiya)",
+   0.1467
+  ],
+  [
+   "Luwian rituals (Puriyanni, Kuwattalla)",
+   0.117
+  ],
+  [
+   "Arzawa / western rituals",
+   0.1073
+  ]
+ ],
+ "nearest": [
+  {
+   "txtid": "KBo 21.51",
+   "cth": "705",
+   "group": "Mixed (Hurrian, Syrian, Luwian)",
+   "similarity": 0.3709,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.23
+    ],
+    [
+     "paršia",
+     0.088
+    ],
+    [
+     "§mu·un",
+     0.084
+    ],
+    [
+     "ekuzi",
+     0.058
+    ],
+    [
+     "§pár",
+     0.058
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 34.228",
+   "cth": "693",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.3162,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.167
+    ],
+    [
+     "§kar·mu·un",
+     0.088
+    ],
+    [
+     "§kar·mu",
+     0.079
+    ],
+    [
+     "§mu·un",
+     0.076
+    ],
+    [
+     "paršia",
+     0.064
+    ]
+   ]
+  },
+  {
+   "txtid": "DBH 46_2.139",
+   "cth": "750",
+   "group": "Palaic festivals",
+   "similarity": 0.2855,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.141
+    ],
+    [
+     "1-ŠU",
+     0.077
+    ],
+    [
+     "paršia",
+     0.057
+    ],
+    [
+     "§pár",
+     0.042
+    ],
+    [
+     "§kar·mu",
+     0.04
+    ]
+   ]
+  },
+  {
+   "txtid": "IBoT 4.273",
+   "cth": "722",
+   "group": "Kizzuwatna–Lower Land (Hurrian)",
+   "similarity": 0.284,
+   "top_terms_share": [
+    [
+     "1-ŠU",
+     0.163
+    ],
+    [
+     "paršia",
+     0.112
+    ],
+    [
+     "§pár·ši",
+     0.083
+    ],
+    [
+     "§pár",
+     0.074
+    ],
+    [
+     "§pár·ši·ia",
+     0.072
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 34.221",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.2729,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.146
+    ],
+    [
+     "§kar·mu·un",
+     0.077
+    ],
+    [
+     "§kar·mu",
+     0.069
+    ],
+    [
+     "§mu·un",
+     0.066
+    ],
+    [
+     "paršia",
+     0.055
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 29.129",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.2613,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.117
+    ],
+    [
+     "§kar·mu·un",
+     0.062
+    ],
+    [
+     "§kar·mu",
+     0.055
+    ],
+    [
+     "§mu·un",
+     0.053
+    ],
+    [
+     "paršia",
+     0.045
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 29.113",
+   "cth": "694",
+   "group": "Ḫuwaššanna festivals",
+   "similarity": 0.258,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.143
+    ],
+    [
+     "§kar·mu·un",
+     0.075
+    ],
+    [
+     "§kar·mu",
+     0.067
+    ],
+    [
+     "§mu·un",
+     0.064
+    ],
+    [
+     "paršia",
+     0.054
+    ]
+   ]
+  },
+  {
+   "txtid": "KBo 19.157",
+   "cth": "750",
+   "group": "Palaic festivals",
+   "similarity": 0.2549,
+   "top_terms_share": [
+    [
+     "takarmun",
+     0.224
+    ],
+    [
+     "paršia",
+     0.085
+    ],
+    [
+     "§kar·mu·un",
+     0.056
+    ],
+    [
+     "§kar·mu",
+     0.05
+    ],
+    [
+     "ekuzi",
+     0.05
+    ]
+   ]
+  }
+ ],
+ "pool_size": 2047
+}
