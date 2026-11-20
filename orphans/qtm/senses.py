@@ -14,7 +14,8 @@ Columns of labels/sense_rules.csv:
   lemma         regular expression on the token's lemma ('' = any lemma with that gloss)
   scope         where the condition is looked for: self (the token's own transliteration), prev / next
                 (the neighbouring word in the same line), window (the 4 words before and after, same
-                line), line (the whole line), always (no condition: the default for the gloss)
+                line), line (the whole line), prev_class / next_class (the word class of the neighbouring
+                word, as the word-class rules gave it), always (no condition: the default for the gloss)
   pattern       regular expression searched in that scope (brackets and half brackets removed)
   wclass        the class the token gets (qtm.wordclass classes: realia, body, nature, animal ...)
   sense         a short name of the sense (vessel, instrument, animal horn, celestial ...)
@@ -23,9 +24,10 @@ Columns of labels/sense_rules.csv:
                 otherwise), or "none checked"
   decided_by    draft (written by Claude, not yet reviewed) or ShG
   note          free text
+  unless        optional 'scope:pattern': the rule does not apply where this matches
 Rules for one gloss are tried in file order; the first that matches decides. Only nominal and ambiguous
 tokens are changed (a token the word-class rules made a verb, function word, foreign word, deity or agent
-by a determinative keeps its class); a rule always sets a nominal class.
+by a determinative keeps its class); a rule sets a class from SETTABLE.
 """
 import re
 import warnings
@@ -36,6 +38,10 @@ import pandas as pd
 RULES_FILE = Path(__file__).parent.parent / "labels" / "sense_rules.csv"
 NOMINAL = {"realia", "abstract", "body", "nature", "animal", "place", "measure", "adjective"}
 OPEN = NOMINAL | {"ambiguous"}   # classes a sense rule may change
+# classes a sense rule may set: the nominal ones, persons and gods (a title head, a deified mountain),
+# scribal marks (colophon formulae, left out of the profiles like function words) and numbers
+SETTABLE = NOMINAL | {"agent", "deity", "scribal", "number"}
+SCOPES = {"always", "self", "prev", "next", "window", "line", "prev_class", "next_class"}
 _UNBRACKET = re.compile(r"[\[\]⸢⸣<>()?!〈〉]")
 warnings.filterwarnings("ignore", "This pattern is interpreted as a regular expression")
 _ALT = re.compile(r"\{\s*([a-z])\s*→\s*([^}]*)\}")
@@ -67,9 +73,14 @@ def load_rules(path=RULES_FILE) -> pd.DataFrame:
     if not Path(path).exists():
         return pd.DataFrame()
     r = pd.read_csv(path, dtype=str, keep_default_na=False)
-    bad = set(r.wclass) - NOMINAL
+    if "unless" not in r:
+        r["unless"] = ""
+    bad = set(r.wclass) - SETTABLE
     if bad:
-        raise ValueError(f"{path}: rules may only set nominal classes, not {bad}")
+        raise ValueError(f"{path}: rules may not set the classes {bad}")
+    scopes = set(r.scope) | {u.split(":", 1)[0] for u in r.unless if u}
+    if scopes - SCOPES:
+        raise ValueError(f"{path}: unknown scopes {scopes - SCOPES}")
     if r.rule_id.duplicated().any():
         raise ValueError(f"{path}: duplicate rule_id {sorted(r.rule_id[r.rule_id.duplicated()])}")
     return r
@@ -79,20 +90,22 @@ def line_index(df: pd.DataFrame):
     """The words of every line (brackets removed) and each row's line and position, computed once."""
     tl = df.translit.fillna("").map(lambda t: _UNBRACKET.sub("", t))
     line = df.txtid.astype(str) + "|" + df.lnr.fillna("").astype(str)
-    return tl.groupby(line, sort=False).agg(list).to_dict(), line.to_numpy(), df.groupby(line, sort=False).cumcount().to_numpy()
+    return (tl.groupby(line, sort=False).agg(list).to_dict(), line.to_numpy(),
+            df.groupby(line, sort=False).cumcount().to_numpy(), df.wclass.fillna("").groupby(line, sort=False).agg(list).to_dict())
 
 
 def contexts(li, idx) -> pd.DataFrame:
     """self / prev / next / window (4 words either side) / line strings, and left / right, for rows idx;
     li is line_index(df) of a frame in text order."""
-    lines, line, pos = li
+    lines, line, pos, classes = li
     out = []
     for i in idx:
-        words, p = lines[line[i]], pos[i]
+        words, p, cl = lines[line[i]], pos[i], classes[line[i]]
         out.append({"self": words[p], "prev": words[p - 1] if p > 0 else "",
                     "next": words[p + 1] if p + 1 < len(words) else "",
                     "window": " ".join(words[max(0, p - 4):p] + words[p + 1:p + 5]), "line": " ".join(words),
-                    "left": " ".join(words[max(0, p - 4):p]), "right": " ".join(words[p + 1:p + 5])})
+                    "left": " ".join(words[max(0, p - 4):p]), "right": " ".join(words[p + 1:p + 5]),
+                    "prev_class": cl[p - 1] if p > 0 else "", "next_class": cl[p + 1] if p + 1 < len(cl) else ""})
     return pd.DataFrame(out, index=list(idx))
 
 
@@ -104,9 +117,11 @@ def gloss_hits(df: pd.DataFrame, gloss: str, lemma: str = "") -> pd.Series:
 
 
 def match(rule, ctx: pd.DataFrame) -> pd.Series:
-    if rule.scope == "always":
-        return pd.Series(True, index=ctx.index)
-    return ctx[rule.scope].str.contains(rule.pattern, regex=True)
+    m = pd.Series(True, index=ctx.index) if rule.scope == "always" else ctx[rule.scope].str.contains(rule.pattern, regex=True)
+    if rule.unless:
+        sc, pat = rule.unless.split(":", 1)
+        m &= ~ctx[sc].str.contains(pat, regex=True)
+    return m
 
 
 def apply_senses(df: pd.DataFrame, path=RULES_FILE) -> pd.DataFrame:

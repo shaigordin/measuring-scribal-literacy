@@ -1,31 +1,45 @@
 gloss,decision,rules,note,decided_by
-Haus,pending,,"É: building (realia) or place/institution; the question is with ShG (paper thread, 2026-11-20)",draft
-Hand,rules,hand-01,"UPNU 'handful' is a measure; ŠU/QĀTU stay body. QA-TI at the end of colophons may be QĀTI 'finished' (not drafted)",draft
-Ḫattuša,rules,silber-02,"KÙ.BABBAR without {URU} is silver; {URU}KÙ.BABBAR-ti is already a place by its determinative",draft
-Land,rules,berg-01,"KUR with the candidate gloss 'Bild eines Berges' is the land",draft
-Bild eines Berges,rules,berg-01|berg-02,"KUR land, ḪUR.SAG mountain",draft
+Haus,rules,haus-01,ShG ruling 2026-11-20: É is place/institution by default; a clay model is the rare exception,ShG
+Hand,rules,hand-01|qati-02,UPNU handful = measure (ShG); QA-TI in colophons = scribal (ShG); ŠU/QĀTU stay body,ShG
+Ḫattuša,rules,silber-01..06,"KÙ.BABBAR: Ḫattuša with -ti, after LUGAL/KUR/{URU}, or -aš/-ša; silver with numerals, weights, objects, metals; otherwise unchanged (ShG)",ShG
+Land,rules,berg-01,"KUR land (also polity), ShG",ShG
+Bild eines Berges,rules,berg-01..04,"KUR land; ḪUR.SAG deified in god lists, place before a name, else mountain (ShG)",ShG
 (Hohlmaß),no rule,,"one sense (a measure); lemma list only differs in writing (PARĪSU, PA, BÁN)",draft
-Wein,no rule,,"one sense (realia); WordNet's first sense is the error",draft
-gut,no rule,,"one sense (adjective)",draft
-Wasser,no rule,,"one sense (realia)",draft
-Weg,candidate,,"KASKAL road (place) or journey, campaign (KASKAL-ši 'on campaign'): a split is likely but not drafted",draft
-Tontafel,no rule,,"one sense (realia)",draft
-Gefäß,no rule,,"one sense (realia); WordNet's 'bin' (noun.quantity) is the error",draft
-Wort,no rule,,"one sense (abstract)",draft
+Wein,no rule,,one sense (realia); WordNet's first sense is the error,draft
+gut,no rule,,one sense (adjective),draft
+Wasser,no rule,,one sense (realia),draft
+Weg,rules,kaskal-01|kaskal-02,"KASKAL-ši journey/campaign (abstract), else road (place); ShG",ShG
+Tontafel,no rule,,one sense (realia),draft
+Gefäß,no rule,,one sense (realia); WordNet's 'bin' (noun.quantity) is the error,draft
+Wort,no rule,,one sense (abstract),draft
 Vogel,no rule,,"one sense (animal), also as an offering",draft
-Seele,no rule,,"one sense (abstract); WordNet's 'spirit' (noun.person) is the error",draft
-Schale,no rule,,"one sense (realia)",draft
-Schekel,no rule,,"one sense (measure)",draft
-Kopf,candidate,,"SAG.DU head (body); as 'person, capita' in counts possibly agent: not drafted",draft
+Seele,no rule,,one sense (abstract); WordNet's 'spirit' (noun.person) is the error,draft
+Schale,no rule,,one sense (realia),draft
+Schekel,no rule,,one sense (measure),draft
+Kopf,rules,sagdu-01,"numeral + SAG.DU counting people = agent; else body (paper thread suggestion, asked by ShG)",draft
 Opfer,no rule,,"SISKUR is realia, or agent in EN SISKUR (the existing title rule)",draft
-Fleisch,candidate,,"UZU/šuppa meat (realia) or SU flesh of the body: not drafted",draft
-Laub,no rule,,"PA is the measure parīsu here (always with the candidate gloss Hohlmaß)",draft
-böse,no rule,,"one sense (adjective)",draft
-(Mond)licht(?),no rule,,"UD with the candidate glosses Tag / (Mond)licht: the day (measure)",draft
-Feld,no rule,,"one sense (place)",draft
-Wort; Sache,no rule,,"one sense (abstract)",draft
-Holz,no rule,,"one sense (realia); WordNet's 'forest' is the error",draft
-Platz,no rule,,"one sense (place)",draft
-Monat,no rule,,"one sense (measure)",draft
-Gewand,no rule,,"one sense (realia)",draft
-Fluss,no rule,,"one sense (nature); WordNet's 'flux' is the error",draft
+Fleisch,rules,fleisch-01|fleisch-02,meat with offerings or cooking = realia; flesh with body parts = body; SU in oracles (SU SIG₅-ru) unchanged,ShG
+Laub,no rule,,PA is the measure parīsu here (always with the candidate gloss Hohlmaß),draft
+böse,no rule,,one sense (adjective),draft
+(Mond)licht(?),no rule,,UD with the candidate glosses Tag / (Mond)licht: the day (measure),draft
+Feld,no rule,,one sense (place),draft
+Wort; Sache,no rule,,one sense (abstract),draft
+Holz,no rule,,one sense (realia); WordNet's 'forest' is the error,draft
+Platz,no rule,,one sense (place),draft
+Monat,no rule,,one sense (measure),draft
+Gewand,no rule,,one sense (realia),draft
+Fluss,no rule,,one sense (nature); WordNet's 'flux' is the error,draft
+Großer,rules,gal-01..04,before a title or as a person = agent; after a noun = adjective (ShG); numeral + GAL + metal/drink = the cup (draft),ShG
+Tag (vergöttlicht),rules,ud-01,UD without {D} = day (measure); with {D} already a deity (ShG),ShG
+Adler,rules,adler-01,eagle of metal or weighed = realia (figure); else animal (ShG),ShG
+vollendet,rules,qati-01,QA-TI in colophons (DUB n.KAM (Ú-UL) QA-TI) = scribal (ShG),ShG
+Tontafel,rules,dub-01|dub-02,DUB n.KAM in colophons = scribal; other DUB stays realia (ShG),ShG
+Spanne,no rule,,"ŪṬU is a length measure: ŠA 1 U-ṬÚ (KUB 38.14 obv. i 2), 4 U-ṬÌ (KBo 26.218 2′); measure is right, WordNet was wrong",draft
+Baldachin,rules,baldachin-01,"{É}arkiwi- is a structure the king enters or stands in (LUGAL-uš {É}ar-ki-ú-i ar-ta, KUB 41.40 obv. II 12′); place, as for É",draft
+Inneres,rules,inneres-01,"ŠÀ.BA ""therein"" is a function word in lists (ŠÀ.BA 2 SA₅, KUB 39.56 Vs. 8′); I-NA ŠÀ É/KUR = place ""interior"" (KUB 22.70 obv. 73); ŠÀ ""heart"" stays body",draft
+Zaḫ(ḫ)(a)puna,no rule,,"a divine name, written with {D} ({D}za-aḫ-pu-na, KUB 54.70 7′), so a deity; the lexicon label place was wrong and is corrected to deity",draft
+geschlagen,no rule,,"RA-IṢ ""struck"" is an extispicy term (ZAG-za RA-IṢ, KUB 6.2 Vs. 32); adjective is right; {D}10 RA-IṢ is part of a divine name",draft
+Lippe,rules,lippe-01,"puri- of a vessel = rim, realia (tallaš KÙ.SI₂₂ NA₄ puriš, KBo 48.262a+ obv. II 30); lips of a person stay body",draft
+Muli,no rule,,"a divine name ({D}mu-ú-li-in e-ku-zi, KUB 27.65 Vs. I 11); the lexicon label place was wrong and is corrected to deity",draft
+so beschaffen,rules,sob-01,"kiššuwant- ""such"" (ki-iš-šu-wa-an-ti me-ḫu-ni, KUB 33.108 Vs. II 8′); the candidate kišš- ""comb"" made it ambiguous",draft
+Termin,no rule,,"RI ""appointed time"": 4 tokens in a lexical list and KUB 40.1 (RI-za); measure kept, too few to split",draft

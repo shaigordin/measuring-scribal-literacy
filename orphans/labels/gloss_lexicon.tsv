@@ -62,7 +62,7 @@ sauer	adjective	936	EMṢU
 Mensch	person	932	antuḫš=a-	1.1 += ma=aš=šši=aš
 Weg	place	924	KASKAL-TIM	
 Himmel	nature	915	ŠAMÛ	
-ein	measure	907	1-aš	QUANcar.NOM.SG.C += wa
+ein	number	907	1-aš	QUANcar.NOM.SG.C += wa
 ‚meine Sonne‘	person	878	UTU-ŠI	
 Silber	realia	864	KÙ.BABBAR	28.2.1.1
 Arinna	place	856	PÚ	39.8
@@ -177,7 +177,7 @@ Fuß	body	347	pat=a-	1.1 += aš
 Schulter	body	347	ZAG.UDU	29.1.1
 Leben	abstract	345	TI	28.14.2 += kkan
 vollendet	adjective	337	QATÛ	
-zwei	measure	336	2	QUANcar
+zwei	number	336	2	QUANcar
 (Funktionär)	person	336	DUMU.SANGA	29.1.1 += ya
 kultisch rein	adjective	333	šupp=i-	2.2
 Feldlager	place	331	KARAŠ	29.1.1 += ya=tta
@@ -220,7 +220,7 @@ rein	adjective	270	parku=i-	2.2
 Orakelanfrage	abstract	270	① ERIŠTU	
 °D°IŠTAR-i	deity	269	IŠTAR	
 (kultisches Getränk)	realia	269	taw=al-	8.1
-ein halb	measure	267	½	QUANcar
+ein halb	number	267	½	QUANcar
 Messer	realia	263	GÍR	29.1.1
 Greisin	person	262	ŠU.GI	29.1.1 += ma
 (Getränk)	realia	260	KAŠ.GEŠTIN	28.1.1.1 += ya=tta
@@ -258,7 +258,7 @@ Buchsbaum	realia	218	TÚG	29.1.1
 Körper	body	216	NÍ.TE-KA	+= ya
 Vorderseite	abstract	213	PĀNU	
 Herrschaft	abstract	212	EN	28.14.2
-drei	measure	212	3	QUANcar
+drei	number	212	3	QUANcar
 Meile	measure	212	DANNA	29.1.1
 Schöpfgefäß	realia	212	ḫanišš=a-	1.1
 weich	adjective	212	mi=u-	3.2
@@ -476,8 +476,8 @@ Becher aus gebranntem Ton	realia	99	GAL.GIR₄	29.1.1
 Esel	animal	98	ANŠE	29.1.1
 Karkamiš	place	97	karkamiš=	39.1
 Ḫulla	person	97	ḫull=a-	38.2
-sieben	measure	97	7	QUANcar
-Zaḫ(ḫ)(a)puna	place	97	zašḫapun=a-	35.1.1
+sieben	number	97	7	QUANcar
+Zaḫ(ḫ)(a)puna	deity	97	zašḫapun=a-	35.1.1
 DN	deity	97	MADANU	
 Lehm	realia	96	IM	29.1.1
 Brotbissen	realia	96	wagat=a-	1.2
@@ -499,7 +499,7 @@ Dreschplatz	place	92	KISLAḪ	28.1.1
 Maulesel	animal	92	ANŠE.GÌR.NUN.NA	29.1.1
 Bäcker	person	92	NINDA.DÙ.DÙ	29.1.1
 Tutḫaliya	person	91	tutḫali=a-	38.2 += ya
-vier	measure	91	4	QUANcar
+vier	number	91	4	QUANcar
 Gerste	realia	90	ŠEʾU	
 Backe	body	90	TÊRTU	
 Kulttänzer	person	90	ḪUB.BI	29.1.1
@@ -794,7 +794,7 @@ Schafhirt	person	44	SIPA.UDU	29.1.1
 Winter	measure	44	gim=a-	1.1
 Zimmermann	person	44	NAGAR	29.1.1
 Anteil	abstract	44	ḪA.LA-ŠU-NU	
-fünf	measure	44	5	QUANcar
+fünf	number	44	5	QUANcar
 Tauriš(š)a	place	44	tauriš=a-	39.2
 Opferschale	realia	44	BUR.ZI	29.1.1
 Steppe	place	44	ṢĒRU	
@@ -1095,7 +1095,7 @@ Nuanza	person	25	nuanz=a-	38.2
 Kuruštam(m)a	place	25	kuruštamm=a-	39.2
 Weide	place	25	RÎTU	
 innen befindlich	adjective	25	anturiy=a-	1.3
-zwölf	measure	25	12	QUANcar
+zwölf	number	25	12	QUANcar
 Fleischbrühe	realia	25	TU₇˽A˽UZU	29.1.1
 Tat(t)amaru	person	25	tattamar=u-	38.4
 Nenuwa	place	25	nenu=a-	39.2
@@ -1211,7 +1211,7 @@ Daru	deity	21	① tar=u-	35.3.1
 Ḫuršama	place	21	ḫuršamm=a-	39.2
 gepflügtes Feld	place	21	teripp=i-	2.1.2
 Palḫuišša	place	21	palḫuišš=a-	39.2
-sechs	measure	21	6	QUANcar
+sechs	number	21	6	QUANcar
 Handtuch	realia	21	tanip=u-	3.1.1
 Tetešḫapi	deity	21	tetešḫap=i-	35.2.1
 Zalmana	place	21	zalman=a-	39.2
@@ -1331,7 +1331,7 @@ Zustimmung	abstract	18	nû=(t)-	30.4.6
 Ḫu(wa)riya(n)ze/ipa	deity	18	ḫurianzip=a-	35.1.1
 (übler Zustand)	abstract	18	parnink=a-	1.1
 jung	adjective	18	ḫuelp=i-	2.2
-zwei zusammen	measure	18	2-uš	QUAN:ACC.PL
+zwei zusammen	number	18	2-uš	QUAN:ACC.PL
 GAL-tarḫunta	person	18	GAL-°D°10=a-	38.2
 Ḫalpaziti	person	18	ḫalpa-LÚ=i-	38.3
 Taduḫepa	person	18	tatuḫep=a-	37.2
@@ -1351,7 +1351,7 @@ Balken	realia	18	GIŠ.ÙR	29.1.1
 Trinker (Art Priester)	person	18	akuttarr=a-	1.1
 Pein	abstract	18	aḫr=a-	30.3
 geweiht	adjective	18	wašḫ=a-	30.7.3
-zehntausend	measure	18	SIG₇	29.1.1
+zehntausend	number	18	SIG₇	29.1.1
 Arawanna	place	18	araunn=a-	39.2
 Verzierung	realia	18	bašt=a-	30.3
 Uzzu	deity	18	uzz=u-	38.4
@@ -1364,7 +1364,7 @@ Krähe(?)	animal	18	šuraššur=a-	1.1
 Herr der Anrufung	deity	18	① mukišn=	40.1
 Lebenskraft	abstract	18	annar=i-	30.1.1
 Sphinx(?)	animal	18	awit=i-	2.1.1
-neun	measure	18	9	QUANcar
+neun	number	18	9	QUANcar
 Kanti(p)u(i)tti	deity	18	kantiputt=i-	35.2.1
 Gesicht	body	18	men=i-	2.1.2 += met
 Tumma	place	18	tumm=a-	39.2
@@ -1377,7 +1377,7 @@ Pišeni	person	17	pišen=i-	38.3
 Hurriter	person	17	ḫurl=a/i-	1.1.1 += ša
 Ḫantitaššu	deity	17	ḫantitašš=u-	35.3.1
 Šulupašša	place	17	šulupašši=	39.3
-acht	measure	17	8	QUANcar
+acht	number	17	8	QUANcar
 Dämmerung	measure	17	UD.ZAL.LE	29.1.1
 Arziya	place	17	arzi=a-	39.2 += ya
 Trense	realia	17	šurz=i-	2.1.3
@@ -1430,7 +1430,7 @@ Zarniz(z)a	deity	16	zarniz=a-	35.1.1
 Stellvertreter	person	16	nakkušš=a/i-	30.6.2
 Kuzanišu	deity	16	kuzaniš=u-	35.3.1
 Messer(?)	realia	16	šapar=a-	1.1
-zehn	measure	16	10	35.10.1
+zehn	number	16	10	35.10.1
 Unterseite	abstract	16	ŠAPLU	
 (Art Leder)	realia	16	DUḪ.ŠÚ.A	29.1.1
 Ninga	place	16	nink=a-	35.1.1
@@ -1571,7 +1571,7 @@ langer Trog	realia	13	BUGIN.GÍD.DA=	29.1.1
 Süßmilch(?)	realia	13	ḫarn=ai-	4.1
 udne-	place	13	KUR-ŠU	
 (Art Tisch aus Rohrgeflecht)	realia	13	ḫariuzz=i-	2.1.3
-20	measure	13	20	QUANcar
+20	number	13	20	QUANcar
 Andaliya	deity	13	andal=ia-	35.1.4
 Glas	realia	13	zapzag=i-	2.1.2.1
 Uškuwattašši	deity	13	uškuattašš=i-	35.2.1
@@ -1867,7 +1867,7 @@ Manapa-Tarḫunta	person	9	manapa-°D°10=	38.1
 Hülsenfrucht(?)	realia	9	šum=eššar	14.3 += wa
 Piḫamuwa	person	9	piḫa-A.A=a-	38.2
 Füllung	abstract	9	TAMLÛ	
-tausend	measure	9	LĪM	
+tausend	number	9	LĪM	
 Arroganz	abstract	9	šallakart=atar	14.2
 Markasit(?)	realia	9	parašḫ=a-	1.2
 Kloß	realia	9	talupp=(i)-	30.1.1
@@ -1885,7 +1885,7 @@ Ulušna	place	9	ulušn=a-	39.2
 unschuldig	adjective	9	niwall=a/i-	30.6.1
 Maštigga	person	9	maštikk=a-	37.2
 Pirwa	deity	9	pir=u-a-	38.2 += wa=aš
-sechzig	measure	9	ŠŪŠI	
+sechzig	number	9	ŠŪŠI	
 Linsensuppe	realia	9	 TU₇˽GÚ.TUR	29.1.1
 Ḫuattašša	place	9	ḫuattašš=a-	35.1.1
 Vorratshaus	realia	9	① apuzz=i-	2.1.3
@@ -1986,7 +1986,7 @@ Ekaldu	deity	8	ikalt=u-	35.3.1
 Gerstenbrot	realia	8	① NINDA.ŠE	29.1.1
 Lilaya	deity	8	① lila=ia-	35.1.4
 zum Sonnengott gehörig	adjective	8	tiwal=i-	30.6.3
-30	measure	8	30	QUANcar
+30	number	8	30	QUANcar
 traubenförmig	adjective	8	murial=a-	1.3
 kräftig	adjective	8	A.A	28.13.2 += ššan
 Straße	place	8	ḫaruw=a-	30.3
@@ -2050,7 +2050,7 @@ Ohr-Symbol	realia	8	ḫazzizz=i(t)-	30.4.5
 Ištanu	deity	8	ištan=u-	35.3.1
 Tap/wal(l)amaz(a)kuru	deity	8	① tapalamazkur=u-	35.3.1
 Kuzzi	person	8	① kuz=i-	37.3
-(unbekannte Zahl)	measure	8	n	QUANcar
+(unbekannte Zahl)	number	8	n	QUANcar
 Ḫarana	place	8	ḫaran=i-	30.1.1 += kkan
 verleumderisch(?)	adjective	8	mantall=iya/i-	30.6.3
 Schal(?)	realia	8	irḫ=a-	1.1
@@ -2145,7 +2145,7 @@ Taparwašu	deity	7	taparuaš=u-	35.3.1
 Ellantarpigga	place	7	ellantarpikk=a-	35.1.1
 Ze/intuḫi	deity	7	① zentuḫ=ia-	35.1.4
 Stoffstreifen	realia	7	MARŠU	
-Muli	place	7	① mul=i-	35.2.1
+Muli	deity	7	① mul=i-	35.2.1
 Dada	person	7	tat=a-	38.2
 Ringkämpfer	person	7	GÉŠPU	29.1.1 += kkan
 Šaluš	deity	7	① šall=i-	2.2
@@ -2495,7 +2495,7 @@ Schleuse	realia	5	ištapp=eššar	14.3
 Bart	body	5	SU₆	29.1.2
 hart	adjective	5	ḫatk=u-	3.2
 Walliyara	place	5	walliyar=a-	35.1.1
-90	measure	5	90	QUANcar
+90	number	5	90	QUANcar
 Ackerfurche	place	5	aggal=a-	1.4
 unwissend	adjective	5	① Á.NU.GÁL	29.1.2
 (Decke)	realia	5	TAḪAPŠU	
@@ -2747,7 +2747,7 @@ Tarwaški	place	4	taruašk=i-	38.3
 Kella	person	4	kill=a	38.2
 Sonnengottheit	deity	4	UTU-AŠ	
 Ananuri	place	4	ananur=i-	38.3
-elf	measure	4	11	QUANcar
+elf	number	4	11	QUANcar
 Zarniyaziti	person	4	zarnia-LÚ=i-	38.3
 paarweise vorhandenes Kleidungsstück	realia	4	etriw=a-	1.1
 Pikkauzza	place	4	pikkauz=a-	39.2
@@ -2764,7 +2764,7 @@ bitterer Knoblauch	realia	4	AZANNU
 (kleiner Vogel)	animal	4	MUŠEN.TUR=	29.1.1
 Lulluwa	place	4	lulluw=a-	39.2
 zur Preisung gehörig	adjective	4	šarlatam=iya/i-	30.6.3
-je zwei	measure	4	2.ÀM	QUANdist
+je zwei	number	4	2.ÀM	QUANdist
 Ištuḫila	place	4	ištuḫil=a-	39.2
 Taptina	place	4	taptin=a-	39.2
 Ašdutarḫunta	person	4	aštu-°D°10=a-	38.2
@@ -2845,7 +2845,7 @@ Apaša	place	4	apaš=a-	39.2 += šši
 Ankušna	place	4	ankušn=a-	39.2
 Kappurnanta	place	4	kappurnant=a-	39.2
 Zazalla	deity	4	zazall=a-	38.2
-14	measure	4	14	QUANcar
+14	number	4	14	QUANcar
 (Kultgegenstand aus Silber)	realia	4	uluppann=i-	2.1.1
 Luftloch	realia	4	KA.BAL	29.1.2
 NÍG.GA.KÙ.SI₂₂	person	4	NÍG.GA.KÙ.SI₂₂=	37.1
@@ -2900,7 +2900,7 @@ Inventar	realia	3	ḫatiw=i(t)-	30.4.5
 Maultier	animal	3	ANŠE.NUN.NA	29.1.1
 Maw(i)ri	place	3	mawir=i-	38.3
 Kurwašu	place	3	kurwaš=u-	35.3.1
-15	measure	3	15	QUANcar
+15	number	3	15	QUANcar
 ̀Ḫaḫlatarupšani	place	3	ḫaḫlatarupšan=i-	38.3
 Bündnis	abstract	3	① šardi=atar	14.2
 Ansehen	abstract	3	šargaw=atar	14.2
@@ -3094,7 +3094,7 @@ Fusseln(?)	realia	3	mariḫš=(i)-	30.1.1
 (Gegenstand aus Edelmetall)	realia	3	lammam=a/i-	30.1.1
 Erntearbeiter	person	3	ŠE.KIN.KU₅	29.1.1
 Mallidunna	place	3	mallidunn=a-	37.2
-37	measure	3	37	QUANcar
+37	number	3	37	QUANcar
 Iarrazalma	place	3	iarrazalm=a-	38.2
 Gewitter(?)	nature	3	šar=awar	14.4
 Kämpfer	person	3	① GÚ.GILIM	29.1.2
@@ -3156,7 +3156,7 @@ Wartanna	place	3	wartann=a-	39.2
 Malaziti	person	3	mala-LÚ=i-	38.3
 Uruk	place	3	urag=a-	39.2
 Alḫa	place	3	alḫ=a-	39.2 +
-1+n	measure	3	1+n	QUANcar
+1+n	number	3	1+n	QUANcar
 mürrisch(?)	adjective	3	šamman=a-	1.1
 Tunnawiya	person	3	dunnawi=a-	37.2
 Elle (Maßeinheit)	measure	3	AMMATU(M)	
@@ -3971,7 +3971,7 @@ Zedu	place	2	zet=u-	35.3.1
 Ikakali	place	2	ikakal=i-	39.3
 Streitkolben	realia	2	ḪURPALÛ	
 (Krankheit?)	abstract	2	① urt=a-	1.1
-13	measure	2	13	QUANcar
+13	number	2	13	QUANcar
 Ziplata	place	2	ziplat=a-	39.2
 Urzamaššani	place	2	urzamaššan=i-	35.2.1
 (Farbe)	abstract	2	aiw=ant-	13.2
@@ -3985,7 +3985,7 @@ Nuwašarpa	place	2	nuwašarp=a-	38.2
 Bindung	abstract	2	① KEŠDA	28.8.3
 Tawatena	place	2	① tauaten=a-	39.2
 Aššuiwašḫa	place	2	aššuiwašḫ=a-	37.2
-50	measure	2	50	QUANcar
+50	number	2	50	QUANcar
 Ḫešta-Haus-Mann	person	2	LÚ˽°É°ḫešta=	29.1.1
 Šaliti	place	2	šalit=i	39.3
 Marašša	place	2	marašš=a-	39.2
@@ -4007,7 +4007,7 @@ Hündin	animal	2	① UR.GI₇.MUNUS.AL.LÁ	29.1.1
 Arm	body	2	① AḪU	
 Laknanika	place	2	① laknanik=a-	39.2
 taḫurpištanu	unknown	2	① taḫurpištan=u-	35.3.1
-Tausend	measure	2	šakr=i-	2.1.2
+Tausend	number	2	šakr=i-	2.1.2
 Zinišḫapa	place	2	① zinišḫap=a-	39.2
 naḫuḫupanta	unknown	2	① naḫuḫupant=a-	39.2
 zur Stärke gehörig	adjective	2	① annarumaḫitašš=a/i-	30.6.2
@@ -4076,7 +4076,7 @@ Walkuwanda	place	1	walkuwand=a-	39.2
 EN-UR.SAG	person	1	EN-UR.SAG=	38.1
 Ḫušša	place	1	ḫušš=a-	39.2
 steil(?)	adjective	1	alpuwar=a-	1.3
-32	measure	1	32	QUANcar
+32	number	1	32	QUANcar
 Tiger(?)	animal	1	PÌRIG	29.1.2
 Napf	realia	1	ŠAB	29.1.2
 Amminani	person	1	ammi-ŠEŠ=	38.1
@@ -4155,7 +4155,7 @@ Tuwawa	place	1	duw=a-	38.2
 ein Orakelvogel	animal	1	uešš=i-	2.1.1
 Zizu	place	1	ziz=u-	38.4
 Traum(?)	abstract	1	Ù˽NUN	29.1.2
-20mal	measure	1	20-iš	QUANmul
+20mal	number	1	20-iš	QUANmul
 Ištanzaššiš	place	1	ištanzašš=i-	35.1.3
 großes BALAG.DI-Instrument	realia	1	BALAG.DI.GAL=	29.1.1
 Šananauiya	place	1	① šananaui=a-	39.2
@@ -4173,7 +4173,7 @@ Pipimawa	place	1	pipimau=a-	39.2
 Tap(pa)šnuwanta	place	1	tapšanuant=a-	39.2
 Tapalka	place	1	tapalk=a-	39.2
 Lammfest	abstract	1	EZEN₄.SILA₄=	28.1.1
-38	measure	1	38	QUANcar
+38	number	1	38	QUANcar
 Nauwa-[	place	1	naua=	39.2
 er schrieb	abstract	1	IN.SAR=	29.1.1
 Kayalara	place	1	① kaialar=a-	35.1.1
@@ -4309,7 +4309,7 @@ Kilušḫepa	person	1	kilušḫep=a-	37.2
 (topographisches Merkmal)	place	1	ašaliy=a-	30.3
 im vergangenen Jahr	measure	1	MU.IM.MA	
 Panzer	realia	1	GURSI(P)PU, KURPIŠU	
-22	measure	1	22	QUANcar
+22	number	1	22	QUANcar
 (minderwertige Goldsorte?)	realia	1	kurupšini=	30.8 += uš
 Wasserrohr	realia	1	artaḫḫ=i-	2.1.1
 Ḫurmel	person	1	ḫurmel=	38.1
@@ -4356,7 +4356,7 @@ Kinaḫḫi	place	1	kinaḫḫ=i-	39.2
 Einladender(?)	person	1	gallištarwan=a-	1.1
 Tašḫiniya	place	1	tašḫini=a-	39.2
 Filter	realia	1	① šešar=ul-	8.3
-je vier	measure	1	① 4.TA.ÀM	QUANdist
+je vier	number	1	① 4.TA.ÀM	QUANdist
 Ḫušue	deity	1	① ḫušu=e-	35.9.1
 Šaššaš[i	person	1	šaššaši=[-	38.1
 Glanz(?)	abstract	1	šuppi=atar	14.2
@@ -4541,7 +4541,7 @@ Gebiet	place	1	PATTU
 Hang	nature	1	arpatt=a-	1.2
 insular	adjective	1	guršawanašš=a/i-	30.6.2
 gefiedert(?)	adjective	1	paddaniaš=a/i-	30.6.2
-23	measure	1	23	QUANcar
+23	number	1	23	QUANcar
 Überzug	realia	1	BAR.KÍN	29.1.2
 Kot	body	1	gamaršuw=ant-	13.1 += ma
 Kiwira	person	1	kiuir=a-	38.2
@@ -4551,7 +4551,7 @@ Ammiyatalla	person	1	ammiyatal=a-	38.2
 Apallanna	person	1	apallann=a-	38.2
 Ḫuwannara	place	1	ḫuwannar=a-	39.2
 Ziḫalluka	place	1	ziḫalluk=a-	39.2
-zwei-(?)	measure	1	2-ni	QUAN
+zwei-(?)	number	1	2-ni	QUAN
 (Material bei der Glasherstellung)	realia	1	① muḫl=ai-	4.1
 Staubschutzbrett	realia	1	ŠAḪARKU	
 Iaḫina-LÚ	person	1	laḫina-LÚ=	38.1
@@ -4578,7 +4578,7 @@ blutrote Färbung	abstract	1	išḫarw=atar	14.2
 fröhliches Lachen	abstract	1	ḫalwa=mmar	14.5
 Verunreinigung	abstract	1	šaknu=mar	15.2
 Regenrinne(?)	realia	1	ḫeyawall=a-	1.4
-je sechs	measure	1	6.TA.ÀM	QUANdist
+je sechs	number	1	6.TA.ÀM	QUANdist
 Narr	person	1	LIL	29.1.2
 Lila-UR.MAḪ	person	1	lila-UR.MAḪ=	38.1
 kahl	adjective	1	kak=i-	2.2
@@ -4680,7 +4680,7 @@ Penis(?)	body	1	① ḫurn=i-	2.1.1
 Ilaliya	deity	1	① ilali=a-	35.1.1
 Taz(z)iyašu	deity	1	① taziaš=u-	35.3.1
 Ninkar	deity	1	① NIN.KAR	36.6
-25	measure	1	① 25	QUANcar
+25	number	1	① 25	QUANcar
 Ašḫaluga	deity	1	ašḫaluk=a-	35.1.1
 kleine Brotration(?)	realia	1	šarammanni=-i	2.1.2
 Daḫangaili	deity	1	① taḫankail=i-	35.2.1
@@ -4901,7 +4901,7 @@ Hirschkuh	animal	1	LU.LIM.MUNUS.AL.LÁ	29.1.1
 Ḫelaluḫa	place	1	① ḫelaluḫ=a-	39.2
 Še/ip/wuru	place	1	šewur=u-	35.3.1
 Nunziti	place	1	nunzit=i-	38.3
-78	measure	1	① 78	QUANcar
+78	number	1	① 78	QUANcar
 Ampuriya	place	1	① ampuri=a-	39.2
 Müllerin	person	1	① MUNUS˽°NA₄°ARA₅	29.1.1
 Šarkitta	place	1	① šarkitt=a-	39.2
@@ -5015,7 +5015,7 @@ Tränken	abstract	1	ŠIQI
 Paḫḫišalma	place	1	paḫḫišalm=a-	39.2
 Aussatz	abstract	1	SAḪAR.ŠUB.BA	29.1.2
 Zinta	place	1	zint=a-	39.2
-80	measure	1	80	QUANcar
+80	number	1	80	QUANcar
 Stachel(?)	realia	1	katra=l-	8.1
 AMAR.MUŠEN-i-	unknown	1	AMAR.MUŠEN=i-	38.3
 Tarwiššiya	place	1	taruiššiy=a-	38.2
@@ -5110,7 +5110,7 @@ Kuzzina	place	1	① kuzina=	35.9.3
 Watammira	place	1	① watammir=a-	35.1.1
 Ḫilištarni	place	1	ḫilištarn=i-	35.2.2
 Waškuruna	place	1	① waškurun=a-	35.1.1
-neunmal	measure	1	① 9-ŠU	QUANmul
+neunmal	number	1	① 9-ŠU	QUANmul
 Anat-ŠAR	deity	1	① anat-ŠAR=	38.1
 Urunzipa	place	1	urunzip=a-	35.1.1
 (Ingredienz)	realia	1	tuwaš=	30.4.1 += ya
@@ -5236,7 +5236,7 @@ Egara	place	1	egar=a-	39.2
 (Baum oder Holzpflanze)	realia	1	šadd=u-	3.1.3
 Ammama	deity	1	ammam=a-	37.2
 Zienkuelwa	place	1	zienkuelw=a	37.2
-4+n	measure	1	4+n	QUANcar
+4+n	number	1	4+n	QUANcar
 (goldener Schmuckgegenstand)	realia	1	kalmaš=u-	3.1.1
 Verwandter	person	1	ŠÀ.MÁŠ	29.1.2
 Obsthändler	person	1	šešal=a-	1.1
@@ -5367,13 +5367,13 @@ Inzilitipa	place	1	① inzilitip=a-	39.2
 Anunumniš	deity	1	① anunumniš=	12.5
 Šušumat	deity	1	① šušuma=t-	35.4.1
 Weriyadu	place	1	① weriat=u-	35.3.1
-50-(?)	measure	1	① 50-uš	QUAN.ACC.PL
+50-(?)	number	1	① 50-uš	QUAN.ACC.PL
 Anniyain	place	1	① anniain=	39.1
 Puntaya	place	1	②Ⓐ puntai=a-	39.2 += kkan
 Taipuri	place	1	① taipur=i-	35.2.1
 ungenannt	adjective	1	① kulupat=i/e-	30.10.1
 (Holzgegenstand(?))	realia	1	① waran=a-	1.4
-35	measure	1	① 35	QUANcar
+35	number	1	① 35	QUANcar
 Waluka	place	1	① waluk=a-	39.2
 Tiyanta	place	1	① tiant=a-	39.2
 gereizt(?)	adjective	1	ḫalwatnall=a/i-	30.6.1 += wa=za

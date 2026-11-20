@@ -1,17 +1,57 @@
 gloss,rule_id,sense,wclass,tokens,decided_by
 Horn,horn-01,instrument,realia,59,ShG
 Horn,horn-02,celestial,nature,38,ShG
-Horn,horn-03,animal horn,body,1,draft
+Horn,horn-03,animal horn,body,1,ShG
 Horn,horn-04,animal horn,body,31,ShG
 Horn,horn-05,vessel or inlaid object,realia,32,ShG
 Horn,horn-06,vessel,realia,5,ShG
 Horn,horn-07,vessel,realia,14,ShG
-Horn,horn-08,material,realia,16,draft
+Horn,horn-08,material,realia,16,ShG
 Horn,,(no rule matched),unchanged,128,
-Bild eines Berges,berg-01,land,place,2445,draft
-Bild eines Berges,berg-02,mountain,nature,470,draft
+Bild eines Berges,berg-01,land,place,2445,ShG
+Bild eines Berges,berg-02,deified mountain,deity,145,ShG
+Bild eines Berges,berg-03,named mountain,place,11,ShG
+Bild eines Berges,berg-04,mountain,nature,314,ShG
 Bild eines Berges,,(no rule matched),unchanged,6,
-Silber,silber-02,silver,realia,2352,draft
-Silber,,(no rule matched),unchanged,66,
-Hand,hand-01,handful,measure,1774,draft
-Hand,,(no rule matched),unchanged,2771,
+Hand,hand-01,handful,measure,1774,ShG
+Hand,qati-02,QĀTI finished (colophon),scribal,227,ShG
+Hand,,(no rule matched),unchanged,2544,
+Silber,silber-01,Ḫattuša,place,2,ShG
+Silber,silber-02,Ḫattuša,place,2,ShG
+Silber,silber-03,silver,realia,1187,ShG
+Silber,silber-04,silver,realia,239,ShG
+Silber,silber-05,silver,realia,203,ShG
+Silber,silber-06,Ḫattuša,place,18,ShG
+Silber,,(no rule matched),unchanged,767,
+Haus,haus-01,"house, institution",place,5580,ShG
+Haus,,(no rule matched),unchanged,72,
+Weg,kaskal-01,"journey, campaign",abstract,241,ShG
+Weg,kaskal-02,road,place,1249,ShG
+Weg,,(no rule matched),unchanged,311,
+Kopf,sagdu-01,counted persons,agent,109,draft
+Kopf,,(no rule matched),unchanged,1121,
+Fleisch,fleisch-01,meat (offering),realia,238,ShG
+Fleisch,fleisch-02,flesh of the body,body,39,ShG
+Fleisch,,(no rule matched),unchanged,1051,
+vollendet,qati-01,QĀTI finished (colophon),scribal,263,ShG
+vollendet,,(no rule matched),unchanged,347,
+Tontafel,dub-01,tablet number (colophon),scribal,3,ShG
+Tontafel,dub-02,tablet number (colophon),scribal,617,ShG
+Tontafel,,(no rule matched),unchanged,725,
+Großer,gal-01,chief (title),agent,107,ShG
+Großer,gal-02,the great one,agent,38,ShG
+Großer,gal-03,"great, large",adjective,145,ShG
+Großer,gal-04,cup,realia,43,draft
+Großer,,(no rule matched),unchanged,996,
+Tag (vergöttlicht),ud-01,day,measure,1290,ShG
+Tag (vergöttlicht),,(no rule matched),unchanged,27,
+Adler,adler-01,eagle figure,realia,89,ShG
+Adler,,(no rule matched),unchanged,511,
+Baldachin,baldachin-01,"canopy, porch (a structure)",place,82,draft
+Baldachin,,(no rule matched),unchanged,0,
+Inneres,inneres-01,"interior (of a city, house)",place,52,draft
+Inneres,,(no rule matched),unchanged,126,
+Lippe,lippe-01,rim (of a vessel),realia,15,draft
+Lippe,,(no rule matched),unchanged,97,
+so beschaffen,sob-01,"such, of this kind",adjective,16,draft
+so beschaffen,,(no rule matched),unchanged,0,

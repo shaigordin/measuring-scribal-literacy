@@ -3,11 +3,11 @@
   "levels": {
     "high": {
       "reviewed": 59,
-      "right": 56,
-      "accuracy": 0.949,
+      "right": 52,
+      "accuracy": 0.881,
       "ci95": [
-        0.861,
-        0.983
+        0.775,
+        0.941
       ]
     },
     "low": {
@@ -30,8 +30,26 @@
     }
   },
   "note": "in-sample: the rules were revised on these marks",
-  "corpus_accuracy_estimate": 0.923,
+  "corpus_accuracy_estimate": 0.88,
   "still_wrong": [
+    {
+      "word": "1",
+      "translit": "1",
+      "wclass": "other",
+      "accepted": "other",
+      "now": "number",
+      "rule_now": "analysis_selected",
+      "note": "Are numbers a relevant category?"
+    },
+    {
+      "word": "3",
+      "translit": "3",
+      "wclass": "other",
+      "accepted": "other",
+      "now": "number",
+      "rule_now": "analysis_selected",
+      "note": ""
+    },
     {
       "word": "tia",
       "translit": "ti-ia",
@@ -48,6 +66,24 @@
       "accepted": "function",
       "now": NaN,
       "rule_now": NaN,
+      "note": ""
+    },
+    {
+      "word": "1",
+      "translit": "1",
+      "wclass": "other",
+      "accepted": "other",
+      "now": "number",
+      "rule_now": "analysis_selected",
+      "note": ""
+    },
+    {
+      "word": "37",
+      "translit": "37",
+      "wclass": "other",
+      "accepted": "other",
+      "now": "number",
+      "rule_now": "analysis_selected",
       "note": ""
     },
     {
