@@ -166,6 +166,13 @@ def main():
             hk = se["horn_kara_candidates"]
             put("kara.tokens", hk["tokens"], src + " horn_kara_candidates")
             put("kara.selected", hk["editor_selected"], src + " horn_kara_candidates")
+        rp = os.path.join(os.path.dirname(os.path.normpath(RES)), "labels", "sense_rules.csv")
+        if os.path.exists(rp):
+            sup = collections.Counter(r.get("supports_rule", "") for r in csv.DictReader(open(rp, encoding="utf-8")))
+            src = "labels/sense_rules.csv supports_rule"
+            put("sense.dict", sup["yes"] + sup["partly"] + sup["base meaning only"], src + " (checked)")
+            put("sense.dict.yes", sup["yes"] + sup["partly"], src + " (yes or partly)")
+            put("sense.dict.base", sup["base meaning only"], src)
 
     # ---- Unicode cuneiform experiments (orphans/run_unicode.py)
     fp = os.path.join(RES, MAIN, "U_unicode.json")
