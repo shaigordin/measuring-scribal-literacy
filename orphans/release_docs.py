@@ -26,8 +26,8 @@ TITLE = ("Orphans and Archetypes: closest traditions, compositions and duplicate
 AUTHOR = {"family-names": "Gordin", "given-names": "Shai", "affiliation": "Ariel University"}
 TLHDIG_DOI = {"03": "10.5281/zenodo.20328284", "04": "10.5281/zenodo.24373727"}[TLH]
 CODE_URL = "https://github.com/shaigordin/measuring-scribal-literacy"
-CATS = ["function_words", "verbs", "realia", "agents_and_deities", "places", "animals_body_nature",
-        "abstract_nouns", "adjectives", "foreign_words", "other_words"]
+from qtm.wordclass import CATEGORIES
+CATS = [re.sub(r"\W+", "_", c.lower()).strip("_") for c in CATEGORIES]
 
 FRAGMENTS = [
     ("txtid", "string", "TLHdig text id (publication number; a trailing + marks a text TLHdig already stores as a join)."),
@@ -274,6 +274,12 @@ def main():
     bins = pd.DataFrame([{"Laroche bin": b, "Texts": f"{x['texts']:,}", "Placed": f"{x['placed']:,}"}
                          for b, x in json.load(open(f"{d}/without_restorations/summary.json"))["by_bin"].items()])
     E5 = pd.read_csv(a.orphans)
+    wn = json.load(open("results/wordnet_check/wordnet_check.json"))
+    senses = json.load(open("results/senses/senses.json"))
+    os.makedirs(f"{d}/lexicon", exist_ok=True)
+    import shutil
+    for fn in ("gloss_lexicon.tsv", "sense_rules.csv"):
+        shutil.copy(f"labels/{fn}", f"{d}/lexicon/{fn}")
     o_placed = E5[E5.assigned.notna()]
     o_match = int((Fw.reindex(o_placed.txtid).placed_tradition.str.replace("Syro-Mesopotamian", "Syro-Mesopotamia").values
                    == o_placed.assigned.values).sum())
@@ -287,7 +293,10 @@ def main():
          "kj_n": len(kjn), "kj_top20": int((kjn['rank'] <= 20).sum()),
          "references": references(T), "bins_table": mdtable(bins),
          "reference_n": f"{sw['reference_manuscripts']:,}", "tradition_n": f"{sw['tradition_manuscripts']:,}", "placed_all": f"{sw['status'].get('placed', 0):,}",
-         "orphans_scored": f"{len(E5):,}", "orphans_placed": f"{len(o_placed):,}"}
+         "orphans_scored": f"{len(E5):,}", "n_categories": len(CATS),
+         "n_glosses": f"{wn['glosses']['all']:,}", "n_rules": senses["rules"],
+         "wn_agree": f"{wn['type_weighted']['agreement']:.0%}", "wn_kappa": f"{wn['type_weighted']['kappa']:.2f}",
+         "wn_coverage": f"{wn['coverage']['types']:.0%}", "orphans_placed": f"{len(o_placed):,}"}
     tpl = Template(open(os.path.join(os.path.dirname(__file__) or ".", "release_template", "README.md")).read())
     open(f"{d}/README.md", "w").write(tpl.substitute(v))
 
@@ -345,7 +354,8 @@ references:
     if a.zip:
         name = f"orphans_archetypes_nearest_manuscripts_v{a.version}"
         with zipfile.ZipFile(f"{d}/../{name}.zip", "w", zipfile.ZIP_DEFLATED) as z:
-            for fn in ["README.md", "LICENSE.txt", "CITATION.cff", "datapackage.json"]:
+            for fn in ["README.md", "LICENSE.txt", "CITATION.cff", "datapackage.json",
+                       "lexicon/gloss_lexicon.tsv", "lexicon/sense_rules.csv"]:
                 z.write(f"{d}/{fn}", f"{name}/{fn}")
             for k in FOLDERS:
                 for fn in ["summary.json", *FILES]:

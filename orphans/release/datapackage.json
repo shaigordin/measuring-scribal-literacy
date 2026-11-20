@@ -243,6 +243,11 @@
       "description": "Share of the analysed words in the word category 'foreign words'."
      },
      {
+      "name": "words_scribal_marks",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'scribal marks'."
+     },
+     {
       "name": "words_other_words",
       "type": "number",
       "description": "Share of the analysed words in the word category 'other words'."
@@ -639,6 +644,11 @@
       "name": "words_foreign_words",
       "type": "number",
       "description": "Share of the analysed words in the word category 'foreign words'."
+     },
+     {
+      "name": "words_scribal_marks",
+      "type": "number",
+      "description": "Share of the analysed words in the word category 'scribal marks'."
      },
      {
       "name": "words_other_words",

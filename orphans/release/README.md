@@ -14,7 +14,7 @@ fragment (11,440 texts) the dataset gives:
 - the nearest of ten reference traditions, and whether its lead is large enough to place the fragment;
 - the five nearest compositions (CTH numbers) and the twenty nearest manuscripts among 19,417 TLHdig
   texts, with three checks for a possible duplicate or join;
-- the share of the fragment's words in ten word categories.
+- the share of the fragment's words in 11 word categories.
 
 ## Which texts are in it
 
@@ -59,7 +59,7 @@ tradition.
 
 ## How a fragment is placed
 
-Each text becomes a list of counts of its words (the lemma of TLHdig's word analysis) and of the sign
+The method is Quantitative Tradition Mapping (QTM). Each text becomes a list of counts of its words (the lemma of TLHdig's word analysis) and of the sign
 sequences (one to three signs) inside its words, weighted by tf-idf. Words that TLHdig 0.4 leaves
 without an analysis take the analysis of the same spelling elsewhere in TLHdig, or, for Cuneiform
 Luwian, the lemma of eDiAna (2026; CC BY-SA 4.0). Every filled word names its source, the TLHdig line or
@@ -94,6 +94,10 @@ Each folder holds the same files; `datapackage.json` describes every column.
 | `compositions.csv` | The compositions (CTH numbers) used for the nearest compositions. |
 | `summary.json` | The counts quoted in this README. |
 
+The folder `lexicon/` holds the word lists behind the word categories, the same for both datasets:
+`gloss_lexicon.tsv` (German gloss, its class, token count, an example lemma) and `sense_rules.csv`
+(the context rules, with their evidence and dictionary references).
+
 ## Limits
 
 - A placement means "nearest of these ten traditions". A fragment of a tradition outside the reference
@@ -102,8 +106,13 @@ Each folder holds the same files; `datapackage.json` describes every column.
 - The match checks find duplicates far better than joins: of 332 duplicate pairs recorded in the
   Konkordanz, the duplicate is among the twenty nearest manuscripts in 224 (median rank
   4); of 19 proposed joins, 7. A candidate is a lead to check on the tablets.
-- Word categories are assigned by rules from TLHdig's word analyses; the word lexicon remains to be
-  verified manually.
+- Word categories are assigned by rules from TLHdig's automatic word analyses. Nouns and adjectives
+  are classed by their German gloss in a lexicon of 5,494 glosses (`lexicon/gloss_lexicon.tsv`).
+  Where a gloss has more than one meaning (Horn: a musician's horn or the moon's horn), one of
+  39 context rules (`lexicon/sense_rules.csv`) chooses the meaning from the line. Each rule names
+  its dictionary reference (HEG, CHD, CAD, CDA) and the examples it rests on. An independent check
+  against Open German WordNet covers 30% of the glosses and agrees with the lexicon on 68% of
+  them (kappa 0.61). The word lexicon remains to be verified manually.
 
 ## How to cite
 
