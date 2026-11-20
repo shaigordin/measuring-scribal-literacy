@@ -1,0 +1,51 @@
+{
+ "tokens_file": "data/tokens_marks_new.csv",
+ "glosses_nominal": 4108,
+ "glosses_with_tokens": 3515,
+ "any_signal": 2511,
+ "any_signal_tokens": 181280,
+ "flagged": 992,
+ "flagged_tokens": 97831,
+ "flagged_token_share": 0.417,
+ "signals": {
+  "multi_lemma": 1068,
+  "wn_disagree": 468,
+  "wn_multiclass": 409,
+  "unvalidated": 1876
+ },
+ "by_number_of_signals": {
+  "0": 1004,
+  "1": 1519,
+  "2": 746,
+  "3": 208,
+  "4": 38
+ },
+ "concordances_for_top": 30,
+ "rules": 12,
+ "rules_by_decider": {
+  "ShG": 6,
+  "draft": 6
+ },
+ "glosses_with_rules": 4,
+ "tokens_with_sense_rule": 7237,
+ "tokens_class_changed": 3749,
+ "horn_kara_candidates": {
+  "tokens": 51,
+  "editor_selected": 0,
+  "by_spelling": {
+   "kar-aš": 32,
+   "kar-aš-ta": 13,
+   "kar-aš-ša": 1,
+   "kar-〈aš〉-ta": 1,
+   "ka-ra-a-az-ša-an": 1,
+   "ka-ra-ez-za": 1,
+   "kar-aš-ša-an": 1,
+   "kar-aš-mu": 1
+  },
+  "by_class": {
+   "realia": 33,
+   "ambiguous": 17,
+   "verb": 1
+  }
+ }
+}
