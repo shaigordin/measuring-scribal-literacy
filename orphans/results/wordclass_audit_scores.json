@@ -37,11 +37,11 @@
     "levels": {
       "high": {
         "reviewed": 59,
-        "right": 52,
-        "accuracy": 0.881,
+        "right": 56,
+        "accuracy": 0.949,
         "ci95": [
-          0.775,
-          0.941
+          0.861,
+          0.983
         ]
       },
       "low": {
@@ -63,9 +63,9 @@
         ]
       }
     },
-    "corpus_weighted_accuracy": 0.88,
+    "corpus_weighted_accuracy": 0.923,
     "in_sample": true,
-    "rows_still_wrong": 22
+    "rows_still_wrong": 18
   },
   "weights_share_of_tokens": {
     "high": 0.637,
