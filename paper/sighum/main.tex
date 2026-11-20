@@ -454,33 +454,14 @@ but the Kizzuwatna rituals remain nearer: the western reading is plausible, not 
 of the reference, so that the test stays independent of the claim.
 
 \subsection{Spellings only, with every manuscript}
-\label{sec:spellings}
-Even with the fills, not every word has an analysis. We therefore repeat the
-leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
-analysed manuscripts only and once with all manuscripts of 17 or more legible words
-(analysed only and all manuscripts). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
-overall accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc}, because most traditions gain
-manuscripts that are harder to place. The Luwian
-rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
-\Q{R1.B.luwianritualspuriyannikuwattalla.n} manuscripts and their accuracy from
-\Q{R1.A.luwianritualspuriyannikuwattalla.acc} to \Q{R1.B.luwianritualspuriyannikuwattalla.acc};
-the western rituals from \Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n}
-(\Q{R1.A.arzawawesternrituals.acc} to \Q{R1.B.arzawawesternrituals.acc}). 
-
+Counting every legible word, with all manuscripts of 17 or more legible words, the reference grows
+from \Q{R1.A.n} to \Q{R1.B.n} manuscripts and accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc},
+because most traditions gain manuscripts that are harder to place (Appendix~\ref{sec:spellings}).
 
 \subsection{The cuneiform layer}
-\label{sec:unicode}
-We repeat the evaluation on TLHdig's Unicode cuneiform, which gives the signs without the
-editors' readings (analysed manuscripts only). Without word division, each line is a sequence of
-signs, cut at broken signs, and we count sign 1--3-grams: accuracy is \Q{UA.acc}, against
-\Q{UA.translit.acc} for the transliteration on the same reference; \Q{UA.placed} of
-\Q{UA.scored} orphans are placed (\Q{UA.translit.placed} from the transliteration), and all
-\Q{UA.both} placed by both go to the same tradition. With word division, carried over from the
-transliteration where a line's sign count matches (\Q{U.align} of lines), accuracy falls to
-\Q{UB.acc}; more orphans are placed (\Q{UB.placed}), and of the \Q{UB.both} placed by both,
-\Q{UB.same} agree. The readings thus add little to placement, while word division that cannot be
-aligned adds noise. The Unicode strings include restored signs, and the placement margin was set
-on the transliteration. KBo 44.52 goes to the \Q{UA.kbo4452} tradition in both runs.
+On TLHdig's Unicode cuneiform, without the editors' readings or word division, accuracy is
+\Q{UA.acc} against \Q{UA.translit.acc} for the transliteration, and all \Q{UA.both} orphans placed
+by both go to the same tradition: the readings add little to placement (Appendix~\ref{sec:unicode}).
 
 \subsection{What a placement rests on}
 \label{sec:decision}
@@ -576,44 +557,10 @@ but partly by circularity: editors restore duplicates from each other. Of the
 \Q{KJ.join.median}). Two pieces of one tablet share context but rarely
 text, so we tried to learn a ranking for joins.
 
-TLHdig marks on every line of a joined text the piece it is preserved on. Splitting its joined
-texts back into their pieces gives \Q{J1.query_pieces} query pieces from \Q{J1.joined_texts}
-joins, each to be found among \Q{J1.units} units. A logistic regression re-ranks the nearest
-candidates of each piece over twelve pair features of text, spelling, preserved sides and
-columns, publication and excavation series, and size.
-It is tested on compositions it was not fitted on (five folds grouped by CTH number). The gain is
-real but modest (Table~\ref{tab:joins}): the partner reaches the top 20 for \Q{J1.model.r20} of
-pieces, against \Q{J1.sim.r20} for similarity alone, and the median rank falls from
-\Q{J1.sim.median} to \Q{J1.model.median}. On the Konkordanz's suspected joins the model places
-\Q{J1.konk.join.model.hits20} of \Q{J1.konk.join.queries} in the top 20, against
-\Q{J1.konk.join.sim.hits20} for similarity.
-
-In its weights, word overlap (\Q{J1.w.wordoverlap}) and similarity
-(\Q{J1.w.cosine}) favour a join, as do preserved columns that match (\Q{J1.w.columnoverlap}),
-identical spellings (\Q{J1.w.samespelling}) and the same excavation series
-(\Q{J1.w.sameseries}); the scribal rates have no measurable effect (\Q{J1.w.scribaldistance},
-95\% interval \Q{J1.w.scribaldistance.ci}). Shared text is the strongest cue, so the model still
-rewards what duplicates have in common. Find spot and
-date, the evidence one would want, cannot be fitted honestly, because for known joins the
-Konkordanz often derives them from the join itself. Text alone narrows the search
-for a join but does not tell a join from a duplicate; that needs physical evidence.
-
-\begin{table}[t]
-  \centering
-  \footnotesize
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}l rrrr@{}}
-    \toprule
-    & top 1 & top 5 & top 20 & median rank \\
-    \midrule
-    \gentab{joins}
-    \bottomrule
-  \end{tabular}
-  \caption{Finding the other piece of a known join: share of \Q{J1.query_pieces} pieces whose
-    partner ranks in the top 1, 5 and 20, and its median rank, tested on compositions not used
-    in fitting.}
-  \label{tab:joins}
-\end{table}
+A logistic regression over twelve pair features, tested on compositions it was not fitted on,
+raises the share of partners in the top 20 from \Q{J1.sim.r20} to \Q{J1.model.r20}
+(Appendix~\ref{sec:joinmodel}). Text alone narrows the search for a join but does not tell a
+join from a duplicate; that needs physical evidence.
 
 \section{Discussion and conclusion}
 \label{sec:discussion}
@@ -659,5 +606,81 @@ text and to check the references; the authors reviewed all of it and take respon
 content. \todraft{Authors to confirm this statement.}
 
 \bibliography{../references}
+
+\appendix
+
+\section{Spellings only, with every manuscript}
+\label{sec:spellings}
+Even with the fills, not every word has an analysis. We therefore repeat the
+leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
+analysed manuscripts only and once with all manuscripts of 17 or more legible words
+(analysed only and all manuscripts). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
+overall accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc}, because most traditions gain
+manuscripts that are harder to place. The Luwian
+rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
+\Q{R1.B.luwianritualspuriyannikuwattalla.n} manuscripts and their accuracy from
+\Q{R1.A.luwianritualspuriyannikuwattalla.acc} to \Q{R1.B.luwianritualspuriyannikuwattalla.acc};
+the western rituals from \Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n}
+(\Q{R1.A.arzawawesternrituals.acc} to \Q{R1.B.arzawawesternrituals.acc}). 
+
+
+
+\section{The cuneiform layer}
+\label{sec:unicode}
+We repeat the evaluation on TLHdig's Unicode cuneiform, which gives the signs without the
+editors' readings (analysed manuscripts only). Without word division, each line is a sequence of
+signs, cut at broken signs, and we count sign 1--3-grams: accuracy is \Q{UA.acc}, against
+\Q{UA.translit.acc} for the transliteration on the same reference; \Q{UA.placed} of
+\Q{UA.scored} orphans are placed (\Q{UA.translit.placed} from the transliteration), and all
+\Q{UA.both} placed by both go to the same tradition. With word division, carried over from the
+transliteration where a line's sign count matches (\Q{U.align} of lines), accuracy falls to
+\Q{UB.acc}; more orphans are placed (\Q{UB.placed}), and of the \Q{UB.both} placed by both,
+\Q{UB.same} agree. The readings thus add little to placement, while word division that cannot be
+aligned adds noise. The Unicode strings include restored signs, and the placement margin was set
+on the transliteration. KBo 44.52 goes to the \Q{UA.kbo4452} tradition in both runs.
+
+
+\section{A ranking model for joins}
+\label{sec:joinmodel}
+TLHdig marks on every line of a joined text the piece it is preserved on. Splitting its joined
+texts back into their pieces gives \Q{J1.query_pieces} query pieces from \Q{J1.joined_texts}
+joins, each to be found among \Q{J1.units} units. A logistic regression re-ranks the nearest
+candidates of each piece over twelve pair features of text, spelling, preserved sides and
+columns, publication and excavation series, and size.
+It is tested on compositions it was not fitted on (five folds grouped by CTH number). The gain is
+real but modest (Table~\ref{tab:joins}): the partner reaches the top 20 for \Q{J1.model.r20} of
+pieces, against \Q{J1.sim.r20} for similarity alone, and the median rank falls from
+\Q{J1.sim.median} to \Q{J1.model.median}. On the Konkordanz's suspected joins the model places
+\Q{J1.konk.join.model.hits20} of \Q{J1.konk.join.queries} in the top 20, against
+\Q{J1.konk.join.sim.hits20} for similarity.
+
+In its weights, word overlap (\Q{J1.w.wordoverlap}) and similarity
+(\Q{J1.w.cosine}) favour a join, as do preserved columns that match (\Q{J1.w.columnoverlap}),
+identical spellings (\Q{J1.w.samespelling}) and the same excavation series
+(\Q{J1.w.sameseries}); the scribal rates have no measurable effect (\Q{J1.w.scribaldistance},
+95\% interval \Q{J1.w.scribaldistance.ci}). Shared text is the strongest cue, so the model still
+rewards what duplicates have in common. Find spot and
+date, the evidence one would want, cannot be fitted honestly, because for known joins the
+Konkordanz often derives them from the join itself. Text alone narrows the search
+for a join but does not tell a join from a duplicate; that needs physical evidence.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}l rrrr@{}}
+    \toprule
+    & top 1 & top 5 & top 20 & median rank \\
+    \midrule
+    \gentab{joins}
+    \bottomrule
+  \end{tabular}
+  \caption{Finding the other piece of a known join: share of \Q{J1.query_pieces} pieces whose
+    partner ranks in the top 1, 5 and 20, and its median rank, tested on compositions not used
+    in fitting.}
+  \label{tab:joins}
+\end{table}
+
+
 
 \end{document}
