@@ -88,7 +88,7 @@ Each folder holds the same files; `datapackage.json` describes every column.
 
 | File | Content |
 |---|---|
-| `fragments.csv` | One row per text: nearest traditions and similarities, margin, placement, open-set checks, nearest compositions and manuscripts, word-category shares. Texts with fewer than 5 analysed words have `status = too_small` and no results. |
+| `fragments.csv` | One row per text: nearest traditions and similarities, margin, placement, open-set checks, nearest compositions and manuscripts, word-category shares. Texts with fewer than 5 analysed words have `status = too_small` and empty result columns, including the word-category shares. |
 | `nearest_manuscripts.csv` | One row per fragment and each of its 20 nearest manuscripts, with a word barcode and the three match checks (half the words shared, every shared word spelled the same, a shared two-word phrase). |
 | `traditions.csv` | The ten reference traditions, their CTH numbers, reference manuscripts and defining studies. |
 | `compositions.csv` | The compositions (CTH numbers) used for the nearest compositions. |
