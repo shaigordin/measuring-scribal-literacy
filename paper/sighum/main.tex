@@ -13,6 +13,8 @@
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{graphicx}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
 \renewcommand{\dbltopfraction}{0.9}
 \renewcommand{\topfraction}{0.9}
 \renewcommand{\textfraction}{0.07}
@@ -29,13 +31,13 @@
 \newcommand{\ut}{{\fontspec{Noto Sans Display}˽}}  % HFR's undertie (U+02FD), missing in Termes
 \makeatletter\newcommand{\gentab}[1]{\@@input ../generated/tab_#1.tex }\makeatother
 
-\graphicspath{{../../img/orphans/literature/}{../figures/}}
+\graphicspath{{../../img/orphans/literature/}{../figures/}{../figures/external/}}
 \newcommand{\CTH}[1]{CTH~#1}
 \newcommand{\term}[1]{\textit{#1}}
 %% marks text not yet drafted in this version
 \newcommand{\todraft}[1]{\textit{[#1]}}
 
-\title{Orphans and Archetypes: Placing Unassigned Hittite Ritual Fragments\\ in Their Traditions}
+\title{Orphans and Archetypes: Quantitative Tradition Mapping\\ for Fragmentary Hittite Texts}
 
 \author{Anonymous submission}
 
@@ -45,7 +47,7 @@
 \begin{abstract}
 Thousands of Hittite ritual and festival fragments cannot be assigned to a composition because no
 parallel passage survives. Laroche's residual category \CTH{470} and the recently digitised EBo
-fragments hold \Q{orph.orphans_total} such manuscripts in the TLHdig 0.3 release, with a median of
+fragments hold \Q{orph.orphans_total} such manuscripts in the TLHdig 0.4 release, with a median of
 \Q{orph.cth470_median} legible words in \CTH{470} and \Q{orph.ebo_median} among the EBo. We ask whether the words of a
 fragment and the way they are spelled can place it in a ritual or festival tradition, and how far
 such a placement can be trusted. Ten reference traditions are taken from the studies that argued
@@ -63,51 +65,63 @@ number in the paper is generated from them.
 \end{abstract}
 
 %% ==========================================================================================
+\input{../figures/fragment_fig.tex}
+
 \section{Introduction}
 \label{sec:intro}
 
-Emmanuel Laroche's \textit{Catalogue des textes hittites} \citep{laroche1971catalogue} gave every
-Hittite composition a number, and with it a place: rituals in one block, festivals in another,
-texts in Hattian, Luwian and Hurrian in blocks of their own. What could not be placed went into
-residual categories. \CTH{470}, ``fragments of rituals'', is the largest of them, and it has grown
-with every volume of hand copies since 1971. The Mainz Hethitologie-Portal keeps Laroche's numbers
-as a shared address system while moving fragments after joins \citep{cthportal,konkordanz}. The
-digitisation of the EBo fragments in TLHdig 0.3 \citep{tlhdig03} adds \Q{orph.ebo_texts} more
-manuscripts with a median of \Q{orph.ebo_median} legible words, most of them filed under two
-further residual numbers, \CTH{832} and \CTH{670}.
+The Hittite texts come mostly from the archives of the capital Ḫattuša (modern Boğazköy in
+central Turkey) and date from the 16th to the early 12th century BCE; smaller archives were found
+at Šapinuwa, Šamuḫa, Tapikka and Šarišša \citep{bryce2005kingdom,vandenhout2020literacy}. Some
+30,000 tablets and fragments survive, most of them small pieces, and rituals and festivals make up
+a large part of them. Today the corpus can be read and searched in TLHdig, the digital edition of
+the Hethitologie-Portal Mainz \citep{tlhdig04}. Its release 0.4 holds \Q{tlh.texts} manuscripts
+with about \Q{tlh.words} million words.
 
-A philologist assigns such a fragment through a parallel: a duplicate, or a close parallel
-passage in an identified composition. For most of these orphans that route is closed by
-definition. We ask instead whether the content of a fragment, its words and their spellings, can
-point to its tradition, and how far such a pointer can be trusted. Put this way, the task is
-attribution, and two known weaknesses of attribution apply with full force: accuracy falls with
-the length of the sample \citep{eder2015size}, and a classifier with a closed set of candidates
-always names one of them, even when the true source is not among them \citep{koppel2011wild}.
-A placement is also only useful to a philologist who can check it, which requires knowing what
-it rests on.
+Laroche's \textit{Catalogue des textes hittites} \citep{laroche1971catalogue} gave every Hittite
+composition a number. The number also gave it a place: rituals in one block, festivals in another,
+and Hattian, Luwian and Hurrian texts in blocks of their own. The catalogue is kept up to date
+online \citep{cthportal}. Fragments that could not be placed went into residual groups. The largest
+is \CTH{470}, ``fragments of rituals'', with \Q{orph.cth470_texts} manuscripts. TLHdig adds
+\Q{orph.ebo_texts} small EBo fragments, most of them filed under two more residual numbers. I call
+these unassigned fragments \term{orphans}; together they number \Q{orph.orphans_total}.
 
-We turn the exploratory mapping of \citet{gordin2025matters} into assignment, with explicit baselines, held-out evaluation and a rule for when not
-to assign. Our contributions are:
+A philologist places a fragment through a parallel: a duplicate, or a close passage in a known
+composition. Most orphans have no such parallel. I therefore ask a different question. Can the
+words on a fragment point to its tradition? And how far can we trust that pointer?
+
+Simply put, this is a question of attribution, and attribution has two known weak points. It
+becomes less reliable the shorter the text is \citep{eder2015size}. And a method that must choose
+among fixed candidates will always choose one of them, even when the right answer is not among
+them \citep{koppel2011wild}. A placement is also useful only if a philologist can check it. That
+means knowing which words it rests on.
+
+\citet{gordin2025matters} mapped the festival texts without assigning them. Here I go one step
+further. I place each fragment, test the placements on manuscripts whose tradition is known, and
+let the method say ``undecided'' when the evidence is too thin. In what follows, I first describe
+the data and the method. I then show what the placements rest on and what they tell us about the
+traditions. My contributions are:
 \begin{enumerate}
-  \item a reference of \Q{trad.countword} ritual and festival traditions, each grounded in
-    its scholarly literature and mapped to Laroche's CTH numbers, with the ranges that no study
-    claims set aside as test sets (Section~\ref{sec:data});
-  \item an evaluation that holds out manuscripts and whole compositions, so that the scholarly
-    groupings themselves, and one contested attribution, are tested; that follows accuracy
-    down to fragment size; and that calibrates a margin for abstention
-    (Section~\ref{sec:results});
-  \item an exact decomposition of each decision over word categories and writing layers, which
-    separates what is written from how it is written and shows how much rests on common
-    particles such as \textit{nu} (Section~\ref{sec:decision});
-  \item a placement of \Q{E5.assigned} orphans, each with the features it rests on, as leads
-    to verify on the tablet.
+  \item a placement of \Q{E5.assigned} of \Q{E9.orph.scored} orphans at an expected precision
+    of \Q{E2.precision}, each with the diagnostic words it rests on and its nearest manuscripts,
+    as leads to verify on the tablet (Section~\ref{sec:orphans});
+  \item evidence for a division of labour between archetype and witness: traditions are
+    identified by what is written, above all by whom and what a text names, and hardly by how
+    it is spelled (Section~\ref{sec:decision});
+  \item a test of scholarly groupings and of one contested attribution by holding out whole
+    compositions, which shows which traditions the texts support as groups
+    (Section~\ref{sec:recovery});
+  \item a measure of how far the editors' restorations change a placement, which makes a
+    possible philological bias visible (Section~\ref{sec:method});
+  \item leads for duplicates and joins, with the finding that text finds duplicates but does
+    not tell a join from a duplicate (Section~\ref{sec:joins}).
 \end{enumerate}
 
 %% ==========================================================================================
 \begin{figure*}[!t]
   \centering
   \includegraphics[width=\linewidth]{case_sighum.pdf}
-  \caption{The worked example: the orphan \C{txtid} (filed under \CTH{\C{filed}} in TLHdig 0.3)
+  \caption{The worked example: the orphan \C{txtid} (filed under \CTH{\C{filed}} in TLHdig 0.4)
     from its text to its placement, on the damage-aware text. (1) The words that count, tinted by
     word category (dashed: a low-confidence or unclear class; grey: not counted; $\emptyset$: a
     sign not on the tablet). (2) Each word becomes a word-form feature and sign-sequence
@@ -135,7 +149,7 @@ geography \citep{gordin2025matters,gorke2022hurrian,trameri2024kizzuwatna} and, 
 Hethitische Festrituale project (HFR), into edition modules such as the Luwian and the Palaic
 festivals \citep{hfr,gorke2020hatti}.
 
-\paragraph{The festival traditions in StBoT 73.}
+\paragraph{Stylometric clusters of the festival texts.}
 Our reference starts from \citet{gordin2025matters}, who measured the tf-idf similarity of about
 1,000 Hurrian and Luwian festival manuscripts in 27 CTH groups and found three clusters
 \citep[109f.]{gordin2025matters}. To compare them with scholarship, that study summarised earlier
@@ -164,28 +178,31 @@ Machine learning on cuneiform has addressed transliteration and translation
 \citep{jauhiainen2019cuneiform}, the matching of fragments to known compositions by sign
 sequences \citep{simonjetz2024reconstruction}, and palaeographic style \citep{yugay2024stylistic}.
 Fragment matching finds only a known text, and all these studies are closed-set. We know of no published study that uses content features to
-assign Hittite fragments to religious traditions, or that asks when a fragment fits none of them.
+assign Hittite fragments to ritual and festival traditions, or that asks when a fragment fits none of them.
 
 %% ==========================================================================================
 \section{Data}
 \label{sec:data}
 
-\paragraph{Corpus.}
-We use the TLHdig Beta 0.3 release \citep{tlhdig03}, converted to one row per word following
-\citet{yavasan2025clay}. Each word carries its normalised form (HFR's search form, without voicing, length or
-plene; \citealp[8]{hfrannotation}), its transliteration split into
-signs, its language, whether a sign is an Akkadogram, a Sumerogram or a determinative (TLHdig
-tags these separately), and TLHdig's lexical and morphological analyses, made automatically and
-checked by hand in stages, fully only in HFR's critical editions \citep[14]{hfrbasiscorpus}. The release is
-downloaded by script and checked by its checksum, so the word table can be rebuilt from the public
-data alone. As in \citet{gordin2025matters}, reference manuscripts must have at least 17 legible
-words. The analyses do not cover the whole release: the Luwian rituals (\CTH{758}--763) have
-none, and many other rituals lack them. Where a word has no analysis, we take the lemma of the
-same spelling elsewhere in TLHdig (\Q{fill.tlhdig} words) or, for Cuneiform Luwian words, from
-eDiAna \citep{ediana} (\Q{fill.ediana} words); every filled word keeps its source. With the fills,
-the Luwian rituals have \Q{R1.A.luwianritualspuriyannikuwattalla.n} reference manuscripts and the
-western rituals \Q{R1.A.arzawawesternrituals.n}; Section~\ref{sec:spellings} repeats the
-evaluation on spellings alone with every manuscript.
+\paragraph{Corpus and annotation layers.}
+We use TLHdig Beta 0.4 \citep{tlhdig04}, one row per word as in \citet{yavasan2025clay}. TLHdig
+gives three layers: the \term{transliteration}, the editors' reading, with each sign's state
+(preserved, damaged, restored, lost), logograms and determinatives marked, and a normalised form
+of each word (HFR's search form, without voicing, length or plene; \citealp[8]{hfrannotation}); a Unicode \term{cuneiform} rendering of each line, without word division; and an
+automatic \term{lexical and morphological analysis} by the HFR tool \citep{hfr} (lemma, German
+dictionary gloss, form, stem class). HFR distinguishes automatic annotation, \textit{pre-validation}
+(an annotator inspects the automatic analyses and selects one) and \textit{validation}, done only
+in critical editions \citep[14]{hfrbasiscorpus}. Pre-validated files name their annotator: most
+festival manuscripts, almost no rituals or orphans; elsewhere the analysis is automatic. Placement reads only the transliteration; the analysis serves the word
+categories. Reference manuscripts need at least 17 legible words \citep{gordin2025matters}. The
+analysis is missing for the Luwian rituals (\CTH{758}--763) and many other rituals; we extend it
+by transfer, not by new reading. A word without one takes the lemma TLHdig gives the same spelling
+elsewhere, if all its analysed occurrences agree (\Q{fill.tlhdig} words), or, for Cuneiform
+Luwian, the single lemma eDiAna \citep{ediana} gives that spelling (\Q{fill.ediana} words); each
+keeps its source passage. The Luwian rituals then have
+\Q{R1.A.luwianritualspuriyannikuwattalla.n} reference manuscripts and the western rituals
+\Q{R1.A.arzawawesternrituals.n}; Section~\ref{sec:spellings} repeats the evaluation on spellings
+with every manuscript.
 
 \paragraph{Damage and restoration.}
 TLHdig prints the editors' restorations alongside what survives, and marks each sign as preserved,
@@ -287,7 +304,7 @@ in the Luwian rituals, restored both times it appears. Without
 restorations \Q{case.kbo5754.words} words remain, its similarity to the Luwian rituals falls to
 \Q{case.kbo5754.luwian}, and its lead of \Q{case.kbo5754.margin} (\Q{case.kbo5754.top} over
 \Q{case.kbo5754.second}) is below $\tau$: it is \Q{case.kbo5754.placed}. Of the \Q{AC.onlyA} orphans placed only with restorations, \Q{AC.onlyA.luwian} go to the Luwian
-rituals, and all \Q{AC.onlyA.luwian.sugi} of these have a restored sign in
+rituals, and \Q{AC.onlyA.luwian.sugi} of these have a restored sign in
 \textsuperscript{MUNUS}ŠU.GI. Hence the main results count only what is on the tablet.
 
 \paragraph{Decomposing a decision.}
@@ -313,27 +330,34 @@ spelling kept and once collapsed to the normalised form. If spelling carried tra
 the word itself, the first would beat the second. We also use the word categories of
 \citet[Table~4]{gordin2025matters}: agents, deities, function words, foreign words, realia and
 verbs, with realia narrowed to physical things and the remaining nouns grouped by meaning
-(places; animals, body parts and nature; abstract nouns; adjectives; measures).
+(places; animals, body parts and nature; abstract nouns; adjectives; measures; numbers), and scribal marks such as \textit{QĀTI} ``finished'' in colophons, which are left out like function words.
 
 Placement uses only the word forms and sign sequences of a text; word categories play no part in it. They are an annotation added afterwards, used to ask which kinds of words a result rests on (Section~\ref{sec:decision}; Figure~\ref{fig:case}).
 
-No word was classed by hand. Fixed rules derive each category from TLHdig's markup, applied in
-order: the word's determinative (DINGIR makes a deity, \textsuperscript{LÚ} an agent, also in
-HFR's compounds such as LÚ\ut{}\textsuperscript{D}10 ``man of the Storm god'',
-\citealp[13]{hfrbasiscorpus}), its language tag or that of its selected analysis, and its automatic morphological analysis, using the analysis marked as selected
-where there is one (a person-marked form is a verb, a particle or pronoun a function word);
-unanalysed words fall back on the analyses selected for the same form elsewhere. Nouns and
-adjectives are then classed by their German gloss, through a list of \Q{wc.glosses} glosses that
-was drafted with a language model and has not been checked by hand; it is the one step not
-derived from TLHdig. Each label carries the confidence of the rule that set it: \Q{wc.conf.high} of the
-\Q{wc.tokens} legible words are classed with high confidence, \Q{wc.conf.medium} with medium and
-\Q{wc.conf.low} with low. Our rules are not validated in TLHdig, so our audit is their only
-manual check: a domain expert checked a stratified sample of \Q{wc.audit.n} words:
-\Q{wc.audit.before.high}, \Q{wc.audit.before.medium} and \Q{wc.audit.before.low} were correct at
-the three levels, \Q{wc.audit.before.corpus} overall when weighted by corpus shares. Fixing the
-\Q{wc.audit.fixes} rules that the errors pointed to raises the overall figure to
-\Q{wc.audit.after.corpus}, an upper bound since it is measured on the same sample. The audit
-scored all nominal words as one class, so it does not cover the split by meaning.
+No word was classed by hand. Fixed rules derive each category from the edition, in order: the
+determinative (DINGIR makes a deity, \textsuperscript{LÚ} an agent, also in HFR's compounds such as
+LÚ\ut{}\textsuperscript{D}10 ``man of the Storm god'', \citealp[13]{hfrbasiscorpus}), the
+language tag, and the morphological analysis, preferring the one an annotator selected (a
+person-marked form is a verb, a particle or pronoun a function word). Nouns and adjectives are
+then classed by meaning from the German gloss that HFR's hand-compiled lexicon attaches to their
+lemma \citep[6f.]{hfrannotation}: a dictionary gloss, not a translation of the passage. The step
+that is ours is the mapping of \Q{wc.glosses} glosses to meaning classes, drafted with a language
+model; labels are thus projected from a lexicon, not through aligned translations as for Greek and
+Latin \citep{yousef2022alignment,yousef2023projection}. We checked it in three ways. An
+independent, non-generative mapping through the supersenses of the Open German WordNet
+\citep{ciaramita2003supersense,siegel2021odenet} covers \Q{wn.cov.types} of the glosses (names
+are absent) and agrees on \Q{wn.agree.types} of them ($\kappa=\Q{wn.kappa.types}$). Of
+\Q{aud.n} disagreements sampled for a domain expert, \Q{aud.decided} could be decided: the list
+was right in \Q{aud.claude}, WordNet in \Q{aud.wordnet}. Where one gloss covers several senses,
+\Q{sense.rules} context rules with passage evidence
+(\Q{sense.rules.shg} approved by the expert; all checked in \citealp{chd,cad,cda,tischler2001hhw,tischler1977heg}, none contradicted) separate them, for instance the horn of an animal,
+a horn vessel and the horn of the moon; they change the class of \Q{sense.changed} words. The
+rules also expose analyses that pre-validation does not reach: \Q{kara.tokens} forms of
+\textit{karaš} ``emmer'' and \textit{karš-} ``cut off'' carry the unselected automatic candidate
+\textit{kara-} ``horn''. A stratified audit of \Q{wc.audit.n} words found
+\Q{wc.audit.before.corpus} of all labels correct (\Q{wc.audit.after.corpus} after fixing
+\Q{wc.audit.fixes} rules, on the same sample). The gloss list and the rules are released for
+correction.
 
 \section{Results}
 \label{sec:results}
@@ -350,7 +374,38 @@ festivals that HFR separates are kept apart by the texts: the Ḫuwaššanna fes
 reach \Q{trad.huwassannafestivals.recall}, those of Ištanuwa and Lallupiya
 \Q{trad.luwianfestivalsistanuwalallupiya.recall}.
 
-Accuracy rises steeply with fragment size, then flattens. Windows of 3, 10 and 40 words cut
+\begin{figure}[t]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[width=\columnwidth, height=50mm, xmode=log, log basis x=10,
+      xtick={3,5,10,17,25,40}, xticklabels={3,5,10,17,25,40}, xmin=3, xmax=40,
+      ymin=0, ymax=100, ytick={0,20,40,60,80,100}, yticklabel={\pgfmathprintnumber{\tick}\%},
+      xlabel={legible words in the fragment}, font=\footnotesize,
+      legend style={at={(0.5,-0.32)}, anchor=north, font=\scriptsize, draw=none, legend columns=2, column sep=6pt},
+      legend cell align=left, grid=major, grid style={gray!20}]
+      \addplot[very thick, color={rgb,255:red,176;green,74;blue,46}, mark=*, mark size=1.2pt]
+        table[x=k, y=accC] {../generated/fragment_size.dat};
+      \addlegendentry{accuracy}
+      \addplot[very thick, color={rgb,255:red,46;green,106;blue,140}, mark=square*, mark size=1.2pt]
+        table[x=k, y=precC] {../generated/fragment_size.dat};
+      \addlegendentry{precision when placed}
+      \addplot[very thick, densely dashed, color={rgb,255:red,46;green,106;blue,140}]
+        table[x=k, y=placedC] {../generated/fragment_size.dat};
+      \addlegendentry{share placed}
+      \addplot[thin, color=gray, mark=o, mark size=1pt]
+        table[x=k, y=accA] {../generated/fragment_size.dat};
+      \addlegendentry{accuracy, with restorations}
+      \addplot[thin, dotted, color=black, domain=3:40] {100/\Q{trad.count}};
+      \addlegendentry{chance}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Fragment size: windows cut from held-out reference manuscripts, without restorations
+    unless marked. Accuracy counts every window; precision and share placed count only windows
+    whose lead passes the margin $\tau=\Q{E2.margin}$.}
+  \label{fig:size}
+\end{figure}
+
+Accuracy rises steeply with fragment size, then flattens (Figure~\ref{fig:size}). Windows of 3, 10 and 40 words cut
 from held-out manuscripts are placed correctly in \Q{E2.both.k3}, \Q{E2.both.k10} and
 \Q{E2.both.k40} of cases, against a chance level of \Q{chance}. Above the margin
 $\tau=\Q{E2.margin}$, \Q{E2.share} of the windows are placed, at \Q{E2.precision} precision. With
@@ -410,37 +465,14 @@ but the Kizzuwatna rituals remain nearer: the western reading is plausible, not 
 of the reference, so that the test stays independent of the claim.
 
 \subsection{Spellings only, with every manuscript}
-\label{sec:spellings}
-Even with the fills, not every word has an analysis. We therefore repeat the
-leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
-analysed manuscripts only and once with all manuscripts of 17 or more legible words
-(Table~\ref{tab:spellings}). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
-overall accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc}, because most traditions gain
-manuscripts that are harder to place. The Luwian
-rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
-\Q{R1.B.luwianritualspuriyannikuwattalla.n} manuscripts and their accuracy from
-\Q{R1.A.luwianritualspuriyannikuwattalla.acc} to \Q{R1.B.luwianritualspuriyannikuwattalla.acc};
-the western rituals from \Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n}
-(\Q{R1.A.arzawawesternrituals.acc} to \Q{R1.B.arzawawesternrituals.acc}). 
+Counting every legible word, with all manuscripts of 17 or more legible words, the reference grows
+from \Q{R1.A.n} to \Q{R1.B.n} manuscripts and accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc},
+because most traditions gain manuscripts that are harder to place (Appendix~\ref{sec:spellings}).
 
-\begin{table}[t]
-  \centering
-  \footnotesize
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{30mm} rr rr@{}}
-    \toprule
-    & \multicolumn{2}{c}{analysed only} & \multicolumn{2}{c}{all manuscripts} \\
-    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
-    Tradition & $n$ & acc. & $n$ & acc. \\
-    \midrule
-    \gentab{spellings_only}
-    \bottomrule
-  \end{tabular}
-  \caption{Spellings only: leave-one-out accuracy per tradition in the sign space, with the
-    reference limited to manuscripts that have word analyses, and with all manuscripts of 17 or
-    more legible words.}
-  \label{tab:spellings}
-\end{table}
+\subsection{The cuneiform layer}
+On TLHdig's Unicode cuneiform, without the editors' readings or word division, accuracy is
+\Q{UA.acc} against \Q{UA.translit.acc} for the transliteration, and all \Q{UA.both} orphans placed
+by both go to the same tradition: the readings add little to placement (Appendix~\ref{sec:unicode}).
 
 \subsection{What a placement rests on}
 \label{sec:decision}
@@ -524,7 +556,7 @@ Without restorations far fewer orphans are placed than with them (\Q{A.E5.assign
 with restorations that are still scored without them, \Q{AC.placedA.samenearest} (\Q{AC.placedA.samenearest.share})
 keep the same nearest tradition. The loss is in confidence, not in direction.
 
-\subsection{Duplicates, not joins: a negative result}
+\subsection{Duplicates, not Joins?}
 \label{sec:joins}
 Against the Konkordanz, the ranking finds duplicates: of \Q{KJ.duplicate.pairs}
 recorded duplicate pairs, the partner ranks first in \Q{KJ.duplicate.top1} and among the 20
@@ -532,10 +564,95 @@ nearest of \Q{KJ.pool} manuscripts in \Q{KJ.duplicate.top20} (median rank
 \Q{KJ.duplicate.median}). With restorations the figures look better (median rank
 \Q{A.KJ.duplicate.median}, \Q{A.KJ.duplicate.top20} of \Q{A.KJ.duplicate.pairs} in the top 20),
 but partly by circularity: editors restore duplicates from each other. Of the
-\Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reaches the top 20 (median rank
+\Q{KJ.join.pairs} suspected joins, only \Q{KJ.join.top20} reach the top 20 (median rank
 \Q{KJ.join.median}). Two pieces of one tablet share context but rarely
 text, so we tried to learn a ranking for joins.
 
+A logistic regression over twelve pair features, tested on compositions it was not fitted on,
+raises the share of partners in the top 20 from \Q{J1.sim.r20} to \Q{J1.model.r20}
+(Appendix~\ref{sec:joinmodel}). Text alone narrows the search for a join but does not tell a
+join from a duplicate; that needs physical evidence.
+
+\section{Discussion and conclusion}
+\label{sec:discussion}
+
+\paragraph{Genre before origin.}
+A fragment is placed by what it shares with the reference, and the largest shared layer is
+genre, as the residue of \CTH{390}--469 shows. A placement means ``nearest of these''. Nor does a placement return a fragment to its CTH
+number: the CTH is a modern catalogue, and many manuscripts fit more than one of its groups.
+Hence our traditions from the literature; extending them to the whole corpus needs genre and
+composition categories from the scholarship, not CTH numbers.
+
+\paragraph{Archetypes and witnesses.}
+The results suggest a division of labour between two levels of a text, which we call
+Quantitative Tradition Mapping (QTM). Borrowing the terms of textual criticism
+\citep{maas1958textual,trovato2014lachmann}, a tradition is an \term{archetype}: not a
+reconstructed text, but the vocabulary, formulae and foreign-language recitation that its
+manuscripts share. Each manuscript or orphan is a \term{witness} to part of it. Hittitology has rarely aimed at an \textit{Urtext}: editions
+combine the best-preserved manuscripts \citep[39f.]{christiansen2011methoden}. Single-tradition studies trace how a
+composition grew through redactions \citep{christiansen2006ambazzi}, or how variants arose from
+memorisation rather than copying \citep{marcuson2016memorization}; on autograph and archetype in Akkadian, see
+\citet{worthington2012principles}. Our archetype is identified by content, above all by whom and what a text names. Spelling
+marks the witness: kept or collapsed, variant spellings change nothing for the tradition,
+as habits of scribal circles would \citep{gordin2015scribal}.
+
+\paragraph{Conclusion.}
+Content-based assignment places Hittite ritual and festival fragments in literature-defined
+traditions well above chance from about ten legible words. The exact decomposition makes each
+placement checkable: a decision rests on agents, deities, realia and foreign words rather than on
+spelling or particles.
+
+\section*{Limitations}
+The study rests on one digital edition, whose analyses are automatic and only partly
+pre-validated, and on lemmas transferred from the same spelling, which assumes one lemma per
+spelling. Several traditions are small (the smallest has \Q{trad.smallest.n} test manuscripts),
+and the traditions come from the literature: the method tests them but cannot find a new one.
+The meaning classes rest on a model-drafted gloss mapping, checked against WordNet and on a sample, not in full. Every placement is a
+hypothesis to verify on the tablet.
+
+\section*{Ethics statement}
+The corpus is openly licensed. A language model (Claude, Anthropic) was used to write and run
+the analysis code, to draft the gloss list and the context rules described in Section~\ref{sec:method}, to draft the
+text and to check the references; the authors reviewed all of it and take responsibility for the
+content. \todraft{Authors to confirm this statement.}
+
+\bibliography{../references}
+
+\appendix
+
+\section{Spellings only, with every manuscript}
+\label{sec:spellings}
+Even with the fills, not every word has an analysis. We therefore repeat the
+leave-one-out evaluation in the sign space alone, where every legible word counts, once with the
+analysed manuscripts only and once with all manuscripts of 17 or more legible words
+(analysed only and all manuscripts). The reference grows from \Q{R1.A.n} to \Q{R1.B.n} manuscripts, and
+overall accuracy falls from \Q{R1.A.acc} to \Q{R1.B.acc}, because most traditions gain
+manuscripts that are harder to place. The Luwian
+rituals grow from \Q{R1.A.luwianritualspuriyannikuwattalla.n} to
+\Q{R1.B.luwianritualspuriyannikuwattalla.n} manuscripts and their accuracy from
+\Q{R1.A.luwianritualspuriyannikuwattalla.acc} to \Q{R1.B.luwianritualspuriyannikuwattalla.acc};
+the western rituals from \Q{R1.A.arzawawesternrituals.n} to \Q{R1.B.arzawawesternrituals.n}
+(\Q{R1.A.arzawawesternrituals.acc} to \Q{R1.B.arzawawesternrituals.acc}). 
+
+
+
+\section{The cuneiform layer}
+\label{sec:unicode}
+We repeat the evaluation on TLHdig's Unicode cuneiform, which gives the signs without the
+editors' readings (analysed manuscripts only). Without word division, each line is a sequence of
+signs, cut at broken signs, and we count sign 1--3-grams: accuracy is \Q{UA.acc}, against
+\Q{UA.translit.acc} for the transliteration on the same reference; \Q{UA.placed} of
+\Q{UA.scored} orphans are placed (\Q{UA.translit.placed} from the transliteration), and all
+\Q{UA.both} placed by both go to the same tradition. With word division, carried over from the
+transliteration where a line's sign count matches (\Q{U.align} of lines), accuracy falls to
+\Q{UB.acc}; more orphans are placed (\Q{UB.placed}), and of the \Q{UB.both} placed by both,
+\Q{UB.same} agree. The readings thus add little to placement, while word division that cannot be
+aligned adds noise. The Unicode strings include restored signs, and the placement margin was set
+on the transliteration. KBo 44.52 goes to the \Q{UA.kbo4452} tradition in both runs.
+
+
+\section{A ranking model for joins}
+\label{sec:joinmodel}
 TLHdig marks on every line of a joined text the piece it is preserved on. Splitting its joined
 texts back into their pieces gives \Q{J1.query_pieces} query pieces from \Q{J1.joined_texts}
 joins, each to be found among \Q{J1.units} units. A logistic regression re-ranks the nearest
@@ -575,56 +692,6 @@ for a join but does not tell a join from a duplicate; that needs physical eviden
   \label{tab:joins}
 \end{table}
 
-\section{Discussion and conclusion}
-\label{sec:discussion}
 
-\paragraph{Genre before origin.}
-A fragment is placed by what it shares with the reference, and the largest shared layer is
-genre, as the residue of \CTH{390}--469 shows. A placement means ``nearest of these''.
-
-\paragraph{Archetypes and witnesses.}
-The results suggest a division of labour between two levels of a text, which we call
-Quantitative Scribal Tradition Mapping (QTM). Borrowing the terms of textual criticism
-\citep{maas1958textual,trovato2014lachmann}, a tradition is an \term{archetype}: not a
-reconstructed text, but the vocabulary, formulae and foreign-language recitation that its
-manuscripts share. Each manuscript or orphan is a \term{witness} to part of it. Hittitology has rarely aimed at an \textit{Urtext}: editions
-combine the best-preserved manuscripts \citep[39f.]{christiansen2011methoden}. Single-tradition studies trace how a
-composition grew through redactions \citep{christiansen2006ambazzi}, or how variants arose from
-memorisation rather than copying \citep{marcuson2016memorization}; on autograph and archetype in Akkadian, see
-\citet{worthington2012principles}. Our archetype is identified by content, above all by whom and what a text names. Spelling
-marks the witness: kept or collapsed, variant spellings change nothing for the tradition,
-as habits of scribal circles would \citep{gordin2015scribal}.
-
-\paragraph{Conclusion.}
-Content-based assignment places Hittite ritual and festival fragments in literature-defined
-traditions well above chance from about ten legible words. The exact decomposition makes each
-placement checkable: a decision rests on agents, deities, realia and foreign words rather than on
-spelling or particles.
-
-\section*{Limitations}
-The study depends on one digital edition. TLHdig 0.3 has no word analyses for the Luwian
-corpus and for many rituals; we fill them from the same spelling elsewhere or from eDiAna, which
-assumes that one spelling has one lemma; its analyses are automatic, checked by hand more fully for the festivals
-than for other genres, and fully validated only in HFR's critical editions. Words with less than half their signs on the tablet
-are dropped unless the same text supports them, so short fragments over-represent the formulaic
-lines that survive, and the half-preserved threshold is a choice we have not varied. Several traditions are small
-(the smallest has \Q{trad.smallest.n} test manuscripts), their recall is uncertain, and held out
-by composition several are not recovered at all. The traditions themselves are taken from the
-literature: the method tests them, but cannot find a tradition that no study has proposed. The
-idf weights are fitted on the whole reference set. Festival manuscripts also differ by function
-(outline tablets, day tablets, inventories close to festival text \citep{cammarosano2021inventories}),
-which word profiles may track alongside tradition. The word categories enter only the analysis of
-what a decision rests on, not the placements; their rules were checked on a sample, but the
-meaning classes of nouns rest on a gloss list drafted with a language model that is still to be
-checked by hand. Finally, every placement is a hypothesis for verification on the tablet; a
-fragment placed near a known manuscript is a candidate, not a join.
-
-\section*{Ethics statement}
-The corpus is openly licensed. A language model (Claude, Anthropic) was used to write and run
-the analysis code, to draft the gloss list described in Section~\ref{sec:method}, to draft the
-text and to check the references; the authors reviewed all of it and take responsibility for the
-content. \todraft{Authors to confirm this statement.}
-
-\bibliography{../references}
 
 \end{document}
