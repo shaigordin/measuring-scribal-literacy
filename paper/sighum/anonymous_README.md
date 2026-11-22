@@ -25,21 +25,66 @@ analyses), the Konkordanz der hethitischen Keilschrifttafeln (known joins and du
 join appendix) and the Open German WordNet and Princeton WordNet (the `wn` package, for the
 check of the meaning classes).
 
-## Contents
+## What each script does
 
-- `orphans/qtm/`: the method (parsing TLHdig, word classes, meaning rules, features, placement,
-  decomposition).
-- `orphans/run_*.py` and the other scripts named in `reproduce_paper.sh`: the experiments.
-- `orphans/labels/`: hand-made inputs. Konkordanz snapshots (with access dates), the
-  gloss-to-class list, the context rules for meaning classes with their dictionary references,
-  the word-class corrections and the expert-marked audit sample.
-- `orphans/results/`: the outputs the paper reports. Main run: `tlhdig04_literature_C_filled`
-  (without restorations); comparison: `tlhdig04_literature_A_filled` (with restorations);
-  `tlhdig04` is the baseline, `tlhdig04_literature_C` the run before missing analyses were
-  filled. The `wordclass_rule_changes*.csv` files record how revisions of the word-class rules
-  moved words between classes; they compare successive versions of the rules and are not rebuilt.
-- `paper/make_numbers.py`: reads `results/` and writes the paper's numbers and tables.
-  `paper/figures/*.py` prepare Figure 1 (the map and the transliteration).
+Run in this order by `orphans/reproduce_paper.sh`; each can also be run alone (see its docstring).
+
+| Script | What it does | Writes |
+|---|---|---|
+| `qtm/tlhdig.py` | parses the TLHdig XML into one row per word: spelling, lemma, word class, sign status (preserved, damaged, restored) | `data/tokens_marks.csv` |
+| `qtm/variants.py` | makes the two versions of the token table: without restorations (C) and with them (A) | `data/tokens_*.csv` |
+| `ediana_cluwian.py` | downloads the Cuneiform Luwian lemmata of eDiAna | `data/ediana_cluwian_forms.csv` |
+| `fill_lemmas.py` | fills missing analyses from the same spelling elsewhere in TLHdig, or from eDiAna | `data/tokens_marks_filled.csv` |
+| `run_experiments.py` | the placement method: validation on held-out manuscripts, fragment size, margin, orphan placement (E1–E6) | `report.json`, `E2_*`, `E3_*`, `E5_orphan_placement.csv` |
+| `run_openset.py` | manuscripts from no reference tradition: how often they are wrongly placed (E9) | `E9_report.json` |
+| `run_hypotheses.py` | scholarly groupings as hypotheses: compositions left out whole, contested texts (E10) | `E10_*` |
+| `run_attribution.py` | splits each decision by word category and writing layer (E11) | `E11_report.json` |
+| `run_profiles.py` | spelling profiles and distinctive words per tradition (E7) | `E7_*` |
+| `run_wordclass.py` | each word category alone and the text without it (E8) | `E8_report.json` |
+| `run_spellings_only.py` | the method with spellings only, without word classes | `R1_spellings_only.json` |
+| `stats_corpus.py` | corpus counts | `corpus_stats.json` |
+| `run_case.py` | one manuscript in detail: similarities, margin, decisive words (worked examples) | `case/case_*.json` |
+| `run_known_joins.py`, `run_join_model.py` | joins and duplicates named in the Konkordanz: where they rank; a re-ranking model (appendix) | `known_joins/`, `joins/` |
+| `compare_filled.py` | results before and after filling missing analyses | `comparison.json` |
+| `run_unicode.py` | the method on cuneiform signs instead of transliteration (appendix) | `U_unicode.json` |
+| `check_hfr_conventions.py` | how far TLHdig follows the HFR transliteration and annotation guides | `hfr_conventions.json` |
+| `check_gloss_wordnet.py` | the meaning classes against the German and English WordNets | `wordnet_check/` |
+| `run_senses.py` | context rules for words with more than one meaning | `senses/` |
+| `review_wordclass.py` | examples per word-class rule and the score of the expert-marked audit | `wordclass_*.json`, `.csv` |
+| `../paper/make_numbers.py` | reads `results/` and writes every number and table of the paper | `paper/generated/` |
+| `../paper/make_case_marks.py`, `make_case_figures.py` | data for the worked-example figure | `paper/figures/data/`, `paper/generated/case_data_c.tex` |
+| `../paper/figures/*.py` | Figure 1: the archive map and the transliteration with estimated lost signs | `paper/generated/` |
+
+`qtm/` holds the shared code: `assign.py` (centroids, similarity, margin), `features.py`
+(tf-idf features), `groups.py` (the reference traditions), `wordclass.py` and `senses.py`
+(word categories and meaning rules), `layers.py` (writing layers), `corpus.py`, `pieces.py`,
+`konkordanz.py` (reading the Konkordanz). `tests/` checks the bracket parser.
+
+## What each dataset is
+
+Hand-made inputs in `orphans/labels/`:
+
+| File | Content |
+|---|---|
+| `gloss_lexicon.tsv` | dictionary gloss to meaning class (realia, place, abstract noun ...) |
+| `sense_rules.csv` | context rules for glosses with several meanings, each with evidence, dictionary reference and who decided it |
+| `word_fixes.csv`, `title_pairs.csv`, `wordclass_corrections.csv` | corrections to the word-class rules: titles and divine names read as one agent or deity, single words |
+| `wordclass_audit.csv` | a random sample of words with the expert's verdict on their class |
+| `cth701_labels.csv`, `konkordanz_meta.csv`, `konkordanz_joins_duplicates.csv`, `known_joins_pages.json` | Konkordanz snapshots (CTH 701 subgroups, find data, joins and duplicates), with access dates in the `.source.txt` files |
+
+Results in `orphans/results/`:
+
+| Folder | Content |
+|---|---|
+| `tlhdig04_literature_C_filled/` | main results: literature-defined traditions, without restorations, missing analyses filled |
+| `tlhdig04_literature_A_filled/` | the same with restorations |
+| `tlhdig04_literature_C/` | without restorations, before filling |
+| `tlhdig04/` | baseline: the four spheres of the earlier festival study, plus CTH-range controls |
+| `wordclass_rule_changes*.csv` | how revisions of the word-class rules moved words between classes; they compare successive rule versions and are not rebuilt |
+
+`paper/traditions.csv` lists the reference traditions with their defining studies;
+`paper/data/wordnet_audit_expert.csv` is the expert's judgement of the cases where the meaning
+classes and WordNet disagree.
 
 The TLHdig corpus itself is not included; it is openly licensed and downloaded by the script.
 The photograph and hand copy in Figure 1 are not included; they are published by the
