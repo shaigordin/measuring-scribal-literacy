@@ -276,7 +276,7 @@ def highlight_names():
         dark = sub.sum(2) < 300
         m = Image.fromarray((dark * 255).astype("uint8")).filter(ImageFilter.MaxFilter(5))
         dark = np.array(m) > 0
-        sub[dark] = (150, 55, 30)
+        sub[dark] = (95, 35, 135)   # plum, distinct from the terracotta squares and the blue rivers
         a[y0:y1, x0:x1] = sub
     # Hattusa's name runs into its own symbol: move the name to the left, on the white land
     hx0, hy0, hx1, hy1 = NAME_BOXES["hattusa"]
@@ -303,7 +303,7 @@ def tikz_g(n):
         side = next(sz for lo, sz, _ in CLASSES_G if site_size(k, n) >= lo); h = side / 2
         L.append(f"\\filldraw[fill=clay, draw=white, line width=0.35pt] ({X-h:.3f},{Y-h:.3f}) rectangle ({X+h:.3f},{Y+h:.3f});")
     kx, ky, rows, rh = 0.1, 0.1, len(CLASSES_G), 0.2
-    kw, kh = 1.4, rh * rows + 0.22
+    kw, kh = 1.62, rh * rows + 0.22
     L.append(f"\\filldraw[fill=white, draw=gray!50, line width=0.2pt, rounded corners=1pt] ({kx},{ky}) rectangle ({kx+kw},{ky+kh:.3f});")
     L.append(f"\\node[anchor=north west, font=\\fontsize{{4}}{{4.8}}\\selectfont\\bfseries, inner sep=1pt] at ({kx+0.04},{ky+kh-0.02:.3f}) {{Tablets and fragments}};")
     for i, (lo, side, txt) in enumerate(CLASSES_G):

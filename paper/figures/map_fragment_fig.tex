@@ -1,0 +1,49 @@
+%% Figure 1: where the archives are (map) and what an orphan looks like (KBo 24.8, CTH 470).
+%% Map: figures/make_archive_map.py (base map fetched, not in git). Fragment images:
+%% figures/fetch_fragment_images.sh (not in git). Transliteration: TLHdig 0.4, KBo 24.8.
+\providecolor{clay}{RGB}{176,74,46}
+\newcommand{\hb}[1]{{\fontspec{Noto Sans Display}#1}}   % half brackets, missing in Termes
+\newcommand{\hit}[1]{\textit{#1}}                         % Hittite and Akkadograms in italics
+\begin{figure*}[!t]
+  \centering
+  \begin{minipage}[b]{0.49\linewidth}\centering
+    \resizebox{\linewidth}{!}{\input{../generated/archive_map_G.tex}}\\[2pt]
+    {\footnotesize (a) The Hittite archives}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.20\linewidth}\centering
+    \includegraphics[height=5.1cm]{external/KBo_24_8_photo.jpg}\\[2pt]
+    {\footnotesize (b) Photograph}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.27\linewidth}\centering
+    \includegraphics[height=5.1cm]{external/KBo_24_8_handcopy.png}\\[2pt]
+    {\footnotesize (c) Hand copy}
+  \end{minipage}\\[6pt]
+  \begin{minipage}{\linewidth}\centering\small
+    \begin{tabular}{@{}r@{\hspace{6pt}}l@{}}
+      1$'$  & ]x \\
+      2$'$  & \{MUNUS\}ŠU.G]I EGIR-\hit{pa} [ \\
+      3$'$  & ]x-\hit{kán} \{MUNUS\}ŠU.GI \hit{A-NA} EN SIS[KUR \\
+      4$'$  & ]x \hit{iš-na-a-aš pa-tal-ḫa-an} (erasure) \hit{an-da} [ \\
+      5$'$  & ]x-\hit{at-ši-kán ar-ḫa da-a-i} [ \\
+    \end{tabular}\hspace{2.5em}%
+    \begin{tabular}{@{}r@{\hspace{6pt}}l@{}}
+      6$'$  & ]x \{MUNUS\}ŠU.GI \{DUG\}\hit{ḫu-p}[\hit{u-} \\
+      7$'$  & \hit{ar-ḫ}]\hit{a wa-aḫ-nu-uz-zi} [ \\
+      8$'$  & ]x EN SISKUR \hit{ša-ra-a} [ \\
+      9$'$  & U]DU-\hit{ŠU ku-i-}\hb{⸢}\hit{e}\hb{⸣}\hit{-e}[\hit{š} \\
+      10$'$ & ]x x[ \\
+    \end{tabular}\\[3pt]
+    {\footnotesize (d) Digital transliteration (TLHdig)}
+  \end{minipage}
+  \caption{The Hittite archives and one of their orphans. (a) The five archives in Anatolia,
+    their names highlighted on the map of \citet{cammarosano2017map}; square size gives the
+    number of tablets and fragments in classes: Ḫattuša well over 30,000, Šapinuwa more than
+    3,000, Tapikka about 116 \citep{hoffner2024grammar}, Šamuḫa 184
+    \citep{rieken2019kayalipinar}\todraft{+ 2026 excavation report}, Šarišša under 100
+    (published manuscripts in TLHdig 0.4). (b--d) The orphan KBo 24.8, filed under \CTH{470}
+    ``fragments of rituals'': (b) photograph (hethiter.net/: fotarch N08917); (c) hand copy (KBo
+    24, no.~8; Hethitologie-Portal Mainz); (d) its transliteration in TLHdig 0.4. The Old Woman
+    (MUNUS ŠU.GI) and the ritual patron (EN SISKUR) are visible on the tablet; the method places
+    the fragment with the Luwian rituals of Puriyanni and Kuwattalla.}
+  \label{fig:fragment}
+\end{figure*}
