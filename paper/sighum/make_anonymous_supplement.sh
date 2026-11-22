@@ -46,6 +46,16 @@ for f in $PAPER; do copy "$P/$f" "$S/$P/$f"; done
 copy "$P/data/wordnet_audit_ShG.csv" "$S/$P/data/wordnet_audit_expert.csv"
 copy "$P/sighum/anonymous_README.md" "$S/README.md"
 printf '__pycache__/\ndata/\n' > "$S/$O/.gitignore"
+# the released dataset (every manuscript of the residual bins, placed by the main and comparison runs),
+# from the release zip that orphans/make_release.py and release_docs.py write; its README is not copied
+# (it names the author), the supplement README describes the files instead
+RELEASE_ZIP=${RELEASE_ZIP:-/mnt/project-files/zenodo-release/orphans_archetypes_nearest_manuscripts_v2.1.0.zip}
+TMPR=$(mktemp -d); unzip -q "$RELEASE_ZIP" -d "$TMPR"
+for v in without_restorations with_restorations; do
+  mkdir -p "$S/dataset/$v"
+  for f in fragments.csv compositions.csv traditions.csv summary.json; do cp "$TMPR"/*/"$v/$f" "$S/dataset/$v/"; done
+done
+rm -r "$TMPR"
 
 # names and project references in comments and docstrings
 grep -rlIE "Mainz Hittite|quoted on the slides|ShG|measuring-scribal-literacy|Mainz (Hittite|talk|deck)|talk|deck|slide|playground|thread|working sheet|sense\.rules\.shg" "$S" \
@@ -54,6 +64,7 @@ s/sense\.rules\.shg/sense.rules.expert/g; s/measuring-scribal-literacy/anonymous
 s/ ?\((paper thread('s)? suggestion|suggested in review), asked by expert\)//g; s/ \(deck slide( \"barcode\")?\)//g; \
 s/[Tt]he (playground|workshop playground)('s)?/the interactive tool\2/g; \
 s/ for the Mainz Hittite (&|and) AI workshop//g; s/quoted on the slides/quoted in the paper/g; s/StBoT 73 working sheet/working sheet/g"
+grep -rlI "Syro-Mesopotamia\b" "$S" | xargs -r sed -i -E "s/Syro-Mesopotamia([^n]|$)/Syro-Mesopotamian\1/g"
 LEAK="shai|gordin|shygordin|ariel|digital pasts|text-orphans|adoptio|mainz (hittite|talk|deck|workshop)|\bShG\b|\
 playground|\bdeck\b|\bslides?\b|talk_numbers|\bthread\b|claude\.ai|session_|cmsg_|/home/|/mnt/"
 if grep -rnIiE "$LEAK" "$S" | grep -vE "Gordin,? (Yavasan|et al)"; then

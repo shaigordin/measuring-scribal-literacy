@@ -202,6 +202,18 @@ def main():
     put("orph.ebo_median", int(o["ebo_median_words"]), f"{MAIN}/corpus_stats.json")
     put("orph.ebo_832", num(o["ebo_filed_under"]["832"]), f"{MAIN}/corpus_stats.json ebo_filed_under.832")
     put("orph.ebo_670", num(o["ebo_filed_under"]["670"]), f"{MAIN}/corpus_stats.json ebo_filed_under.670")
+    for name, k in (("470", "CTH 470 fragments of rituals"), ("500", "CTH 500 fragments of Kizzuwatna rituals"),
+                    ("670", "CTH 670 fragments of festivals"), ("832", "CTH 832 fragments of various content"),
+                    ("residue", "CTH 390-469 rituals no study groups")):
+        b = cs["laroche_bins"][k]
+        put(f"bin.{name}", num(b["texts"]), f"{MAIN}/corpus_stats.json laroche_bins.{k}.texts")
+        put(f"bin.{name}.median", f"{b['median_words']:g}", f"{MAIN}/corpus_stats.json laroche_bins.{k}.median_words")
+    if PREFIX == "" and "prevalidated" in cs:     # files whose analyses a human annotator selected
+        for name, k in (("fest", "festival_traditions"), ("rit", "ritual_traditions"), ("orph", "orphans_scored")):
+            pv = cs["prevalidated"][k]
+            put(f"prev.{name}", pct(pv["share"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.share")
+            put(f"prev.{name}.n", num(pv["prevalidated"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.prevalidated")
+            put(f"prev.{name}.of", num(pv["texts"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.texts")
     for k in ("reference_texts", "orphans_used", "orphans_total"):
         put(f"corpus.{k}", num(rep["corpus"][k]), f"{src} corpus.{k}")
     put("corpus.orphan_median", int(rep["corpus"]["orphan_words_median"]), f"{src} corpus")

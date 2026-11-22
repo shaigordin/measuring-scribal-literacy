@@ -69,7 +69,7 @@ for V in C A; do
   python3 run_profiles.py "$TOK" "${L[@]}" --groups literature --out "$O" --perm 100 > "$O/E7_run.log"  # E7
   python3 run_wordclass.py "$TOK" "${L[@]}" --groups literature --out "$O" --perm 100 > "$O/E8_run.log" # E8
   python3 run_spellings_only.py "$TOK" --run "$O" > "$O/R1_run.log"                                     # spellings only
-  python3 stats_corpus.py "$TOK" --out "$O" --groups literature
+  python3 stats_corpus.py "$TOK" --out "$O" --groups literature --run "$O"
   for T in "KBo 44.52" "KBo 57.54" "EBo 133" "KBo 41.22"; do                                            # worked examples
     python3 run_case.py "$TOK" --run "$O" --txtid "$T" --out "$O/case" >> "$O/case/run.log"
   done

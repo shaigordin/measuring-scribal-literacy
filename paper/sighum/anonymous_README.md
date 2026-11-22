@@ -86,6 +86,21 @@ Results in `orphans/results/`:
 `paper/data/wordnet_audit_expert.csv` is the expert's judgement of the cases where the meaning
 classes and WordNet disagree.
 
+## The dataset
+
+`dataset/without_restorations/` (main) and `dataset/with_restorations/` hold the placements for
+every manuscript of Laroche's residual bins (CTH 470, 500, 670, 832), the unclaimed rituals of
+CTH 390–469 and the EBo fragments, built by the main and the comparison run.
+
+| File | Content |
+|---|---|
+| `fragments.csv` | one row per manuscript: bin, legible words, status (placed, below margin, too small), the three nearest traditions with their similarity, the margin, the placed tradition, the five nearest compositions, the five and twenty nearest manuscripts, and the words of each category that count |
+| `compositions.csv`, `traditions.csv` | the compositions and traditions the fragments are compared with |
+| `summary.json` | counts per bin and status |
+
+The paper reports the orphans (CTH 470 and EBo); their rows in `fragments.csv` agree with
+`orphans/results/*/E5_orphan_placement.csv`.
+
 The TLHdig corpus itself is not included; it is openly licensed and downloaded by the script.
 The photograph and hand copy in Figure 1 are not included; they are published by the
 Hethitologie-Portal Mainz.

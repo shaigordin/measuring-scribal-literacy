@@ -58,6 +58,9 @@ def plain_tabular(text):
 
 body = plain_tabular(body)
 body = re.sub(r"\\todraft\{", r"\\emph{", body)
+body = re.sub(r"\\term\{", r"\\emph{", body)                 # \term is defined in the preamble, which pandoc does not see
+body = body.replace("\\paragraph{", "\\paragraph*{")             # run-in headings stay unnumbered
+body = re.sub(r"\\(begin|end)\{(figure|table)\*\}", r"\\\1{\2}", body)  # pandoc drops captions of figure*/table*
 body = body.replace("\\bibliography{../references}", "")
 # Figure 1 (map, photo, hand copy, transliteration) goes in as one image rendered by build.sh.
 fig1 = open(os.path.join(HERE, "..", "figures", "map_fragment_fig.tex"), encoding="utf-8").read()
@@ -100,7 +103,7 @@ open(tmp, "w", encoding="utf-8").write(tex)
 subprocess.run(["pandoc", tmp, "--metadata", "title=" + re.search(r"\\title\{(.*?)\}\n", src, re.S).group(1).replace("\\\\", ""), "-o", os.path.join(HERE, "main.docx"), "--citeproc",
                 "--bibliography", os.path.join(HERE, "..", "references.bib"), "--number-sections"],
                check=True, cwd=HERE)
-os.remove(tmp)
+# os.remove(tmp)
 print("wrote main.docx")
 
 # Word refuses a file with an empty table (a row without cells); fail here instead of in Word.

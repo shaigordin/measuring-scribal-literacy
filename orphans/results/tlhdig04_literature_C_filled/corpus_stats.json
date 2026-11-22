@@ -357,5 +357,22 @@
         ]
       }
     }
+  },
+  "prevalidated": {
+    "festival_traditions": {
+      "texts": 1341,
+      "prevalidated": 884,
+      "share": 0.6592
+    },
+    "ritual_traditions": {
+      "texts": 301,
+      "prevalidated": 13,
+      "share": 0.0432
+    },
+    "orphans_scored": {
+      "texts": 2023,
+      "prevalidated": 3,
+      "share": 0.0015
+    }
   }
 }

@@ -8,6 +8,16 @@ A.orph.cth470_median,11,tlhdig04_literature_A_filled/corpus_stats.json
 A.orph.ebo_median,4,tlhdig04_literature_A_filled/corpus_stats.json
 A.orph.ebo_832,568,tlhdig04_literature_A_filled/corpus_stats.json ebo_filed_under.832
 A.orph.ebo_670,372,tlhdig04_literature_A_filled/corpus_stats.json ebo_filed_under.670
+A.bin.470,"1{,}922",tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 470 fragments of rituals.texts
+A.bin.470.median,11,tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 470 fragments of rituals.median_words
+A.bin.500,481,tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 500 fragments of Kizzuwatna rituals.texts
+A.bin.500.median,17,tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 500 fragments of Kizzuwatna rituals.median_words
+A.bin.670,"3{,}553",tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 670 fragments of festivals.texts
+A.bin.670.median,10,tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 670 fragments of festivals.median_words
+A.bin.832,"4{,}104",tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 832 fragments of various content.texts
+A.bin.832.median,4,tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 832 fragments of various content.median_words
+A.bin.residue,"1{,}043",tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 390-469 rituals no study groups.texts
+A.bin.residue.median,22,tlhdig04_literature_A_filled/corpus_stats.json laroche_bins.CTH 390-469 rituals no study groups.median_words
 A.corpus.reference_texts,"3{,}888",tlhdig04_literature_A_filled/report.json corpus.reference_texts
 A.corpus.orphans_used,"2{,}036",tlhdig04_literature_A_filled/report.json corpus.orphans_used
 A.corpus.orphans_total,"2{,}898",tlhdig04_literature_A_filled/report.json corpus.orphans_total
@@ -1329,6 +1339,25 @@ orph.cth470_median,10,tlhdig04_literature_C_filled/corpus_stats.json
 orph.ebo_median,4,tlhdig04_literature_C_filled/corpus_stats.json
 orph.ebo_832,568,tlhdig04_literature_C_filled/corpus_stats.json ebo_filed_under.832
 orph.ebo_670,372,tlhdig04_literature_C_filled/corpus_stats.json ebo_filed_under.670
+bin.470,"1{,}922",tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 470 fragments of rituals.texts
+bin.470.median,10.5,tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 470 fragments of rituals.median_words
+bin.500,481,tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 500 fragments of Kizzuwatna rituals.texts
+bin.500.median,16,tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 500 fragments of Kizzuwatna rituals.median_words
+bin.670,"3{,}553",tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 670 fragments of festivals.texts
+bin.670.median,10,tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 670 fragments of festivals.median_words
+bin.832,"4{,}101",tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 832 fragments of various content.texts
+bin.832.median,4,tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 832 fragments of various content.median_words
+bin.residue,"1{,}043",tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 390-469 rituals no study groups.texts
+bin.residue.median,21,tlhdig04_literature_C_filled/corpus_stats.json laroche_bins.CTH 390-469 rituals no study groups.median_words
+prev.fest,66\%,tlhdig04_literature_C_filled/corpus_stats.json prevalidated.festival_traditions.share
+prev.fest.n,884,tlhdig04_literature_C_filled/corpus_stats.json prevalidated.festival_traditions.prevalidated
+prev.fest.of,"1{,}341",tlhdig04_literature_C_filled/corpus_stats.json prevalidated.festival_traditions.texts
+prev.rit,4\%,tlhdig04_literature_C_filled/corpus_stats.json prevalidated.ritual_traditions.share
+prev.rit.n,13,tlhdig04_literature_C_filled/corpus_stats.json prevalidated.ritual_traditions.prevalidated
+prev.rit.of,301,tlhdig04_literature_C_filled/corpus_stats.json prevalidated.ritual_traditions.texts
+prev.orph,0\%,tlhdig04_literature_C_filled/corpus_stats.json prevalidated.orphans_scored.share
+prev.orph.n,3,tlhdig04_literature_C_filled/corpus_stats.json prevalidated.orphans_scored.prevalidated
+prev.orph.of,"2{,}023",tlhdig04_literature_C_filled/corpus_stats.json prevalidated.orphans_scored.texts
 corpus.reference_texts,"3{,}619",tlhdig04_literature_C_filled/U_unicode.json corpus.reference_texts
 corpus.orphans_used,"2{,}023",tlhdig04_literature_C_filled/U_unicode.json corpus.orphans_used
 corpus.orphans_total,"2{,}898",tlhdig04_literature_C_filled/U_unicode.json corpus.orphans_total
