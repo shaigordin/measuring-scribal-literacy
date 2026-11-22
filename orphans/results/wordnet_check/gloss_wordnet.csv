@@ -62,7 +62,7 @@ sauer,adjective,936,EMṢU,,adjective,sauer,exact,ambiguous,adj.all,adjective,so
 Mensch,person,932,antuḫš=a-,1.1 += ma=aš=šši=aš,agent,Mensch,exact,ambiguous,noun.person,agent,individual,agent|animal,3
 Weg,place,924,KASKAL-TIM,,place,Weg,exact,ambiguous,noun.act,abstract,chance,abstract|place|realia,6
 Himmel,nature,915,ŠAMÛ,,body/nature,Himmel,exact,ambiguous,noun.object,body/nature,sky,abstract|body/nature|place,4
-ein,measure,907,1-aš,QUANcar.NOM.SG.C += wa,measure,,,missing,,,,,0
+ein,number,907,1-aš,QUANcar.NOM.SG.C += wa,,,,missing,,,,,0
 ‚meine Sonne‘,person,878,UTU-ŠI,,agent,Sonne,head_last_word,matched,noun.object,body/nature,sun,body/nature,2
 Silber,realia,864,KÙ.BABBAR,28.2.1.1,realia,Silber,exact,matched,noun.possession,realia,silver,realia,1
 Arinna,place,856,PÚ,39.8,place,,,missing,,,,,0
@@ -177,7 +177,7 @@ Fuß,body,347,pat=a-,1.1 += aš,body/nature,Fuß,exact,ambiguous,noun.act,abstra
 Schulter,body,347,ZAG.UDU,29.1.1,body/nature,,,missing,,,,,0
 Leben,abstract,345,TI,28.14.2 += kkan,abstract,Leben,exact,matched,noun.motive,abstract,life,abstract,1
 vollendet,adjective,337,QATÛ,,adjective,vollendet,exact,matched,adj.all,adjective,immaculate,adjective,5
-zwei,measure,336,2,QUANcar,measure,zwei,exact,matched,adj.all,adjective,two,adjective,1
+zwei,number,336,2,QUANcar,,zwei,exact,matched,adj.all,adjective,two,adjective,1
 (Funktionär),person,336,DUMU.SANGA,29.1.1 += ya,agent,,,missing,,,,,0
 kultisch rein,adjective,333,šupp=i-,2.2,adjective,rein,head_last_word,matched,adj.all,adjective,pure,adjective,11
 Feldlager,place,331,KARAŠ,29.1.1 += ya=tta,place,Feldlager,exact,matched,noun.artifact,realia,camp,realia,1
@@ -220,7 +220,7 @@ rein,adjective,270,parku=i-,2.2,adjective,rein,exact,matched,adj.all,adjective,p
 Orakelanfrage,abstract,270,① ERIŠTU,,abstract,,,missing,,,,,0
 °D°IŠTAR-i,deity,269,IŠTAR,,agent,,,missing,,,,,0
 (kultisches Getränk),realia,269,taw=al-,8.1,realia,,,missing,,,,,0
-ein halb,measure,267,½,QUANcar,measure,halb,head_last_word,matched,adj.all,adjective,relative,adjective,1
+ein halb,number,267,½,QUANcar,,halb,head_last_word,matched,adj.all,adjective,relative,adjective,1
 Messer,realia,263,GÍR,29.1.1,realia,Messer,exact,matched,noun.quantity,measure,measuring unit,measure,1
 Greisin,person,262,ŠU.GI,29.1.1 += ma,agent,,,missing,,,,,0
 (Getränk),realia,260,KAŠ.GEŠTIN,28.1.1.1 += ya=tta,realia,,,missing,,,,,0
@@ -258,7 +258,7 @@ Buchsbaum,realia,218,TÚG,29.1.1,realia,Buchsbaum,exact,matched,noun.plant,reali
 Körper,body,216,NÍ.TE-KA,+= ya,body/nature,Körper,exact,ambiguous,noun.body,body/nature,torso,abstract|body/nature,2
 Vorderseite,abstract,213,PĀNU,,abstract,Vorderseite,exact,ambiguous,noun.artifact,realia,facade,agent|realia,2
 Herrschaft,abstract,212,EN,28.14.2,abstract,Herrschaft,exact,matched,noun.time,abstract,rule,abstract,5
-drei,measure,212,3,QUANcar,measure,drei,exact,matched,adj.all,adjective,three,adjective,1
+drei,number,212,3,QUANcar,,drei,exact,matched,adj.all,adjective,three,adjective,1
 Meile,measure,212,DANNA,29.1.1,measure,,,missing,,,,,0
 Schöpfgefäß,realia,212,ḫanišš=a-,1.1,realia,,,missing,,,,,0
 weich,adjective,212,mi=u-,3.2,adjective,weich,exact,matched,adj.all,adjective,bendable,adjective,6
@@ -476,8 +476,8 @@ Becher aus gebranntem Ton,realia,99,GAL.GIR₄,29.1.1,realia,Ton,head_last_word,
 Esel,animal,98,ANŠE,29.1.1,animal,Esel,exact,ambiguous,noun.object,body/nature,aerie,animal|body/nature,4
 Karkamiš,place,97,karkamiš=,39.1,place,,,missing,,,,,0
 Ḫulla,person,97,ḫull=a-,38.2,agent,,,missing,,,,,0
-sieben,measure,97,7,QUANcar,measure,sieben,exact,ambiguous,noun.artifact,realia,seven-spot,other|realia,4
-Zaḫ(ḫ)(a)puna,place,97,zašḫapun=a-,35.1.1,place,Zaḫ,head_first_word,matched,adj.all,adjective,muggy,adjective,4
+sieben,number,97,7,QUANcar,,sieben,exact,ambiguous,noun.artifact,realia,seven-spot,other|realia,4
+Zaḫ(ḫ)(a)puna,deity,97,zašḫapun=a-,35.1.1,agent,Zaḫ,head_first_word,matched,adj.all,adjective,muggy,adjective,4
 DN,deity,97,MADANU,,agent,,,missing,,,,,0
 Lehm,realia,96,IM,29.1.1,realia,Lehm,exact,matched,noun.substance,realia,adobe,realia,1
 Brotbissen,realia,96,wagat=a-,1.2,realia,,,missing,,,,,0
@@ -499,7 +499,7 @@ Dreschplatz,place,92,KISLAḪ,28.1.1,place,,,missing,,,,,0
 Maulesel,animal,92,ANŠE.GÌR.NUN.NA,29.1.1,animal,,,missing,,,,,0
 Bäcker,person,92,NINDA.DÙ.DÙ,29.1.1,agent,,,missing,,,,,0
 Tutḫaliya,person,91,tutḫali=a-,38.2 += ya,agent,,,missing,,,,,0
-vier,measure,91,4,QUANcar,measure,vier,exact,matched,adj.all,adjective,four,adjective,1
+vier,number,91,4,QUANcar,,vier,exact,matched,adj.all,adjective,four,adjective,1
 Gerste,realia,90,ŠEʾU,,realia,,,missing,,,,,0
 Backe,body,90,TÊRTU,,body/nature,Backe,exact,matched,noun.body,body/nature,cheek,body/nature,1
 Kulttänzer,person,90,ḪUB.BI,29.1.1,agent,,,missing,,,,,0
@@ -794,7 +794,7 @@ Schafhirt,person,44,SIPA.UDU,29.1.1,agent,,,missing,,,,,0
 Winter,measure,44,gim=a-,1.1,measure,Winter,exact,matched,noun.time,abstract,winter,abstract,1
 Zimmermann,person,44,NAGAR,29.1.1,agent,Zimmermann,exact,matched,noun.person,agent,tailor,agent,1
 Anteil,abstract,44,ḪA.LA-ŠU-NU,,abstract,Anteil,exact,ambiguous,noun.relation,abstract,proportion,abstract|realia,3
-fünf,measure,44,5,QUANcar,measure,,,missing,,,,,0
+fünf,number,44,5,QUANcar,,,,missing,,,,,0
 Tauriš(š)a,place,44,tauriš=a-,39.2,place,,,missing,,,,,0
 Opferschale,realia,44,BUR.ZI,29.1.1,realia,,,missing,,,,,0
 Steppe,place,44,ṢĒRU,,place,Steppe,exact,matched,noun.object,body/nature,steppe,body/nature,1
@@ -1095,7 +1095,7 @@ Nuanza,person,25,nuanz=a-,38.2,agent,,,missing,,,,,0
 Kuruštam(m)a,place,25,kuruštamm=a-,39.2,place,,,missing,,,,,0
 Weide,place,25,RÎTU,,place,Weide,exact,ambiguous,noun.object,body/nature,rangeland,body/nature|place,2
 innen befindlich,adjective,25,anturiy=a-,1.3,adjective,befindlich,head_last_word,matched,adj.all,adjective,located,adjective,1
-zwölf,measure,25,12,QUANcar,measure,zwölf,exact,matched,noun.quantity,measure,twelve,measure,1
+zwölf,number,25,12,QUANcar,,zwölf,exact,matched,noun.quantity,measure,twelve,measure,1
 Fleischbrühe,realia,25,TU₇˽A˽UZU,29.1.1,realia,,,missing,,,,,0
 Tat(t)amaru,person,25,tattamar=u-,38.4,agent,,,missing,,,,,0
 Nenuwa,place,25,nenu=a-,39.2,place,,,missing,,,,,0
@@ -1211,7 +1211,7 @@ Daru,deity,21,① tar=u-,35.3.1,agent,,,missing,,,,,0
 Ḫuršama,place,21,ḫuršamm=a-,39.2,place,,,missing,,,,,0
 gepflügtes Feld,place,21,teripp=i-,2.1.2,place,Feld,head_last_word,ambiguous,noun.state,abstract,sphere,abstract|place|realia,5
 Palḫuišša,place,21,palḫuišš=a-,39.2,place,,,missing,,,,,0
-sechs,measure,21,6,QUANcar,measure,sechs,exact,matched,noun.artifact,realia,six-spot,realia,1
+sechs,number,21,6,QUANcar,,sechs,exact,matched,noun.artifact,realia,six-spot,realia,1
 Handtuch,realia,21,tanip=u-,3.1.1,realia,Handtuch,exact,matched,noun.artifact,realia,towel,realia,1
 Tetešḫapi,deity,21,tetešḫap=i-,35.2.1,agent,,,missing,,,,,0
 Zalmana,place,21,zalman=a-,39.2,place,,,missing,,,,,0
@@ -1331,7 +1331,7 @@ Zustimmung,abstract,18,nû=(t)-,30.4.6,abstract,Zustimmung,exact,matched,noun.co
 Ḫu(wa)riya(n)ze/ipa,deity,18,ḫurianzip=a-,35.1.1,agent,,,missing,,,,,0
 (übler Zustand),abstract,18,parnink=a-,1.1,abstract,,,missing,,,,,0
 jung,adjective,18,ḫuelp=i-,2.2,adjective,jung,exact,matched,adj.all,adjective,inexperienced,adjective,5
-zwei zusammen,measure,18,2-uš,QUAN:ACC.PL,measure,zusammen,head_last_word,matched,adj.all,adjective,common,adjective,4
+zwei zusammen,number,18,2-uš,QUAN:ACC.PL,,zusammen,head_last_word,matched,adj.all,adjective,common,adjective,4
 GAL-tarḫunta,person,18,GAL-°D°10=a-,38.2,agent,,,missing,,,,,0
 Ḫalpaziti,person,18,ḫalpa-LÚ=i-,38.3,agent,,,missing,,,,,0
 Taduḫepa,person,18,tatuḫep=a-,37.2,agent,,,missing,,,,,0
@@ -1351,7 +1351,7 @@ Balken,realia,18,GIŠ.ÙR,29.1.1,realia,Balken,exact,ambiguous,noun.artifact,rea
 Trinker (Art Priester),person,18,akuttarr=a-,1.1,agent,Trinker,alternative,matched,noun.person,agent,drunkard,agent,1
 Pein,abstract,18,aḫr=a-,30.3,abstract,Pein,exact,matched,noun.event,abstract,curse,abstract,3
 geweiht,adjective,18,wašḫ=a-,30.7.3,adjective,,,missing,,,,,0
-zehntausend,measure,18,SIG₇,29.1.1,measure,zehntausend,exact,matched,noun.quantity,measure,ten thousand,measure,1
+zehntausend,number,18,SIG₇,29.1.1,,zehntausend,exact,matched,noun.quantity,measure,ten thousand,measure,1
 Arawanna,place,18,araunn=a-,39.2,place,,,missing,,,,,0
 Verzierung,realia,18,bašt=a-,30.3,realia,Verzierung,exact,ambiguous,noun.artifact,realia,embellishment,abstract|realia,4
 Uzzu,deity,18,uzz=u-,38.4,agent,,,missing,,,,,0
@@ -1364,7 +1364,7 @@ Krähe(?),animal,18,šuraššur=a-,1.1,animal,Krähe,alternative,ambiguous,noun.
 Herr der Anrufung,deity,18,① mukišn=,40.1,agent,Anrufung,head_last_word,matched,noun.act,abstract,invocation,abstract,1
 Lebenskraft,abstract,18,annar=i-,30.1.1,abstract,Lebenskraft,exact,ambiguous,noun.feeling,abstract,gusto,abstract|body/nature,2
 Sphinx(?),animal,18,awit=i-,2.1.1,animal,,,missing,,,,,0
-neun,measure,18,9,QUANcar,measure,neun,exact,matched,adj.all,adjective,nine,adjective,1
+neun,number,18,9,QUANcar,,neun,exact,matched,adj.all,adjective,nine,adjective,1
 Kanti(p)u(i)tti,deity,18,kantiputt=i-,35.2.1,agent,,,missing,,,,,0
 Gesicht,body,18,men=i-,2.1.2 += met,body/nature,Gesicht,exact,matched,noun.communication,abstract,grimace,abstract,4
 Tumma,place,18,tumm=a-,39.2,place,,,missing,,,,,0
@@ -1377,7 +1377,7 @@ Pišeni,person,17,pišen=i-,38.3,agent,,,missing,,,,,0
 Hurriter,person,17,ḫurl=a/i-,1.1.1 += ša,agent,,,missing,,,,,0
 Ḫantitaššu,deity,17,ḫantitašš=u-,35.3.1,agent,,,missing,,,,,0
 Šulupašša,place,17,šulupašši=,39.3,place,,,missing,,,,,0
-acht,measure,17,8,QUANcar,measure,acht,exact,ambiguous,adj.all,adjective,eight,adjective|realia,2
+acht,number,17,8,QUANcar,,acht,exact,ambiguous,adj.all,adjective,eight,adjective|realia,2
 Dämmerung,measure,17,UD.ZAL.LE,29.1.1,measure,Dämmerung,exact,matched,noun.phenomenon,body/nature,half-light,body/nature,1
 Arziya,place,17,arzi=a-,39.2 += ya,place,,,missing,,,,,0
 Trense,realia,17,šurz=i-,2.1.3,realia,Trense,exact,matched,noun.artifact,realia,snaffle,realia,1
@@ -1430,7 +1430,7 @@ Zarniz(z)a,deity,16,zarniz=a-,35.1.1,agent,,,missing,,,,,0
 Stellvertreter,person,16,nakkušš=a/i-,30.6.2,agent,Stellvertreter,exact,ambiguous,noun.object,body/nature,variable,agent|body/nature,3
 Kuzanišu,deity,16,kuzaniš=u-,35.3.1,agent,,,missing,,,,,0
 Messer(?),realia,16,šapar=a-,1.1,realia,Messer,alternative,matched,noun.quantity,measure,measuring unit,measure,1
-zehn,measure,16,10,35.10.1,measure,zehn,exact,matched,adj.all,adjective,ten,adjective,1
+zehn,number,16,10,35.10.1,,zehn,exact,matched,adj.all,adjective,ten,adjective,1
 Unterseite,abstract,16,ŠAPLU,,abstract,,,missing,,,,,0
 (Art Leder),realia,16,DUḪ.ŠÚ.A,29.1.1,realia,,,missing,,,,,0
 Ninga,place,16,nink=a-,35.1.1,place,,,missing,,,,,0
@@ -1571,7 +1571,7 @@ langer Trog,realia,13,BUGIN.GÍD.DA=,29.1.1,realia,Trog,head_last_word,matched,n
 Süßmilch(?),realia,13,ḫarn=ai-,4.1,realia,,,missing,,,,,0
 udne-,place,13,KUR-ŠU,,place,,,missing,,,,,0
 (Art Tisch aus Rohrgeflecht),realia,13,ḫariuzz=i-,2.1.3,realia,,,missing,,,,,0
-20,measure,13,20,QUANcar,measure,,,missing,,,,,0
+20,number,13,20,QUANcar,,,,missing,,,,,0
 Andaliya,deity,13,andal=ia-,35.1.4,agent,,,missing,,,,,0
 Glas,realia,13,zapzag=i-,2.1.2.1,realia,Glas,exact,matched,noun.artifact,realia,water glass,realia,3
 Uškuwattašši,deity,13,uškuattašš=i-,35.2.1,agent,,,missing,,,,,0
@@ -1867,7 +1867,7 @@ Manapa-Tarḫunta,person,9,manapa-°D°10=,38.1,agent,,,missing,,,,,0
 Hülsenfrucht(?),realia,9,šum=eššar,14.3 += wa,realia,,,missing,,,,,0
 Piḫamuwa,person,9,piḫa-A.A=a-,38.2,agent,,,missing,,,,,0
 Füllung,abstract,9,TAMLÛ,,abstract,Füllung,exact,matched,noun.artifact,realia,stuffing,realia,1
-tausend,measure,9,LĪM,,measure,tausend,exact,matched,noun.shape,abstract,zigzag,abstract,1
+tausend,number,9,LĪM,,,tausend,exact,matched,noun.shape,abstract,zigzag,abstract,1
 Arroganz,abstract,9,šallakart=atar,14.2,abstract,Arroganz,exact,matched,noun.attribute,abstract,imperiousness,abstract,1
 Markasit(?),realia,9,parašḫ=a-,1.2,realia,,,missing,,,,,0
 Kloß,realia,9,talupp=(i)-,30.1.1,realia,Kloß,exact,matched,noun.group,agent,gob,agent,1
@@ -1885,7 +1885,7 @@ Ulušna,place,9,ulušn=a-,39.2,place,,,missing,,,,,0
 unschuldig,adjective,9,niwall=a/i-,30.6.1,adjective,unschuldig,exact,matched,adj.all,adjective,blameless,adjective,5
 Maštigga,person,9,maštikk=a-,37.2,agent,,,missing,,,,,0
 Pirwa,deity,9,pir=u-a-,38.2 += wa=aš,agent,,,missing,,,,,0
-sechzig,measure,9,ŠŪŠI,,measure,sechzig,exact,matched,adj.all,adjective,sixty,adjective,1
+sechzig,number,9,ŠŪŠI,,,sechzig,exact,matched,adj.all,adjective,sixty,adjective,1
 Linsensuppe,realia,9, TU₇˽GÚ.TUR,29.1.1,realia,,,missing,,,,,0
 Ḫuattašša,place,9,ḫuattašš=a-,35.1.1,place,,,missing,,,,,0
 Vorratshaus,realia,9,① apuzz=i-,2.1.3,realia,,,missing,,,,,0
@@ -1986,7 +1986,7 @@ Ekaldu,deity,8,ikalt=u-,35.3.1,agent,,,missing,,,,,0
 Gerstenbrot,realia,8,① NINDA.ŠE,29.1.1,realia,,,missing,,,,,0
 Lilaya,deity,8,① lila=ia-,35.1.4,agent,,,missing,,,,,0
 zum Sonnengott gehörig,adjective,8,tiwal=i-,30.6.3,adjective,gehörig,head_last_word,matched,adj.all,adjective,bumpkinly,adjective,2
-30,measure,8,30,QUANcar,measure,,,missing,,,,,0
+30,number,8,30,QUANcar,,,,missing,,,,,0
 traubenförmig,adjective,8,murial=a-,1.3,adjective,,,missing,,,,,0
 kräftig,adjective,8,A.A,28.13.2 += ššan,adjective,kräftig,exact,matched,adj.all,adjective,sturdy,adjective,7
 Straße,place,8,ḫaruw=a-,30.3,place,Straße,exact,matched,noun.artifact,realia,street,realia,1
@@ -2050,7 +2050,7 @@ Ohr-Symbol,realia,8,ḫazzizz=i(t)-,30.4.5,realia,,,missing,,,,,0
 Ištanu,deity,8,ištan=u-,35.3.1,agent,,,missing,,,,,0
 Tap/wal(l)amaz(a)kuru,deity,8,① tapalamazkur=u-,35.3.1,agent,,,missing,,,,,0
 Kuzzi,person,8,① kuz=i-,37.3,agent,,,missing,,,,,0
-(unbekannte Zahl),measure,8,n,QUANcar,measure,,,missing,,,,,0
+(unbekannte Zahl),number,8,n,QUANcar,,,,missing,,,,,0
 Ḫarana,place,8,ḫaran=i-,30.1.1 += kkan,place,,,missing,,,,,0
 verleumderisch(?),adjective,8,mantall=iya/i-,30.6.3,adjective,verleumderisch,alternative,matched,adj.all,adjective,offensive,adjective,1
 Schal(?),realia,8,irḫ=a-,1.1,realia,Schal,alternative,matched,adj.all,adjective,empty,adjective,3
@@ -2145,7 +2145,7 @@ Taparwašu,deity,7,taparuaš=u-,35.3.1,agent,,,missing,,,,,0
 Ellantarpigga,place,7,ellantarpikk=a-,35.1.1,place,,,missing,,,,,0
 Ze/intuḫi,deity,7,① zentuḫ=ia-,35.1.4,agent,,,missing,,,,,0
 Stoffstreifen,realia,7,MARŠU,,realia,,,missing,,,,,0
-Muli,place,7,① mul=i-,35.2.1,place,Muli,exact,matched,noun.animal,animal,mule,animal,1
+Muli,deity,7,① mul=i-,35.2.1,agent,Muli,exact,matched,noun.animal,animal,mule,animal,1
 Dada,person,7,tat=a-,38.2,agent,Dada,exact,matched,noun.group,agent,dada,agent,1
 Ringkämpfer,person,7,GÉŠPU,29.1.1 += kkan,agent,,,missing,,,,,0
 Šaluš,deity,7,① šall=i-,2.2,agent,,,missing,,,,,0
@@ -2495,7 +2495,7 @@ Schleuse,realia,5,ištapp=eššar,14.3,realia,Schleuse,exact,matched,noun.artifa
 Bart,body,5,SU₆,29.1.2,body/nature,Bart,exact,matched,noun.body,body/nature,facial hair,body/nature,1
 hart,adjective,5,ḫatk=u-,3.2,adjective,hart,exact,ambiguous,adj.all,adjective,hard,abstract|adjective,14
 Walliyara,place,5,walliyar=a-,35.1.1,place,,,missing,,,,,0
-90,measure,5,90,QUANcar,measure,,,missing,,,,,0
+90,number,5,90,QUANcar,,,,missing,,,,,0
 Ackerfurche,place,5,aggal=a-,1.4,place,,,missing,,,,,0
 unwissend,adjective,5,① Á.NU.GÁL,29.1.2,adjective,unwissend,exact,matched,adj.all,adjective,ignorant,adjective,3
 (Decke),realia,5,TAḪAPŠU,,realia,,,missing,,,,,0
@@ -2747,7 +2747,7 @@ Tarwaški,place,4,taruašk=i-,38.3,place,,,missing,,,,,0
 Kella,person,4,kill=a,38.2,agent,,,missing,,,,,0
 Sonnengottheit,deity,4,UTU-AŠ,,agent,,,missing,,,,,0
 Ananuri,place,4,ananur=i-,38.3,place,,,missing,,,,,0
-elf,measure,4,11,QUANcar,measure,elf,exact,ambiguous,adj.all,adjective,eleven,adjective|agent,2
+elf,number,4,11,QUANcar,,elf,exact,ambiguous,adj.all,adjective,eleven,adjective|agent,2
 Zarniyaziti,person,4,zarnia-LÚ=i-,38.3,agent,,,missing,,,,,0
 paarweise vorhandenes Kleidungsstück,realia,4,etriw=a-,1.1,realia,Kleidungsstück,head_last_word,matched,noun.artifact,realia,garment,realia,1
 Pikkauzza,place,4,pikkauz=a-,39.2,place,,,missing,,,,,0
@@ -2764,7 +2764,7 @@ bitterer Knoblauch,realia,4,AZANNU,,realia,Knoblauch,head_last_word,matched,noun
 (kleiner Vogel),animal,4,MUŠEN.TUR=,29.1.1,animal,,,missing,,,,,0
 Lulluwa,place,4,lulluw=a-,39.2,place,,,missing,,,,,0
 zur Preisung gehörig,adjective,4,šarlatam=iya/i-,30.6.3,adjective,gehörig,head_last_word,matched,adj.all,adjective,bumpkinly,adjective,2
-je zwei,measure,4,2.ÀM,QUANdist,measure,zwei,head_last_word,matched,adj.all,adjective,two,adjective,1
+je zwei,number,4,2.ÀM,QUANdist,,zwei,head_last_word,matched,adj.all,adjective,two,adjective,1
 Ištuḫila,place,4,ištuḫil=a-,39.2,place,,,missing,,,,,0
 Taptina,place,4,taptin=a-,39.2,place,,,missing,,,,,0
 Ašdutarḫunta,person,4,aštu-°D°10=a-,38.2,agent,,,missing,,,,,0
@@ -2845,7 +2845,7 @@ Apaša,place,4,apaš=a-,39.2 += šši,place,,,missing,,,,,0
 Ankušna,place,4,ankušn=a-,39.2,place,,,missing,,,,,0
 Kappurnanta,place,4,kappurnant=a-,39.2,place,,,missing,,,,,0
 Zazalla,deity,4,zazall=a-,38.2,agent,,,missing,,,,,0
-14,measure,4,14,QUANcar,measure,,,missing,,,,,0
+14,number,4,14,QUANcar,,,,missing,,,,,0
 (Kultgegenstand aus Silber),realia,4,uluppann=i-,2.1.1,realia,,,missing,,,,,0
 Luftloch,realia,4,KA.BAL,29.1.2,realia,,,missing,,,,,0
 NÍG.GA.KÙ.SI₂₂,person,4,NÍG.GA.KÙ.SI₂₂=,37.1,agent,,,missing,,,,,0
@@ -2900,7 +2900,7 @@ Inventar,realia,3,ḫatiw=i(t)-,30.4.5,realia,Inventar,exact,ambiguous,noun.cogn
 Maultier,animal,3,ANŠE.NUN.NA,29.1.1,animal,Maultier,exact,matched,noun.animal,animal,mule,animal,1
 Maw(i)ri,place,3,mawir=i-,38.3,place,,,missing,,,,,0
 Kurwašu,place,3,kurwaš=u-,35.3.1,place,,,missing,,,,,0
-15,measure,3,15,QUANcar,measure,,,missing,,,,,0
+15,number,3,15,QUANcar,,,,missing,,,,,0
 ̀Ḫaḫlatarupšani,place,3,ḫaḫlatarupšan=i-,38.3,place,,,missing,,,,,0
 Bündnis,abstract,3,① šardi=atar,14.2,abstract,Bündnis,exact,ambiguous,noun.relation,abstract,alliance,abstract|agent,3
 Ansehen,abstract,3,šargaw=atar,14.2,abstract,Ansehen,exact,matched,noun.state,abstract,importance,abstract,2
@@ -3094,7 +3094,7 @@ Fusseln(?),realia,3,mariḫš=(i)-,30.1.1,realia,,,missing,,,,,0
 (Gegenstand aus Edelmetall),realia,3,lammam=a/i-,30.1.1,realia,,,missing,,,,,0
 Erntearbeiter,person,3,ŠE.KIN.KU₅,29.1.1,agent,,,missing,,,,,0
 Mallidunna,place,3,mallidunn=a-,37.2,place,,,missing,,,,,0
-37,measure,3,37,QUANcar,measure,,,missing,,,,,0
+37,number,3,37,QUANcar,,,,missing,,,,,0
 Iarrazalma,place,3,iarrazalm=a-,38.2,place,,,missing,,,,,0
 Gewitter(?),nature,3,šar=awar,14.4,body/nature,Gewitter,alternative,matched,noun.phenomenon,body/nature,tempest,body/nature,1
 Kämpfer,person,3,① GÚ.GILIM,29.1.2,agent,Kämpfer,exact,matched,noun.person,agent,quarreler,agent,3
@@ -3156,7 +3156,7 @@ Wartanna,place,3,wartann=a-,39.2,place,,,missing,,,,,0
 Malaziti,person,3,mala-LÚ=i-,38.3,agent,,,missing,,,,,0
 Uruk,place,3,urag=a-,39.2,place,,,missing,,,,,0
 Alḫa,place,3,alḫ=a-,39.2 +,place,,,missing,,,,,0
-1+n,measure,3,1+n,QUANcar,measure,,,missing,,,,,0
+1+n,number,3,1+n,QUANcar,,,,missing,,,,,0
 mürrisch(?),adjective,3,šamman=a-,1.1,adjective,mürrisch,alternative,matched,adj.all,adjective,unfriendly,adjective,2
 Tunnawiya,person,3,dunnawi=a-,37.2,agent,,,missing,,,,,0
 Elle (Maßeinheit),measure,3,AMMATU(M),,measure,Elle,alternative,ambiguous,noun.quantity,measure,cubit,body/nature|measure,2
@@ -3971,7 +3971,7 @@ Zedu,place,2,zet=u-,35.3.1,place,,,missing,,,,,0
 Ikakali,place,2,ikakal=i-,39.3,place,,,missing,,,,,0
 Streitkolben,realia,2,ḪURPALÛ,,realia,Streitkolben,exact,matched,noun.artifact,realia,mallet,realia,1
 (Krankheit?),abstract,2,① urt=a-,1.1,abstract,,,missing,,,,,0
-13,measure,2,13,QUANcar,measure,,,missing,,,,,0
+13,number,2,13,QUANcar,,,,missing,,,,,0
 Ziplata,place,2,ziplat=a-,39.2,place,,,missing,,,,,0
 Urzamaššani,place,2,urzamaššan=i-,35.2.1,place,,,missing,,,,,0
 (Farbe),abstract,2,aiw=ant-,13.2,abstract,,,missing,,,,,0
@@ -3985,7 +3985,7 @@ Nuwašarpa,place,2,nuwašarp=a-,38.2,place,,,missing,,,,,0
 Bindung,abstract,2,① KEŠDA,28.8.3,abstract,Bindung,exact,ambiguous,noun.relation,abstract,alliance,abstract|adjective|body/nature|realia,9
 Tawatena,place,2,① tauaten=a-,39.2,place,,,missing,,,,,0
 Aššuiwašḫa,place,2,aššuiwašḫ=a-,37.2,place,,,missing,,,,,0
-50,measure,2,50,QUANcar,measure,,,missing,,,,,0
+50,number,2,50,QUANcar,,,,missing,,,,,0
 Ḫešta-Haus-Mann,person,2,LÚ˽°É°ḫešta=,29.1.1,agent,,,missing,,,,,0
 Šaliti,place,2,šalit=i,39.3,place,,,missing,,,,,0
 Marašša,place,2,marašš=a-,39.2,place,,,missing,,,,,0
@@ -4007,7 +4007,7 @@ Hündin,animal,2,① UR.GI₇.MUNUS.AL.LÁ,29.1.1,animal,,,missing,,,,,0
 Arm,body,2,① AḪU,,body/nature,Arm,exact,matched,noun.artifact,realia,arm,realia,1
 Laknanika,place,2,① laknanik=a-,39.2,place,,,missing,,,,,0
 taḫurpištanu,unknown,2,① taḫurpištan=u-,35.3.1,,,,missing,,,,,0
-Tausend,measure,2,šakr=i-,2.1.2,measure,Tausend,exact,matched,noun.shape,abstract,zigzag,abstract,1
+Tausend,number,2,šakr=i-,2.1.2,,Tausend,exact,matched,noun.shape,abstract,zigzag,abstract,1
 Zinišḫapa,place,2,① zinišḫap=a-,39.2,place,,,missing,,,,,0
 naḫuḫupanta,unknown,2,① naḫuḫupant=a-,39.2,,,,missing,,,,,0
 zur Stärke gehörig,adjective,2,① annarumaḫitašš=a/i-,30.6.2,adjective,gehörig,head_last_word,matched,adj.all,adjective,bumpkinly,adjective,2
@@ -4076,7 +4076,7 @@ Walkuwanda,place,1,walkuwand=a-,39.2,place,,,missing,,,,,0
 EN-UR.SAG,person,1,EN-UR.SAG=,38.1,agent,,,missing,,,,,0
 Ḫušša,place,1,ḫušš=a-,39.2,place,,,missing,,,,,0
 steil(?),adjective,1,alpuwar=a-,1.3,adjective,steil,alternative,matched,adj.all,adjective,audacious,adjective,1
-32,measure,1,32,QUANcar,measure,,,missing,,,,,0
+32,number,1,32,QUANcar,,,,missing,,,,,0
 Tiger(?),animal,1,PÌRIG,29.1.2,animal,Tiger,alternative,matched,noun.animal,animal,tiger,animal,1
 Napf,realia,1,ŠAB,29.1.2,realia,Napf,exact,matched,noun.plant,realia,husk,realia,1
 Amminani,person,1,ammi-ŠEŠ=,38.1,agent,,,missing,,,,,0
@@ -4155,7 +4155,7 @@ Tuwawa,place,1,duw=a-,38.2,place,,,missing,,,,,0
 ein Orakelvogel,animal,1,uešš=i-,2.1.1,animal,,,missing,,,,,0
 Zizu,place,1,ziz=u-,38.4,place,,,missing,,,,,0
 Traum(?),abstract,1,Ù˽NUN,29.1.2,abstract,,,missing,,,,,0
-20mal,measure,1,20-iš,QUANmul,measure,,,missing,,,,,0
+20mal,number,1,20-iš,QUANmul,,,,missing,,,,,0
 Ištanzaššiš,place,1,ištanzašš=i-,35.1.3,place,,,missing,,,,,0
 großes BALAG.DI-Instrument,realia,1,BALAG.DI.GAL=,29.1.1,realia,,,missing,,,,,0
 Šananauiya,place,1,① šananaui=a-,39.2,place,,,missing,,,,,0
@@ -4173,7 +4173,7 @@ Pipimawa,place,1,pipimau=a-,39.2,place,,,missing,,,,,0
 Tap(pa)šnuwanta,place,1,tapšanuant=a-,39.2,place,,,missing,,,,,0
 Tapalka,place,1,tapalk=a-,39.2,place,,,missing,,,,,0
 Lammfest,abstract,1,EZEN₄.SILA₄=,28.1.1,abstract,,,missing,,,,,0
-38,measure,1,38,QUANcar,measure,,,missing,,,,,0
+38,number,1,38,QUANcar,,,,missing,,,,,0
 Nauwa-[,place,1,naua=,39.2,place,,,missing,,,,,0
 er schrieb,abstract,1,IN.SAR=,29.1.1,abstract,schrieb,head_last_word,matched,noun.communication,abstract,letter,abstract,1
 Kayalara,place,1,① kaialar=a-,35.1.1,place,,,missing,,,,,0
@@ -4309,7 +4309,7 @@ Kilušḫepa,person,1,kilušḫep=a-,37.2,agent,,,missing,,,,,0
 (topographisches Merkmal),place,1,ašaliy=a-,30.3,place,,,missing,,,,,0
 im vergangenen Jahr,measure,1,MU.IM.MA,,measure,Jahr,head_last_word,matched,noun.time,abstract,year,abstract,1
 Panzer,realia,1,"GURSI(P)PU, KURPIŠU",,realia,Panzer,exact,matched,noun.artifact,realia,tank,realia,2
-22,measure,1,22,QUANcar,measure,,,missing,,,,,0
+22,number,1,22,QUANcar,,,,missing,,,,,0
 (minderwertige Goldsorte?),realia,1,kurupšini=,30.8 += uš,realia,,,missing,,,,,0
 Wasserrohr,realia,1,artaḫḫ=i-,2.1.1,realia,Wasserrohr,exact,matched,noun.artifact,realia,water main,realia,1
 Ḫurmel,person,1,ḫurmel=,38.1,agent,,,missing,,,,,0
@@ -4356,7 +4356,7 @@ Kinaḫḫi,place,1,kinaḫḫ=i-,39.2,place,,,missing,,,,,0
 Einladender(?),person,1,gallištarwan=a-,1.1,agent,,,missing,,,,,0
 Tašḫiniya,place,1,tašḫini=a-,39.2,place,,,missing,,,,,0
 Filter,realia,1,① šešar=ul-,8.3,realia,,,missing,,,,,0
-je vier,measure,1,① 4.TA.ÀM,QUANdist,measure,vier,head_last_word,matched,adj.all,adjective,four,adjective,1
+je vier,number,1,① 4.TA.ÀM,QUANdist,,vier,head_last_word,matched,adj.all,adjective,four,adjective,1
 Ḫušue,deity,1,① ḫušu=e-,35.9.1,agent,,,missing,,,,,0
 Šaššaš[i,person,1,šaššaši=[-,38.1,agent,,,missing,,,,,0
 Glanz(?),abstract,1,šuppi=atar,14.2,abstract,Glanz,alternative,matched,noun.attribute,abstract,glory,abstract,5
@@ -4541,7 +4541,7 @@ Gebiet,place,1,PATTU,,place,Gebiet,exact,ambiguous,noun.location,place,district,
 Hang,nature,1,arpatt=a-,1.2,body/nature,Hang,exact,ambiguous,noun.object,body/nature,slope,abstract|body/nature,4
 insular,adjective,1,guršawanašš=a/i-,30.6.2,adjective,insular,exact,matched,adj.all,adjective,retracted,adjective,2
 gefiedert(?),adjective,1,paddaniaš=a/i-,30.6.2,adjective,,,missing,,,,,0
-23,measure,1,23,QUANcar,measure,,,missing,,,,,0
+23,number,1,23,QUANcar,,,,missing,,,,,0
 Überzug,realia,1,BAR.KÍN,29.1.2,realia,Überzug,exact,ambiguous,noun.attribute,abstract,ceiling,abstract|realia,6
 Kot,body,1,gamaršuw=ant-,13.1 += ma,body/nature,Kot,exact,matched,noun.substance,realia,body waste,realia,1
 Kiwira,person,1,kiuir=a-,38.2,agent,,,missing,,,,,0
@@ -4551,7 +4551,7 @@ Ammiyatalla,person,1,ammiyatal=a-,38.2,agent,,,missing,,,,,0
 Apallanna,person,1,apallann=a-,38.2,agent,,,missing,,,,,0
 Ḫuwannara,place,1,ḫuwannar=a-,39.2,place,,,missing,,,,,0
 Ziḫalluka,place,1,ziḫalluk=a-,39.2,place,,,missing,,,,,0
-zwei-(?),measure,1,2-ni,QUAN,measure,,,missing,,,,,0
+zwei-(?),number,1,2-ni,QUAN,,,,missing,,,,,0
 (Material bei der Glasherstellung),realia,1,① muḫl=ai-,4.1,realia,,,missing,,,,,0
 Staubschutzbrett,realia,1,ŠAḪARKU,,realia,,,missing,,,,,0
 Iaḫina-LÚ,person,1,laḫina-LÚ=,38.1,agent,,,missing,,,,,0
@@ -4578,7 +4578,7 @@ blutrote Färbung,abstract,1,išḫarw=atar,14.2,abstract,Färbung,head_last_wor
 fröhliches Lachen,abstract,1,ḫalwa=mmar,14.5,abstract,Lachen,head_last_word,matched,noun.communication,abstract,laugh,abstract,1
 Verunreinigung,abstract,1,šaknu=mar,15.2,abstract,,,missing,,,,,0
 Regenrinne(?),realia,1,ḫeyawall=a-,1.4,realia,Regenrinne,alternative,matched,noun.artifact,realia,gutter,realia,1
-je sechs,measure,1,6.TA.ÀM,QUANdist,measure,sechs,head_last_word,matched,noun.artifact,realia,six-spot,realia,1
+je sechs,number,1,6.TA.ÀM,QUANdist,,sechs,head_last_word,matched,noun.artifact,realia,six-spot,realia,1
 Narr,person,1,LIL,29.1.2,agent,Narr,exact,ambiguous,noun.object,body/nature,aerie,agent|body/nature,3
 Lila-UR.MAḪ,person,1,lila-UR.MAḪ=,38.1,agent,,,missing,,,,,0
 kahl,adjective,1,kak=i-,2.2,adjective,kahl,exact,matched,adj.all,adjective,glabrous,adjective,5
@@ -4680,7 +4680,7 @@ Penis(?),body,1,① ḫurn=i-,2.1.1,body/nature,Penis,alternative,matched,noun.s
 Ilaliya,deity,1,① ilali=a-,35.1.1,agent,,,missing,,,,,0
 Taz(z)iyašu,deity,1,① taziaš=u-,35.3.1,agent,,,missing,,,,,0
 Ninkar,deity,1,① NIN.KAR,36.6,agent,,,missing,,,,,0
-25,measure,1,① 25,QUANcar,measure,,,missing,,,,,0
+25,number,1,① 25,QUANcar,,,,missing,,,,,0
 Ašḫaluga,deity,1,ašḫaluk=a-,35.1.1,agent,,,missing,,,,,0
 kleine Brotration(?),realia,1,šarammanni=-i,2.1.2,realia,kleine,head_first_word,ambiguous,noun.person,agent,child,abstract|agent,4
 Daḫangaili,deity,1,① taḫankail=i-,35.2.1,agent,,,missing,,,,,0
@@ -4901,7 +4901,7 @@ Hirschkuh,animal,1,LU.LIM.MUNUS.AL.LÁ,29.1.1,animal,,,missing,,,,,0
 Ḫelaluḫa,place,1,① ḫelaluḫ=a-,39.2,place,,,missing,,,,,0
 Še/ip/wuru,place,1,šewur=u-,35.3.1,place,,,missing,,,,,0
 Nunziti,place,1,nunzit=i-,38.3,place,,,missing,,,,,0
-78,measure,1,① 78,QUANcar,measure,,,missing,,,,,0
+78,number,1,① 78,QUANcar,,,,missing,,,,,0
 Ampuriya,place,1,① ampuri=a-,39.2,place,,,missing,,,,,0
 Müllerin,person,1,① MUNUS˽°NA₄°ARA₅,29.1.1,agent,,,missing,,,,,0
 Šarkitta,place,1,① šarkitt=a-,39.2,place,,,missing,,,,,0
@@ -5015,7 +5015,7 @@ Tränken,abstract,1,ŠIQI,,abstract,,,missing,,,,,0
 Paḫḫišalma,place,1,paḫḫišalm=a-,39.2,place,,,missing,,,,,0
 Aussatz,abstract,1,SAḪAR.ŠUB.BA,29.1.2,abstract,Aussatz,exact,matched,noun.state,abstract,leprosy,abstract,1
 Zinta,place,1,zint=a-,39.2,place,,,missing,,,,,0
-80,measure,1,80,QUANcar,measure,,,missing,,,,,0
+80,number,1,80,QUANcar,,,,missing,,,,,0
 Stachel(?),realia,1,katra=l-,8.1,realia,Stachel,alternative,matched,noun.plant,realia,spine,realia,1
 AMAR.MUŠEN-i-,unknown,1,AMAR.MUŠEN=i-,38.3,,,,missing,,,,,0
 Tarwiššiya,place,1,taruiššiy=a-,38.2,place,,,missing,,,,,0
@@ -5110,7 +5110,7 @@ Kuzzina,place,1,① kuzina=,35.9.3,place,,,missing,,,,,0
 Watammira,place,1,① watammir=a-,35.1.1,place,,,missing,,,,,0
 Ḫilištarni,place,1,ḫilištarn=i-,35.2.2,place,,,missing,,,,,0
 Waškuruna,place,1,① waškurun=a-,35.1.1,place,,,missing,,,,,0
-neunmal,measure,1,① 9-ŠU,QUANmul,measure,,,missing,,,,,0
+neunmal,number,1,① 9-ŠU,QUANmul,,,,missing,,,,,0
 Anat-ŠAR,deity,1,① anat-ŠAR=,38.1,agent,,,missing,,,,,0
 Urunzipa,place,1,urunzip=a-,35.1.1,place,,,missing,,,,,0
 (Ingredienz),realia,1,tuwaš=,30.4.1 += ya,realia,,,missing,,,,,0
@@ -5236,7 +5236,7 @@ Egara,place,1,egar=a-,39.2,place,,,missing,,,,,0
 (Baum oder Holzpflanze),realia,1,šadd=u-,3.1.3,realia,,,missing,,,,,0
 Ammama,deity,1,ammam=a-,37.2,agent,,,missing,,,,,0
 Zienkuelwa,place,1,zienkuelw=a,37.2,place,,,missing,,,,,0
-4+n,measure,1,4+n,QUANcar,measure,,,missing,,,,,0
+4+n,number,1,4+n,QUANcar,,,,missing,,,,,0
 (goldener Schmuckgegenstand),realia,1,kalmaš=u-,3.1.1,realia,,,missing,,,,,0
 Verwandter,person,1,ŠÀ.MÁŠ,29.1.2,agent,Verwandter,exact,matched,noun.person,agent,kinsman,agent,1
 Obsthändler,person,1,šešal=a-,1.1,agent,,,missing,,,,,0
@@ -5367,13 +5367,13 @@ Inzilitipa,place,1,① inzilitip=a-,39.2,place,,,missing,,,,,0
 Anunumniš,deity,1,① anunumniš=,12.5,agent,,,missing,,,,,0
 Šušumat,deity,1,① šušuma=t-,35.4.1,agent,,,missing,,,,,0
 Weriyadu,place,1,① weriat=u-,35.3.1,place,,,missing,,,,,0
-50-(?),measure,1,① 50-uš,QUAN.ACC.PL,measure,,,missing,,,,,0
+50-(?),number,1,① 50-uš,QUAN.ACC.PL,,,,missing,,,,,0
 Anniyain,place,1,① anniain=,39.1,place,,,missing,,,,,0
 Puntaya,place,1,②Ⓐ puntai=a-,39.2 += kkan,place,,,missing,,,,,0
 Taipuri,place,1,① taipur=i-,35.2.1,place,,,missing,,,,,0
 ungenannt,adjective,1,① kulupat=i/e-,30.10.1,adjective,ungenannt,exact,matched,adj.all,adjective,nameless,adjective,1
 (Holzgegenstand(?)),realia,1,① waran=a-,1.4,realia,,,missing,,,,,0
-35,measure,1,① 35,QUANcar,measure,,,missing,,,,,0
+35,number,1,① 35,QUANcar,,,,missing,,,,,0
 Waluka,place,1,① waluk=a-,39.2,place,,,missing,,,,,0
 Tiyanta,place,1,① tiant=a-,39.2,place,,,missing,,,,,0
 gereizt(?),adjective,1,ḫalwatnall=a/i-,30.6.1 += wa=za,adjective,gereizt,alternative,matched,adj.all,adjective,nervous,adjective,3

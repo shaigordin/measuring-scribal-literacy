@@ -1194,10 +1194,10 @@ A.KJ.join.top20,6,tlhdig04_literature_A_filled/known_joins/known_joins.json join
 A.KJ.join.top100,10,tlhdig04_literature_A_filled/known_joins/known_joins.json join.top100
 A.KJ.join.median,62,tlhdig04_literature_A_filled/known_joins/known_joins.json join.median_rank
 A.KJ.pool,"19{,}623",tlhdig04_literature_A_filled/known_joins/known_joins.json pool
-A.hfr.annot.hfr,59\%,hfr_conventions.json HFR.share_files_human_annotator
+A.hfr.annot.hfr,68\%,hfr_conventions.json HFR.share_files_human_annotator
 A.hfr.annot.other,3\%,hfr_conventions.json other.share_files_human_annotator
-A.hfr.selected.hfr,86\%,hfr_conventions.json HFR.share_analysed_words_selected
-A.hfr.selected.other,40\%,hfr_conventions.json other.share_analysed_words_selected
+A.hfr.selected.hfr,91\%,hfr_conventions.json HFR.share_analysed_words_selected
+A.hfr.selected.other,43\%,hfr_conventions.json other.share_analysed_words_selected
 A.hfr.det.plural,21\%,hfr_conventions.json all.share_determinative_words_only_plural_or_date
 A.wc.hfr.changed,909,wordclass_rule_changes_hfr.csv tokens (sum)
 A.wc.tokens,"323{,}124",wordclass_confidence.json legible_tokens
@@ -1280,12 +1280,12 @@ trad.countword,ten,qtm/groups.py LITERATURE
 fill.tlhdig,"87{,}544",tlhdig04_literature_C_filled/comparison.json filled_words
 fill.ediana,"1{,}109",tlhdig04_literature_C_filled/comparison.json filled_words
 wn.cov.types,30\%,wordnet_check/wordnet_check.json coverage
-wn.cov.tokens,60\%,wordnet_check/wordnet_check.json coverage
-wn.agree.types,68\%,wordnet_check/wordnet_check.json type_weighted
-wn.kappa.types,0.61,wordnet_check/wordnet_check.json type_weighted
-wn.agree.tokens,64\%,wordnet_check/wordnet_check.json token_weighted
-wn.kappa.tokens,0.55,wordnet_check/wordnet_check.json token_weighted
-wn.anysense.types,77\%,wordnet_check/wordnet_check.json any_sense_agrees
+wn.cov.tokens,61\%,wordnet_check/wordnet_check.json coverage
+wn.agree.types,69\%,wordnet_check/wordnet_check.json type_weighted
+wn.kappa.types,0.62,wordnet_check/wordnet_check.json type_weighted
+wn.agree.tokens,65\%,wordnet_check/wordnet_check.json token_weighted
+wn.kappa.tokens,0.56,wordnet_check/wordnet_check.json token_weighted
+wn.anysense.types,78\%,wordnet_check/wordnet_check.json any_sense_agrees
 aud.n,50,paper/data/wordnet_audit_ShG.csv
 aud.decided,43,paper/data/wordnet_audit_ShG.csv
 aud.claude,42,paper/data/wordnet_audit_ShG.csv (Claude or both)
@@ -2505,10 +2505,10 @@ KJ.join.top20,7,tlhdig04_literature_C_filled/known_joins/known_joins.json join.t
 KJ.join.top100,9,tlhdig04_literature_C_filled/known_joins/known_joins.json join.top100
 KJ.join.median,157,tlhdig04_literature_C_filled/known_joins/known_joins.json join.median_rank
 KJ.pool,"19{,}416",tlhdig04_literature_C_filled/known_joins/known_joins.json pool
-hfr.annot.hfr,59\%,hfr_conventions.json HFR.share_files_human_annotator
+hfr.annot.hfr,68\%,hfr_conventions.json HFR.share_files_human_annotator
 hfr.annot.other,3\%,hfr_conventions.json other.share_files_human_annotator
-hfr.selected.hfr,86\%,hfr_conventions.json HFR.share_analysed_words_selected
-hfr.selected.other,40\%,hfr_conventions.json other.share_analysed_words_selected
+hfr.selected.hfr,91\%,hfr_conventions.json HFR.share_analysed_words_selected
+hfr.selected.other,43\%,hfr_conventions.json other.share_analysed_words_selected
 hfr.det.plural,21\%,hfr_conventions.json all.share_determinative_words_only_plural_or_date
 wc.hfr.changed,909,wordclass_rule_changes_hfr.csv tokens (sum)
 wc.tokens,"323{,}124",wordclass_confidence.json legible_tokens
