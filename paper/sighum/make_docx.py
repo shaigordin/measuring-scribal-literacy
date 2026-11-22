@@ -59,6 +59,12 @@ def plain_tabular(text):
 body = plain_tabular(body)
 body = re.sub(r"\\todraft\{", r"\\emph{", body)
 body = body.replace("\\bibliography{../references}", "")
+# Figure 1 (map, photo, hand copy, transliteration) goes in as one image rendered by build.sh.
+fig1 = open(os.path.join(HERE, "..", "figures", "map_fragment_fig.tex"), encoding="utf-8").read()
+cap = fig1[fig1.index("\\caption{"):fig1.index("\\label{fig:fragment}")]
+cap = re.sub(r"\\CTH\{([^}]*)\}", r"CTH \1", cap)
+body = body.replace("\\input{../figures/map_fragment_fig.tex}",
+                    "\\begin{figure}\\includegraphics{../figures/external/fig1_word.png}" + cap + "\\label{fig:fragment}\\end{figure}")
 # Word cannot show PDF figures: use the PNG rendered next to each figure PDF.
 body = re.sub(r"\\includegraphics(\[[^]]*\])?\{([^}]+)\.pdf\}",
               lambda m: "\\includegraphics" + (m.group(1) or "") + "{../figures/" + m.group(2) + ".png}", body)

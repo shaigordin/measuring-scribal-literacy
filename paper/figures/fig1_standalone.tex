@@ -1,0 +1,13 @@
+%% Figure 1 without its caption, as one image for the Word copy (built by sighum/build.sh).
+\documentclass[11pt,border=2pt]{standalone}
+\usepackage{fontspec}\setmainfont{TeX Gyre Termes}
+\usepackage{graphicx,tikz,xcolor}
+\providecolor{clay}{RGB}{176,74,46}
+\graphicspath{{./}{external/}}
+\newcommand{\hb}[1]{{\fontspec{Noto Sans Display}#1}}
+\newcommand{\hit}[1]{\textit{#1}}
+\begin{document}
+\begin{minipage}{16cm}\centering
+\input{../figures/map_fragment_body.tex}
+\end{minipage}
+\end{document}
