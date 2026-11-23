@@ -103,7 +103,7 @@ open(tmp, "w", encoding="utf-8").write(tex)
 subprocess.run(["pandoc", tmp, "--metadata", "title=" + re.search(r"\\title\{(.*?)\}\n", src, re.S).group(1).replace("\\\\", ""), "-o", os.path.join(HERE, "main.docx"), "--citeproc",
                 "--bibliography", os.path.join(HERE, "..", "references.bib"), "--number-sections"],
                check=True, cwd=HERE)
-# os.remove(tmp)
+os.remove(tmp)
 print("wrote main.docx")
 
 # Word refuses a file with an empty table (a row without cells); fail here instead of in Word.
