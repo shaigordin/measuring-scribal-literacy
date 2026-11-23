@@ -100,8 +100,11 @@ placed through a known composition. I call a fragment that no composition claims
 TLH\textsuperscript{dig} edits under the siglum EBo in detail, and place the other bins as a
 test (Section~\ref{sec:data}). Figure~\ref{fig:fragment} shows one of them.
 
-A philologist places a fragment through parallels: a duplicate, or a close passage in a known
-composition. Most orphans have none. Computation offers another route. Simply put, it treats
+A philologist places a fragment by moving from coarse to fine. A \term{parallel} is a close
+passage in another composition or recension; a \term{duplicate} is another copy of the same text;
+a \term{join} is another piece of the same tablet. Each step needs more shared text, except the
+join, which must be shown on the tablets. Most orphans have no known parallel. Computation offers
+another route, and it starts one step earlier, at the tradition. Simply put, it treats
 placement as attribution: can the words on a fragment point to a known cultic tradition? Attribution has two
 known weak points. It becomes less reliable the shorter the text is \citep{eder2015size}, and a
 method that must choose among fixed candidates always chooses one, even when the right answer is
@@ -126,9 +129,9 @@ This paper develops that approach into an assignment method that meets the three
   \item a dataset of placements for every manuscript of Laroche's residual bins, \Q{rel.all.placed}
     of \Q{rel.all.texts}, among them \Q{E5.assigned} of the \Q{corpus.orphans_used} orphans that
     can be scored, each with its diagnostic words (Section~\ref{sec:orphans});
-  \item ranked leads for each fragment: its nearest compositions as candidate parallels and its
-    nearest manuscripts as candidate duplicates or joins, tested on the Konkordanz and left for the
-    philologist to verify (Section~\ref{sec:joins});
+  \item a path from tradition to tablet: for each fragment, its nearest compositions as candidate
+    parallels and its nearest manuscripts as candidate duplicates or joins, tested on the
+    Konkordanz and left for the philologist to verify (Section~\ref{sec:joins});
   \item quantitative evidence that cultic traditions are recognised more by content than by
     writing habits, with two tests of scholarly groupings: one holds out whole compositions, the
     other places Laroche's own residual bins (Sections~\ref{sec:recovery}--\ref{sec:orphans}).
@@ -503,8 +506,8 @@ direction.
 
 \subsection{Leads for parallels, duplicates and joins}
 \label{sec:joins}
-Besides a tradition, each fragment receives two ranked lists: its five nearest compositions, as
-candidate parallels, and its twenty nearest manuscripts among the \Q{KJ.pool} of the release, as
+The placement is the first step of the philologist's path. Once a tradition narrows the search,
+each fragment receives two ranked lists: its five nearest compositions, as candidate parallels, and its twenty nearest manuscripts among the \Q{KJ.pool} of the release, as
 candidate duplicates or joins. A candidate is flagged when it passes three checks fixed in
 advance: it shares at least half the fragment's words, spells every shared word the same way, and
 shares a two-word phrase. \Q{rel.orph.with_match_candidates} orphans have at least one flagged
@@ -513,8 +516,8 @@ candidate.
 I measure success on the pairs recorded in the Konkordanz. For \Q{KJ.duplicate.pairs} duplicate
 pairs, the partner is the nearest manuscript in \Q{KJ.duplicate.top1.share} of cases and among the
 twenty nearest in \Q{KJ.duplicate.top20.share} (median rank \Q{KJ.duplicate.median}). The checks
-are strict: they flag \Q{KJ.duplicate.top20pass} of the duplicates found. Joins are different. Two
-pieces of one tablet share context but rarely text, so the partner ranks far lower (median
+are strict: they flag \Q{KJ.duplicate.top20pass} of the duplicates found. Joins, the last step, lie
+beyond what shared words can show. Two pieces of one tablet share context but rarely text, so the partner ranks far lower (median
 \Q{KJ.join.median}, \Q{KJ.join.top20} of \Q{KJ.join.pairs} among the twenty nearest), and no join
 passes the checks; a model trained on known joins narrows the search but cannot tell joins from
 duplicates (Appendix~\ref{sec:joinmodel}). The lists are leads, not findings: a duplicate or parallel must be read against the other manuscript, and a join needs
