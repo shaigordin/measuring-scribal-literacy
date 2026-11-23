@@ -214,6 +214,35 @@ def main():
             put(f"prev.{name}", pct(pv["share"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.share")
             put(f"prev.{name}.n", num(pv["prevalidated"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.prevalidated")
             put(f"prev.{name}.of", num(pv["texts"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.texts")
+    # every manuscript of the residual bins, placed in the released dataset (summarise_bins.py)
+    bp = os.path.join(RES, MAIN, "bin_placements.json")
+    if PREFIX == "" and os.path.exists(bp):
+        bins = load(MAIN, "bin_placements.json")
+        sb = f"{MAIN}/bin_placements.json"
+        rows = []
+        for name, k, lab in (("470", "CTH 470 fragments of rituals", "\\CTH{470} rituals"),
+                             ("500", "CTH 500 fragments of Kizzuwatna rituals", "\\CTH{500} Kizzuwatna rituals"),
+                             ("residue", "CTH 390-469 rituals no study groups", "\\CTH{390}--469 unclaimed rituals"),
+                             ("670", "CTH 670 fragments of festivals", "\\CTH{670} festivals"),
+                             ("832", "CTH 832 fragments of various content", "\\CTH{832} various content")):
+            b = bins[k]
+            for f in ("texts", "placed", "too_small", "to_kizzuwatna_hurrian", "to_anatolian_festivals",
+                      "to_western_luwian_rituals"):
+                put(f"rel.{name}.{f}", num(b[f]), f"{sb} {k}.{f}")
+            for f in ("to_kizzuwatna_hurrian", "to_anatolian_festivals", "to_western_luwian_rituals"):
+                put(f"rel.{name}.{f}.share", pct(b[f] / b["placed"]), f"{sb} {k}.{f} / placed")
+            put(f"rel.{name}.median", f"{b['median_words']:g}", f"{sb} {k}.median_words")
+            put(f"rel.{name}.top", b["top_tradition"], f"{sb} {k}.top_tradition")
+            put(f"rel.{name}.top.n", num(b["top_tradition_n"]), f"{sb} {k}.top_tradition_n")
+            put(f"rel.{name}.too_small.share", pct(b["too_small"] / b["texts"]), f"{sb} {k}.too_small / texts")
+            put(f"rel.{name}.placed.share", pct(b["placed"] / b["texts"]), f"{sb} {k}.placed / texts")
+            sh = lambda f: pct(b[f] / b["placed"])
+            rows.append(f"{lab} & {num(b['texts'])} & {num(b['placed'])} & {sh('to_kizzuwatna_hurrian')} & "
+                        f"{sh('to_anatolian_festivals')} & {sh('to_western_luwian_rituals')} \\\\")
+        tot = {f: sum(b[f] for b in bins.values()) for f in ("texts", "placed")}
+        put("rel.all.texts", num(tot["texts"]), f"{sb} sum of texts")
+        put("rel.all.placed", num(tot["placed"]), f"{sb} sum of placed")
+        table("bins", rows)
     for k in ("reference_texts", "orphans_used", "orphans_total"):
         put(f"corpus.{k}", num(rep["corpus"][k]), f"{src} corpus.{k}")
     put("corpus.orphan_median", int(rep["corpus"]["orphan_words_median"]), f"{src} corpus")

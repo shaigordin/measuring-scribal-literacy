@@ -57,7 +57,9 @@ defined in the scholarship; a margin calibrated on held-out fragments of the sam
 method abstain, and each decision splits exactly into the share of every word. The method returns
 \Q{E1.both.acc} of held-out manuscripts to their tradition and places \Q{E5.assigned} of
 \Q{corpus.orphans_used} unassigned fragments at an expected precision of \Q{E2.precision}. Each
-placement comes with the words it rests on, which a philologist can check on the tablet. Traditions
+placement comes with the words it rests on, which a philologist can check on the tablet. Applied to
+all of Laroche's residual bins, the method sends ritual fragments to ritual traditions and festival
+fragments to festival traditions without being told their genre. Traditions
 are recognised by whom and what a text names, and hardly by how its scribe spelled it. Code and results
 are provided as supplementary material.
 \end{abstract}
@@ -90,9 +92,9 @@ Laroche's \textit{Catalogue des textes hittites} \citep{laroche1971catalogue}, k
 online \citep{cthportal}, gave every composition a number and an assignment: rituals in one
 block, festivals in another, Hattian, Luwian and Hurrian texts in blocks of their own. Fragments
 that could not be assigned went into residual groups or ``bins'': \CTH{470} ``fragments of
-rituals'' (\Q{bin.470} manuscripts in TLH\textsuperscript{dig}), \CTH{500} ``fragments of Kizzuwatna rituals''
-(\Q{bin.500}), \CTH{670} ``fragments of festivals'' (\Q{bin.670}) and \CTH{832} ``fragments of
-various content'' (\Q{bin.832}). I call a manuscript that no composition claims an \term{orphan}.
+rituals'' (\Q{rel.470.texts} manuscripts in TLH\textsuperscript{dig}), \CTH{500} ``fragments of Kizzuwatna rituals''
+(\Q{rel.500.texts}), \CTH{670} ``fragments of festivals'' (\Q{rel.670.texts}) and \CTH{832}
+``fragments of various content'' (\Q{rel.832.texts}). I call a manuscript that no composition claims an \term{orphan}.
 Here the orphans are the \CTH{470} fragments and the \Q{orph.ebo_texts} small fragments that
 TLH\textsuperscript{dig} edits under the siglum EBo, filed mostly under \CTH{832} and \CTH{670}
 (Section~\ref{sec:data}). Figure~\ref{fig:fragment} shows one of them.
@@ -120,12 +122,13 @@ This paper develops that approach into an assignment method that meets the three
   \item an explanation of every decision: its margin splits exactly over the words that make it, so a
     placement becomes a philological and historical argument that can be checked
     (Section~\ref{sec:decision});
-  \item a dataset of placements for \Q{E5.assigned} of the \Q{corpus.orphans_used} orphans that
+  \item a dataset of placements for every manuscript of Laroche's residual bins, \Q{rel.all.placed}
+    of \Q{rel.all.texts}, among them \Q{E5.assigned} of the \Q{corpus.orphans_used} orphans that
     can be scored, each with its diagnostic words and nearest manuscripts
     (Section~\ref{sec:orphans});
   \item quantitative evidence that cultic traditions are recognised more by content than by
-    writing habits, with a test of scholarly groupings that holds out whole compositions
-    (Sections~\ref{sec:recovery}--\ref{sec:decision}).
+    writing habits, with two tests of scholarly groupings: one holds out whole compositions, the
+    other places Laroche's own residual bins (Sections~\ref{sec:recovery}--\ref{sec:orphans}).
 \end{enumerate}
 In what follows, I first describe the traditions, the data and the method. I then test the method,
 analyse what its decisions rest on, and place the orphans.
@@ -229,9 +232,8 @@ composition is placed by its parallels, an orphan has none. I study two groups o
 \CTH{470} is the bin for rituals, the genre whose traditions the method models, and the EBo
 fragments are new in TLH\textsuperscript{dig} and have never been assigned. \CTH{500} is already
 assigned to Kizzuwatna, and its fragments are placed like the unclaimed rituals of
-\CTH{390}--469 (below). \CTH{670} and \CTH{832} hold mostly festival fragments and short pieces
-of mixed content; the supplementary dataset applies the same method to every manuscript in all
-these bins, with its nearest manuscripts and diagnostic words. Orphans number
+\CTH{390}--469 (below). The fragments of \CTH{670} and \CTH{832} are placed as well, as a test of the
+catalogue's own bins (Section~\ref{sec:orphans}). Orphans number
 \Q{orph.orphans_total} in all; \Q{corpus.orphans_used} of them have at least five legible words
 and are scored, with a median of \Q{corpus.orphan_median} words. Orphans never enter the reference.
 
@@ -470,10 +472,20 @@ decomposition with every placement and treat a placement that rests mostly on co
 \subsection{Orphans and the open set}
 \label{sec:orphans}
 The method places \Q{E5.assigned} of the \Q{corpus.orphans_used} orphans, \Q{E5.top.share} of them
-with the \Q{E5.top}. The two test sets show how to read these placements. The unclaimed rituals of
-\CTH{390}--469 go mostly to the Kizzuwatna rituals, the only large ritual class (\Q{E5b.res.kizz}
-of \Q{E5b.res.assigned}). Here genre comes before origin. \CTH{500}, by contrast, goes mostly to
-the Hurrian festival groups, in line with HFR's treatment of it as festival material \citep{hfr}.
+with the \Q{E5.top}. 
+
+\paragraph{Laroche's bins.} The other residual bins show how to read these placements, since the
+method is never told their genre (Table~\ref{tab:bins} in the appendix). Of the placed fragments
+of \CTH{500}, filed as Kizzuwatna rituals, \Q{rel.500.to_kizzuwatna_hurrian.share} go to the
+Kizzuwatna rituals or the Hurrian groups, which confirms Laroche's filing from outside the
+reference. The festival fragments of \CTH{670} go to the festival traditions:
+\Q{rel.670.to_anatolian_festivals.share} to the Anatolian ones, most of them
+(\Q{rel.670.top.n} of \Q{rel.670.placed}) to the Hattian cult layer, and
+\Q{rel.670.to_kizzuwatna_hurrian.share} to the Hurrian groups. The unclaimed rituals of
+\CTH{390}--469 go mostly to the Kizzuwatna and Hurrian traditions
+(\Q{rel.residue.to_kizzuwatna_hurrian.share}), the largest ritual classes; here genre comes before
+origin. \CTH{832} is the weakest bin: \Q{rel.832.too_small.share} of its manuscripts are too small
+to score.
 
 A fixed set of traditions always names one \citep{koppel2011wild}. Windows from \Q{E9.genres.count}
 other genres, such as myths and oracles, still pass the margin in \Q{E9.genres.placed.lo}--\Q{E9.genres.placed.hi}
@@ -499,7 +511,12 @@ trained on known joins narrows the search, but does not tell a join from a dupli
 
 \paragraph{Genre before origin.}
 A placement means ``nearest of these traditions''. The largest layer a fragment shares with the
-reference is its genre, as the unclaimed rituals show. A placement also does not return a fragment
+reference is its genre, as the unclaimed rituals show. The residual bins sharpen the point. Their
+placements follow Laroche's genres, but within the festivals one class takes most of them. The
+Hattian cult layer is the only reference class built from the great state festivals, such as the
+KI.LAM and the monthly festival, so it may stand for the state cult of Ḫattuša as a whole rather
+than for a Hattian origin. Telling the two apart needs a reference class for the state festivals
+themselves, which the scholarship has not yet delimited as a tradition. A placement also does not return a fragment
 to a CTH number. The catalogue is a modern construct, and many manuscripts fit more than one of
 its groups. Extending the method to the whole corpus therefore needs genre and composition
 categories from the scholarship, not CTH numbers.
@@ -541,6 +558,29 @@ it and takes responsibility for the content. \todraft{Author to confirm this sta
 \bibliography{../references}
 
 \appendix
+
+\section{Laroche's residual bins}
+\label{sec:bins}
+Table~\ref{tab:bins} places every manuscript filed under the residual bins, as in the supplementary
+dataset (without restorations). The spheres group the reference traditions: the Kizzuwatna rituals
+with the three Hurrian groups; the Hattian, Luwian, Ḫuwaššanna and Palaic festivals; and the
+western and Luwian rituals. Manuscripts that TLH\textsuperscript{dig} files under two CTH numbers
+count in both.
+
+\begin{table}[h]
+  \centering\small
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}l rr rrr@{}}
+    \toprule
+    Bin & mss. & placed & Kizz./Hurr. & Anat. fest. & west. rit. \\
+    \midrule
+    \gentab{bins}
+    \bottomrule
+  \end{tabular}
+  \caption{Laroche's residual bins: manuscripts, those placed, and the share of placements per
+    sphere of traditions.}
+  \label{tab:bins}
+\end{table}
 
 \section{Spellings only, with every manuscript}
 \label{sec:spellings}

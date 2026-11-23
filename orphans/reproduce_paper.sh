@@ -81,6 +81,9 @@ done
 python3 compare_filled.py --main "${OUT}_literature_C" --filled "${OUT}_literature_C_filled" \
   --fill "$DATA/tokens_marks_filled.csv" > "${OUT}_literature_C_filled/comparison.txt"
 python3 run_unicode.py "$DATA/tokens_F.csv" --xml "$XML" --run "${OUT}_literature_C_filled" > "${OUT}_literature_C_filled/U_run.log"
+# every manuscript of Laroche's residual bins, placed by the main run (the supplementary dataset)
+python3 make_release.py "$DATA/tokens_F.csv" --run "${OUT}_literature_C_filled" --out "$DATA/release_C" > "$DATA/release_C.log"
+python3 summarise_bins.py "$DATA/release_C/fragments.csv" "${OUT}_literature_C_filled/bin_placements.json" > /dev/null
 
 # 6. checks of the annotation layer: HFR conventions, meaning classes, WordNet, the audited sample
 log "annotation checks"

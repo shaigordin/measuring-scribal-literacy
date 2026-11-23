@@ -51,6 +51,8 @@ Run in this order by `orphans/reproduce_paper.sh`; each can also be run alone (s
 | `check_gloss_wordnet.py` | the meaning classes against the German and English WordNets | `wordnet_check/` |
 | `run_senses.py` | context rules for words with more than one meaning | `senses/` |
 | `review_wordclass.py` | examples per word-class rule and the score of the expert-marked audit | `wordclass_*.json`, `.csv` |
+| `make_release.py` | places every manuscript of the residual bins, with nearest compositions and manuscripts | `data/release_C/` (the `dataset/` files) |
+| `summarise_bins.py` | placements per residual bin and sphere of traditions | `bin_placements.json` |
 | `../paper/make_numbers.py` | reads `results/` and writes every number and table of the paper | `paper/generated/` |
 | `../paper/make_case_marks.py`, `make_case_figures.py` | data for the worked-example figure | `paper/figures/data/`, `paper/generated/case_data_c.tex` |
 | `../paper/figures/*.py` | Figure 1: the archive map and the transliteration with estimated lost signs | `paper/generated/` |

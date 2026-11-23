@@ -16,7 +16,7 @@ CODE="reproduce_paper.sh requirements.txt qtm/__init__.py qtm/assign.py qtm/corp
   run_experiments.py run_hypotheses.py run_openset.py run_attribution.py run_profiles.py run_wordclass.py
   run_spellings_only.py stats_corpus.py run_case.py run_known_joins.py run_join_model.py run_join_candidates.py
   run_unicode.py ediana_cluwian.py fill_lemmas.py compare_filled.py check_hfr_conventions.py run_senses.py
-  check_gloss_wordnet.py review_wordclass.py"
+  check_gloss_wordnet.py review_wordclass.py make_release.py summarise_bins.py"
 LABELS="cth701_labels.csv cth701_labels.source.txt konkordanz_meta.csv konkordanz_meta.source.txt
   konkordanz_joins_duplicates.csv known_joins_pages.json gloss_lexicon.tsv sense_rules.csv title_pairs.csv
   word_fixes.csv wordclass_corrections.csv wordclass_audit.csv"
@@ -29,7 +29,8 @@ RUN="report.json E7_report.json E8_report.json E9_report.json E10_report.json E1
 RESULTS="$R/tlhdig04/report.json $U/E10_report.json $U/E10c_signatures_in_contested.csv $U/stats_historical.csv
   $M/comparison.json $M/U_unicode.json $R/hfr_conventions.json $R/senses/senses.json $R/wordnet_check/wordnet_check.json
   $R/wordclass_audit_scores.json $R/wordclass_confidence.json $R/wordclass_examples.csv $R/wordclass_rule_changes.csv
-  $R/wordclass_rule_changes_akk_logograms.csv $R/wordclass_rule_changes_hfr.csv $R/wordclass_rule_changes_audit.csv"
+  $R/wordclass_rule_changes_akk_logograms.csv $R/wordclass_rule_changes_hfr.csv $R/wordclass_rule_changes_audit.csv
+  $M/bin_placements.json"
 for f in $RUN; do RESULTS="$RESULTS $M/$f $A/$f"; done
 P=paper
 PAPER="make_numbers.py make_case_figures.py make_case_marks.py traditions.csv figures/make_archive_map.py
