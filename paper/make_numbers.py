@@ -239,7 +239,11 @@ def main():
             sh = lambda f: pct(b[f] / b["placed"])
             rows.append(f"{lab} & {num(b['texts'])} & {num(b['placed'])} & {sh('to_kizzuwatna_hurrian')} & "
                         f"{sh('to_anatolian_festivals')} & {sh('to_western_luwian_rituals')} \\\\")
-        tot = {f: sum(b[f] for b in bins.values()) for f in ("texts", "placed")}
+        tot = {f: sum(b[f] for k, b in bins.items() if k != "orphans") for f in ("texts", "placed", "with_match_candidates", "match_pairs")}
+        put("rel.all.match", num(tot["with_match_candidates"]), f"{sb} sum of with_match_candidates")
+        put("rel.all.pairs", num(tot["match_pairs"]), f"{sb} sum of match_pairs")
+        for f, v in bins["orphans"].items():
+            put(f"rel.orph.{f}", num(v), f"{sb} orphans.{f}")
         put("rel.all.texts", num(tot["texts"]), f"{sb} sum of texts")
         put("rel.all.placed", num(tot["placed"]), f"{sb} sum of placed")
         table("bins", rows)
@@ -663,6 +667,15 @@ def main():
             med = float(kj[kind]["median_rank"])
             put(f"KJ.{kind}.median", num(int(med)) if med.is_integer() else f"{med:g}", f"{sk} {kind}.median_rank")
         put("KJ.pool", num(kj["pool"]), f"{sk} pool")
+        # the three match checks on the known pairs (known_joins.csv, passes_join_checks)
+        kc = load(KR, "known_joins/known_joins.csv")
+        for kind in ("duplicate", "join"):
+            g = [r for r in kc if r["relation"] == kind]
+            top = [r for r in g if int(r["rank"]) <= 20]
+            put(f"KJ.{kind}.pass", num(sum(r["passes_join_checks"] == "True" for r in g)), f"{KR}/known_joins/known_joins.csv passes_join_checks")
+            put(f"KJ.{kind}.top20pass", num(sum(r["passes_join_checks"] == "True" for r in top)), f"{KR}/known_joins/known_joins.csv rank<=20 and passes")
+            put(f"KJ.{kind}.top20.share", pct(len(top) / len(g)), f"{KR}/known_joins/known_joins.csv rank<=20 / pairs")
+            put(f"KJ.{kind}.top1.share", pct(sum(int(r["rank"]) == 1 for r in g) / len(g)), f"{KR}/known_joins/known_joins.csv rank=1 / pairs")
 
     # ---- TLHdig 0.3 against the HFR guides (orphans/check_hfr_conventions.py)
     hfr = load("", "hfr_conventions.json")

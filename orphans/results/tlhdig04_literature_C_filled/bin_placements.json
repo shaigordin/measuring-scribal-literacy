@@ -10,6 +10,8 @@
   "to_western_luwian_rituals": 53,
   "top_tradition": "Kizzuwatna rituals",
   "top_tradition_n": 237,
+  "with_match_candidates": 244,
+  "match_pairs": 513,
   "by_tradition": {
    "Kizzuwatna rituals": 237,
    "Syro-Mesopotamian (Hurrian)": 52,
@@ -33,6 +35,8 @@
   "to_western_luwian_rituals": 3,
   "top_tradition": "Kizzuwatna rituals",
   "top_tradition_n": 67,
+  "with_match_candidates": 86,
+  "match_pairs": 140,
   "by_tradition": {
    "Kizzuwatna rituals": 67,
    "Syro-Mesopotamian (Hurrian)": 60,
@@ -55,6 +59,8 @@
   "to_western_luwian_rituals": 19,
   "top_tradition": "Hattian cult layer",
   "top_tradition_n": 1022,
+  "with_match_candidates": 1018,
+  "match_pairs": 3294,
   "by_tradition": {
    "Hattian cult layer": 1022,
    "Kizzuwatna–Lower Land (Hurrian)": 160,
@@ -79,6 +85,8 @@
   "to_western_luwian_rituals": 15,
   "top_tradition": "Hattian cult layer",
   "top_tradition_n": 75,
+  "with_match_candidates": 193,
+  "match_pairs": 460,
   "by_tradition": {
    "Hattian cult layer": 75,
    "Kizzuwatna rituals": 62,
@@ -102,6 +110,8 @@
   "to_western_luwian_rituals": 34,
   "top_tradition": "Kizzuwatna rituals",
   "top_tradition_n": 180,
+  "with_match_candidates": 194,
+  "match_pairs": 294,
   "by_tradition": {
    "Kizzuwatna rituals": 180,
    "Arzawa / western rituals": 19,
@@ -125,6 +135,8 @@
   "to_western_luwian_rituals": 1,
   "top_tradition": "Hattian cult layer",
   "top_tradition_n": 8,
+  "with_match_candidates": 23,
+  "match_pairs": 66,
   "by_tradition": {
    "Hattian cult layer": 8,
    "Mixed (Hurrian, Syrian, Luwian)": 3,
@@ -133,5 +145,12 @@
    "Luwian rituals (Puriyanni, Kuwattalla)": 1,
    "Ḫuwaššanna festivals": 1
   }
+ },
+ "orphans": {
+  "texts": 3066,
+  "scored": 2109,
+  "placed": 527,
+  "with_match_candidates": 354,
+  "match_pairs": 936
  }
 }

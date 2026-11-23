@@ -1204,6 +1204,14 @@ A.KJ.join.top20,6,tlhdig04_literature_A_filled/known_joins/known_joins.json join
 A.KJ.join.top100,10,tlhdig04_literature_A_filled/known_joins/known_joins.json join.top100
 A.KJ.join.median,62,tlhdig04_literature_A_filled/known_joins/known_joins.json join.median_rank
 A.KJ.pool,"19{,}623",tlhdig04_literature_A_filled/known_joins/known_joins.json pool
+A.KJ.duplicate.pass,77,tlhdig04_literature_A_filled/known_joins/known_joins.csv passes_join_checks
+A.KJ.duplicate.top20pass,65,tlhdig04_literature_A_filled/known_joins/known_joins.csv rank<=20 and passes
+A.KJ.duplicate.top20.share,75\%,tlhdig04_literature_A_filled/known_joins/known_joins.csv rank<=20 / pairs
+A.KJ.duplicate.top1.share,37\%,tlhdig04_literature_A_filled/known_joins/known_joins.csv rank=1 / pairs
+A.KJ.join.pass,1,tlhdig04_literature_A_filled/known_joins/known_joins.csv passes_join_checks
+A.KJ.join.top20pass,0,tlhdig04_literature_A_filled/known_joins/known_joins.csv rank<=20 and passes
+A.KJ.join.top20.share,32\%,tlhdig04_literature_A_filled/known_joins/known_joins.csv rank<=20 / pairs
+A.KJ.join.top1.share,0\%,tlhdig04_literature_A_filled/known_joins/known_joins.csv rank=1 / pairs
 A.hfr.annot.hfr,68\%,hfr_conventions.json HFR.share_files_human_annotator
 A.hfr.annot.other,3\%,hfr_conventions.json other.share_files_human_annotator
 A.hfr.selected.hfr,91\%,hfr_conventions.json HFR.share_analysed_words_selected
@@ -1428,6 +1436,13 @@ rel.832.top,Hattian cult layer,tlhdig04_literature_C_filled/bin_placements.json 
 rel.832.top.n,75,tlhdig04_literature_C_filled/bin_placements.json CTH 832 fragments of various content.top_tradition_n
 rel.832.too_small.share,57\%,tlhdig04_literature_C_filled/bin_placements.json CTH 832 fragments of various content.too_small / texts
 rel.832.placed.share,5\%,tlhdig04_literature_C_filled/bin_placements.json CTH 832 fragments of various content.placed / texts
+rel.all.match,"1{,}758",tlhdig04_literature_C_filled/bin_placements.json sum of with_match_candidates
+rel.all.pairs,"4{,}767",tlhdig04_literature_C_filled/bin_placements.json sum of match_pairs
+rel.orph.texts,"3{,}066",tlhdig04_literature_C_filled/bin_placements.json orphans.texts
+rel.orph.scored,"2{,}109",tlhdig04_literature_C_filled/bin_placements.json orphans.scored
+rel.orph.placed,527,tlhdig04_literature_C_filled/bin_placements.json orphans.placed
+rel.orph.with_match_candidates,354,tlhdig04_literature_C_filled/bin_placements.json orphans.with_match_candidates
+rel.orph.match_pairs,936,tlhdig04_literature_C_filled/bin_placements.json orphans.match_pairs
 rel.all.texts,"11{,}440",tlhdig04_literature_C_filled/bin_placements.json sum of texts
 rel.all.placed,"2{,}479",tlhdig04_literature_C_filled/bin_placements.json sum of placed
 corpus.reference_texts,"3{,}619",tlhdig04_literature_C_filled/U_unicode.json corpus.reference_texts
@@ -2606,6 +2621,14 @@ KJ.join.top20,7,tlhdig04_literature_C_filled/known_joins/known_joins.json join.t
 KJ.join.top100,9,tlhdig04_literature_C_filled/known_joins/known_joins.json join.top100
 KJ.join.median,157,tlhdig04_literature_C_filled/known_joins/known_joins.json join.median_rank
 KJ.pool,"19{,}416",tlhdig04_literature_C_filled/known_joins/known_joins.json pool
+KJ.duplicate.pass,65,tlhdig04_literature_C_filled/known_joins/known_joins.csv passes_join_checks
+KJ.duplicate.top20pass,48,tlhdig04_literature_C_filled/known_joins/known_joins.csv rank<=20 and passes
+KJ.duplicate.top20.share,67\%,tlhdig04_literature_C_filled/known_joins/known_joins.csv rank<=20 / pairs
+KJ.duplicate.top1.share,31\%,tlhdig04_literature_C_filled/known_joins/known_joins.csv rank=1 / pairs
+KJ.join.pass,0,tlhdig04_literature_C_filled/known_joins/known_joins.csv passes_join_checks
+KJ.join.top20pass,0,tlhdig04_literature_C_filled/known_joins/known_joins.csv rank<=20 and passes
+KJ.join.top20.share,37\%,tlhdig04_literature_C_filled/known_joins/known_joins.csv rank<=20 / pairs
+KJ.join.top1.share,0\%,tlhdig04_literature_C_filled/known_joins/known_joins.csv rank=1 / pairs
 hfr.annot.hfr,68\%,hfr_conventions.json HFR.share_files_human_annotator
 hfr.annot.other,3\%,hfr_conventions.json other.share_files_human_annotator
 hfr.selected.hfr,91\%,hfr_conventions.json HFR.share_analysed_words_selected

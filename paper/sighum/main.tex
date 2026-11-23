@@ -94,10 +94,11 @@ block, festivals in another, Hattian, Luwian and Hurrian texts in blocks of thei
 that could not be assigned went into residual groups or ``bins'': \CTH{470} ``fragments of
 rituals'' (\Q{rel.470.texts} manuscripts in TLH\textsuperscript{dig}), \CTH{500} ``fragments of Kizzuwatna rituals''
 (\Q{rel.500.texts}), \CTH{670} ``fragments of festivals'' (\Q{rel.670.texts}) and \CTH{832}
-``fragments of various content'' (\Q{rel.832.texts}). I call a manuscript that no composition claims an \term{orphan}.
-Here the orphans are the \CTH{470} fragments and the \Q{orph.ebo_texts} small fragments that
-TLH\textsuperscript{dig} edits under the siglum EBo, filed mostly under \CTH{832} and \CTH{670}
-(Section~\ref{sec:data}). Figure~\ref{fig:fragment} shows one of them.
+``fragments of various content'' (\Q{rel.832.texts}). Every manuscript is a fragment of some text, but most can be
+placed through a known composition. I call a fragment that no composition claims an
+\term{orphan}. I study the \CTH{470} fragments and the \Q{orph.ebo_texts} small fragments that
+TLH\textsuperscript{dig} edits under the siglum EBo in detail, and place the other bins as a
+test (Section~\ref{sec:data}). Figure~\ref{fig:fragment} shows one of them.
 
 A philologist places a fragment through parallels: a duplicate, or a close passage in a known
 composition. Most orphans have none. Computation offers another route. Simply put, it treats
@@ -124,8 +125,10 @@ This paper develops that approach into an assignment method that meets the three
     (Section~\ref{sec:decision});
   \item a dataset of placements for every manuscript of Laroche's residual bins, \Q{rel.all.placed}
     of \Q{rel.all.texts}, among them \Q{E5.assigned} of the \Q{corpus.orphans_used} orphans that
-    can be scored, each with its diagnostic words and nearest manuscripts
-    (Section~\ref{sec:orphans});
+    can be scored, each with its diagnostic words (Section~\ref{sec:orphans});
+  \item ranked leads for each fragment: its nearest compositions as candidate parallels and its
+    nearest manuscripts as candidate duplicates or joins, tested on the Konkordanz and left for the
+    philologist to verify (Section~\ref{sec:joins});
   \item quantitative evidence that cultic traditions are recognised more by content than by
     writing habits, with two tests of scholarly groupings: one holds out whole compositions, the
     other places Laroche's own residual bins (Sections~\ref{sec:recovery}--\ref{sec:orphans}).
@@ -498,13 +501,24 @@ without restorations are stable: \Q{AC.placedA.samenearest.share} of the orphans
 restorations keep the same nearest tradition without them. The loss is in confidence, not in
 direction.
 
-\subsection{Duplicates, not joins}
+\subsection{Leads for parallels, duplicates and joins}
 \label{sec:joins}
-The same similarities find duplicates. For \Q{KJ.duplicate.pairs} duplicate pairs recorded in the
-Konkordanz, the partner's median rank is \Q{KJ.duplicate.median}. Joins are different: two pieces
-of one tablet share context but rarely text (median rank \Q{KJ.join.median}). A ranking model
-trained on known joins narrows the search, but does not tell a join from a duplicate
-(Appendix~\ref{sec:joinmodel}). That needs physical evidence.
+Besides a tradition, each fragment receives two ranked lists: its five nearest compositions, as
+candidate parallels, and its twenty nearest manuscripts among the \Q{KJ.pool} of the release, as
+candidate duplicates or joins. A candidate is flagged when it passes three checks fixed in
+advance: it shares at least half the fragment's words, spells every shared word the same way, and
+shares a two-word phrase. \Q{rel.orph.with_match_candidates} orphans have at least one flagged
+candidate.
+
+I measure success on the pairs recorded in the Konkordanz. For \Q{KJ.duplicate.pairs} duplicate
+pairs, the partner is the nearest manuscript in \Q{KJ.duplicate.top1.share} of cases and among the
+twenty nearest in \Q{KJ.duplicate.top20.share} (median rank \Q{KJ.duplicate.median}). The checks
+are strict: they flag \Q{KJ.duplicate.top20pass} of the duplicates found. Joins are different. Two
+pieces of one tablet share context but rarely text, so the partner ranks far lower (median
+\Q{KJ.join.median}, \Q{KJ.join.top20} of \Q{KJ.join.pairs} among the twenty nearest), and no join
+passes the checks; a model trained on known joins narrows the search but cannot tell joins from
+duplicates (Appendix~\ref{sec:joinmodel}). The lists are leads, not findings: a duplicate or parallel must be read against the other manuscript, and a join needs
+physical evidence on the tablets.
 
 \section{Discussion and conclusion}
 \label{sec:discussion}
@@ -536,8 +550,8 @@ by whom and what a text names. Spelling marks the witness, as the habits of scri
 \paragraph{Conclusion.}
 Computation cannot read a broken tablet for the philologist. It can, however, do three things a
 reader of one fragment cannot. It compares a fragment with every manuscript of every tradition at
-once. It says, with a measured error, when the evidence is too thin. And it shows the words a
-placement rests on. For Hittite, this turns thousands of orphans into hypotheses that can be
+once. It says, with a measured error, when the evidence is too thin. It shows the words a
+placement rests on, and it names the manuscripts most worth reading next to it. For Hittite, this turns thousands of orphans into hypotheses that can be
 checked. From about ten legible words, the words that name gods, specialists and objects point to
 the tradition a fragment came from, and with it to the region whose cult it records.
 
@@ -546,8 +560,9 @@ The study rests on one digital edition, whose analyses are mostly automatic, and
 transferred from the same spelling, which assumes one lemma per spelling. Several traditions are
 small (the smallest has \Q{trad.smallest.n} manuscripts). The traditions come from the literature:
 the method tests them but cannot find a new one. The meaning classes rest on a model-drafted gloss
-mapping, checked against WordNet and on a sample, not in full. Every placement is a hypothesis to
-verify on the tablet.
+mapping, checked against WordNet and on a sample, not in full. The candidate parallels, duplicates and joins
+are tested only on pairs the Konkordanz records; how many flagged candidates are false is not
+measured. Every placement and every candidate is a hypothesis to verify on the tablet.
 
 \section*{Ethics statement}
 The corpus is openly licensed. A language model (Claude, Anthropic) was used to write and run the
