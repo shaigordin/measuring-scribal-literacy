@@ -599,6 +599,70 @@ def main():
         for f in ("same_tradition", "other_tradition", "now_unassigned", "newly_assigned"):
             put(f"E11e.{key}.{f.replace('_', '')}", num(e[k][f]), f"{s11} E11e.{k}.{f}")
 
+    # ---- E12 script date as a rival explanation (run_dating.py)
+    e12p = os.path.join(RES, MAIN, "E12_report.json")
+    if os.path.exists(e12p):
+        d = load(MAIN, "E12_report.json")
+        sd = f"{MAIN}/E12_report.json"
+        a12 = d["E12a"]
+        put("D.dated.share", pct(a12["dated_share"]), f"{sd} E12a.dated_share")
+        for k in ("OS", "MS", "NS", "unknown"):
+            put(f"D.{k}", num(a12["periods"].get(k, 0)), f"{sd} E12a.periods.{k}")
+        put("D.cramer", f"{a12['cramers_v']:.2f}", f"{sd} E12a.cramers_v")
+        for t, v in a12["older_share_by_tradition"].items():
+            put(f"D.older.{slugify(t)}", pct(v), f"{sd} E12a.older_share_by_tradition")
+        put("D.datealone.acc", pct(d["E12b"]["acc"]), f"{sd} E12b.acc")
+        put("D.datealone.majority", pct(d["E12b"]["majority"]), f"{sd} E12b.majority")
+        c = d["E12c"]
+        put("D.acc", pct(c["acc"]), f"{sd} E12c.acc")
+        put("D.null.within", pct(c["null_within_period_mean"]), f"{sd} E12c.null_within_period_mean")
+        put("D.null.withinmax", pct(c["null_within_period_max"]), f"{sd} E12c.null_within_period_max")
+        put("D.null.free", pct(c["null_free_mean"]), f"{sd} E12c.null_free_mean")
+        put("D.p", pfmt(c["p_within_period"]), f"{sd} E12c.p_within_period")
+        for k, v in d["E12d"].items():
+            key = k.replace("_", "")
+            put(f"D.{key}.within", pct(v["acc_within"]), f"{sd} E12d.{k}.acc_within")
+            put(f"D.{key}.full", pct(v["acc_full_reference"]), f"{sd} E12d.{k}.acc_full_reference")
+            put(f"D.{key}.n", num(v["n"]), f"{sd} E12d.{k}.n")
+            put(f"D.{key}.majority", pct(v["majority"]), f"{sd} E12d.{k}.majority")
+        e = d["E12e"]
+        for k, key in (("NS_to_older", "NStoold"), ("older_to_NS", "oldtoNS")):
+            put(f"D.{key}.acc", pct(e[k]["acc"]), f"{sd} E12e.{k}.acc")
+            put(f"D.{key}.n", num(e[k]["n"]), f"{sd} E12e.{k}.n")
+            for t, v in e[k]["by_tradition"].items():
+                put(f"D.{key}.{slugify(t)}", f"{v['mean'] * v['size']:.0f}/{v['size']}", f"{sd} E12e.{k}.by_tradition")
+        put("D.olderfull", pct(e["older_full_reference_loo"]), f"{sd} E12e.older_full_reference_loo")
+        f12 = d["E12f"]
+        for k, v in f12["layers_NS"].items():
+            put(f"D.layer.{k}.NS", pct(v["acc_NS_only"]), f"{sd} E12f.layers_NS.{k}.acc_NS_only")
+            put(f"D.layer.{k}.all", pct(v["acc_all"]), f"{sd} E12f.layers_NS.{k}.acc_all")
+        put("D.lda.all", pct(f12["orthographic_lda"]["all"]["acc"]), f"{sd} E12f.orthographic_lda.all")
+        put("D.lda.NS", pct(f12["orthographic_lda"]["NS_only"]["acc"]), f"{sd} E12f.orthographic_lda.NS_only")
+        eta = f12["orthographic_eta2"]
+        put("D.eta.periodwithinmax", pct(max(v["period_within_tradition"] for v in eta.values()), 1),
+            f"{sd} E12f.orthographic_eta2.*.period_within_tradition (max)")
+        put("D.eta.traditionwins", f"{sum(v['tradition'] > v['period'] for v in eta.values())}",
+            f"{sd} E12f.orthographic_eta2 (indices where tradition > period)")
+        put("D.eta.n", f"{len(eta)}", f"{sd} E12f.orthographic_eta2")
+        g = d["E12g"]
+        put("D.g.bacc", pct(g["balanced_acc"]), f"{sd} E12g.balanced_acc")
+        put("D.g.null", pct(g["null_within_tradition_mean"]), f"{sd} E12g.null_within_tradition_mean")
+        put("D.g.p", pfmt(g["p"]), f"{sd} E12g.p")
+        put("D.g.n", num(g["n"]), f"{sd} E12g.n")
+        dd = d["E12d"]
+        table("dating", [
+            f"All reference manuscripts & {num(c['n'])} & {pct(c['acc'])} \\\\",
+            f"\\quad null: labels shuffled within period & & {pct(c['null_within_period_mean'])} \\\\",
+            f"Date alone (best tradition per period) & {num(d['E12b']['n'])} & {pct(d['E12b']['acc'])} \\\\",
+            f"New Script only (reference and test) & {num(dd['NS']['n'])} & {pct(dd['NS']['acc_within'])} \\\\",
+            f"Old and Middle Script only & {num(dd['older']['n'])} & {pct(dd['older']['acc_within'])} \\\\",
+            f"New Script centroids, older manuscripts & {num(e['NS_to_older']['n'])} & {pct(e['NS_to_older']['acc'])} \\\\",
+            f"Older centroids, New Script manuscripts & {num(e['older_to_NS']['n'])} & {pct(e['older_to_NS']['acc'])} \\\\",
+            f"Orthographic rates (LDA), all & {num(f12['orthographic_lda']['all']['n'])} & {pct(f12['orthographic_lda']['all']['acc'])} \\\\",
+            f"Orthographic rates (LDA), New Script only & {num(f12['orthographic_lda']['NS_only']['n'])} & {pct(f12['orthographic_lda']['NS_only']['acc'])} \\\\",
+            f"Middle vs.\\ New Script within traditions (bal.) & {num(g['n'])} & {pct(g['balanced_acc'])} \\\\",
+        ])
+
     # ---- R1 robustness: spellings only, with the manuscripts that have no word analyses
     r1p = os.path.join(RES, MAIN, "R1_spellings_only.json")
     if os.path.exists(r1p):

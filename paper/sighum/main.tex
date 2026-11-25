@@ -426,15 +426,17 @@ not as one the evidence refutes.
 The Ambazzi rituals (\CTH{\Q{E10b.cths}}) have been read as western because of their Luwian
 elements \citep{christiansen2006ambazzi}. Scored as a group against every tradition, and against
 random sets of unclaimed rituals of the same size, they come second closest to the western
-rituals ($p\Q{E10b.claim.p}$). The Kizzuwatna rituals remain nearer. The western reading is
-plausible, but not proven.
+rituals ($p\Q{E10b.claim.p}$). The Kizzuwatna rituals remain nearer: the western reading is
+plausible, not proven.
 
 \paragraph{Robustness.}
-Two variants confirm the main result. On spellings alone, with every manuscript of 17 or more
-legible words, accuracy falls only slightly, because the added manuscripts are harder to place
-(Appendix~\ref{sec:spellings}). On TLH\textsuperscript{dig}'s Unicode cuneiform, without the editors' readings or word
-division, accuracy is \Q{UA.acc}, and all orphans placed by both versions go to the same tradition
-(Appendix~\ref{sec:unicode}).
+Accuracy falls only slightly on spellings alone (Appendix~\ref{sec:spellings}). On
+TLH\textsuperscript{dig}'s Unicode cuneiform, without the editors' readings or word division, it is
+\Q{UA.acc}, and all orphans placed by both versions go to the same tradition
+(Appendix~\ref{sec:unicode}). Nor do the placements reflect script date: labels shuffled only among
+manuscripts of the same script period reach \Q{D.null.within} against \Q{D.acc}, and New Script
+centroids place \Q{D.NStoold.acc} of the Old and Middle Script manuscripts
+(Appendix~\ref{sec:dating}).
 
 \subsection{What a placement rests on}
 \label{sec:decision}
@@ -471,9 +473,8 @@ The decision rests above all on agents and deities (\Q{E11a.decision.agentsandde
 realia and foreign words. Each tradition has its own decisive category (Table~\ref{tab:summary}):
 realia for the Kizzuwatna rituals, agents and deities for the festivals and the Hattian cult layer.
 
-Common words matter for short orphans in another way. They rarely send a fragment to the wrong
-tradition, but they often supply the margin that lets it be placed at all. I therefore release the
-decomposition with every placement and treat a placement that rests mostly on common words as weak.
+For short orphans, common words rarely mislead but often supply the margin. I treat a placement
+that rests mostly on them as weak, and release every placement with its decomposition.
 
 \subsection{Orphans and the open set}
 \label{sec:orphans}
@@ -495,14 +496,12 @@ to score.
 
 A fixed set of traditions always names one \citep{koppel2011wild}. Windows from \Q{E9.genres.count}
 other genres, such as myths and oracles, still pass the margin in \Q{E9.genres.placed.lo}--\Q{E9.genres.placed.hi}
-of cases. Adding these genres as classes of their own catches most of them. Among the orphans, it
-finds \Q{E9.orph.outside} that are closer to another genre, and I release them as candidates for
-re-filing.
+of cases. Adding these genres as classes catches most of them, and flags \Q{E9.orph.outside} orphans
+that are closer to another genre; I release them as candidates for re-filing.
 
-Counting restorations would place far more orphans (\Q{A.E5.assigned}). But the placements kept
-without restorations are stable: \Q{AC.placedA.samenearest.share} of the orphans placed with
-restorations keep the same nearest tradition without them. The loss is in confidence, not in
-direction.
+Counting restorations would place far more orphans (\Q{A.E5.assigned}), but
+\Q{AC.placedA.samenearest.share} of them keep the same nearest tradition without restorations:
+the loss is in confidence, not in direction.
 
 \subsection{Leads for parallels, duplicates and joins}
 \label{sec:joins}
@@ -528,15 +527,14 @@ physical evidence on the tablets.
 
 \paragraph{Genre before origin.}
 A placement means ``nearest of these traditions''. The largest layer a fragment shares with the
-reference is its genre, as the unclaimed rituals show. The residual bins sharpen the point. Their
+reference is its genre, as the unclaimed rituals show. The residual bins'
 placements follow Laroche's genres, but within the festivals one class takes most of them. The
 Hattian cult layer is the only reference class built from the great state festivals, such as the
 KI.LAM and the monthly festival, so it may stand for the state cult of Ḫattuša as a whole rather
-than for a Hattian origin. Telling the two apart needs a reference class for the state festivals
-themselves, which the scholarship has not yet delimited as a tradition. A placement also does not return a fragment
-to a CTH number. The catalogue is a modern construct, and many manuscripts fit more than one of
-its groups. Extending the method to the whole corpus therefore needs genre and composition
-categories from the scholarship, not CTH numbers.
+than for a Hattian origin. Telling the two apart needs a reference class for the state festivals,
+which scholarship has not yet delimited. Nor does a placement return a fragment to a CTH
+number. The catalogue is a modern construct, so extending the method to the whole corpus needs the
+scholarship's genre and composition categories.
 
 \paragraph{Archetypes and witnesses.}
 The results suggest a division of labour between two levels of a text. I call the method built on
@@ -551,8 +549,8 @@ by whom and what a text names. Spelling marks the witness, as the habits of scri
 \citep{gordin2015scribal}.
 
 \paragraph{Conclusion.}
-Computation cannot read a broken tablet for the philologist. It can, however, do three things a
-reader of one fragment cannot. It compares a fragment with every manuscript of every tradition at
+Computation cannot read a broken tablet for the philologist, but it can do three things a reader
+of one fragment cannot. It compares a fragment with every manuscript of every tradition at
 once. It says, with a measured error, when the evidence is too thin. It shows the words a
 placement rests on, and it names the manuscripts most worth reading next to it. For Hittite, this turns thousands of orphans into hypotheses that can be
 checked. From about ten legible words, the words that name gods, specialists and objects point to
@@ -565,7 +563,9 @@ small (the smallest has \Q{trad.smallest.n} manuscripts). The traditions come fr
 the method tests them but cannot find a new one. The meaning classes rest on a model-drafted gloss
 mapping, checked against WordNet and on a sample, not in full. The candidate parallels, duplicates and joins
 are tested only on pairs the Konkordanz records; how many flagged candidates are false is not
-measured. Every placement and every candidate is a hypothesis to verify on the tablet.
+measured. Dates are script dates of the copies, not of the compositions, and for the small
+festival groups date and tradition cannot be separated (Appendix~\ref{sec:dating}). Every
+placement and every candidate is a hypothesis to verify on the tablet.
 
 \section*{Ethics statement}
 The corpus is openly licensed. A language model (Claude, Anthropic) was used to write and run the
@@ -586,11 +586,12 @@ western and Luwian rituals. Manuscripts that TLH\textsuperscript{dig} files unde
 count in both.
 
 \begin{table}[h]
-  \centering\small
-  \setlength{\tabcolsep}{3pt}
-  \begin{tabular}{@{}l rr rrr@{}}
+  \centering\footnotesize
+  \setlength{\tabcolsep}{2.5pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{26mm} rr rrr@{}}
     \toprule
-    Bin & mss. & placed & Kizz./Hurr. & Anat. fest. & west. rit. \\
+    Bin & mss. & placed & Kizz./ & Anat. & west. \\
+        &      &        & Hurr.  & fest. & rit. \\
     \midrule
     \gentab{bins}
     \bottomrule
@@ -630,6 +631,39 @@ transliteration where a line's sign count matches (\Q{U.align} of lines), accura
 aligned adds noise. The Unicode strings include restored signs, and the placement margin was set
 on the transliteration. KBo 44.52 goes to the \Q{UA.kbo4452} tradition in both runs.
 
+
+\section{Script date}
+\label{sec:dating}
+The Konkordanz dates \Q{D.dated.share} of the reference manuscripts by their script
+(\Q{D.OS} Old, \Q{D.MS} Middle, \Q{D.NS} New Script; \Q{D.unknown} undated). Script date is the
+date of the copy, not of the composition, and joined manuscripts take the date of their first
+piece. Tradition and period are associated (Cramér's $V=\Q{D.cramer}$), but the placement
+survives every way of holding date fixed (Table~\ref{tab:dating}). Date leaves a trace inside the
+traditions: the words tell Middle from New Script better than labels shuffled within each
+tradition (balanced accuracy \Q{D.g.bacc} against \Q{D.g.null}). For each of the
+\Q{D.eta.n} orthographic rates of Table~\ref{tab:layers}, tradition explains more of the variance
+than period in \Q{D.eta.traditionwins}; period explains at most \Q{D.eta.periodwithinmax} once
+each tradition's mean is removed. The scribal habits these rates measure are therefore not mainly
+chronological. Across periods the small festival groups are weakest: the older Palaic
+manuscripts (\Q{D.NStoold.palaicfestivals} placed as Palaic) go to the Hattian cult layer, and
+\Q{D.NStoold.luwianfestivalsistanuwalallupiya} older Ištanuwa and Lallupiya manuscripts stay in
+their group. For these groups, date and tradition cannot be separated with the present reference.
+
+\begin{table}[h]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}>{\raggedright\arraybackslash}p{50mm} rr@{}}
+    \toprule
+    Test & $n$ & acc. \\
+    \midrule
+    \gentab{dating}
+    \bottomrule
+  \end{tabular}
+  \caption{Script date as a rival explanation: leave-one-manuscript-out accuracy unless a test
+    names its training set. Older: Old and Middle Script.}
+  \label{tab:dating}
+\end{table}
 
 \section{A ranking model for joins}
 \label{sec:joinmodel}

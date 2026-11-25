@@ -42,6 +42,7 @@ Run in this order by `orphans/reproduce_paper.sh`; each can also be run alone (s
 | `run_profiles.py` | spelling profiles and distinctive words per tradition (E7) | `E7_*` |
 | `run_wordclass.py` | each word category alone and the text without it (E8) | `E8_report.json` |
 | `run_spellings_only.py` | the method with spellings only, without word classes | `R1_spellings_only.json` |
+| `run_dating.py` | script date (Old, Middle, New Script, from the Konkordanz) as a rival explanation: labels shuffled within period, one period at a time, across periods (E12) | `E12_report.json` |
 | `stats_corpus.py` | corpus counts | `corpus_stats.json` |
 | `run_case.py` | one manuscript in detail: similarities, margin, decisive words (worked examples) | `case/case_*.json` |
 | `run_known_joins.py`, `run_join_model.py` | joins and duplicates named in the Konkordanz: where they rank; a re-ranking model (appendix) | `known_joins/`, `joins/` |
@@ -72,7 +73,7 @@ Hand-made inputs in `orphans/labels/`:
 | `sense_rules.csv` | context rules for glosses with several meanings, each with evidence, dictionary reference and who decided it |
 | `word_fixes.csv`, `title_pairs.csv`, `wordclass_corrections.csv` | corrections to the word-class rules: titles and divine names read as one agent or deity, single words |
 | `wordclass_audit.csv` | a random sample of words with the expert's verdict on their class |
-| `cth701_labels.csv`, `konkordanz_meta.csv`, `konkordanz_joins_duplicates.csv`, `known_joins_pages.json` | Konkordanz snapshots (CTH 701 subgroups, find data, joins and duplicates), with access dates in the `.source.txt` files |
+| `cth701_labels.csv`, `konkordanz_meta.csv`, `konkordanz_joins_duplicates.csv`, `known_joins_pages.json` | Konkordanz snapshots (CTH 701 subgroups, find data and script dates, joins and duplicates), with access dates in the `.source.txt` files |
 
 Results in `orphans/results/`:
 

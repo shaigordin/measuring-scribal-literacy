@@ -1,0 +1,264 @@
+{
+  "texts": 1796,
+  "E12a": {
+    "periods": {
+      "NS": 1197,
+      "MS": 346,
+      "unknown": 209,
+      "OS": 44
+    },
+    "dated_share": 0.884,
+    "cramers_v": 0.246,
+    "chi2_p": 4.542552560733853e-31,
+    "older_share_by_tradition": {
+      "Arzawa / western rituals": 0.273,
+      "Hattian cult layer": 0.29,
+      "Kizzuwatna rituals": 0.176,
+      "Kizzuwatna–Lower Land (Hurrian)": 0.09,
+      "Luwian festivals (Ištanuwa, Lallupiya)": 0.388,
+      "Luwian rituals (Puriyanni, Kuwattalla)": 0.319,
+      "Mixed (Hurrian, Syrian, Luwian)": 0.204,
+      "Palaic festivals": 0.3,
+      "Syro-Mesopotamia (Hurrian)": 0.219,
+      "Ḫuwaššanna festivals": 0.451
+    }
+  },
+  "E12b": {
+    "acc": 0.273,
+    "majority": 0.273,
+    "guess": {
+      "MS": "Hattian cult layer",
+      "NS": "Hattian cult layer",
+      "OS": "Hattian cult layer"
+    },
+    "n": 1587
+  },
+  "E12c": {
+    "acc": 0.841,
+    "n": 1796,
+    "null_free_mean": 0.147,
+    "null_free_max": 0.174,
+    "p_free": 0.005,
+    "null_within_period_mean": 0.16,
+    "null_within_period_max": 0.207,
+    "p_within_period": 0.005
+  },
+  "E12d": {
+    "NS": {
+      "acc_within": 0.824,
+      "acc_full_reference": 0.824,
+      "n": 1197,
+      "traditions": 10,
+      "majority": 0.257
+    },
+    "older": {
+      "acc_within": 0.882,
+      "acc_full_reference": 0.874,
+      "n": 390,
+      "traditions": 10,
+      "majority": 0.323
+    },
+    "all_dated": {
+      "acc_within": 0.842,
+      "acc_full_reference": 0.841,
+      "n": 1587,
+      "traditions": 10,
+      "majority": 0.273
+    }
+  },
+  "E12e": {
+    "NS_to_older": {
+      "acc": 0.872,
+      "n": 390,
+      "by_tradition": {
+        "Arzawa / western rituals": {
+          "mean": 0.833,
+          "size": 6
+        },
+        "Hattian cult layer": {
+          "mean": 0.976,
+          "size": 126
+        },
+        "Kizzuwatna rituals": {
+          "mean": 0.903,
+          "size": 31
+        },
+        "Kizzuwatna–Lower Land (Hurrian)": {
+          "mean": 0.654,
+          "size": 26
+        },
+        "Luwian festivals (Ištanuwa, Lallupiya)": {
+          "mean": 0.684,
+          "size": 19
+        },
+        "Luwian rituals (Puriyanni, Kuwattalla)": {
+          "mean": 0.933,
+          "size": 15
+        },
+        "Mixed (Hurrian, Syrian, Luwian)": {
+          "mean": 0.8,
+          "size": 40
+        },
+        "Palaic festivals": {
+          "mean": 0.444,
+          "size": 9
+        },
+        "Syro-Mesopotamia (Hurrian)": {
+          "mean": 0.829,
+          "size": 35
+        },
+        "Ḫuwaššanna festivals": {
+          "mean": 0.904,
+          "size": 83
+        }
+      }
+    },
+    "older_to_NS": {
+      "acc": 0.769,
+      "n": 1197,
+      "by_tradition": {
+        "Arzawa / western rituals": {
+          "mean": 0.25,
+          "size": 16
+        },
+        "Hattian cult layer": {
+          "mean": 0.929,
+          "size": 308
+        },
+        "Kizzuwatna rituals": {
+          "mean": 0.807,
+          "size": 145
+        },
+        "Kizzuwatna–Lower Land (Hurrian)": {
+          "mean": 0.753,
+          "size": 263
+        },
+        "Luwian festivals (Ištanuwa, Lallupiya)": {
+          "mean": 0.367,
+          "size": 30
+        },
+        "Luwian rituals (Puriyanni, Kuwattalla)": {
+          "mean": 0.719,
+          "size": 32
+        },
+        "Mixed (Hurrian, Syrian, Luwian)": {
+          "mean": 0.667,
+          "size": 156
+        },
+        "Palaic festivals": {
+          "mean": 0.095,
+          "size": 21
+        },
+        "Syro-Mesopotamia (Hurrian)": {
+          "mean": 0.64,
+          "size": 125
+        },
+        "Ḫuwaššanna festivals": {
+          "mean": 0.95,
+          "size": 101
+        }
+      }
+    },
+    "older_full_reference_loo": 0.9
+  },
+  "E12f": {
+    "layers_NS": {
+      "logograms": {
+        "acc_NS_only": 0.68,
+        "acc_all": 0.697,
+        "n_NS": 1166
+      },
+      "foreign": {
+        "acc_NS_only": 0.83,
+        "acc_all": 0.875,
+        "n_NS": 283
+      },
+      "lexicon": {
+        "acc_NS_only": 0.713,
+        "acc_all": 0.723,
+        "n_NS": 1159
+      },
+      "spelling": {
+        "acc_NS_only": 0.63,
+        "acc_all": 0.613,
+        "n_NS": 1142
+      },
+      "collapsed": {
+        "acc_NS_only": 0.649,
+        "acc_all": 0.635,
+        "n_NS": 1144
+      }
+    },
+    "orthographic_eta2": {
+      "logogram_share": {
+        "tradition": 0.102,
+        "period": 0.044,
+        "tradition_within_NS": 0.071,
+        "period_within_tradition": 0.028
+      },
+      "akkadogram_share": {
+        "tradition": 0.116,
+        "period": 0.005,
+        "tradition_within_NS": 0.109,
+        "period_within_tradition": 0.001
+      },
+      "complement_rate": {
+        "tradition": 0.096,
+        "period": 0.003,
+        "tradition_within_NS": 0.09,
+        "period_within_tradition": 0.001
+      },
+      "determinative_rate": {
+        "tradition": 0.089,
+        "period": 0.009,
+        "tradition_within_NS": 0.095,
+        "period_within_tradition": 0.011
+      },
+      "plene_rate": {
+        "tradition": 0.134,
+        "period": 0.039,
+        "tradition_within_NS": 0.112,
+        "period_within_tradition": 0.025
+      },
+      "cvc_share": {
+        "tradition": 0.021,
+        "period": 0.016,
+        "tradition_within_NS": 0.014,
+        "period_within_tradition": 0.011
+      },
+      "u_acute_share": {
+        "tradition": 0.079,
+        "period": 0.021,
+        "tradition_within_NS": 0.062,
+        "period_within_tradition": 0.008
+      }
+    },
+    "orthographic_lda": {
+      "all": {
+        "acc": 0.386,
+        "majority": 0.266,
+        "null_mean": 0.263,
+        "p": 0.005,
+        "n": 1796,
+        "classes": 10
+      },
+      "NS_only": {
+        "acc": 0.398,
+        "majority": 0.257,
+        "null_mean": 0.248,
+        "p": 0.005,
+        "n": 1197,
+        "classes": 10
+      }
+    }
+  },
+  "E12g": {
+    "balanced_acc": 0.688,
+    "chance": 0.5,
+    "n": 1543,
+    "traditions": 10,
+    "ms_share": 0.224,
+    "null_within_tradition_mean": 0.577,
+    "p": 0.005
+  }
+}

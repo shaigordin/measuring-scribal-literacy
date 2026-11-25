@@ -16,7 +16,7 @@ CODE="reproduce_paper.sh requirements.txt qtm/__init__.py qtm/assign.py qtm/corp
   run_experiments.py run_hypotheses.py run_openset.py run_attribution.py run_profiles.py run_wordclass.py
   run_spellings_only.py stats_corpus.py run_case.py run_known_joins.py run_join_model.py run_join_candidates.py
   run_unicode.py ediana_cluwian.py fill_lemmas.py compare_filled.py check_hfr_conventions.py run_senses.py
-  check_gloss_wordnet.py review_wordclass.py make_release.py summarise_bins.py"
+  check_gloss_wordnet.py review_wordclass.py make_release.py summarise_bins.py run_dating.py"
 LABELS="cth701_labels.csv cth701_labels.source.txt konkordanz_meta.csv konkordanz_meta.source.txt
   konkordanz_joins_duplicates.csv known_joins_pages.json gloss_lexicon.tsv sense_rules.csv title_pairs.csv
   word_fixes.csv wordclass_corrections.csv wordclass_audit.csv"
@@ -25,7 +25,7 @@ R=results; M=$R/tlhdig04_literature_C_filled; A=$R/tlhdig04_literature_A_filled;
 RUN="report.json E7_report.json E8_report.json E9_report.json E10_report.json E11_report.json R1_spellings_only.json
   corpus_stats.json stats_historical.csv E2_coverage_curve.csv E2_coverage_raw.csv E3_701_unclassified_nearest.csv
   E5_orphan_placement.csv E7_distinctive_features.csv E10a_leave_composition_out.csv E10c_signatures_in_contested.csv
-  case/case_KBo_44_52.json case/case_KBo_57_54.json joins/J1_report.json known_joins/known_joins.json"
+  E12_report.json E12a_tradition_by_period.csv case/case_KBo_44_52.json case/case_KBo_57_54.json joins/J1_report.json known_joins/known_joins.json"
 RESULTS="$R/tlhdig04/report.json $U/E10_report.json $U/E10c_signatures_in_contested.csv $U/stats_historical.csv
   $M/comparison.json $M/U_unicode.json $R/hfr_conventions.json $R/senses/senses.json $R/wordnet_check/wordnet_check.json
   $R/wordclass_audit_scores.json $R/wordclass_confidence.json $R/wordclass_examples.csv $R/wordclass_rule_changes.csv
