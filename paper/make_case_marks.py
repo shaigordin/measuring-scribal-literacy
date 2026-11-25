@@ -23,7 +23,7 @@ def main():
     out = os.path.join(HERE, "figures", "data", f"marks_{txtid.replace(' ', '_').replace('.', '_')}.csv")
     os.makedirs(os.path.dirname(out), exist_ok=True)
     k = len(tlhdig.MARK_COLS)
-    layer_at = len(rows[0]) - k + tlhdig.MARK_COLS.index("layer")
+    layer_at = len(rows[0]) - k - len(tlhdig.ANALYSIS_COLS) + tlhdig.MARK_COLS.index("layer")   # rows end with MARK_COLS + ANALYSIS_COLS
     with open(out, "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(["lnr", "pos", "translit_ed", "layer"])

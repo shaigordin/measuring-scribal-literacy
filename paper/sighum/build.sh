@@ -5,9 +5,12 @@ set -euo pipefail
 cd "$(dirname "$0")"
 # figures/data/marks_KBo_44_52.csv (writing layers, for italics) comes from make_case_marks.py and the TLHdig XML
 (cd .. && python3 make_numbers.py && python3 make_case_figures.py \
-  && python3 make_case_figures.py ../orphans/results/tlhdig03_literature_C_filled/case/case_KBo_44_52.json generated/case_data_c.tex)
+  && python3 make_case_figures.py ../orphans/results/tlhdig04_literature_C_filled/case/case_KBo_44_52.json generated/case_data_c.tex)
 (cd ../figures && lualatex -interaction=nonstopmode -halt-on-error case_sighum.tex >/dev/null \
   && pdftocairo -png -r 600 -singlefile case_sighum.pdf case_sighum)
+(cd ../figures && python3 make_archive_map.py >/dev/null && python3 make_fragment_translit.py >/dev/null \
+  && lualatex -interaction=nonstopmode -halt-on-error fig1_standalone.tex >/dev/null \
+  && pdftocairo -png -r 300 -singlefile fig1_standalone.pdf external/fig1_word)
 latexmk -lualatex -bibtex -interaction=nonstopmode -halt-on-error main.tex >/dev/null
 if grep -q "Undefined number" main.log; then grep "Undefined number" main.log; exit 1; fi
 python3 make_docx.py

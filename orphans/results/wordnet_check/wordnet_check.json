@@ -38,43 +38,43 @@
  },
  "glosses": {
   "all": 5494,
-  "compared": 5365,
-  "left_out_function_unknown": 129,
+  "compared": 5321,
+  "left_out_function_unknown": 173,
   "status": {
-   "missing": 3767,
-   "matched": 1159,
-   "ambiguous": 439
+   "missing": 3742,
+   "matched": 1143,
+   "ambiguous": 436
   },
   "status_tokens": {
-   "ambiguous": 46424,
-   "matched": 119556,
-   "missing": 108270
+   "ambiguous": 46306,
+   "matched": 118508,
+   "missing": 107255
   },
   "match_level": {
-   "exact": 1065,
+   "exact": 1051,
    "alternative": 293,
-   "head_last_word": 195,
+   "head_last_word": 190,
    "head_first_word": 45
   }
  },
  "coverage": {
-  "types": 0.298,
-  "tokens": 0.605,
+  "types": 0.297,
+  "tokens": 0.606,
   "by_claude_class_types": {
    "abstract": 0.757,
    "adjective": 0.738,
-   "agent": 0.154,
+   "agent": 0.156,
    "animal": 0.51,
    "body/nature": 0.662,
-   "measure": 0.547,
-   "place": 0.027,
+   "measure": 0.629,
+   "place": 0.026,
    "realia": 0.414
   },
-  "without_names_types": 0.566
+  "without_names_types": 0.569
  },
  "type_weighted": {
-  "agreement": 0.684,
-  "kappa": 0.61,
+  "agreement": 0.691,
+  "kappa": 0.618,
   "confusion": {
    "rows_claude_cols_wordnet": [
     "agent",
@@ -93,10 +93,10 @@
      6,
      20,
      0,
-     0,
+     1,
      8,
      0,
-     3,
+     4,
      0
     ],
     [
@@ -126,10 +126,10 @@
      8,
      10,
      14,
-     1,
+     0,
      5,
      0,
-     1,
+     0,
      0
     ],
     [
@@ -156,13 +156,13 @@
     ],
     [
      1,
-     5,
-     31,
+     2,
+     29,
      0,
      0,
      2,
-     7,
-     12,
+     5,
+     0,
      0
     ],
     [
@@ -191,8 +191,8 @@
   }
  },
  "token_weighted": {
-  "agreement": 0.641,
-  "kappa": 0.554,
+  "agreement": 0.646,
+  "kappa": 0.559,
   "confusion": {
    "rows_claude_cols_wordnet": [
     "agent",
@@ -211,10 +211,10 @@
      2165,
      1332,
      0,
-     0,
+     7,
      5247,
      0,
-     1876,
+     1973,
      0
     ],
     [
@@ -244,10 +244,10 @@
      636,
      2523,
      2101,
-     7,
+     0,
      81,
      0,
-     97,
+     0,
      0
     ],
     [
@@ -274,13 +274,13 @@
     ],
     [
      5,
-     555,
-     4647,
+     436,
+     4636,
      0,
      0,
      572,
-     577,
-     993,
+     534,
+     0,
      0
     ],
     [
@@ -310,8 +310,8 @@
  },
  "matched_only": {
   "type_weighted": {
-   "agreement": 0.759,
-   "kappa": 0.702,
+   "agreement": 0.768,
+   "kappa": 0.712,
    "confusion": {
     "rows_claude_cols_wordnet": [
      "agent",
@@ -330,10 +330,10 @@
       3,
       12,
       0,
-      0,
+      1,
       5,
       0,
-      3,
+      4,
       0
      ],
      [
@@ -363,10 +363,10 @@
       6,
       3,
       5,
-      1,
+      0,
       2,
       0,
-      1,
+      0,
       0
      ],
      [
@@ -393,13 +393,13 @@
      ],
      [
       1,
-      2,
-      25,
+      0,
+      23,
       0,
       0,
       1,
-      4,
-      10,
+      2,
+      0,
       0
      ],
      [
@@ -428,8 +428,8 @@
    }
   },
   "token_weighted": {
-   "agreement": 0.744,
-   "kappa": 0.675,
+   "agreement": 0.75,
+   "kappa": 0.681,
    "confusion": {
     "rows_claude_cols_wordnet": [
      "agent",
@@ -448,10 +448,10 @@
       155,
       847,
       0,
-      0,
+      7,
       5230,
       0,
-      1876,
+      1973,
       0
      ],
      [
@@ -481,10 +481,10 @@
       508,
       112,
       1387,
-      7,
+      0,
       45,
       0,
-      97,
+      0,
       0
      ],
      [
@@ -511,13 +511,13 @@
      ],
      [
       5,
-      22,
-      4135,
+      0,
+      4124,
       0,
       0,
       17,
-      76,
-      972,
+      33,
+      0,
       0
      ],
      [
@@ -547,8 +547,8 @@
   }
  },
  "any_sense_agrees": {
-  "types": 0.771,
-  "tokens": 0.742
+  "types": 0.779,
+  "tokens": 0.747
  },
  "by_claude_class": {
   "abstract": {
@@ -562,9 +562,9 @@
    "agreement_tokens": 0.978
   },
   "agent": {
-   "n": 194,
-   "agreement_types": 0.809,
-   "agreement_tokens": 0.698
+   "n": 196,
+   "agreement_types": 0.801,
+   "agreement_tokens": 0.696
   },
   "animal": {
    "n": 74,
@@ -577,14 +577,14 @@
    "agreement_tokens": 0.338
   },
   "measure": {
-   "n": 58,
-   "agreement_types": 0.121,
-   "agreement_tokens": 0.079
+   "n": 39,
+   "agreement_types": 0.128,
+   "agreement_tokens": 0.086
   },
   "place": {
-   "n": 47,
-   "agreement_types": 0.298,
-   "agreement_tokens": 0.263
+   "n": 45,
+   "agreement_types": 0.311,
+   "agreement_tokens": 0.266
   },
   "realia": {
    "n": 448,
@@ -593,32 +593,31 @@
   }
  },
  "disagreements": {
-  "n": 505,
-  "tokens": 59537,
+  "n": 488,
+  "tokens": 58414,
   "by_pair_tokens": {
    "body/nature -> abstract": 8248,
    "realia -> agent": 7534,
    "realia -> abstract": 6890,
    "agent -> body/nature": 5247,
-   "measure -> abstract": 4647,
+   "measure -> abstract": 4636,
    "place -> agent": 2558,
    "place -> abstract": 2523,
    "realia -> body/nature": 2181,
    "agent -> realia": 2165,
    "realia -> measure": 2106,
-   "agent -> adjective": 1876,
+   "agent -> adjective": 1973,
    "animal -> realia": 1728,
    "abstract -> agent": 1359,
    "agent -> abstract": 1332,
    "animal -> agent": 1174,
    "body/nature -> realia": 1113,
-   "measure -> adjective": 993,
    "abstract -> realia": 752,
    "place -> realia": 636,
    "measure -> body/nature": 572,
    "animal -> body/nature": 567,
-   "measure -> realia": 555,
    "realia -> animal": 521,
+   "measure -> realia": 436,
    "body/nature -> adjective": 319,
    "body/nature -> agent": 228,
    "adjective -> agent": 202,
@@ -629,7 +628,6 @@
    "realia -> place": 124,
    "realia -> adjective": 112,
    "body/nature -> place": 110,
-   "place -> adjective": 97,
    "adjective -> abstract": 91,
    "body/nature -> animal": 90,
    "place -> body/nature": 81,
@@ -638,7 +636,7 @@
    "body/nature -> measure": 60,
    "adjective -> realia": 24,
    "animal -> measure": 21,
-   "place -> animal": 7,
+   "agent -> animal": 7,
    "adjective -> other": 6,
    "measure -> agent": 5,
    "animal -> other": 2

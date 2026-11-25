@@ -6,7 +6,7 @@ rituals), 670 (fragments of festivals), 832 (fragments of various content) or th
 rituals that no study groups (qtm.groups.RESIDUE), and every EBo text wherever TLHdig files it.
 Texts with fewer than MIN_PLACE analysed words get a row but no results ("too_small").
 
-All scores use the main model of the paper and talk (results/tlhdig03_literature): word forms +
+All scores use the main model of the paper (results/tlhdig03_literature): word forms +
 sign 1-3-grams, tf-idf fitted on the literature-defined reference traditions (qtm.groups.LITERATURE,
 reference manuscripts of 17+ words), cosine similarity.
 
@@ -97,6 +97,8 @@ def cite(r):
 
 
 def studies(path=LITERATURE):
+    if not os.path.exists(path):          # the Konkordanz literature table only fills the studies columns
+        return {}
     L = pd.read_csv(path)
     out = {}
     for t, g in L.groupby("tradition", sort=False):
@@ -359,7 +361,7 @@ def main():
     # traditions and compositions used
     lit = studies()
     T = pd.DataFrame([{"tradition": l, "cth": " ".join(str(c) for c in GROUPSETS[rep["groups"]][l]),
-                       "reference_manuscripts": int((y == l).sum()), **lit[l]} for l in labs])
+                       "reference_manuscripts": int((y == l).sum()), **lit.get(l, {})} for l in labs])
     T.to_csv(f"{a.out}/traditions.csv", index=False)
     pd.DataFrame({"cth": clabs, "manuscripts": n_mss,
                   "tradition": [trad_of.get(c, res_of.get(c, "")) for c in clabs]}).to_csv(

@@ -1,6 +1,8 @@
-"""Descriptive numbers quoted on the slides that are not experiment outputs.
+"""Descriptive corpus numbers that are not experiment outputs.
 
 - orphan corpus: CTH 470 and EBo texts, their size in legible words, and where TLHdig files EBo texts
+- pre-validated: share of reference and orphan manuscripts whose TLHdig file names a human annotator
+  (the `annotated` column: an expert inspected the automatic analyses and selected one)
 - plene clusters: for the spelling contrasts of E7d, how many texts use the plene spelling and in which CTHs
 
 Usage: python stats_corpus.py TOKENS.csv --out results/<run>   (writes corpus_stats.json)
@@ -17,12 +19,15 @@ from qtm.layers import has_plene
 from run_experiments import MIN_WORDS
 from run_profiles import CONTRAST_WORDS
 
+RITUAL_TRADITIONS = {"Kizzuwatna rituals", "Arzawa / western rituals", "Luwian rituals (Puriyanni, Kuwattalla)"}
+
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("tokens")
     ap.add_argument("--out", default="results/run")
     ap.add_argument("--groups", choices=sorted(GROUPSETS), default="historical")
+    ap.add_argument("--run", help="results folder with E5_orphan_placement.csv: the scored orphans")
     a = ap.parse_args()
     out = {}
 
@@ -55,6 +60,22 @@ def main():
         clusters.setdefault(w, {})[t] = {"texts": int(g.txtid.nunique()), "texts_with_plene": int(p.txtid.nunique()),
                                          "plene_cths": sorted(p.cth.unique().tolist(), key=int)}
     out["plene_clusters"] = clusters
+
+    # pre-validated files (a human annotator selected the analyses), festival vs ritual reference
+    # traditions and the orphans that are scored (at least five legible words)
+    cols = pd.read_csv(a.tokens, nrows=0).columns    # version A tables have no annotated column
+    ann = pd.Series(dtype=bool)
+    if "annotated" in cols:
+        ann = (pd.read_csv(a.tokens, usecols=["txtid", "annotated"], dtype=str)
+               .assign(v=lambda d: d.annotated == "1").groupby("txtid").v.any())
+    lab = {t: hist[c] for t, c in zip(ref.txtid, ref.cth_number)}
+    sets = {"festival_traditions": [t for t, g in lab.items() if g not in RITUAL_TRADITIONS],
+            "ritual_traditions": [t for t, g in lab.items() if g in RITUAL_TRADITIONS]}
+    if a.run:
+        sets["orphans_scored"] = pd.read_csv(f"{a.run}/E5_orphan_placement.csv").txtid.tolist()
+    if len(ann):
+        out["prevalidated"] = {k: {"texts": len(v), "prevalidated": int(ann.reindex(v).fillna(False).sum()),
+                                   "share": round(float(ann.reindex(v).fillna(False).mean()), 4)} for k, v in sets.items()}
 
     with open(f"{a.out}/corpus_stats.json", "w") as f:
         json.dump(out, f, indent=2, ensure_ascii=False)

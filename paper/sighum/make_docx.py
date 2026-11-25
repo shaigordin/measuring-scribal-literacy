@@ -58,10 +58,45 @@ def plain_tabular(text):
 
 body = plain_tabular(body)
 body = re.sub(r"\\todraft\{", r"\\emph{", body)
+body = re.sub(r"\\term\{", r"\\emph{", body)                 # \term is defined in the preamble, which pandoc does not see
+body = body.replace("\\paragraph{", "\\paragraph*{")             # run-in headings stay unnumbered
+body = re.sub(r"\\(begin|end)\{(figure|table)\*\}", r"\\\1{\2}", body)  # pandoc drops captions of figure*/table*
 body = body.replace("\\bibliography{../references}", "")
+# Figure 1 (map, photo, hand copy, transliteration) goes in as one image rendered by build.sh.
+fig1 = open(os.path.join(HERE, "..", "figures", "map_fragment_fig.tex"), encoding="utf-8").read()
+cap = fig1[fig1.index("\\caption{"):fig1.index("\\label{fig:fragment}")]
+cap = re.sub(r"\\CTH\{([^}]*)\}", r"CTH \1", cap)
+body = body.replace("\\input{../figures/map_fragment_fig.tex}",
+                    "\\begin{figure}\\includegraphics{../figures/external/fig1_word.png}" + cap + "\\label{fig:fragment}\\end{figure}")
 # Word cannot show PDF figures: use the PNG rendered next to each figure PDF.
 body = re.sub(r"\\includegraphics(\[[^]]*\])?\{([^}]+)\.pdf\}",
               lambda m: "\\includegraphics" + (m.group(1) or "") + "{../figures/" + m.group(2) + ".png}", body)
+
+
+def tikz_to_png(text):
+    """Pandoc drops TikZ/pgfplots pictures and leaves an empty table, which Word refuses to open.
+    Render each picture to a PNG with LuaLaTeX and include the PNG instead."""
+    out_dir = os.path.join(HERE, "..", "figures", "external")
+    os.makedirs(out_dir, exist_ok=True)
+    pics = re.findall(r"\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}", text, re.S)
+    for n, pic in enumerate(pics, 1):
+        name = f"_docx_tikz{n}"
+        open(os.path.join(HERE, name + ".tex"), "w", encoding="utf-8").write(
+            "\\documentclass[border=4pt]{standalone}\n\\usepackage{pgfplots}\\pgfplotsset{compat=1.17}\n"
+            "\\newlength{\\docxcol}\\setlength{\\docxcol}{7.7cm}\n\\begin{document}\n"
+            + pic.replace("\\columnwidth", "\\docxcol") + "\n\\end{document}\n")
+        subprocess.run(["lualatex", "-interaction=nonstopmode", "-halt-on-error", name + ".tex"],
+                       check=True, cwd=HERE, stdout=subprocess.DEVNULL)
+        png = os.path.join(out_dir, f"docx_tikz{n}")
+        subprocess.run(["pdftocairo", "-png", "-r", "300", "-singlefile", name + ".pdf", png], check=True, cwd=HERE)
+        for ext in (".tex", ".pdf", ".aux", ".log"):
+            if os.path.exists(os.path.join(HERE, name + ext)):
+                os.remove(os.path.join(HERE, name + ext))
+        text = text.replace(pic, "\\includegraphics{" + png + ".png}", 1)
+    return text
+
+
+body = tikz_to_png(body)
 tex = "\\documentclass{article}\n\\usepackage{booktabs}\n" + body
 tmp = os.path.join(HERE, "_docx_source.tex")
 open(tmp, "w", encoding="utf-8").write(tex)
@@ -70,3 +105,10 @@ subprocess.run(["pandoc", tmp, "--metadata", "title=" + re.search(r"\\title\{(.*
                check=True, cwd=HERE)
 os.remove(tmp)
 print("wrote main.docx")
+
+# Word refuses a file with an empty table (a row without cells); fail here instead of in Word.
+import zipfile
+doc = zipfile.ZipFile(os.path.join(HERE, "main.docx")).read("word/document.xml").decode("utf-8")
+for t in re.findall(r"<w:tbl>.*?</w:tbl>", doc, re.S):
+    if "<w:tc>" not in t:
+        raise SystemExit("main.docx has an empty table: Word will not open it")

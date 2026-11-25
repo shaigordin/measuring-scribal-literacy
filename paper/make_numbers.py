@@ -9,6 +9,7 @@ file and field it was read from.
 Usage: python3 make_numbers.py [--results ../orphans/results] [--out generated]
 """
 import argparse
+import collections
 import csv
 import json
 import os
@@ -27,10 +28,10 @@ SHORT = {"Kizzuwatna–Lower Land (Hurrian)": "Kizzuwatna and Lower Land (Hurr.)
          "Luwian festivals (Ištanuwa, Lallupiya)": "Ištanuwa and Lallupiya festivals",
          "Luwian rituals (Puriyanni, Kuwattalla)": "Luwian rituals (Lower Land)",
          "Arzawa / western rituals": "Arzawa (western) rituals"}
-MAIN = "tlhdig03_literature_C_filled"   # main run: literature-defined traditions, damage-aware tokens (version C), missing lemmas filled (TLHdig same spelling, eDiAna)
-COMPARE = "tlhdig03_literature_A_filled"  # with restorations (editor's full text, restorations counted), same fills: keys prefixed "A."
+MAIN = "tlhdig04_literature_C_filled"   # main run: literature-defined traditions, damage-aware tokens (version C), missing lemmas filled (TLHdig same spelling, eDiAna)
+COMPARE = "tlhdig04_literature_A_filled"  # with restorations (editor's full text, restorations counted), same fills: keys prefixed "A."
 PREFIX = ""                      # set to "A." while the comparison run is read
-BASE = "tlhdig03"              # StBoT 73 Table 3 + CTH-range controls (published baseline)
+BASE = "tlhdig04"              # StBoT 73 Table 3 + CTH-range controls (published baseline)
 
 INDEX = []
 LINES = []
@@ -126,6 +127,73 @@ def main():
         put("fill.tlhdig", num(fw["tlhdig_same_spelling"]), f"{MAIN}/comparison.json filled_words")
         put("fill.ediana", num(fw["ediana"]), f"{MAIN}/comparison.json filled_words")
 
+    # ---- gloss meaning classes: WordNet check, ShG's audit, context rules (not run-specific)
+    if not PREFIX:
+        wp = os.path.join(RES, "wordnet_check", "wordnet_check.json")
+        if os.path.exists(wp):
+            w = json.load(open(wp, encoding="utf-8"))
+            src = "wordnet_check/wordnet_check.json"
+            put("wn.cov.types", pct(w["coverage"]["types"]), src + " coverage")
+            put("wn.cov.tokens", pct(w["coverage"]["tokens"]), src + " coverage")
+            put("wn.agree.types", pct(w["type_weighted"]["agreement"]), src + " type_weighted")
+            put("wn.kappa.types", f"{w['type_weighted']['kappa']:.2f}", src + " type_weighted")
+            put("wn.agree.tokens", pct(w["token_weighted"]["agreement"]), src + " token_weighted")
+            put("wn.kappa.tokens", f"{w['token_weighted']['kappa']:.2f}", src + " token_weighted")
+            put("wn.anysense.types", pct(w["any_sense_agrees"]["types"]), src + " any_sense_agrees")
+        ap = os.path.join(HERE, "data", "wordnet_audit_ShG.csv")
+        if os.path.exists(ap):
+            au = list(csv.DictReader(open(ap, encoding="utf-8")))
+            j = collections.Counter(r["judgement"] for r in au)
+            dec = j["Claude"] + j["both"] + j["neither"]
+            src = "paper/data/wordnet_audit_ShG.csv"
+            put("aud.n", len(au), src)
+            put("aud.decided", dec, src)
+            put("aud.claude", j["Claude"] + j["both"], src + " (Claude or both)")
+            put("aud.wordnet", j["both"], src + " (both)")
+            put("aud.neither", j["neither"], src)
+            put("aud.uncertain", j["uncertain"], src)
+        sp = os.path.join(RES, "senses", "senses.json")
+        if os.path.exists(sp):
+            se = json.load(open(sp, encoding="utf-8"))
+            src = "senses/senses.json"
+            put("sense.flagged", num(se["flagged"]), src)
+            put("sense.flagged.share", pct(se["flagged_token_share"]), src)
+            put("sense.rules", se["rules"], src)
+            put("sense.rules.shg", se["rules_by_decider"]["ShG"], src)
+            put("sense.glosses", se["glosses_with_rules"], src)
+            put("sense.tokens", num(se["tokens_with_sense_rule"]), src)
+            put("sense.changed", num(se["tokens_class_changed"]), src)
+            hk = se["horn_kara_candidates"]
+            put("kara.tokens", hk["tokens"], src + " horn_kara_candidates")
+            put("kara.selected", hk["editor_selected"], src + " horn_kara_candidates")
+        rp = os.path.join(os.path.dirname(os.path.normpath(RES)), "labels", "sense_rules.csv")
+        if os.path.exists(rp):
+            sup = collections.Counter(r.get("supports_rule", "") for r in csv.DictReader(open(rp, encoding="utf-8")))
+            src = "labels/sense_rules.csv supports_rule"
+            put("sense.dict", sup["yes"] + sup["partly"] + sup["base meaning only"], src + " (checked)")
+            put("sense.dict.yes", sup["yes"] + sup["partly"], src + " (yes or partly)")
+            put("sense.dict.base", sup["base meaning only"], src)
+
+    # ---- Unicode cuneiform experiments (orphans/run_unicode.py)
+    fp = os.path.join(RES, MAIN, "U_unicode.json")
+    if os.path.exists(fp):
+        u = load(MAIN, "U_unicode.json")
+        src = f"{MAIN}/U_unicode.json"
+        put("U.align", pct(u["alignment"]["share_aligned_reference_and_orphans"]), src + " alignment")
+        put("U.align.all", pct(u["alignment"]["share_aligned_all"]), src + " alignment")
+        for e, k in (("U_A", "UA"), ("U_B", "UB")):
+            r = u["experiments"][e]["runs"]["A_analysed_only"]
+            put(f"{k}.acc", pct(r["loo_acc"]), f"{src} {e} A_analysed_only loo_acc")
+            put(f"{k}.placed", num(r["orphans"]["placed"]), f"{src} {e} orphans.placed")
+            put(f"{k}.scored", num(r["orphans"]["n"]), f"{src} {e} orphans.n")
+            vs = r["orphans"]["vs_main"]
+            put(f"{k}.both", num(vs["placed_in_both"]), f"{src} {e} vs_main")
+            put(f"{k}.same", num(vs["same_tradition"]), f"{src} {e} vs_main")
+            put(f"{k}.translit.acc", pct(r["transliteration_R1"]["loo_acc"]), f"{src} {e} transliteration_R1")
+            put(f"{k}.translit.placed", num(r["transliteration_R1"]["orphans_placed"]), f"{src} {e} transliteration_R1")
+            pc = r["pieces"]["KBo 44.52"]
+            put(f"{k}.kbo4452", pc["top3"][0][0], f"{src} {e} pieces")
+
     # ---- corpus and orphans
     o = cs["orphans"]
     for k in ("cth470_texts", "ebo_texts", "orphans_total"):
@@ -134,6 +202,51 @@ def main():
     put("orph.ebo_median", int(o["ebo_median_words"]), f"{MAIN}/corpus_stats.json")
     put("orph.ebo_832", num(o["ebo_filed_under"]["832"]), f"{MAIN}/corpus_stats.json ebo_filed_under.832")
     put("orph.ebo_670", num(o["ebo_filed_under"]["670"]), f"{MAIN}/corpus_stats.json ebo_filed_under.670")
+    for name, k in (("470", "CTH 470 fragments of rituals"), ("500", "CTH 500 fragments of Kizzuwatna rituals"),
+                    ("670", "CTH 670 fragments of festivals"), ("832", "CTH 832 fragments of various content"),
+                    ("residue", "CTH 390-469 rituals no study groups")):
+        b = cs["laroche_bins"][k]
+        put(f"bin.{name}", num(b["texts"]), f"{MAIN}/corpus_stats.json laroche_bins.{k}.texts")
+        put(f"bin.{name}.median", f"{b['median_words']:g}", f"{MAIN}/corpus_stats.json laroche_bins.{k}.median_words")
+    if PREFIX == "" and "prevalidated" in cs:     # files whose analyses a human annotator selected
+        for name, k in (("fest", "festival_traditions"), ("rit", "ritual_traditions"), ("orph", "orphans_scored")):
+            pv = cs["prevalidated"][k]
+            put(f"prev.{name}", pct(pv["share"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.share")
+            put(f"prev.{name}.n", num(pv["prevalidated"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.prevalidated")
+            put(f"prev.{name}.of", num(pv["texts"]), f"{MAIN}/corpus_stats.json prevalidated.{k}.texts")
+    # every manuscript of the residual bins, placed in the released dataset (summarise_bins.py)
+    bp = os.path.join(RES, MAIN, "bin_placements.json")
+    if PREFIX == "" and os.path.exists(bp):
+        bins = load(MAIN, "bin_placements.json")
+        sb = f"{MAIN}/bin_placements.json"
+        rows = []
+        for name, k, lab in (("470", "CTH 470 fragments of rituals", "\\CTH{470} rituals"),
+                             ("500", "CTH 500 fragments of Kizzuwatna rituals", "\\CTH{500} Kizzuwatna rituals"),
+                             ("residue", "CTH 390-469 rituals no study groups", "\\CTH{390}--469 unclaimed rituals"),
+                             ("670", "CTH 670 fragments of festivals", "\\CTH{670} festivals"),
+                             ("832", "CTH 832 fragments of various content", "\\CTH{832} various content")):
+            b = bins[k]
+            for f in ("texts", "placed", "too_small", "to_kizzuwatna_hurrian", "to_anatolian_festivals",
+                      "to_western_luwian_rituals"):
+                put(f"rel.{name}.{f}", num(b[f]), f"{sb} {k}.{f}")
+            for f in ("to_kizzuwatna_hurrian", "to_anatolian_festivals", "to_western_luwian_rituals"):
+                put(f"rel.{name}.{f}.share", pct(b[f] / b["placed"]), f"{sb} {k}.{f} / placed")
+            put(f"rel.{name}.median", f"{b['median_words']:g}", f"{sb} {k}.median_words")
+            put(f"rel.{name}.top", b["top_tradition"], f"{sb} {k}.top_tradition")
+            put(f"rel.{name}.top.n", num(b["top_tradition_n"]), f"{sb} {k}.top_tradition_n")
+            put(f"rel.{name}.too_small.share", pct(b["too_small"] / b["texts"]), f"{sb} {k}.too_small / texts")
+            put(f"rel.{name}.placed.share", pct(b["placed"] / b["texts"]), f"{sb} {k}.placed / texts")
+            sh = lambda f: pct(b[f] / b["placed"])
+            rows.append(f"{lab} & {num(b['texts'])} & {num(b['placed'])} & {sh('to_kizzuwatna_hurrian')} & "
+                        f"{sh('to_anatolian_festivals')} & {sh('to_western_luwian_rituals')} \\\\")
+        tot = {f: sum(b[f] for k, b in bins.items() if k != "orphans") for f in ("texts", "placed", "with_match_candidates", "match_pairs")}
+        put("rel.all.match", num(tot["with_match_candidates"]), f"{sb} sum of with_match_candidates")
+        put("rel.all.pairs", num(tot["match_pairs"]), f"{sb} sum of match_pairs")
+        for f, v in bins["orphans"].items():
+            put(f"rel.orph.{f}", num(v), f"{sb} orphans.{f}")
+        put("rel.all.texts", num(tot["texts"]), f"{sb} sum of texts")
+        put("rel.all.placed", num(tot["placed"]), f"{sb} sum of placed")
+        table("bins", rows)
     for k in ("reference_texts", "orphans_used", "orphans_total"):
         put(f"corpus.{k}", num(rep["corpus"][k]), f"{src} corpus.{k}")
     put("corpus.orphan_median", int(rep["corpus"]["orphan_words_median"]), f"{src} corpus")
@@ -191,6 +304,23 @@ def main():
     # ---- E2 coverage curve and abstention margin
     for r in load(MAIN, "E2_coverage_curve.csv"):
         put(f"E2.{r['space']}.k{r['k']}", pct(float(r["acc"])), f"{MAIN}/E2_coverage_curve.csv")
+    # fragment-size curve for the figure: accuracy, and share placed / precision above the margin, by window size
+    if not PREFIX:
+        rows = {}
+        for run, tag in ((MAIN, "C"), (COMPARE, "A")):
+            mg = load(run, "report.json")["E2_abstention"]["margin"]
+            for r in csv.DictReader(open(os.path.join(RES, run, "E2_coverage_raw.csv"), encoding="utf-8")):
+                if r["space"] != "both":
+                    continue
+                d = rows.setdefault((tag, int(r["k"])), [0, 0, 0, 0])   # n, hits, placed, placed hits
+                hit, placed = r["hit"] == "True", float(r["gap"]) >= mg
+                d[0] += 1; d[1] += hit; d[2] += placed; d[3] += hit and placed
+        with open(os.path.join(OUT, "fragment_size.dat"), "w") as f:
+            f.write("k accC placedC precC accA placedA precA\n")
+            for k in sorted({k for _, k in rows}):
+                c, a = rows[("C", k)], rows[("A", k)]
+                f.write(f"{k} {100*c[1]/c[0]:.1f} {100*c[2]/c[0]:.1f} {100*c[3]/max(c[2],1):.1f} "
+                        f"{100*a[1]/a[0]:.1f} {100*a[2]/a[0]:.1f} {100*a[3]/max(a[2],1):.1f}\n")
     ab = rep["E2_abstention"]
     put("E2.margin", f"{ab['margin']:.3f}", f"{src} E2_abstention.margin")
     put("E2.margin.lo", f"{ab['margin_90ci'][0]:.3f}", f"{src} E2_abstention.margin_90ci")
@@ -376,7 +506,7 @@ def main():
     put("E10c.claim.attested", len(hit), f"{MAIN}/E10c_signatures_in_contested.csv")
     put("E10c.claim.attested.words", tex_escape(", ".join(hit)) or "--", f"{MAIN}/E10c_signatures_in_contested.csv")
     # the same test on version C without lemma filling, for the paper's comparison
-    CV = "tlhdig03_literature_C"
+    CV = "tlhdig04_literature_C"
     if MAIN != CV and not PREFIX and os.path.exists(os.path.join(RES, CV, "E10_report.json")):
         c10 = load(CV, "E10_report.json")
         cb = c10["E10b"]["table"]
@@ -469,6 +599,70 @@ def main():
         for f in ("same_tradition", "other_tradition", "now_unassigned", "newly_assigned"):
             put(f"E11e.{key}.{f.replace('_', '')}", num(e[k][f]), f"{s11} E11e.{k}.{f}")
 
+    # ---- E12 script date as a rival explanation (run_dating.py)
+    e12p = os.path.join(RES, MAIN, "E12_report.json")
+    if os.path.exists(e12p):
+        d = load(MAIN, "E12_report.json")
+        sd = f"{MAIN}/E12_report.json"
+        a12 = d["E12a"]
+        put("D.dated.share", pct(a12["dated_share"]), f"{sd} E12a.dated_share")
+        for k in ("OS", "MS", "NS", "unknown"):
+            put(f"D.{k}", num(a12["periods"].get(k, 0)), f"{sd} E12a.periods.{k}")
+        put("D.cramer", f"{a12['cramers_v']:.2f}", f"{sd} E12a.cramers_v")
+        for t, v in a12["older_share_by_tradition"].items():
+            put(f"D.older.{slugify(t)}", pct(v), f"{sd} E12a.older_share_by_tradition")
+        put("D.datealone.acc", pct(d["E12b"]["acc"]), f"{sd} E12b.acc")
+        put("D.datealone.majority", pct(d["E12b"]["majority"]), f"{sd} E12b.majority")
+        c = d["E12c"]
+        put("D.acc", pct(c["acc"]), f"{sd} E12c.acc")
+        put("D.null.within", pct(c["null_within_period_mean"]), f"{sd} E12c.null_within_period_mean")
+        put("D.null.withinmax", pct(c["null_within_period_max"]), f"{sd} E12c.null_within_period_max")
+        put("D.null.free", pct(c["null_free_mean"]), f"{sd} E12c.null_free_mean")
+        put("D.p", pfmt(c["p_within_period"]), f"{sd} E12c.p_within_period")
+        for k, v in d["E12d"].items():
+            key = k.replace("_", "")
+            put(f"D.{key}.within", pct(v["acc_within"]), f"{sd} E12d.{k}.acc_within")
+            put(f"D.{key}.full", pct(v["acc_full_reference"]), f"{sd} E12d.{k}.acc_full_reference")
+            put(f"D.{key}.n", num(v["n"]), f"{sd} E12d.{k}.n")
+            put(f"D.{key}.majority", pct(v["majority"]), f"{sd} E12d.{k}.majority")
+        e = d["E12e"]
+        for k, key in (("NS_to_older", "NStoold"), ("older_to_NS", "oldtoNS")):
+            put(f"D.{key}.acc", pct(e[k]["acc"]), f"{sd} E12e.{k}.acc")
+            put(f"D.{key}.n", num(e[k]["n"]), f"{sd} E12e.{k}.n")
+            for t, v in e[k]["by_tradition"].items():
+                put(f"D.{key}.{slugify(t)}", f"{v['mean'] * v['size']:.0f}/{v['size']}", f"{sd} E12e.{k}.by_tradition")
+        put("D.olderfull", pct(e["older_full_reference_loo"]), f"{sd} E12e.older_full_reference_loo")
+        f12 = d["E12f"]
+        for k, v in f12["layers_NS"].items():
+            put(f"D.layer.{k}.NS", pct(v["acc_NS_only"]), f"{sd} E12f.layers_NS.{k}.acc_NS_only")
+            put(f"D.layer.{k}.all", pct(v["acc_all"]), f"{sd} E12f.layers_NS.{k}.acc_all")
+        put("D.lda.all", pct(f12["orthographic_lda"]["all"]["acc"]), f"{sd} E12f.orthographic_lda.all")
+        put("D.lda.NS", pct(f12["orthographic_lda"]["NS_only"]["acc"]), f"{sd} E12f.orthographic_lda.NS_only")
+        eta = f12["orthographic_eta2"]
+        put("D.eta.periodwithinmax", pct(max(v["period_within_tradition"] for v in eta.values()), 1),
+            f"{sd} E12f.orthographic_eta2.*.period_within_tradition (max)")
+        put("D.eta.traditionwins", f"{sum(v['tradition'] > v['period'] for v in eta.values())}",
+            f"{sd} E12f.orthographic_eta2 (indices where tradition > period)")
+        put("D.eta.n", f"{len(eta)}", f"{sd} E12f.orthographic_eta2")
+        g = d["E12g"]
+        put("D.g.bacc", pct(g["balanced_acc"]), f"{sd} E12g.balanced_acc")
+        put("D.g.null", pct(g["null_within_tradition_mean"]), f"{sd} E12g.null_within_tradition_mean")
+        put("D.g.p", pfmt(g["p"]), f"{sd} E12g.p")
+        put("D.g.n", num(g["n"]), f"{sd} E12g.n")
+        dd = d["E12d"]
+        table("dating", [
+            f"All reference manuscripts & {num(c['n'])} & {pct(c['acc'])} \\\\",
+            f"\\quad null: labels shuffled within period & & {pct(c['null_within_period_mean'])} \\\\",
+            f"Date alone (best tradition per period) & {num(d['E12b']['n'])} & {pct(d['E12b']['acc'])} \\\\",
+            f"New Script only (reference and test) & {num(dd['NS']['n'])} & {pct(dd['NS']['acc_within'])} \\\\",
+            f"Old and Middle Script only & {num(dd['older']['n'])} & {pct(dd['older']['acc_within'])} \\\\",
+            f"New Script centroids, older manuscripts & {num(e['NS_to_older']['n'])} & {pct(e['NS_to_older']['acc'])} \\\\",
+            f"Older centroids, New Script manuscripts & {num(e['older_to_NS']['n'])} & {pct(e['older_to_NS']['acc'])} \\\\",
+            f"Orthographic rates (LDA), all & {num(f12['orthographic_lda']['all']['n'])} & {pct(f12['orthographic_lda']['all']['acc'])} \\\\",
+            f"Orthographic rates (LDA), New Script only & {num(f12['orthographic_lda']['NS_only']['n'])} & {pct(f12['orthographic_lda']['NS_only']['acc'])} \\\\",
+            f"Middle vs.\\ New Script within traditions (bal.) & {num(g['n'])} & {pct(g['balanced_acc'])} \\\\",
+        ])
+
     # ---- R1 robustness: spellings only, with the manuscripts that have no word analyses
     r1p = os.path.join(RES, MAIN, "R1_spellings_only.json")
     if os.path.exists(r1p):
@@ -537,6 +731,15 @@ def main():
             med = float(kj[kind]["median_rank"])
             put(f"KJ.{kind}.median", num(int(med)) if med.is_integer() else f"{med:g}", f"{sk} {kind}.median_rank")
         put("KJ.pool", num(kj["pool"]), f"{sk} pool")
+        # the three match checks on the known pairs (known_joins.csv, passes_join_checks)
+        kc = load(KR, "known_joins/known_joins.csv")
+        for kind in ("duplicate", "join"):
+            g = [r for r in kc if r["relation"] == kind]
+            top = [r for r in g if int(r["rank"]) <= 20]
+            put(f"KJ.{kind}.pass", num(sum(r["passes_join_checks"] == "True" for r in g)), f"{KR}/known_joins/known_joins.csv passes_join_checks")
+            put(f"KJ.{kind}.top20pass", num(sum(r["passes_join_checks"] == "True" for r in top)), f"{KR}/known_joins/known_joins.csv rank<=20 and passes")
+            put(f"KJ.{kind}.top20.share", pct(len(top) / len(g)), f"{KR}/known_joins/known_joins.csv rank<=20 / pairs")
+            put(f"KJ.{kind}.top1.share", pct(sum(int(r["rank"]) == 1 for r in g) / len(g)), f"{KR}/known_joins/known_joins.csv rank=1 / pairs")
 
     # ---- TLHdig 0.3 against the HFR guides (orphans/check_hfr_conventions.py)
     hfr = load("", "hfr_conventions.json")
@@ -712,20 +915,39 @@ def compare_versions():
     put("AC.onlyA", num(len(only_a)), src)
     put("AC.onlyA.luwian", num(len(lw)), src)
     # restored signs in MUNUS ŠU.GI (the Old Woman) among these, from the sign-status token table
+    # (filling changes lemmas only, so the unfilled tokens_marks.csv gives the same translit and status)
     tok = os.path.join(RES, "..", "data", "tokens_marks_filled.csv")
+    if not os.path.exists(tok):
+        tok = os.path.join(RES, "..", "data", "tokens_marks.csv")
     if os.path.exists(tok):
         hit, want = set(), set(lw)
         with open(tok, encoding="utf-8", newline="") as f:
             for r in csv.DictReader(f):
                 if r["txtid"] in want and re.search(r"ŠU ?\.GI", r["translit"]) and "R" in r["status"]:
                     hit.add(r["txtid"])
-        put("AC.onlyA.luwian.sugi", num(len(hit)), "data/tokens_marks_filled.csv (status R in a ŠU.GI word)")
+        put("AC.onlyA.luwian.sugi", num(len(hit)), "data/" + os.path.basename(tok) + " (status R in a ŠU.GI word)")
     else:   # the token table is not in git: keep the value from the last build that had it
         idx = os.path.join(OUT, "numbers_index.csv")
         old = {r["key"]: r for r in csv.DictReader(open(idx, encoding="utf-8"))} if os.path.exists(idx) else {}
         if "AC.onlyA.luwian.sugi" in old:
             put("AC.onlyA.luwian.sugi", old["AC.onlyA.luwian.sugi"]["value"],
                 old["AC.onlyA.luwian.sugi"]["source"].replace(" [kept from last build]", "") + " [kept from last build]")
+
+    # size of the whole TLHdig release, from the token table (one row per word)
+    idx = os.path.join(OUT, "numbers_index.csv")
+    if os.path.exists(tok):
+        ids, n = set(), 0
+        with open(tok, encoding="utf-8", newline="") as f:
+            for r in csv.DictReader(f):
+                ids.add(r["txtid"]); n += 1
+        src = "data/" + os.path.basename(tok)
+        put("tlh.texts", num(len(ids)), src + " (distinct txtid)")
+        put("tlh.words", f"{n / 1e6:.1f}", src + " (rows = words, millions)")
+    else:
+        old = {r["key"]: r for r in csv.DictReader(open(idx, encoding="utf-8"))} if os.path.exists(idx) else {}
+        for k in ("tlh.texts", "tlh.words"):
+            if k in old:
+                put(k, old[k]["value"], old[k]["source"].replace(" [kept from last build]", "") + " [kept from last build]")
 
 
 if __name__ == "__main__":
